@@ -272,7 +272,7 @@ function UnserZielSection() {
         {/* Punkte-Pattern links */}
         <div
           aria-hidden
-          className="absolute inset-y-0 left-0 w-[55%] opacity-15"
+          className="absolute inset-y-0 left-0 w-[55%] opacity-5"
           style={{
             backgroundImage: "radial-gradient(white 10%, transparent 11%)",
             backgroundSize: "28px 28px",
@@ -282,7 +282,7 @@ function UnserZielSection() {
         {/* Punkte-Pattern rechts */}
         <div
           aria-hidden
-          className="absolute inset-y-0 right-0 w-[55%] opacity-15"
+          className="absolute inset-y-0 right-0 w-[55%] opacity-5"
           style={{
             backgroundImage: "radial-gradient(white 10%, transparent 11%)",
             backgroundSize: "28px 28px",
