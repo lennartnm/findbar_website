@@ -222,42 +222,60 @@ function BenefitsMarquee() {
 }
 
 
-/* ------------------------- BlogSection ------------------------ */
+/* ------------------------- BlogSection (mit Vorschaubild) ------------------------ */
 function BlogSection() {
   return (
     <section id="blog" className="bg-white py-20">
       <div className={containerClass}>
-        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>Blog-Beispiele</h2>
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
+          Blog-Beispiele
+        </h2>
         <p className="mt-4 text-center text-slate-600">
           Drei Beispiele aus unterschiedlichen Branchen – sauber strukturiert, suchmaschinenoptimiert, im Markenstil.
         </p>
+
         <div className="mx-auto mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {[
             {
               title: "Gesundheit: 10 Anzeichen für XYZ",
               tease: "Medizinisch recherchiert, Laienverständlich, E-A-T-konform.",
+              image: "/blog-gesundheit.jpg", // Platzhalter
             },
             {
               title: "Finanzen: ETF-Strategien 2025",
               tease: "Aktuelle Quellen, klare Struktur für Top-Rankings.",
+              image: "/blog-finanzen.jpg", // Platzhalter
             },
             {
               title: "Nachhaltigkeit: CO₂ im Alltag senken",
               tease: "Praxistipps + Expertenzitate für Trust & Shares.",
+              image: "/blog-nachhaltigkeit.jpg", // Platzhalter
             },
           ].map((b, i) => (
             <article
               key={i}
-              className="rounded-xl border border-slate-200 p-6 text-left shadow-sm transition-shadow hover:shadow-md"
+              className="overflow-hidden rounded-xl border border-slate-200 text-left shadow-sm transition-shadow hover:shadow-md"
             >
-              <h3 className={`mb-1 text-lg ${serifClass}`}>{b.title}</h3>
-              <p className="text-sm text-slate-600">{b.tease}</p>
-              <a
-                href="#"
-                className="mt-4 inline-flex items-center text-sm font-medium text-[#1b4d2b]"
-              >
-                Beispiel ansehen <ArrowRight className="ml-1 h-4 w-4" />
-              </a>
+              {/* Vorschaubild */}
+              <div className="aspect-[16/9] w-full overflow-hidden bg-slate-100">
+                <img
+                  src={b.image}
+                  alt={b.title}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              {/* Textbereich */}
+              <div className="p-6">
+                <h3 className={`mb-1 text-lg ${serifClass}`}>{b.title}</h3>
+                <p className="text-sm text-slate-600">{b.tease}</p>
+                <a
+                  href="#"
+                  className="mt-4 inline-flex items-center text-sm font-medium text-[#1b4d2b]"
+                >
+                  Beispiel ansehen <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </div>
             </article>
           ))}
         </div>
