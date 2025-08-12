@@ -3,7 +3,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import {
-  Sparkles,
   Eye,
   Target,
   TrendingUp,
@@ -29,7 +28,7 @@ const RG300 = "#7ca98e";
 
 const serifClass = "font-serif";
 
-// BENEFITS
+// BENEFITS (laufen im Marquee)
 const benefits = [
   { icon: Eye, label: "Erhöhte Sichtbarkeit", help: "Mehr Präsenz in Suchergebnissen." },
   { icon: Target, label: "Gezielte Reichweite", help: "Triff die passende Zielgruppe." },
@@ -43,7 +42,7 @@ const benefits = [
   { icon: Search, label: "Optimierte Auffindbarkeit", help: "Gefunden werden, wenn es zählt." },
 ];
 
-// ABLAUF
+// ABLAUF (Steps)
 const ablauf = [
   { icon: ClipboardList, title: "Initiales Setup", desc: "Onboarding zu Zielgruppe, Themen, Keywords & Branding." },
   { icon: FileText, title: "Content-Plan-Abnahme", desc: "Gesamtplan (50–200 Artikel) zur Freigabe, Feedback wird gebündelt." },
@@ -52,7 +51,7 @@ const ablauf = [
   { icon: BarChart3, title: "Status & Ergebnisse", desc: "Monatliche Reports: Artikel, Rankings, Traffic – Strategie justieren." },
 ];
 
-// PRICING
+// PRICING DATEN
 const plans = [
   { id: "starter", articles: 90, price: 499, popular: false },
   { id: "growth", articles: 180, price: 899, popular: true },
@@ -162,9 +161,9 @@ function BlogSection() {
 function UnserZielSection() {
   return (
     <section className="relative overflow-hidden border-t border-slate-100 bg-white">
-      {/* Gepunktetes Pattern mit Fading oben & unten */}
+      {/* Gepunktetes Pattern mit Fading oben & unten (dezent) */}
       <div
-        className="absolute inset-0 opacity-40 motion-safe:animate-[dotScroll_40s_linear_infinite]"
+        className="absolute inset-0 opacity-20 motion-safe:animate-[dotScroll_40s_linear_infinite]"
         style={{
           backgroundImage: `radial-gradient(currentColor 1px, transparent 1px)`,
           backgroundSize: "20px 20px",
@@ -222,7 +221,101 @@ function UnserZielSection() {
   );
 }
 
-// PreiseSection, AblaufSection, KontaktSection bleiben wie gehabt ...
+function PreiseSection() {
+  return (
+    <section id="preise" className="py-20 border-t border-slate-100 bg-white text-center">
+      <div className="mx-auto max-w-6xl px-6">
+        <h2 className={`text-3xl font-semibold ${serifClass}`}>Unsere Pakete</h2>
+
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          {plans.map(({ id, articles, price, popular }) => {
+            return (
+              <div
+                key={id}
+                className={`group relative rounded-2xl bg-white p-6 text-left shadow-sm border-2 transition-all hover:shadow-lg ${
+                  popular ? "ring-2 ring-[#1b4d2b]/40 scale-105 border-[#1b4d2b]" : "border-[#1b4d2b]"
+                }`}
+              >
+                {popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-medium text-white shadow-sm" style={{ backgroundColor: RG600 }}>
+                    Meistverkauft
+                  </div>
+                )}
+
+                <h3 className={`text-lg font-semibold ${serifClass}`}>{articles} Artikel / Monat</h3>
+
+                <div className="mt-4">
+                  <div className="inline-flex items-end gap-1">
+                    <span className="text-4xl font-bold text-[#1b4d2b]">€{formatEUR(price)}</span>
+                    <span className="mb-1 text-xs text-slate-500">pro Monat</span>
+                  </div>
+                </div>
+
+                <ul className="mt-6 space-y-2">
+                  {features.map((f, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="mt-0.5 rounded-full p-1 bg-[#1b4d2b1A] text-[#1b4d2b]">
+                        <Check className="h-3.5 w-3.5" />
+                      </span>
+                      <span className="text-sm text-slate-700">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Button className="mt-6 w-full" variant={popular ? "default" : "outline"}>
+                  Jetzt anfragen
+                </Button>
+              </div>
+            );
+          })}
+        </div>
+
+        <p className="mt-6 text-xs text-slate-500">
+          Alle Pakete beinhalten: Recherche, Verschriftlichung, Expertenzitate, Markenstil, perfekte Tech-SEO, automatisierte Keyword-Recherche & Nutzung, internes/externes Linking und Veröffentlichung im CMS.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function AblaufSection() {
+  return (
+    <section id="ablauf" className="py-20 text-white" style={{ background: `linear-gradient(90deg, ${RG600}, ${RG300})` }}>
+      <div className="mx-auto max-w-6xl px-6">
+        <h2 className={`mb-12 text-center text-3xl font-semibold ${serifClass}`}>Unser Ablauf – transparent & effizient</h2>
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between md:gap-6">
+          {ablauf.map(({ icon: Icon, title, desc }, idx) => (
+            <div key={idx} className="relative flex flex-col items-center text-center md:w-1/5">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#1b4d2b]">
+                <Icon className="h-6 w-6" />
+              </div>
+              <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{title}</h3>
+              <p className="text-sm text-white/90">{desc}</p>
+              {idx < ablauf.length - 1 && (
+                <ArrowRight className="absolute top-6 right-[-18px] hidden h-5 w-5 md:block" />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function KontaktSection() {
+  return (
+    <section id="kontakt" className="py-20 border-t border-slate-100 text-center bg-white">
+      <h2 className={`text-3xl font-semibold ${serifClass}`}>Kontakt</h2>
+      <p className="mt-4 text-slate-600">Schreib uns gerne für weitere Informationen oder ein individuelles Angebot.</p>
+      <form className="mx-auto mt-8 grid max-w-lg gap-4" onSubmit={(e) => e.preventDefault()}>
+        <input type="text" placeholder="Name" className="rounded-lg border border-slate-300 p-3" />
+        <input type="email" placeholder="E-Mail" className="rounded-lg border border-slate-300 p-3" />
+        <textarea placeholder="Nachricht" className="h-32 rounded-lg border border-slate-300 p-3" />
+        <Button type="submit">Senden</Button>
+      </form>
+    </section>
+  );
+}
 
 export default function FindbarPage() {
   return (
@@ -232,7 +325,17 @@ export default function FindbarPage() {
       <BenefitsMarquee />
       <BlogSection />
       <UnserZielSection />
-      {/* Restliche Sections ... */}
+      <PreiseSection />
+      <AblaufSection />
+      <KontaktSection />
+      <footer className="border-t border-slate-100 py-8 text-center text-sm text-slate-500">
+        <div className="space-x-4">
+          <a href="#">Impressum</a>
+          <a href="#">AGB</a>
+          <a href="#">Datenschutz</a>
+        </div>
+        <p className="mt-3">© {new Date().getFullYear()} findbar. Alle Rechte vorbehalten.</p>
+      </footer>
     </div>
   );
 }
