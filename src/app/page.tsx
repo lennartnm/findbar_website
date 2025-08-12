@@ -161,7 +161,7 @@ function BlogSection() {
 function UnserZielSection() {
   return (
     <section className="relative overflow-hidden border-t border-slate-100 bg-white">
-      {/* Waving Lines Background (animiert) */}
+      {/* Waving Lines Background (verstärkte Bewegung) */}
       <svg
         className="absolute inset-0 z-0 opacity-30 pointer-events-none"
         viewBox="0 0 1440 400"
@@ -174,17 +174,17 @@ function UnserZielSection() {
             d="M0,200 C200,120 400,280 600,200 800,120 1000,280 1200,200 1300,170 1400,220 1440,200"
             fill="none"
             stroke={RG600}
-            strokeWidth="1.2"
+            strokeWidth="2"
             strokeOpacity="0.5"
           >
             <animate
               attributeName="d"
-              dur="14s"
+              dur="12s"
               repeatCount="indefinite"
               values="
-                M0,200 C200,120 400,280 600,200 800,120 1000,280 1200,200 1300,170 1400,220 1440,200;
-                M0,210 C220,150 420,260 620,210 820,150 1020,260 1220,210 1320,190 1420,230 1440,210;
-                M0,200 C200,120 400,280 600,200 800,120 1000,280 1200,200 1300,170 1400,220 1440,200
+                M0,200 C200,100 400,300 600,180 800,100 1000,300 1200,180 1300,150 1400,250 1440,200;
+                M0,240 C200,150 400,250 600,220 800,150 1000,250 1200,220 1300,190 1400,230 1440,210;
+                M0,200 C200,100 400,300 600,180 800,100 1000,300 1200,180 1300,150 1400,250 1440,200
               "
             />
           </path>
@@ -193,17 +193,17 @@ function UnserZielSection() {
             d="M0,230 C220,170 440,240 660,210 880,180 1100,230 1320,210 1380,205 1440,215 1440,215"
             fill="none"
             stroke={RG300}
-            strokeWidth="1"
+            strokeWidth="1.8"
             strokeOpacity="0.35"
           >
             <animate
               attributeName="d"
-              dur="16s"
+              dur="14s"
               repeatCount="indefinite"
               values="
-                M0,230 C220,170 440,240 660,210 880,180 1100,230 1320,210 1380,205 1440,215 1440,215;
-                M0,220 C240,160 460,250 680,220 900,190 1120,240 1340,220 1400,215 1440,225 1440,225;
-                M0,230 C220,170 440,240 660,210 880,180 1100,230 1320,210 1380,205 1440,215 1440,215
+                M0,250 C220,120 440,300 660,180 880,120 1100,300 1320,180 1380,160 1440,240 1440,200;
+                M0,220 C240,180 460,220 680,200 900,180 1120,220 1340,200 1400,190 1440,210 1440,210;
+                M0,250 C220,120 440,300 660,180 880,120 1100,300 1320,180 1380,160 1440,240 1440,200
               "
             />
           </path>
@@ -212,17 +212,17 @@ function UnserZielSection() {
             d="M0,170 C200,140 400,180 600,160 800,140 1000,180 1200,160 1320,150 1440,160 1440,160"
             fill="none"
             stroke={RG600}
-            strokeWidth="0.8"
+            strokeWidth="1.5"
             strokeOpacity="0.25"
           >
             <animate
               attributeName="d"
-              dur="18s"
+              dur="16s"
               repeatCount="indefinite"
               values="
-                M0,170 C200,140 400,180 600,160 800,140 1000,180 1200,160 1320,150 1440,160 1440,160;
-                M0,180 C220,150 420,190 620,170 820,150 1020,190 1220,170 1340,160 1440,170 1440,170;
-                M0,170 C200,140 400,180 600,160 800,140 1000,180 1200,160 1320,150 1440,160 1440,160
+                M0,160 C200,90 400,250 600,140 800,90 1000,250 1200,140 1320,120 1440,200 1440,160;
+                M0,180 C220,140 420,200 620,160 820,140 1020,200 1220,160 1340,140 1440,180 1440,170;
+                M0,160 C200,90 400,250 600,140 800,90 1000,250 1200,140 1320,120 1440,200 1440,160
               "
             />
           </path>
@@ -230,9 +230,9 @@ function UnserZielSection() {
 
         {/* Static paths for reduced motion */}
         <g className="static-path" style={{ display: "none" }}>
-          <path d="M0,200 C200,120 400,280 600,200 800,120 1000,280 1200,200 1300,170 1400,220 1440,200" fill="none" stroke={RG600} strokeWidth="1.2" strokeOpacity="0.5" />
-          <path d="M0,230 C220,170 440,240 660,210 880,180 1100,230 1320,210 1380,205 1440,215 1440,215" fill="none" stroke={RG300} strokeWidth="1" strokeOpacity="0.35" />
-          <path d="M0,170 C200,140 400,180 600,160 800,140 1000,180 1200,160 1320,150 1440,160 1440,160" fill="none" stroke={RG600} strokeWidth="0.8" strokeOpacity="0.25" />
+          <path d="M0,200 C200,100 400,300 600,180 800,100 1000,300 1200,180 1300,150 1400,250 1440,200" fill="none" stroke={RG600} strokeWidth="2" strokeOpacity="0.5" />
+          <path d="M0,250 C220,120 440,300 660,180 880,120 1100,300 1320,180 1380,160 1440,240 1440,200" fill="none" stroke={RG300} strokeWidth="1.8" strokeOpacity="0.35" />
+          <path d="M0,160 C200,90 400,250 600,140 800,90 1000,250 1200,140 1320,120 1440,200 1440,160" fill="none" stroke={RG600} strokeWidth="1.5" strokeOpacity="0.25" />
         </g>
       </svg>
 
@@ -243,7 +243,7 @@ function UnserZielSection() {
         }
       `}</style>
 
-      {/* Content oben drüber */}
+      {/* Content */}
       <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 md:grid-cols-2">
         <div>
           <h2 className={`text-3xl font-semibold ${serifClass}`}>Unser Ziel: minimaler Zeitaufwand für dich</h2>
@@ -285,6 +285,7 @@ function UnserZielSection() {
     </section>
   );
 }
+
 
 function PreiseSection() {
   return (
