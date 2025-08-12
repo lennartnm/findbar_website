@@ -222,7 +222,7 @@ function BenefitsMarquee() {
 }
 
 
-/* ------------------------- BlogSection (mit Vorschaubild) ------------------------ */
+/* ------------------------- BlogSection (mit Vorschaubild & SEO-Titeln) ------------------------ */
 function BlogSection() {
   return (
     <section id="blog" className="bg-white py-20">
@@ -231,25 +231,25 @@ function BlogSection() {
           Blog-Beispiele
         </h2>
         <p className="mt-4 text-center text-slate-600">
-          Drei Beispiele aus unterschiedlichen Branchen – sauber strukturiert, suchmaschinenoptimiert, im Markenstil.
+          Drei SEO-optimierte Blogartikel aus verschiedenen Branchen – perfekt strukturiert, suchmaschinenoptimiert und im Markenstil.
         </p>
 
         <div className="mx-auto mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {[
             {
-              title: "Gesundheit: 10 Anzeichen für XYZ",
-              tease: "Medizinisch recherchiert, Laienverständlich, E-A-T-konform.",
-              image: "/blog-gesundheit.jpg", // Platzhalter
+              title: "Cabriowetter in Deutschland 2025 – Die schönsten Streckenempfehlungen",
+              tease: "Entdecke die besten Cabrio-Routen in Deutschland: Von malerischen Küstenstraßen bis zu kurvigen Bergpassagen – perfekt für sonnige Tage.",
+              image: "/blog-cabrio.jpg",
             },
             {
-              title: "Finanzen: ETF-Strategien 2025",
-              tease: "Aktuelle Quellen, klare Struktur für Top-Rankings.",
-              image: "/blog-finanzen.jpg", // Platzhalter
+              title: "Küchenkauf 2025 – 7 Dinge, die du unbedingt beachten musst",
+              tease: "Von der richtigen Planung bis zur Auswahl langlebiger Materialien: So kaufst du deine Traumküche und vermeidest teure Fehler.",
+              image: "/blog-kuechenkauf.jpg",
             },
             {
-              title: "Nachhaltigkeit: CO₂ im Alltag senken",
-              tease: "Praxistipps + Expertenzitate für Trust & Shares.",
-              image: "/blog-nachhaltigkeit.jpg", // Platzhalter
+              title: "CNC Maschine mieten statt kaufen – Kosten senken & flexibel bleiben",
+              tease: "Erfahre, wann sich CNC-Maschinen-Miete lohnt, welche Kostenfallen du vermeiden solltest und wie du den richtigen Anbieter findest.",
+              image: "/blog-cnc.jpg",
             },
           ].map((b, i) => (
             <article
@@ -283,6 +283,7 @@ function BlogSection() {
     </section>
   );
 }
+
 
 /* ---------------------- UnserZielSection ---------------------- */
 function UnserZielSection() {
