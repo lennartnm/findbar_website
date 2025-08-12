@@ -162,7 +162,7 @@ function UnserZielSection() {
   return (
     <section className="relative overflow-hidden border-t border-slate-100 bg-white">
       {/* Aurora Gradient Background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden opacity-35">
+      <div className="absolute inset-0 z-0 overflow-hidden opacity-30">
         <div
           className="absolute -inset-40 blur-3xl [animation:aurora_18s_ease-in-out_infinite]"
           style={{
@@ -181,35 +181,23 @@ function UnserZielSection() {
           50% { transform: translate3d(-4%, 2%, 0) scale(1.1); }
         }
         @media (prefers-reduced-motion: reduce) {
-          .\\[animation\\:aurora_18s_ease-in-out_infinite\\] {
-            animation: none;
-          }
+          .\\[animation\\:aurora_18s_ease-in-out_infinite\\] { animation: none; }
         }
       `}</style>
 
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 md:grid-cols-2">
+      {/* Content oben drüber */}
+      <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 md:grid-cols-2">
         <div>
-          <h2 className={`text-3xl font-semibold ${serifClass}`}>
-            Unser Ziel: minimaler Zeitaufwand für dich
-          </h2>
+          <h2 className={`text-3xl font-semibold ${serifClass}`}>Unser Ziel: minimaler Zeitaufwand für dich</h2>
           <p className="mt-4 max-w-prose text-slate-600">
             Wir orchestrieren deinen Content-Motor so, dass du <em>möglichst wenig operativen Aufwand</em> hast.
             Einmal Onboarding, Plan freigeben, 2–3 Musterartikel abnicken – danach liefern wir regelmäßig in Batches
             und halten dich mit klaren Status-Updates auf dem Laufenden.
           </p>
           <ul className="mt-6 space-y-3 text-slate-700">
-            <li className="flex items-start gap-3">
-              <span className="mt-1 inline-block h-2 w-2 rounded-full" style={{ backgroundColor: RG600 }}></span>
-              <span>Einmal einrichten – nachhaltig profitieren.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-1 inline-block h-2 w-2 rounded-full" style={{ backgroundColor: RG600 }}></span>
-              <span>Freigaben in Batches statt Micromanagement.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="mt-1 inline-block h-2 w-2 rounded-full" style={{ backgroundColor: RG600 }}></span>
-              <span>Transparente Reports: Veröffentlichungen, Rankings, Traffic.</span>
-            </li>
+            <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full" style={{backgroundColor: RG600}}></span><span>Einmal einrichten – nachhaltig profitieren.</span></li>
+            <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full" style={{backgroundColor: RG600}}></span><span>Freigaben in Batches statt Micromanagement.</span></li>
+            <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full" style={{backgroundColor: RG600}}></span><span>Transparente Reports: Veröffentlichungen, Rankings, Traffic.</span></li>
           </ul>
           <div className="mt-8 flex gap-3">
             <Button asChild><a href="#preise" className="text-white">Pakete ansehen</a></Button>
