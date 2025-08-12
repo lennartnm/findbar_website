@@ -25,8 +25,10 @@ import {
 // Farben
 const RG600 = "#1b4d2b"; // Racing Green
 const RG300 = "#7ca98e";
-
 const serifClass = "font-serif";
+
+// Einheitlicher Container für Blog / Done4You / Pricing
+const containerClass = "w-full max-w-5xl mx-auto px-6";
 
 // BENEFITS (laufen im Marquee)
 const benefits = [
@@ -96,7 +98,6 @@ function CalendlyModal({
       {/* Dialog */}
       <div className="relative z-[101] w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-xl">
         <div className="flex items-center justify-between border-b border-slate-200 px-5 py-3">
-        
           <button
             onClick={onClose}
             className="rounded-md border border-slate-200 px-2 py-1 text-sm hover:bg-slate-50"
@@ -223,127 +224,130 @@ function BenefitsMarquee() {
 /* ------------------------- BlogSection ------------------------ */
 function BlogSection() {
   return (
-    <section id="blog" className="bg-white py-20 text-center">
-      <h2 className={`text-3xl font-semibold ${serifClass}`}>Blog-Beispiele</h2>
-      <p className="mt-4 text-slate-600">
-        Drei Beispiele aus unterschiedlichen Branchen – sauber strukturiert, suchmaschinenoptimiert, im Markenstil.
-      </p>
-      <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-6 px-6 md:grid-cols-3">
-        {[
-          {
-            title: "Gesundheit: 10 Anzeichen für XYZ",
-            tease: "Medizinisch recherchiert, Laienverständlich, E-A-T-konform.",
-          },
-          {
-            title: "Finanzen: ETF-Strategien 2025",
-            tease: "Aktuelle Quellen, klare Struktur für Top-Rankings.",
-          },
-          {
-            title: "Nachhaltigkeit: CO₂ im Alltag senken",
-            tease: "Praxistipps + Expertenzitate für Trust & Shares.",
-          },
-        ].map((b, i) => (
-          <article
-            key={i}
-            className="rounded-xl border border-slate-200 p-6 text-left shadow-sm transition-shadow hover:shadow-md"
-          >
-            <h3 className={`mb-1 text-lg ${serifClass}`}>{b.title}</h3>
-            <p className="text-sm text-slate-600">{b.tease}</p>
-            <a
-              href="#"
-              className="mt-4 inline-flex items-center text-sm font-medium text-[#1b4d2b]"
+    <section id="blog" className="bg-white py-20">
+      <div className={containerClass}>
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>Blog-Beispiele</h2>
+        <p className="mt-4 text-center text-slate-600">
+          Drei Beispiele aus unterschiedlichen Branchen – sauber strukturiert, suchmaschinenoptimiert, im Markenstil.
+        </p>
+        <div className="mx-auto mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {[
+            {
+              title: "Gesundheit: 10 Anzeichen für XYZ",
+              tease: "Medizinisch recherchiert, Laienverständlich, E-A-T-konform.",
+            },
+            {
+              title: "Finanzen: ETF-Strategien 2025",
+              tease: "Aktuelle Quellen, klare Struktur für Top-Rankings.",
+            },
+            {
+              title: "Nachhaltigkeit: CO₂ im Alltag senken",
+              tease: "Praxistipps + Expertenzitate für Trust & Shares.",
+            },
+          ].map((b, i) => (
+            <article
+              key={i}
+              className="rounded-xl border border-slate-200 p-6 text-left shadow-sm transition-shadow hover:shadow-md"
             >
-              Beispiel ansehen <ArrowRight className="ml-1 h-4 w-4" />
-            </a>
-          </article>
-        ))}
+              <h3 className={`mb-1 text-lg ${serifClass}`}>{b.title}</h3>
+              <p className="text-sm text-slate-600">{b.tease}</p>
+              <a
+                href="#"
+                className="mt-4 inline-flex items-center text-sm font-medium text-[#1b4d2b]"
+              >
+                Beispiel ansehen <ArrowRight className="ml-1 h-4 w-4" />
+              </a>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
+/* ---------------------- UnserZielSection ---------------------- */
 function UnserZielSection() {
   return (
-    <section className="py-20 px-6 flex justify-center">
-      <div
-        className="relative w-full max-w-5xl overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
-        style={{ backgroundColor: "#1b4d2b" }} // Racing Green
-      >
-        {/* Punkte-Pattern über ganze Box */}
+    <section className="py-20">
+      <div className={containerClass}>
         <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: "radial-gradient(white 10%, transparent 11%)",
-            backgroundSize: "40px 40px",
-            backgroundPosition: "0 0",
-          }}
-        />
+          className="relative w-full overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
+          style={{ backgroundColor: RG600 }}
+        >
+          {/* Punkte-Pattern – EIN Layer, 5% Deckkraft */}
+          <div
+            aria-hidden
+            className="absolute inset-0 opacity-[0.05]"
+            style={{
+              backgroundImage: "radial-gradient(white 10%, transparent 11%)",
+              backgroundSize: "40px 40px",
+              backgroundPosition: "0 0",
+            }}
+          />
+          {/* Inhalt */}
+          <div className="relative z-10 grid items-center gap-12 px-6 py-12 md:grid-cols-2 md:px-12">
+            <div>
+              <p className="text-sm uppercase tracking-wide text-white/70">Done 4 You</p>
+              <h2 className={`mt-2 text-3xl font-semibold ${serifClass}`}>Minimaler Zeitaufwand für dich</h2>
+              <p className="mt-4 max-w-prose text-white/90">
+                Wir orchestrieren deinen Content-Motor so, dass du <em>möglichst wenig operativen Aufwand</em> hast.
+                Einmal Onboarding, Plan freigeben, 2–3 Musterartikel abnicken – danach liefern wir regelmäßig in Batches
+                und halten dich mit klaren Status-Updates auf dem Laufenden.
+              </p>
+              <ul className="mt-6 space-y-3 text-white/90">
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
+                  <span>Einmal einrichten – nachhaltig profitieren.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
+                  <span>Freigaben in Batches statt Micromanagement.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
+                  <span>Transparente Reports: Veröffentlichungen, Rankings, Traffic.</span>
+                </li>
+              </ul>
+              <div className="mt-8 flex gap-3">
+                <Button asChild><a href="#preise" className="text-white">Pakete ansehen</a></Button>
+                <Button variant="outline" asChild><a href="#kontakt">Kurz-Onboarding starten</a></Button>
+              </div>
+            </div>
 
-        <div className="relative z-10 grid items-center gap-12 px-6 py-12 md:grid-cols-2 md:px-12">
-          <div>
-            <p className="text-sm uppercase tracking-wide text-white/70">Done 4 You</p>
-            <h2 className={`mt-2 text-3xl font-semibold ${serifClass}`}>Minimaler Zeitaufwand für dich</h2>
-            <p className="mt-4 max-w-prose text-white/90">
-              Wir orchestrieren deinen Content-Motor so, dass du <em>möglichst wenig operativen Aufwand</em> hast.
-              Einmal Onboarding, Plan freigeben, 2–3 Musterartikel abnicken – danach liefern wir regelmäßig in Batches
-              und halten dich mit klaren Status-Updates auf dem Laufenden.
-            </p>
-            <ul className="mt-6 space-y-3 text-white/90">
-              <li className="flex items-start gap-3">
-                <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
-                <span>Einmal einrichten – nachhaltig profitieren.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
-                <span>Freigaben in Batches statt Micromanagement.</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
-                <span>Transparente Reports: Veröffentlichungen, Rankings, Traffic.</span>
-              </li>
-            </ul>
-            <div className="mt-8 flex gap-3">
-              <Button asChild><a href="#preise" className="text-white">Pakete ansehen</a></Button>
-              <Button variant="outline" asChild><a href="#kontakt">Kurz-Onboarding starten</a></Button>
+            <div className="flex justify-center">
+              <div className="relative w-full max-w-md">
+                <div
+                  className="absolute -inset-10 -z-10 blur-2xl"
+                  style={{ background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)` }}
+                />
+                <img
+                  src="https://chatgpt.com/s/m_689a3b8887608191ae4d7e21c361c306"
+                  alt="KI-Roboter spannt einen Bogen"
+                  className="relative z-20 w-4/5 translate-x-6 rounded-xl shadow-2xl"
+                />
+                <img
+                  src="https://chatgpt.com/s/m_689a3b8887608191ae4d7e21c361c306"
+                  alt="Zielscheibe"
+                  className="absolute right-0 top-1/2 z-10 w-2/5 -translate-y-1/2 rounded-xl shadow-xl"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-md">
-              <div
-                className="absolute -inset-10 -z-10 blur-2xl"
-                style={{ background: `radial-gradient(60% 60% at 70% 30%, #3c6e47 0%, transparent 60%)` }}
-              />
-              <img
-                src="/images/roboter.png"
-                alt="KI-Roboter spannt einen Bogen"
-                className="relative z-20 w-4/5 translate-x-6 rounded-xl shadow-2xl"
-              />
-              <img
-                src="/images/zielschild.png"
-                alt="Zielscheibe"
-                className="absolute right-0 top-1/2 z-10 w-2/5 -translate-y-1/2 rounded-xl shadow-xl"
-              />
-            </div>
-          </div>
+          {/* feiner Innenrand */}
+          <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
         </div>
-
-        <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
       </div>
     </section>
   );
 }
-
-
-
 
 /* ------------------------ PreiseSection ----------------------- */
 function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   return (
-    <section id="preise" className="border-t border-slate-100 bg-white py-20 text-center">
-      <div className="mx-auto max-w-6xl px-6">
-        <h2 className={`text-3xl font-semibold ${serifClass}`}>Unsere Pakete</h2>
+    <section id="preise" className="border-t border-slate-100 bg-white py-20">
+      <div className={containerClass}>
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>Unsere Pakete</h2>
 
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           {plans.map(({ id, articles, price, popular }) => {
@@ -392,7 +396,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
           })}
         </div>
 
-        <p className="mt-6 text-xs text-slate-500">
+        <p className="mt-6 text-center text-xs text-slate-500">
           Alle Pakete beinhalten: Recherche, Verschriftlichung, Expertenzitate, Markenstil, perfekte Tech-SEO, automatisierte Keyword-Recherche & Nutzung, internes/externes Linking und Veröffentlichung im CMS.
         </p>
       </div>
@@ -434,17 +438,19 @@ function AblaufSection() {
 /* ----------------------- KontaktSection ----------------------- */
 function KontaktSection() {
   return (
-    <section id="kontakt" className="border-t border-slate-100 bg-white py-20 text-center">
-      <h2 className={`text-3xl font-semibold ${serifClass}`}>Kontakt</h2>
-      <p className="mt-4 text-slate-600">
-        Schreib uns gerne für weitere Informationen oder ein individuelles Angebot.
-      </p>
-      <form className="mx-auto mt-8 grid max-w-lg gap-4" onSubmit={(e) => e.preventDefault()}>
-        <input type="text" placeholder="Name" className="rounded-lg border border-slate-300 p-3" />
-        <input type="email" placeholder="E-Mail" className="rounded-lg border border-slate-300 p-3" />
-        <textarea placeholder="Nachricht" className="h-32 rounded-lg border border-slate-300 p-3" />
-        <Button type="submit">Senden</Button>
-      </form>
+    <section id="kontakt" className="border-t border-slate-100 bg-white py-20">
+      <div className={containerClass}>
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>Kontakt</h2>
+        <p className="mt-4 text-center text-slate-600">
+          Schreib uns gerne für weitere Informationen oder ein individuelles Angebot.
+        </p>
+        <form className="mx-auto mt-8 grid max-w-lg gap-4" onSubmit={(e) => e.preventDefault()}>
+          <input type="text" placeholder="Name" className="rounded-lg border border-slate-300 p-3" />
+          <input type="email" placeholder="E-Mail" className="rounded-lg border border-slate-300 p-3" />
+          <textarea placeholder="Nachricht" className="h-32 rounded-lg border border-slate-300 p-3" />
+          <Button type="submit">Senden</Button>
+        </form>
+      </div>
     </section>
   );
 }
