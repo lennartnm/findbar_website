@@ -53,9 +53,9 @@ const ablauf = [
 
 // PRICING DATEN
 const plans = [
-  { id: "starter", articles: 90, price: 499, popular: false },
-  { id: "growth", articles: 180, price: 899, popular: true },
-  { id: "scale", articles: 360, price: 1399, popular: false },
+  { id: "starter", articles: 30, price: 499, popular: false },
+  { id: "growth", articles: 90, price: 799, popular: true },
+  { id: "scale", articles: 180, price: 1099, popular: false },
 ];
 
 const features = [
@@ -96,7 +96,7 @@ function CalendlyModal({
       {/* Dialog */}
       <div className="relative z-[101] w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-xl">
         <div className="flex items-center justify-between border-b border-slate-200 px-5 py-3">
-          <h3 className={`text-lg font-semibold ${serifClass}`}>Kostenlose Erstberatung buchen</h3>
+        
           <button
             onClick={onClose}
             className="rounded-md border border-slate-200 px-2 py-1 text-sm hover:bg-slate-50"
