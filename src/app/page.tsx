@@ -398,41 +398,45 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   );
 }
 
-/* ------------------------ AblaufSection ----------------------- */
-
-  
-
+/* ------------------------ AblaufSection (Box wie Done 4 You) ----------------------- */
 function AblaufSection() {
   return (
-    <section
-      id="ablauf"
-      className="py-20 text-white"
-      style={{ background: `linear-gradient(90deg, ${RG600}, ${RG300})` }}
-    >
+    <section id="ablauf" className="py-20">
       <div className={containerClass}>
-      <div className="mx-auto max-w-6xl px-6">
-        <h2 className={`mb-12 text-center text-3xl font-semibold ${serifClass}`}>
-          Unser Ablauf – transparent & effizient
-        </h2>
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between md:gap-6">
-          {ablauf.map(({ icon: Icon, title, desc }, idx) => (
-            <div key={idx} className="relative flex flex-col items-center text-center md:w-1/5">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#1b4d2b]">
-                <Icon className="h-6 w-6" />
-              </div>
-              <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{title}</h3>
-              <p className="text-sm text-white/90">{desc}</p>
-              {idx < ablauf.length - 1 && (
-                <ArrowRight className="absolute right-[-18px] top-6 hidden h-5 w-5 md:block" />
-              )}
+        <div
+          className="relative w-full overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
+          style={{ background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)` }}
+        >
+          {/* Inhalt */}
+          <div className="relative z-10 px-6 py-12 md:px-12">
+            <h2 className={`text-center text-3xl font-semibold ${serifClass}`}>
+              Unser Ablauf – transparent & effizient
+            </h2>
+
+            <div className="mt-12 flex flex-col md:flex-row md:items-start md:justify-between md:gap-6">
+              {ablauf.map(({ icon: Icon, title, desc }, idx) => (
+                <div key={idx} className="relative flex flex-col items-center text-center md:w-1/5">
+                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#1b4d2b]">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{title}</h3>
+                  <p className="text-sm text-white/90">{desc}</p>
+                  {idx < ablauf.length - 1 && (
+                    <ArrowRight className="absolute right-[-18px] top-6 hidden h-5 w-5 text-white/60 md:block" />
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* feiner Innenrand */}
+          <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
         </div>
       </div>
-          </div>
     </section>
   );
 }
+
 
 
 
