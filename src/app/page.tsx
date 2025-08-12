@@ -309,27 +309,29 @@ function UnserZielSection() {
                 </li>
               </ul>
               <div className="mt-8 flex gap-3">
-                <Button asChild><a href="#preise" className="text-white">Pakete ansehen</a></Button>
-        
+                <Button asChild>
+                  <a href="#preise" className="text-white">Pakete ansehen</a>
+                </Button>
               </div>
             </div>
 
-           {/* Nur ein Bild statt zwei */}
+            {/* Nur ein Bild statt zwei */}
             <div className="flex justify-center">
               <div className="relative w-full max-w-md">
                 <div
                   className="absolute -inset-10 -z-10 blur-2xl"
-                  style={{ background: radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%) }}
+                  style={{
+                    background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`
+                  }}
                 />
                 <img
                   src="/kJbcdj.png"
                   alt="Darstellung des Done 4 You Prozesses"
-                  className="relative z-20 w-full rounded-xl shadow-2xl"
+                  className="relative z-20 w-full rounded-xl"
                 />
               </div>
             </div>
           </div>
-
 
           {/* feiner Innenrand */}
           <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
