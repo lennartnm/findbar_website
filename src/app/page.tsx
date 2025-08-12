@@ -70,63 +70,149 @@ function formatEUR(n: number) {
   return n.toLocaleString("de-DE");
 }
 
+/* ---------- Simple Modal für eingebettetes Calendly ---------- */
+function CalendlyModal({
+  open,
+  onClose,
+  url,
+}: {
+  open: boolean;
+  onClose: () => void;
+  url: string;
+}) {
+  if (!open) return null;
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+    >
+      {/* Overlay */}
+      <button
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        aria-label="Overlay schließen"
+        onClick={onClose}
+      />
+      {/* Dialog */}
+      <div className="relative z-[101] w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-xl">
+        <div className="flex items-center justify-between border-b border-slate-200 px-5 py-3">
+          <h3 className={`text-lg font-semibold ${serifClass}`}>Kostenlose Erstberatung buchen</h3>
+          <button
+            onClick={onClose}
+            className="rounded-md border border-slate-200 px-2 py-1 text-sm hover:bg-slate-50"
+            aria-label="Popup schließen"
+          >
+            Schließen
+          </button>
+        </div>
+        <div className="h-[70vh] w-full">
+          <iframe
+            src={url}
+            title="Calendly – Termin buchen"
+            className="h-full w-full"
+            frameBorder="0"
+            allow="clipboard-write; fullscreen"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* --------------------------- Header --------------------------- */
 function Header() {
   return (
     <header className="border-b border-slate-100 bg-white">
-      <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-4 gap-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-center gap-8 px-6 py-4">
         <nav className="flex gap-6">
-          <a href="#blog" className="text-sm" style={{ color: "#334155" }}>Blog-Beispiele</a>
-          <a href="#preise" className="text-sm" style={{ color: "#334155" }}>Preise</a>
-          <a href="#kontakt" className="text-sm" style={{ color: "#334155" }}>Kontakt</a>
+          <a href="#blog" className="text-sm" style={{ color: "#334155" }}>
+            Blog-Beispiele
+          </a>
+          <a href="#preise" className="text-sm" style={{ color: "#334155" }}>
+            Preise
+          </a>
+          <a href="#kontakt" className="text-sm" style={{ color: "#334155" }}>
+            Kontakt
+          </a>
         </nav>
         <Button asChild>
-          <a className="text-white" href="#preise">Jetzt anfragen</a>
+          <a className="text-white" href="#preise">
+            Jetzt anfragen
+          </a>
         </Button>
       </div>
     </header>
   );
 }
 
+/* ---------------------------- Hero ---------------------------- */
 function Hero() {
   return (
-    <section className="relative text-center py-28 px-6 overflow-hidden bg-white">
-      <svg className="absolute inset-0 h-full w-full opacity-5" viewBox="0 0 500 200" preserveAspectRatio="none">
-        <polyline fill="none" stroke="currentColor" strokeWidth="2" points="0,180 60,165 120,160 180,140 240,120 300,95 360,80 420,55 480,30 500,20" />
+    <section className="relative overflow-hidden bg-white px-6 py-28 text-center">
+      <svg
+        className="absolute inset-0 h-full w-full opacity-5"
+        viewBox="0 0 500 200"
+        preserveAspectRatio="none"
+      >
+        <polyline
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          points="0,180 60,165 120,160 180,140 240,120 300,95 360,80 420,55 480,30 500,20"
+        />
       </svg>
       <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
         <span className="italic font-bold">findbar</span>: Skaliere Dein Unternehmen mit
         <br className="hidden md:inline" /> KI-optimierten Blog-Artikeln
       </h1>
-      <p className="mt-5 mx-auto max-w-2xl text-slate-600">
+      <p className="mx-auto mt-5 max-w-2xl text-slate-600">
         Wir produzieren skalierbare und suchmaschinenoptimierte Blogartikel mit Hilfe von KI – zu einem Bruchteil der bisher üblichen Preise.
       </p>
       <Button asChild>
-        <a className="mt-6 inline-block text-white" href="#preise">Pakete ansehen</a>
+        <a className="mt-6 inline-block text-white" href="#preise">
+          Pakete ansehen
+        </a>
       </Button>
     </section>
   );
 }
 
+/* ---------------------- Benefits Marquee ---------------------- */
 function BenefitsMarquee() {
   return (
-    <section className="relative overflow-hidden py-12 text-white" style={{ background: `linear-gradient(90deg, ${RG600}, ${RG300})` }}>
+    <section
+      className="relative overflow-hidden py-12 text-white"
+      style={{ background: `linear-gradient(90deg, ${RG600}, ${RG300})` }}
+    >
       <div
         className="relative mx-auto max-w-[100vw]"
         style={{
-          maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-          WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          maskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
         }}
       >
-        <div className="flex w-max gap-8 will-change-transform" style={{ animation: "marquee 80s linear infinite" }}>
-          {[...benefits, ...benefits, ...benefits].map(({ icon: Icon, label, help }, i) => (
-            <div key={i} className="shrink-0 w-64 rounded-xl border border-white/10 bg-white/5 px-8 py-8 text-center backdrop-blur-sm shadow-sm">
-              <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
+        <div
+          className="flex w-max gap-8 will-change-transform"
+          style={{ animation: "marquee 80s linear infinite" }}
+        >
+          {[...benefits, ...benefits, ...benefits].map(
+            ({ icon: Icon, label, help }, i) => (
+              <div
+                key={i}
+                className="shrink-0 w-64 rounded-xl border border-white/10 bg-white/5 px-8 py-8 text-center backdrop-blur-sm shadow-sm"
+              >
+                <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                  <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
+                </div>
+                <div className={`text-lg italic ${serifClass}`}>{label}</div>
+                <div className="mt-2 break-words text-xs leading-relaxed text-white/85">
+                  {help}
+                </div>
               </div>
-              <div className={`text-lg italic ${serifClass}`}>{label}</div>
-              <div className="mt-2 text-xs leading-relaxed text-white/85 break-words">{help}</div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
       <style>{`@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
@@ -134,21 +220,39 @@ function BenefitsMarquee() {
   );
 }
 
+/* ------------------------- BlogSection ------------------------ */
 function BlogSection() {
   return (
-    <section id="blog" className="py-20 border-t border-slate-100 text-center bg-white">
+    <section id="blog" className="bg-white py-20 text-center">
       <h2 className={`text-3xl font-semibold ${serifClass}`}>Blog-Beispiele</h2>
-      <p className="mt-4 text-slate-600">Drei Beispiele aus unterschiedlichen Branchen – sauber strukturiert, suchmaschinenoptimiert, im Markenstil.</p>
-      <div className="mt-10 grid max-w-6xl grid-cols-1 gap-6 px-6 md:grid-cols-3 mx-auto">
+      <p className="mt-4 text-slate-600">
+        Drei Beispiele aus unterschiedlichen Branchen – sauber strukturiert, suchmaschinenoptimiert, im Markenstil.
+      </p>
+      <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-6 px-6 md:grid-cols-3">
         {[
-          { title: "Gesundheit: 10 Anzeichen für XYZ", tease: "Medizinisch recherchiert, Laienverständlich, E-A-T-konform." },
-          { title: "Finanzen: ETF-Strategien 2025", tease: "Aktuelle Quellen, klare Struktur für Top-Rankings." },
-          { title: "Nachhaltigkeit: CO₂ im Alltag senken", tease: "Praxistipps + Expertenzitate für Trust & Shares." },
+          {
+            title: "Gesundheit: 10 Anzeichen für XYZ",
+            tease: "Medizinisch recherchiert, Laienverständlich, E-A-T-konform.",
+          },
+          {
+            title: "Finanzen: ETF-Strategien 2025",
+            tease: "Aktuelle Quellen, klare Struktur für Top-Rankings.",
+          },
+          {
+            title: "Nachhaltigkeit: CO₂ im Alltag senken",
+            tease: "Praxistipps + Expertenzitate für Trust & Shares.",
+          },
         ].map((b, i) => (
-          <article key={i} className="rounded-xl border border-slate-200 p-6 text-left shadow-sm hover:shadow-md transition-shadow">
-            <h3 className={`text-lg ${serifClass} mb-1`}>{b.title}</h3>
+          <article
+            key={i}
+            className="rounded-xl border border-slate-200 p-6 text-left shadow-sm transition-shadow hover:shadow-md"
+          >
+            <h3 className={`mb-1 text-lg ${serifClass}`}>{b.title}</h3>
             <p className="text-sm text-slate-600">{b.tease}</p>
-            <a href="#" className="mt-4 inline-flex items-center text-sm font-medium text-[#1b4d2b]">
+            <a
+              href="#"
+              className="mt-4 inline-flex items-center text-sm font-medium text-[#1b4d2b]"
+            >
               Beispiel ansehen <ArrowRight className="ml-1 h-4 w-4" />
             </a>
           </article>
@@ -158,12 +262,13 @@ function BlogSection() {
   );
 }
 
+/* ---------------------- UnserZielSection ---------------------- */
 function UnserZielSection() {
   return (
     <section className="relative overflow-hidden border-t border-slate-100 bg-white">
       {/* Waving Lines Background (verstärkte Bewegung) */}
       <svg
-        className="absolute inset-0 z-0 opacity-30 pointer-events-none"
+        className="pointer-events-none absolute inset-0 z-0 opacity-30"
         viewBox="0 0 1440 400"
         preserveAspectRatio="none"
         aria-hidden="true"
@@ -171,7 +276,7 @@ function UnserZielSection() {
         {/* Animated paths */}
         <g className="motion-path">
           <path
-            d="M0,200 C200,120 400,280 600,200 800,120 1000,280 1200,200 1300,170 1400,220 1440,200"
+            d="M0,200 C200,100 400,300 600,180 800,100 1000,300 1200,180 1300,150 1400,250 1440,200"
             fill="none"
             stroke={RG600}
             strokeWidth="2"
@@ -190,7 +295,7 @@ function UnserZielSection() {
           </path>
 
           <path
-            d="M0,230 C220,170 440,240 660,210 880,180 1100,230 1320,210 1380,205 1440,215 1440,215"
+            d="M0,250 C220,120 440,300 660,180 880,120 1100,300 1320,180 1380,160 1440,240 1440,200"
             fill="none"
             stroke={RG300}
             strokeWidth="1.8"
@@ -209,7 +314,7 @@ function UnserZielSection() {
           </path>
 
           <path
-            d="M0,170 C200,140 400,180 600,160 800,140 1000,180 1200,160 1320,150 1440,160 1440,160"
+            d="M0,160 C200,90 400,250 600,140 800,90 1000,250 1200,140 1320,120 1440,200 1440,160"
             fill="none"
             stroke={RG600}
             strokeWidth="1.5"
@@ -286,10 +391,10 @@ function UnserZielSection() {
   );
 }
 
-
-function PreiseSection() {
+/* ------------------------ PreiseSection ----------------------- */
+function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   return (
-    <section id="preise" className="py-20 border-t border-slate-100 bg-white text-center">
+    <section id="preise" className="border-t border-slate-100 bg-white py-20 text-center">
       <div className="mx-auto max-w-6xl px-6">
         <h2 className={`text-3xl font-semibold ${serifClass}`}>Unsere Pakete</h2>
 
@@ -298,12 +403,15 @@ function PreiseSection() {
             return (
               <div
                 key={id}
-                className={`group relative rounded-2xl bg-white p-6 text-left shadow-sm border-2 transition-all hover:shadow-lg ${
-                  popular ? "ring-2 ring-[#1b4d2b]/40 scale-105 border-[#1b4d2b]" : "border-[#1b4d2b]"
+                className={`group relative rounded-2xl border-2 bg-white p-6 text-left shadow-sm transition-all hover:shadow-lg ${
+                  popular ? "scale-105 border-[#1b4d2b] ring-2 ring-[#1b4d2b]/40" : "border-[#1b4d2b]"
                 }`}
               >
                 {popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-medium text-white shadow-sm" style={{ backgroundColor: RG600 }}>
+                  <div
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-medium text-white shadow-sm"
+                    style={{ backgroundColor: RG600 }}
+                  >
                     Meistverkauft
                   </div>
                 )}
@@ -320,7 +428,7 @@ function PreiseSection() {
                 <ul className="mt-6 space-y-2">
                   {features.map((f, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="mt-0.5 rounded-full p-1 bg-[#1b4d2b1A] text-[#1b4d2b]">
+                      <span className="mt-0.5 rounded-full bg-[#1b4d2b1A] p-1 text-[#1b4d2b]">
                         <Check className="h-3.5 w-3.5" />
                       </span>
                       <span className="text-sm text-slate-700">{f}</span>
@@ -328,7 +436,8 @@ function PreiseSection() {
                   ))}
                 </ul>
 
-                <Button className="mt-6 w-full" variant={popular ? "default" : "outline"}>
+                {/* Button öffnet das Calendly-Modal */}
+                <Button className="mt-6 w-full" variant={popular ? "default" : "outline"} onClick={onOpenCalendly}>
                   Jetzt anfragen
                 </Button>
               </div>
@@ -344,11 +453,18 @@ function PreiseSection() {
   );
 }
 
+/* ------------------------ AblaufSection ----------------------- */
 function AblaufSection() {
   return (
-    <section id="ablauf" className="py-20 text-white" style={{ background: `linear-gradient(90deg, ${RG600}, ${RG300})` }}>
+    <section
+      id="ablauf"
+      className="py-20 text-white"
+      style={{ background: `linear-gradient(90deg, ${RG600}, ${RG300})` }}
+    >
       <div className="mx-auto max-w-6xl px-6">
-        <h2 className={`mb-12 text-center text-3xl font-semibold ${serifClass}`}>Unser Ablauf – transparent & effizient</h2>
+        <h2 className={`mb-12 text-center text-3xl font-semibold ${serifClass}`}>
+          Unser Ablauf – transparent & effizient
+        </h2>
         <div className="flex flex-col md:flex-row md:items-start md:justify-between md:gap-6">
           {ablauf.map(({ icon: Icon, title, desc }, idx) => (
             <div key={idx} className="relative flex flex-col items-center text-center md:w-1/5">
@@ -358,7 +474,7 @@ function AblaufSection() {
               <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{title}</h3>
               <p className="text-sm text-white/90">{desc}</p>
               {idx < ablauf.length - 1 && (
-                <ArrowRight className="absolute top-6 right-[-18px] hidden h-5 w-5 md:block" />
+                <ArrowRight className="absolute right-[-18px] top-6 hidden h-5 w-5 md:block" />
               )}
             </div>
           ))}
@@ -368,11 +484,14 @@ function AblaufSection() {
   );
 }
 
+/* ----------------------- KontaktSection ----------------------- */
 function KontaktSection() {
   return (
-    <section id="kontakt" className="py-20 border-t border-slate-100 text-center bg-white">
+    <section id="kontakt" className="border-t border-slate-100 bg-white py-20 text-center">
       <h2 className={`text-3xl font-semibold ${serifClass}`}>Kontakt</h2>
-      <p className="mt-4 text-slate-600">Schreib uns gerne für weitere Informationen oder ein individuelles Angebot.</p>
+      <p className="mt-4 text-slate-600">
+        Schreib uns gerne für weitere Informationen oder ein individuelles Angebot.
+      </p>
       <form className="mx-auto mt-8 grid max-w-lg gap-4" onSubmit={(e) => e.preventDefault()}>
         <input type="text" placeholder="Name" className="rounded-lg border border-slate-300 p-3" />
         <input type="email" placeholder="E-Mail" className="rounded-lg border border-slate-300 p-3" />
@@ -383,7 +502,12 @@ function KontaktSection() {
   );
 }
 
+/* ----------------------- Root Component ----------------------- */
 export default function FindbarPage() {
+  const [calOpen, setCalOpen] = React.useState(false);
+  const calendlyUrl =
+    "https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung";
+
   return (
     <div className="bg-white text-slate-900">
       <Header />
@@ -391,17 +515,27 @@ export default function FindbarPage() {
       <BenefitsMarquee />
       <BlogSection />
       <UnserZielSection />
-      <PreiseSection />
+      <PreiseSection onOpenCalendly={() => setCalOpen(true)} />
       <AblaufSection />
       <KontaktSection />
+
       <footer className="border-t border-slate-100 py-8 text-center text-sm text-slate-500">
         <div className="space-x-4">
           <a href="#">Impressum</a>
           <a href="#">AGB</a>
           <a href="#">Datenschutz</a>
         </div>
-        <p className="mt-3">© {new Date().getFullYear()} findbar. Alle Rechte vorbehalten.</p>
+        <p className="mt-3">
+          © {new Date().getFullYear()} findbar. Alle Rechte vorbehalten.
+        </p>
       </footer>
+
+      {/* Calendly Popup */}
+      <CalendlyModal
+        open={calOpen}
+        onClose={() => setCalOpen(false)}
+        url={calendlyUrl}
+      />
     </div>
   );
 }
