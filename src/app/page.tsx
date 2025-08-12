@@ -263,108 +263,54 @@ function BlogSection() {
 }
 
 /* ---------------------- UnserZielSection ---------------------- */
+/* ---------------------- UnserZielSection (ohne Waving Lines) ---------------------- */
 function UnserZielSection() {
   return (
     <section className="relative overflow-hidden border-t border-slate-100 bg-white">
-      {/* Waving Lines Background (verstärkte Bewegung) */}
-      <svg
-        className="pointer-events-none absolute inset-0 z-0 opacity-30"
-        viewBox="0 0 1440 400"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        {/* Animated paths */}
-        <g className="motion-path">
-          <path
-            d="M0,200 C200,100 400,300 600,180 800,100 1000,300 1200,180 1300,150 1400,250 1440,200"
-            fill="none"
-            stroke={RG600}
-            strokeWidth="2"
-            strokeOpacity="0.5"
-          >
-            <animate
-              attributeName="d"
-              dur="12s"
-              repeatCount="indefinite"
-              values="
-                M0,200 C200,100 400,300 600,180 800,100 1000,300 1200,180 1300,150 1400,250 1440,200;
-                M0,240 C200,150 400,250 600,220 800,150 1000,250 1200,220 1300,190 1400,230 1440,210;
-                M0,200 C200,100 400,300 600,180 800,100 1000,300 1200,180 1300,150 1400,250 1440,200
-              "
-            />
-          </path>
-
-          <path
-            d="M0,250 C220,120 440,300 660,180 880,120 1100,300 1320,180 1380,160 1440,240 1440,200"
-            fill="none"
-            stroke={RG300}
-            strokeWidth="1.8"
-            strokeOpacity="0.35"
-          >
-            <animate
-              attributeName="d"
-              dur="14s"
-              repeatCount="indefinite"
-              values="
-                M0,250 C220,120 440,300 660,180 880,120 1100,300 1320,180 1380,160 1440,240 1440,200;
-                M0,220 C240,180 460,220 680,200 900,180 1120,220 1340,200 1400,190 1440,210 1440,210;
-                M0,250 C220,120 440,300 660,180 880,120 1100,300 1320,180 1380,160 1440,240 1440,200
-              "
-            />
-          </path>
-
-          <path
-            d="M0,160 C200,90 400,250 600,140 800,90 1000,250 1200,140 1320,120 1440,200 1440,160"
-            fill="none"
-            stroke={RG600}
-            strokeWidth="1.5"
-            strokeOpacity="0.25"
-          >
-            <animate
-              attributeName="d"
-              dur="16s"
-              repeatCount="indefinite"
-              values="
-                M0,160 C200,90 400,250 600,140 800,90 1000,250 1200,140 1320,120 1440,200 1440,160;
-                M0,180 C220,140 420,200 620,160 820,140 1020,200 1220,160 1340,140 1440,180 1440,170;
-                M0,160 C200,90 400,250 600,140 800,90 1000,250 1200,140 1320,120 1440,200 1440,160
-              "
-            />
-          </path>
-        </g>
-
-        {/* Static paths for reduced motion */}
-        <g className="static-path" style={{ display: "none" }}>
-          <path d="M0,200 C200,100 400,300 600,180 800,100 1000,300 1200,180 1300,150 1400,250 1440,200" fill="none" stroke={RG600} strokeWidth="2" strokeOpacity="0.5" />
-          <path d="M0,250 C220,120 440,300 660,180 880,120 1100,300 1320,180 1380,160 1440,240 1440,200" fill="none" stroke={RG300} strokeWidth="1.8" strokeOpacity="0.35" />
-          <path d="M0,160 C200,90 400,250 600,140 800,90 1000,250 1200,140 1320,120 1440,200 1440,160" fill="none" stroke={RG600} strokeWidth="1.5" strokeOpacity="0.25" />
-        </g>
-      </svg>
-
-      <style>{`
-        @media (prefers-reduced-motion: reduce) {
-          .motion-path { display: none; }
-          .static-path { display: inline; }
-        }
-      `}</style>
-
-      {/* Content */}
       <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 md:grid-cols-2">
         <div>
-          <h2 className={`text-3xl font-semibold ${serifClass}`}>Unser Ziel: minimaler Zeitaufwand für dich</h2>
+          <h2 className={`text-3xl font-semibold ${serifClass}`}>
+            Unser Ziel: minimaler Zeitaufwand für dich
+          </h2>
           <p className="mt-4 max-w-prose text-slate-600">
-            Wir orchestrieren deinen Content-Motor so, dass du <em>möglichst wenig operativen Aufwand</em> hast.
-            Einmal Onboarding, Plan freigeben, 2–3 Musterartikel abnicken – danach liefern wir regelmäßig in Batches
-            und halten dich mit klaren Status-Updates auf dem Laufenden.
+            Wir orchestrieren deinen Content-Motor so, dass du{" "}
+            <em>möglichst wenig operativen Aufwand</em> hast.
+            Einmal Onboarding, Plan freigeben, 2–3 Musterartikel abnicken –
+            danach liefern wir regelmäßig in Batches und halten dich mit klaren
+            Status-Updates auf dem Laufenden.
           </p>
           <ul className="mt-6 space-y-3 text-slate-700">
-            <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full" style={{backgroundColor: RG600}}></span><span>Einmal einrichten – nachhaltig profitieren.</span></li>
-            <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full" style={{backgroundColor: RG600}}></span><span>Freigaben in Batches statt Micromanagement.</span></li>
-            <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full" style={{backgroundColor: RG600}}></span><span>Transparente Reports: Veröffentlichungen, Rankings, Traffic.</span></li>
+            <li className="flex items-start gap-3">
+              <span
+                className="mt-1 inline-block h-2 w-2 rounded-full"
+                style={{ backgroundColor: RG600 }}
+              ></span>
+              <span>Einmal einrichten – nachhaltig profitieren.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span
+                className="mt-1 inline-block h-2 w-2 rounded-full"
+                style={{ backgroundColor: RG600 }}
+              ></span>
+              <span>Freigaben in Batches statt Micromanagement.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span
+                className="mt-1 inline-block h-2 w-2 rounded-full"
+                style={{ backgroundColor: RG600 }}
+              ></span>
+              <span>Transparente Reports: Veröffentlichungen, Rankings, Traffic.</span>
+            </li>
           </ul>
           <div className="mt-8 flex gap-3">
-            <Button asChild><a href="#preise" className="text-white">Pakete ansehen</a></Button>
-            <Button variant="outline" asChild><a href="#kontakt">Kurz-Onboarding starten</a></Button>
+            <Button asChild>
+              <a href="#preise" className="text-white">
+                Pakete ansehen
+              </a>
+            </Button>
+            <Button variant="outline" asChild>
+              <a href="#kontakt">Kurz-Onboarding starten</a>
+            </Button>
           </div>
         </div>
 
@@ -372,7 +318,9 @@ function UnserZielSection() {
           <div className="relative w-full max-w-md">
             <div
               className="absolute -inset-10 -z-10 blur-2xl"
-              style={{ background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)` }}
+              style={{
+                background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`,
+              }}
             />
             <img
               src="https://chatgpt.com/s/m_689a3b8887608191ae4d7e21c361c306"
@@ -390,6 +338,7 @@ function UnserZielSection() {
     </section>
   );
 }
+
 
 /* ------------------------ PreiseSection ----------------------- */
 function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
