@@ -264,80 +264,92 @@ function BlogSection() {
 
 /* ---------------------- UnserZielSection ---------------------- */
 /* ---------------------- UnserZielSection (ohne Waving Lines) ---------------------- */
+/* ---------------------- UnserZielSection (Racing Green Box + Punkte) ---------------------- */
 function UnserZielSection() {
   return (
-    <section className="relative overflow-hidden border-t border-slate-100 bg-white">
-      <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 md:grid-cols-2">
-        <div>
-          <h2 className={`text-3xl font-semibold ${serifClass}`}>
-            Unser Ziel: minimaler Zeitaufwand für dich
-          </h2>
-          <p className="mt-4 max-w-prose text-slate-600">
-            Wir orchestrieren deinen Content-Motor so, dass du{" "}
-            <em>möglichst wenig operativen Aufwand</em> hast.
-            Einmal Onboarding, Plan freigeben, 2–3 Musterartikel abnicken –
-            danach liefern wir regelmäßig in Batches und halten dich mit klaren
-            Status-Updates auf dem Laufenden.
-          </p>
-          <ul className="mt-6 space-y-3 text-slate-700">
-            <li className="flex items-start gap-3">
-              <span
-                className="mt-1 inline-block h-2 w-2 rounded-full"
-                style={{ backgroundColor: RG600 }}
-              ></span>
-              <span>Einmal einrichten – nachhaltig profitieren.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span
-                className="mt-1 inline-block h-2 w-2 rounded-full"
-                style={{ backgroundColor: RG600 }}
-              ></span>
-              <span>Freigaben in Batches statt Micromanagement.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span
-                className="mt-1 inline-block h-2 w-2 rounded-full"
-                style={{ backgroundColor: RG600 }}
-              ></span>
-              <span>Transparente Reports: Veröffentlichungen, Rankings, Traffic.</span>
-            </li>
-          </ul>
-          <div className="mt-8 flex gap-3">
-            <Button asChild>
-              <a href="#preise" className="text-white">
-                Pakete ansehen
-              </a>
-            </Button>
-            <Button variant="outline" asChild>
-              <a href="#kontakt">Kurz-Onboarding starten</a>
-            </Button>
+    <section className="py-20 px-6 flex justify-center">
+      <div
+        className="relative w-full max-w-6xl overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
+        style={{ backgroundColor: RG600 }}
+      >
+        {/* Punkte-Pattern: links */}
+        <div
+          aria-hidden
+          className="absolute inset-y-0 left-0 w-[55%] opacity-15"
+          style={{
+            backgroundImage: "radial-gradient(white 10%, transparent 11%)",
+            backgroundSize: "28px 28px",
+            backgroundPosition: "10px 10px",
+          }}
+        />
+        {/* Punkte-Pattern: rechts */}
+        <div
+          aria-hidden
+          className="absolute inset-y-0 right-0 w-[55%] opacity-15"
+          style={{
+            backgroundImage: "radial-gradient(white 10%, transparent 11%)",
+            backgroundSize: "28px 28px",
+            backgroundPosition: "-6px 8px",
+          }}
+        />
+
+        {/* Inhalt */}
+        <div className="relative z-10 grid items-center gap-12 px-6 py-12 md:grid-cols-2 md:px-12">
+          <div>
+            <p className="text-sm uppercase tracking-wide text-white/70">Done 4 You</p>
+            <h2 className={`mt-2 text-3xl font-semibold ${serifClass}`}>Minimaler Zeitaufwand für dich</h2>
+            <p className="mt-4 max-w-prose text-white/90">
+              Wir orchestrieren deinen Content-Motor so, dass du <em>möglichst wenig operativen Aufwand</em> hast.
+              Einmal Onboarding, Plan freigeben, 2–3 Musterartikel abnicken – danach liefern wir regelmäßig in Batches
+              und halten dich mit klaren Status-Updates auf dem Laufenden.
+            </p>
+            <ul className="mt-6 space-y-3 text-white/90">
+              <li className="flex items-start gap-3">
+                <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
+                <span>Einmal einrichten – nachhaltig profitieren.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
+                <span>Freigaben in Batches statt Micromanagement.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
+                <span>Transparente Reports: Veröffentlichungen, Rankings, Traffic.</span>
+              </li>
+            </ul>
+            <div className="mt-8 flex gap-3">
+              <Button asChild><a href="#preise" className="text-white">Pakete ansehen</a></Button>
+              <Button variant="outline" asChild><a href="#kontakt">Kurz-Onboarding starten</a></Button>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <div className="relative w-full max-w-md">
+              <div
+                className="absolute -inset-10 -z-10 blur-2xl"
+                style={{ background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)` }}
+              />
+              <img
+                src="https://chatgpt.com/s/m_689a3b8887608191ae4d7e21c361c306"
+                alt="KI-Roboter spannt einen Bogen"
+                className="relative z-20 w-4/5 translate-x-6 rounded-xl shadow-2xl"
+              />
+              <img
+                src="https://chatgpt.com/s/m_689a3b8887608191ae4d7e21c361c306"
+                alt="Zielscheibe"
+                className="absolute right-0 top-1/2 z-10 w-2/5 -translate-y-1/2 rounded-xl shadow-xl"
+              />
+            </div>
           </div>
         </div>
 
-        <div className="grid place-items-center">
-          <div className="relative w-full max-w-md">
-            <div
-              className="absolute -inset-10 -z-10 blur-2xl"
-              style={{
-                background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`,
-              }}
-            />
-            <img
-              src="https://chatgpt.com/s/m_689a3b8887608191ae4d7e21c361c306"
-              alt="KI-Roboter spannt einen Bogen"
-              className="relative z-20 w-4/5 translate-x-6 rounded-xl shadow-md"
-            />
-            <img
-              src="https://chatgpt.com/s/m_689a3b8887608191ae4d7e21c361c306"
-              alt="Zielscheibe"
-              className="absolute right-0 top-1/2 z-10 w-2/5 -translate-y-1/2 rounded-xl shadow"
-            />
-          </div>
-        </div>
+        {/* feiner Innenrand für hochwertigen Look */}
+        <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
       </div>
     </section>
   );
 }
+
 
 
 /* ------------------------ PreiseSection ----------------------- */
