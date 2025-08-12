@@ -239,17 +239,17 @@ function BlogSection() {
             {
               title: "Cabriowetter in Deutschland 2025 – Die schönsten Streckenempfehlungen",
               tease: "Entdecke die besten Cabrio-Routen in Deutschland: Von malerischen Küstenstraßen bis zu kurvigen Bergpassagen – perfekt für sonnige Tage.",
-              image: "/blog-cabrio.jpg",
+              image: "/Cabriotouren in Deutschland.png",
             },
             {
               title: "Küchenkauf 2025 – 7 Dinge, die du unbedingt beachten musst",
               tease: "Von der richtigen Planung bis zur Auswahl langlebiger Materialien: So kaufst du deine Traumküche und vermeidest teure Fehler.",
-              image: "/blog-kuechenkauf.jpg",
+              image: "/Küchenkauf 2025.png",
             },
             {
               title: "CNC Maschine mieten statt kaufen – Kosten senken & flexibel bleiben",
               tease: "Erfahre, wann sich CNC-Maschinen-Miete lohnt, welche Kostenfallen du vermeiden solltest und wie du den richtigen Anbieter findest.",
-              image: "/blog-cnc.jpg",
+              image: "/CNC Maschine mieten.png",
             },
           ].map((b, i) => (
             <article
@@ -337,7 +337,7 @@ function UnserZielSection() {
                   }}
                 />
                 <img
-                  src="/kJbcdj.png"
+                  src="/Findbar.png"
                   alt="Darstellung des Done 4 You Prozesses"
                   className="relative z-20 w-full rounded-xl"
                 />
