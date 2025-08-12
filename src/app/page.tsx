@@ -47,10 +47,10 @@ const benefits = [
 // ABLAUF (Steps)
 const ablauf = [
   { icon: ClipboardList, title: "Initiales Setup", desc: "Onboarding zu Zielgruppe, Themen, Keywords & Branding." },
-  { icon: FileText, title: "Content-Plan-Abnahme", desc: "Gesamtplan (50–200 Artikel) zur Freigabe, Feedback wird gebündelt." },
-  { icon: CheckCircle, title: "Beispiel-Content", desc: "2–3 Musterartikel – Stil & Struktur finalisieren." },
-  { icon: Package, title: "Batch-Abnahmen", desc: "Regelmäßige Lieferungen (z. B. 10–20) – Prüfung & Freigabe." },
-  { icon: BarChart3, title: "Status & Ergebnisse", desc: "Monatliche Reports: Artikel, Rankings, Traffic – Strategie justieren." },
+  { icon: FileText, title: "Content-Plan", desc: "Freigabe des Themenentwurfs für die nächsten 30 Tage." },
+  { icon: CheckCircle, title: "Beispiel-Texte", desc: "Manuelle Abnahme der ersten 2 bis 3 Blogartikel." },
+  { icon: Package, title: "Batch-Abnahmen", desc: "Lieferung der gesamten Artikel für den Monat." },
+  { icon: BarChart3, title: "Reporting", desc: "Berichte zu Performance, Impressionen & mehr." },
 ];
 
 // PRICING DATEN
