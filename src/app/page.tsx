@@ -3,6 +3,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import {
+  Sparkles,
   Eye,
   Target,
   TrendingUp,
@@ -28,7 +29,7 @@ const RG300 = "#7ca98e";
 
 const serifClass = "font-serif";
 
-// BENEFITS (laufen im Marquee)
+// BENEFITS
 const benefits = [
   { icon: Eye, label: "Erhöhte Sichtbarkeit", help: "Mehr Präsenz in Suchergebnissen." },
   { icon: Target, label: "Gezielte Reichweite", help: "Triff die passende Zielgruppe." },
@@ -42,7 +43,7 @@ const benefits = [
   { icon: Search, label: "Optimierte Auffindbarkeit", help: "Gefunden werden, wenn es zählt." },
 ];
 
-// ABLAUF (Steps)
+// ABLAUF
 const ablauf = [
   { icon: ClipboardList, title: "Initiales Setup", desc: "Onboarding zu Zielgruppe, Themen, Keywords & Branding." },
   { icon: FileText, title: "Content-Plan-Abnahme", desc: "Gesamtplan (50–200 Artikel) zur Freigabe, Feedback wird gebündelt." },
@@ -51,7 +52,7 @@ const ablauf = [
   { icon: BarChart3, title: "Status & Ergebnisse", desc: "Monatliche Reports: Artikel, Rankings, Traffic – Strategie justieren." },
 ];
 
-// PRICING DATEN
+// PRICING
 const plans = [
   { id: "starter", articles: 90, price: 499, popular: false },
   { id: "growth", articles: 180, price: 899, popular: true },
@@ -161,9 +162,9 @@ function BlogSection() {
 function UnserZielSection() {
   return (
     <section className="relative overflow-hidden border-t border-slate-100 bg-white">
-      {/* Gepunktetes Pattern mit Fading */}
+      {/* Gepunktetes Pattern mit Fading oben & unten */}
       <div
-        className="absolute inset-0 opacity-40"
+        className="absolute inset-0 opacity-40 motion-safe:animate-[dotScroll_40s_linear_infinite]"
         style={{
           backgroundImage: `radial-gradient(currentColor 1px, transparent 1px)`,
           backgroundSize: "20px 20px",
@@ -171,7 +172,13 @@ function UnserZielSection() {
           maskImage: "linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)",
           WebkitMaskImage: "linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)",
         }}
-      ></div>
+      />
+      <style>{`
+        @keyframes dotScroll {
+          from { background-position: 0 0; }
+          to   { background-position: 200px 200px; }
+        }
+      `}</style>
 
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 md:grid-cols-2">
         <div>
@@ -196,9 +203,7 @@ function UnserZielSection() {
           <div className="relative w-full max-w-md">
             <div
               className="absolute -inset-10 -z-10 blur-2xl"
-              style={{
-                background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`
-              }}
+              style={{ background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)` }}
             />
             <img
               src="https://chatgpt.com/s/m_689a3b8887608191ae4d7e21c361c306"
@@ -214,5 +219,20 @@ function UnserZielSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+// PreiseSection, AblaufSection, KontaktSection bleiben wie gehabt ...
+
+export default function FindbarPage() {
+  return (
+    <div className="bg-white text-slate-900">
+      <Header />
+      <Hero />
+      <BenefitsMarquee />
+      <BlogSection />
+      <UnserZielSection />
+      {/* Restliche Sections ... */}
+    </div>
   );
 }
