@@ -244,7 +244,7 @@ function BlogSection() {
             {
               title: "Küchenkauf 2025 – 7 Dinge, die du unbedingt beachten musst",
               tease: "Von der richtigen Planung bis zur Auswahl langlebiger Materialien: So kaufst du deine Traumküche und vermeidest teure Fehler.",
-              image: "/Kuechenkauf 2025.png",
+              image: "/Kuechenkauf.png",
             },
             {
               title: "CNC Maschine mieten statt kaufen – Kosten senken & flexibel bleiben",
@@ -337,7 +337,7 @@ function UnserZielSection() {
                   }}
                 />
                 <img
-                  src="/Findbar Performance.png"
+                  src="/Findbar Performancesteigerung.png"
                   alt="Darstellung des Done 4 You Prozesses"
                   className="relative z-20 w-full rounded-xl"
                 />
