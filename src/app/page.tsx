@@ -161,36 +161,55 @@ function BlogSection() {
 function UnserZielSection() {
   return (
     <section className="relative overflow-hidden border-t border-slate-100 bg-white">
-      {/* Gepunktetes Pattern mit Fading oben & unten (dezent) */}
-      <div
-        className="absolute inset-0 opacity-20 motion-safe:animate-[dotScroll_40s_linear_infinite]"
-        style={{
-          backgroundImage: `radial-gradient(currentColor 1px, transparent 1px)`,
-          backgroundSize: "20px 20px",
-          color: "#1b4d2b",
-          maskImage: "linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)",
-        }}
-      />
+      {/* Aurora Gradient Background */}
+      <div className="absolute inset-0 -z-10 overflow-hidden opacity-35">
+        <div
+          className="absolute -inset-40 blur-3xl [animation:aurora_18s_ease-in-out_infinite]"
+          style={{
+            background: `
+              radial-gradient(60% 60% at 20% 30%, ${RG300}66, transparent 60%),
+              radial-gradient(50% 50% at 80% 20%, ${RG600}55, transparent 55%),
+              radial-gradient(40% 40% at 60% 80%, ${RG300}55, transparent 60%)
+            `
+          }}
+        />
+      </div>
+
       <style>{`
-        @keyframes dotScroll {
-          from { background-position: 0 0; }
-          to   { background-position: 200px 200px; }
+        @keyframes aurora {
+          0%, 100% { transform: translate3d(0,0,0) scale(1); }
+          50% { transform: translate3d(-4%, 2%, 0) scale(1.1); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .\\[animation\\:aurora_18s_ease-in-out_infinite\\] {
+            animation: none;
+          }
         }
       `}</style>
 
       <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 py-20 md:grid-cols-2">
         <div>
-          <h2 className={`text-3xl font-semibold ${serifClass}`}>Unser Ziel: minimaler Zeitaufwand für dich</h2>
+          <h2 className={`text-3xl font-semibold ${serifClass}`}>
+            Unser Ziel: minimaler Zeitaufwand für dich
+          </h2>
           <p className="mt-4 max-w-prose text-slate-600">
             Wir orchestrieren deinen Content-Motor so, dass du <em>möglichst wenig operativen Aufwand</em> hast.
             Einmal Onboarding, Plan freigeben, 2–3 Musterartikel abnicken – danach liefern wir regelmäßig in Batches
             und halten dich mit klaren Status-Updates auf dem Laufenden.
           </p>
           <ul className="mt-6 space-y-3 text-slate-700">
-            <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full" style={{backgroundColor: RG600}}></span><span>Einmal einrichten – nachhaltig profitieren.</span></li>
-            <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full" style={{backgroundColor: RG600}}></span><span>Freigaben in Batches statt Micromanagement.</span></li>
-            <li className="flex items-start gap-3"><span className="mt-1 inline-block h-2 w-2 rounded-full" style={{backgroundColor: RG600}}></span><span>Transparente Reports: Veröffentlichungen, Rankings, Traffic.</span></li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 inline-block h-2 w-2 rounded-full" style={{ backgroundColor: RG600 }}></span>
+              <span>Einmal einrichten – nachhaltig profitieren.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 inline-block h-2 w-2 rounded-full" style={{ backgroundColor: RG600 }}></span>
+              <span>Freigaben in Batches statt Micromanagement.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-1 inline-block h-2 w-2 rounded-full" style={{ backgroundColor: RG600 }}></span>
+              <span>Transparente Reports: Veröffentlichungen, Rankings, Traffic.</span>
+            </li>
           </ul>
           <div className="mt-8 flex gap-3">
             <Button asChild><a href="#preise" className="text-white">Pakete ansehen</a></Button>
@@ -220,6 +239,7 @@ function UnserZielSection() {
     </section>
   );
 }
+
 
 function PreiseSection() {
   return (
