@@ -3,7 +3,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import {
-  Sparkles,
   Eye,
   Target,
   TrendingUp,
@@ -73,7 +72,7 @@ function formatEUR(n: number) {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-100 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="border-b border-slate-100 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-4 gap-8">
         <nav className="flex gap-6">
           <a href="#blog" className="text-sm" style={{ color: "#334155" }}>Blog-Beispiele</a>
