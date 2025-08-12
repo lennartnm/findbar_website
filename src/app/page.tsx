@@ -28,7 +28,7 @@ const RG300 = "#7ca98e";
 const serifClass = "font-serif";
 
 // Einheitlicher Container für Blog / Done4You / Pricing
-const containerClass = "w-full max-w-5xl mx-auto px-6";
+const containerClass = "w-full max-w-6xl mx-auto px-6";
 
 // BENEFITS (laufen im Marquee)
 const benefits = [
@@ -405,6 +405,9 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
 }
 
 /* ------------------------ AblaufSection ----------------------- */
+<div className={containerClass}>
+  
+
 function AblaufSection() {
   return (
     <section
@@ -434,6 +437,8 @@ function AblaufSection() {
     </section>
   );
 }
+
+  </div>
 
 /* ----------------------- KontaktSection ----------------------- */
 function KontaktSection() {
