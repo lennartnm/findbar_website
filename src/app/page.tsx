@@ -163,7 +163,7 @@ function Hero() {
         />
       </svg>
       <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
-        <span className="italic font-bold">findbar</span>: Skaliere Dein Unternehmen mit
+        <span className="italic font-bold">findbar:</span> Skaliere Dein Unternehmen mit
         <br className="hidden md:inline" /> KI-optimierten Blog-Artikeln
       </h1>
       <p className="mx-auto mt-5 max-w-2xl text-slate-600">
