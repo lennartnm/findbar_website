@@ -337,7 +337,7 @@ function UnserZielSection() {
                   }}
                 />
                 <img
-                  src="/Findbar.png"
+                  src="/Findbar Performance.png"
                   alt="Darstellung des Done 4 You Prozesses"
                   className="relative z-20 w-full rounded-xl"
                 />
