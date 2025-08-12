@@ -95,7 +95,8 @@ function Hero() {
         <polyline fill="none" stroke="currentColor" strokeWidth="2" points="0,180 60,165 120,160 180,140 240,120 300,95 360,80 420,55 480,30 500,20" />
       </svg>
       <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
-        <span className="italic font-bold">findbar</span>: Skaliere Dein Unternehmen mit KI-optimierten Blog-Artikeln
+        <span className="italic font-bold">findbar</span>: Skaliere Dein Unternehmen mit
+        <br className="hidden md:inline" /> KI-optimierten Blog-Artikeln
       </h1>
       <p className="mt-5 mx-auto max-w-2xl text-slate-600">
         Wir produzieren skalierbare und suchmaschinenoptimierte Blogartikel mit Hilfe von KI – zu einem Bruchteil der bisher üblichen Preise.
@@ -295,15 +296,15 @@ function AblaufSection() {
 function KontaktSection() {
   return (
     <section id="kontakt" className="py-20 border-t border-slate-100 text-center bg-white">
-    <h2 className={`text-3xl font-semibold ${serifClass}`}>Kontakt</h2>
-    <p className="mt-4 text-slate-600">Schreib uns gerne für weitere Informationen oder ein individuelles Angebot.</p>
-    <form className="mx-auto mt-8 grid max-w-lg gap-4" onSubmit={(e) => e.preventDefault()}>
-      <input type="text" placeholder="Name" className="rounded-lg border border-slate-300 p-3" />
-      <input type="email" placeholder="E-Mail" className="rounded-lg border border-slate-300 p-3" />
-      <textarea placeholder="Nachricht" className="h-32 rounded-lg border border-slate-300 p-3" />
-      <Button type="submit">Senden</Button>
-    </form>
-  </section>
+      <h2 className={`text-3xl font-semibold ${serifClass}`}>Kontakt</h2>
+      <p className="mt-4 text-slate-600">Schreib uns gerne für weitere Informationen oder ein individuelles Angebot.</p>
+      <form className="mx-auto mt-8 grid max-w-lg gap-4" onSubmit={(e) => e.preventDefault()}>
+        <input type="text" placeholder="Name" className="rounded-lg border border-slate-300 p-3" />
+        <input type="email" placeholder="E-Mail" className="rounded-lg border border-slate-300 p-3" />
+        <textarea placeholder="Nachricht" className="h-32 rounded-lg border border-slate-300 p-3" />
+        <Button type="submit">Senden</Button>
+      </form>
+    </section>
   );
 }
 
