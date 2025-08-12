@@ -288,78 +288,6 @@ function BlogSection() {
   );
 }
 
-/* ---------------------- So helfen dir KI-optimierte Blogartikel ---------------------- */
-function HowItHelpsSection() {
-  const vorteile = [
-    {
-      title: "SEO-optimiert",
-      desc: "Wir integrieren relevante Keywords, um bessere Google-Platzierungen zu sichern.",
-      icon: Search,
-    },
-    {
-      title: "Schnelle Produktion",
-      desc: "Von der Idee bis zur Veröffentlichung in wenigen Tagen.",
-      icon: Zap,
-    },
-    {
-      title: "Langfristiger Traffic",
-      desc: "Evergreen-Content sorgt für monatelangen, konstanten Besucherstrom.",
-      icon: TrendingUp,
-    },
-    {
-      title: "Branchenspezifisch",
-      desc: "Inhalte, die exakt zu deinem Geschäft und deiner Zielgruppe passen.",
-      icon: CheckCircle,
-    },
-  ];
-
-  return (
-    <section className="py-20 border-t border-slate-100">
-      <div className={containerClass}>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Textseite */}
-          <div>
-            <h2 className={`text-3xl font-semibold ${serifClass}`}>
-              So helfen dir KI-optimierte Blogartikel
-            </h2>
-            <p className="mt-4 text-slate-600">
-              Unsere Artikel verbinden modernste KI-Technologie mit menschlicher Expertise – für Inhalte, die ranken, gelesen und geteilt werden.
-            </p>
-            <ul className="mt-6 space-y-4">
-              {vorteile.map((v, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <div className="rounded-full bg-[#1b4d2b1A] p-2 text-[#1b4d2b]">
-                    <v.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">{v.title}</h4>
-                    <p className="text-sm text-slate-600">{v.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Bildseite */}
-          <div className="relative w-full max-w-md mx-auto">
-            <div
-              className="absolute -inset-10 -z-10 blur-2xl"
-              style={{
-                background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`,
-              }}
-            />
-            <img
-              src="/Lupe.png"
-              alt="Darstellung von KI-optimierten Blogartikeln"
-              className="relative z-20 w-full rounded-xl shadow-lg"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ---------------------- UnserZielSection (Done 4 You) ---------------------- */
 function UnserZielSection() {
   return (
@@ -412,7 +340,7 @@ function UnserZielSection() {
                   }}
                 />
                 <img
-                  src="/Ziele erreichen mit Findbar.png"
+                  src="/Findbar Performance Steigerung.png"
                   alt="Darstellung des Done 4 You Prozesses"
                   className="relative z-20 w-full rounded-xl"
                 />
@@ -427,60 +355,6 @@ function UnserZielSection() {
     </section>
   );
 }
-
-/* ---------------------- Identification Section ---------------------- */
-function IdentificationSection() {
-  const zielgruppen = [
-    {
-      title: "KMU & Selbstständige",
-      desc: "Regelmäßig Content veröffentlichen, ohne sich um Themenfindung oder SEO kümmern zu müssen.",
-      icon: Users,
-    },
-    {
-      title: "Marketing-Teams",
-      desc: "Suchmaschinen dominieren und Content-Strategien effizient skalieren.",
-      icon: Target,
-    },
-    {
-      title: "Blogger & Publisher",
-      desc: "Passiv Traffic und Leads generieren – mit Evergreen-Content.",
-      icon: Globe,
-    },
-    {
-      title: "Lokale Dienstleister",
-      desc: "In der Region sichtbar bleiben und gezielt neue Kunden gewinnen.",
-      icon: Search,
-    },
-  ];
-
-  return (
-    <section className="bg-white py-20 border-t border-slate-100">
-      <div className={containerClass}>
-        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
-          An wen richtet sich unser Angebot?
-        </h2>
-        <p className="mt-4 text-center text-slate-600">
-          Unsere KI-optimierten Blogartikel sind für alle, die ihre Reichweite erhöhen und Kunden gezielt ansprechen wollen.
-        </p>
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-4">
-          {zielgruppen.map((z, i) => (
-            <div
-              key={i}
-              className="rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#1b4d2b1A] text-[#1b4d2b]">
-                <z.icon className="h-6 w-6" />
-              </div>
-              <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{z.title}</h3>
-              <p className="text-sm text-slate-600">{z.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 
 /* ------------------------ PreiseSection ----------------------- */
 function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
@@ -583,8 +457,130 @@ function AblaufSection() {
   );
 }
 
+/* ---------------------- Identification Section ---------------------- */
+function IdentificationSection() {
+  const zielgruppen = [
+    {
+      title: "KMU & Selbstständige",
+      desc: "Regelmäßig Content veröffentlichen, ohne sich um Themenfindung oder SEO kümmern zu müssen.",
+      icon: Users,
+    },
+    {
+      title: "Marketing-Teams",
+      desc: "Suchmaschinen dominieren und Content-Strategien effizient skalieren.",
+      icon: Target,
+    },
+    {
+      title: "Blogger & Publisher",
+      desc: "Passiv Traffic und Leads generieren – mit Evergreen-Content.",
+      icon: Globe,
+    },
+    {
+      title: "Lokale Dienstleister",
+      desc: "In der Region sichtbar bleiben und gezielt neue Kunden gewinnen.",
+      icon: Search,
+    },
+  ];
 
+  return (
+    <section className="bg-white py-20 border-t border-slate-100">
+      <div className={containerClass}>
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
+          An wen richtet sich unser Angebot?
+        </h2>
+        <p className="mt-4 text-center text-slate-600">
+          Unsere KI-optimierten Blogartikel sind für alle, die ihre Reichweite erhöhen und Kunden gezielt ansprechen wollen.
+        </p>
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-4">
+          {zielgruppen.map((z, i) => (
+            <div
+              key={i}
+              className="rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#1b4d2b1A] text-[#1b4d2b]">
+                <z.icon className="h-6 w-6" />
+              </div>
+              <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{z.title}</h3>
+              <p className="text-sm text-slate-600">{z.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
+/* ---------------------- So helfen dir KI-optimierte Blogartikel ---------------------- */
+function HowItHelpsSection() {
+  const vorteile = [
+    {
+      title: "SEO-optimiert",
+      desc: "Wir integrieren relevante Keywords, um bessere Google-Platzierungen zu sichern.",
+      icon: Search,
+    },
+    {
+      title: "Schnelle Produktion",
+      desc: "Von der Idee bis zur Veröffentlichung in wenigen Tagen.",
+      icon: Zap,
+    },
+    {
+      title: "Langfristiger Traffic",
+      desc: "Evergreen-Content sorgt für monatelangen, konstanten Besucherstrom.",
+      icon: TrendingUp,
+    },
+    {
+      title: "Branchenspezifisch",
+      desc: "Inhalte, die exakt zu deinem Geschäft und deiner Zielgruppe passen.",
+      icon: CheckCircle,
+    },
+  ];
+
+  return (
+    <section className="py-20 border-t border-slate-100">
+      <div className={containerClass}>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Textseite */}
+          <div>
+            <h2 className={`text-3xl font-semibold ${serifClass}`}>
+              So helfen dir KI-optimierte Blogartikel
+            </h2>
+            <p className="mt-4 text-slate-600">
+              Unsere Artikel verbinden modernste KI-Technologie mit menschlicher Expertise – für Inhalte, die ranken, gelesen und geteilt werden.
+            </p>
+            <ul className="mt-6 space-y-4">
+              {vorteile.map((v, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="rounded-full bg-[#1b4d2b1A] p-2 text-[#1b4d2b]">
+                    <v.icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">{v.title}</h4>
+                    <p className="text-sm text-slate-600">{v.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Bildseite */}
+          <div className="relative w-full max-w-md mx-auto">
+            <div
+              className="absolute -inset-10 -z-10 blur-2xl"
+              style={{
+                background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`,
+              }}
+            />
+            <img
+              src="/KI-Blogartikel-Darstellung.png"
+              alt="Darstellung von KI-optimierten Blogartikeln"
+              className="relative z-20 w-full rounded-xl shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 /* ---------------------- FAQ Section ---------------------- */
 function FAQSection() {
@@ -638,7 +634,25 @@ function FAQSection() {
   );
 }
 
-
+/* ----------------------- KontaktSection ----------------------- */
+function KontaktSection() {
+  return (
+    <section id="kontakt" className="border-t border-slate-100 bg-white py-20">
+      <div className={containerClass}>
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>Kontakt</h2>
+        <p className="mt-4 text-center text-slate-600">
+          Schreib uns gerne für weitere Informationen oder ein individuelles Angebot.
+        </p>
+        <form className="mx-auto mt-8 grid max-w-lg gap-4" onSubmit={(e) => e.preventDefault()}>
+          <input type="text" placeholder="Name" className="rounded-lg border border-slate-300 p-3" />
+          <input type="email" placeholder="E-Mail" className="rounded-lg border border-slate-300 p-3" />
+          <textarea placeholder="Nachricht" className="h-32 rounded-lg border border-slate-300 p-3" />
+          <Button type="submit">Senden</Button>
+        </form>
+      </div>
+    </section>
+  );
+}
 
 /* ----------------------- Root Component ----------------------- */
 export default function FindbarPage() {
