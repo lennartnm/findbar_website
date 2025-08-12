@@ -571,7 +571,7 @@ function HowItHelpsSection() {
               }}
             />
             <img
-              src="/KI-Blogartikel-Darstellung.png"
+              src="/Lupe.png"
               alt="Darstellung von KI-optimierten Blogartikeln"
               className="relative z-20 w-full rounded-xl shadow-lg"
             />
