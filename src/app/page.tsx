@@ -405,7 +405,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
 }
 
 /* ------------------------ AblaufSection ----------------------- */
-<div className={containerClass}>
+
   
 
 function AblaufSection() {
@@ -415,6 +415,7 @@ function AblaufSection() {
       className="py-20 text-white"
       style={{ background: `linear-gradient(90deg, ${RG600}, ${RG300})` }}
     >
+      <div className={containerClass}>
       <div className="mx-auto max-w-6xl px-6">
         <h2 className={`mb-12 text-center text-3xl font-semibold ${serifClass}`}>
           Unser Ablauf – transparent & effizient
@@ -434,11 +435,12 @@ function AblaufSection() {
           ))}
         </div>
       </div>
+          </div>
     </section>
   );
 }
 
-  </div>
+
 
 /* ----------------------- KontaktSection ----------------------- */
 function KontaktSection() {
