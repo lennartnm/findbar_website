@@ -244,7 +244,7 @@ function BlogSection() {
             {
               title: "Küchenkauf 2025 – 7 Dinge, die du unbedingt beachten musst",
               tease: "Von der richtigen Planung bis zur Auswahl langlebiger Materialien: So kaufst du deine Traumküche und vermeidest teure Fehler.",
-              image: "/public/Küchenkauf 2025.png",
+              image: "/Kuechenkauf 2025.png",
             },
             {
               title: "CNC Maschine mieten statt kaufen – Kosten senken & flexibel bleiben",
