@@ -314,6 +314,7 @@ function UnserZielSection() {
               </div>
             </div>
 
+            {/* Nur ein Bild statt zwei */}
             <div className="flex justify-center">
               <div className="relative w-full max-w-md">
                 <div
@@ -321,14 +322,9 @@ function UnserZielSection() {
                   style={{ background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)` }}
                 />
                 <img
-                  src="https://chatgpt.com/s/m_689a3b8887608191ae4d7e21c361c306"
-                  alt="KI-Roboter spannt einen Bogen"
-                  className="relative z-20 w-4/5 translate-x-6 rounded-xl shadow-2xl"
-                />
-                <img
-                  src="https://chatgpt.com/s/m_689a3b8887608191ae4d7e21c361c306"
-                  alt="Zielscheibe"
-                  className="absolute right-0 top-1/2 z-10 w-2/5 -translate-y-1/2 rounded-xl shadow-xl"
+                  src="/kJbcdj.png"
+                  alt="Darstellung des Done 4 You Prozesses"
+                  className="relative z-20 w-full rounded-xl shadow-2xl"
                 />
               </div>
             </div>
@@ -341,6 +337,7 @@ function UnserZielSection() {
     </section>
   );
 }
+
 
 /* ------------------------ PreiseSection ----------------------- */
 function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
