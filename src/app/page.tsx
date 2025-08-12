@@ -27,7 +27,7 @@ const RG600 = "#1b4d2b"; // Racing Green
 const RG300 = "#7ca98e";
 const serifClass = "font-serif";
 
-// Einheitlicher Container für Blog / Done4You / Pricing
+// Einheitlicher Container für Blog / Done4You / Pricing / weitere Sections
 const containerClass = "w-full max-w-6xl mx-auto px-6";
 
 // BENEFITS (laufen im Marquee)
@@ -221,7 +221,6 @@ function BenefitsMarquee() {
   );
 }
 
-
 /* ------------------------- BlogSection (mit Vorschaubild & SEO-Titeln) ------------------------ */
 function BlogSection() {
   return (
@@ -240,16 +239,19 @@ function BlogSection() {
               title: "Cabriowetter in Deutschland 2025 – Die schönsten Streckenempfehlungen",
               tease: "Entdecke die besten Cabrio-Routen in Deutschland: Von malerischen Küstenstraßen bis zu kurvigen Bergpassagen – perfekt für sonnige Tage.",
               image: "/Cabriotouren in Deutschland.png",
+              alt: "Cabrio auf panoramischer Landstraße bei gutem Wetter in Deutschland",
             },
             {
               title: "Küchenkauf 2025 – 7 Dinge, die du unbedingt beachten musst",
               tease: "Von der richtigen Planung bis zur Auswahl langlebiger Materialien: So kaufst du deine Traumküche und vermeidest teure Fehler.",
-              image: "/Moderne Kueche.png", 
+              image: "/Moderne Kueche.png",
+              alt: "Moderne Küche mit viel Tageslicht und Kücheninsel",
             },
             {
               title: "CNC Maschine mieten statt kaufen – Kosten senken & flexibel bleiben",
               tease: "Erfahre, wann sich CNC-Maschinen-Miete lohnt, welche Kostenfallen du vermeiden solltest und wie du den richtigen Anbieter findest.",
               image: "/CNC Maschine mieten.png",
+              alt: "Moderne CNC-Maschine in sauberer Werkstatt",
             },
           ].map((b, i) => (
             <article
@@ -260,8 +262,9 @@ function BlogSection() {
               <div className="aspect-[16/9] w-full overflow-hidden bg-slate-100">
                 <img
                   src={b.image}
-                  alt={b.title}
+                  alt={b.alt}
                   className="h-full w-full object-cover"
+                  loading="lazy"
                 />
               </div>
 
@@ -272,6 +275,7 @@ function BlogSection() {
                 <a
                   href="#"
                   className="mt-4 inline-flex items-center text-sm font-medium text-[#1b4d2b]"
+                  aria-label={`Beispiel ansehen: ${b.title}`}
                 >
                   Beispiel ansehen <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
@@ -284,8 +288,7 @@ function BlogSection() {
   );
 }
 
-
-/* ---------------------- UnserZielSection ---------------------- */
+/* ---------------------- UnserZielSection (Done 4 You) ---------------------- */
 function UnserZielSection() {
   return (
     <section className="py-20">
@@ -352,8 +355,6 @@ function UnserZielSection() {
     </section>
   );
 }
-
-
 
 /* ------------------------ PreiseSection ----------------------- */
 function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
@@ -456,8 +457,182 @@ function AblaufSection() {
   );
 }
 
+/* ---------------------- Identification Section ---------------------- */
+function IdentificationSection() {
+  const zielgruppen = [
+    {
+      title: "KMU & Selbstständige",
+      desc: "Regelmäßig Content veröffentlichen, ohne sich um Themenfindung oder SEO kümmern zu müssen.",
+      icon: Users,
+    },
+    {
+      title: "Marketing-Teams",
+      desc: "Suchmaschinen dominieren und Content-Strategien effizient skalieren.",
+      icon: Target,
+    },
+    {
+      title: "Blogger & Publisher",
+      desc: "Passiv Traffic und Leads generieren – mit Evergreen-Content.",
+      icon: Globe,
+    },
+    {
+      title: "Lokale Dienstleister",
+      desc: "In der Region sichtbar bleiben und gezielt neue Kunden gewinnen.",
+      icon: Search,
+    },
+  ];
 
+  return (
+    <section className="bg-white py-20 border-t border-slate-100">
+      <div className={containerClass}>
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
+          An wen richtet sich unser Angebot?
+        </h2>
+        <p className="mt-4 text-center text-slate-600">
+          Unsere KI-optimierten Blogartikel sind für alle, die ihre Reichweite erhöhen und Kunden gezielt ansprechen wollen.
+        </p>
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-4">
+          {zielgruppen.map((z, i) => (
+            <div
+              key={i}
+              className="rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#1b4d2b1A] text-[#1b4d2b]">
+                <z.icon className="h-6 w-6" />
+              </div>
+              <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{z.title}</h3>
+              <p className="text-sm text-slate-600">{z.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
+/* ---------------------- So helfen dir KI-optimierte Blogartikel ---------------------- */
+function HowItHelpsSection() {
+  const vorteile = [
+    {
+      title: "SEO-optimiert",
+      desc: "Wir integrieren relevante Keywords, um bessere Google-Platzierungen zu sichern.",
+      icon: Search,
+    },
+    {
+      title: "Schnelle Produktion",
+      desc: "Von der Idee bis zur Veröffentlichung in wenigen Tagen.",
+      icon: Zap,
+    },
+    {
+      title: "Langfristiger Traffic",
+      desc: "Evergreen-Content sorgt für monatelangen, konstanten Besucherstrom.",
+      icon: TrendingUp,
+    },
+    {
+      title: "Branchenspezifisch",
+      desc: "Inhalte, die exakt zu deinem Geschäft und deiner Zielgruppe passen.",
+      icon: CheckCircle,
+    },
+  ];
+
+  return (
+    <section className="py-20 border-t border-slate-100">
+      <div className={containerClass}>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Textseite */}
+          <div>
+            <h2 className={`text-3xl font-semibold ${serifClass}`}>
+              So helfen dir KI-optimierte Blogartikel
+            </h2>
+            <p className="mt-4 text-slate-600">
+              Unsere Artikel verbinden modernste KI-Technologie mit menschlicher Expertise – für Inhalte, die ranken, gelesen und geteilt werden.
+            </p>
+            <ul className="mt-6 space-y-4">
+              {vorteile.map((v, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="rounded-full bg-[#1b4d2b1A] p-2 text-[#1b4d2b]">
+                    <v.icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">{v.title}</h4>
+                    <p className="text-sm text-slate-600">{v.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Bildseite */}
+          <div className="relative w-full max-w-md mx-auto">
+            <div
+              className="absolute -inset-10 -z-10 blur-2xl"
+              style={{
+                background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`,
+              }}
+            />
+            <img
+              src="/KI-Blogartikel-Darstellung.png"
+              alt="Darstellung von KI-optimierten Blogartikeln"
+              className="relative z-20 w-full rounded-xl shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------------- FAQ Section ---------------------- */
+function FAQSection() {
+  const faqs = [
+    {
+      q: "Wie schnell sehe ich Ergebnisse?",
+      a: "Oft schon nach wenigen Wochen – Google braucht jedoch manchmal etwas länger, um neue Inhalte vollständig zu indexieren.",
+    },
+    {
+      q: "Muss ich selbst Themen recherchieren?",
+      a: "Nein. Wir übernehmen die komplette Themen- und Keyword-Recherche für dich.",
+    },
+    {
+      q: "Ist das auch für meine Branche geeignet?",
+      a: "Ja. Wir erstellen Inhalte für nahezu jede Branche – ob B2B, B2C oder Nischenmärkte.",
+    },
+    {
+      q: "Was passiert, wenn ich unzufrieden bin?",
+      a: "Wir passen die Inhalte nach deinem Feedback an, bis du zufrieden bist.",
+    },
+    {
+      q: "Wie funktioniert die Abrechnung?",
+      a: "Transparent, monatlich und jederzeit kündbar.",
+    },
+  ];
+
+  return (
+    <section className="bg-white py-20 border-t border-slate-100">
+      <div className={containerClass}>
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
+          Häufige Fragen (FAQ)
+        </h2>
+        <div className="mt-10 space-y-4 max-w-3xl mx-auto">
+          {faqs.map((f, i) => (
+            <details
+              key={i}
+              className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
+            >
+              <summary className="flex cursor-pointer items-center justify-between font-medium">
+                {f.q}
+                <span className="ml-4 transition-transform group-open:rotate-180">
+                  <ArrowRight className="h-4 w-4 text-slate-500" />
+                </span>
+              </summary>
+              <p className="mt-3 text-sm text-slate-600">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 /* ----------------------- KontaktSection ----------------------- */
 function KontaktSection() {
@@ -494,6 +669,9 @@ export default function FindbarPage() {
       <UnserZielSection />
       <PreiseSection onOpenCalendly={() => setCalOpen(true)} />
       <AblaufSection />
+      <IdentificationSection />
+      <HowItHelpsSection />
+      <FAQSection />
       <KontaktSection />
 
       <footer className="border-t border-slate-100 py-8 text-center text-sm text-slate-500">
