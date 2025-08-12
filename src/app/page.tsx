@@ -48,9 +48,9 @@ const benefits = [
 const ablauf = [
   { icon: ClipboardList, title: "Initiales Setup", desc: "Onboarding zu Zielgruppe, Themen, Keywords & Branding." },
   { icon: FileText, title: "Content-Plan", desc: "Freigabe des Themenentwurfs für die nächsten 30 Tage." },
-  { icon: CheckCircle, title: "Beispiel-Texte", desc: "Manuelle Abnahme der ersten 2 bis 3 Blogartikel." },
-  { icon: Package, title: "Batch-Abnahmen", desc: "Lieferung der gesamten Artikel für den Monat." },
-  { icon: BarChart3, title: "Reporting", desc: "Berichte zu Performance, Impressionen & mehr." },
+  { icon: CheckCircle, title: "Beispiel-Texte", desc: "Manuelle Abnahme der ersten zwei bis drei Blogartikel." },
+  { icon: Package, title: "Batch-Abnahmen", desc: "Lieferung der ausstehenden Blog-Artikel für den Monat." },
+  { icon: BarChart3, title: "Reporting", desc: "Berichte zu Performance, Impressionen, Anfragen und mehr." },
 ];
 
 // PRICING DATEN
