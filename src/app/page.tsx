@@ -315,19 +315,20 @@ function UnserZielSection() {
             </div>
 
            {/* Nur ein Bild statt zwei */}
-<div className="flex justify-center">
-  <div className="relative w-full max-w-md">
-    <div
-      className="absolute -inset-10 -z-10 blur-2xl"
-      style={{ background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)` }}
-    />
-    <img
-      src="/kJbcdj.png"
-      alt="Darstellung des Done 4 You Prozesses"
-      className="relative z-20 w-full rounded-xl"
-    />
-  </div>
-</div>
+            <div className="flex justify-center">
+              <div className="relative w-full max-w-md">
+                <div
+                  className="absolute -inset-10 -z-10 blur-2xl"
+                  style={{ background: radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%) }}
+                />
+                <img
+                  src="/kJbcdj.png"
+                  alt="Darstellung des Done 4 You Prozesses"
+                  className="relative z-20 w-full rounded-xl shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
 
 
           {/* feiner Innenrand */}
