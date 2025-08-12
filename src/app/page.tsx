@@ -183,7 +183,7 @@ function BenefitsMarquee() {
   return (
     <section
       className="relative overflow-hidden py-12 text-white"
-      style={{ background: `linear-gradient(90deg, ${RG600}, ${RG300})` }}
+      style={{ background: `linear-gradient(90deg, ${RG300}, ${RG600})` }}
     >
       <div
         className="relative mx-auto max-w-[100vw]"
@@ -220,6 +220,7 @@ function BenefitsMarquee() {
     </section>
   );
 }
+
 
 /* ------------------------- BlogSection ------------------------ */
 function BlogSection() {
