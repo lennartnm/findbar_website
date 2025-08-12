@@ -266,27 +266,17 @@ function UnserZielSection() {
   return (
     <section className="py-20 px-6 flex justify-center">
       <div
-        className="relative w-full max-w-6xl overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
-        style={{ backgroundColor: RG600 }}
+        className="relative w-full max-w-5xl overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
+        style={{ backgroundColor: "#1b4d2b" }} // Racing Green
       >
-        {/* Punkte-Pattern links */}
+        {/* Punkte-Pattern über ganze Box */}
         <div
           aria-hidden
-          className="absolute inset-y-0 left-0 w-[55%] opacity-5"
+          className="absolute inset-0 opacity-[0.05]"
           style={{
             backgroundImage: "radial-gradient(white 10%, transparent 11%)",
-            backgroundSize: "28px 28px",
-            backgroundPosition: "10px 10px",
-          }}
-        />
-        {/* Punkte-Pattern rechts */}
-        <div
-          aria-hidden
-          className="absolute inset-y-0 right-0 w-[55%] opacity-5"
-          style={{
-            backgroundImage: "radial-gradient(white 10%, transparent 11%)",
-            backgroundSize: "28px 28px",
-            backgroundPosition: "-6px 8px",
+            backgroundSize: "40px 40px",
+            backgroundPosition: "0 0",
           }}
         />
 
@@ -323,15 +313,15 @@ function UnserZielSection() {
             <div className="relative w-full max-w-md">
               <div
                 className="absolute -inset-10 -z-10 blur-2xl"
-                style={{ background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)` }}
+                style={{ background: `radial-gradient(60% 60% at 70% 30%, #3c6e47 0%, transparent 60%)` }}
               />
               <img
-                src="https://chatgpt.com/s/m_689a3b8887608191ae4d7e21c361c306"
+                src="/images/roboter.png"
                 alt="KI-Roboter spannt einen Bogen"
                 className="relative z-20 w-4/5 translate-x-6 rounded-xl shadow-2xl"
               />
               <img
-                src="https://chatgpt.com/s/m_689a3b8887608191ae4d7e21c361c306"
+                src="/images/zielschild.png"
                 alt="Zielscheibe"
                 className="absolute right-0 top-1/2 z-10 w-2/5 -translate-y-1/2 rounded-xl shadow-xl"
               />
@@ -344,6 +334,7 @@ function UnserZielSection() {
     </section>
   );
 }
+
 
 
 
