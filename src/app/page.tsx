@@ -262,9 +262,6 @@ function BlogSection() {
   );
 }
 
-/* ---------------------- UnserZielSection ---------------------- */
-/* ---------------------- UnserZielSection (ohne Waving Lines) ---------------------- */
-/* ---------------------- UnserZielSection (Racing Green Box + Punkte) ---------------------- */
 function UnserZielSection() {
   return (
     <section className="py-20 px-6 flex justify-center">
@@ -272,7 +269,7 @@ function UnserZielSection() {
         className="relative w-full max-w-6xl overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
         style={{ backgroundColor: RG600 }}
       >
-        {/* Punkte-Pattern: links */}
+        {/* Punkte-Pattern links */}
         <div
           aria-hidden
           className="absolute inset-y-0 left-0 w-[55%] opacity-15"
@@ -282,7 +279,7 @@ function UnserZielSection() {
             backgroundPosition: "10px 10px",
           }}
         />
-        {/* Punkte-Pattern: rechts */}
+        {/* Punkte-Pattern rechts */}
         <div
           aria-hidden
           className="absolute inset-y-0 right-0 w-[55%] opacity-15"
@@ -293,7 +290,6 @@ function UnserZielSection() {
           }}
         />
 
-        {/* Inhalt */}
         <div className="relative z-10 grid items-center gap-12 px-6 py-12 md:grid-cols-2 md:px-12">
           <div>
             <p className="text-sm uppercase tracking-wide text-white/70">Done 4 You</p>
@@ -343,7 +339,6 @@ function UnserZielSection() {
           </div>
         </div>
 
-        {/* feiner Innenrand für hochwertigen Look */}
         <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
       </div>
     </section>
