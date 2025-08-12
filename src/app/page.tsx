@@ -162,7 +162,7 @@ function UnserZielSection() {
   return (
     <section className="relative overflow-hidden border-t border-slate-100 bg-white">
       {/* Aurora Gradient Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden opacity-30">
+      <div className="absolute inset-0 z-0 overflow-hidden opacity-100">
         <div
           className="absolute -inset-40 blur-3xl [animation:aurora_18s_ease-in-out_infinite]"
           style={{
