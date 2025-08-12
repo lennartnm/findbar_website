@@ -272,18 +272,10 @@ function UnserZielSection() {
       <div className={containerClass}>
         <div
           className="relative w-full overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
-          style={{ backgroundColor: RG600 }}
+          style={{
+            background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)`
+          }}
         >
-          {/* Punkte-Pattern – EIN Layer, 5% Deckkraft */}
-          <div
-            aria-hidden
-            className="absolute inset-0 opacity-[0.05]"
-            style={{
-              backgroundImage: "radial-gradient(white 10%, transparent 11%)",
-              backgroundSize: "40px 40px",
-              backgroundPosition: "0 0",
-            }}
-          />
           {/* Inhalt */}
           <div className="relative z-10 grid items-center gap-12 px-6 py-12 md:grid-cols-2 md:px-12">
             <div>
@@ -340,6 +332,7 @@ function UnserZielSection() {
     </section>
   );
 }
+
 
 
 /* ------------------------ PreiseSection ----------------------- */
