@@ -161,27 +161,85 @@ function BlogSection() {
 function UnserZielSection() {
   return (
     <section className="relative overflow-hidden border-t border-slate-100 bg-white">
-      {/* Aurora Gradient Background */}
-      <div className="absolute inset-0 z-0 overflow-hidden opacity-100">
-        <div
-          className="absolute -inset-40 blur-3xl [animation:aurora_18s_ease-in-out_infinite]"
-          style={{
-            background: `
-              radial-gradient(60% 60% at 20% 30%, ${RG300}66, transparent 60%),
-              radial-gradient(50% 50% at 80% 20%, ${RG600}55, transparent 55%),
-              radial-gradient(40% 40% at 60% 80%, ${RG300}55, transparent 60%)
-            `
-          }}
-        />
-      </div>
+      {/* Waving Lines Background (animiert) */}
+      <svg
+        className="absolute inset-0 z-0 opacity-30 pointer-events-none"
+        viewBox="0 0 1440 400"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        {/* Animated paths */}
+        <g className="motion-path">
+          <path
+            d="M0,200 C200,120 400,280 600,200 800,120 1000,280 1200,200 1300,170 1400,220 1440,200"
+            fill="none"
+            stroke={RG600}
+            strokeWidth="1.2"
+            strokeOpacity="0.5"
+          >
+            <animate
+              attributeName="d"
+              dur="14s"
+              repeatCount="indefinite"
+              values="
+                M0,200 C200,120 400,280 600,200 800,120 1000,280 1200,200 1300,170 1400,220 1440,200;
+                M0,210 C220,150 420,260 620,210 820,150 1020,260 1220,210 1320,190 1420,230 1440,210;
+                M0,200 C200,120 400,280 600,200 800,120 1000,280 1200,200 1300,170 1400,220 1440,200
+              "
+            />
+          </path>
+
+          <path
+            d="M0,230 C220,170 440,240 660,210 880,180 1100,230 1320,210 1380,205 1440,215 1440,215"
+            fill="none"
+            stroke={RG300}
+            strokeWidth="1"
+            strokeOpacity="0.35"
+          >
+            <animate
+              attributeName="d"
+              dur="16s"
+              repeatCount="indefinite"
+              values="
+                M0,230 C220,170 440,240 660,210 880,180 1100,230 1320,210 1380,205 1440,215 1440,215;
+                M0,220 C240,160 460,250 680,220 900,190 1120,240 1340,220 1400,215 1440,225 1440,225;
+                M0,230 C220,170 440,240 660,210 880,180 1100,230 1320,210 1380,205 1440,215 1440,215
+              "
+            />
+          </path>
+
+          <path
+            d="M0,170 C200,140 400,180 600,160 800,140 1000,180 1200,160 1320,150 1440,160 1440,160"
+            fill="none"
+            stroke={RG600}
+            strokeWidth="0.8"
+            strokeOpacity="0.25"
+          >
+            <animate
+              attributeName="d"
+              dur="18s"
+              repeatCount="indefinite"
+              values="
+                M0,170 C200,140 400,180 600,160 800,140 1000,180 1200,160 1320,150 1440,160 1440,160;
+                M0,180 C220,150 420,190 620,170 820,150 1020,190 1220,170 1340,160 1440,170 1440,170;
+                M0,170 C200,140 400,180 600,160 800,140 1000,180 1200,160 1320,150 1440,160 1440,160
+              "
+            />
+          </path>
+        </g>
+
+        {/* Static paths for reduced motion */}
+        <g className="static-path" style={{ display: "none" }}>
+          <path d="M0,200 C200,120 400,280 600,200 800,120 1000,280 1200,200 1300,170 1400,220 1440,200" fill="none" stroke={RG600} strokeWidth="1.2" strokeOpacity="0.5" />
+          <path d="M0,230 C220,170 440,240 660,210 880,180 1100,230 1320,210 1380,205 1440,215 1440,215" fill="none" stroke={RG300} strokeWidth="1" strokeOpacity="0.35" />
+          <path d="M0,170 C200,140 400,180 600,160 800,140 1000,180 1200,160 1320,150 1440,160 1440,160" fill="none" stroke={RG600} strokeWidth="0.8" strokeOpacity="0.25" />
+        </g>
+      </svg>
 
       <style>{`
-        @keyframes aurora {
-          0%, 100% { transform: translate3d(0,0,0) scale(1); }
-          50% { transform: translate3d(-4%, 2%, 0) scale(1.1); }
-        }
         @media (prefers-reduced-motion: reduce) {
-          .\\[animation\\:aurora_18s_ease-in-out_infinite\\] { animation: none; }
+          .motion-path { display: none; }
+          .static-path { display: inline; }
         }
       `}</style>
 
@@ -227,7 +285,6 @@ function UnserZielSection() {
     </section>
   );
 }
-
 
 function PreiseSection() {
   return (
