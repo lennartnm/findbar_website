@@ -161,28 +161,36 @@ function Header() {
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-white px-6 py-28 text-center">
-      {/* Sehr dezentes Raster, sanftes Fade zu Weiß */}
+      {/* Sichtbares Raster mit vollständigem Fade an allen Seiten */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(2,6,23,0.04) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(2,6,23,0.04) 1px, transparent 1px)
+            linear-gradient(to right, rgba(2,6,23,0.035) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(2,6,23,0.035) 1px, transparent 1px)
           `,
           backgroundSize: "32px 32px",
           backgroundPosition: "center",
-          /* großes Fade für weichen Übergang */
-          maskImage:
-            "radial-gradient(circle at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
-          WebkitMaskImage:
-            "radial-gradient(circle at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
+          /* Kombinierte Masken für gleichmäßigen Fade */
+          maskImage: `
+            radial-gradient(circle at center, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%),
+            linear-gradient(to top, black 80%, transparent 100%),
+            linear-gradient(to bottom, black 80%, transparent 100%)
+          `,
+          WebkitMaskImage: `
+            radial-gradient(circle at center, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%),
+            linear-gradient(to top, black 80%, transparent 100%),
+            linear-gradient(to bottom, black 80%, transparent 100%)
+          `,
+          maskComposite: "intersect",
+          WebkitMaskComposite: "destination-in",
         }}
       />
 
-      {/* Graph: sehr helles Grau, Reveal via clip-path */}
+      {/* Graph: sehr helles Grau */}
       <div className="absolute inset-0 pointer-events-none z-10">
-        <div className="h-full w-full text-slate-300 animate-graph-reveal will-change-clip-path">
+        <div className="h-full w-full text-slate-200 animate-graph-reveal will-change-clip-path">
           <svg
             className="h-full w-full"
             viewBox="0 0 500 200"
