@@ -178,6 +178,53 @@ function Hero() {
   );
 }
 
+/* ---------------------- Leads Marquee (Outline, LTR) ---------------------- */
+function LeadsMarquee() {
+  const items = ["MEHR LEADS", "MEHR SICHTBARKEIT"];
+  return (
+    <section className="relative overflow-hidden py-6 bg-white">
+      <div
+        className="relative mx-auto max-w-[100vw]"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+        }}
+      >
+        <div
+          className="flex w-max gap-10 will-change-transform"
+          style={{ animation: "marquee-ltr 30s linear infinite" }}
+          aria-hidden
+        >
+          {[...Array(8)].flatMap((_, k) =>
+            items.map((word, i) => (
+              <span
+                key={`${k}-${i}`}
+                className={`text-3xl md:text-5xl italic ${serifClass} select-none`}
+                style={{
+                  color: "transparent",
+                  WebkitTextStroke: `1.5px ${RG600}`,
+                  textStroke: `1.5px ${RG600}` as any, // for non-webkit
+                  letterSpacing: "0.04em",
+                }}
+              >
+                {word}
+              </span>
+            ))
+          )}
+        </div>
+      </div>
+      <style>{`
+        @keyframes marquee-ltr {
+          from { transform: translateX(-50%); }
+          to   { transform: translateX(0); }
+        }
+      `}</style>
+    </section>
+  );
+}
+
 /* ---------------------- Benefits Marquee ---------------------- */
 function BenefitsMarquee() {
   return (
@@ -562,7 +609,7 @@ function HowItHelpsSection() {
             </ul>
           </div>
 
-          {/* Bildseite */}
+          {/* Bildseite – Shadow entfernt */}
           <div className="relative w-full max-w-md mx-auto">
             <div
               className="absolute -inset-10 -z-10 blur-2xl"
@@ -573,7 +620,7 @@ function HowItHelpsSection() {
             <img
               src="/Lupe.png"
               alt="Darstellung von KI-optimierten Blogartikeln"
-              className="relative z-20 w-full rounded-xl shadow-lg"
+              className="relative z-20 w-full rounded-xl"
             />
           </div>
         </div>
@@ -664,13 +711,14 @@ export default function FindbarPage() {
     <div className="bg-white text-slate-900">
       <Header />
       <Hero />
+      <LeadsMarquee /> {/* NEU: Outline-Marquee LTR */}
       <BenefitsMarquee />
       <BlogSection />
       <UnserZielSection />
       <PreiseSection onOpenCalendly={() => setCalOpen(true)} />
       <AblaufSection />
       <IdentificationSection />
-      <HowItHelpsSection />
+      <HowItHelpsSection /> {/* Lupe ohne Shadow */}
       <FAQSection />
       <KontaktSection />
 
