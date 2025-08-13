@@ -357,7 +357,6 @@ function HowItHelpsSection() {
   );
 }
 
-/* ---------------------- UnserZielSection (Done 4 You) ---------------------- */
 function UnserZielSection() {
   return (
     <section className="py-20">
@@ -370,9 +369,30 @@ function UnserZielSection() {
         >
           {/* Inhalt */}
           <div className="relative z-10 grid items-center gap-12 px-6 py-12 md:grid-cols-2 md:px-12">
-            <div>
+            
+            {/* Bildseite – jetzt links auf Desktop */}
+            <div className="order-2 md:order-1 flex justify-center">
+              <div className="relative w-full max-w-md">
+                <div
+                  className="absolute -inset-10 -z-10 blur-2xl"
+                  style={{
+                    background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`
+                  }}
+                />
+                <img
+                  src="/Ziele erreichen mit Findbar.png"
+                  alt="Darstellung des Done 4 You Prozesses"
+                  className="relative z-20 w-full rounded-xl"
+                />
+              </div>
+            </div>
+
+            {/* Textseite – jetzt rechts auf Desktop */}
+            <div className="order-1 md:order-2">
               <p className="text-sm uppercase tracking-wide text-white/70">Done 4 You</p>
-              <h2 className={`mt-2 text-3xl font-semibold ${serifClass}`}>Minimaler Zeitaufwand für dich</h2>
+              <h2 className={`mt-2 text-3xl font-semibold ${serifClass}`}>
+                Minimaler Zeitaufwand für dich
+              </h2>
               <p className="mt-4 max-w-prose text-white/90">
                 Wir orchestrieren deinen Content-Motor so, dass du <em>möglichst wenig operativen Aufwand</em> hast.
                 Einmal Onboarding, Plan freigeben, 2–3 Musterartikel abnicken – danach liefern wir regelmäßig in Batches
@@ -399,22 +419,6 @@ function UnserZielSection() {
               </div>
             </div>
 
-            {/* Nur ein Bild statt zwei */}
-            <div className="flex justify-center">
-              <div className="relative w-full max-w-md">
-                <div
-                  className="absolute -inset-10 -z-10 blur-2xl"
-                  style={{
-                    background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`
-                  }}
-                />
-                <img
-                  src="/Ziele erreichen mit Findbar.png"
-                  alt="Darstellung des Done 4 You Prozesses"
-                  className="relative z-20 w-full rounded-xl"
-                />
-              </div>
-            </div>
           </div>
 
           {/* feiner Innenrand */}
@@ -424,6 +428,7 @@ function UnserZielSection() {
     </section>
   );
 }
+
 
 /* ---------------------- Identification Section ---------------------- */
 function IdentificationSection() {
@@ -478,14 +483,19 @@ function IdentificationSection() {
   );
 }
 
-/* ---------------------- Leads Marquee (Outline nur für "MEHR SICHTBARKEIT") ---------------------- */
+/* ---------------------- Leads Marquee mit Icons ---------------------- */
+import { Users, Eye } from "lucide-react"; // Icons wie bei Benefits Section
+
 function LeadsMarquee() {
-  const items = ["MEHR LEADS", "MEHR SICHTBARKEIT"];
+  const items = [
+    { text: "Mehr Leads", icon: Users },
+    { text: "Mehr Sichtbarkeit", icon: Eye },
+  ];
 
   return (
     <section
       className="relative overflow-hidden py-10"
-      style={{ background: `linear-gradient(90deg, ${RG300}, ${RG600})` }}
+      style={{ background: `linear-gradient(180deg, ${RG300}, ${RG600})` }}
     >
       <div
         className="relative mx-auto max-w-[100vw]"
@@ -497,35 +507,42 @@ function LeadsMarquee() {
         }}
       >
         <div
-          className="flex w-max gap-12 will-change-transform"
+          className="flex w-max gap-16 will-change-transform"
           style={{ animation: "marquee-ltr 70s linear infinite" }}
           aria-hidden
         >
           {[...Array(8)].flatMap((_, k) =>
-            items.map((word, i) => {
+            items.map(({ text, icon: Icon }, i) => {
               const isSichtbarkeit =
-                word.toLowerCase() === "mehr sichtbarkeit";
+                text.toLowerCase() === "mehr sichtbarkeit";
 
               return (
-                <span
+                <div
                   key={`${k}-${i}`}
-                  className={`text-3xl md:text-5xl italic ${serifClass} select-none`}
-                  style={
-                    isSichtbarkeit
-                      ? {
-                          color: "transparent",
-                          WebkitTextStroke: "1.5px #fff",
-                          textShadow: "0 0 0 #fff",
-                          letterSpacing: "0.04em",
-                        }
-                      : {
-                          color: "#ffffff",
-                          letterSpacing: "0.04em",
-                        }
-                  }
+                  className="flex items-center gap-3 shrink-0"
                 >
-                  {word}
-                </span>
+                  {/* Icon-Style wie Benefits */}
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                    <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
+                  </div>
+                  <span
+                    className={`text-3xl md:text-5xl italic ${serifClass} select-none`}
+                    style={
+                      isSichtbarkeit
+                        ? {
+                            color: "transparent",
+                            WebkitTextStroke: "1.5px #fff",
+                            letterSpacing: "0.04em",
+                          }
+                        : {
+                            color: "#ffffff",
+                            letterSpacing: "0.04em",
+                          }
+                    }
+                  >
+                    {text}
+                  </span>
+                </div>
               );
             })
           )}
@@ -541,6 +558,7 @@ function LeadsMarquee() {
     </section>
   );
 }
+
 
 /* ------------------------ PreiseSection ----------------------- */
 function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
@@ -604,77 +622,47 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   );
 }
 
-/* ------------------------ AblaufSection (Box wie Done 4 You) ----------------------- */
+/* ---------------------- Ablauf Section ---------------------- */
 function AblaufSection() {
   return (
-    <section id="ablauf" className="py-20">
+    <section
+      className="relative overflow-hidden py-20 text-white"
+      style={{ background: `linear-gradient(90deg, ${RG600}, ${RG300})` }}
+    >
       <div className={containerClass}>
-        <div
-          className="relative w-full overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
-          style={{ background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)` }}
-        >
-          {/* Inhalt */}
-          <div className="relative z-10 px-6 py-12 md:px-12">
-            <h2 className={`text-center text-3xl font-semibold ${serifClass}`}>
-              Unser Ablauf – transparent & effizient
-            </h2>
-
-            <div className="mt-12 flex flex-col md:flex-row md:items-start md:justify-between md:gap-6">
-              {ablauf.map(({ icon: Icon, title, desc }, idx) => (
-                <div key={idx} className="relative flex flex-col items-center text-center md:w-1/5">
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#1b4d2b]">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{title}</h3>
-                  <p className="text-sm text-white/90">{desc}</p>
-                  {idx < ablauf.length - 1 && (
-                    <ArrowRight className="absolute right-[-18px] top-6 hidden h-5 w-5 text-white/60 md:block" />
-                  )}
-                </div>
-              ))}
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
+          So läuft es ab
+        </h2>
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          {ablaufSteps.map((step, i) => (
+            <div
+              key={i}
+              className="rounded-xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm shadow-sm"
+            >
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                <step.icon className="h-6 w-6 text-white" strokeWidth={1.6} />
+              </div>
+              <div className={`text-lg font-medium ${serifClass}`}>
+                {step.title}
+              </div>
+              <p className="mt-3 text-sm text-white/85">{step.description}</p>
             </div>
-          </div>
-
-          {/* feiner Innenrand */}
-          <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-/* ---------------------- FAQ Section ---------------------- */
-function FAQSection() {
-  const faqs = [
-    {
-      q: "Wie schnell sehe ich Ergebnisse?",
-      a: "Oft schon nach wenigen Wochen – Google braucht jedoch manchmal etwas länger, um neue Inhalte vollständig zu indexieren.",
-    },
-    {
-      q: "Muss ich selbst Themen recherchieren?",
-      a: "Nein. Wir übernehmen die komplette Themen- und Keyword-Recherche für dich.",
-    },
-    {
-      q: "Ist das auch für meine Branche geeignet?",
-      a: "Ja. Wir erstellen Inhalte für nahezu jede Branche – ob B2B, B2C oder Nischenmärkte.",
-    },
-    {
-      q: "Was passiert, wenn ich unzufrieden bin?",
-      a: "Wir passen die Inhalte nach deinem Feedback an, bis du zufrieden bist.",
-    },
-    {
-      q: "Wie funktioniert die Abrechnung?",
-      a: "Transparent, monatlich und jederzeit kündbar.",
-    },
-  ];
 
+function FAQSection() {
   return (
     <section className="bg-white py-20 border-t border-slate-100">
       <div className={containerClass}>
         <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
           Häufige Fragen (FAQ)
         </h2>
-        <div className="mt-10 space-y-4 max-w-3xl mx-auto">
+        <div className="mt-10 space-y-4">
           {faqs.map((f, i) => (
             <details
               key={i}
@@ -694,6 +682,7 @@ function FAQSection() {
     </section>
   );
 }
+
 
 /* ----------------------- Root Component ----------------------- */
 export default function FindbarPage() {
