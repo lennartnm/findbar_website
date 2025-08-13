@@ -499,7 +499,7 @@ function LeadsMarquee() {
 
   return (
     <section
-      className="relative overflow-hidden py-10"
+      className="relative overflow-hidden py-6" // weniger Padding
       style={{ background: `linear-gradient(180deg, ${RG300}, ${RG600})` }}
     >
       <div
@@ -512,36 +512,31 @@ function LeadsMarquee() {
         }}
       >
         <div
-          className="flex w-max gap-16 will-change-transform"
+          className="flex w-max gap-12 will-change-transform" // kleinerer Abstand zwischen Items
           style={{ animation: "marquee-ltr 70s linear infinite" }}
           aria-hidden
         >
           {[...Array(8)].flatMap((_, k) =>
-            items.map(({ text, icon: Icon }, i) => {
-              const isSichtbarkeit =
-                text.toLowerCase() === "mehr sichtbarkeit";
-
-              return (
-                <div
-                  key={`${k}-${i}`}
-                  className="flex items-center gap-3 shrink-0"
-                >
-                  {/* Icon-Style wie Benefits */}
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                    <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
-                  </div>
-                  <span
-                    className={`text-3xl md:text-5xl italic ${serifClass} select-none`}
-                    style={{
-                      color: "#ffffff", // immer voll gefüllt
-                      letterSpacing: "0.04em",
-                    }}
-                  >
-                    {text}
-                  </span>
+            items.map(({ text, icon: Icon }, i) => (
+              <div
+                key={`${k}-${i}`}
+                className="flex items-center gap-2 shrink-0" // engerer Abstand Icon-Text
+              >
+                {/* Icon-Style wie Benefits, aber kleiner */}
+                <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                  <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
                 </div>
-              );
-            })
+                <span
+                  className={`text-2xl md:text-4xl italic ${serifClass} select-none`} // kleinere Schrift
+                  style={{
+                    color: "#ffffff",
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  {text}
+                </span>
+              </div>
+            ))
           )}
         </div>
       </div>
@@ -555,6 +550,7 @@ function LeadsMarquee() {
     </section>
   );
 }
+
 
 
 
@@ -638,8 +634,9 @@ function AblaufSection() {
             <div className="mt-12 flex flex-col md:flex-row md:items-start md:justify-between md:gap-6">
               {ablauf.map(({ icon: Icon, title, desc }, idx) => (
                 <div key={idx} className="relative flex flex-col items-center text-center md:w-1/5">
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#1b4d2b]">
-                    <Icon className="h-6 w-6" />
+                  {/* Icon-Style wie Benefits */}
+                  <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                    <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
                   </div>
                   <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{title}</h3>
                   <p className="text-sm text-white/90">{desc}</p>
@@ -658,6 +655,7 @@ function AblaufSection() {
     </section>
   );
 }
+
 
 /* ---------------------- FAQ Section ---------------------- */
 function FAQSection() {
@@ -690,7 +688,7 @@ function FAQSection() {
         <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
           Häufige Fragen (FAQ)
         </h2>
-        <div className="mt-10 space-y-4 max-w-3xl mx-auto">
+        <div className="mt-10 space-y-4">
           {faqs.map((f, i) => (
             <details
               key={i}
@@ -710,6 +708,7 @@ function FAQSection() {
     </section>
   );
 }
+
 
 
 /* ----------------------- Root Component ----------------------- */
