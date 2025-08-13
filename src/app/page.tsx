@@ -616,7 +616,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   );
 }
 
-/* ------------------------ AblaufSection (Stepper + Timeline) ----------------------- */
+/* ------------------------ AblaufSection (Card-Deck + Hover Elevate) ----------------------- */
 function AblaufSection() {
   return (
     <section id="ablauf" className="py-20">
@@ -631,56 +631,41 @@ function AblaufSection() {
               Unser Ablauf – transparent & effizient
             </h2>
 
-            {/* Desktop: Horizontaler Stepper */}
-            <div className="mt-12 hidden md:grid md:grid-cols-5 md:gap-6">
+            {/* Card-Deck */}
+            <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-5">
               {ablauf.map(({ icon: Icon, title, desc }, idx) => (
-                <div key={idx} className="relative flex flex-col items-center text-center">
-                  {/* Verbindende Linie (hinter den Badges) */}
-                  {idx < ablauf.length - 1 && (
-                    <div
-                      className="absolute top-5 left-[55%] right-[-10%] h-[2px]"
-                      style={{
-                        background: `linear-gradient(90deg, rgba(255,255,255,0.25), rgba(255,255,255,0.55))`,
-                      }}
-                    />
-                  )}
+                <div
+                  key={idx}
+                  className="group relative rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-md shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20"
+                >
+                  {/* feiner innerer Glow */}
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
 
-                  {/* Nummer + Icon (Benefits-Stil) */}
-                  <div className="relative flex items-center justify-center">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-white/10 backdrop-blur">
-                      <span className="text-base font-semibold">{idx + 1}</span>
-                    </div>
-                    <div className="absolute -bottom-4 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                      <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
+                  {/* Nummer-Badge (oben links) */}
+                  <div className="absolute left-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10 text-sm font-semibold">
+                    {idx + 1}
+                  </div>
+
+                  {/* Icon (oben rechts) im Benefits-Stil */}
+                  <div className="absolute right-4 top-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                      <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
                     </div>
                   </div>
 
-                  {/* Text */}
-                  <h3 className={`mt-6 text-lg font-semibold ${serifClass}`}>{title}</h3>
-                  <p className="mt-2 text-sm text-white/90">{desc}</p>
+                  {/* Content */}
+                  <div className="pt-12">
+                    <h3 className={`text-lg font-semibold ${serifClass}`}>{title}</h3>
+                    <p className="mt-2 text-sm text-white/90">{desc}</p>
+                  </div>
+
+                  {/* Hover-Accent unten */}
+                  <div
+                    className="absolute inset-x-0 -bottom-px h-0.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                    style={{ background: "linear-gradient(90deg, rgba(255,255,255,0.0), rgba(255,255,255,0.7), rgba(255,255,255,0.0))" }}
+                  />
                 </div>
               ))}
-            </div>
-
-            {/* Mobile: Vertikale Timeline */}
-            <div className="mt-10 md:hidden">
-              <ol className="relative border-l border-white/20 pl-5">
-                {ablauf.map(({ icon: Icon, title, desc }, idx) => (
-                  <li key={idx} className="mb-8 ml-4">
-                    {/* Marker + Icon (Benefits-Stil) */}
-                    <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full border border-white/25 bg-white/10 text-xs font-semibold">
-                      {idx + 1}
-                    </span>
-                    <div className="mb-2 flex items-center gap-2">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                        <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
-                      </div>
-                      <h3 className={`text-base font-semibold ${serifClass}`}>{title}</h3>
-                    </div>
-                    <p className="text-sm text-white/90">{desc}</p>
-                  </li>
-                ))}
-              </ol>
             </div>
           </div>
 
@@ -691,7 +676,6 @@ function AblaufSection() {
     </section>
   );
 }
-
 
 
 /* ---------------------- FAQ Section ---------------------- */
