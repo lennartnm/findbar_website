@@ -221,8 +221,29 @@ function Hero() {
         </a>
       </Button>
 
-      {/* Styles für Zeic*
-
+      {/* Styles für Zeichnen-Animation (Stroke „fährt aus“) */}
+      <style>{`
+        @keyframes dash {
+          to { stroke-dashoffset: 0; }
+        }
+        .hero-line {
+          opacity: .9;
+          /* großer Wert funktioniert für diese Pfadlänge zuverlässig */
+          stroke-dasharray: 1200;
+          stroke-dashoffset: 1200;
+          animation: dash 1.6s ease-out forwards;
+          animation-delay: .15s;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .hero-line {
+            animation: none;
+            stroke-dashoffset: 0;
+          }
+        }
+      `}</style>
+    </section>
+  );
+}
 
 
 
