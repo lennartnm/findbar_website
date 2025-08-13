@@ -500,7 +500,7 @@ function LeadsMarquee() {
   return (
     <section
       className="relative overflow-hidden py-6" // weniger Padding
-      style={{ background: `linear-gradient(180deg, ${RG300}, ${RG600})` }}
+      style={{ background: `linear-gradient(90deg, ${RG300}, ${RG600})` }}
     >
       <div
         className="relative mx-auto max-w-[100vw]"
