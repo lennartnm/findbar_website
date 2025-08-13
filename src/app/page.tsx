@@ -163,7 +163,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden bg-white px-6 py-28 text-center">
       <svg
-        className="absolute inset-0 h-full w-full opacity-5"
+        className="absolute inset-0 h-full w-full opacity-5 pointer-events-none" // <- wichtig
         viewBox="0 0 500 200"
         preserveAspectRatio="none"
       >
@@ -189,6 +189,7 @@ function Hero() {
     </section>
   );
 }
+
 
 
 /* ---------------------- Benefits Marquee ---------------------- */
