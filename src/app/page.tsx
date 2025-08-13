@@ -158,92 +158,81 @@ function Header() {
   );
 }
 
-/* ---------------------------- Hero (mit animierter Linie & Grid-Fade) ---------------------------- */
+/* ---------------------------- Hero (sichtbares Grid + Clip-Path-Reveal) ---------------------------- */
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-white px-6 py-28 text-center">
-      {/* Subtiles Raster mit Edge-Fade */}
+      {/* Sichtbares Raster über dem Section-Background, unter allen Inhalten */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
+        className="pointer-events-none absolute inset-0 z-0"
         style={{
-          // sehr feines Grid
           backgroundImage: `
-            linear-gradient(to right, rgba(2,6,23,0.05) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(2,6,23,0.05) 1px, transparent 1px)
+            linear-gradient(to right, rgba(2,6,23,0.10) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(2,6,23,0.10) 1px, transparent 1px)
           `,
-          backgroundSize: "32px 32px",
+          backgroundSize: "28px 28px",
           backgroundPosition: "center",
-          // zu allen Seiten ausfaden (Mask)
+          /* Fade zu weiß an allen Seiten */
           maskImage:
-            "radial-gradient(80% 80% at 50% 50%, black 65%, transparent 100%)",
+            "radial-gradient(90% 90% at 50% 50%, black 70%, transparent 100%)",
           WebkitMaskImage:
-            "radial-gradient(80% 80% at 50% 50%, black 65%, transparent 100%)",
+            "radial-gradient(90% 90% at 50% 50%, black 70%, transparent 100%)",
         }}
       />
 
-      {/* Animierte Linien-Grafik */}
-      <svg
-        className="absolute inset-0 h-full w-full pointer-events-none"
-        viewBox="0 0 500 200"
-        preserveAspectRatio="none"
-      >
-        {/* leichte Hintergrundlinie (dezent) */}
-        <polyline
-          fill="none"
-          stroke="#1b4d2b20"
-          strokeWidth="3"
-          vectorEffect="non-scaling-stroke"
-          points="0,180 60,165 120,160 180,140 240,120 300,95 360,80 420,55 480,30 500,20"
-        />
-        {/* animierte Hauptlinie */}
-        <polyline
-          className="hero-line"
-          fill="none"
-          stroke="#1b4d2b"
-          strokeWidth="3"
-          strokeLinecap="round"
-          vectorEffect="non-scaling-stroke"
-          points="0,180 60,165 120,160 180,140 240,120 300,95 360,80 420,55 480,30 500,20"
-        />
-      </svg>
+      {/* Graph: leichtes Grau, Reveal via CSS clip-path */}
+      <div className="absolute inset-0 pointer-events-none z-10">
+        <div className="h-full w-full text-slate-400/85 animate-graph-reveal will-change-clip-path">
+          <svg
+            className="h-full w-full"
+            viewBox="0 0 500 200"
+            preserveAspectRatio="none"
+          >
+            <polyline
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              vectorEffect="non-scaling-stroke"
+              points="0,180 60,165 120,160 180,140 240,120 300,95 360,80 420,55 480,30 500,20"
+            />
+          </svg>
+        </div>
+      </div>
 
-      <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
-        <span className="italic font-bold">findbar:</span> Skaliere Dein Unternehmen mit
-        <br className="hidden md:inline" /> KI-optimierten Blog-Artikeln
-      </h1>
-      <p className="mx-auto mt-5 max-w-2xl text-slate-600">
-        Wir produzieren skalierbare und suchmaschinenoptimierte Blogartikel mit Hilfe von KI – zu einem Bruchteil der bisher üblichen Preise.
-      </p>
-      <Button asChild>
-        <a className="mt-6 inline-block text-white" href="#preise">
-          Pakete ansehen
-        </a>
-      </Button>
+      {/* Content über allem */}
+      <div className="relative z-20">
+        <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
+          <span className="italic font-bold">findbar:</span> Skaliere Dein Unternehmen mit
+          <br className="hidden md:inline" /> KI-optimierten Blog-Artikeln
+        </h1>
+        <p className="mx-auto mt-5 max-w-2xl text-slate-600">
+          Wir produzieren skalierbare und suchmaschinenoptimierte Blogartikel mit Hilfe von KI – zu einem Bruchteil der bisher üblichen Preise.
+        </p>
+        <Button asChild>
+          <a className="mt-6 inline-block text-white" href="#preise">
+            Pakete ansehen
+          </a>
+        </Button>
+      </div>
 
-      {/* Styles für Zeichnen-Animation (Stroke „fährt aus“) */}
+      {/* Styles */}
       <style>{`
-        @keyframes dash {
-          to { stroke-dashoffset: 0; }
+        .animate-graph-reveal {
+          clip-path: inset(0 100% 0 0);
+          animation: graph-reveal 1.2s ease-out forwards .12s;
         }
-        .hero-line {
-          opacity: .9;
-          /* großer Wert funktioniert für diese Pfadlänge zuverlässig */
-          stroke-dasharray: 1200;
-          stroke-dashoffset: 1200;
-          animation: dash 1.6s ease-out forwards;
-          animation-delay: .15s;
-        }
+        @keyframes graph-reveal { to { clip-path: inset(0 0 0 0); } }
+
         @media (prefers-reduced-motion: reduce) {
-          .hero-line {
-            animation: none;
-            stroke-dashoffset: 0;
-          }
+          .animate-graph-reveal { animation: none; clip-path: inset(0 0 0 0); }
         }
       `}</style>
     </section>
   );
 }
+
 
 
 
