@@ -158,22 +158,56 @@ function Header() {
   );
 }
 
-/* ---------------------------- Hero ---------------------------- */
+/* ---------------------------- Hero (mit animierter Linie & Grid-Fade) ---------------------------- */
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-white px-6 py-28 text-center">
+      {/* Subtiles Raster mit Edge-Fade */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          // sehr feines Grid
+          backgroundImage: `
+            linear-gradient(to right, rgba(2,6,23,0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(2,6,23,0.05) 1px, transparent 1px)
+          `,
+          backgroundSize: "32px 32px",
+          backgroundPosition: "center",
+          // zu allen Seiten ausfaden (Mask)
+          maskImage:
+            "radial-gradient(80% 80% at 50% 50%, black 65%, transparent 100%)",
+          WebkitMaskImage:
+            "radial-gradient(80% 80% at 50% 50%, black 65%, transparent 100%)",
+        }}
+      />
+
+      {/* Animierte Linien-Grafik */}
       <svg
-        className="absolute inset-0 h-full w-full opacity-5 pointer-events-none" // <- wichtig
+        className="absolute inset-0 h-full w-full pointer-events-none"
         viewBox="0 0 500 200"
         preserveAspectRatio="none"
       >
+        {/* leichte Hintergrundlinie (dezent) */}
         <polyline
           fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
+          stroke="#1b4d2b20"
+          strokeWidth="3"
+          vectorEffect="non-scaling-stroke"
+          points="0,180 60,165 120,160 180,140 240,120 300,95 360,80 420,55 480,30 500,20"
+        />
+        {/* animierte Hauptlinie */}
+        <polyline
+          className="hero-line"
+          fill="none"
+          stroke="#1b4d2b"
+          strokeWidth="3"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
           points="0,180 60,165 120,160 180,140 240,120 300,95 360,80 420,55 480,30 500,20"
         />
       </svg>
+
       <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
         <span className="italic font-bold">findbar:</span> Skaliere Dein Unternehmen mit
         <br className="hidden md:inline" /> KI-optimierten Blog-Artikeln
@@ -186,9 +220,9 @@ function Hero() {
           Pakete ansehen
         </a>
       </Button>
-    </section>
-  );
-}
+
+      {/* Styles für Zeic*
+
 
 
 
