@@ -627,47 +627,77 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   );
 }
 
-/* ---------------------- Ablauf Section ---------------------- */
+/* ------------------------ AblaufSection (Box wie Done 4 You) ----------------------- */
 function AblaufSection() {
   return (
-    <section
-      className="relative overflow-hidden py-20 text-white"
-      style={{ background: `linear-gradient(90deg, ${RG600}, ${RG300})` }}
-    >
+    <section id="ablauf" className="py-20">
       <div className={containerClass}>
-        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
-          So läuft es ab
-        </h2>
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
-          {ablauf.map((step, i) => (
-            <div
-              key={i}
-              className="rounded-xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm shadow-sm"
-            >
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                <step.icon className="h-6 w-6 text-white" strokeWidth={1.6} />
-              </div>
-              <div className={`text-lg font-medium ${serifClass}`}>
-                {step.title}
-              </div>
-              <p className="mt-3 text-sm text-white/85">{step.desc}</p>
+        <div
+          className="relative w-full overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
+          style={{ background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)` }}
+        >
+          {/* Inhalt */}
+          <div className="relative z-10 px-6 py-12 md:px-12">
+            <h2 className={`text-center text-3xl font-semibold ${serifClass}`}>
+              Unser Ablauf – transparent & effizient
+            </h2>
+
+            <div className="mt-12 flex flex-col md:flex-row md:items-start md:justify-between md:gap-6">
+              {ablauf.map(({ icon: Icon, title, desc }, idx) => (
+                <div key={idx} className="relative flex flex-col items-center text-center md:w-1/5">
+                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#1b4d2b]">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{title}</h3>
+                  <p className="text-sm text-white/90">{desc}</p>
+                  {idx < ablauf.length - 1 && (
+                    <ArrowRight className="absolute right-[-18px] top-6 hidden h-5 w-5 text-white/60 md:block" />
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* feiner Innenrand */}
+          <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
         </div>
       </div>
     </section>
   );
 }
 
-
+/* ---------------------- FAQ Section ---------------------- */
 function FAQSection() {
+  const faqs = [
+    {
+      q: "Wie schnell sehe ich Ergebnisse?",
+      a: "Oft schon nach wenigen Wochen – Google braucht jedoch manchmal etwas länger, um neue Inhalte vollständig zu indexieren.",
+    },
+    {
+      q: "Muss ich selbst Themen recherchieren?",
+      a: "Nein. Wir übernehmen die komplette Themen- und Keyword-Recherche für dich.",
+    },
+    {
+      q: "Ist das auch für meine Branche geeignet?",
+      a: "Ja. Wir erstellen Inhalte für nahezu jede Branche – ob B2B, B2C oder Nischenmärkte.",
+    },
+    {
+      q: "Was passiert, wenn ich unzufrieden bin?",
+      a: "Wir passen die Inhalte nach deinem Feedback an, bis du zufrieden bist.",
+    },
+    {
+      q: "Wie funktioniert die Abrechnung?",
+      a: "Transparent, monatlich und jederzeit kündbar.",
+    },
+  ];
+
   return (
     <section className="bg-white py-20 border-t border-slate-100">
       <div className={containerClass}>
         <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
           Häufige Fragen (FAQ)
         </h2>
-        <div className="mt-10 space-y-4">
+        <div className="mt-10 space-y-4 max-w-3xl mx-auto">
           {faqs.map((f, i) => (
             <details
               key={i}
