@@ -1,20 +1,39 @@
-// 🚫 Kein "use client" hier oben!
+"use client";
 
 import React from "react";
-import Header from "@/components/Header"; // Client-Komponente separat
 import { Button } from "@/components/ui/button";
 
 const RG600 = "#1b4d2b";
 const RG300 = "#7ca98e";
 const serifClass = "font-serif";
 
-// ✅ Noindex für Suchmaschinen
-export const metadata = {
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
+function Header() {
+  return (
+    <header className="border-b border-slate-100 bg-white">
+      <div className="mx-auto flex max-w-7xl items-center justify-center gap-8 px-6 py-4">
+        <nav className="flex flex-wrap gap-6">
+          <a href="/#blog" className="text-sm" style={{ color: "#334155" }}>
+            Blog-Beispiele
+          </a>
+          <a href="/#preise" className="text-sm" style={{ color: "#334155" }}>
+            Preise
+          </a>
+          <a href="/#ablauf" className="text-sm" style={{ color: "#334155" }}>
+            Ablauf
+          </a>
+          <a href="/#faq" className="text-sm" style={{ color: "#334155" }}>
+            FAQ
+          </a>
+        </nav>
+        <Button asChild>
+          <a className="text-white" href="/#preise">
+            Jetzt anfragen
+          </a>
+        </Button>
+      </div>
+    </header>
+  );
+}
 
 export default function AGBPage() {
   return (
@@ -35,40 +54,36 @@ export default function AGBPage() {
             <div>
               <h2 className="font-semibold">1. Geltungsbereich</h2>
               <p>
-                Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge,
-                die zwischen uns und unseren Kunden geschlossen werden.
+                Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge, die zwischen uns und unseren Kunden
+                geschlossen werden.
               </p>
             </div>
 
             <div>
               <h2 className="font-semibold">2. Vertragsschluss</h2>
               <p>
-                Der Vertrag kommt durch schriftliche Bestätigung oder durch
-                Nutzung unserer Leistungen zustande.
+                Der Vertrag kommt durch schriftliche Bestätigung oder durch Nutzung unserer Leistungen zustande.
               </p>
             </div>
 
             <div>
               <h2 className="font-semibold">3. Preise und Zahlung</h2>
               <p>
-                Es gelten die zum Zeitpunkt des Vertragsschlusses vereinbarten
-                Preise. Zahlungen sind ohne Abzug fällig.
+                Es gelten die zum Zeitpunkt des Vertragsschlusses vereinbarten Preise. Zahlungen sind ohne Abzug fällig.
               </p>
             </div>
 
             <div>
               <h2 className="font-semibold">4. Haftung</h2>
               <p>
-                Wir haften nur für Vorsatz und grobe Fahrlässigkeit.
-                Weitergehende Ansprüche sind ausgeschlossen.
+                Wir haften nur für Vorsatz und grobe Fahrlässigkeit. Weitergehende Ansprüche sind ausgeschlossen.
               </p>
             </div>
 
             <div>
               <h2 className="font-semibold">5. Schlussbestimmungen</h2>
               <p>
-                Sollten einzelne Bestimmungen unwirksam sein, bleibt der Vertrag
-                im Übrigen wirksam.
+                Sollten einzelne Bestimmungen unwirksam sein, bleibt der Vertrag im Übrigen wirksam.
               </p>
             </div>
 
