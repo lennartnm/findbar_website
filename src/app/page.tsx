@@ -136,18 +136,8 @@ function Header() {
           <a href="#blog" className="text-sm" style={{ color: "#334155" }}>
             Blog-Beispiele
           </a>
-          <a href="#how-it-helps" className="text-sm" style={{ color: "#334155" }}>
-            So helfen Blogartikel
-          </a>
-          <a href="#done4you" className="text-sm" style={{ color: "#334155" }}>
-            Done 4 You
-          </a>
-          <a href="#identification" className="text-sm" style={{ color: "#334155" }}>
-            Zielgruppen
-          </a>
-          <a href="#leads" className="text-sm" style={{ color: "#334155" }}>
-            Mehr Leads
-          </a>
+        
+        
           <a href="#preise" className="text-sm" style={{ color: "#334155" }}>
             Preise
           </a>
