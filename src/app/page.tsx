@@ -158,32 +158,31 @@ function Header() {
   );
 }
 
-/* ---------------------------- Hero (sichtbares Grid + Clip-Path-Reveal) ---------------------------- */
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-white px-6 py-28 text-center">
-      {/* Sichtbares Raster über dem Section-Background, unter allen Inhalten */}
+      {/* Sehr dezentes Raster, sanftes Fade zu Weiß */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(2,6,23,0.10) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(2,6,23,0.10) 1px, transparent 1px)
+            linear-gradient(to right, rgba(2,6,23,0.04) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(2,6,23,0.04) 1px, transparent 1px)
           `,
-          backgroundSize: "28px 28px",
+          backgroundSize: "32px 32px",
           backgroundPosition: "center",
-          /* Fade zu weiß an allen Seiten */
+          /* großes Fade für weichen Übergang */
           maskImage:
-            "radial-gradient(90% 90% at 50% 50%, black 70%, transparent 100%)",
+            "radial-gradient(circle at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
           WebkitMaskImage:
-            "radial-gradient(90% 90% at 50% 50%, black 70%, transparent 100%)",
+            "radial-gradient(circle at center, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
         }}
       />
 
-      {/* Graph: leichtes Grau, Reveal via CSS clip-path */}
+      {/* Graph: sehr helles Grau, Reveal via clip-path */}
       <div className="absolute inset-0 pointer-events-none z-10">
-        <div className="h-full w-full text-slate-400/85 animate-graph-reveal will-change-clip-path">
+        <div className="h-full w-full text-slate-300 animate-graph-reveal will-change-clip-path">
           <svg
             className="h-full w-full"
             viewBox="0 0 500 200"
@@ -201,7 +200,7 @@ function Hero() {
         </div>
       </div>
 
-      {/* Content über allem */}
+      {/* Content */}
       <div className="relative z-20">
         <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
           <span className="italic font-bold">findbar:</span> Skaliere Dein Unternehmen mit
@@ -217,21 +216,26 @@ function Hero() {
         </Button>
       </div>
 
-      {/* Styles */}
+      {/* Animation Styles */}
       <style>{`
         .animate-graph-reveal {
           clip-path: inset(0 100% 0 0);
           animation: graph-reveal 1.2s ease-out forwards .12s;
         }
-        @keyframes graph-reveal { to { clip-path: inset(0 0 0 0); } }
-
+        @keyframes graph-reveal {
+          to { clip-path: inset(0 0 0 0); }
+        }
         @media (prefers-reduced-motion: reduce) {
-          .animate-graph-reveal { animation: none; clip-path: inset(0 0 0 0); }
+          .animate-graph-reveal {
+            animation: none;
+            clip-path: inset(0 0 0 0);
+          }
         }
       `}</style>
     </section>
   );
 }
+
 
 
 
