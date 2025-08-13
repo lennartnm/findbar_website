@@ -616,7 +616,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   );
 }
 
-/* ------------------------ AblaufSection (Box wie Done 4 You) ----------------------- */
+/* ------------------------ AblaufSection (Stepper + Timeline) ----------------------- */
 function AblaufSection() {
   return (
     <section id="ablauf" className="py-20">
@@ -631,20 +631,56 @@ function AblaufSection() {
               Unser Ablauf – transparent & effizient
             </h2>
 
-            <div className="mt-12 flex flex-col md:flex-row md:items-start md:justify-between md:gap-6">
+            {/* Desktop: Horizontaler Stepper */}
+            <div className="mt-12 hidden md:grid md:grid-cols-5 md:gap-6">
               {ablauf.map(({ icon: Icon, title, desc }, idx) => (
-                <div key={idx} className="relative flex flex-col items-center text-center md:w-1/5">
-                  {/* Icon-Style wie Benefits */}
-                  <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                    <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
-                  </div>
-                  <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{title}</h3>
-                  <p className="text-sm text-white/90">{desc}</p>
+                <div key={idx} className="relative flex flex-col items-center text-center">
+                  {/* Verbindende Linie (hinter den Badges) */}
                   {idx < ablauf.length - 1 && (
-                    <ArrowRight className="absolute right-[-18px] top-6 hidden h-5 w-5 text-white/60 md:block" />
+                    <div
+                      className="absolute top-5 left-[55%] right-[-10%] h-[2px]"
+                      style={{
+                        background: `linear-gradient(90deg, rgba(255,255,255,0.25), rgba(255,255,255,0.55))`,
+                      }}
+                    />
                   )}
+
+                  {/* Nummer + Icon (Benefits-Stil) */}
+                  <div className="relative flex items-center justify-center">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-white/10 backdrop-blur">
+                      <span className="text-base font-semibold">{idx + 1}</span>
+                    </div>
+                    <div className="absolute -bottom-4 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                      <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
+                    </div>
+                  </div>
+
+                  {/* Text */}
+                  <h3 className={`mt-6 text-lg font-semibold ${serifClass}`}>{title}</h3>
+                  <p className="mt-2 text-sm text-white/90">{desc}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Mobile: Vertikale Timeline */}
+            <div className="mt-10 md:hidden">
+              <ol className="relative border-l border-white/20 pl-5">
+                {ablauf.map(({ icon: Icon, title, desc }, idx) => (
+                  <li key={idx} className="mb-8 ml-4">
+                    {/* Marker + Icon (Benefits-Stil) */}
+                    <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full border border-white/25 bg-white/10 text-xs font-semibold">
+                      {idx + 1}
+                    </span>
+                    <div className="mb-2 flex items-center gap-2">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                        <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
+                      </div>
+                      <h3 className={`text-base font-semibold ${serifClass}`}>{title}</h3>
+                    </div>
+                    <p className="text-sm text-white/90">{desc}</p>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
 
@@ -655,6 +691,7 @@ function AblaufSection() {
     </section>
   );
 }
+
 
 
 /* ---------------------- FAQ Section ---------------------- */
