@@ -1,47 +1,20 @@
-"use client";
+// 🚫 Kein "use client" hier oben!
 
 import React from "react";
+import Header from "@/components/Header"; // Client-Komponente separat
 import { Button } from "@/components/ui/button";
 
 const RG600 = "#1b4d2b";
 const RG300 = "#7ca98e";
 const serifClass = "font-serif";
 
-// 🚫 Noindex für Suchmaschinen
+// ✅ Noindex für Suchmaschinen
 export const metadata = {
   robots: {
     index: false,
-    follow: true, // Links dürfen verfolgt werden
+    follow: true,
   },
 };
-
-function Header() {
-  return (
-    <header className="border-b border-slate-100 bg-white">
-      <div className="mx-auto flex max-w-7xl items-center justify-center gap-8 px-6 py-4">
-        <nav className="flex flex-wrap gap-6">
-          <a href="/#blog" className="text-sm" style={{ color: "#334155" }}>
-            Blog-Beispiele
-          </a>
-          <a href="/#preise" className="text-sm" style={{ color: "#334155" }}>
-            Preise
-          </a>
-          <a href="/#ablauf" className="text-sm" style={{ color: "#334155" }}>
-            Ablauf
-          </a>
-          <a href="/#faq" className="text-sm" style={{ color: "#334155" }}>
-            FAQ
-          </a>
-        </nav>
-        <Button asChild>
-          <a className="text-white" href="/#preise">
-            Jetzt anfragen
-          </a>
-        </Button>
-      </div>
-    </header>
-  );
-}
 
 export default function AGBPage() {
   return (
