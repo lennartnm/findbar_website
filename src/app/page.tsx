@@ -68,6 +68,13 @@ const features = [
   "Veröffentlichung im CMS",
 ];
 
+// FAQ (added so section compiles)
+const faqs = [
+  { q: "Wie schnell geht’s los?", a: "Nach dem Onboarding starten wir innerhalb weniger Tage mit den ersten Artikeln." },
+  { q: "Können wir Themen vorgeben?", a: "Ja, du kannst Themen vorschlagen oder wir übernehmen die Recherche." },
+  { q: "Kündigungsfrist?", a: "Monatlich kündbar – volle Flexibilität." },
+];
+
 function formatEUR(n: number) {
   return n.toLocaleString("de-DE");
 }
@@ -484,8 +491,6 @@ function IdentificationSection() {
 }
 
 /* ---------------------- Leads Marquee mit Icons ---------------------- */
-import { Users, Eye } from "lucide-react"; // Icons wie bei Benefits Section
-
 function LeadsMarquee() {
   const items = [
     { text: "Mehr Leads", icon: Users },
@@ -634,7 +639,7 @@ function AblaufSection() {
           So läuft es ab
         </h2>
         <div className="mt-12 grid gap-8 md:grid-cols-3">
-          {ablaufSteps.map((step, i) => (
+          {ablauf.map((step, i) => (
             <div
               key={i}
               className="rounded-xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm shadow-sm"
@@ -645,7 +650,7 @@ function AblaufSection() {
               <div className={`text-lg font-medium ${serifClass}`}>
                 {step.title}
               </div>
-              <p className="mt-3 text-sm text-white/85">{step.description}</p>
+              <p className="mt-3 text-sm text-white/85">{step.desc}</p>
             </div>
           ))}
         </div>
