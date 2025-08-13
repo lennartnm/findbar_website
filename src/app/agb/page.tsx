@@ -36,12 +36,7 @@ function Header() {
   );
 }
 
-export const metadata = {
-  robots: {
-    index: false,
-    follow: true, // wenn du Links trotzdem verfolgbar machen willst
-  },
-};
+
 
 
 export default function AGBPage() {
