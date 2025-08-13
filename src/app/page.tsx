@@ -532,18 +532,10 @@ function LeadsMarquee() {
                   </div>
                   <span
                     className={`text-3xl md:text-5xl italic ${serifClass} select-none`}
-                    style={
-                      isSichtbarkeit
-                        ? {
-                            color: "transparent",
-                            WebkitTextStroke: "1.5px #fff",
-                            letterSpacing: "0.04em",
-                          }
-                        : {
-                            color: "#ffffff",
-                            letterSpacing: "0.04em",
-                          }
-                    }
+                    style={{
+                      color: "#ffffff", // immer voll gefüllt
+                      letterSpacing: "0.04em",
+                    }}
                   >
                     {text}
                   </span>
@@ -563,6 +555,7 @@ function LeadsMarquee() {
     </section>
   );
 }
+
 
 
 /* ------------------------ PreiseSection ----------------------- */
