@@ -132,12 +132,30 @@ function Header() {
   return (
     <header className="border-b border-slate-100 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-center gap-8 px-6 py-4">
-        <nav className="flex gap-6">
+        <nav className="flex flex-wrap gap-6">
           <a href="#blog" className="text-sm" style={{ color: "#334155" }}>
             Blog-Beispiele
           </a>
+          <a href="#how-it-helps" className="text-sm" style={{ color: "#334155" }}>
+            So helfen Blogartikel
+          </a>
+          <a href="#done4you" className="text-sm" style={{ color: "#334155" }}>
+            Done 4 You
+          </a>
+          <a href="#identification" className="text-sm" style={{ color: "#334155" }}>
+            Zielgruppen
+          </a>
+          <a href="#leads" className="text-sm" style={{ color: "#334155" }}>
+            Mehr Leads
+          </a>
           <a href="#preise" className="text-sm" style={{ color: "#334155" }}>
             Preise
+          </a>
+          <a href="#ablauf" className="text-sm" style={{ color: "#334155" }}>
+            Ablauf
+          </a>
+          <a href="#faq" className="text-sm" style={{ color: "#334155" }}>
+            FAQ
           </a>
         </nav>
         <Button asChild>
@@ -318,7 +336,7 @@ function HowItHelpsSection() {
   ];
 
   return (
-    <section className="py-20 border-t border-slate-100">
+    <section id="how-it-helps" className="py-20 border-t border-slate-100">
       <div className={containerClass}>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Textseite */}
@@ -366,7 +384,7 @@ function HowItHelpsSection() {
 
 function UnserZielSection() {
   return (
-    <section className="py-20">
+    <section id="done4you" className="py-20">
       <div className={containerClass}>
         <div
           className="relative w-full overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
@@ -463,7 +481,7 @@ function IdentificationSection() {
   ];
 
   return (
-    <section className="bg-white py-20 border-t border-slate-100">
+    <section id="identification" className="bg-white py-20 border-t border-slate-100">
       <div className={containerClass}>
         <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
           An wen richtet sich unser Angebot?
@@ -498,8 +516,8 @@ function LeadsMarquee() {
   ];
 
   return (
-    <section
-      className="relative overflow-hidden py-6" // weniger Padding
+    <section id="leads"
+      className="relative overflow-hidden py-6"
       style={{ background: `linear-gradient(90deg, ${RG300}, ${RG600})` }}
     >
       <div
@@ -512,7 +530,7 @@ function LeadsMarquee() {
         }}
       >
         <div
-          className="flex w-max gap-12 will-change-transform" // kleinerer Abstand zwischen Items
+          className="flex w-max gap-12 will-change-transform"
           style={{ animation: "marquee-ltr 70s linear infinite" }}
           aria-hidden
         >
@@ -520,14 +538,14 @@ function LeadsMarquee() {
             items.map(({ text, icon: Icon }, i) => (
               <div
                 key={`${k}-${i}`}
-                className="flex items-center gap-2 shrink-0" // engerer Abstand Icon-Text
+                className="flex items-center gap-2 shrink-0"
               >
                 {/* Icon-Style wie Benefits, aber kleiner */}
                 <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10">
                   <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
                 </div>
                 <span
-                  className={`text-2xl md:text-4xl italic ${serifClass} select-none`} // kleinere Schrift
+                  className={`text-2xl md:text-4xl italic ${serifClass} select-none`}
                   style={{
                     color: "#ffffff",
                     letterSpacing: "0.04em",
@@ -704,7 +722,7 @@ function FAQSection() {
   ];
 
   return (
-    <section className="bg-slate-50 py-20 border-t border-slate-100">
+    <section id="faq" className="bg-slate-50 py-20 border-t border-slate-100">
       <div className={containerClass}>
         {/* Überschrift jetzt linksbündig */}
         <h2 className={`text-3xl font-semibold ${serifClass}`}>
