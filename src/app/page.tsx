@@ -158,47 +158,34 @@ function Header() {
   );
 }
 
-/* ---------------------- Hero Section ---------------------- */
-function HeroSection() {
+/* ---------------------------- Hero ---------------------------- */
+function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white py-20">
-      <div className={containerClass}>
-        <div className="relative z-10 max-w-3xl">
-          {/* Titel */}
-          <h1 className={`text-4xl md:text-6xl font-bold ${serifClass}`}>
-            Mehr Sichtbarkeit & Kunden durch KI-optimierte Blogartikel
-          </h1>
-
-          {/* Untertitel */}
-          <p className="mt-6 text-lg text-slate-600">
-            Wir erstellen hochwertige, SEO-optimierte Blogartikel, die dir
-            langfristig neue Kunden bringen – komplett fertig geliefert.
-          </p>
-
-          {/* CTA-Buttons */}
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button asChild>
-              <a href="#preise" className="text-white">
-                Jetzt starten
-              </a>
-            </Button>
-            <Button variant="secondary" asChild>
-              <a href="#blog">
-                Blog-Beispiele ansehen
-              </a>
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Optionales Bild / Illustration */}
-      <div className="absolute right-0 top-0 hidden h-full w-1/2 md:block">
-        <img
-          src="/images/hero-illustration.png"
-          alt="Hero Illustration"
-          className="h-full w-full object-cover"
+    <section className="relative overflow-hidden bg-white px-6 py-28 text-center">
+      <svg
+        className="absolute inset-0 h-full w-full opacity-5"
+        viewBox="0 0 500 200"
+        preserveAspectRatio="none"
+      >
+        <polyline
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          points="0,180 60,165 120,160 180,140 240,120 300,95 360,80 420,55 480,30 500,20"
         />
-      </div>
+      </svg>
+      <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
+        <span className="italic font-bold">findbar:</span> Skaliere Dein Unternehmen mit
+        <br className="hidden md:inline" /> KI-optimierten Blog-Artikeln
+      </h1>
+      <p className="mx-auto mt-5 max-w-2xl text-slate-600">
+        Wir produzieren skalierbare und suchmaschinenoptimierte Blogartikel mit Hilfe von KI – zu einem Bruchteil der bisher üblichen Preise.
+      </p>
+      <Button asChild>
+        <a className="mt-6 inline-block text-white" href="#preise">
+          Pakete ansehen
+        </a>
+      </Button>
     </section>
   );
 }
