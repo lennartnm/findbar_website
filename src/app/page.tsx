@@ -204,8 +204,9 @@ function LeadsMarquee() {
                 className={`text-3xl md:text-5xl italic ${serifClass} select-none`}
                 style={{
                   color: "transparent",
-                  WebkitTextStroke: `1.5px ${RG600}`,
-                  textStroke: `1.5px ${RG600}` as any, // for non-webkit
+                  WebkitTextStroke: `1.5px ${RG600}`, // Outline (Safari/Chromium)
+                  // Fallback für Browser ohne WebkitTextStroke:
+                  textShadow: `0 0 0 ${RG600}`,
                   letterSpacing: "0.04em",
                 }}
               >
@@ -224,6 +225,7 @@ function LeadsMarquee() {
     </section>
   );
 }
+
 
 /* ---------------------- Benefits Marquee ---------------------- */
 function BenefitsMarquee() {
