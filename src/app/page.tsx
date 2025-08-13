@@ -166,10 +166,10 @@ function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0"
         style={{
-          backgroundImage: 
+          backgroundImage: `
             linear-gradient(to right, rgba(2,6,23,0.04) 1px, transparent 1px),
             linear-gradient(to bottom, rgba(2,6,23,0.04) 1px, transparent 1px)
-          ,
+          `,
           backgroundSize: "32px 32px",
           backgroundPosition: "center",
           /* großes Fade für weichen Übergang */
@@ -202,7 +202,7 @@ function Hero() {
 
       {/* Content */}
       <div className="relative z-20">
-        <h1 className={text-4xl md:text-6xl tracking-tight ${serifClass}}>
+        <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
           <span className="italic font-bold">findbar:</span> Skaliere Dein Unternehmen mit
           <br className="hidden md:inline" /> KI-optimierten Blog-Artikeln
         </h1>
@@ -217,7 +217,7 @@ function Hero() {
       </div>
 
       {/* Animation Styles */}
-      <style>{
+      <style>{`
         .animate-graph-reveal {
           clip-path: inset(0 100% 0 0);
           animation: graph-reveal 1.2s ease-out forwards .12s;
@@ -231,7 +231,7 @@ function Hero() {
             clip-path: inset(0 0 0 0);
           }
         }
-      }</style>
+      `}</style>
     </section>
   );
 }
@@ -242,7 +242,7 @@ function BenefitsMarquee() {
   return (
     <section
       className="relative overflow-hidden py-12 text-white"
-      style={{ background: linear-gradient(90deg, ${RG300}, ${RG600}) }}
+      style={{ background: `linear-gradient(90deg, ${RG300}, ${RG600})` }}
     >
       <div
         className="relative mx-auto max-w-[100vw]"
@@ -266,7 +266,7 @@ function BenefitsMarquee() {
                 <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10">
                   <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
                 </div>
-                <div className={text-lg italic ${serifClass}}>{label}</div>
+                <div className={`text-lg italic ${serifClass}`}>{label}</div>
                 <div className="mt-2 break-words text-xs leading-relaxed text-white/85">
                   {help}
                 </div>
@@ -275,7 +275,7 @@ function BenefitsMarquee() {
           )}
         </div>
       </div>
-      <style>{@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }}</style>
+      <style>{`@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }`}</style>
     </section>
   );
 }
@@ -285,7 +285,7 @@ function BlogSection() {
   return (
     <section id="blog" className="bg-white py-20">
       <div className={containerClass}>
-        <h2 className={text-3xl font-semibold text-center ${serifClass}}>
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
           Blog-Beispiele
         </h2>
         <p className="mt-4 text-center text-slate-600">
@@ -329,12 +329,12 @@ function BlogSection() {
 
               {/* Textbereich */}
               <div className="p-6">
-                <h3 className={mb-1 text-lg ${serifClass}}>{b.title}</h3>
+                <h3 className={`mb-1 text-lg ${serifClass}`}>{b.title}</h3>
                 <p className="text-sm text-slate-600">{b.tease}</p>
                 <a
                   href="#"
                   className="mt-4 inline-flex items-center text-sm font-medium text-[#1b4d2b]"
-                  aria-label={Beispiel ansehen: ${b.title}}
+                  aria-label={`Beispiel ansehen: ${b.title}`}
                 >
                   Beispiel ansehen <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
@@ -378,7 +378,7 @@ function HowItHelpsSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Textseite */}
           <div>
-            <h2 className={text-3xl font-semibold ${serifClass}}>
+            <h2 className={`text-3xl font-semibold ${serifClass}`}>
               So helfen dir KI-optimierte Blogartikel
             </h2>
             <p className="mt-4 text-slate-600">
@@ -404,7 +404,7 @@ function HowItHelpsSection() {
             <div
               className="absolute -inset-10 -z-10 blur-2xl"
               style={{
-                background: radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%),
+                background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`,
               }}
             />
             <img
@@ -426,7 +426,7 @@ function UnserZielSection() {
         <div
           className="relative w-full overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
           style={{
-            background: linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)
+            background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)`
           }}
         >
           {/* Inhalt */}
@@ -438,7 +438,7 @@ function UnserZielSection() {
                 <div
                   className="absolute -inset-10 -z-10 blur-2xl"
                   style={{
-                    background: radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)
+                    background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`
                   }}
                 />
                 <img
@@ -452,7 +452,7 @@ function UnserZielSection() {
             {/* Textseite – jetzt rechts auf Desktop */}
             <div className="order-1 md:order-2">
               <p className="text-sm uppercase tracking-wide text-white/70">Done 4 You</p>
-              <h2 className={mt-2 text-3xl font-semibold ${serifClass}}>
+              <h2 className={`mt-2 text-3xl font-semibold ${serifClass}`}>
                 Minimaler Zeitaufwand für dich
               </h2>
               <p className="mt-4 max-w-prose text-white/90">
@@ -520,7 +520,7 @@ function IdentificationSection() {
   return (
     <section id="identification" className="bg-white py-20 border-t border-slate-100">
       <div className={containerClass}>
-        <h2 className={text-3xl font-semibold text-center ${serifClass}}>
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
           An wen richtet sich unser Angebot?
         </h2>
         <p className="mt-4 text-center text-slate-600">
@@ -535,7 +535,7 @@ function IdentificationSection() {
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#1b4d2b1A] text-[#1b4d2b]">
                 <z.icon className="h-6 w-6" />
               </div>
-              <h3 className={mb-2 text-lg font-semibold ${serifClass}}>{z.title}</h3>
+              <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{z.title}</h3>
               <p className="text-sm text-slate-600">{z.desc}</p>
             </div>
           ))}
@@ -555,7 +555,7 @@ function LeadsMarquee() {
   return (
     <section id="leads"
       className="relative overflow-hidden py-6"
-      style={{ background: linear-gradient(90deg, ${RG300}, ${RG600}) }}
+      style={{ background: `linear-gradient(90deg, ${RG300}, ${RG600})` }}
     >
       <div
         className="relative mx-auto max-w-[100vw]"
@@ -574,7 +574,7 @@ function LeadsMarquee() {
           {[...Array(8)].flatMap((_, k) =>
             items.map(({ text, icon: Icon }, i) => (
               <div
-                key={${k}-${i}}
+                key={`${k}-${i}`}
                 className="flex items-center gap-2 shrink-0"
               >
                 {/* Icon-Style wie Benefits, aber kleiner */}
@@ -582,7 +582,7 @@ function LeadsMarquee() {
                   <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
                 </div>
                 <span
-                  className={text-2xl md:text-4xl italic ${serifClass} select-none}
+                  className={`text-2xl md:text-4xl italic ${serifClass} select-none`}
                   style={{
                     color: "#ffffff",
                     letterSpacing: "0.04em",
@@ -596,12 +596,12 @@ function LeadsMarquee() {
         </div>
       </div>
 
-      <style>{
+      <style>{`
         @keyframes marquee-ltr {
           from { transform: translateX(-60%); }
           to   { transform: translateX(0); }
         }
-      }</style>
+      `}</style>
     </section>
   );
 }
@@ -614,16 +614,16 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   return (
     <section id="preise" className="border-t border-slate-100 bg-white py-20">
       <div className={containerClass}>
-        <h2 className={text-3xl font-semibold text-center ${serifClass}}>Unsere Pakete</h2>
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>Unsere Pakete</h2>
 
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           {plans.map(({ id, articles, price, popular }) => {
             return (
               <div
                 key={id}
-                className={group relative rounded-2xl border-2 bg-white p-6 text-left shadow-sm transition-all hover:shadow-lg ${
+                className={`group relative rounded-2xl border-2 bg-white p-6 text-left shadow-sm transition-all hover:shadow-lg ${
                   popular ? "scale-105 border-[#1b4d2b] ring-2 ring-[#1b4d2b]/40" : "border-[#1b4d2b]"
-                }}
+                }`}
               >
                 {popular && (
                   <div
@@ -634,7 +634,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
                   </div>
                 )}
 
-                <h3 className={text-lg font-semibold ${serifClass}}>{articles} Artikel / Monat</h3>
+                <h3 className={`text-lg font-semibold ${serifClass}`}>{articles} Artikel / Monat</h3>
 
                 <div className="mt-4">
                   <div className="inline-flex items-end gap-1">
@@ -678,11 +678,11 @@ function AblaufSection() {
       <div className={containerClass}>
         <div
           className="relative w-full overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
-          style={{ background: linear-gradient(to right, ${RG600} 0%, ${RG300} 60%) }}
+          style={{ background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)` }}
         >
           {/* Inhalt */}
           <div className="relative z-10 px-6 py-12 md:px-12">
-            <h2 className={text-center text-3xl font-semibold ${serifClass}}>
+            <h2 className={`text-center text-3xl font-semibold ${serifClass}`}>
               Unser Ablauf – transparent & effizient
             </h2>
 
@@ -710,7 +710,7 @@ function AblaufSection() {
 
                   {/* Content */}
                   <div className="pt-12">
-                    <h3 className={text-lg font-semibold ${serifClass}}>{title}</h3>
+                    <h3 className={`text-lg font-semibold ${serifClass}`}>{title}</h3>
                     <p className="mt-2 text-sm text-white/90">{desc}</p>
                   </div>
 
@@ -762,7 +762,7 @@ function FAQSection() {
     <section id="faq" className="bg-slate-50 py-20 border-t border-slate-100">
       <div className={containerClass}>
         {/* Überschrift jetzt linksbündig */}
-        <h2 className={text-3xl font-semibold ${serifClass}}>
+        <h2 className={`text-3xl font-semibold ${serifClass}`}>
           Häufige Fragen
         </h2>
         <div className="mt-10 space-y-4">
