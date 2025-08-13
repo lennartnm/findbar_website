@@ -178,11 +178,15 @@ function Hero() {
   );
 }
 
-/* ---------------------- Leads Marquee (Outline, LTR) ---------------------- */
+/* ---------------------- Leads Marquee (Outline nur für "MEHR SICHTBARKEIT") ---------------------- */
 function LeadsMarquee() {
   const items = ["MEHR LEADS", "MEHR SICHTBARKEIT"];
+
   return (
-    <section className="relative overflow-hidden py-6 bg-white">
+    <section
+      className="relative overflow-hidden py-10"
+      style={{ background: `linear-gradient(90deg, ${RG300}, ${RG600})` }}
+    >
       <div
         className="relative mx-auto max-w-[100vw]"
         style={{
@@ -193,38 +197,51 @@ function LeadsMarquee() {
         }}
       >
         <div
-          className="flex w-max gap-10 will-change-transform"
-          style={{ animation: "marquee-ltr 30s linear infinite" }}
+          className="flex w-max gap-12 will-change-transform"
+          style={{ animation: "marquee-ltr 70s linear infinite" }} // langsamer
           aria-hidden
         >
           {[...Array(8)].flatMap((_, k) =>
-            items.map((word, i) => (
-              <span
-                key={`${k}-${i}`}
-                className={`text-3xl md:text-5xl italic ${serifClass} select-none`}
-                style={{
-                  color: "transparent",
-                  WebkitTextStroke: `1.5px ${RG600}`, // Outline (Safari/Chromium)
-                  // Fallback für Browser ohne WebkitTextStroke:
-                  textShadow: `0 0 0 ${RG600}`,
-                  letterSpacing: "0.04em",
-                }}
-              >
-                {word}
-              </span>
-            ))
+            items.map((word, i) => {
+              const isSichtbarkeit =
+                word.toLowerCase() === "mehr sichtbarkeit";
+
+              return (
+                <span
+                  key={`${k}-${i}`}
+                  className={`text-3xl md:text-5xl italic ${serifClass} select-none`}
+                  style={
+                    isSichtbarkeit
+                      ? {
+                          color: "transparent",
+                          WebkitTextStroke: "1.5px #fff",
+                          textShadow: "0 0 0 #fff", // Fallback
+                          letterSpacing: "0.04em",
+                        }
+                      : {
+                          color: "#ffffff",
+                          letterSpacing: "0.04em",
+                        }
+                  }
+                >
+                  {word}
+                </span>
+              );
+            })
           )}
         </div>
       </div>
+
       <style>{`
         @keyframes marquee-ltr {
-          from { transform: translateX(-50%); }
+          from { transform: translateX(-60%); }
           to   { transform: translateX(0); }
         }
       `}</style>
     </section>
   );
 }
+
 
 
 /* ---------------------- Benefits Marquee ---------------------- */
