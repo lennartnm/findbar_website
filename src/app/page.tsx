@@ -683,9 +683,9 @@ function FAQSection() {
   ];
 
   return (
-    <section className="bg-white py-20 border-t border-slate-100">
+    <section className="bg-slate-50 py-20 border-t border-slate-100">
       <div className={containerClass}>
-        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
+        <h2 className={`text-3xl font-semibold ${serifClass}`}>
           Häufige Fragen (FAQ)
         </h2>
         <div className="mt-10 space-y-4">
@@ -695,7 +695,7 @@ function FAQSection() {
               className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
             >
               <summary className="flex cursor-pointer items-center justify-between font-medium">
-                {f.q}
+                <span>{f.q}</span>
                 <span className="ml-4 transition-transform group-open:rotate-180">
                   <ArrowRight className="h-4 w-4 text-slate-500" />
                 </span>
@@ -708,6 +708,7 @@ function FAQSection() {
     </section>
   );
 }
+
 
 
 
