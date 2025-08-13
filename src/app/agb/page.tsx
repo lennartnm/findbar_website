@@ -9,7 +9,7 @@ const serifClass = "font-serif";
 
 function Header() {
   return (
-    <noindex>
+
     <header className="border-b border-slate-100 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-center gap-8 px-6 py-4">
         <nav className="flex flex-wrap gap-6">
@@ -35,6 +35,14 @@ function Header() {
     </header>
   );
 }
+
+export const metadata = {
+  robots: {
+    index: false,
+    follow: true, // wenn du Links trotzdem verfolgbar machen willst
+  },
+};
+
 
 export default function AGBPage() {
   return (
@@ -106,6 +114,6 @@ export default function AGBPage() {
         </p>
       </footer>
     </div>
-    </noindex>
+
   );
 }
