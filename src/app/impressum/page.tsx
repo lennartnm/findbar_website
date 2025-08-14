@@ -35,10 +35,39 @@ function Header() {
   );
 }
 
+// Neuer Marquee-Bereich
+function FirmNameMarquee() {
+  return (
+    <div className="bg-slate-50 overflow-hidden py-3 border-b border-slate-100">
+      <div
+        className="flex w-max gap-16 will-change-transform"
+        style={{ animation: "marquee-left-right 20s linear infinite" }}
+      >
+        {Array.from({ length: 10 }).map((_, i) => (
+          <span
+            key={i}
+            className={`text-3xl md:text-4xl italic ${serifClass} text-slate-400`}
+          >
+            findbar
+          </span>
+        ))}
+      </div>
+
+      <style>{`
+        @keyframes marquee-left-right {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(0%); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
 export default function ImpressumPage() {
   return (
     <div className="bg-white text-slate-900">
       <Header />
+      <FirmNameMarquee /> {/* Hier kommt der neue Marquee direkt unter den Header */}
 
       <main className="w-full max-w-5xl mx-auto px-6 py-16">
         <h1 className={`text-3xl md:text-4xl ${serifClass} font-semibold mb-8`}>
