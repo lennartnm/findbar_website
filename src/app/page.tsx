@@ -426,7 +426,7 @@ function TrustSection() {
   return (
     <section
       id="trust"
-      className="relative overflow-hidden py-16 text-white" // weniger padding
+      className="relative overflow-hidden py-16 text-white"
       style={{
         background: `linear-gradient(120deg, ${RG600} 0%, ${RG300} 60%)`,
       }}
@@ -512,12 +512,7 @@ function TrustSection() {
         {/* KPIs */}
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {kpis.map((k, i) => (
-            <KpiCard
-              key={i}
-              to={k.to}
-              suffix={k.suffix}
-              label={k.label}
-            />
+            <KpiCard key={i} to={k.to} suffix={k.suffix} label={k.label} />
           ))}
         </div>
       </div>
@@ -542,6 +537,53 @@ function TrustSection() {
         }
       `}</style>
     </section>
+  );
+}
+
+/* --- KPI Card mit animierter Zahl --- */
+function KpiCard({ to, suffix, label }: { to: number; suffix?: string; label: string }) {
+  const ref = React.useRef<HTMLDivElement | null>(null);
+  const [val, setVal] = React.useState(0);
+
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          const controls = animate(0, to, {
+            duration: 1.2,
+            ease: "easeOut",
+            onUpdate: (v) => setVal(v),
+          });
+          io.disconnect();
+          return () => controls.stop();
+        }
+      });
+    }, { threshold: 0.5 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [to]);
+
+  const display = Number.isInteger(to) ? Math.round(val).toString() : val.toFixed(1);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.6 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="rounded-2xl border border-white/25 bg-white/10 p-6 text-center shadow-[0_10px_30px_rgba(0,0,0,.25)] backdrop-blur-md"
+    >
+      <div className="text-3xl md:text-4xl font-bold">
+        {display}
+        {suffix}
+      </div>
+      <div className="mt-1 text-[11px] uppercase tracking-wide text-white/85">
+        {label}
+      </div>
+    </motion.div>
   );
 }
 
