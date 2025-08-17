@@ -238,7 +238,7 @@ function Hero() {
   );
 }
 
-/* ---------------------- VisitorRevealSection (grid-fixed, no whitespace) ---------------------- */
+/* ---------------------- VisitorRevealSection (overlay info on scan) ---------------------- */
 function VisitorRevealSection() {
   const steps = [
     "Google oder KI-Suche",
@@ -273,65 +273,46 @@ function VisitorRevealSection() {
 
         {/* Visual Row */}
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {/* --- Live-Traffic Card: strict grid -> no whitespace --- */}
+          {/* Live-Traffic Card (alter Ansatz, Info-Text als Overlay) */}
           <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <div className="grid grid-rows-[auto_1fr_auto]">
-              {/* Header */}
-              <div className="flex items-center justify-between px-5 py-4">
-                <span className={`text-lg font-semibold ${serifClass}`}>Live-Traffic</span>
-                <span className="text-xs text-slate-500">Echtzeit-Scan</span>
-              </div>
+            {/* Header */}
+            <div className="flex items-center justify-between px-5 pt-5">
+              <span className={`text-lg font-semibold ${serifClass}`}>Live-Traffic</span>
+              <span className="text-xs text-slate-500">Echtzeit-Scan</span>
+            </div>
 
-              {/* Canvas (fills exactly the middle row) */}
-              <div className="px-5">
-                <svg
-                  className="block w-full h-56"
-                  viewBox="0 0 800 320"
-                  preserveAspectRatio="none"
-                  aria-hidden="true"
-                >
-                  <defs>
-                    <pattern id="dots" x="0" y="0" width="56" height="56" patternUnits="userSpaceOnUse">
-                      <circle cx="28" cy="28" r="16" fill="#cbd5e1" opacity="0.7" />
-                    </pattern>
-                    <linearGradient id="bottomFade" x1="0" y1="1" x2="0" y2="0">
-                      <stop offset="0%" stopColor="#A7F3D0" stopOpacity="0.45" />
-                      <stop offset="100%" stopColor="#A7F3D0" stopOpacity="0" />
-                    </linearGradient>
-                    <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#10B981" stopOpacity="0" />
-                      <stop offset="50%" stopColor="#10B981" stopOpacity="0.22" />
-                      <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
-                    </linearGradient>
-                    <clipPath id="roundClip">
-                      <rect x="24" y="8" width="752" height="304" rx="16" ry="16" />
-                    </clipPath>
-                  </defs>
+            {/* Visual Box */}
+            <div className="relative px-5 pt-4 pb-5">
+              <div className="relative h-56 overflow-hidden rounded-xl bg-slate-50">
+                {/* Dots */}
+                <div className="absolute inset-0 grid grid-cols-6 gap-4 p-5">
+                  {[...Array(36)].map((_, i) => (
+                    <div key={i} className="h-8 w-8 rounded-full bg-slate-300/60" aria-hidden />
+                  ))}
+                </div>
+                {/* Bottom emerald fade */}
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-emerald-200/40 to-transparent" />
+                {/* Scan */}
+                <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-300/20 to-transparent mix-blend-multiply" />
 
-                  <g clipPath="url(#roundClip)">
-                    <rect x="24" y="8" width="752" height="304" fill="#f8fafc" />
-                    <rect x="24" y="8" width="752" height="304" fill="url(#dots)" />
-                    <rect x="24" y="168" width="752" height="144" fill="url(#bottomFade)" />
-                    <rect className="scanY" x="24" y="-304" width="752" height="120" fill="url(#scanGrad)" />
-                  </g>
-                </svg>
-              </div>
-
-              {/* Info Bar (bottom row) – sits flush with card edge, no extra gap */}
-              <div className="flex items-center gap-2 border-t border-slate-200 bg-slate-50/70 px-5 py-3 text-xs text-slate-700">
-                <Search className="h-4 w-4" />
-                <span>Mustererkennung, IP-Auflösung &amp; Firmendatenbanken</span>
+                {/* OVERLAY-Info (statt separater Leiste unten) */}
+                <div className="absolute left-4 right-4 bottom-4">
+                  <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white/85 backdrop-blur px-3 py-2 text-xs text-slate-700 shadow-sm">
+                    <Search className="h-4 w-4" />
+                    <span>Mustererkennung, IP-Auflösung &amp; Firmendatenbanken</span>
+                  </div>
+                </div>
               </div>
             </div>
+            {/* kein zusätzlicher Block mehr unter der Visual Box → kein Whitespace */}
           </div>
 
-          {/* Recognized companies (reduziert) */}
+          {/* Erkannte Unternehmen (reduziert) */}
           <div className="relative overflow-hidden rounded-2xl border border-emerald-200 bg-emerald-50/40 shadow-sm">
             <div className="flex items-center justify-between px-5 py-4">
               <span className={`text-lg font-semibold ${serifClass}`}>Erkannte Unternehmen</span>
               <span className="text-xs text-emerald-700">Sales-Ready</span>
             </div>
-
             <ul className="px-5 pt-2 pb-2 space-y-3">
               {companies.map((c, i) => (
                 <li key={i} className="rounded-xl border border-emerald-200/70 bg-white px-4 py-3 text-sm shadow-sm">
@@ -348,14 +329,13 @@ function VisitorRevealSection() {
                 </li>
               ))}
             </ul>
-
             <div className="border-t border-emerald-200 bg-white/70 px-5 py-3 text-xs text-slate-600">
               Direkt in CRM &amp; Outreach nutzbar.
             </div>
           </div>
         </div>
 
-        {/* Journey 1–5 im Ablauf-Stil (nummerierte Badges) */}
+        {/* Journey 1–5 (Zahlen im Ablauf-Stil) */}
         <div className="mt-12 flex flex-col items-center gap-8 md:flex-row md:justify-between">
           {steps.map((title, i) => (
             <div key={i} className="flex items-center gap-4 md:gap-6">
@@ -371,15 +351,16 @@ function VisitorRevealSection() {
         </div>
       </div>
 
-      {/* Animations */}
+      {/* Keyframes */}
       <style>{`
-        @keyframes scanY { 0% { transform: translateY(320px); } 100% { transform: translateY(-320px); } }
-        .scanY { animation: scanY 3s linear infinite; will-change: transform; }
-        @media (prefers-reduced-motion: reduce) { .scanY { animation: none; } }
+        @keyframes scanY { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+        .animate-scanY { animation: scanY 3s linear infinite; will-change: transform; }
+        @media (prefers-reduced-motion: reduce) { .animate-scanY { animation: none; } }
       `}</style>
     </section>
   );
 }
+
 
 
 /* ---------------------- Benefits Marquee ---------------------- */
