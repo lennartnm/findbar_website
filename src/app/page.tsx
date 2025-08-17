@@ -239,7 +239,7 @@ function Hero() {
 }
 
 
-/* ---------------------- VisitorRevealSection (refined) ---------------------- */
+/* ---------------------- VisitorRevealSection (final clean) ---------------------- */
 function VisitorRevealSection() {
   const steps = [
     "Google oder KI-Suche",
@@ -274,7 +274,7 @@ function VisitorRevealSection() {
 
         {/* Visual Row */}
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {/* Live-Traffic Card (kein überlappender Raum) */}
+          {/* Live-Traffic Card */}
           <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
             <div className="flex items-center justify-between px-5 pt-5">
               <span className={`text-lg font-semibold ${serifClass}`}>Live-Traffic</span>
@@ -289,14 +289,13 @@ function VisitorRevealSection() {
                     <div key={i} className="h-8 w-8 rounded-full bg-slate-300/60" aria-hidden />
                   ))}
                 </div>
-                {/* sanfter Grünverlauf + Scan */}
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-emerald-200/40 to-transparent" />
                 <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-300/20 to-transparent mix-blend-multiply" />
               </div>
             </div>
 
-            {/* Info bar bündig am unteren Rand */}
-            <div className="mt-4 border-t border-slate-200 bg-slate-50/70 px-5 py-3 text-xs text-slate-700 rounded-b-2xl">
+            {/* Info bar direkt unten, ohne mt-4 */}
+            <div className="border-t border-slate-200 bg-slate-50/70 px-5 py-3 text-xs text-slate-700 rounded-b-2xl">
               <span className="inline-flex items-center gap-2">
                 <Search className="h-4 w-4" />
                 Mustererkennung, IP-Auflösung &amp; Firmendatenbanken
@@ -304,7 +303,7 @@ function VisitorRevealSection() {
             </div>
           </div>
 
-          {/* Recognized companies (reduziert) */}
+          {/* Recognized companies */}
           <div className="relative overflow-hidden rounded-2xl border border-emerald-200 bg-emerald-50/40 shadow-sm">
             <div className="flex items-center justify-between px-5 pt-5">
               <span className={`text-lg font-semibold ${serifClass}`}>Erkannte Unternehmen</span>
@@ -334,12 +333,13 @@ function VisitorRevealSection() {
           </div>
         </div>
 
-        {/* Journey 1–5 mit Pfeilen */}
+        {/* Journey 1–5 im Ablauf-Stil */}
         <div className="mt-12 flex flex-col items-center gap-8 md:flex-row md:justify-between">
           {steps.map((title, i) => (
             <div key={i} className="flex items-center gap-4 md:gap-6">
               <div className="flex flex-col items-center text-center max-w-[190px]">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#1b4d2b33] bg-[#1b4d2b1A] text-[#1b4d2b] font-semibold">
+                <div className="shrink-0 inline-flex size-10 items-center justify-center rounded-full
+                                bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
                   {i + 1}
                 </div>
                 <p className="mt-3 text-sm text-slate-700">{title}</p>
@@ -361,7 +361,6 @@ function VisitorRevealSection() {
     </section>
   );
 }
-
 
 
 
