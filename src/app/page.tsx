@@ -811,30 +811,37 @@ function FAQSection() {
   const faqs = [
     {
       q: "Wie schnell sehe ich Ergebnisse?",
-      a: "Oft schon nach wenigen Wochen – Google braucht jedoch manchmal etwas länger, um neue Inhalte vollständig zu indexieren.",
+      a: "Die ersten Effekte (z. B. Sichtbarkeit, Rankings, erste Firmenbesucher) zeigen sich bereits nach wenigen Wochen. Der volle Hebel setzt nach 2–3 Monaten ein, wenn genügend Artikel veröffentlicht und indexiert sind. Ab dann wächst der Traffic und die Zahl der identifizierten Leads kontinuierlich.",
     },
     {
-      q: "Muss ich selbst Themen recherchieren?",
-      a: "Nein. Wir übernehmen die komplette Themen- und Keyword-Recherche für dich.",
+      q: "Wie qualitativ und branchenspezifisch sind die Artikel wirklich?",
+      a: "Unsere KI wird mit branchenspezifischen Daten, Keywords und deinem Markenstil trainiert. Jeder Artikel ist individuell auf deine Zielgruppe ausgerichtet – keine 0815-Texte. Das Ziel: Inhalte, die wie von einem Branchen-Insider geschrieben wirken und Vertrauen schaffen.",
+    },
+    {
+      q: "Wie funktioniert die Erkennung von anonymen Firmenbesuchern genau?",
+      a: "Wir setzen eine intelligente Tracking-Technologie ein, die anhand von IP-Adressen, Unternehmensdatenbanken und Verhaltensmustern erkennt, welche Firmen deine Website besuchen. So erhältst du konkrete Unternehmensnamen – auch ohne Formular. DSGVO-konform und zuverlässig.",
+    },
+    {
+      q: "Worin unterscheidet ihr euch von einer klassischen SEO- oder Content-Agentur?",
+      a: "Klassische Agenturen liefern Content oder Rankings. Wir liefern sichtbaren Content + verwertbare Leads. Dein Vertrieb bekommt Unternehmensdaten an die Hand, die er direkt nutzen kann – dadurch wird Content nicht zum Kostenfaktor, sondern zum echten Vertriebsbooster.",
+    },
+    {
+      q: "Wie viel Aufwand habe ich intern?",
+      a: "Minimal. Wir übernehmen Themenrecherche, Artikelproduktion, SEO-Optimierung, CMS-Einpflege und Lead-Identifizierung. Dein Team muss nur am Anfang Input zu Zielgruppe & Angebot geben – danach läuft alles automatisiert. Vertrieb nutzt dann die fertigen Leads.",
+    },
+    {
+      q: "Welche Kosten kommen wirklich auf mich zu?",
+      a: "Du zahlst nur die monatliche Paketgebühr plus eine einmalige Setup-Gebühr von 199 € für die Einrichtung. Keine versteckten Kosten, keine Zusatzaufwände. Kündbar mit kurzer Frist – volle Transparenz.",
     },
     {
       q: "Ist das auch für meine Branche geeignet?",
-      a: "Ja. Wir erstellen Inhalte für nahezu jede Branche – ob B2B, B2C oder Nischenmärkte.",
-    },
-    {
-      q: "Was passiert, wenn ich unzufrieden bin?",
-      a: "Wir passen die Inhalte nach deinem Feedback an, bis du zufrieden bist.",
-    },
-    {
-      q: "Wie funktioniert die Abrechnung?",
-      a: "Transparent, monatlich und jederzeit kündbar.",
+      a: "Unser Modell funktioniert für jedes B2B-Unternehmen mit klarem Angebot und Zielgruppe. Ob Industrie, SaaS, Tech oder Dienstleistung – sobald deine Kunden online nach Lösungen suchen, bringen wir dich auf ihre Bildschirme und liefern die passenden Leads.",
     },
   ];
 
   return (
     <section id="faq" className="bg-slate-50 py-20 border-t border-slate-100">
       <div className={containerClass}>
-        {/* Überschrift jetzt linksbündig */}
         <h2 className={`text-3xl font-semibold ${serifClass}`}>
           Häufige Fragen
         </h2>
@@ -858,6 +865,7 @@ function FAQSection() {
     </section>
   );
 }
+
 
 
 
