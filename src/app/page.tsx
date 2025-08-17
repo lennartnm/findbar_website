@@ -669,7 +669,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   );
 }
 
-/* ------------------------ AblaufSection (neu) ----------------------- */
+/* ------------------------ AblaufSection (robuster Zeilenumbruch) ----------------------- */
 function AblaufSection() {
   return (
     <section id="ablauf" className="py-20">
@@ -683,36 +683,46 @@ function AblaufSection() {
               Unser Ablauf – transparent & effizient
             </h2>
 
-            {/* Card-Deck */}
             <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-5 items-stretch">
               {ablauf.map(({ icon: Icon, title, desc }, idx) => (
                 <div
                   key={idx}
-                  className="h-full overflow-hidden rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20"
                 >
-                  {/* Kopfzeile im natürlichen Fluss – keine absolute Positionen */}
+                  {/* Kopfzeile (kein absolute) */}
                   <div className="flex items-center justify-between gap-3 border-b border-white/10 p-4">
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10 text-sm font-semibold">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-sm font-semibold">
                         {idx + 1}
                       </span>
-                      <h3 className={`text-base md:text-lg font-semibold ${serifClass}`}>{title}</h3>
+                      <h3
+                        className={`text-base md:text-lg font-semibold ${serifClass}`}
+                        style={{
+                          overflowWrap: "anywhere",
+                          wordBreak: "break-word",
+                        }}
+                      >
+                        {title}
+                      </h3>
                     </div>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 shrink-0">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
                       <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
                     </div>
                   </div>
 
                   {/* Inhalt */}
-                  <div
-                    className="flex h-full flex-col p-5 pb-6"
-                    style={{ wordBreak: "break-word", hyphens: "auto" }}
-                  >
-                    <p className="text-sm leading-relaxed text-white/90">
+                  <div className="flex h-full flex-col p-5 pb-6">
+                    <p
+                      className="text-sm leading-relaxed text-white/90"
+                      style={{
+                        overflowWrap: "anywhere",
+                        wordBreak: "break-word",
+                      }}
+                    >
                       {desc}
                     </p>
 
-                    {/* dezenter Hover-Akzent am unteren Rand */}
+                    {/* Hover-Akzent */}
                     <div
                       className="mt-auto -mb-1 h-0.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
                       style={{
@@ -726,13 +736,13 @@ function AblaufSection() {
             </div>
           </div>
 
-          {/* feiner Innenrand */}
           <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
         </div>
       </div>
     </section>
   );
 }
+
 
 
 
