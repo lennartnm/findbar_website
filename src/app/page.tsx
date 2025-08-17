@@ -666,11 +666,12 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
                     <span className="mb-0.5 text-xs text-slate-400">pro Monat</span>
                   </div>
 
-                  {/* Marktvalidierungspreis Badge */}
-                  <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">
-                    <Check className="h-3 w-3" />
-                    Marktvalidierungspreis: Wir sammeln Testimonials
-                  </div>
+                 {/* Marktvalidierungspreis Badge */}
+<div className="mt-2 inline-flex items-center gap-2 rounded-md border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">
+  <Check className="h-3 w-3" />
+  Marktvalidierungspreis: Wir sammeln Testimonials
+</div>
+
 
                   <span className="sr-only">
                     Neuer Preis {formatEUR(price)}€ pro Monat statt {formatEUR(oldPrice)}€ pro Monat.
@@ -703,9 +704,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
         </div>
 
         <p className="mt-6 text-center text-xs text-slate-500">
-          Alle Pakete verstehen sich exkl. Mwst. und beinhalten alles von Recherche bis Veröffentlichung – plus
-          die Identifikation anonymer Unternehmensbesucher, transparente Reports
-          und nachhaltige Lead-Gewinnung, für maximalen Outcome für dein Angebot.
+          Alle Pakete verstehen sich exkl. Mwst. und einmaliger Aufsetzgebühr von 199€. Sie beinhalten alles von Recherche bis Veröffentlichung und nachhaltige Lead-Gewinnung, für maximalen Outcome für dein Angebot.
         </p>
       </div>
     </section>
