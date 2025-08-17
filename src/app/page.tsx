@@ -281,25 +281,35 @@ function VisitorRevealSection() {
               <span className="text-xs text-slate-500">Echtzeit-Scan</span>
             </div>
 
-            {/* Visual Box */}
+            {/* Visual Box – Map mit Ping-Dots */}
             <div className="relative px-5 pt-4 pb-5">
-              <div className="relative h-56 overflow-hidden rounded-xl bg-slate-50">
-                {/* Dots */}
-                <div className="absolute inset-0 grid grid-cols-6 gap-4 p-5">
-                  {[...Array(36)].map((_, i) => (
-                    <div key={i} className="h-8 w-8 rounded-full bg-slate-300/60" aria-hidden />
+              <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-slate-50">
+                {/* Weltkarte Hintergrund */}
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/World_map_-_low_resolution.svg/1200px-World_map_-_low_resolution.svg.png"
+                  alt="Traffic Map"
+                  className="absolute inset-0 h-full w-full object-cover opacity-70"
+                />
+
+                {/* Scan Overlay */}
+                <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-300/20 to-transparent mix-blend-multiply" />
+
+                {/* Heat Dots */}
+                <div className="absolute inset-0">
+                  {[{x:"30%",y:"40%"},{x:"55%",y:"60%"},{x:"70%",y:"30%"}].map((pos,i)=>(
+                    <div
+                      key={i}
+                      style={{left:pos.x,top:pos.y}}
+                      className="absolute h-3 w-3 rounded-full bg-emerald-500/80 animate-ping"
+                    />
                   ))}
                 </div>
-                {/* Bottom emerald fade */}
-                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-emerald-200/40 to-transparent" />
-                {/* Scan */}
-                <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-300/20 to-transparent mix-blend-multiply" />
 
                 {/* OVERLAY-Info */}
                 <div className="absolute left-4 right-4 bottom-4">
                   <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white/85 backdrop-blur px-3 py-2 text-xs text-slate-700 shadow-sm">
                     <Search className="h-4 w-4" />
-                    <span>Mustererkennung, IP-Auflösung &amp; Firmendatenbanken</span>
+                    <span>Mustererkennung, IP-Auflösung & Firmendatenbanken</span>
                   </div>
                 </div>
               </div>
@@ -329,16 +339,15 @@ function VisitorRevealSection() {
               ))}
             </ul>
             <div className="border-t border-emerald-200 bg-white/70 px-5 py-3 text-xs text-slate-600">
-              Direkt in CRM &amp; Outreach nutzbar.
+              Direkt in CRM & Outreach nutzbar.
             </div>
           </div>
         </div>
 
-        {/* Journey 1–5 (Zahlen im Ablauf-Stil) – Zahlen immer bündig */}
+        {/* Journey 1–5 */}
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-6 text-center">
           {steps.map((title, i) => (
             <div key={i} className="flex flex-col items-center">
-              {/* Zahl-Kugel: feste Größe sorgt für gleiche Höhe/Ausrichtung */}
               <div className="shrink-0 inline-flex size-12 items-center justify-center rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
                 {i + 1}
               </div>
@@ -357,7 +366,6 @@ function VisitorRevealSection() {
     </section>
   );
 }
-
 
 
 
