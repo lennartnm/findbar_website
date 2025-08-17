@@ -591,7 +591,7 @@ function UnserZielSection() {
                   }}
                 />
                 <img
-                  src="/Ziele erreichen mit Findbar.png"
+                  src="/Gluehbirne.png"
                   alt="Darstellung des Done 4 You Prozesses"
                   className="relative z-20 w-full rounded-xl"
                 />
