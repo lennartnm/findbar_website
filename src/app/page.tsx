@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence, animate } from "framer-motion";
 import {
   Eye,
   Target,
@@ -408,101 +409,124 @@ function HowItHelpsSection() {
 }
 
 
-/* ---------------------- Vertrauen & Expertenstatus (Compact) ---------------------- */
+/* ---------------------- Vertrauen & Expertenstatus (Animated) ---------------------- */
 function TrustSection() {
   const pillars = [
     { icon: Eye, title: "Gefunden", desc: "Präsenz in Suchmomenten" },
     { icon: Award, title: "Glaubwürdig", desc: "Signature-Content & Belege" },
-    { icon: BarChart3, title: "Reichweite", desc: "Breite & Tiefe der Rankings" },
+    { icon: BarChart3, title: "Reichweite", desc: "Ranking-Breite & -Tiefe" },
   ];
 
   const kpis = [
-    { value: "3–5x", label: "Mehr Weiterleitungen" },
-    { value: "30–60", label: "Rankende Themen/90T" },
-    { value: "2–4", label: "Touchpoints vor Sales" },
+    { to: 5, suffix: "x", label: "Mehr Weiterleitungen" },
+    { to: 60, suffix: "", label: "Rankende Themen/90T" },
+    { to: 4, suffix: "", label: "Touchpoints vor Sales" },
   ];
 
-  const logos = ["Logo A", "Logo B", "Logo C", "Logo D", "Logo E"];
-
   return (
-    <section
-      id="trust"
-      className="relative py-24"
-      style={{
-        background: `radial-gradient(120% 120% at 80% 0%, ${RG300}22 0%, transparent 50%), linear-gradient(90deg, ${RG300}, ${RG600})`,
-      }}
-    >
-      {/* dezentes Grid */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.08) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-          maskImage:
-            "linear-gradient(to bottom, black 70%, transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, black 70%, transparent 100%)",
-        }}
-      />
+    <section id="trust" className="relative py-28 overflow-hidden">
+      {/* Aurora Background */}
+      <div aria-hidden className="absolute inset-0 -z-10">
+        <div className="absolute -top-32 left-1/2 h-[80vh] w-[80vw] -translate-x-1/2 rounded-full blur-3xl opacity-70"
+             style={{ background: `radial-gradient(60% 60% at 50% 50%, ${RG300}66 0%, transparent 60%)` }} />
+        <div className="absolute top-0 left-0 right-0 h-full opacity-30 mix-blend-screen animate-aurora" />
+        <div className="absolute inset-0"
+             style={{
+               backgroundImage:
+                 "linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px)",
+               backgroundSize: "32px 32px",
+               maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
+               WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
+             }} />
+      </div>
 
-      <div className={`${containerClass} relative z-10 text-white`}>
+      <div className={`${containerClass} relative`}>
         {/* Headline */}
-        <div className="text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs tracking-wide">
-            <Check className="h-3.5 w-3.5" /> Vorvertrauen aufbauen
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <span className="inline-flex items-center gap-2 rounded-full border border-slate-200/60 bg-white/60 px-3 py-1 text-xs tracking-wide text-slate-700 backdrop-blur">
+            <Check className="h-3.5 w-3.5 text-[#1b4d2b]" /> Vorvertrauen aufbauen
           </span>
-          <h2 className={`mt-4 text-4xl md:text-5xl font-semibold ${serifClass}`}>
+
+          <h2
+            className={`mt-4 text-4xl md:text-5xl font-semibold ${serifClass} bg-clip-text text-transparent`}
+            style={{
+              backgroundImage: `linear-gradient(90deg, ${RG600}, ${RG300})`,
+            }}
+          >
             Vertrauen ist die Währung der Neuzeit
           </h2>
-          <p className="mt-3 text-white/85">
-            Expertise sichtbar machen, bevor Sales spricht.
+          <p className="mt-3 text-slate-600">
+            Expertise sichtbar machen – noch bevor Sales spricht.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Pillars */}
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        {/* Pillars (staggered) */}
+        <motion.div
+          className="mt-12 grid gap-6 md:grid-cols-3"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{
+            hidden: { opacity: 1 },
+            show: {
+              transition: { staggerChildren: 0.12 },
+            },
+          }}
+        >
           {pillars.map(({ icon: Icon, title, desc }, i) => (
-            <div
+            <motion.div
               key={i}
-              className="group rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,.20)] transition-transform hover:-translate-y-0.5"
+              variants={{
+                hidden: { opacity: 0, y: 20, scale: 0.98 },
+                show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+              }}
+              whileHover={{ y: -4 }}
+              className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
             >
-              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/10">
-                <Icon className="h-5 w-5 text-white" />
+              {/* Glow line */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] w-full origin-left scale-x-0 bg-gradient-to-r from-transparent via-emerald-400 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#1b4d2b1A] text-[#1b4d2b] border border-[#1b4d2b33]">
+                <Icon className="h-5 w-5" />
               </div>
               <h3 className={`text-lg font-semibold ${serifClass}`}>{title}</h3>
-              <p className="mt-1 text-sm text-white/85">{desc}</p>
-
-              {/* subtle underline animation */}
-              <div className="mt-4 h-[2px] w-12 origin-left scale-x-0 bg-white/40 transition-transform duration-300 group-hover:scale-x-100" />
-            </div>
+              <p className="mt-1 text-sm text-slate-600">{desc}</p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* KPIs */}
+        {/* KPIs (animated counters) */}
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {kpis.map((k, i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-white/15 bg-white/10 p-6 text-center backdrop-blur-md"
-            >
-              <div className="text-3xl md:text-4xl font-bold">{k.value}</div>
-              <div className="mt-1 text-xs uppercase tracking-wide text-white/80">
-                {k.label}
-              </div>
-            </div>
+            <KpiCard key={i} to={k.to} suffix={k.suffix} label={k.label} />
           ))}
         </div>
 
-        {/* Logos */}
-        <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-4">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-            {logos.map((l, i) => (
+        {/* Logo Rail (auto-scroll) */}
+        <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50/60 p-4 overflow-hidden">
+          <div
+            className="flex w-max items-center gap-10 animate-rail"
+            aria-label="Referenzen"
+          >
+            {["Logo A", "Logo B", "Logo C", "Logo D", "Logo E", "Logo F"].map((l, i) => (
               <div
                 key={i}
-                className="h-8 w-24 shrink-0 rounded-md border border-white/10 bg-white/10 text-center text-[10px] leading-8 text-white/70"
-                aria-label={`Referenz ${l}`}
+                className="h-9 w-28 shrink-0 rounded-md border border-slate-200 bg-white text-center text-[10px] leading-9 text-slate-500"
+                title={l}
+              >
+                {l}
+              </div>
+            ))}
+            {/* loop duplicate for seamless scroll */}
+            {["Logo A", "Logo B", "Logo C", "Logo D", "Logo E", "Logo F"].map((l, i) => (
+              <div
+                key={`d-${i}`}
+                className="h-9 w-28 shrink-0 rounded-md border border-slate-200 bg-white text-center text-[10px] leading-9 text-slate-500"
                 title={l}
               >
                 {l}
@@ -512,16 +536,96 @@ function TrustSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-10 flex items-center justify-center">
+        <motion.div
+          className="mt-12 flex items-center justify-center"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+        >
           <Button asChild className="shadow-lg">
             <a href="#preise" className="text-white">Jetzt Vertrauen in Anfragen wandeln</a>
           </Button>
-        </div>
+        </motion.div>
       </div>
+
+      {/* Keyframes (scoped) */}
+      <style>{`
+        @keyframes auroraShift {
+          0% { transform: translate3d(-10%, 0, 0) skewX(-6deg); opacity: .35; }
+          50% { transform: translate3d(10%, 2%, 0) skewX(6deg); opacity: .55; }
+          100% { transform: translate3d(-10%, 0, 0) skewX(-6deg); opacity: .35; }
+        }
+        .animate-aurora {
+          background: conic-gradient(from 180deg at 50% 50%, rgba(124,169,142,0.35), rgba(27,77,43,0.35), rgba(124,169,142,0.35));
+          filter: blur(60px);
+          animation: auroraShift 12s ease-in-out infinite;
+        }
+        @keyframes railScroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .animate-rail {
+          animation: railScroll 24s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-aurora, .animate-rail { animation: none !important; }
+        }
+      `}</style>
     </section>
   );
 }
 
+/* --- KPI Card mit animierter Zahl --- */
+function KpiCard({ to, suffix, label }: { to: number; suffix?: string; label: string }) {
+  const ref = React.useRef<HTMLDivElement | null>(null);
+  const [val, setVal] = React.useState(0);
+
+  React.useEffect(() => {
+    // startet Counting erst, wenn sichtbar
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const controls = animate(0, to, {
+              duration: 1.2,
+              ease: "easeOut",
+              onUpdate: (v) => setVal(v),
+            });
+            io.disconnect();
+            return () => controls.stop();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [to]);
+
+  const display =
+    to % 1 === 0 ? Math.round(val).toString() : val.toFixed(1);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.6 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm"
+    >
+      <div className="text-3xl md:text-4xl font-bold text-[#1b4d2b]">
+        {display}{suffix}
+      </div>
+      <div className="mt-1 text-xs uppercase tracking-wide text-slate-500">
+        {label}
+      </div>
+    </motion.div>
+  );
+}
 
 
 
