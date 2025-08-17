@@ -239,7 +239,7 @@ function Hero() {
 }
 
 
-/* ---------------------- VisitorRevealSection (final clean) ---------------------- */
+/* ---------------------- VisitorRevealSection (final compact) ---------------------- */
 function VisitorRevealSection() {
   const steps = [
     "Google oder KI-Suche",
@@ -250,13 +250,16 @@ function VisitorRevealSection() {
   ];
 
   const companies = [
-    { name: "Meyer Industrie AG", article: "Case Study: Predictive Maintenance in der Fertigung" },
+    { name: "Meyer Industrie AG", article: "Case Study: Predictive Maintenance" },
     { name: "NovaCloud GmbH", article: "Guide: B2B-KI-Content, der Entscheider konvertiert" },
-    { name: "Kraftwerk Solutions", article: "Artikel: Photovoltaik – ROI-Rechner für Unternehmen" },
+    { name: "Kraftwerk Solutions", article: "Artikel: Photovoltaik – ROI-Rechner" },
   ];
 
   return (
-    <section id="reveal" className="relative overflow-hidden py-20 border-t border-slate-100 bg-white">
+    <section
+      id="reveal"
+      className="relative overflow-hidden py-20 border-t border-slate-100 bg-white"
+    >
       <div className={containerClass}>
         {/* Headline */}
         <div className="mx-auto max-w-3xl text-center">
@@ -281,12 +284,16 @@ function VisitorRevealSection() {
               <span className="text-xs text-slate-500">Echtzeit-Scan</span>
             </div>
 
-            {/* Visual box */}
-            <div className="relative px-5 pt-4">
+            {/* Raster */}
+            <div className="relative px-5">
               <div className="relative h-56 overflow-hidden rounded-xl bg-slate-50">
                 <div className="absolute inset-0 grid grid-cols-6 gap-4 p-5">
                   {[...Array(36)].map((_, i) => (
-                    <div key={i} className="h-8 w-8 rounded-full bg-slate-300/60" aria-hidden />
+                    <div
+                      key={i}
+                      className="h-8 w-8 rounded-full bg-slate-300/60"
+                      aria-hidden
+                    />
                   ))}
                 </div>
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-emerald-200/40 to-transparent" />
@@ -294,7 +301,7 @@ function VisitorRevealSection() {
               </div>
             </div>
 
-            {/* Info bar direkt unten, ohne mt-4 */}
+            {/* Info Bar – ohne WhiteSpace */}
             <div className="border-t border-slate-200 bg-slate-50/70 px-5 py-3 text-xs text-slate-700 rounded-b-2xl">
               <span className="inline-flex items-center gap-2">
                 <Search className="h-4 w-4" />
@@ -306,13 +313,18 @@ function VisitorRevealSection() {
           {/* Recognized companies */}
           <div className="relative overflow-hidden rounded-2xl border border-emerald-200 bg-emerald-50/40 shadow-sm">
             <div className="flex items-center justify-between px-5 pt-5">
-              <span className={`text-lg font-semibold ${serifClass}`}>Erkannte Unternehmen</span>
+              <span className={`text-lg font-semibold ${serifClass}`}>
+                Erkannte Unternehmen
+              </span>
               <span className="text-xs text-emerald-700">Sales-Ready</span>
             </div>
 
             <ul className="px-5 pt-4 pb-2 space-y-3">
               {companies.map((c, i) => (
-                <li key={i} className="rounded-xl border border-emerald-200/70 bg-white px-4 py-3 text-sm shadow-sm">
+                <li
+                  key={i}
+                  className="rounded-xl border border-emerald-200/70 bg-white px-4 py-3 text-sm shadow-sm"
+                >
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <div className="font-medium text-slate-900">{c.name}</div>
@@ -338,8 +350,10 @@ function VisitorRevealSection() {
           {steps.map((title, i) => (
             <div key={i} className="flex items-center gap-4 md:gap-6">
               <div className="flex flex-col items-center text-center max-w-[190px]">
-                <div className="shrink-0 inline-flex size-10 items-center justify-center rounded-full
-                                bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
+                <div
+                  className="shrink-0 inline-flex size-10 items-center justify-center rounded-full
+                              bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none"
+                >
                   {i + 1}
                 </div>
                 <p className="mt-3 text-sm text-slate-700">{title}</p>
@@ -354,7 +368,10 @@ function VisitorRevealSection() {
 
       {/* Keyframes */}
       <style>{`
-        @keyframes scanY { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+        @keyframes scanY { 
+          0% { transform: translateY(-100%); } 
+          100% { transform: translateY(100%); } 
+        }
         .animate-scanY { animation: scanY 3s linear infinite; will-change: transform; }
         @media (prefers-reduced-motion: reduce) { .animate-scanY { animation: none; } }
       `}</style>
