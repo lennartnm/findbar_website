@@ -281,33 +281,33 @@ function VisitorRevealSection() {
               <span className="text-xs text-slate-500">Echtzeit-Scan</span>
             </div>
 
-            {/* Visual Box – Map mit Ping-Dots */}
+            {/* Visual Box – DACH Map mit sichtbarerem Scan */}
             <div className="relative px-5 pt-4 pb-5">
               <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-slate-50">
-                {/* Weltkarte Hintergrund */}
+                {/* DACH-Karte Hintergrund */}
                 <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/World_map_-_low_resolution.svg/1200px-World_map_-_low_resolution.svg.png"
-                  alt="Traffic Map"
-                  className="absolute inset-0 h-full w-full object-cover opacity-70"
+                  src="https://upload.wikimedia.org/wikipedia/commons/0/03/DACH_map_blank.svg"
+                  alt="Traffic Map DACH"
+                  className="absolute inset-0 h-full w-full object-contain opacity-80"
                 />
 
-                {/* Scan Overlay */}
-                <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-300/20 to-transparent mix-blend-multiply" />
+                {/* Scan Overlay – kräftiger */}
+                <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-400/40 to-transparent mix-blend-multiply" />
 
-                {/* Heat Dots */}
+                {/* Heat Dots über DACH */}
                 <div className="absolute inset-0">
-                  {[{x:"30%",y:"40%"},{x:"55%",y:"60%"},{x:"70%",y:"30%"}].map((pos,i)=>(
+                  {[{x:"45%",y:"38%"},{x:"52%",y:"55%"},{x:"35%",y:"60%"}].map((pos,i)=>(
                     <div
                       key={i}
                       style={{left:pos.x,top:pos.y}}
-                      className="absolute h-3 w-3 rounded-full bg-emerald-500/80 animate-ping"
+                      className="absolute h-3.5 w-3.5 rounded-full bg-emerald-500/90 animate-ping"
                     />
                   ))}
                 </div>
 
                 {/* OVERLAY-Info */}
                 <div className="absolute left-4 right-4 bottom-4">
-                  <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white/85 backdrop-blur px-3 py-2 text-xs text-slate-700 shadow-sm">
+                  <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white/90 backdrop-blur px-3 py-2 text-xs text-slate-700 shadow-sm">
                     <Search className="h-4 w-4" />
                     <span>Mustererkennung, IP-Auflösung & Firmendatenbanken</span>
                   </div>
@@ -359,13 +359,22 @@ function VisitorRevealSection() {
 
       {/* Keyframes */}
       <style>{`
-        @keyframes scanY { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
-        .animate-scanY { animation: scanY 3s linear infinite; will-change: transform; }
-        @media (prefers-reduced-motion: reduce) { .animate-scanY { animation: none; } }
+        @keyframes scanY { 
+          0% { transform: translateY(-100%); } 
+          100% { transform: translateY(100%); } 
+        }
+        .animate-scanY { 
+          animation: scanY 2.2s linear infinite; 
+          will-change: transform; 
+        }
+        @media (prefers-reduced-motion: reduce) { 
+          .animate-scanY { animation: none; } 
+        }
       `}</style>
     </section>
   );
 }
+
 
 
 
