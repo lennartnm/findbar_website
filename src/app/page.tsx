@@ -599,7 +599,7 @@ function TrustSection() {
 
       <div className={`${containerClass} relative`}>
         {/* Headline */}
-        <div className="text-center">
+        <div className="text-left md:text-center">
           <h2
             className={`mt-0 text-4xl md:text-5xl font-semibold ${serifClass}`}
           >
@@ -617,7 +617,7 @@ function TrustSection() {
           {pillars.map(({ icon: Icon, title, desc }, i) => (
             <article
               key={i}
-              className="group relative overflow-hidden rounded-2xl border border-white/25 bg-white/10 p-6 shadow-[0_15px_40px_rgba(0,0,0,.25)] backdrop-blur-md"
+              className="group relative overflow-hidden rounded-2xl border border-white/25 bg-white/10 p-6 shadow-[0_15px_40px_rgba(0,0,0,.25)] backdrop-blur-md text-left md:text-center"
             >
               <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/10">
                 <Icon className="h-5 w-5 text-white" />
@@ -651,6 +651,7 @@ function TrustSection() {
     </section>
   );
 }
+
 
 
 /* ---------------------- Zukunftssicher Section (schlicht & hellgrau) ---------------------- */
