@@ -669,24 +669,24 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   );
 }
 
-/* ------------------------ AblaufSection – vertikale Timeline, alternierend + Reveal ----------------------- */
+/* ------------------------ AblaufSection – kompakte Zickzack-Timeline ----------------------- */
 function AblaufSection() {
   React.useEffect(() => {
     const items = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal-item]"));
     const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("reveal-show");
-            io.unobserve(e.target);
-          }
-        });
-      },
+      (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("reveal-show"); io.unobserve(e.target); } }),
       { threshold: 0.25, rootMargin: "0px 0px -10% 0px" }
     );
-    items.forEach((el) => io.observe(el));
+    items.forEach(el => io.observe(el));
     return () => io.disconnect();
   }, []);
+
+  // kompakte Offsets: ziehen Folge-Items leicht hoch (in px)
+  const getOffset = (idx: number) => {
+    if (idx === 0) return 0;
+    // Links etwas weniger als rechts -> dichteres Gesamtbild
+    return (idx % 2 === 0) ? -28 : -40; // even (links) / odd (rechts)
+  };
 
   return (
     <section id="ablauf" className="py-20">
@@ -700,36 +700,41 @@ function AblaufSection() {
               Unser Ablauf – transparent & effizient
             </h2>
 
-            {/* TIMELINE WRAPPER */}
-            <div className="relative mx-auto mt-12 max-w-5xl">
-              {/* Zentrale Linie */}
-              <div className="pointer-events-none absolute left-1/2 top-0 -ml-px h-full w-px bg-white/20" aria-hidden />
+            <div className="relative mx-auto mt-10 max-w-5xl">
+              {/* Zentrale Linie nur ab md */}
+              <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -ml-px bg-white/20 md:block" aria-hidden />
 
-              <ol className="space-y-12">
+              <ol className="space-y-8 md:space-y-10">
                 {ablauf.map(({ icon: Icon, title, desc }, idx) => {
                   const left = idx % 2 === 0;
+                  const mt = getOffset(idx);
                   return (
                     <li key={idx} className="relative">
-                      {/* Marker (Nummer) auf der Linie */}
-                      <div className="absolute left-1/2 top-1/2 z-10 -mt-4 -ml-4 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-white/10 text-sm font-semibold md:flex">
+                      {/* Marker (Nummer) nur ≥ md */}
+                      <div className="absolute left-1/2 top-1/2 z-10 hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-white/10 text-sm font-semibold md:flex">
                         {idx + 1}
                       </div>
 
-                      {/* Zeile: links/rechts Container */}
                       <div
                         className={[
                           "md:flex md:items-stretch",
                           left ? "md:justify-start" : "md:justify-end",
                         ].join(" ")}
+                        style={{ marginTop: 0 }}
                       >
-                        <div className={["md:w-1/2", left ? "md:pr-10" : "md:pl-10"].join(" ")}>
-                          {/* Karte */}
+                        <div
+                          className={[
+                            "md:w-1/2",
+                            left ? "md:pr-10" : "md:pl-10",
+                          ].join(" ")}
+                          style={{ marginTop: mt }} // zieht die Karte nach oben
+                        >
                           <article
                             data-reveal-item
                             className={[
                               "reveal",
                               left ? "reveal--left" : "reveal--right",
-                              "rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-md shadow-sm",
+                              "rounded-2xl border border-white/15 bg-white/10 p-4 md:p-5 backdrop-blur-md shadow-sm",
                               "hover:shadow-2xl hover:shadow-black/20 transition-shadow",
                             ].join(" ")}
                             style={{
@@ -739,28 +744,24 @@ function AblaufSection() {
                               wordBreak: "normal",
                             }}
                           >
-                            {/* Kopfzeile für Mobile (Nummer + Icon) */}
-                            <div className="mb-3 flex items-center gap-3 md:hidden">
-                              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10 text-sm font-semibold">
+                            {/* Mobile Kopf (Nummer + Icon) */}
+                            <div className="mb-2 flex items-center gap-3 md:hidden">
+                              <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/30 bg-white/10 text-xs font-semibold">
                                 {idx + 1}
                               </span>
-                              <div className="ml-auto flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                              <div className="ml-auto inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/20 bg-white/10">
                                 <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
                               </div>
                             </div>
 
                             <div className="flex items-start gap-3">
-                              {/* Titel links/rechts, Icon daneben (nur ≥ md sichtbar, mobile oben) */}
-                              <h3 className={`text-lg font-semibold leading-snug ${serifClass} flex-1`}>
-                                {title}
-                              </h3>
-                              <div className="hidden md:flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                                <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
+                              <h3 className={`flex-1 text-lg font-semibold leading-snug ${serifClass}`}>{title}</h3>
+                              <div className="hidden md:flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                                <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
                               </div>
                             </div>
 
-                            <hr className="my-4 border-white/10" />
-
+                            <hr className="my-3 border-white/10" />
                             <p className="text-sm leading-relaxed text-white/90">{desc}</p>
                           </article>
                         </div>
@@ -772,26 +773,25 @@ function AblaufSection() {
             </div>
           </div>
 
-          {/* feiner Innenrand */}
           <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
         </div>
       </div>
 
-      {/* Reveal-Styles (leicht, performant) */}
+      {/* Reveal-Animationen */}
       <style>{`
-        .reveal {
-          opacity: 0;
-          transform: translateY(8px);
-          transition: opacity .5s ease, transform .6s ease;
-          will-change: opacity, transform;
-        }
-        .reveal--left { transform: translate(-16px, 8px); }
-        .reveal--right { transform: translate(16px, 8px); }
+        .reveal { opacity: 0; transform: translateY(8px); transition: opacity .45s ease, transform .55s ease; will-change: opacity, transform; }
+        .reveal--left  { transform: translate(-12px, 8px); }
+        .reveal--right { transform: translate(12px, 8px); }
         .reveal-show { opacity: 1; transform: translate(0,0); }
+        @media (max-width: 767px) {
+          /* Mobile: engeres Layout, keine zentrale Linie (bereits hidden), gleichmäßiger Abstand */
+          #ablauf ol { row-gap: 14px; }
+        }
       `}</style>
     </section>
   );
 }
+
 
 
 
