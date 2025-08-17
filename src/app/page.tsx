@@ -591,7 +591,7 @@ function UnserZielSection() {
                   }}
                 />
                 <img
-                  src="/Gluehbirne.png"
+                  src="/Gluehbirne Vetriebserfolg.png"
                   alt="Darstellung des Done 4 You Prozesses"
                   className="relative z-20 w-full rounded-xl"
                 />
