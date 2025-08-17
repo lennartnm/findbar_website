@@ -515,6 +515,23 @@ function TrustSection() {
 }
 
 
+/* ---------------------- Zukunftssicher Section ---------------------- */
+function FutureProofSection() {
+  return (
+    <section className="py-12 bg-slate-50 border-t border-slate-200">
+      <div className={containerClass}>
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className={`text-2xl font-semibold ${serifClass}`}>
+            Mache dein Angebot sicher für die Zukunft
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Unsere Blogartikel verlinken dein Angebot in KI-Übersichten, ChatGPT, Perplexity &amp; Co.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 
 
@@ -1002,6 +1019,7 @@ export default function FindbarPage() {
       <HowItHelpsSection />
       {/* 6. Done 4 You */}
       <TrustSection />
+      <FutureProofSection />
       <UnserZielSection />
       {/* 7. An wen richtet sich unser Angebot */}
       <IdentificationSection />
