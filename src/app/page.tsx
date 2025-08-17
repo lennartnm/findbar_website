@@ -659,7 +659,7 @@ function FutureProofSection() {
   return (
     <section className="relative overflow-hidden py-16 bg-slate-50 border-t border-slate-200">
       <div className={containerClass}>
-        <div className="text-center max-w-3xl mx-auto">
+        <div className="text-left md:text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-3 py-1 text-xs shadow-sm">
             <Zap className="h-3.5 w-3.5 text-slate-700" />
             <span className="text-slate-700">KI-Distribution</span>
@@ -675,7 +675,7 @@ function FutureProofSection() {
         </div>
 
         {/* kleine „Destinations“-Badges */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-8 flex flex-wrap items-center justify-start md:justify-center gap-3">
           {[
             { label: "KI-Übersichten", Icon: Award },
             { label: "ChatGPT", Icon: Search },
@@ -695,6 +695,7 @@ function FutureProofSection() {
     </section>
   );
 }
+
 
 
 
