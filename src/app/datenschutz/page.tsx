@@ -77,6 +77,7 @@ export default function DatenschutzPage() {
   return (
     <div className="bg-white text-slate-900">
       <Header />
+       <FirmNameMarquee />
       <main className="w-full max-w-5xl mx-auto px-6 py-16">
         <h1 className={`text-3xl md:text-4xl ${serifClass} font-semibold mb-8`}>
           Datenschutzerklärung
