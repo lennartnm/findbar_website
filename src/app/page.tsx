@@ -455,13 +455,7 @@ function TrustSection() {
 
       <div className={`${containerClass} relative`}>
         {/* Headline */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
+        <div className="text-center">
           <h2
             className={`mt-0 text-4xl md:text-5xl font-semibold ${serifClass}`}
           >
@@ -470,46 +464,25 @@ function TrustSection() {
           <p className="mt-3 text-white/85">
             Expertise sichtbar machen – bevor Sales spricht.
           </p>
-        </motion.div>
+        </div>
 
         {/* Pillars */}
-        <motion.div
-          className="mt-12 grid gap-6 md:grid-cols-3"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={{
-            hidden: { opacity: 1 },
-            show: { transition: { staggerChildren: 0.12 } },
-          }}
-        >
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {pillars.map(({ icon: Icon, title, desc }, i) => (
-            <motion.article
+            <article
               key={i}
-              variants={{
-                hidden: { opacity: 0, y: 22, scale: 0.98 },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  transition: { duration: 0.55, ease: "easeOut" },
-                },
-              }}
-              whileHover={{ y: -6 }}
               className="group relative overflow-hidden rounded-2xl border border-white/25 bg-white/10 p-6 shadow-[0_15px_40px_rgba(0,0,0,.25)] backdrop-blur-md"
             >
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] w-full origin-left scale-x-0 bg-gradient-to-r from-transparent via-white/70 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
               <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/10">
                 <Icon className="h-5 w-5 text-white" />
               </div>
               <h3 className={`text-lg font-semibold ${serifClass}`}>{title}</h3>
               <p className="mt-1 text-sm text-white/85">{desc}</p>
-              <div className="mt-4 h-[2px] w-12 origin-left scale-x-0 bg-white/60 transition-transform duration-300 group-hover:scale-x-100" />
-            </motion.article>
+            </article>
           ))}
-        </motion.div>
+        </div>
 
-        {/* KPIs */}
+        {/* KPIs (animated counters only) */}
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {kpis.map((k, i) => (
             <KpiCard key={i} to={k.to} suffix={k.suffix} label={k.label} />
@@ -568,12 +541,8 @@ function KpiCard({ to, suffix, label }: { to: number; suffix?: string; label: st
   const display = Number.isInteger(to) ? Math.round(val).toString() : val.toFixed(1);
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={{ opacity: 0, y: 14 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.6 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
       className="rounded-2xl border border-white/25 bg-white/10 p-6 text-center shadow-[0_10px_30px_rgba(0,0,0,.25)] backdrop-blur-md"
     >
       <div className="text-3xl md:text-4xl font-bold">
@@ -583,7 +552,7 @@ function KpiCard({ to, suffix, label }: { to: number; suffix?: string; label: st
       <div className="mt-1 text-[11px] uppercase tracking-wide text-white/85">
         {label}
       </div>
-    </motion.div>
+    </div>
   );
 }
 
