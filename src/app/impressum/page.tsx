@@ -95,41 +95,33 @@ export default function ImpressumPage() {
             <div>
               <h2 className="font-semibold">Angaben gemäß § 5 TMG</h2>
               <p>
-                Musterfirma GmbH<br />
-                Musterstraße 1<br />
-                12345 Musterstadt<br />
+                Lennart Niehausmeier<br />
+                Am Rabenecksiek 5<br />
+                32139 Spenge<br />
                 Deutschland
               </p>
-              <p>Vertreten durch: Max Mustermann</p>
+              <p>Vertreten durch: Lennart Niehausmeier</p>
             </div>
 
             <div>
               <h2 className="font-semibold">Kontakt</h2>
               <p>
-                Telefon: +49 (0) 123 456789<br />
-                E-Mail: hallo@musterfirma.de<br />
-                Website: www.musterfirma.de
+                Telefon: +49 (0) 151 70084420<br />
+                E-Mail: lennart@findbar.info<br />
+                Website: www.findbar.info
               </p>
             </div>
 
-            <div>
-              <h2 className="font-semibold">Registereintrag</h2>
-              <p>
-                Amtsgericht Musterstadt – HRB 123456
-              </p>
-            </div>
+         
 
-            <div>
-              <h2 className="font-semibold">Umsatzsteuer-ID</h2>
-              <p>DE123456789</p>
-            </div>
+          
 
             <div>
               <h2 className="font-semibold">Verantwortlich für den Inhalt</h2>
               <p>
-                Max Mustermann<br />
-                Musterstraße 1<br />
-                12345 Musterstadt
+                Lennart Niehausmeier<br />
+                Am Rabenecksiek 5<br />
+                32139 Spenge
               </p>
             </div>
 
