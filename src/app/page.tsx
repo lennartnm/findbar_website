@@ -575,19 +575,16 @@ function UnserZielSection() {
       <div className={containerClass}>
         <div
           className="relative w-full overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
-          style={{
-            background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)`
-          }}
+          style={{ background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)` }}
         >
           <div className="relative z-10 grid items-center gap-12 px-6 py-12 md:grid-cols-2 md:px-12">
-            
             {/* Bildseite */}
             <div className="order-2 md:order-1 flex justify-center">
               <div className="relative w-full max-w-md">
                 <div
                   className="absolute -inset-10 -z-10 blur-2xl"
                   style={{
-                    background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`
+                    background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`,
                   }}
                 />
                 <img
@@ -598,40 +595,50 @@ function UnserZielSection() {
               </div>
             </div>
 
-            {/* Textseite */}
+            {/* Textseite – mit Check-Icons im runden Badge */}
             <div className="order-1 md:order-2">
               <p className="text-sm uppercase tracking-wide text-white/70">
-             
+                Content &amp; Lead-Intelligence: Komplett für dich umgesetzt
               </p>
               <h2 className={`mt-2 text-3xl font-semibold ${serifClass}`}>
                 Minimaler Aufwand – maximaler Vertriebserfolg
               </h2>
               <p className="mt-4 max-w-prose text-white/90">
- Wir haben Blogartikel in Zeiten von KI und innovativen Trackingmöglichkeiten neu gedacht. Gemeinsam verwandeln wir Content in einen Vertriebsbooster, der nicht nur sichtbar macht – sondern auch die richtigen Kunden zu dir bringt.
+                Wir haben Blogartikel in Zeiten von KI und innovativen Trackingmöglichkeiten neu
+                gedacht. Gemeinsam verwandeln wir Content in einen Vertriebsbooster, der nicht nur
+                sichtbar macht – sondern auch die richtigen Kunden zu dir bringt.
               </p>
-              <ul className="mt-6 space-y-3 text-white/90">
+
+              <ul className="mt-6 space-y-4">
                 {punkte.map((text, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 border border-white/20">
-                      <Check className="h-4 w-4 text-white" strokeWidth={1.6} />
+                    {/* Check-Icon im runden Badge */}
+                    <div
+                      className="
+                        shrink-0 inline-flex items-center justify-center
+                        w-10 aspect-square rounded-full
+                        bg-white/10 border border-white/20
+                      "
+                    >
+                      <Check className="h-5 w-5 text-white" strokeWidth={1.8} />
                     </div>
-                    <span>{text}</span>
+                    <div>
+                      <h4 className="font-semibold">{text}</h4>
+                    </div>
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 flex gap-3">
-                <Button asChild>
-                  <a href="#preise" className="text-white">Pakete ansehen</a>
-                </Button>
-              </div>
             </div>
           </div>
+
+          {/* zarter Innenrand */}
           <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
         </div>
       </div>
     </section>
   );
 }
+
 
 
 
