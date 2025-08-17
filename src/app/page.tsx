@@ -738,38 +738,42 @@ function AblaufSection() {
 }
 
 /* ---- Steps (inkl. Erfolg als #6) ---- */
+// Nutzt nur Icons, die oben bereits importiert sind:
+// ClipboardList, FileText, CheckCircle, Package, BarChart3, Award
+
 const ablaufMitErfolg = [
   {
-    icon: ClipboardIcon,
+    icon: ClipboardList,
     title: "Onboarding",
     desc: "Verständnis von Zielgruppe, Angebot und Themen.",
   },
   {
-    icon: FileTextIcon,
+    icon: FileText,
     title: "Themenfindung",
     desc: "KI-gestützte und intelligente Themenfindung, die Entscheider wirklich interessiert.",
   },
   {
-    icon: CheckCircleIcon,
+    icon: CheckCircle,
     title: "KI-Blogartikel",
     desc: "Nach Themenfreigabe entwickelt unsere KI datengestützt relevante Artikel im HTML-Format und veröffentlicht sie über 30 Tage hinweg im CMS.",
   },
   {
-    icon: BoxIcon,
+    icon: Package,
     title: "Leadidentifizierung",
     desc: "Über allgemeine Formulareintragungen hinaus identifizieren wir mit innovativer Technologie Unternehmensbesucher.",
   },
   {
-    icon: BarChartIcon,
+    icon: BarChart3,
     title: "Sales",
     desc: "Dein Sales-Team erhält warme Leads und meldet sich zum idealen Zeitpunkt.",
   },
   {
-    icon: StarIcon,
+    icon: Award, // 'Erfolg'
     title: "Erfolg",
     desc: "Mehr Sichtbarkeit, bessere Leads und nachhaltiges Wachstum für dein Business.",
   },
 ];
+
 
 /* ---------------------- FAQ Section ---------------------- */
 function FAQSection() {
