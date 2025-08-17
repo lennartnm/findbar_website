@@ -281,35 +281,27 @@ function VisitorRevealSection() {
               <span className="text-xs text-slate-500">Echtzeit-Scan</span>
             </div>
 
-            {/* Visual Box – DACH Inline-SVG + sichtbarer Scan */}
+            {/* Visual Box – DACH Map mit sichtbarerem Scan */}
             <div className="relative px-5 pt-4 pb-5">
               <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-slate-50">
-                {/* Inline DACH Map */}
-                <DACHMapInline />
+                {/* DACH-Karte Hintergrund */}
+                <img
+                  src="Scan.png"
+                  alt="Traffic Map"
+                  className="absolute inset-0 h-full w-full object-contain opacity-80"
+                />
 
-                {/* Scan Overlay – kräftiger und breiter */}
-                <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-400/45 to-transparent mix-blend-multiply" />
+                {/* Scan Overlay – kräftiger */}
+                <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-400/40 to-transparent mix-blend-multiply" />
 
-                {/* Heat Dots über DACH (Koordinaten in %) */}
+                {/* Heat Dots über DACH */}
                 <div className="absolute inset-0">
-                  {[
-                    { x: "49%", y: "40%" }, // Mitte DE
-                    { x: "60%", y: "58%" }, // AT
-                    { x: "45%", y: "56%" }, // CH
-                  ].map((pos, i) => (
+                  {[{x:"45%",y:"38%"},{x:"52%",y:"55%"},{x:"35%",y:"60%"}].map((pos,i)=>(
                     <div
                       key={i}
-                      style={{ left: pos.x, top: pos.y }}
-                      className="absolute -translate-x-1/2 -translate-y-1/2"
-                    >
-                      <span
-                        className="absolute -inset-3 rounded-full"
-                        style={{ background: "radial-gradient(circle, rgba(16,185,129,0.35), transparent 60%)" }}
-                        aria-hidden
-                      />
-                      <span className="relative block h-3.5 w-3.5 rounded-full bg-emerald-500/90 animate-ping" />
-                      <span className="absolute block h-2.5 w-2.5 rounded-full bg-emerald-600 top-0.5 left-0.5" />
-                    </div>
+                      style={{left:pos.x,top:pos.y}}
+                      className="absolute h-3.5 w-3.5 rounded-full bg-emerald-500/90 animate-ping"
+                    />
                   ))}
                 </div>
 
@@ -383,61 +375,6 @@ function VisitorRevealSection() {
   );
 }
 
-/* ---------------------- Inline DACH Map (stilisiert, self-contained) ---------------------- */
-function DACHMapInline() {
-  // Die Pfade sind stilisiert (nicht georeferenz-genau), aber in Proportion und Lage passend für UI
-  return (
-    <svg
-      viewBox="0 0 100 56"
-      className="absolute inset-0 w-full h-full object-contain"
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="dachFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#e2e8f0" />
-          <stop offset="100%" stopColor="#f1f5f9" />
-        </linearGradient>
-      </defs>
-
-      {/* Leichte Gridlines für Struktur */}
-      <g opacity="0.25">
-        {Array.from({ length: 10 }).map((_, i) => (
-          <line key={`v${i}`} x1={(i + 1) * 9} y1="0" x2={(i + 1) * 9} y2="56" stroke="#e2e8f0" strokeWidth="0.2" />
-        ))}
-        {Array.from({ length: 6 }).map((_, i) => (
-          <line key={`h${i}`} x1="0" y1={(i + 1) * 8} x2="100" y2={(i + 1) * 8} stroke="#e2e8f0" strokeWidth="0.2" />
-        ))}
-      </g>
-
-      {/* Deutschland */}
-      <path
-        d="M28,10 L40,6 L55,8 L66,14 L66,23 L60,28 L52,31 L45,29 L37,30 L30,27 L26,22 L26,15 Z"
-        fill="url(#dachFill)"
-        stroke="#94a3b8"
-        strokeWidth="0.6"
-        className="drop-shadow-sm"
-      />
-
-      {/* Österreich */}
-      <path
-        d="M46,34 L58,33 L68,34 L75,37 L73,40 L66,42 L57,41 L49,40 L44,38 Z"
-        fill="url(#dachFill)"
-        stroke="#94a3b8"
-        strokeWidth="0.6"
-        className="drop-shadow-sm"
-      />
-
-      {/* Schweiz */}
-      <path
-        d="M35,36 L43,35 L47,36 L45,39 L39,40 L34,38 Z"
-        fill="url(#dachFill)"
-        stroke="#94a3b8"
-        strokeWidth="0.6"
-        className="drop-shadow-sm"
-      />
-    </svg>
-  );
-}
 
 
 
