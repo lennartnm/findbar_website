@@ -238,7 +238,7 @@ function Hero() {
   );
 }
 
-/* ---------------------- VisitorRevealSection (desktop fix + overlay info) ---------------------- */
+/* ---------------------- VisitorRevealSection (overlay info on scan) ---------------------- */
 function VisitorRevealSection() {
   const steps = [
     "Google oder KI-Suche",
@@ -273,7 +273,7 @@ function VisitorRevealSection() {
 
         {/* Visual Row */}
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {/* Live-Traffic Card (Overlay-Info, Dots-Grid desktop-fix) */}
+          {/* Live-Traffic Card (alter Ansatz, Info-Text als Overlay) */}
           <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
             {/* Header */}
             <div className="flex items-center justify-between px-5 pt-5">
@@ -284,20 +284,18 @@ function VisitorRevealSection() {
             {/* Visual Box */}
             <div className="relative px-5 pt-4 pb-5">
               <div className="relative h-56 overflow-hidden rounded-xl bg-slate-50">
-                {/* Dots-Grid fills entire area (no desktop whitespace) */}
-                <div className="absolute inset-0 grid grid-cols-[repeat(auto-fill,minmax(56px,1fr))] place-items-center">
-                  {[...Array(84)].map((_, i) => (
+                {/* Dots */}
+                <div className="absolute inset-0 grid grid-cols-6 gap-4 p-5">
+                  {[...Array(36)].map((_, i) => (
                     <div key={i} className="h-8 w-8 rounded-full bg-slate-300/60" aria-hidden />
                   ))}
                 </div>
-
                 {/* Bottom emerald fade */}
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-emerald-200/40 to-transparent" />
-
                 {/* Scan */}
                 <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-300/20 to-transparent mix-blend-multiply" />
 
-                {/* OVERLAY-Info (keine separate Box darunter) */}
+                {/* OVERLAY-Info (statt separater Leiste unten) */}
                 <div className="absolute left-4 right-4 bottom-4">
                   <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white/85 backdrop-blur px-3 py-2 text-xs text-slate-700 shadow-sm">
                     <Search className="h-4 w-4" />
@@ -306,6 +304,7 @@ function VisitorRevealSection() {
                 </div>
               </div>
             </div>
+            {/* kein zusätzlicher Block mehr unter der Visual Box → kein Whitespace */}
           </div>
 
           {/* Erkannte Unternehmen (reduziert) */}
