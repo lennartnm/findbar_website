@@ -280,7 +280,7 @@ function BenefitsMarquee() {
   );
 }
 
-/* ------------------------- BlogSection (mit Vorschaubild & SEO-Titeln) ------------------------ */
+/* ------------------------- BlogSection (mit neuen Beispielen) ------------------------ */
 function BlogSection() {
   return (
     <section id="blog" className="bg-white py-20">
@@ -289,28 +289,28 @@ function BlogSection() {
           Blog-Beispiele
         </h2>
         <p className="mt-4 text-center text-slate-600">
-       Wie kann so ein KI-optimierter Artikel auf deiner Webseite aussehen? Schau dir hier ausgewählte Beispiele an.
+          Wie kann so ein KI-optimierter Artikel auf deiner Webseite aussehen? Schau dir hier ausgewählte Beispiele an.
         </p>
 
         <div className="mx-auto mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {[
             {
-              title: "Cabriowetter in Deutschland 2025 – Die schönsten Streckenempfehlungen",
-              tease: "Entdecke die besten Cabrio-Routen in Deutschland: Von malerischen Küstenstraßen bis zu kurvigen Bergpassagen – perfekt für sonnige Tage.",
-              image: "/Cabriotouren in Deutschland.png",
-              alt: "Cabrio auf panoramischer Landstraße bei gutem Wetter in Deutschland",
+              title: "Cloud vs. On-Premise – Welche Lösung ist die richtige für dein Unternehmen?",
+              tease: "Kosten, Sicherheit, Flexibilität: Der direkte Vergleich hilft dir, fundiert zu entscheiden – inklusive Praxisbeispiele und Checkliste.",
+              image: "/Cloud vs On-Premise.png",
+              alt: "Vergleich zwischen Cloud-Infrastruktur und On-Premise-Servern",
             },
             {
-              title: "Küchenkauf 2025 – 7 Dinge, die du unbedingt beachten musst",
-              tease: "Von der richtigen Planung bis zur Auswahl langlebiger Materialien: So kaufst du deine Traumküche und vermeidest teure Fehler.",
-              image: "/Moderne Kueche.png",
-              alt: "Moderne Küche mit viel Tageslicht und Kücheninsel",
+              title: "Hybrides Arbeiten – So gelingt die Balance zwischen Büro und Homeoffice",
+              tease: "Von Meeting-Kultur bis IT-Sicherheit: Die wichtigsten Stellschrauben, damit hybride Teams produktiv und zufrieden arbeiten.",
+              image: "/Hybrides Arbeiten.png",
+              alt: "Mitarbeitende arbeiten hybrid zwischen Büro und Homeoffice",
             },
             {
-              title: "CNC Maschine mieten statt kaufen – Kosten senken & flexibel bleiben",
-              tease: "Erfahre, wann sich CNC-Maschinen-Miete lohnt, welche Kostenfallen du vermeiden solltest und wie du den richtigen Anbieter findest.",
-              image: "/CNC Maschine mieten.png",
-              alt: "Moderne CNC-Maschine in sauberer Werkstatt",
+              title: "Green Energy im Unternehmen – Photovoltaik und Energiespeicher sinnvoll einsetzen",
+              tease: "Investition, Amortisation, Förderungen: So planen Firmen PV-Anlagen und Speicherlösungen wirtschaftlich.",
+              image: "/Photovoltaik Energiespeicher Unternehmen.png",
+              alt: "Photovoltaik-Module und Batteriespeicher in einem Firmengebäude",
             },
           ].map((b, i) => (
             <article
@@ -346,6 +346,7 @@ function BlogSection() {
     </section>
   );
 }
+
 
 /* ---------------------- So helfen dir KI-optimierte Blogartikel ---------------------- */
 function HowItHelpsSection() {
