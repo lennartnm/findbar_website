@@ -239,6 +239,158 @@ function Hero() {
 }
 
 
+/* ---------------------- VisitorRevealSection ---------------------- */
+function VisitorRevealSection() {
+  return (
+    <section
+      id="reveal"
+      className="relative overflow-hidden py-16 border-t border-slate-100 bg-white"
+    >
+      {/* Soft Glow + Grid */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute inset-0 opacity-80"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgba(2,6,23,.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(2,6,23,.04) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+        <div
+          className="absolute -inset-24 blur-3xl"
+          style={{
+            background: `radial-gradient(60% 60% at 50% 40%, ${RG300}22 0%, transparent 60%)`,
+          }}
+        />
+      </div>
+
+      <div className={containerClass}>
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs shadow-sm">
+            <Eye className="h-3.5 w-3.5 text-slate-700" />
+            <span className="text-slate-700">Lead-Identifizierung</span>
+          </span>
+          <h2 className={`mt-4 text-3xl md:text-4xl font-semibold ${serifClass}`}>
+            Anonyme Besucher werden zu klaren Firmenprofilen
+          </h2>
+          <p className="mt-3 text-slate-600">
+            Wir erkennen, welche Unternehmen deine Inhalte lesen – ohne Formular.
+            Dein Vertrieb erhält verwertbare Firmendaten genau dann, wenn Interesse da ist.
+          </p>
+        </div>
+
+        {/* Visual: Scan → Match */}
+        <div className="mt-10 grid gap-8 md:grid-cols-2">
+          {/* Scan-Karte */}
+          <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div className="p-5">
+              <div className="flex items-center justify-between">
+                <span className={`font-semibold ${serifClass}`}>Live-Traffic</span>
+                <span className="text-xs text-slate-500">Echtzeit-Scan</span>
+              </div>
+            </div>
+            <div className="relative h-56">
+              {/* Grid aus „anonymen“ Avataren */}
+              <div className="absolute inset-0 grid grid-cols-6 gap-3 p-5">
+                {[...Array(36)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="h-8 w-8 rounded-full bg-slate-200/80"
+                    aria-hidden
+                  />
+                ))}
+              </div>
+              {/* Scanline */}
+              <div className="absolute inset-0 overflow-hidden">
+                <div className="h-full w-full animate-scan bg-gradient-to-b from-transparent via-emerald-300/25 to-transparent" />
+              </div>
+            </div>
+            <div className="border-t border-slate-200 bg-slate-50/60 px-5 py-3 text-xs text-slate-600">
+              <span className="inline-flex items-center gap-2">
+                <Search className="h-4 w-4" />
+                Mustererkennung, IP-Auflösung &amp; Firmendatenbanken
+              </span>
+            </div>
+          </div>
+
+          {/* Match-Karte */}
+          <div className="relative overflow-hidden rounded-2xl border border-emerald-200 bg-emerald-50/40 shadow-sm">
+            <div className="p-5">
+              <div className="flex items-center justify-between">
+                <span className={`font-semibold ${serifClass}`}>Erkannte Unternehmen</span>
+                <span className="text-xs text-emerald-700">Sales-Ready</span>
+              </div>
+            </div>
+            <ul className="px-5 pb-5 space-y-3">
+              {[
+                { name: "Meyer Industrie AG", fit: "Hoher Fit • Maschinenbau", intent: "3 Seiten · 5 min · Preisseite" },
+                { name: "NovaCloud GmbH", fit: "Mittlerer Fit • SaaS", intent: "Artikel: KI im B2B · 2 Besuche" },
+                { name: "Kraftwerk Solutions", fit: "Hoher Fit • Energie", intent: "Case Study · Kontakt geöffnet" },
+              ].map((c, i) => (
+                <li
+                  key={i}
+                  className="rounded-xl border border-emerald-200/60 bg-white px-4 py-3 text-sm shadow-sm"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <div className="font-medium text-slate-900">{c.name}</div>
+                      <div className="text-emerald-700">{c.fit}</div>
+                      <div className="mt-0.5 text-slate-600">{c.intent}</div>
+                    </div>
+                    <div className="shrink-0">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-1 text-[10px] font-medium text-emerald-700">
+                        <CheckCircle className="h-3 w-3" />
+                        DSGVO-konform
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <div className="border-t border-emerald-200 bg-white/70 px-5 py-3 text-xs text-slate-600">
+              Verknüpfbar mit CRM &amp; Outreach – zum idealen Zeitpunkt ansprechen.
+            </div>
+          </div>
+        </div>
+
+        {/* Mini-KPIs */}
+        <div className="mt-10 grid grid-cols-1 gap-4 text-center md:grid-cols-3">
+          {[
+            { kpi: "38%", label: "mehr Termine aus warmen Accounts" },
+            { kpi: "≤24h", label: "Response-Zeit auf Signal-Leads" },
+            { kpi: "↑ Pipeline", label: "qualifizierte Opportunities" },
+          ].map((x, i) => (
+            <div
+              key={i}
+              className="rounded-xl border border-slate-200 bg-white px-4 py-5 shadow-sm"
+            >
+              <div className={`text-2xl font-semibold text-[#1b4d2b] ${serifClass}`}>{x.kpi}</div>
+              <div className="mt-1 text-sm text-slate-600">{x.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Scoped Keyframes */}
+      <style>{`
+        @keyframes scan {
+          0% { transform: translateY(-100%); }
+          100% { transform: translateY(100%); }
+        }
+        .animate-scan {
+          animation: scan 2.8s linear infinite;
+          will-change: transform;
+          mix-blend-mode: multiply;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-scan { animation: none; }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+
 /* ---------------------- Benefits Marquee ---------------------- */
 function BenefitsMarquee() {
   return (
@@ -1047,6 +1199,7 @@ export default function FindbarPage() {
       {/* 6. Done 4 You */}
       <TrustSection />
       <FutureProofSection />
+      <VisitorRevealSection />
       <UnserZielSection />
       {/* 7. An wen richtet sich unser Angebot */}
       <IdentificationSection />
