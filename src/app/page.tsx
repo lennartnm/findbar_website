@@ -241,11 +241,11 @@ function Hero() {
 /* ---------------------- VisitorRevealSection (overlay info on scan) ---------------------- */
 function VisitorRevealSection() {
   const steps = [
-    "Google oder KI-Suche",
-    "Lesen des KI-optimierten Blogartikels",
-    "Wahrnehmung deiner Kompetenz",
-    "Formulareintragung oder Identifizierung",
-    "Übergabe an das Sales-Team",
+    "Google oder KI-Suche für branchenspezifische Themen",
+    "Anzeige deiner KI-optimierten Blogartikel und Ratgeber",
+    "Wahrnehmung deiner Kompetenz und deines Expertenstatus",
+    "Identifizierung anonymer B2B-Besucher oder konkrete Anfrage",
+    "Übergabe an das Sales-Team und ideal getaktete Kontaktaufnahme",
   ];
 
   const companies = [
@@ -790,19 +790,23 @@ function IdentificationSection() {
   ];
 
   return (
-    <section id="identification" className="bg-white py-20 border-t border-slate-100">
+    <section
+      id="identification"
+      className="py-20 border-t border-slate-200 bg-slate-50"
+    >
       <div className={containerClass}>
         <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
           An wen richtet sich unser Angebot?
         </h2>
         <p className="mt-4 text-center text-slate-600">
-         Unsere KI-optimierten Blogartikel sind für B2B Unternehmen mit validiertem Angebot und Zielgruppe, bereit für Wachstum.
+          Unsere KI-optimierten Blogartikel sind für B2B-Unternehmen mit validiertem Angebot und Zielgruppe – bereit für Wachstum.
         </p>
+
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-4">
           {zielgruppen.map((z, i) => (
             <div
               key={i}
-              className="rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+              className="rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md"
             >
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#1b4d2b1A] text-[#1b4d2b]">
                 <z.icon className="h-6 w-6" />
@@ -1186,16 +1190,23 @@ export default function FindbarPage() {
       {/* 11. FAQ */}
       <FAQSection />
 
-      <footer className="border-t border-slate-100 py-8 text-center text-sm text-slate-500">
-        <div className="space-x-4">
-          <a href="#">Impressum</a>
-          <a href="#">AGB</a>
-          <a href="#">Datenschutz</a>
-        </div>
-        <p className="mt-3">
-          © {new Date().getFullYear()} findbar. Alle Rechte vorbehalten.
-        </p>
-      </footer>
+  <footer className="border-t border-slate-100 py-8 text-center text-sm text-slate-500">
+  <div className="space-x-4">
+    <a href="/impressum" className="hover:text-slate-700 transition-colors">
+      Impressum
+    </a>
+    <a href="/agb" className="hover:text-slate-700 transition-colors">
+      AGB
+    </a>
+    <a href="/datenschutz" className="hover:text-slate-700 transition-colors">
+      Datenschutz
+    </a>
+  </div>
+  <p className="mt-3">
+    © {new Date().getFullYear()} findbar. Alle Rechte vorbehalten.
+  </p>
+</footer>
+
 
       {/* Calendly Popup */}
       <CalendlyModal
