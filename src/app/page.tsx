@@ -355,22 +355,18 @@ function HowItHelpsSection() {
     {
       title: "Themen definieren",
       desc: "Wir analysieren KI-gestützt deine Branche und identifizieren die Themen, nach denen deine Zielkunden wirklich suchen.",
-      icon: Search,
     },
     {
       title: "KI-Blogartikel erstellen",
       desc: "Unsere KI erstellt hochwertige, SEO-optimierte Artikel, die Entscheider anziehen – besser als jeder Experte und zu einem Bruchteil der Kosten.",
-      icon: Zap,
     },
     {
       title: "Besucher identifizieren",
       desc: "Mit intelligenter Technologie erkennen wir, welche Unternehmen deine Website besuchen – auch ohne Formular.",
-      icon: TrendingUp,
     },
     {
       title: "Leads nutzen",
       desc: "Du erhältst verwertbare Unternehmensdaten, mit denen dein Vertrieb direkt arbeiten und Interessenten ansprechen kann.",
-      icon: CheckCircle,
     },
   ];
 
@@ -389,8 +385,8 @@ function HowItHelpsSection() {
             <ul className="mt-6 space-y-4">
               {vorteile.map((v, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <div className="rounded-full bg-[#1b4d2b1A] p-2 text-[#1b4d2b]">
-                    <v.icon className="h-5 w-5" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1b4d2b1A] text-[#1b4d2b] font-semibold">
+                    {i + 1}
                   </div>
                   <div>
                     <h4 className="font-semibold">{v.title}</h4>
@@ -401,7 +397,7 @@ function HowItHelpsSection() {
             </ul>
           </div>
 
-          {/* Bildseite – Shadow entfernt */}
+          {/* Bildseite */}
           <div className="relative w-full max-w-md mx-auto">
             <div
               className="absolute -inset-10 -z-10 blur-2xl"
@@ -421,7 +417,15 @@ function HowItHelpsSection() {
   );
 }
 
+
+/* ---------------------- Minimaler Aufwand – maximaler Vertriebserfolg ---------------------- */
 function UnserZielSection() {
+  const punkte = [
+    "Einmal einrichten – nachhaltig profitieren.",
+    "Maximale Zeiteffizienz für dich und dein Team",
+    "Transparente Reports: Veröffentlichungen, Rankings, Traffic.",
+  ];
+
   return (
     <section id="done4you" className="py-20">
       <div className={containerClass}>
@@ -431,10 +435,9 @@ function UnserZielSection() {
             background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)`
           }}
         >
-          {/* Inhalt */}
           <div className="relative z-10 grid items-center gap-12 px-6 py-12 md:grid-cols-2 md:px-12">
             
-            {/* Bildseite – jetzt links auf Desktop */}
+            {/* Bildseite */}
             <div className="order-2 md:order-1 flex justify-center">
               <div className="relative w-full max-w-md">
                 <div
@@ -451,28 +454,28 @@ function UnserZielSection() {
               </div>
             </div>
 
-            {/* Textseite – jetzt rechts auf Desktop */}
+            {/* Textseite */}
             <div className="order-1 md:order-2">
-              <p className="text-sm uppercase tracking-wide text-white/70">Content & Lead-Intelligence: Komplett für dich umgesetzt</p>
+              <p className="text-sm uppercase tracking-wide text-white/70">
+                Content & Lead-Intelligence: Komplett für dich umgesetzt
+              </p>
               <h2 className={`mt-2 text-3xl font-semibold ${serifClass}`}>
                 Minimaler Aufwand – maximaler Vertriebserfolg
               </h2>
               <p className="mt-4 max-w-prose text-white/90">
-            Wir setzen deinen Content-Motor auf Autopilot: Einmal Onboarding, Themenplan freigeben, 2–3 Musterartikel abnicken – danach liefern wir regelmäßig neue Artikel plus die identifizierten Firmenbesucher, die dein Vertrieb sofort nutzen kann.
+                Wir setzen deinen Content-Motor auf Autopilot: Einmal Onboarding, Themenplan freigeben, 
+                2–3 Musterartikel abnicken – danach liefern wir regelmäßig neue Artikel plus die identifizierten 
+                Firmenbesucher, die dein Vertrieb sofort nutzen kann.
               </p>
               <ul className="mt-6 space-y-3 text-white/90">
-                <li className="flex items-start gap-3">
-                  <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
-                  <span>Einmal einrichten – nachhaltig profitieren.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
-                  <span>Maximale Zeiteffizienz für dich und dein Team</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
-                  <span>Transparente Reports: Veröffentlichungen, Rankings, Traffic.</span>
-                </li>
+                {punkte.map((text, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 border border-white/20">
+                      <Check className="h-4 w-4 text-white" strokeWidth={1.6} />
+                    </div>
+                    <span>{text}</span>
+                  </li>
+                ))}
               </ul>
               <div className="mt-8 flex gap-3">
                 <Button asChild>
@@ -480,16 +483,14 @@ function UnserZielSection() {
                 </Button>
               </div>
             </div>
-
           </div>
-
-          {/* feiner Innenrand */}
           <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
         </div>
       </div>
     </section>
   );
 }
+
 
 
 /* ---------------------- Identification Section ---------------------- */
