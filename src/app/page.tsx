@@ -669,7 +669,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   );
 }
 
-/* ------------------------ AblaufSection (neu gedacht) ----------------------- */
+/* ------------------------ AblaufSection – Stepper Timeline ----------------------- */
 function AblaufSection() {
   return (
     <section id="ablauf" className="py-20">
@@ -683,66 +683,69 @@ function AblaufSection() {
               Unser Ablauf – transparent & effizient
             </h2>
 
-            {/* Responsive Grid mit auto-fit für gleichmäßige Spalten */}
-            <div className="mt-12 grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
-              {ablauf.map(({ icon: Icon, title, desc }, idx) => (
-                <article
-                  key={idx}
-                  className="flex h-full flex-col rounded-2xl border border-white/15 bg-white/10/50 backdrop-blur-md shadow-sm transition-transform duration-200 hover:-translate-y-0.5"
+            {/* Stepper: eine Reihe, mit Snap-Scroll auf Mobile */}
+            <div className="mt-12 overflow-x-auto pb-4 [-webkit-overflow-scrolling:touch]">
+              {/* Basislinie */}
+              <div className="relative">
+                <div className="absolute left-0 right-0 top-6 h-px bg-white/15" aria-hidden />
+
+                <ol
+                  className="
+                    grid snap-x snap-mandatory gap-6
+                    [grid-template-columns:repeat(5,minmax(240px,1fr))]
+                    md:[grid-template-columns:repeat(5,1fr)]
+                  "
                 >
-                  {/* Kopfzeile */}
-                  <header className="flex items-start gap-3 border-b border-white/10 p-4">
-                    <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-sm font-semibold">
-                      {idx + 1}
-                    </span>
-
-                    {/* Titel: normaler Umbruch + Hyphenation, kein hässliches „jede Silbe neue Zeile“ */}
-                    <h3
-                      className={`min-w-0 text-lg font-semibold leading-snug ${serifClass}`}
-                      style={{
-                        hyphens: "auto",
-                        WebkitHyphens: "auto",
-                        msHyphens: "auto",
-                        wordBreak: "normal",
-                        overflowWrap: "break-word",
-                      }}
+                  {ablauf.map(({ icon: Icon, title, desc }, i) => (
+                    <li
+                      key={i}
+                      className="snap-start"
                     >
-                      {title}
-                    </h3>
+                      {/* Step-Header: Punkt + Nummer + Icon */}
+                      <div className="relative mb-4 flex items-center gap-3">
+                        {/* Punkt/Nummer liegt exakt auf der Basislinie */}
+                        <div className="relative">
+                          <span className="absolute -top-[14px] left-1/2 -translate-x-1/2 h-7 w-7 rounded-full border border-white/25 bg-white/10 text-xs font-semibold grid place-items-center">
+                            {i + 1}
+                          </span>
+                        </div>
 
-                    <div className="ml-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                      <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
-                    </div>
-                  </header>
+                        <div className="ml-8 flex items-center gap-3 min-w-0">
+                          <h3
+                            className={`text-lg font-semibold leading-snug ${serifClass}`}
+                            style={{
+                              hyphens: "auto",
+                              WebkitHyphens: "auto",
+                              wordBreak: "normal",
+                              overflowWrap: "break-word",
+                            }}
+                          >
+                            {title}
+                          </h3>
+                          <div className="ml-auto hidden md:flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                            <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
+                          </div>
+                        </div>
+                      </div>
 
-                  {/* Inhalt */}
-                  <div className="flex flex-1 flex-col p-5">
-                    <p
-                      className="text-sm leading-relaxed text-white/90"
-                      style={{
-                        hyphens: "auto",
-                        WebkitHyphens: "auto",
-                        msHyphens: "auto",
-                        wordBreak: "normal",
-                        overflowWrap: "break-word",
-                      }}
-                    >
-                      {desc}
-                    </p>
-
-                    {/* dezenter Abschluss */}
-                    <div
-                      className="mt-auto pt-5"
-                      style={{
-                        height: 2,
-                        background:
-                          "linear-gradient(90deg, rgba(255,255,255,0.0), rgba(255,255,255,.6), rgba(255,255,255,0.0))",
-                        opacity: 0.0,
-                      }}
-                    />
-                  </div>
-                </article>
-              ))}
+                      {/* Card-Inhalt – alle gleich hoch dank min-h */}
+                      <div className="rounded-xl border border-white/15 bg-white/10 p-4 md:p-5 backdrop-blur-md shadow-sm h-full min-h-[150px]">
+                        <p
+                          className="text-sm leading-relaxed text-white/90"
+                          style={{
+                            hyphens: "auto",
+                            WebkitHyphens: "auto",
+                            wordBreak: "normal",
+                            overflowWrap: "break-word",
+                          }}
+                        >
+                          {desc}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
             </div>
           </div>
 
@@ -752,6 +755,7 @@ function AblaufSection() {
     </section>
   );
 }
+
 
 
 /* ---------------------- FAQ Section ---------------------- */
