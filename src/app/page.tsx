@@ -281,31 +281,46 @@ function VisitorRevealSection() {
               <span className="text-xs text-slate-500">Echtzeit-Scan</span>
             </div>
 
-            {/* Visual Box – DACH Map mit sichtbarerem Scan */}
+            {/* Visual Box – DACH-Bild im Originalformat (kein erzwungenes Aspect Ratio) */}
             <div className="relative px-5 pt-4 pb-5">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-slate-50">
-                {/* DACH-Karte Hintergrund */}
-                <img
-                  src="Scan.png"
-                  alt="Traffic Map"
-                  className="absolute inset-0 h-full w-full object-contain opacity-80"
-                />
+              <div className="relative overflow-hidden rounded-xl bg-slate-50 border border-slate-200">
+                {/* Wrapper passt sich der natürlichen Bildgröße an */}
+                <div className="relative inline-block mx-auto select-none">
+                  <img
+                    src="Scan.png"
+                    alt="Traffic Map DACH"
+                    className="block h-auto w-auto max-w-full max-h-[380px] opacity-90"
+                    draggable="false"
+                  />
 
-                {/* Scan Overlay – kräftiger */}
-                <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-400/40 to-transparent mix-blend-multiply" />
+                  {/* Scan Overlay – exakt über dem Bild (nimmt die Bildgröße an) */}
+                  <div className="pointer-events-none absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-400/45 to-transparent mix-blend-multiply" />
 
-                {/* Heat Dots über DACH */}
-                <div className="absolute inset-0">
-                  {[{x:"45%",y:"38%"},{x:"52%",y:"55%"},{x:"35%",y:"60%"}].map((pos,i)=>(
-                    <div
-                      key={i}
-                      style={{left:pos.x,top:pos.y}}
-                      className="absolute h-3.5 w-3.5 rounded-full bg-emerald-500/90 animate-ping"
-                    />
-                  ))}
+                  {/* Heat Dots – prozentual relativ zur Bildfläche */}
+                  <div className="pointer-events-none absolute inset-0">
+                    {[
+                      { x: "49%", y: "40%" }, // DE
+                      { x: "60%", y: "58%" }, // AT
+                      { x: "45%", y: "56%" }, // CH
+                    ].map((pos, i) => (
+                      <div
+                        key={i}
+                        style={{ left: pos.x, top: pos.y }}
+                        className="absolute -translate-x-1/2 -translate-y-1/2"
+                      >
+                        <span
+                          className="absolute -inset-3 rounded-full"
+                          style={{ background: "radial-gradient(circle, rgba(16,185,129,0.35), transparent 60%)" }}
+                          aria-hidden
+                        />
+                        <span className="relative block h-3.5 w-3.5 rounded-full bg-emerald-500/90 animate-ping" />
+                        <span className="absolute block h-2.5 w-2.5 rounded-full bg-emerald-600 top-0.5 left-0.5" />
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                {/* OVERLAY-Info */}
+                {/* OVERLAY-Info – unten in der Card */}
                 <div className="absolute left-4 right-4 bottom-4">
                   <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white/90 backdrop-blur px-3 py-2 text-xs text-slate-700 shadow-sm">
                     <Search className="h-4 w-4" />
@@ -374,6 +389,7 @@ function VisitorRevealSection() {
     </section>
   );
 }
+
 
 
 
