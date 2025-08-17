@@ -995,9 +995,7 @@ function FAQSection() {
   return (
     <section id="faq" className="bg-slate-50 py-20 border-t border-slate-100">
       <div className={containerClass}>
-        <h2 className={`text-3xl font-semibold ${serifClass}`}>
-          Häufige Fragen
-        </h2>
+       
         <div className="mt-10 space-y-4">
           {faqs.map((f, i) => (
             <details
