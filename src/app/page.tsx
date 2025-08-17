@@ -408,136 +408,120 @@ function HowItHelpsSection() {
 }
 
 
-/* ---------------------- Vertrauen & Expertenstatus ---------------------- */
+/* ---------------------- Vertrauen & Expertenstatus (Compact) ---------------------- */
 function TrustSection() {
-  const trustPoints = [
-    {
-      icon: Eye,
-      title: "Gefunden, bevor gefragt wird",
-      desc: "Entscheider entdecken euch in Suchmomenten – mit Inhalten, die exakt ihre Fragen treffen. Vertrauen entsteht, bevor der erste Call stattfindet.",
-    },
-    {
-      icon: Award,
-      title: "Expertenwahrnehmung durch Signature-Content",
-      desc: "Tiefgehende, konsistente Artikel im Markenstil – wiedererkennbar, zitierfähig, intern weiterleitbar.",
-    },
-    {
-      icon: CheckCircle,
-      title: "Belege statt Behauptungen",
-      desc: "Use-Cases, Datenpunkte, klare Frameworks und Referenzen – alles direkt im Content belegt.",
-    },
-    {
-      icon: BarChart3,
-      title: "Suchpräsenz als soziales Proof-Signal",
-      desc: "Ranking-Breite & -Tiefe zeigen Marktkompetenz – selbst für Non-Clients sichtbar.",
-    },
+  const pillars = [
+    { icon: Eye, title: "Gefunden", desc: "Präsenz in Suchmomenten" },
+    { icon: Award, title: "Glaubwürdig", desc: "Signature-Content & Belege" },
+    { icon: BarChart3, title: "Reichweite", desc: "Breite & Tiefe der Rankings" },
   ];
 
-  const proofBullets = [
-    "Autorenseiten & E-E-A-T-Signale (Expertise, Experience, Authority, Trust)",
-    "Daten- & Quellenhygiene (nachvollziehbare Ableitungen, Diagramme, Checklisten)",
-    "Konsistenz im Markenstil (Wortwahl, Tonalität, Visuals)",
-    "Interne Weiterleitbarkeit (C-Level-taugliche Abstracts & TL;DRs)",
+  const kpis = [
+    { value: "3–5x", label: "Mehr Weiterleitungen" },
+    { value: "30–60", label: "Rankende Themen/90T" },
+    { value: "2–4", label: "Touchpoints vor Sales" },
   ];
 
-  const microStats = [
-    { kpi: "30–60", label: "rankende Themen in 90 Tagen (typisch)" },
-    { kpi: "3–5x", label: "höhere Weiterleitungsrate an Buying Center" },
-    { kpi: "2–4", label: "Touchpoints vor 1. Kontakt (organisch)" },
-  ];
+  const logos = ["Logo A", "Logo B", "Logo C", "Logo D", "Logo E"];
 
   return (
-    <section id="trust" className="bg-white border-t border-slate-100 py-20">
-      <div className={containerClass}>
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm uppercase tracking-wide text-slate-500">
-            Expertenstatus vor dem ersten Call
-          </p>
-          <h2 className={`mt-2 text-3xl font-semibold ${serifClass}`}>
+    <section
+      id="trust"
+      className="relative py-24"
+      style={{
+        background: `radial-gradient(120% 120% at 80% 0%, ${RG300}22 0%, transparent 50%), linear-gradient(90deg, ${RG300}, ${RG600})`,
+      }}
+    >
+      {/* dezentes Grid */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-20"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.08) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          maskImage:
+            "linear-gradient(to bottom, black 70%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, black 70%, transparent 100%)",
+        }}
+      />
+
+      <div className={`${containerClass} relative z-10 text-white`}>
+        {/* Headline */}
+        <div className="text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs tracking-wide">
+            <Check className="h-3.5 w-3.5" /> Vorvertrauen aufbauen
+          </span>
+          <h2 className={`mt-4 text-4xl md:text-5xl font-semibold ${serifClass}`}>
             Vertrauen ist die Währung der Neuzeit
           </h2>
-          <p className="mt-4 text-slate-600">
-            Wer heute Lösungen kauft, prüft zuerst die <em>Kompetenzspur</em>:
-            Wird man gefunden? Wirkt der Content wie von Insidern? Gibt es belegbare
-            Ergebnisse? Wir bauen systematisch Vertrauen auf – noch bevor dein Vertrieb anruft.
+          <p className="mt-3 text-white/85">
+            Expertise sichtbar machen, bevor Sales spricht.
           </p>
         </div>
 
-        {/* Trust-Grid */}
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {trustPoints.map(({ icon: Icon, title, desc }, i) => (
+        {/* Pillars */}
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {pillars.map(({ icon: Icon, title, desc }, i) => (
             <div
               key={i}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+              className="group rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,.20)] transition-transform hover:-translate-y-0.5"
             >
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#1b4d2b1A] text-[#1b4d2b]">
-                <Icon className="h-5 w-5" />
+              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/10">
+                <Icon className="h-5 w-5 text-white" />
               </div>
               <h3 className={`text-lg font-semibold ${serifClass}`}>{title}</h3>
-              <p className="mt-2 text-sm text-slate-600">{desc}</p>
+              <p className="mt-1 text-sm text-white/85">{desc}</p>
+
+              {/* subtle underline animation */}
+              <div className="mt-4 h-[2px] w-12 origin-left scale-x-0 bg-white/40 transition-transform duration-300 group-hover:scale-x-100" />
             </div>
           ))}
         </div>
 
-        {/* Proof-Bar */}
-        <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-          <div className="grid items-start gap-8 md:grid-cols-2">
-            <div>
-              <h4 className={`text-lg font-semibold ${serifClass}`}>
-                So wird eure Expertise sichtbar
-              </h4>
-              <ul className="mt-4 space-y-3">
-                {proofBullets.map((b, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#1b4d2b1A] text-[#1b4d2b]">
-                      <Check className="h-4 w-4" />
-                    </span>
-                    <span className="text-sm text-slate-700">{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <div
-                className="relative w-full overflow-hidden rounded-xl p-6 text-white shadow-md"
-                style={{
-                  background: `linear-gradient(90deg, ${RG300}, ${RG600})`,
-                }}
-              >
-                <p className="text-sm uppercase tracking-wide text-white/80">
-                  Erwartbare Effekte
-                </p>
-                <div className="mt-4 grid grid-cols-3 gap-4">
-                  {microStats.map((m, i) => (
-                    <div key={i} className="rounded-lg bg-white/10 p-4 text-center">
-                      <div className="text-2xl font-bold">{m.kpi}</div>
-                      <div className="mt-1 text-[11px] leading-snug text-white/85">
-                        {m.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="mt-4 text-xs text-white/85">
-                  Hinweis: Werte basieren auf typischen Projekten & Branchenbenchmarks; konkrete Ergebnisse variieren je nach Wettbewerb & Domain-Authority.
-                </p>
+        {/* KPIs */}
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {kpis.map((k, i) => (
+            <div
+              key={i}
+              className="rounded-2xl border border-white/15 bg-white/10 p-6 text-center backdrop-blur-md"
+            >
+              <div className="text-3xl md:text-4xl font-bold">{k.value}</div>
+              <div className="mt-1 text-xs uppercase tracking-wide text-white/80">
+                {k.label}
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Logos */}
+        <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-4">
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+            {logos.map((l, i) => (
+              <div
+                key={i}
+                className="h-8 w-24 shrink-0 rounded-md border border-white/10 bg-white/10 text-center text-[10px] leading-8 text-white/70"
+                aria-label={`Referenz ${l}`}
+                title={l}
+              >
+                {l}
+              </div>
+            ))}
           </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-10 flex flex-col items-center justify-center">
-          <p className="text-slate-600 text-center">
-            Wir verwandeln Content in Vertrauen – und Vertrauen in Anfragen.
-          </p>
-          <Button asChild className="mt-4">
-            <a href="#preise" className="text-white">Pakete ansehen</a>
+        <div className="mt-10 flex items-center justify-center">
+          <Button asChild className="shadow-lg">
+            <a href="#preise" className="text-white">Jetzt Vertrauen in Anfragen wandeln</a>
           </Button>
         </div>
       </div>
     </section>
   );
 }
+
 
 
 
