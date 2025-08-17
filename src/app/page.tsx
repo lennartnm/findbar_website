@@ -53,12 +53,13 @@ const ablauf = [
   { icon: BarChart3, title: "Sales", desc: "Dein Sales-Team erhält warme Leads und meldet sich zum idealen Zeitpunkt." },
 ];
 
-// PRICING DATEN
+// PRICING DATEN – mit altem Preis
 const plans = [
-  { id: "starter", articles: 20, price: 699, popular: false },
-  { id: "growth", articles: 40, price: 999, popular: true },
-  { id: "scale", articles: 60, price: 1299, popular: false },
+  { id: "starter", articles: 20, price: 449, oldPrice: 699, popular: false },
+  { id: "growth",  articles: 40, price: 649, oldPrice: 999, popular: true  },
+  { id: "scale",   articles: 60, price: 849, oldPrice: 1299, popular: false },
 ];
+
 
 const features = [
   "Themen- & Keyword-Analyse",
@@ -613,15 +614,31 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   return (
     <section id="preise" className="border-t border-slate-100 bg-white py-20">
       <div className={containerClass}>
-        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>Unsere Pakete</h2>
+        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
+          Unsere Pakete
+        </h2>
+
+        {/* Badge / Hinweis zur Marktvalidierung */}
+        <div className="mt-4 flex justify-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-sm font-medium text-emerald-800">
+            <Check className="h-4 w-4" />
+            Marktvalidierung: Wir sammeln Testimonials
+          </span>
+        </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-3">
-          {plans.map(({ id, articles, price, popular }) => {
+          {[
+            { id: "starter", articles: 20, price: 449, oldPrice: 699, popular: false },
+            { id: "growth", articles: 40, price: 649, oldPrice: 999, popular: true },
+            { id: "scale", articles: 60, price: 849, oldPrice: 1299, popular: false },
+          ].map(({ id, articles, price, oldPrice, popular }) => {
             return (
               <div
                 key={id}
                 className={`group relative rounded-2xl border-2 bg-white p-6 text-left shadow-sm transition-all hover:shadow-lg ${
-                  popular ? "scale-105 border-[#1b4d2b] ring-2 ring-[#1b4d2b]/40" : "border-[#1b4d2b]"
+                  popular
+                    ? "scale-105 border-[#1b4d2b] ring-2 ring-[#1b4d2b]/40"
+                    : "border-[#1b4d2b]"
                 }`}
               >
                 {popular && (
@@ -633,15 +650,35 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
                   </div>
                 )}
 
-                <h3 className={`text-lg font-semibold ${serifClass}`}>{articles} Artikel / Monat</h3>
+                <h3
+                  className={`text-lg font-semibold ${serifClass}`}
+                >
+                  {articles} Artikel / Monat
+                </h3>
 
+                {/* Preis */}
                 <div className="mt-4">
-                  <div className="inline-flex items-end gap-1">
-                    <span className="text-4xl font-bold text-[#1b4d2b]">€{formatEUR(price)}</span>
-                    <span className="mb-1 text-xs text-slate-500">pro Monat</span>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-bold text-[#1b4d2b]">
+                      €{formatEUR(price)}
+                    </span>
+                    <span
+                      className="text-sm text-slate-500 line-through"
+                      aria-label={`Alter Preis €${formatEUR(oldPrice)}`}
+                      title="Alter Preis"
+                    >
+                      €{formatEUR(oldPrice)}
+                    </span>
+                    <span className="ml-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-800">
+                      Einführungspreis
+                    </span>
                   </div>
+                  <span className="sr-only">
+                    Neuer Preis €{formatEUR(price)} statt €{formatEUR(oldPrice)}.
+                  </span>
                 </div>
 
+                {/* Features */}
                 <ul className="mt-6 space-y-2">
                   {features.map((f, i) => (
                     <li key={i} className="flex items-start gap-2">
@@ -654,7 +691,11 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
                 </ul>
 
                 {/* Button öffnet das Calendly-Modal */}
-                <Button className="mt-6 w-full" variant={popular ? "default" : "outline"} onClick={onOpenCalendly}>
+                <Button
+                  className="mt-6 w-full"
+                  variant={popular ? "default" : "outline"}
+                  onClick={onOpenCalendly}
+                >
                   Jetzt anfragen
                 </Button>
               </div>
@@ -663,7 +704,9 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
         </div>
 
         <p className="mt-6 text-center text-xs text-slate-500">
-          Alle Pakete beinhalten alles von Recherche bis Veröffentlichung – plus die Identifikation anonymer Unternehmensbesucher, transparente Reports und nachhaltige Lead-Gewinnung, für maximalen Outcome für dein Angebot.
+          Alle Pakete beinhalten alles von Recherche bis Veröffentlichung – plus
+          die Identifikation anonymer Unternehmensbesucher, transparente Reports
+          und nachhaltige Lead-Gewinnung, für maximalen Outcome für dein Angebot.
         </p>
       </div>
     </section>
