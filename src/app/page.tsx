@@ -669,9 +669,8 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   );
 }
 
-/* ------------------------ AblaufSection – Journey Timeline (neu) ----------------------- */
+/* ------------------------ AblaufSection – 2x3 Grid ----------------------- */
 function AblaufSection() {
-  // Für die Alternierung + kompakten Abstände arbeiten wir mit CSS Grid-Reihenhöhe
   return (
     <section id="ablauf" className="py-20">
       <div className={containerClass}>
@@ -684,132 +683,50 @@ function AblaufSection() {
               Unser Ablauf – transparent & effizient
             </h2>
 
-            {/* TIMELINE WRAPPER */}
-            <div className="relative mx-auto mt-12 max-w-5xl">
-              {/* Zentrale Kurve (SVG) – nur ab md sichtbar */}
-              <svg
-                className="pointer-events-none absolute inset-0 hidden h-full w-full md:block"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-                aria-hidden
-              >
-                {/* sanft geschwungener Pfad mit Verlauf */}
-                <defs>
-                  <linearGradient id="tl-grad" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stopColor="rgba(255,255,255,.28)" />
-                    <stop offset="100%" stopColor="rgba(255,255,255,.10)" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="
-                    M50,2
-                    C50,15 50,15 50,28
-                    C50,41 50,41 50,54
-                    C50,67 50,67 50,80
-                    C50,93 50,93 50,98
-                  "
-                  stroke="url(#tl-grad)"
-                  strokeWidth="1.5"
-                  fill="none"
-                />
-              </svg>
-
-              {/* GRID: jede Karte belegt eine „Zeile“, md: alternierend L/R */}
-              <ol
-                className="
-                  grid gap-y-10
-                  md:[grid-template-columns:1fr_minmax(0,120px)_1fr]
-                  md:gap-y-12 md:gap-x-6
-                "
-              >
-                {ablauf.map(({ icon: Icon, title, desc }, i) => {
-                  const left = i % 2 === 0;
-                  return (
-                    <li
-                      key={i}
-                      className={`
-                        contents
-                      `}
-                    >
-                      {/* Linke Spalte */}
-                      <div className={`md:col-start-1 ${left ? "" : "md:invisible md:block"}`} />
-
-                      {/* Mittelspalte: Node */}
-                      <div className="relative md:col-start-2 flex items-center justify-center">
-                        {/* Node Kreis + Nummer (nur ≥ md) */}
-                        <div className="hidden md:grid place-items-center h-9 w-9 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-sm font-semibold shadow-sm">
-                          {i + 1}
-                        </div>
+            {/* GRID: 2 Reihen x 3 Spalten */}
+            <ol
+              className="
+                mt-12 grid gap-6
+                md:grid-cols-3
+              "
+            >
+              {ablaufMitErfolg.map(({ icon: Icon, title, desc }, i) => (
+                <li key={i}>
+                  <article
+                    className="group h-full rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md shadow-sm p-6 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-black/20"
+                    style={{
+                      hyphens: "auto",
+                      WebkitHyphens: "auto",
+                      overflowWrap: "break-word",
+                      wordBreak: "normal",
+                    }}
+                  >
+                    {/* Header mit Step-Nummer und Icon */}
+                    <header className="flex items-center justify-between">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10 text-sm font-semibold">
+                        {i + 1}
+                      </span>
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                        <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
                       </div>
+                    </header>
 
-                      {/* Rechte/Linke Karte je nach Seite */}
-                      <div
-                        className={`
-                          ${left ? "md:col-start-3" : "md:col-start-1"}
-                        `}
-                      >
-                        <article
-                          className={`
-                            group rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md shadow-sm
-                            p-5 md:p-6
-                            transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-black/20
-                          `}
-                          style={{
-                            hyphens: "auto",
-                            WebkitHyphens: "auto",
-                            overflowWrap: "break-word",
-                            wordBreak: "normal",
-                          }}
-                        >
-                          <header className="flex items-start gap-3">
-                            <h3 className={`flex-1 text-lg font-semibold leading-snug ${serifClass}`}>
-                              {title}
-                            </h3>
-                            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                              <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
-                            </div>
-                          </header>
+                    {/* Titel */}
+                    <h3 className={`mt-4 text-lg font-semibold leading-snug ${serifClass}`}>
+                      {title}
+                    </h3>
 
-                          <hr className="my-4 border-white/10" />
+                    {/* Linie */}
+                    <hr className="my-4 border-white/10" />
 
-                          <p className="text-sm leading-relaxed text-white/90">
-                            {desc}
-                          </p>
-                        </article>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ol>
-
-              {/* Mobile: eigene Timeline ohne Mittelstrich */}
-              <ol className="md:hidden space-y-4 mt-2">
-                {ablauf.map(({ icon: Icon, title, desc }, i) => (
-                  <li key={`m-${i}`}>
-                    <article
-                      className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md shadow-sm p-4"
-                      style={{
-                        hyphens: "auto",
-                        WebkitHyphens: "auto",
-                        overflowWrap: "break-word",
-                        wordBreak: "normal",
-                      }}
-                    >
-                      <div className="mb-2 flex items-center gap-3">
-                        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/30 bg-white/10 text-xs font-semibold">
-                          {i + 1}
-                        </span>
-                        <h3 className={`text-base font-semibold ${serifClass}`}>{title}</h3>
-                        <div className="ml-auto inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                          <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
-                        </div>
-                      </div>
-                      <p className="text-sm leading-relaxed text-white/90">{desc}</p>
-                    </article>
-                  </li>
-                ))}
-              </ol>
-            </div>
+                    {/* Beschreibung */}
+                    <p className="text-sm leading-relaxed text-white/90">
+                      {desc}
+                    </p>
+                  </article>
+                </li>
+              ))}
+            </ol>
           </div>
 
           {/* zarter Innenrand */}
@@ -820,6 +737,39 @@ function AblaufSection() {
   );
 }
 
+/* ---- Steps (inkl. Erfolg als #6) ---- */
+const ablaufMitErfolg = [
+  {
+    icon: ClipboardIcon,
+    title: "Onboarding",
+    desc: "Verständnis von Zielgruppe, Angebot und Themen.",
+  },
+  {
+    icon: FileTextIcon,
+    title: "Themenfindung",
+    desc: "KI-gestützte und intelligente Themenfindung, die Entscheider wirklich interessiert.",
+  },
+  {
+    icon: CheckCircleIcon,
+    title: "KI-Blogartikel",
+    desc: "Nach Themenfreigabe entwickelt unsere KI datengestützt relevante Artikel im HTML-Format und veröffentlicht sie über 30 Tage hinweg im CMS.",
+  },
+  {
+    icon: BoxIcon,
+    title: "Leadidentifizierung",
+    desc: "Über allgemeine Formulareintragungen hinaus identifizieren wir mit innovativer Technologie Unternehmensbesucher.",
+  },
+  {
+    icon: BarChartIcon,
+    title: "Sales",
+    desc: "Dein Sales-Team erhält warme Leads und meldet sich zum idealen Zeitpunkt.",
+  },
+  {
+    icon: StarIcon,
+    title: "Erfolg",
+    desc: "Mehr Sichtbarkeit, bessere Leads und nachhaltiges Wachstum für dein Business.",
+  },
+];
 
 /* ---------------------- FAQ Section ---------------------- */
 function FAQSection() {
