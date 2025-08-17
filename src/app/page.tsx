@@ -302,10 +302,10 @@ function BlogSection() {
               alt: "Vergleich zwischen Cloud-Infrastruktur und On-Premise-Servern",
             },
             {
-              title: "Hybrides Arbeiten – So gelingt die Balance zwischen Büro und Homeoffice",
-              tease: "Von Meeting-Kultur bis IT-Sicherheit: Die wichtigsten Stellschrauben, damit hybride Teams produktiv und zufrieden arbeiten.",
-              image: "/Hybrides Arbeiten.png",
-              alt: "Mitarbeitende arbeiten hybrid zwischen Büro und Homeoffice",
+              title: "B2B Kunden gewinnen im Jahr 2025 mit Hilfe von KI",
+              tease: "Der wachsende Wettbewerb fordert nach innovativen Marketingansätzen. Vertrauensaufbau wird essentieller denn je. So gelingt es.",
+              image: "/B2B Kunden.png",
+              alt: "Kundengewinnung durch KI im Jahr 2025",
             },
             {
               title: "Green Energy im Unternehmen – Photovoltaik und Energiespeicher sinnvoll einsetzen",
@@ -352,22 +352,10 @@ function BlogSection() {
 /* ---------------------- So helfen dir KI-optimierte Blogartikel ---------------------- */
 function HowItHelpsSection() {
   const vorteile = [
-    {
-      title: "Themen definieren",
-      desc: "Wir analysieren KI-gestützt deine Branche und identifizieren die Themen, nach denen deine Zielkunden wirklich suchen.",
-    },
-    {
-      title: "KI-Blogartikel erstellen",
-      desc: "Unsere KI erstellt hochwertige, SEO-optimierte Artikel, die Entscheider anziehen – besser als jeder Experte und zu einem Bruchteil der Kosten.",
-    },
-    {
-      title: "Besucher identifizieren",
-      desc: "Mit intelligenter Technologie erkennen wir, welche Unternehmen deine Website besuchen – auch ohne Formular.",
-    },
-    {
-      title: "Leads nutzen",
-      desc: "Du erhältst verwertbare Unternehmensdaten, mit denen dein Vertrieb direkt arbeiten und Interessenten ansprechen kann.",
-    },
+    { title: "Themen definieren", desc: "Wir analysieren KI-gestützt deine Branche und identifizieren die Themen, nach denen deine Zielkunden wirklich suchen." },
+    { title: "KI-Blogartikel erstellen", desc: "Unsere KI erstellt hochwertige, SEO-optimierte Artikel, die Entscheider anziehen – besser als jeder Experte und zu einem Bruchteil der Kosten." },
+    { title: "Besucher identifizieren", desc: "Mit intelligenter Technologie erkennen wir, welche Unternehmen deine Website besuchen – auch ohne Formular." },
+    { title: "Leads nutzen", desc: "Du erhältst verwertbare Unternehmensdaten, mit denen dein Vertrieb direkt arbeiten und Interessenten ansprechen kann." },
   ];
 
   return (
@@ -385,12 +373,11 @@ function HowItHelpsSection() {
             <ul className="mt-6 space-y-4">
               {vorteile.map((v, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  {/* Zahl im runden Badge */}
-               <div className="flex h-10 w-10 items-center justify-center rounded-full 
-                bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold">
-  {i + 1}
-</div>
-
+                  {/* Zahl im perfekten Kreis – NICHT schrumpfen */}
+                  <div className="shrink-0 inline-flex size-10 items-center justify-center rounded-full
+                                  bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
+                    {i + 1}
+                  </div>
                   <div>
                     <h4 className="font-semibold">{v.title}</h4>
                     <p className="text-sm text-slate-600">{v.desc}</p>
@@ -461,15 +448,13 @@ function UnserZielSection() {
             {/* Textseite */}
             <div className="order-1 md:order-2">
               <p className="text-sm uppercase tracking-wide text-white/70">
-                Content & Lead-Intelligence: Komplett für dich umgesetzt
+             
               </p>
               <h2 className={`mt-2 text-3xl font-semibold ${serifClass}`}>
                 Minimaler Aufwand – maximaler Vertriebserfolg
               </h2>
               <p className="mt-4 max-w-prose text-white/90">
-                Wir setzen deinen Content-Motor auf Autopilot: Einmal Onboarding, Themenplan freigeben, 
-                2–3 Musterartikel abnicken – danach liefern wir regelmäßig neue Artikel plus die identifizierten 
-                Firmenbesucher, die dein Vertrieb sofort nutzen kann.
+ Wir haben Blogartikel in Zeiten von KI und innovativen Trackingmöglichkeiten neu gedacht. Gemeinsam verwandeln wir Content in einen Vertriebsbooster, der nicht nur sichtbar macht – sondern auch die richtigen Kunden zu dir bringt.
               </p>
               <ul className="mt-6 space-y-3 text-white/90">
                 {punkte.map((text, i) => (
@@ -516,7 +501,7 @@ function IdentificationSection() {
       icon: Globe,
     },
     {
-      title: "Marketing- & Vertriebsteams in B2Br",
+      title: "Marketing- & Vertriebsteams in B2B",
       desc: "Effizienter arbeiten: Content, der SEO-Ergebnisse liefert und konkrete Unternehmensleads für die Sales-Pipeline bereitstellt.",
       icon: Search,
     },
