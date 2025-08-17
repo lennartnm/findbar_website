@@ -669,13 +669,13 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   );
 }
 
-/* ------------------------ AblaufSection (robuster Zeilenumbruch) ----------------------- */
+/* ------------------------ AblaufSection (neu gedacht) ----------------------- */
 function AblaufSection() {
   return (
     <section id="ablauf" className="py-20">
       <div className={containerClass}>
         <div
-          className="relative w-full overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
+          className="relative overflow-hidden rounded-3xl md:rounded-[32px] text-white shadow-xl"
           style={{ background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)` }}
         >
           <div className="relative z-10 px-6 py-12 md:px-12">
@@ -683,55 +683,65 @@ function AblaufSection() {
               Unser Ablauf – transparent & effizient
             </h2>
 
-            <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-5 items-stretch">
+            {/* Responsive Grid mit auto-fit für gleichmäßige Spalten */}
+            <div className="mt-12 grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))]">
               {ablauf.map(({ icon: Icon, title, desc }, idx) => (
-                <div
+                <article
                   key={idx}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20"
+                  className="flex h-full flex-col rounded-2xl border border-white/15 bg-white/10/50 backdrop-blur-md shadow-sm transition-transform duration-200 hover:-translate-y-0.5"
                 >
-                  {/* Kopfzeile (kein absolute) */}
-                  <div className="flex items-center justify-between gap-3 border-b border-white/10 p-4">
-                    <div className="flex items-center gap-3 min-w-0">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10 text-sm font-semibold">
-                        {idx + 1}
-                      </span>
-                      <h3
-                        className={`text-base md:text-lg font-semibold ${serifClass}`}
-                        style={{
-                          overflowWrap: "anywhere",
-                          wordBreak: "break-word",
-                        }}
-                      >
-                        {title}
-                      </h3>
-                    </div>
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                  {/* Kopfzeile */}
+                  <header className="flex items-start gap-3 border-b border-white/10 p-4">
+                    <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-sm font-semibold">
+                      {idx + 1}
+                    </span>
+
+                    {/* Titel: normaler Umbruch + Hyphenation, kein hässliches „jede Silbe neue Zeile“ */}
+                    <h3
+                      className={`min-w-0 text-lg font-semibold leading-snug ${serifClass}`}
+                      style={{
+                        hyphens: "auto",
+                        WebkitHyphens: "auto",
+                        msHyphens: "auto",
+                        wordBreak: "normal",
+                        overflowWrap: "break-word",
+                      }}
+                    >
+                      {title}
+                    </h3>
+
+                    <div className="ml-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
                       <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
                     </div>
-                  </div>
+                  </header>
 
                   {/* Inhalt */}
-                  <div className="flex h-full flex-col p-5 pb-6">
+                  <div className="flex flex-1 flex-col p-5">
                     <p
                       className="text-sm leading-relaxed text-white/90"
                       style={{
-                        overflowWrap: "anywhere",
-                        wordBreak: "break-word",
+                        hyphens: "auto",
+                        WebkitHyphens: "auto",
+                        msHyphens: "auto",
+                        wordBreak: "normal",
+                        overflowWrap: "break-word",
                       }}
                     >
                       {desc}
                     </p>
 
-                    {/* Hover-Akzent */}
+                    {/* dezenter Abschluss */}
                     <div
-                      className="mt-auto -mb-1 h-0.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                      className="mt-auto pt-5"
                       style={{
+                        height: 2,
                         background:
-                          "linear-gradient(90deg, rgba(255,255,255,0.0), rgba(255,255,255,0.7), rgba(255,255,255,0.0))",
+                          "linear-gradient(90deg, rgba(255,255,255,0.0), rgba(255,255,255,.6), rgba(255,255,255,0.0))",
+                        opacity: 0.0,
                       }}
                     />
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>
@@ -742,8 +752,6 @@ function AblaufSection() {
     </section>
   );
 }
-
-
 
 
 /* ---------------------- FAQ Section ---------------------- */
