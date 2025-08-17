@@ -669,8 +669,25 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
   );
 }
 
-/* ------------------------ AblaufSection – Stepper Timeline ----------------------- */
+/* ------------------------ AblaufSection – vertikale Timeline, alternierend + Reveal ----------------------- */
 function AblaufSection() {
+  React.useEffect(() => {
+    const items = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal-item]"));
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("reveal-show");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.25, rootMargin: "0px 0px -10% 0px" }
+    );
+    items.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <section id="ablauf" className="py-20">
       <div className={containerClass}>
@@ -683,75 +700,95 @@ function AblaufSection() {
               Unser Ablauf – transparent & effizient
             </h2>
 
-            {/* Stepper: eine Reihe, mit Snap-Scroll auf Mobile */}
-            <div className="mt-12 overflow-x-auto pb-4 [-webkit-overflow-scrolling:touch]">
-              {/* Basislinie */}
-              <div className="relative">
-                <div className="absolute left-0 right-0 top-6 h-px bg-white/15" aria-hidden />
+            {/* TIMELINE WRAPPER */}
+            <div className="relative mx-auto mt-12 max-w-5xl">
+              {/* Zentrale Linie */}
+              <div className="pointer-events-none absolute left-1/2 top-0 -ml-px h-full w-px bg-white/20" aria-hidden />
 
-                <ol
-                  className="
-                    grid snap-x snap-mandatory gap-6
-                    [grid-template-columns:repeat(5,minmax(240px,1fr))]
-                    md:[grid-template-columns:repeat(5,1fr)]
-                  "
-                >
-                  {ablauf.map(({ icon: Icon, title, desc }, i) => (
-                    <li
-                      key={i}
-                      className="snap-start"
-                    >
-                      {/* Step-Header: Punkt + Nummer + Icon */}
-                      <div className="relative mb-4 flex items-center gap-3">
-                        {/* Punkt/Nummer liegt exakt auf der Basislinie */}
-                        <div className="relative">
-                          <span className="absolute -top-[14px] left-1/2 -translate-x-1/2 h-7 w-7 rounded-full border border-white/25 bg-white/10 text-xs font-semibold grid place-items-center">
-                            {i + 1}
-                          </span>
-                        </div>
+              <ol className="space-y-12">
+                {ablauf.map(({ icon: Icon, title, desc }, idx) => {
+                  const left = idx % 2 === 0;
+                  return (
+                    <li key={idx} className="relative">
+                      {/* Marker (Nummer) auf der Linie */}
+                      <div className="absolute left-1/2 top-1/2 z-10 -mt-4 -ml-4 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-white/10 text-sm font-semibold md:flex">
+                        {idx + 1}
+                      </div>
 
-                        <div className="ml-8 flex items-center gap-3 min-w-0">
-                          <h3
-                            className={`text-lg font-semibold leading-snug ${serifClass}`}
+                      {/* Zeile: links/rechts Container */}
+                      <div
+                        className={[
+                          "md:flex md:items-stretch",
+                          left ? "md:justify-start" : "md:justify-end",
+                        ].join(" ")}
+                      >
+                        <div className={["md:w-1/2", left ? "md:pr-10" : "md:pl-10"].join(" ")}>
+                          {/* Karte */}
+                          <article
+                            data-reveal-item
+                            className={[
+                              "reveal",
+                              left ? "reveal--left" : "reveal--right",
+                              "rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-md shadow-sm",
+                              "hover:shadow-2xl hover:shadow-black/20 transition-shadow",
+                            ].join(" ")}
                             style={{
                               hyphens: "auto",
                               WebkitHyphens: "auto",
-                              wordBreak: "normal",
                               overflowWrap: "break-word",
+                              wordBreak: "normal",
                             }}
                           >
-                            {title}
-                          </h3>
-                          <div className="ml-auto hidden md:flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
-                            <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
-                          </div>
+                            {/* Kopfzeile für Mobile (Nummer + Icon) */}
+                            <div className="mb-3 flex items-center gap-3 md:hidden">
+                              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10 text-sm font-semibold">
+                                {idx + 1}
+                              </span>
+                              <div className="ml-auto flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                                <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
+                              </div>
+                            </div>
+
+                            <div className="flex items-start gap-3">
+                              {/* Titel links/rechts, Icon daneben (nur ≥ md sichtbar, mobile oben) */}
+                              <h3 className={`text-lg font-semibold leading-snug ${serifClass} flex-1`}>
+                                {title}
+                              </h3>
+                              <div className="hidden md:flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                                <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
+                              </div>
+                            </div>
+
+                            <hr className="my-4 border-white/10" />
+
+                            <p className="text-sm leading-relaxed text-white/90">{desc}</p>
+                          </article>
                         </div>
                       </div>
-
-                      {/* Card-Inhalt – alle gleich hoch dank min-h */}
-                      <div className="rounded-xl border border-white/15 bg-white/10 p-4 md:p-5 backdrop-blur-md shadow-sm h-full min-h-[150px]">
-                        <p
-                          className="text-sm leading-relaxed text-white/90"
-                          style={{
-                            hyphens: "auto",
-                            WebkitHyphens: "auto",
-                            wordBreak: "normal",
-                            overflowWrap: "break-word",
-                          }}
-                        >
-                          {desc}
-                        </p>
-                      </div>
                     </li>
-                  ))}
-                </ol>
-              </div>
+                  );
+                })}
+              </ol>
             </div>
           </div>
 
+          {/* feiner Innenrand */}
           <div className="pointer-events-none absolute inset-0 rounded-3xl md:rounded-[32px] ring-1 ring-white/10" />
         </div>
       </div>
+
+      {/* Reveal-Styles (leicht, performant) */}
+      <style>{`
+        .reveal {
+          opacity: 0;
+          transform: translateY(8px);
+          transition: opacity .5s ease, transform .6s ease;
+          will-change: opacity, transform;
+        }
+        .reveal--left { transform: translate(-16px, 8px); }
+        .reveal--right { transform: translate(16px, 8px); }
+        .reveal-show { opacity: 1; transform: translate(0,0); }
+      `}</style>
     </section>
   );
 }
