@@ -385,7 +385,8 @@ function HowItHelpsSection() {
             <ul className="mt-6 space-y-4">
               {vorteile.map((v, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1b4d2b1A] text-[#1b4d2b] font-semibold">
+                  {/* Zahl im runden Badge */}
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold">
                     {i + 1}
                   </div>
                   <div>
@@ -416,6 +417,7 @@ function HowItHelpsSection() {
     </section>
   );
 }
+
 
 
 /* ---------------------- Minimaler Aufwand – maximaler Vertriebserfolg ---------------------- */
