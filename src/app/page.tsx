@@ -46,11 +46,11 @@ const benefits = [
 
 // ABLAUF (Steps)
 const ablauf = [
-  { icon: ClipboardList, title: "Initiales Setup", desc: "Onboarding zu Zielgruppe, Themen, Keywords & Branding." },
-  { icon: FileText, title: "Content-Plan", desc: "Freigabe des Themenentwurfs für die nächsten 30 Tage." },
-  { icon: CheckCircle, title: "Beispiel-Texte", desc: "Manuelle Abnahme der ersten zwei bis drei Blogartikel." },
-  { icon: Package, title: "Batch-Abnahmen", desc: "Lieferung der ausstehenden Blog-Artikel für den Monat." },
-  { icon: BarChart3, title: "Reporting", desc: "Berichte zu Performance, Impressionen, Anfragen und mehr." },
+  { icon: ClipboardList, title: "Onboarding", desc: "Verständnis von Zielgruppe, Angebot und Themen." },
+  { icon: FileText, title: "Themenfindung", desc: "KI-gestützte und intelligente Themenfindung, die Entscheider wirklich interessiert." },
+  { icon: CheckCircle, title: "KI-Blogartikel", desc: "Nach Themenfreigabe entwickelt unsere KI datengestützt, relevante Blogartikel im HTML Format (variabel) und veröffentlicht sie über die nächsten 30 Tage hinweg im CMS." },
+  { icon: Package, title: "Leadidentifizierung", desc: "Über allgemeine Formulareintragungen hinweg, identifizieren wir mit innovativer Technologie Unternehmensbesucher." },
+  { icon: BarChart3, title: "Sales", desc: "Dein Sales-Team erhält warme Leads und meldet sich zum idealen Zeitpunkt." },
 ];
 
 // PRICING DATEN
