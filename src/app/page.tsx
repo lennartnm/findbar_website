@@ -1023,6 +1023,7 @@ export default function FindbarPage() {
       {/* 5. So helfen dir KI-optimierte Blogartikel */}
       <HowItHelpsSection />
       {/* 6. Done 4 You */}
+      <TrustSection />
       <UnserZielSection />
       {/* 7. An wen richtet sich unser Angebot */}
       <IdentificationSection />
