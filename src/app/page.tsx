@@ -412,9 +412,9 @@ function HowItHelpsSection() {
 /* ---------------------- Vertrauen & Expertenstatus (Green Aurora) ---------------------- */
 function TrustSection() {
   const pillars = [
-    { icon: Eye, title: "Gefunden werden im richtigen Moment", desc: "Entscheidet lernen dein Unternehmen als kompetenten Experten kennen, der konkrete Antworten liefert. Das schafft einen ersten Vertrauensanker – lange bevor dein Vertrieb anruft." },
-    { icon: Award, title: "Glaubwürdig wahrgenommen werden", desc: "Du verstehst die Herausforderungen deiner Zielgruppe. Mit klaren Fakten, Beispielen und Lösungsansätzen baust du Glaubwürdigkeit auf, noch bevor das erste Verkaufsgespräch beginnt." },
-    { icon: BarChart3, title: "Vertrauen schlägt Kaltakquise", desc: "Entscheider, die mehrfach wertvolle Inhalte von dir konsumieren, gehen mit einem Vorschuss an Vertrauen in den Erstkontakt." },
+    { icon: Eye, title: "Gefunden werden im richtigen Moment", desc: "Entscheider erleben dich als Experten mit konkreten Antworten – ein erster Vertrauensanker, lange vor dem Anruf." },
+    { icon: Award, title: "Glaubwürdig wahrgenommen werden", desc: "Mit Fakten, Beispielen und Lösungen zeigst du Verständnis für ihre Herausforderungen und gewinnst Glaubwürdigkeit." },
+    { icon: BarChart3, title: "Vertrauen schlägt Kaltakquise", desc: "Entscheider, die wertvolle Inhalte von dir konsumieren, gehen mit einem Vorschuss an Vertrauen in den Erstkontakt." },
   ];
 
   const kpis = [
@@ -513,48 +513,7 @@ function TrustSection() {
   );
 }
 
-/* --- KPI Card mit animierter Zahl --- */
-function KpiCard({ to, suffix, label }: { to: number; suffix?: string; label: string }) {
-  const ref = React.useRef<HTMLDivElement | null>(null);
-  const [val, setVal] = React.useState(0);
 
-  React.useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          const controls = animate(0, to, {
-            duration: 1.2,
-            ease: "easeOut",
-            onUpdate: (v) => setVal(v),
-          });
-          io.disconnect();
-          return () => controls.stop();
-        }
-      });
-    }, { threshold: 0.5 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, [to]);
-
-  const display = Number.isInteger(to) ? Math.round(val).toString() : val.toFixed(1);
-
-  return (
-    <div
-      ref={ref}
-      className="rounded-2xl border border-white/25 bg-white/10 p-6 text-center shadow-[0_10px_30px_rgba(0,0,0,.25)] backdrop-blur-md"
-    >
-      <div className="text-3xl md:text-4xl font-bold">
-        {display}
-        {suffix}
-      </div>
-      <div className="mt-1 text-[11px] uppercase tracking-wide text-white/85">
-        {label}
-      </div>
-    </div>
-  );
-}
 
 
 
