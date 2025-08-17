@@ -267,13 +267,13 @@ function VisitorRevealSection() {
             Anonyme Besucher → klare Firmen-Leads
           </h2>
           <p className="mt-3 text-slate-600">
-Welche Unternehmen lesen deine KI-Blogartikel? Wir identifizieren anonyme B2B-Besucher – auch diejenigen ohne ausgefülltes Formular – und liefern sie direkt an dein Sales-Team.
+            Welche Unternehmen lesen deine KI-Blogartikel? Wir identifizieren anonyme B2B-Besucher – auch diejenigen ohne ausgefülltes Formular – und liefern sie direkt an dein Sales-Team.
           </p>
         </div>
 
         {/* Visual Row */}
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {/* Live-Traffic Card (alter Ansatz, Info-Text als Overlay) */}
+          {/* Live-Traffic Card */}
           <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
             {/* Header */}
             <div className="flex items-center justify-between px-5 pt-5">
@@ -295,7 +295,7 @@ Welche Unternehmen lesen deine KI-Blogartikel? Wir identifizieren anonyme B2B-Be
                 {/* Scan */}
                 <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-300/20 to-transparent mix-blend-multiply" />
 
-                {/* OVERLAY-Info (statt separater Leiste unten) */}
+                {/* OVERLAY-Info */}
                 <div className="absolute left-4 right-4 bottom-4">
                   <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white/85 backdrop-blur px-3 py-2 text-xs text-slate-700 shadow-sm">
                     <Search className="h-4 w-4" />
@@ -304,10 +304,9 @@ Welche Unternehmen lesen deine KI-Blogartikel? Wir identifizieren anonyme B2B-Be
                 </div>
               </div>
             </div>
-            {/* kein zusätzlicher Block mehr unter der Visual Box → kein Whitespace */}
           </div>
 
-          {/* Erkannte Unternehmen (reduziert) */}
+          {/* Erkannte Unternehmen */}
           <div className="relative overflow-hidden rounded-2xl border border-emerald-200 bg-emerald-50/40 shadow-sm">
             <div className="flex items-center justify-between px-5 py-4">
               <span className={`text-lg font-semibold ${serifClass}`}>Erkannte Unternehmen</span>
@@ -335,23 +334,19 @@ Welche Unternehmen lesen deine KI-Blogartikel? Wir identifizieren anonyme B2B-Be
           </div>
         </div>
 
-   {/* Journey 1–5 (Zahlen im Ablauf-Stil) */}
-<div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-6 text-center">
-  {steps.map((title, i) => (
-    <div key={i} className="flex flex-col items-center">
-      {/* Zahl-Kugel immer auf gleicher Höhe */}
-      <div className="shrink-0 inline-flex size-12 items-center justify-center 
-                      rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] 
-                      text-[#1b4d2b] font-semibold leading-none">
-        {i + 1}
+        {/* Journey 1–5 (Zahlen im Ablauf-Stil) – Zahlen immer bündig */}
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-6 text-center">
+          {steps.map((title, i) => (
+            <div key={i} className="flex flex-col items-center">
+              {/* Zahl-Kugel: feste Größe sorgt für gleiche Höhe/Ausrichtung */}
+              <div className="shrink-0 inline-flex size-12 items-center justify-center rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
+                {i + 1}
+              </div>
+              <p className="mt-3 text-sm text-slate-700 max-w-[190px]">{title}</p>
+            </div>
+          ))}
+        </div>
       </div>
-
-      {/* Text */}
-      <p className="mt-3 text-sm text-slate-700">{title}</p>
-    </div>
-  ))}
-</div>
-
 
       {/* Keyframes */}
       <style>{`
@@ -362,6 +357,7 @@ Welche Unternehmen lesen deine KI-Blogartikel? Wir identifizieren anonyme B2B-Be
     </section>
   );
 }
+
 
 
 
