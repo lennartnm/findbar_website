@@ -55,9 +55,9 @@ const ablauf = [
 
 // PRICING DATEN
 const plans = [
-  { id: "starter", articles: 30, price: 499, popular: false },
-  { id: "growth", articles: 90, price: 799, popular: true },
-  { id: "scale", articles: 180, price: 1099, popular: false },
+  { id: "starter", articles: 20, price: 699, popular: false },
+  { id: "growth", articles: 40, price: 999, popular: true },
+  { id: "scale", articles: 60, price: 1299, popular: false },
 ];
 
 const features = [
