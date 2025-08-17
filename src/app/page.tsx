@@ -239,20 +239,20 @@ function Hero() {
 }
 
 
-/* ---------------------- VisitorRevealSection (clean) ---------------------- */
+/* ---------------------- VisitorRevealSection (refined) ---------------------- */
 function VisitorRevealSection() {
   const steps = [
-    { title: "Google oder KI-Suche", icon: Search },
-    { title: "Lesen des KI-optimierten Blogartikels", icon: FileText },
-    { title: "Wahrnehmung deiner Kompetenz", icon: Award },
-    { title: "Formulareintragung oder Identifizierung", icon: Package },
-    { title: "Übergabe an das Sales-Team", icon: BarChart3 },
+    "Google oder KI-Suche",
+    "Lesen des KI-optimierten Blogartikels",
+    "Wahrnehmung deiner Kompetenz",
+    "Formulareintragung oder Identifizierung",
+    "Übergabe an das Sales-Team",
   ];
 
   const companies = [
-    { name: "Meyer Industrie AG", fit: "Hoher Fit • Maschinenbau", intent: "3 Seiten · 5 min · Preisseite" },
-    { name: "NovaCloud GmbH", fit: "Mittlerer Fit • SaaS", intent: "Artikel: KI im B2B · 2 Besuche" },
-    { name: "Kraftwerk Solutions", fit: "Hoher Fit • Energie", intent: "Case Study · Kontakt geöffnet" },
+    { name: "Meyer Industrie AG", article: "Case Study: Predictive Maintenance in der Fertigung" },
+    { name: "NovaCloud GmbH", article: "Guide: B2B-KI-Content, der Entscheider konvertiert" },
+    { name: "Kraftwerk Solutions", article: "Artikel: Photovoltaik – ROI-Rechner für Unternehmen" },
   ];
 
   return (
@@ -268,35 +268,35 @@ function VisitorRevealSection() {
             Anonyme Besucher → klare Firmen-Leads
           </h2>
           <p className="mt-3 text-slate-600">
-            Sauberer Scan ohne Cookies: Wir erkennen Firmeninteresse in Echtzeit und liefern verwertbare Signale für deinen Vertrieb.
+            Vom ersten Klick bis zur Übergabe: sauber, DSGVO-konform und sales-ready.
           </p>
         </div>
 
-        {/* Visual Row: Live-Traffic + Matches */}
+        {/* Visual Row */}
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {/* Live-Traffic Card (clean, no overlap) */}
+          {/* Live-Traffic Card (kein überlappender Raum) */}
           <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
             <div className="flex items-center justify-between px-5 pt-5">
               <span className={`text-lg font-semibold ${serifClass}`}>Live-Traffic</span>
               <span className="text-xs text-slate-500">Echtzeit-Scan</span>
             </div>
 
-            {/* Visual area: circles + scan */}
-            <div className="relative px-5 py-4">
+            {/* Visual box */}
+            <div className="relative px-5 pt-4">
               <div className="relative h-56 overflow-hidden rounded-xl bg-slate-50">
-                {/* Dot grid */}
                 <div className="absolute inset-0 grid grid-cols-6 gap-4 p-5">
                   {[...Array(36)].map((_, i) => (
                     <div key={i} className="h-8 w-8 rounded-full bg-slate-300/60" aria-hidden />
                   ))}
                 </div>
-                {/* Scan gradient – confined to visual box */}
-                <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-300/25 to-transparent mix-blend-multiply" />
+                {/* sanfter Grünverlauf + Scan */}
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-emerald-200/40 to-transparent" />
+                <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-300/20 to-transparent mix-blend-multiply" />
               </div>
             </div>
 
-            {/* Info bar (separate, no overlap) */}
-            <div className="border-t border-slate-200 bg-slate-50/70 px-5 py-3 text-xs text-slate-600">
+            {/* Info bar bündig am unteren Rand */}
+            <div className="mt-4 border-t border-slate-200 bg-slate-50/70 px-5 py-3 text-xs text-slate-700 rounded-b-2xl">
               <span className="inline-flex items-center gap-2">
                 <Search className="h-4 w-4" />
                 Mustererkennung, IP-Auflösung &amp; Firmendatenbanken
@@ -304,22 +304,22 @@ function VisitorRevealSection() {
             </div>
           </div>
 
-          {/* Recognized companies */}
+          {/* Recognized companies (reduziert) */}
           <div className="relative overflow-hidden rounded-2xl border border-emerald-200 bg-emerald-50/40 shadow-sm">
             <div className="flex items-center justify-between px-5 pt-5">
               <span className={`text-lg font-semibold ${serifClass}`}>Erkannte Unternehmen</span>
               <span className="text-xs text-emerald-700">Sales-Ready</span>
             </div>
-            <ul className="px-5 pb-5 pt-4 space-y-3">
+
+            <ul className="px-5 pt-4 pb-2 space-y-3">
               {companies.map((c, i) => (
                 <li key={i} className="rounded-xl border border-emerald-200/70 bg-white px-4 py-3 text-sm shadow-sm">
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <div className="font-medium text-slate-900">{c.name}</div>
-                      <div className="text-emerald-700">{c.fit}</div>
-                      <div className="mt-0.5 text-slate-600">{c.intent}</div>
+                      <div className="mt-0.5 text-slate-600">Gelesen: {c.article}</div>
                     </div>
-                    <span className="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-1 text-[10px] font-medium text-emerald-700">
+                    <span className="shrink-0 inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-1 text-[10px] font-medium text-emerald-700">
                       <CheckCircle className="h-3 w-3" />
                       DSGVO-konform
                     </span>
@@ -327,19 +327,20 @@ function VisitorRevealSection() {
                 </li>
               ))}
             </ul>
+
             <div className="border-t border-emerald-200 bg-white/70 px-5 py-3 text-xs text-slate-600">
-              CRM &amp; Outreach anbindbar – Timing trifft Intent.
+              Direkt in CRM &amp; Outreach nutzbar.
             </div>
           </div>
         </div>
 
-        {/* 5-Step Journey with arrows */}
+        {/* Journey 1–5 mit Pfeilen */}
         <div className="mt-12 flex flex-col items-center gap-8 md:flex-row md:justify-between">
-          {steps.map(({ title, icon: Icon }, i) => (
+          {steps.map((title, i) => (
             <div key={i} className="flex items-center gap-4 md:gap-6">
-              <div className="flex flex-col items-center text-center max-w-[170px]">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#1b4d2b33] bg-[#1b4d2b1A] text-[#1b4d2b] shadow-sm">
-                  <Icon className="h-6 w-6" />
+              <div className="flex flex-col items-center text-center max-w-[190px]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#1b4d2b33] bg-[#1b4d2b1A] text-[#1b4d2b] font-semibold">
+                  {i + 1}
                 </div>
                 <p className="mt-3 text-sm text-slate-700">{title}</p>
               </div>
@@ -351,23 +352,16 @@ function VisitorRevealSection() {
         </div>
       </div>
 
-      {/* Scoped keyframes */}
+      {/* Keyframes */}
       <style>{`
-        @keyframes scanY {
-          0% { transform: translateY(-100%); }
-          100% { transform: translateY(100%); }
-        }
-        .animate-scanY {
-          animation: scanY 3s linear infinite;
-          will-change: transform;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .animate-scanY { animation: none; }
-        }
+        @keyframes scanY { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+        .animate-scanY { animation: scanY 3s linear infinite; will-change: transform; }
+        @media (prefers-reduced-motion: reduce) { .animate-scanY { animation: none; } }
       `}</style>
     </section>
   );
 }
+
 
 
 
