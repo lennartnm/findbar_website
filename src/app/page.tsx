@@ -267,7 +267,7 @@ function VisitorRevealSection() {
             Anonyme Besucher → klare Firmen-Leads
           </h2>
           <p className="mt-3 text-slate-600">
-            Vom ersten Klick bis zur Übergabe: sauber, DSGVO-konform und sales-ready.
+Welche Unternehmen lesen deine KI-Blogartikel? Wir identifizieren anonyme B2B-Besucher – auch diejenigen ohne ausgefülltes Formular – und liefern sie direkt an dein Sales-Team.
           </p>
         </div>
 
@@ -1172,8 +1172,9 @@ export default function FindbarPage() {
       {/* 6. Done 4 You */}
       <TrustSection />
       <FutureProofSection />
-      <VisitorRevealSection />
+      
       <UnserZielSection />
+      <VisitorRevealSection />
       {/* 7. An wen richtet sich unser Angebot */}
       <IdentificationSection />
       {/* 8. Mehr Leads / Mehr Sichtbarkeit */}
