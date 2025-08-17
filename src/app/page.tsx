@@ -412,9 +412,9 @@ function HowItHelpsSection() {
 /* ---------------------- Vertrauen & Expertenstatus (Green Aurora) ---------------------- */
 function TrustSection() {
   const pillars = [
-    { icon: Eye, title: "Gefunden", desc: "Präsenz im Suchmoment" },
-    { icon: Award, title: "Glaubwürdig", desc: "Signature-Content & Belege" },
-    { icon: BarChart3, title: "Reichweite", desc: "Ranking-Breite & -Tiefe" },
+    { icon: Eye, title: "Gefunden werden im richtigen Moment", desc: "Entscheidet lernen dein Unternehmen als kompetenten Experten kennen, der konkrete Antworten liefert. Das schafft einen ersten Vertrauensanker – lange bevor dein Vertrieb anruft." },
+    { icon: Award, title: "Glaubwürdig wahrgenommen werden", desc: "Du verstehst die Herausforderungen deiner Zielgruppe. Mit klaren Fakten, Beispielen und Lösungsansätzen baust du Glaubwürdigkeit auf, noch bevor das erste Verkaufsgespräch beginnt." },
+    { icon: BarChart3, title: "Vertrauen schlägt Kaltakquise", desc: "Entscheider, die mehrfach wertvolle Inhalte von dir konsumieren, gehen mit einem Vorschuss an Vertrauen in den Erstkontakt." },
   ];
 
   const kpis = [
@@ -459,10 +459,10 @@ function TrustSection() {
           <h2
             className={`mt-0 text-4xl md:text-5xl font-semibold ${serifClass}`}
           >
-            Vertrauen ist die Währung der Neuzeit
+            Vertrauen aufbauen, bevor dein Vertrieb spricht
           </h2>
           <p className="mt-3 text-white/85">
-            Expertise sichtbar machen – bevor Sales spricht.
+            In einer Zeit, in der Vertrauen die neue Währung ist, entscheidet sichtbare Expertise über den ersten Eindruck. Bevor ein Interessent überhaupt Kontakt aufnimmt, formt er sich sein Bild von deiner Marke.
           </p>
         </div>
 
