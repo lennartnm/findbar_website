@@ -667,7 +667,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
                   </div>
 
                  {/* Marktvalidierungspreis Badge */}
-<div className="mt-2 inline-flex items-center gap-2 rounded-2x1 border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">
+<div className="mt-2 inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">
   <Check className="h-3 w-3" />
   Marktvalidierungspreis: Wir sammeln Testimonials
 </div>
