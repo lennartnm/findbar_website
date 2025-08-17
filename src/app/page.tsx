@@ -409,42 +409,46 @@ function HowItHelpsSection() {
 }
 
 
-/* ===================== TRUST – PREMIUM / HIGH TICKET ===================== */
+/* ---------------------- Vertrauen & Expertenstatus (Green Aurora) ---------------------- */
 function TrustSection() {
   const pillars = [
-    { icon: Eye,       title: "Visibility First", desc: "Gefunden in den Momenten, die zählen." },
-    { icon: Award,     title: "Authority Built", desc: "Signature-Content mit Belegen, kein Marketing-Blabla." },
-    { icon: BarChart3, title: "Demand Capture",  desc: "Ranking-Breite & -Tiefe als Proof nach außen." },
+    { icon: Eye, title: "Gefunden", desc: "Präsenz im Suchmoment" },
+    { icon: Award, title: "Glaubwürdig", desc: "Signature-Content & Belege" },
+    { icon: BarChart3, title: "Reichweite", desc: "Ranking-Breite & -Tiefe" },
   ];
 
   const kpis = [
-    { to: 5,  suffix: "x", label: "Mehr Weiterleitungen" },
-    { to: 60, suffix: "",  label: "Themen in 90 Tagen" },
-    { to: 4,  suffix: "",  label: "Touchpoints vor Sales" },
+    { to: 5, suffix: "x", label: "Weiterleitungen" },
+    { to: 60, suffix: "", label: "Themen/90T" },
+    { to: 4, suffix: "", label: "Touchpoints" },
   ];
 
   return (
     <section
       id="trust"
       className="relative overflow-hidden py-28 text-white"
-      style={{ background: `radial-gradient(90% 80% at 70% 10%, rgba(255,255,255,.06) 0%, transparent 60%), ${RG600}` }}
+      style={{
+        background: `linear-gradient(120deg, ${RG600} 0%, ${RG300} 60%)`,
+      }}
     >
-      {/* Cinematic Layers */}
+      {/* Aurora + Grid Overlay */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        {/* Aurora */}
-        <div className="absolute inset-0 opacity-50 mix-blend-screen premium-aurora" />
-        {/* Spotlight */}
-        <div className="absolute -top-48 left-1/2 h-[120vh] w-[120vw] -translate-x-1/2 rounded-full blur-[120px]"
-             style={{ background: `radial-gradient(40% 40% at 50% 30%, ${RG300}55 0%, transparent 60%)` }} />
-        {/* Grain */}
-        <div className="absolute inset-0 opacity-[0.06] premium-grain" />
-        {/* Vignette */}
-        <div className="absolute inset-0 pointer-events-none"
-             style={{ boxShadow: "inset 0 0 180px rgba(0,0,0,.6)" }} />
+        <div className="absolute -top-40 left-1/2 h-[90vh] w-[90vw] -translate-x-1/2 rounded-full blur-[90px] opacity-60"
+          style={{ background: `radial-gradient(60% 60% at 50% 50%, rgba(255,255,255,.18) 0%, transparent 60%)` }} />
+        <div className="absolute inset-0 aurora" />
+        <div className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgba(255,255,255,.09) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.09) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+            maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
+          }}
+        />
       </div>
 
-      <div className={containerClass}>
-        {/* HEADER */}
+      <div className={`${containerClass} relative`}>
+        {/* Headline */}
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 14 }}
@@ -452,200 +456,95 @@ function TrustSection() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs tracking-wide backdrop-blur">
-            Vorvertrauen • Executive Level
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs tracking-wide backdrop-blur">
+            Vorvertrauen aufbauen
           </span>
           <h2 className={`mt-4 text-4xl md:text-5xl font-semibold ${serifClass}`}>
             Vertrauen ist die Währung der Neuzeit
           </h2>
-          <p className="mt-3 text-white/80">Kompetenz sichtbar machen – bevor dein Vertrieb spricht.</p>
+          <p className="mt-3 text-white/85">
+            Expertise sichtbar machen – bevor Sales spricht.
+          </p>
         </motion.div>
 
-        {/* CORE – Split: Left (Pillars), Right (Trust Dial + KPIs) */}
-        <div className="mt-14 grid gap-10 lg:grid-cols-2">
-          {/* LEFT – Pillars (Premium Cards with 3D tilt) */}
-          <div className="grid gap-6 sm:grid-cols-2">
-            {pillars.map((p, i) => (
-              <PremiumTiltCard key={i} icon={p.icon} title={p.title} desc={p.desc} delay={0.12 * i} />
-            ))}
-            {/* Full-width Card */}
-            <PremiumTiltCard
-              icon={CheckCircle}
-              title="Proof over Promises"
-              desc="Referenzen, Datenpunkte & klare Frameworks – in jedem Stück Content."
-              delay={0.36}
-              full
-            />
-          </div>
+        {/* Pillars (stagger + float) */}
+        <motion.div
+          className="mt-12 grid gap-6 md:grid-cols-3"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{ hidden: { opacity: 1 }, show: { transition: { staggerChildren: 0.12 } } }}
+        >
+          {pillars.map(({ icon: Icon, title, desc }, i) => (
+            <motion.article
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 22, scale: 0.98 },
+                show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.55, ease: "easeOut" } },
+              }}
+              whileHover={{ y: -6 }}
+              className="group relative overflow-hidden rounded-2xl border border-white/25 bg-white/10 p-6 shadow-[0_15px_40px_rgba(0,0,0,.25)] backdrop-blur-md"
+            >
+              {/* glow line */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] w-full origin-left scale-x-0 bg-gradient-to-r from-transparent via-white/70 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/10">
+                <Icon className="h-5 w-5 text-white" />
+              </div>
+              <h3 className={`text-lg font-semibold ${serifClass}`}>{title}</h3>
+              <p className="mt-1 text-sm text-white/85">{desc}</p>
+              <div className="mt-4 h-[2px] w-12 origin-left scale-x-0 bg-white/60 transition-transform duration-300 group-hover:scale-x-100" />
+            </motion.article>
+          ))}
+        </motion.div>
 
-          {/* RIGHT – Trust Dial + KPIs */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="relative rounded-3xl border border-white/15 bg-white/5 p-8 backdrop-blur-md"
-            style={{
-              boxShadow: "0 30px 80px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)",
-            }}
-          >
-            {/* TRUST DIAL */}
-            <TrustDial />
-            {/* KPIs */}
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {kpis.map((k, i) => (
-                <KpiTile key={i} to={k.to} suffix={k.suffix} label={k.label} delay={0.05 * i} />
-              ))}
-            </div>
-
-            {/* CTA */}
-            <div className="mt-8 flex justify-center">
-              <Button asChild className="shadow-[0_10px_30px_rgba(0,0,0,.35)]">
-                <a href="#preise" className="text-white">Vertrauen in Anfragen wandeln</a>
-              </Button>
-            </div>
-          </motion.div>
+        {/* KPIs (animated counters) */}
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {kpis.map((k, i) => (
+            <KpiCard key={i} to={k.to} suffix={k.suffix} label={k.label} />
+          ))}
         </div>
+
+        {/* CTA */}
+        <motion.div
+          className="mt-12 flex items-center justify-center"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
+        >
+          <Button asChild className="shadow-lg">
+            <a href="#preise" className="text-white">Vertrauen in Anfragen wandeln</a>
+          </Button>
+        </motion.div>
       </div>
 
-      {/* Scoped CSS */}
+      {/* Keyframes (scoped) */}
       <style>{`
         @keyframes auroraShift {
-          0% { transform: translate3d(-10%, 0, 0) skewX(-6deg); opacity: .35; }
-          50% { transform: translate3d(10%, 3%, 0) skewX(6deg); opacity: .55; }
-          100% { transform: translate3d(-10%, 0, 0) skewX(-6deg); opacity: .35; }
+          0% { transform: translate3d(-8%, 0, 0) skewX(-6deg); opacity: .35; }
+          50% { transform: translate3d(8%, 2%, 0) skewX(6deg); opacity: .55; }
+          100% { transform: translate3d(-8%, 0, 0) skewX(-6deg); opacity: .35; }
         }
-        .premium-aurora {
-          background: conic-gradient(from 200deg at 50% 50%, rgba(255,255,255,0.16), rgba(255,255,255,0.04), rgba(255,255,255,0.16));
-          filter: blur(80px);
-          animation: auroraShift 16s ease-in-out infinite;
+        .aurora {
+          position: absolute;
+          inset: 0;
+          background: conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.18), rgba(255,255,255,0.05), rgba(255,255,255,0.18));
+          filter: blur(70px);
+          animation: auroraShift 14s ease-in-out infinite;
+          mix-blend: screen;
         }
-        .premium-grain {
-          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' opacity='.9' width='160' height='160' viewBox='0 0 160 160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-          background-size: 300px 300px;
-          mix-blend-mode: soft-light;
+        @media (prefers-reduced-motion: reduce) {
+          .aurora { animation: none !important; }
         }
       `}</style>
     </section>
   );
 }
 
-/* ---------- Premium Tilt Card (gradient border + tilt) ---------- */
-function PremiumTiltCard({
-  icon: Icon,
-  title,
-  desc,
-  delay = 0,
-  full = false,
-}: {
-  icon: React.ElementType;
-  title: string;
-  desc: string;
-  delay?: number;
-  full?: boolean;
-}) {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-50, 50], [6, -6]);
-  const rotateY = useTransform(x, [-50, 50], [-6, 6]);
-
-  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const b = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
-    x.set(e.clientX - (b.left + b.width / 2));
-    y.set(e.clientY - (b.top + b.height / 2));
-  };
-
-  return (
-    <motion.article
-      onMouseMove={onMove}
-      onMouseLeave={() => { x.set(0); y.set(0); }}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      initial={{ opacity: 0, y: 22, scale: 0.985 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.35 }}
-      transition={{ duration: 0.55, ease: "easeOut", delay }}
-      className={`
-        group relative overflow-hidden rounded-2xl p-[1px] ${full ? "sm:col-span-2" : ""}
-        bg-[linear-gradient(120deg,rgba(255,255,255,.35),rgba(255,255,255,.08))]
-      `}
-    >
-      <div
-        className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-md"
-        style={{
-          boxShadow: "0 18px 50px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)",
-          transform: "translateZ(20px)",
-        }}
-      >
-        <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/25 bg-white/10">
-          <Icon className="h-5 w-5 text-white" />
-        </div>
-        <h3 className={`text-lg font-semibold ${serifClass}`}>{title}</h3>
-        <p className="mt-1 text-sm text-white/85">{desc}</p>
-        <div className="mt-4 h-[2px] w-12 origin-left scale-x-0 bg-white/70 transition-transform duration-300 group-hover:scale-x-100" />
-      </div>
-      {/* top highlight */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-    </motion.article>
-  );
-}
-
-/* ---------- Trust Dial (animated conic ring + count-up) ---------- */
-function TrustDial() {
-  // animierter Score 0 -> 92
-  const [score, setScore] = React.useState(0);
+/* --- KPI Card mit animierter Zahl --- */
+function KpiCard({ to, suffix, label }: { to: number; suffix?: string; label: string }) {
   const ref = React.useRef<HTMLDivElement | null>(null);
-
-  React.useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          const ctrl = animate(0, 92, {
-            duration: 1.4,
-            ease: "easeOut",
-            onUpdate: (v) => setScore(Math.round(v)),
-          });
-          io.disconnect();
-          return () => ctrl.stop();
-        }
-      });
-    }, { threshold: 0.6 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
-  const angle = (score / 100) * 360;
-
-  return (
-    <div className="flex items-center justify-center">
-      <div ref={ref} className="relative h-48 w-48">
-        {/* conic progress */}
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background: `conic-gradient(rgba(255,255,255,.85) ${angle}deg, rgba(255,255,255,.12) ${angle}deg 360deg)`,
-            filter: "drop-shadow(0 10px 25px rgba(0,0,0,.35))",
-          }}
-        />
-        {/* inner disc */}
-        <div className="absolute inset-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-md" />
-        {/* center label */}
-        <div className="absolute inset-0 grid place-items-center">
-          <div className="text-center">
-            <div className={`text-4xl font-semibold ${serifClass}`}>{score}</div>
-            <div className="text-xs uppercase tracking-[.12em] text-white/70">Trust Score</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ---------- KPI Tile (count-up) ---------- */
-function KpiTile({ to, suffix, label, delay = 0 }: { to: number; suffix?: string; label: string; delay?: number }) {
   const [val, setVal] = React.useState(0);
-  const ref = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
     const el = ref.current;
@@ -653,13 +552,13 @@ function KpiTile({ to, suffix, label, delay = 0 }: { to: number; suffix?: string
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
-          const ctrl = animate(0, to, {
-            duration: 1.1,
+          const controls = animate(0, to, {
+            duration: 1.2,
             ease: "easeOut",
             onUpdate: (v) => setVal(v),
           });
           io.disconnect();
-          return () => ctrl.stop();
+          return () => controls.stop();
         }
       });
     }, { threshold: 0.5 });
@@ -675,12 +574,11 @@ function KpiTile({ to, suffix, label, delay = 0 }: { to: number; suffix?: string
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.6 }}
-      transition={{ duration: 0.5, ease: "easeOut", delay }}
-      className="rounded-2xl border border-white/15 bg-white/10 p-5 text-center backdrop-blur-md"
-      style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,.06), 0 14px 30px rgba(0,0,0,.35)" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="rounded-2xl border border-white/25 bg-white/10 p-6 text-center shadow-[0_10px_30px_rgba(0,0,0,.25)] backdrop-blur-md"
     >
-      <div className="text-3xl font-bold">{display}{suffix}</div>
-      <div className="mt-1 text-[11px] uppercase tracking-wide text-white/80">{label}</div>
+      <div className="text-3xl md:text-4xl font-bold">{display}{suffix}</div>
+      <div className="mt-1 text-[11px] uppercase tracking-wide text-white/85">{label}</div>
     </motion.div>
   );
 }
