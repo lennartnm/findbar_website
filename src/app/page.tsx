@@ -286,7 +286,7 @@ function VisitorRevealSection() {
               <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-50">
                 {/* DACH-Karte Hintergrund */}
                 <img
-                  src="Scan.png"
+                  src="DACH Scan.png"
                   alt="Traffic Map DACH"
                   className="absolute inset-0 h-full w-full object-contain opacity-80"
                 />
