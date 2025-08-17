@@ -426,23 +426,29 @@ function TrustSection() {
   return (
     <section
       id="trust"
-      className="relative overflow-hidden py-28 text-white"
+      className="relative overflow-hidden py-16 text-white" // weniger padding
       style={{
         background: `linear-gradient(120deg, ${RG600} 0%, ${RG300} 60%)`,
       }}
     >
       {/* Aurora + Grid Overlay */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-40 left-1/2 h-[90vh] w-[90vw] -translate-x-1/2 rounded-full blur-[90px] opacity-60"
-          style={{ background: `radial-gradient(60% 60% at 50% 50%, rgba(255,255,255,.18) 0%, transparent 60%)` }} />
+        <div
+          className="absolute -top-40 left-1/2 h-[90vh] w-[90vw] -translate-x-1/2 rounded-full blur-[90px] opacity-60"
+          style={{
+            background: `radial-gradient(60% 60% at 50% 50%, rgba(255,255,255,.18) 0%, transparent 60%)`,
+          }}
+        />
         <div className="absolute inset-0 aurora" />
-        <div className="absolute inset-0 opacity-20"
+        <div
+          className="absolute inset-0 opacity-20"
           style={{
             backgroundImage:
               "linear-gradient(to right, rgba(255,255,255,.09) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.09) 1px, transparent 1px)",
             backgroundSize: "28px 28px",
             maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, black 70%, transparent 100%)",
           }}
         />
       </div>
@@ -456,10 +462,9 @@ function TrustSection() {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs tracking-wide backdrop-blur">
-            Vorvertrauen aufbauen
-          </span>
-          <h2 className={`mt-4 text-4xl md:text-5xl font-semibold ${serifClass}`}>
+          <h2
+            className={`mt-0 text-4xl md:text-5xl font-semibold ${serifClass}`}
+          >
             Vertrauen ist die Währung der Neuzeit
           </h2>
           <p className="mt-3 text-white/85">
@@ -467,25 +472,32 @@ function TrustSection() {
           </p>
         </motion.div>
 
-        {/* Pillars (stagger + float) */}
+        {/* Pillars */}
         <motion.div
           className="mt-12 grid gap-6 md:grid-cols-3"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          variants={{ hidden: { opacity: 1 }, show: { transition: { staggerChildren: 0.12 } } }}
+          variants={{
+            hidden: { opacity: 1 },
+            show: { transition: { staggerChildren: 0.12 } },
+          }}
         >
           {pillars.map(({ icon: Icon, title, desc }, i) => (
             <motion.article
               key={i}
               variants={{
                 hidden: { opacity: 0, y: 22, scale: 0.98 },
-                show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.55, ease: "easeOut" } },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: { duration: 0.55, ease: "easeOut" },
+                },
               }}
               whileHover={{ y: -6 }}
               className="group relative overflow-hidden rounded-2xl border border-white/25 bg-white/10 p-6 shadow-[0_15px_40px_rgba(0,0,0,.25)] backdrop-blur-md"
             >
-              {/* glow line */}
               <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] w-full origin-left scale-x-0 bg-gradient-to-r from-transparent via-white/70 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
               <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/10">
                 <Icon className="h-5 w-5 text-white" />
@@ -497,25 +509,17 @@ function TrustSection() {
           ))}
         </motion.div>
 
-        {/* KPIs (animated counters) */}
+        {/* KPIs */}
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {kpis.map((k, i) => (
-            <KpiCard key={i} to={k.to} suffix={k.suffix} label={k.label} />
+            <KpiCard
+              key={i}
+              to={k.to}
+              suffix={k.suffix}
+              label={k.label}
+            />
           ))}
         </div>
-
-        {/* CTA */}
-        <motion.div
-          className="mt-12 flex items-center justify-center"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
-        >
-          <Button asChild className="shadow-lg">
-            <a href="#preise" className="text-white">Vertrauen in Anfragen wandeln</a>
-          </Button>
-        </motion.div>
       </div>
 
       {/* Keyframes (scoped) */}
@@ -531,7 +535,7 @@ function TrustSection() {
           background: conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,0.18), rgba(255,255,255,0.05), rgba(255,255,255,0.18));
           filter: blur(70px);
           animation: auroraShift 14s ease-in-out infinite;
-          mix-blend: screen;
+          mix-blend-mode: screen;
         }
         @media (prefers-reduced-motion: reduce) {
           .aurora { animation: none !important; }
@@ -541,47 +545,6 @@ function TrustSection() {
   );
 }
 
-/* --- KPI Card mit animierter Zahl --- */
-function KpiCard({ to, suffix, label }: { to: number; suffix?: string; label: string }) {
-  const ref = React.useRef<HTMLDivElement | null>(null);
-  const [val, setVal] = React.useState(0);
-
-  React.useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          const controls = animate(0, to, {
-            duration: 1.2,
-            ease: "easeOut",
-            onUpdate: (v) => setVal(v),
-          });
-          io.disconnect();
-          return () => controls.stop();
-        }
-      });
-    }, { threshold: 0.5 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, [to]);
-
-  const display = Number.isInteger(to) ? Math.round(val).toString() : val.toFixed(1);
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 14 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.6 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="rounded-2xl border border-white/25 bg-white/10 p-6 text-center shadow-[0_10px_30px_rgba(0,0,0,.25)] backdrop-blur-md"
-    >
-      <div className="text-3xl md:text-4xl font-bold">{display}{suffix}</div>
-      <div className="mt-1 text-[11px] uppercase tracking-wide text-white/85">{label}</div>
-    </motion.div>
-  );
-}
 
 
 
