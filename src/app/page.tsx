@@ -55,9 +55,9 @@ const ablauf = [
 
 // PRICING DATEN – mit altem Preis
 const plans = [
-  { id: "starter", articles: 20, price: 449, oldPrice: 699, popular: false },
-  { id: "growth",  articles: 40, price: 649, oldPrice: 999, popular: true  },
-  { id: "scale",   articles: 60, price: 849, oldPrice: 1299, popular: false },
+  { id: "starter", articles: 20, price: 499, oldPrice: 799, popular: false },
+  { id: "growth",  articles: 40, price: 699, oldPrice: 1099, popular: true  },
+  { id: "scale",   articles: 60, price: 899, oldPrice: 1399, popular: false },
 ];
 
 
