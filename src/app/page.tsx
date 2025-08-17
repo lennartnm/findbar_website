@@ -647,12 +647,15 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
                 </h3>
 
                 {/* Preis */}
-                <div className="mt-4">
+                <div className="mt-4 space-y-1">
                   <div className="flex items-baseline gap-2 flex-wrap">
                     <span className="text-4xl font-bold text-[#1b4d2b]">
                       {formatEUR(price)}€
                     </span>
                     <span className="mb-1 text-xs text-slate-500">pro Monat</span>
+                  </div>
+
+                  <div className="flex items-baseline gap-2 flex-wrap">
                     <span
                       className="text-sm text-slate-500 line-through"
                       aria-label={`Alter Preis ${formatEUR(oldPrice)}€`}
@@ -660,16 +663,17 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
                     >
                       {formatEUR(oldPrice)}€
                     </span>
+                    <span className="mb-0.5 text-xs text-slate-400">pro Monat</span>
                   </div>
 
                   {/* Marktvalidierungspreis Badge */}
-                  <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-800">
-                    <Check className="h-4 w-4" />
+                  <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">
+                    <Check className="h-3 w-3" />
                     Marktvalidierungspreis: Wir sammeln Testimonials
                   </div>
 
                   <span className="sr-only">
-                    Neuer Preis {formatEUR(price)}€ statt {formatEUR(oldPrice)}€, pro Monat.
+                    Neuer Preis {formatEUR(price)}€ pro Monat statt {formatEUR(oldPrice)}€ pro Monat.
                   </span>
                 </div>
 
@@ -699,7 +703,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
         </div>
 
         <p className="mt-6 text-center text-xs text-slate-500">
-          Alle Pakete beinhalten alles von Recherche bis Veröffentlichung – plus
+          Alle Pakete verstehen sich exkl. Mwst. und beinhalten alles von Recherche bis Veröffentlichung – plus
           die Identifikation anonymer Unternehmensbesucher, transparente Reports
           und nachhaltige Lead-Gewinnung, für maximalen Outcome für dein Angebot.
         </p>
