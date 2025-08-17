@@ -515,47 +515,21 @@ function TrustSection() {
 }
 
 
-/* ---------------------- Zukunftssicher Section (polished) ---------------------- */
+/* ---------------------- Zukunftssicher Section (schlicht & hellgrau) ---------------------- */
 function FutureProofSection() {
   return (
-    <section
-      className="relative overflow-hidden py-16 text-white"
-      style={{
-        background: `linear-gradient(120deg, ${RG600} 0%, ${RG300} 60%)`,
-      }}
-    >
-      {/* Aurora + feines Grid (wie TrustSection, aber subtiler) */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div
-          className="absolute -top-32 left-1/2 h-[80vh] w-[90vw] -translate-x-1/2 rounded-full blur-[80px] opacity-50"
-          style={{
-            background: `radial-gradient(60% 60% at 50% 50%, rgba(255,255,255,.18) 0%, transparent 60%)`,
-          }}
-        />
-        <div
-          className="absolute inset-0 opacity-15"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.12) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-            maskImage: "linear-gradient(to bottom, black 70%, transparent 100%)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, black 70%, transparent 100%)",
-          }}
-        />
-      </div>
-
-      <div className={`${containerClass} relative`}>
+    <section className="relative overflow-hidden py-16 bg-slate-50 border-t border-slate-200">
+      <div className={containerClass}>
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs">
-            <Zap className="h-3.5 w-3.5" />
-            <span>KI-Distribution</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-3 py-1 text-xs shadow-sm">
+            <Zap className="h-3.5 w-3.5 text-slate-700" />
+            <span className="text-slate-700">KI-Distribution</span>
           </div>
 
-          <h2 className={`mt-4 text-3xl md:text-4xl font-semibold ${serifClass}`}>
+          <h2 className={`mt-4 text-3xl md:text-4xl font-semibold ${serifClass} text-slate-900`}>
             Mache dein Angebot sicher für die Zukunft
           </h2>
-          <p className="mt-3 text-white/85">
+          <p className="mt-3 text-slate-600">
             Unsere Blogartikel verlinken dein Angebot in KI-Übersichten, ChatGPT,
             Perplexity &amp; Co. – für Reichweite genau dort, wo heute gesucht wird.
           </p>
@@ -571,49 +545,14 @@ function FutureProofSection() {
           ].map(({ label, Icon }, i) => (
             <div
               key={i}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm shadow-[0_6px_24px_rgba(0,0,0,.15)] backdrop-blur"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm shadow-sm"
             >
-              <Icon className="h-4 w-4" />
-              <span className="text-white/95">{label}</span>
+              <Icon className="h-4 w-4 text-slate-700" />
+              <span className="text-slate-700">{label}</span>
             </div>
           ))}
         </div>
-
-        {/* Mini-Feature Cards */}
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {[
-            {
-              Icon: Search,
-              title: "Auffindbar in KI",
-              desc: "Struktur &amp; Verlinkungen, die von KI-Systemen gelesen und referenziert werden.",
-            },
-            {
-              Icon: Globe,
-              title: "Plattformübergreifend",
-              desc: "Von Suchmaschine bis Chat-Interface: Sichtbarkeit dort, wo Entscheider recherchieren.",
-            },
-            {
-              Icon: Award,
-              title: "Zukunftssicher",
-              desc: "Content, der Updates am Markt übersteht – statt nur kurzfristiger Hacks.",
-            },
-          ].map(({ Icon, title, desc }, i) => (
-            <article
-              key={i}
-              className="group relative overflow-hidden rounded-2xl border border-white/25 bg-white/10 p-6 shadow-[0_15px_40px_rgba(0,0,0,.25)] backdrop-blur-md"
-            >
-              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/10">
-                <Icon className="h-5 w-5 text-white" />
-              </div>
-              <h3 className={`text-lg font-semibold ${serifClass}`}>{title}</h3>
-              <p className="mt-1 text-sm text-white/85" dangerouslySetInnerHTML={{ __html: desc }} />
-            </article>
-          ))}
-        </div>
       </div>
-
-      {/* zarter Innenrand */}
-      <div className="pointer-events-none absolute inset-0 ring-1 ring-white/10" />
     </section>
   );
 }
