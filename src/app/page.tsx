@@ -33,14 +33,14 @@ const containerClass = "w-full max-w-6xl mx-auto px-6";
 // BENEFITS (laufen im Marquee)
 const benefits = [
   { icon: Eye, label: "Erhöhte Sichtbarkeit", help: "Mehr Präsenz in Suchergebnissen." },
-  { icon: Target, label: "Gezielte Reichweite", help: "Triff die passende Zielgruppe." },
-  { icon: TrendingUp, label: "Mehr organischer Traffic", help: "Wachstum ohne Ads." },
-  { icon: Clock, label: "Langfristige Wirkung", help: "Content wirkt monatelang." },
-  { icon: Users, label: "Vertrauensaufbau", help: "Als Experte wahrgenommen werden." },
-  { icon: Globe, label: "Internationale Reichweite", help: "Kunden über Grenzen hinaus." },
-  { icon: BarChart, label: "Bessere Rankings", help: "Top-Positionen sichern." },
-  { icon: Zap, label: "Schnelle Ergebnisse", help: "Frühe Verbesserungen sichtbar." },
-  { icon: Award, label: "Starkes Markenimage", help: "Auftritt wirkt professionell." },
+  { icon: Target, label: "Warme Leads", help: "Du erfährst, welche Unternehmen Interesse haben – auch ohne Formular." },
+  { icon: TrendingUp, label: "Mehr organischer Traffic", help: "Wachstum ganz ohne bezahlte Werbung." },
+  { icon: Clock, label: "Langfristige Wirkung", help: "Blogbeiträge wirken monate- und jahrelang." },
+  { icon: Users, label: "Vertrauensaufbau", help: "Als echter Experte deiner Branche wahrgenommen werden." },
+  { icon: Globe, label: "Automatisierte Leads", help: "Wir übernehmen den gesamten Prozess für dich." },
+  { icon: BarChart, label: "Verbesserte Sales-Pipeline", help: "Dein Vertrieb erhält konkrete Unternehmensnamen statt unqualifizierte Leads." },
+  { icon: Zap, label: "Skalierbar & zukunfssicher", help: "Mehr Artikel, mehr Sichtbarkeit - Dort, wo Entscheider aktiv sind." },
+  { icon: Award, label: "Starkes Markenimage", help: "Markenkonforme und professionelle Artikel unterstreichen deine Kompetenz." },
   { icon: Search, label: "Optimierte Auffindbarkeit", help: "Gefunden werden, wenn es zählt." },
 ];
 
@@ -61,11 +61,11 @@ const plans = [
 ];
 
 const features = [
-  "Recherche & Keyword-Analyse (automatisiert + manuell)",
-  "Expertenzitate & Markenstil",
-  "Perfekte Tech-SEO-Ausrichtung",
-  "Interne & externe Verlinkung",
-  "Veröffentlichung im CMS",
+  "Themen- & Keyword-Analyse",
+  "Hochwertige, KI-optimierte Blogartikel im Markenstil",
+  "Perfekte SEO-Ausrichtung (Technik, Struktur, Verlinkung)",
+  "Veröffentlichung direkt in deinem CMS",
+  "Identifikation von anonymen Unternehmensbesuchern für deinen Vertrieb",
 ];
 
 // FAQ (added so section compiles)
@@ -203,11 +203,11 @@ function Hero() {
       {/* Content */}
       <div className="relative z-20">
         <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
-          <span className="italic font-bold">findbar:</span> Skaliere Dein Unternehmen mit
-          <br className="hidden md:inline" /> KI-optimierten Blog-Artikeln
+          <span className="italic font-bold">findbar:</span> Wachstum durch KI-Blogartikel und
+          <br className="hidden md:inline" /> smarter Erkennung relevanter B2B-Besucher.
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-slate-600">
-          Wir produzieren skalierbare und suchmaschinenoptimierte Blogartikel mit Hilfe von KI – zu einem Bruchteil der bisher üblichen Preise.
+          Mehr Sichtbarkeit, mehr Leads, dank KI: Wir platzieren dein B2B-Angebot bei Google & ChatGPT und identifizieren anonyme Firmenbesucher für deinen Vertrieb.
         </p>
         <Button asChild>
           <a className="mt-6 inline-block text-white" href="#preise">
@@ -289,7 +289,7 @@ function BlogSection() {
           Blog-Beispiele
         </h2>
         <p className="mt-4 text-center text-slate-600">
-          Drei SEO-optimierte Blogartikel aus verschiedenen Branchen – perfekt strukturiert, suchmaschinenoptimiert und im Markenstil.
+       Wie kann so ein KI-optimierter Artikel auf deiner Webseite aussehen? Schau dir hier ausgewählte Beispiele an.
         </p>
 
         <div className="mx-auto mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -351,23 +351,23 @@ function BlogSection() {
 function HowItHelpsSection() {
   const vorteile = [
     {
-      title: "SEO-optimiert",
-      desc: "Wir integrieren relevante Keywords, um bessere Google-Platzierungen zu sichern.",
+      title: "Themen definieren",
+      desc: "Wir analysieren KI-gestützt deine Branche und identifizieren die Themen, nach denen deine Zielkunden wirklich suchen.",
       icon: Search,
     },
     {
-      title: "Schnelle Produktion",
-      desc: "Von der Idee bis zur Veröffentlichung in wenigen Tagen.",
+      title: "KI-Blogartikel erstellen",
+      desc: "Unsere KI erstellt hochwertige, SEO-optimierte Artikel, die Entscheider anziehen – besser als jeder Experte und zu einem Bruchteil der Kosten.",
       icon: Zap,
     },
     {
-      title: "Langfristiger Traffic",
-      desc: "Evergreen-Content sorgt für monatelangen, konstanten Besucherstrom.",
+      title: "Besucher identifizieren",
+      desc: "Mit intelligenter Technologie erkennen wir, welche Unternehmen deine Website besuchen – auch ohne Formular.",
       icon: TrendingUp,
     },
     {
-      title: "Branchenspezifisch",
-      desc: "Inhalte, die exakt zu deinem Geschäft und deiner Zielgruppe passen.",
+      title: "Leads nutzen",
+      desc: "Du erhältst verwertbare Unternehmensdaten, mit denen dein Vertrieb direkt arbeiten und Interessenten ansprechen kann.",
       icon: CheckCircle,
     },
   ];
@@ -379,10 +379,10 @@ function HowItHelpsSection() {
           {/* Textseite */}
           <div>
             <h2 className={`text-3xl font-semibold ${serifClass}`}>
-              So helfen dir KI-optimierte Blogartikel
+              So helfen dir KI-optimierte Blogartikel mit intelligenter Leads-Erkennung
             </h2>
             <p className="mt-4 text-slate-600">
-              Unsere Artikel verbinden modernste KI-Technologie mit menschlicher Expertise – für Inhalte, die ranken, gelesen und geteilt werden.
+              Artikel, die wirken: sichtbar bei Google, spannend für Leser und wertvoll für deine Sales-Pipeline.
             </p>
             <ul className="mt-6 space-y-4">
               {vorteile.map((v, i) => (
@@ -451,14 +451,12 @@ function UnserZielSection() {
 
             {/* Textseite – jetzt rechts auf Desktop */}
             <div className="order-1 md:order-2">
-              <p className="text-sm uppercase tracking-wide text-white/70">Done 4 You</p>
+              <p className="text-sm uppercase tracking-wide text-white/70">Content & Lead-Intelligence: Komplett für dich umgesetzt</p>
               <h2 className={`mt-2 text-3xl font-semibold ${serifClass}`}>
-                Minimaler Zeitaufwand für dich
+                Minimaler Aufwand – maximaler Vertriebserfolg
               </h2>
               <p className="mt-4 max-w-prose text-white/90">
-                Wir orchestrieren deinen Content-Motor so, dass du <em>möglichst wenig operativen Aufwand</em> hast.
-                Einmal Onboarding, Plan freigeben, 2–3 Musterartikel abnicken – danach liefern wir regelmäßig in Batches
-                und halten dich mit klaren Status-Updates auf dem Laufenden.
+            Wir setzen deinen Content-Motor auf Autopilot: Einmal Onboarding, Themenplan freigeben, 2–3 Musterartikel abnicken – danach liefern wir regelmäßig neue Artikel plus die identifizierten Firmenbesucher, die dein Vertrieb sofort nutzen kann.
               </p>
               <ul className="mt-6 space-y-3 text-white/90">
                 <li className="flex items-start gap-3">
@@ -467,7 +465,7 @@ function UnserZielSection() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
-                  <span>Freigaben in Batches statt Micromanagement.</span>
+                  <span>Maximale Zeiteffizienz für dich und dein Team</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-2 inline-block h-2 w-2 rounded-full bg-white"></span>
@@ -496,23 +494,23 @@ function UnserZielSection() {
 function IdentificationSection() {
   const zielgruppen = [
     {
-      title: "KMU & Selbstständige",
-      desc: "Regelmäßig Content veröffentlichen, ohne sich um Themenfindung oder SEO kümmern zu müssen.",
+      title: "Industrie & Mittelstand",
+      desc: "Neue Firmenkunden gewinnen, indem Entscheider genau die Inhalte finden, nach denen sie suchen.",
       icon: Users,
     },
     {
-      title: "Marketing-Teams",
-      desc: "Suchmaschinen dominieren und Content-Strategien effizient skalieren.",
+      title: "B2B-Dienstleister & Agenturen",
+      desc: "Regelmäßig qualifizierte Leads erhalten, ohne selbst Ressourcen für Content-Produktion zu binden.",
       icon: Target,
     },
     {
-      title: "Blogger & Publisher",
-      desc: "Passiv Traffic und Leads generieren – mit Evergreen-Content.",
+      title: "SaaS & Tech-Unternehmen",
+      desc: "Komplexe Lösungen verständlich erklären, gezielt Kaufinteresse wecken und anonyme Website-Besucher sichtbar machen.",
       icon: Globe,
     },
     {
-      title: "Lokale Dienstleister",
-      desc: "In der Region sichtbar bleiben und gezielt neue Kunden gewinnen.",
+      title: "Marketing- & Vertriebsteams in B2Br",
+      desc: "Effizienter arbeiten: Content, der SEO-Ergebnisse liefert und konkrete Unternehmensleads für die Sales-Pipeline bereitstellt.",
       icon: Search,
     },
   ];
@@ -524,7 +522,7 @@ function IdentificationSection() {
           An wen richtet sich unser Angebot?
         </h2>
         <p className="mt-4 text-center text-slate-600">
-          Unsere KI-optimierten Blogartikel sind für alle, die ihre Reichweite erhöhen und Kunden gezielt ansprechen wollen.
+         Unsere KI-optimierten Blogartikel sind für B2B Unternehmen mit validiertem Angebot und Zielgruppe, bereit für Wachstum.
         </p>
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-4">
           {zielgruppen.map((z, i) => (
@@ -664,7 +662,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
         </div>
 
         <p className="mt-6 text-center text-xs text-slate-500">
-          Alle Pakete beinhalten: Recherche, Verschriftlichung, Expertenzitate, Markenstil, perfekte Tech-SEO, automatisierte Keyword-Recherche & Nutzung, internes/externes Linking und Veröffentlichung im CMS.
+          Alle Pakete beinhalten alles von Recherche bis Veröffentlichung – plus die Identifikation anonymer Unternehmensbesucher, transparente Reports und nachhaltige Lead-Gewinnung, für maximalen Outcome für dein Angebot.
         </p>
       </div>
     </section>
@@ -841,3 +839,4 @@ export default function FindbarPage() {
     </div>
   );
 }
+
