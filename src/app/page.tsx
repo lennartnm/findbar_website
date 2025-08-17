@@ -283,7 +283,7 @@ function VisitorRevealSection() {
 
             {/* Visual Box – DACH Map mit sichtbarerem Scan */}
             <div className="relative px-5 pt-4 pb-5">
-              <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-slate-50">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-50">
                 {/* DACH-Karte Hintergrund */}
                 <img
                   src="Scan.png"
