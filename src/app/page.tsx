@@ -590,7 +590,7 @@ function UnserZielSection() {
                   }}
                 />
                 <img
-                  src="/Ziele erreichen mit Findbar.png"
+                  src="/Rakete.png"
                   alt="Darstellung des Done 4 You Prozesses"
                   className="relative z-20 w-full rounded-xl"
                 />
@@ -623,11 +623,7 @@ function UnserZielSection() {
                 ))}
               </ul>
 
-              <div className="mt-8 flex gap-3">
-                <Button asChild>
-                  <a href="#preise" className="text-white">Pakete ansehen</a>
-                </Button>
-              </div>
+           
             </div>
           </div>
 
