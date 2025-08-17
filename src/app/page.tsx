@@ -386,9 +386,11 @@ function HowItHelpsSection() {
               {vorteile.map((v, i) => (
                 <li key={i} className="flex items-start gap-3">
                   {/* Zahl im runden Badge */}
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold">
-                    {i + 1}
-                  </div>
+               <div className="flex h-10 w-10 items-center justify-center rounded-full 
+                bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold">
+  {i + 1}
+</div>
+
                   <div>
                     <h4 className="font-semibold">{v.title}</h4>
                     <p className="text-sm text-slate-600">{v.desc}</p>
