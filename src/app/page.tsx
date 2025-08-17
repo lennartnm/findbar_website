@@ -238,7 +238,7 @@ function Hero() {
   );
 }
 
-/* ---------------------- VisitorRevealSection (SVG Live-Traffic) ---------------------- */
+/* ---------------------- VisitorRevealSection (grid-fixed, no whitespace) ---------------------- */
 function VisitorRevealSection() {
   const steps = [
     "Google oder KI-Suche",
@@ -255,10 +255,7 @@ function VisitorRevealSection() {
   ];
 
   return (
-    <section
-      id="reveal"
-      className="relative overflow-hidden py-20 border-t border-slate-100 bg-white"
-    >
+    <section id="reveal" className="relative overflow-hidden py-20 border-t border-slate-100 bg-white">
       <div className={containerClass}>
         {/* Headline */}
         <div className="mx-auto max-w-3xl text-center">
@@ -276,72 +273,55 @@ function VisitorRevealSection() {
 
         {/* Visual Row */}
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {/* --- NEW: Live-Traffic (SVG) --- */}
+          {/* --- Live-Traffic Card: strict grid -> no whitespace --- */}
           <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4">
-              <span className={`text-lg font-semibold ${serifClass}`}>Live-Traffic</span>
-              <span className="text-xs text-slate-500">Echtzeit-Scan</span>
-            </div>
+            <div className="grid grid-rows-[auto_1fr_auto]">
+              {/* Header */}
+              <div className="flex items-center justify-between px-5 py-4">
+                <span className={`text-lg font-semibold ${serifClass}`}>Live-Traffic</span>
+                <span className="text-xs text-slate-500">Echtzeit-Scan</span>
+              </div>
 
-            {/* SVG Canvas (keine Padding-Lücken) */}
-            <div className="relative">
-              <svg
-                className="block w-full h-56"
-                viewBox="0 0 800 320"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <defs>
-                  {/* Dot Pattern */}
-                  <pattern id="dots" x="0" y="0" width="56" height="56" patternUnits="userSpaceOnUse">
-                    <circle cx="28" cy="28" r="16" fill="#cbd5e1" opacity="0.7" />
-                  </pattern>
+              {/* Canvas (fills exactly the middle row) */}
+              <div className="px-5">
+                <svg
+                  className="block w-full h-56"
+                  viewBox="0 0 800 320"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <defs>
+                    <pattern id="dots" x="0" y="0" width="56" height="56" patternUnits="userSpaceOnUse">
+                      <circle cx="28" cy="28" r="16" fill="#cbd5e1" opacity="0.7" />
+                    </pattern>
+                    <linearGradient id="bottomFade" x1="0" y1="1" x2="0" y2="0">
+                      <stop offset="0%" stopColor="#A7F3D0" stopOpacity="0.45" />
+                      <stop offset="100%" stopColor="#A7F3D0" stopOpacity="0" />
+                    </linearGradient>
+                    <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#10B981" stopOpacity="0" />
+                      <stop offset="50%" stopColor="#10B981" stopOpacity="0.22" />
+                      <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
+                    </linearGradient>
+                    <clipPath id="roundClip">
+                      <rect x="24" y="8" width="752" height="304" rx="16" ry="16" />
+                    </clipPath>
+                  </defs>
 
-                  {/* Bottom emerald fade */}
-                  <linearGradient id="bottomFade" x1="0" y1="1" x2="0" y2="0">
-                    <stop offset="0%" stopColor="#A7F3D0" stopOpacity="0.45" />
-                    <stop offset="100%" stopColor="#A7F3D0" stopOpacity="0" />
-                  </linearGradient>
+                  <g clipPath="url(#roundClip)">
+                    <rect x="24" y="8" width="752" height="304" fill="#f8fafc" />
+                    <rect x="24" y="8" width="752" height="304" fill="url(#dots)" />
+                    <rect x="24" y="168" width="752" height="144" fill="url(#bottomFade)" />
+                    <rect className="scanY" x="24" y="-304" width="752" height="120" fill="url(#scanGrad)" />
+                  </g>
+                </svg>
+              </div>
 
-                  {/* Scan gradient */}
-                  <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#10B981" stopOpacity="0" />
-                    <stop offset="50%" stopColor="#10B981" stopOpacity="0.22" />
-                    <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
-                  </linearGradient>
-
-                  {/* Soft mask for rounded inner area */}
-                  <clipPath id="roundClip">
-                    <rect x="24" y="8" width="752" height="304" rx="16" ry="16" />
-                  </clipPath>
-                </defs>
-
-                {/* Inner area with rounded corners */}
-                <g clipPath="url(#roundClip)">
-                  {/* Base */}
-                  <rect x="24" y="8" width="752" height="304" fill="#f8fafc" />
-                  {/* Pattern of dots */}
-                  <rect x="24" y="8" width="752" height="304" fill="url(#dots)" />
-                  {/* Bottom green fade */}
-                  <rect x="24" y="168" width="752" height="144" fill="url(#bottomFade)" />
-                  {/* Vertical scanning bar (animated via CSS transform) */}
-                  <rect
-                    className="scanY"
-                    x="24"
-                    y="-304"
-                    width="752"
-                    height="120"
-                    fill="url(#scanGrad)"
-                  />
-                </g>
-              </svg>
-            </div>
-
-            {/* Info Bar – direkt angedockt, kein Whitespace */}
-            <div className="flex items-center gap-2 border-t border-slate-200 bg-slate-50/70 px-5 py-3 text-xs text-slate-700">
-              <Search className="h-4 w-4" />
-              <span>Mustererkennung, IP-Auflösung &amp; Firmendatenbanken</span>
+              {/* Info Bar (bottom row) – sits flush with card edge, no extra gap */}
+              <div className="flex items-center gap-2 border-t border-slate-200 bg-slate-50/70 px-5 py-3 text-xs text-slate-700">
+                <Search className="h-4 w-4" />
+                <span>Mustererkennung, IP-Auflösung &amp; Firmendatenbanken</span>
+              </div>
             </div>
           </div>
 
@@ -380,17 +360,12 @@ function VisitorRevealSection() {
           {steps.map((title, i) => (
             <div key={i} className="flex items-center gap-4 md:gap-6">
               <div className="flex flex-col items-center text-center max-w-[190px]">
-                <div
-                  className="shrink-0 inline-flex size-10 items-center justify-center rounded-full
-                              bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none"
-                >
+                <div className="shrink-0 inline-flex size-10 items-center justify-center rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
                   {i + 1}
                 </div>
                 <p className="mt-3 text-sm text-slate-700">{title}</p>
               </div>
-              {i < steps.length - 1 && (
-                <ArrowRight className="hidden md:block h-6 w-6 text-slate-400 shrink-0" />
-              )}
+              {i < steps.length - 1 && <ArrowRight className="hidden md:block h-6 w-6 text-slate-400 shrink-0" />}
             </div>
           ))}
         </div>
@@ -398,17 +373,9 @@ function VisitorRevealSection() {
 
       {/* Animations */}
       <style>{`
-        @keyframes scanY {
-          0%   { transform: translateY(320px); }
-          100% { transform: translateY(-320px); }
-        }
-        .scanY {
-          animation: scanY 3s linear infinite;
-          will-change: transform;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .scanY { animation: none; }
-        }
+        @keyframes scanY { 0% { transform: translateY(320px); } 100% { transform: translateY(-320px); } }
+        .scanY { animation: scanY 3s linear infinite; will-change: transform; }
+        @media (prefers-reduced-motion: reduce) { .scanY { animation: none; } }
       `}</style>
     </section>
   );
