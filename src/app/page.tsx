@@ -335,21 +335,23 @@ Welche Unternehmen lesen deine KI-Blogartikel? Wir identifizieren anonyme B2B-Be
           </div>
         </div>
 
-        {/* Journey 1–5 (Zahlen im Ablauf-Stil) */}
-        <div className="mt-12 flex flex-col items-center gap-8 md:flex-row md:justify-between">
-          {steps.map((title, i) => (
-            <div key={i} className="flex items-center gap-4 md:gap-6">
-              <div className="flex flex-col items-center text-center max-w-[190px]">
-                <div className="shrink-0 inline-flex size-10 items-center justify-center rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
-                  {i + 1}
-                </div>
-                <p className="mt-3 text-sm text-slate-700">{title}</p>
-              </div>
-              {i < steps.length - 1 && <ArrowRight className="hidden md:block h-6 w-6 text-slate-400 shrink-0" />}
-            </div>
-          ))}
-        </div>
+   {/* Journey 1–5 (Zahlen im Ablauf-Stil) */}
+<div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-6 text-center">
+  {steps.map((title, i) => (
+    <div key={i} className="flex flex-col items-center">
+      {/* Zahl-Kugel immer auf gleicher Höhe */}
+      <div className="shrink-0 inline-flex size-12 items-center justify-center 
+                      rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] 
+                      text-[#1b4d2b] font-semibold leading-none">
+        {i + 1}
       </div>
+
+      {/* Text */}
+      <p className="mt-3 text-sm text-slate-700">{title}</p>
+    </div>
+  ))}
+</div>
+
 
       {/* Keyframes */}
       <style>{`
