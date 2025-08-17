@@ -663,7 +663,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
                     >
                       {formatEUR(oldPrice)}€
                     </span>
-                    <span className="mb-0.5 text-xs text-slate-400">pro Monat</span>
+                  
                   </div>
 
                  {/* Marktvalidierungspreis Badge */}
