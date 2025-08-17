@@ -412,15 +412,21 @@ function HowItHelpsSection() {
 /* ---------------------- Vertrauen & Expertenstatus (Green Aurora) ---------------------- */
 function TrustSection() {
   const pillars = [
-    { icon: Eye, title: "Gefunden werden im richtigen Moment", desc: "Entscheider erleben dich als Experten mit konkreten Antworten – ein erster Vertrauensanker, lange vor dem Anruf." },
-    { icon: Award, title: "Glaubwürdig wahrgenommen werden", desc: "Mit Fakten, Beispielen und Lösungen zeigst du Verständnis für ihre Herausforderungen und gewinnst Glaubwürdigkeit." },
-    { icon: BarChart3, title: "Vertrauen schlägt Kaltakquise", desc: "Entscheider, die wertvolle Inhalte von dir konsumieren, gehen mit einem Vorschuss an Vertrauen in den Erstkontakt." },
-  ];
-
-  const kpis = [
-    { to: 5, suffix: "x", label: "Weiterleitungen" },
-    { to: 60, suffix: "", label: "Themen/90T" },
-    { to: 4, suffix: "", label: "Touchpoints" },
+    {
+      icon: Eye,
+      title: "Gefunden werden im richtigen Moment",
+      desc: "Entscheider erleben dich als Experten mit konkreten Antworten – ein erster Vertrauensanker, lange vor dem Anruf.",
+    },
+    {
+      icon: Award,
+      title: "Glaubwürdig wahrgenommen werden",
+      desc: "Mit Fakten, Beispielen und Lösungen zeigst du Verständnis für ihre Herausforderungen und gewinnst Glaubwürdigkeit.",
+    },
+    {
+      icon: BarChart3,
+      title: "Vertrauen schlägt Kaltakquise",
+      desc: "Entscheider, die wertvolle Inhalte von dir konsumieren, gehen mit einem Vorschuss an Vertrauen in den Erstkontakt.",
+    },
   ];
 
   return (
@@ -462,7 +468,9 @@ function TrustSection() {
             Vertrauen aufbauen, bevor dein Vertrieb spricht
           </h2>
           <p className="mt-3 text-white/85">
-            In einer Zeit, in der Vertrauen die neue Währung ist, entscheidet sichtbare Expertise über den ersten Eindruck. Bevor ein Interessent überhaupt Kontakt aufnimmt, formt er sich sein Bild von deiner Marke.
+            In einer Zeit, in der Vertrauen die neue Währung ist, entscheidet
+            sichtbare Expertise über den ersten Eindruck. Bevor ein Interessent
+            überhaupt Kontakt aufnimmt, formt er sich sein Bild von deiner Marke.
           </p>
         </div>
 
@@ -479,13 +487,6 @@ function TrustSection() {
               <h3 className={`text-lg font-semibold ${serifClass}`}>{title}</h3>
               <p className="mt-1 text-sm text-white/85">{desc}</p>
             </article>
-          ))}
-        </div>
-
-        {/* KPIs (animated counters only) */}
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {kpis.map((k, i) => (
-            <KpiCard key={i} to={k.to} suffix={k.suffix} label={k.label} />
           ))}
         </div>
       </div>
@@ -512,6 +513,7 @@ function TrustSection() {
     </section>
   );
 }
+
 
 
 
