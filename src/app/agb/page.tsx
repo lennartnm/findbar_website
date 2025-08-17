@@ -35,10 +35,50 @@ function Header() {
   );
 }
 
+// Neuer Marquee-Bereich
+function FirmNameMarquee() {
+  return (
+    <div className="bg-slate-50 overflow-hidden py-3 border-b border-slate-100">
+      <div
+        className="relative mx-auto max-w-[100vw]"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+        }}
+      >
+        <div
+          className="flex w-max gap-16 will-change-transform"
+          style={{ animation: "marquee-ltr 40s linear infinite" }}
+        >
+          {[...Array(12)].map((_, i) => (
+            <span
+              key={i}
+              className={`text-3xl md:text-4xl italic ${serifClass} text-slate-400 select-none`}
+            >
+              findbar
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes marquee-ltr {
+          from { transform: translateX(-60%); }
+          to   { transform: translateX(0); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+
 export default function AGBPage() {
   return (
     <div className="bg-white text-slate-900">
       <Header />
+            <FirmNameMarquee />
       <main className="w-full max-w-5xl mx-auto px-6 py-16">
         <h1 className={`text-3xl md:text-4xl ${serifClass} font-semibold mb-8`}>
           Allgemeine Geschäftsbedingungen (AGB)
