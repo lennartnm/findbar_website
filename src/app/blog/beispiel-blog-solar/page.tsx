@@ -101,11 +101,41 @@ const TLDRItem = ({ icon: Icon, children }: { icon: LucideIcon; children: ReactN
 <li className="flex items-start gap-3"> <Icon className={`w-5 h-5 mt-1 ${accent}`} aria-hidden /> <span>{children}</span> </li> );
 const CheckLi = ({ children }: { children: ReactNode }) => (
 <li className="flex items-start gap-2"> <CheckCircle2 className={`w-4 h-4 mt-1 flex-none ${accent}`} aria-hidden /> <span className="flex-1">{children}</span> </li> );
-const Pill = ({ children }: { children: ReactNode }) => (
-<span
-className={inline-flex items-center rounded-full bg-gradient-to-r ${racingGreen} text-white px-3 py-1 text-xs font-medium}
-{children}
-</span> );
+import type { ReactNode } from "react";
+import { CheckCircle2 } from "lucide-react";
+
+const accent = "text-emerald-700";
+const racingGreen = "from-emerald-700 to-emerald-500";
+
+export const TLDRItem = ({
+  icon: Icon,
+  children,
+}: {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  children: ReactNode;
+}) => (
+  <li className="flex items-start gap-3">
+    <Icon className={`w-5 h-5 mt-1 ${accent}`} aria-hidden />
+    <span>{children}</span>
+  </li>
+);
+
+export const CheckLi = ({ children }: { children: ReactNode }) => (
+  <li className="flex items-start gap-2">
+    <CheckCircle2 className={`w-4 h-4 mt-1 flex-none ${accent}`} aria-hidden />
+    <span className="flex-1">{children}</span>
+  </li>
+);
+
+/** <-- Hier lag der Fehler: fehlende Backticks um den Template-String */
+export const Pill = ({ children }: { children: ReactNode }) => (
+  <span
+    className={`inline-flex items-center rounded-full bg-gradient-to-r ${racingGreen} text-white px-3 py-1 text-xs font-medium`}
+  >
+    {children}
+  </span>
+);
+
 const Anchor = ({ id }: { id: string }) => <div id={id} aria-hidden className="pt-24 -mt-24" />;
 /* =========================================================================
 Simple static SVG chart – Vergleich ct/kWh (Beispielwerte 2025)
