@@ -22,15 +22,7 @@ Phone,
 Mail,
 User,
 } from "lucide-react";
-import {
-ResponsiveContainer,
-BarChart,
-Bar,
-XAxis,
-YAxis,
-Tooltip,
-ReferenceLine,
-} from "recharts";
+
 // ---- Brand styles
 const RG600 = "#1b4d2b"; // Racing Green
 const RG400 = "#2c6b3f";
@@ -110,7 +102,114 @@ Amortisation, Förderungen
 <meta property="og:locale" content="de_DE" />
 <meta name="twitter:card" content="summary_large_image" />
 
+// --- Minimaler ROI-Bar-Chart ohne Dependencies (reines SVG)
+type RoiDatum = { year: string; cashflow: number };
 
+function k(v: number) {
+  return `${(v / 1000).toFixed(0)}k`;
+}
+
+function RoiBarChart({ data }: { data: RoiDatum[] }) {
+  // Feste Zeichenfläche, skaliert responsiv per viewBox
+  const width = 640;
+  const height = 260;
+  const margin = { top: 10, right: 16, bottom: 28, left: 44 };
+  const innerW = width - margin.left - margin.right;
+  const innerH = height - margin.top - margin.bottom;
+
+  const values = data.map((d) => d.cashflow);
+  const minY = Math.min(0, ...values);
+  const maxY = Math.max(0, ...values);
+  const range = maxY - minY || 1;
+
+  const yScale = (v: number) => margin.top + (maxY - v) * (innerH / range);
+  const zeroY = yScale(0);
+
+  const slot = innerW / data.length;
+  const barW = Math.max(8, slot * 0.6);
+
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-auto">
+      {/* Achsenlinien */}
+      <line
+        x1={margin.left}
+        x2={margin.left}
+        y1={margin.top}
+        y2={margin.top + innerH}
+        stroke="#cbd5e1"
+      />
+      <line
+        x1={margin.left}
+        x2={margin.left + innerW}
+        y1={zeroY}
+        y2={zeroY}
+        stroke="#94a3b8"
+      />
+
+      {/* Hilfslinien & Y-Ticks: max, 0, min */}
+      {[maxY, 0, minY].map((t, i) => (
+        <g key={i} transform={`translate(0, ${yScale(t)})`}>
+          <line
+            x1={margin.left}
+            x2={margin.left + innerW}
+            y1="0"
+            y2="0"
+            stroke="#e2e8f0"
+            strokeDasharray="3 4"
+          />
+          <text
+            x={margin.left - 8}
+            y={0}
+            fontSize="11"
+            textAnchor="end"
+            dominantBaseline="central"
+            fill="#0f172a"
+          >
+            {k(t)} €
+          </text>
+        </g>
+      ))}
+
+      {/* Balken + X-Labels */}
+      {data.map((d, i) => {
+        const x = margin.left + i * slot + (slot - barW) / 2;
+        const y = Math.min(yScale(d.cashflow), zeroY);
+        const h = Math.abs(yScale(d.cashflow) - zeroY);
+        const positive = d.cashflow >= 0;
+
+        return (
+          <g key={i}>
+            <rect
+              x={x}
+              y={y}
+              width={barW}
+              height={h}
+              rx="6"
+              ry="6"
+              // RG600 kommt aus deinen Brand-Styles
+              fill={positive ? RG600 : "#64748b"}
+              opacity={positive ? 1 : 0.9}
+            >
+              <title>{`${d.year}: ${k(d.cashflow)} €`}</title>
+            </rect>
+            <text
+              x={x + barW / 2}
+              y={zeroY + 16}
+              fontSize="11"
+              textAnchor="middle"
+              fill="#0f172a"
+            >
+              {d.year}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+
+    
     {/* 3) Strukturierte Daten (Schema.org) */}
     <script
       type="application/ld+json"
@@ -557,15 +656,10 @@ Amortisation, Förderungen
             <div className="mt-6 rounded-xl border border-slate-200 p-4 bg-white">
               <h3 className="font-semibold">Cashflow-Kurve (vereinfachte Annahmen)</h3>
               <div className="mt-3 h-56">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={roiData}>
-                    <XAxis dataKey="year" tick={{ fontSize: 12 }} />
-                    <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `${(v/1000).toFixed(0)}k`} />
-                    <Tooltip formatter={(v: number) => `${(v/1000).toFixed(0)}k €`} />
-                    <ReferenceLine y={0} stroke="#64748b" />
-                    <Bar dataKey="cashflow" fill={RG600} radius={[6, 6, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
+                <div className="mt-3">
+  <RoiBarChart data={roiData} />
+</div>
+
               </div>
               <p className="mt-2 text-xs text-slate-600">
                 Payback in Jahr&nbsp;6 im Beispiel (ohne Steuer-/Inflationseffekte). Speicher
