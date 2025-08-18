@@ -953,5 +953,4 @@ return (
   </article>
 </>
 
- );
-}
+ 
