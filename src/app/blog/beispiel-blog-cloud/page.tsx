@@ -149,11 +149,22 @@ export default function Page() {
     .small{font-size:13px}
     .btn-download{display:inline-block;margin-top:10px;background:#fff;border:1px solid var(--border);padding:10px 14px;border-radius:12px;color:#111827;text-decoration:none}
     .btn-download:hover{border-color:var(--accent);color:#000}
+
+    /* Modal Popup */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999}
+    .modal-backdrop.show{display:flex}
+    .modal{background:#fff;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);max-width:560px;width:100%;padding:20px}
+    .modal h3{margin:0 0 8px;font-size:20px}
+    .modal p{margin:8px 0 0;color:#374151}
+    .modal a{color:var(--accent-2);text-decoration:underline}
+    .modal .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
+    .modal .btn{border:1px solid var(--border);background:#fff;border-radius:12px;padding:8px 12px;cursor:pointer}
+    .modal .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:0}
   `;
 
   return (
     <div className="page">
-      {/* JSON-LD (Server Component-kompatibel) */}
+      {/* JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ldArticle) }}
@@ -163,7 +174,7 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ldFaq) }}
       />
 
-      {/* Client-Snippet für Lesedauer */}
+      {/* Lesedauer */}
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -180,12 +191,12 @@ export default function Page() {
         }}
       />
 
-      {/* Globaler Pop-up-Handler für alle Links/Formulare außerhalb des Inhaltsverzeichnisses */}
+      {/* Globaler Pop-up-Handler (mit echtem Link auf "Klicke hier") */}
       <script
         dangerouslySetInnerHTML={{
           __html: `
             (function(){
-              var msg = "Die Funktionalität der Verlinkungen im Beispiel-Blog ist limitiert und wird auf dein Angebot zugeschnitten. Interesse? Klicke hier und buche dir dein Erstgespräch: https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung";
+              var calendly = "https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung";
               function isInsideTOC(node){
                 while(node){
                   if(node.classList && node.classList.contains('toc')) return true;
@@ -193,29 +204,69 @@ export default function Page() {
                 }
                 return false;
               }
+              function showPopup(){
+                var backdrop = document.getElementById('popup-backdrop');
+                if(!backdrop) return;
+                backdrop.classList.add('show');
+                var closeBtn = backdrop.querySelector('[data-close]');
+                closeBtn && closeBtn.focus();
+              }
+              function hidePopup(){
+                var backdrop = document.getElementById('popup-backdrop');
+                if(!backdrop) return;
+                backdrop.classList.remove('show');
+              }
               document.addEventListener('click', function(e){
                 var a = e.target.closest('a');
                 if(!a) return;
-                // Ausnahme: Inhaltsverzeichnis-Links dürfen normal funktionieren
-                if(isInsideTOC(a)) return;
-                // Sonst Pop-up anzeigen und verhindern
+                if(isInsideTOC(a)) return; // TOC darf normal navigieren
+                // alle anderen Links abfangen
                 e.preventDefault();
-                alert(msg);
+                showPopup();
               }, true);
-              // Formulare abfangen
               document.addEventListener('submit', function(e){
-                var form = e.target;
-                if(!form) return;
                 e.preventDefault();
-                alert(msg);
+                showPopup();
               }, true);
+              document.addEventListener('keydown', function(e){
+                if(e.key === 'Escape') hidePopup();
+              });
+              document.addEventListener('click', function(e){
+                var backdrop = document.getElementById('popup-backdrop');
+                if(!backdrop) return;
+                if(e.target === backdrop) hidePopup();
+                if(e.target.closest('[data-close]')) hidePopup();
+              });
+              // Setze den echten Link-Target auf das "Klicke hier"
+              document.addEventListener('DOMContentLoaded', function(){
+                var link = document.getElementById('popup-calendly-link');
+                if(link) link.setAttribute('href', calendly);
+              });
             })();
           `,
         }}
       />
 
-      {/* Seitenstil */}
+      {/* Styles */}
       <style dangerouslySetInnerHTML={{ __html: css }} />
+
+      {/* Modal Markup (enthält den hyperverlinkten Text "Klicke hier") */}
+      <div id="popup-backdrop" className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+        <div className="modal">
+          <h3 id="popup-title">Hinweis</h3>
+          <p>
+            Die Funktionalität der Verlinkungen im Beispiel-Blog ist limitiert und wird auf dein Angebot zugeschnitten. Interesse?{" "}
+            <a id="popup-calendly-link" target="_blank" rel="noopener">
+              Klicke hier
+            </a>{" "}
+            und buche dir dein Erstgespräch.
+          </p>
+          <div className="actions">
+            <button className="btn" type="button" data-close>Schließen</button>
+            <a className="btn primary" id="popup-calendly-link" target="_blank" rel="noopener">Zum Termin</a>
+          </div>
+        </div>
+      </div>
 
       <header className="hero">
         <div className="container">
@@ -790,7 +841,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Entfernt: Download-Section (Workload-Entscheidungsmatrix) */}
+        {/* Entfernt: Download-Section */}
       </article>
 
       <footer>
