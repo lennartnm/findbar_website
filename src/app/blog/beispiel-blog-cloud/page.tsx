@@ -531,20 +531,57 @@ export default function Article() {
         </section>
 
         {/* CTA */}
-        <section aria-label="Kontakt" className="mt-14">
-          <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
-            <h2 className="text-xl font-bold mb-2">Kosten-/Architektur-Check gewünscht?</h2>
-            <p className="text-zinc-700 mb-4">Wir analysieren deinen Workload-Mix und entwerfen eine belastbare Hybrid-Architektur inkl. Kosten- und Exit-Plan.</p>
-            <form className="mx-auto grid max-w-xl gap-3 text-left" onSubmit={(e) => e.preventDefault()}>
-              <label className="text-sm">Name<input required name="name" className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2" placeholder="Max Mustermann" /></label>
-              <label className="text-sm">Telefon<input required name="phone" className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2" placeholder="+49 …" /></label>
-              <label className="text-sm">E-Mail<input required type="email" name="email" className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2" placeholder="max@firma.de" /></label>
-              <button type="submit" className={`mt-2 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r ${racingGreen} px-4 py-2 font-semibold text-white shadow-sm`} aria-label="Demo anfordern">
-                Demo anfordern
-              </button>
-            </form>
-          </div>
-        </section>
+<section aria-label="Kontakt" className="mt-14">
+  <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+    <h2 className="text-xl font-bold mb-2">Kosten-/Architektur-Check gewünscht?</h2>
+    <p className="text-zinc-700 mb-4">
+      Wir analysieren deinen Workload-Mix und entwerfen eine belastbare Hybrid-Architektur inkl. Kosten- und Exit-Plan.
+    </p>
+
+    {/* Kein <form>, keine Handler – nur UI */}
+    <div className="mx-auto grid max-w-xl gap-3 text-left" role="group" aria-describedby="cta-note">
+      <label className="text-sm">
+        Name
+        <input
+          name="name"
+          className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2"
+          placeholder="Max Mustermann"
+        />
+      </label>
+      <label className="text-sm">
+        Telefon
+        <input
+          name="phone"
+          className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2"
+          placeholder="+49 …"
+        />
+      </label>
+      <label className="text-sm">
+        E-Mail
+        <input
+          type="email"
+          name="email"
+          className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2"
+          placeholder="max@firma.de"
+        />
+      </label>
+
+      {/* Button ohne Submit-Funktion */}
+      <button
+        type="button"
+        className="mt-2 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-700 to-emerald-500 px-4 py-2 font-semibold text-white shadow-sm opacity-70 cursor-not-allowed"
+        aria-disabled="true"
+        title="Demo – ohne Funktion"
+      >
+        Demo anfordern
+      </button>
+
+      <p id="cta-note" className="text-xs text-zinc-500 mt-1">
+        Demo-Formular – nur Vorschau, es werden keine Daten gesendet.
+      </p>
+    </div>
+  </div>
+</section>
 
         {/* E-E-A-T */}
         <section className="mt-14">
