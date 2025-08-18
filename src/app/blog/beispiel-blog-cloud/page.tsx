@@ -1,767 +1,598 @@
-// src/app/blog/page.tsx
-import type { Metadata } from "next";
+import Head from "next/head";
+import { CheckCircle2, ShieldCheck, Gauge, PiggyBank, Server, Cloud, Scale, Network, FileSearch, Landmark, BadgeEuro, Clock, ArrowRight, Info } from "lucide-react";
 
-export const metadata: Metadata = {
-  title:
-    "Cloud oder eigener Server? Einfache Erklärung mit Kosten, Sicherheit & Praxisbeispielen (inkl. Checkliste)",
-  description:
-    "Leicht verständlicher Vergleich: Cloud vs. Server im eigenen Haus. Was kostet es, wie sicher ist es, wie flexibel bist du? Mit Beispielen, klaren Tipps und Checkliste.",
-  alternates: { canonical: "https://example.com/guides/cloud-vs-on-premise" },
-  openGraph: {
-    title:
-      "Cloud vs. eigener Server – einfach erklärt (inkl. Checkliste & Beispiele)",
-    description:
-      "Entscheidungshilfe für Geschäftsführung & IT: Kosten, Sicherheit, Flexibilität und Regeln im Überblick – inkl. Schritt-für-Schritt-Anleitung und Kontakt.",
-    type: "article",
-    images: ["https://images.example.com/hero-cloud-onprem.jpg"],
-  },
+// ---------- Helper ----------
+const formatDateDE = (date = new Date()) =>
+  new Intl.DateTimeFormat("de-DE", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+    timeZone: "Europe/Berlin",
+  }).format(date);
+
+const racingGreen = "from-emerald-700 to-emerald-500"; // Accent gradient
+const accent = "text-emerald-700";
+
+// ---------- Content Data (edit freely) ----------
+const author = {
+  name: "Lena Koch",
+  role: "Cloud & Infrastructure Strategin (12+ Jahre Erfahrung)",
+  image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=240&h=240&q=80&crop=faces&fit=crop",
+  linkedin: "https://www.linkedin.com/in/lenakoch/",
 };
 
-export default function Page() {
-  const ldArticle = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline:
-      "Cloud vs. On-Premise: Einfacher Vergleich von Kosten, Sicherheit & Flexibilität",
-    datePublished: "2025-08-18",
-    dateModified: "2025-08-18",
-    author: {
-      "@type": "Person",
-      name: "Dr. Alex Neumann",
-      jobTitle: "Cloud-Architekt & FinOps-Practitioner",
-      image: "https://images.example.com/authors/alex-neumann.jpg",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "AI Blog-Artikel",
-      logo: { "@type": "ImageObject", url: "https://images.example.com/logo.png" },
-    },
-    image: "https://images.example.com/hero-cloud-onprem.jpg",
-    mainEntityOfPage: "https://example.com/guides/cloud-vs-on-premise",
-    about: ["Cloud", "On-Premise", "Hybrid Cloud", "FinOps", "NIS2", "DORA"],
-  };
+const company = {
+  name: "Deine Firma GmbH",
+  url: "https://www.deinefirma.de",
+  logo: "https://images.unsplash.com/photo-1548345680-f5475ea5df84?w=256&h=256&q=80&fit=crop&crop=faces",
+};
 
-  const ldFaq = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Wie vergleiche ich die Kosten von Cloud und eigenem Server fair?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Vergleiche immer das Gleiche mit dem Gleichen: gleiche Ausfallsicherheit, gleiche Leistung, gleiche Verfügbarkeit. Rechne auch versteckte Posten ein: Datenübertragung (Egress), Softwarelizenzen, Personalaufwand, Strom/Kühlung, Abschreibungen und mögliche Ausfallkosten.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Wann lohnt sich eine Kombination (Hybrid)?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Wenn sehr sensible Daten besser im Haus bleiben, du aber bei schwankender Last schnell zusätzliche Leistung brauchst. Wichtig: gutes Netzwerk, einheitliche Zugriffsregeln (IAM) und gemeinsames Monitoring.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Wie setze ich NIS2/DORA praktisch um?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Lege für jede Anwendung fest, welche Schutzmaßnahmen gelten (z. B. Härtung, Protokollierung, Notfallabläufe). Halte Nachweise bereit, teste regelmäßig und prüfe deine Dienstleister – inklusive Ausstiegsplan.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Welche Anwendungen passen besonders gut in die Cloud?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Alles, was stark schwankt oder weltweit genutzt wird, z. B. Online‑Shops, Streaming, Software‑Plattformen (SaaS) oder KI‑Training.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Was ist Vendor‑Lock‑in – und wie vermeide ich es?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Vendor‑Lock‑in bedeutet Abhängigkeit von einem Anbieter. Gegensteuern kannst du mit offenen Standards (z. B. Container), exportierbaren Daten, klaren Verträgen zur Portabilität und – wo sinnvoll – Ausweichmöglichkeiten (Multi‑Region/Provider).",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Spielt Nachhaltigkeit bei der Entscheidung eine Rolle?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Ja. Große Cloud‑Anbieter arbeiten oft energie‑ und CO₂‑effizienter. Entscheidend sind Region und Architektur. Nutze die Emissions‑Dashboards der Anbieter und vergleiche die Werte mit deinen eigenen.",
-        },
-      },
-    ],
-  };
+// Sections used for ToC and reading time (strings only). Keep ids stable!
+const sections = [
+  {
+    id: "grundlagen",
+    title: "Was steckt hinter Cloud und eigenem Server?",
+    content:
+      "Cloud-Computing steht für die Bereitstellung von Rechenleistung, Speicher und Software über das Internet – flexibel, nutzungsbasiert und in Minuten bereit. Das Gegenstück sind eigene Server (On-Premises), die im eigenen Rechenraum oder Colocation stehen und in der Regel als Investitionsgut angeschafft und vom internen Team betrieben werden. In der Praxis dominiert heute der Hybridansatz: Teile laufen in der Public Cloud, andere bleiben aus fachlichen, regulatorischen oder Kostengründen on‑premises. Wichtige Basisbegriffe: Service-Modelle (IaaS, PaaS, SaaS), Betriebsmodelle (Public, Private, Hybrid), sowie CapEx vs. OpEx – also Investition versus laufender Aufwand.",
+  },
+  {
+    id: "status-quo",
+    title: "Status Quo & Trends: Hybrid wird zur Norm",
+    content:
+      "Unabhängige Branchenberichte zeigen: Mehr als die Hälfte der Workloads liegt inzwischen außerhalb eigener Rechenzentren, dennoch behalten viele Unternehmen kritische Systeme on‑premises. Gleichzeitig steigt der Druck durch KI‑Workloads und Regulatorik. Energie- und Nachhaltigkeitsthemen rücken in den Vordergrund; PUE-Werte moderner Rechenzentren verbessern sich nur langsam, während die Leistungsdichte pro Rack steigt. Für Entscheider heißt das: Architekturentscheidungen müssen Kosten, Geschwindigkeit, Compliance und Nachhaltigkeit ganzheitlich balancieren.",
+  },
+  {
+    id: "kosten",
+    title: "Kosten & Wirtschaftlichkeit: TCO, FinOps und Planbarkeit",
+    content:
+      "Die Cloud verschiebt Ausgaben von CapEx zu OpEx und ermöglicht feingranulare Skalierung – ein Vorteil, wenn Nachfrage schwankt oder Time‑to‑Market zählt. Gleichzeitig sind Kostentransparenz und -steuerung zentrale Stolpersteine: Ohne saubere Governance und FinOps entstehen leicht Mehrausgaben (z. B. durch überdimensionierte Instanzen, vergessene Volumes, ungenutzte Reservierungen). On‑premises kann bei konstanten, gut planbaren Lasten günstiger sein, verlangt aber Vorinvestitionen, Lifecycle‑Management und Fachpersonal. Der wirtschaftliche Sweet Spot ist oft ein Hybridmix: Baseline‑Last on‑premises, variable Spitzen in die Cloud.",
+  },
+  {
+    id: "compliance",
+    title: "Compliance, Sicherheit & Souveränität: EU‑Regeln im Blick",
+    content:
+      "Mit NIS2 (ab Oktober 2024 in den Mitgliedstaaten anzuwenden) und DORA (seit 17. Januar 2025 im Finanzsektor) steigen die Anforderungen an Resilienz, Risiko- und Lieferkettenmanagement. Die EU‑Data‑Act‑Regeln zu Datenzugang und Cloud‑Wechsel treten ab 12. September 2025 stufenweise in Kraft und sollen Anbieterwechsel erleichtern. Für deutsche Unternehmen ist zudem der BSI‑C5‑Standard ein wichtiger Prüfmaßstab für Cloud‑Services. Souveränitätsangebote (z. B. EU‑Datenräume, EU‑Data‑Boundary, Sovereign Controls) mindern extraterritoriale Zugriffsrisiken, ersetzen aber keine eigene Verschlüsselungs‑ und Schlüsselstrategie.",
+  },
+  {
+    id: "auswahl",
+    title: "Entscheidungsrahmen: In 7 Schritten zur passenden Zielarchitektur",
+    content:
+      "Die Wahl zwischen Cloud und eigenem Server ist kein Entweder‑oder, sondern ein Portfolio- und Architekturthema. Ein tragfähiger Entscheidungsrahmen betrachtet Business‑Treiber (Time‑to‑Value, Differenzierung), technische Anforderungen (Latenz, Datenlokation, Integrationen), Risiko & Compliance (Branchenregeln, Audits) sowie Kosten über die Laufzeit. Ergebnis ist meist eine Zielarchitektur mit klaren Guardrails, Plattform‑Standards und Migrations‑Roadmap, die neben TCO auch Wertbeiträge wie Innovationsgeschwindigkeit oder Qualitätsgewinne quantifiziert.",
+  },
+  {
+    id: "fehler",
+    title: "Typische Fehler & Risiken – und wie du sie vermeidest",
+    content:
+      "Häufige Fehler sind: Nur auf Infrastrukturkosten zu schauen (statt Gesamtwert), mangelnde Exit‑Strategien, unklare Verantwortlichkeiten zwischen IT und Fachbereich, zu wenig Automatisierung sowie fehlende Kosten- und Sicherheits-Governance. Gegenmaßnahmen: Cloud‑Landing‑Zone oder On‑Prem‑Standards sauber designen, FinOps und SecOps früh verankern, Mandanten‑ und Zugriffsmodelle hart regeln, Datenklassifizierung und Verschlüsselung flächendeckend umsetzen und technische wie vertragliche Exit‑Pfade vorbereiten.",
+  },
+];
 
-  const css = `
-    .page{--bg:#fff;--card:#fff;--muted:#4b5563;--text:#111827;--accent:#004225;--accent-2:#1a7f5a;--ok:#0f7a4a;--warn:#b45309;--danger:#b91c1c;--border:#e5e7eb;--radius:16px;--shadow:0 8px 30px rgba(0,0,0,.06);color:var(--text);background:var(--bg)}
-    .container{max-width:1100px;margin:0 auto;padding:0 16px}
-    .hero{padding:56px 20px 28px;background:#fff;border-bottom:1px solid var(--border)}
-    h1{font-size:clamp(28px,4vw,44px);line-height:1.1;margin:0 0 8px}
-    .subhead{font-size:clamp(16px,2vw,20px);color:#374151;margin:0 0 20px}
-    .byline{display:flex;gap:16px;align-items:center;margin-top:18px;color:var(--muted)}
-    .byline img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid #f3f4f6}
-    .meta{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
-    .badges{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-    .badge{background:#f0fdf4;border:1px solid #bbf7d0;color:#065f46;padding:8px 12px;border-radius:999px;font-weight:600}
-    .soft-cta{display:inline-flex;align-items:center;gap:10px;margin-top:14px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:12px 18px;border-radius:999px;font-weight:700;text-decoration:none;box-shadow:var(--shadow)}
-    article{padding:28px 0 60px}
-    .tldr,.infobox,.placeholder,.cta-panel,.quote,.table-wrap,.screenshot{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .tldr{padding:18px;margin:20px 0}
-    .tldr h2{margin:0 0 8px;font-size:18px}
-    .tldr ul{margin:10px 0 0 18px}
-    .toc{margin:24px 0}
-    .toc .toc-inner{padding:16px}
-    .toc a{display:block;color:#374151;padding:8px 0;border-bottom:1px dashed var(--border);text-decoration:none}
-    section{margin:34px 0}
-    section h2{font-size:26px;margin:0 0 12px}
-    section h3{font-size:20px;margin:18px 0 8px}
-    .infobox{padding:16px;border-left:4px solid var(--accent);margin:14px 0}
-    .quote{padding:16px;font-style:italic;border-left:4px solid var(--accent);color:#111827;margin:16px 0;background:#f9fafb}
-    .placeholder{padding:20px;text-align:center;color:#6b7280;display:flex;justify-content:center;align-items:center;min-height:160px;background:#fafafa}
-    .table{width:100%;border-collapse:collapse}
-    .table th,.table td{border-bottom:1px solid var(--border);padding:12px 10px;text-align:left}
-    .grid{display:grid;gap:18px}
-    .grid-2{grid-template-columns:1fr 1fr}
-    @media(max-width:860px){.grid-2{grid-template-columns:1fr}}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .chip{border:1px solid var(--border);border-radius:999px;padding:6px 10px;color:#374151;background:#fff}
-    .cta-panel{padding:22px;border:2px dashed var(--border);margin:30px 0}
-    form label{display:block;margin:10px 0 6px;color:#374151}
-    input,textarea,select{width:100%;padding:12px;border-radius:12px;border:1px solid #d1d5db;background:#fff;color:var(--text)}
-    button.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:0;padding:12px 18px;border-radius:12px;font-weight:800;cursor:pointer}
-    .footnotes{font-size:14px;color:#4b5563}
-    footer{padding:36px 0;border-top:1px solid var(--border);color:#4b5563}
-    .author-card{display:flex;gap:16px;align-items:flex-start}
-    .author-card img{width:64px;height:64px;border-radius:14px;border:2px solid #f3f4f6}
-    .tags{margin-top:8px}
-    .tags a{margin-right:10px;color:var(--accent-2);text-decoration:none}
-    .micro-ctas a{display:inline-block;margin:10px 12px 0 0;color:var(--accent-2);text-decoration:none}
-    .small{font-size:13px}
-    .btn-download{display:inline-block;margin-top:10px;background:#fff;border:1px solid var(--border);padding:10px 14px;border-radius:12px;color:#111827;text-decoration:none}
-    .btn-download:hover{border-color:var(--accent);color:#000}
+const wordCount = sections.reduce((sum, s) => sum + s.content.split(/\s+/).length, 0);
+const readingMinutes = Math.max(8, Math.ceil(wordCount / 180)); // 180 wpm conservative
 
-    /* Modal Popup */
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px;z-index:9999}
-    .modal-backdrop.show{display:flex}
-    .modal{background:#fff;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);max-width:560px;width:100%;padding:20px}
-    .modal h3{margin:0 0 8px;font-size:20px}
-    .modal p{margin:8px 0 0;color:#374151}
-    .modal a{color:var(--accent-2);text-decoration:underline}
-    .modal .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:16px}
-    .modal .btn{border:1px solid var(--border);background:#fff;border-radius:12px;padding:8px 12px;cursor:pointer}
-    .modal .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:0}
-  `;
+// ---------- UI Components ----------
+const TLDRItem = ({ icon: Icon, children }) => (
+  <li className="flex items-start gap-3">
+    <Icon className={`w-5 h-5 mt-1 ${accent}`} aria-hidden />
+    <span>{children}</span>
+  </li>
+);
+
+const Pill = ({ children }) => (
+  <span className={`inline-flex items-center rounded-full bg-gradient-to-r ${racingGreen} text-white px-3 py-1 text-xs font-medium`}>{children}</span>
+);
+
+const Anchor = ({ id }) => <div id={id} aria-hidden className="pt-24 -mt-24" />; // stable anchor offsets
+
+// Simple static SVG chart (no client JS) – Cloud vs On‑Prem scoring per Kriterium
+const ComparisonChart = () => {
+  const items = [
+    { k: "Time‑to‑Market", cloud: 9, onprem: 5 },
+    { k: "Skalierung", cloud: 9, onprem: 6 },
+    { k: "Planbare Kosten", cloud: 6, onprem: 8 },
+    { k: "Compliance/Kontrolle", cloud: 7, onprem: 9 },
+    { k: "Latenz/Edge", cloud: 7, onprem: 8 },
+    { k: "Innovation/Services", cloud: 9, onprem: 6 },
+  ];
+  const max = 10;
+  const barH = 24;
+  const pad = 18;
+  const width = 680;
+  const left = 180;
+  const right = width - 20;
+  const scale = (v) => ((right - left) * (v / max));
+  return (
+    <figure className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+      <figcaption className="text-sm text-zinc-600 mb-2">Vergleich (0–10): Funktionswert pro Kriterium. Grün = Cloud, Grau = Eigener Server.</figcaption>
+      <svg viewBox={`0 0 ${width} ${items.length * (barH + pad) + 20}`} role="img" aria-label="Diagramm: Cloud vs. eigener Server pro Kriterium">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1">
+            <stop offset="0%" stopColor="#047857" />
+            <stop offset="100%" stopColor="#10b981" />
+          </linearGradient>
+        </defs>
+        {items.map((row, i) => {
+          const y = 10 + i * (barH + pad);
+          return (
+            <g key={row.k}>
+              <text x={10} y={y + barH - 6} className="fill-zinc-700" fontSize="12">{row.k}</text>
+              {/* On‑prem (grey) */}
+              <rect x={left} y={y} width={scale(row.onprem)} height={barH} fill="#e5e7eb" rx="8" />
+              {/* Cloud (green gradient) */}
+              <rect x={left} y={y} width={scale(row.cloud)} height={barH} fill="url(#g1)" rx="8" />
+              {/* Scales */}
+              <text x={left + scale(row.cloud) + 6} y={y + barH - 6} fontSize="11" className="fill-emerald-700">{row.cloud}</text>
+              <text x={left + scale(row.onprem) + 6} y={y + 12} fontSize="11" className="fill-zinc-500">{row.onprem}</text>
+            </g>
+          );
+        })}
+      </svg>
+    </figure>
+  );
+};
+
+export default function Article() {
+  const updated = formatDateDE();
+  const title = "Cloud oder eigener Server – was passt besser zu deinem Unternehmen?";
+  const description = "Cloud vs. eigener Server im B2B‑Vergleich: Kosten, Compliance (NIS2, DORA, Data Act), Performance, Sicherheit, Souveränität – mit Entscheidungsrahmen, Checklisten & Beispielen.";
+  const canonical = `${company.url}/blog/cloud-oder-eigener-server`;
 
   return (
-    <div className="page">
-      {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(ldArticle) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(ldFaq) }}
-      />
+    <>
+      <Head>
+        <title>{`${title} | ${company.name}`}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={`${company.url}/og/cloud-vs-onprem.jpg`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={`${company.url}/og/cloud-vs-onprem.jpg`} />
 
-      {/* Lesedauer */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(){
-              var el = document.querySelector('.page article');
-              if(!el) return;
-              var text = (el.innerText || el.textContent || '').trim();
-              var words = (text.match(/\\S+/g) || []).length;
-              var minutes = Math.max(4, Math.round(words / 230));
-              var rt = document.getElementById('readingTime');
-              if(rt) rt.textContent = minutes + ' Min.';
-            })();
-          `,
-        }}
-      />
+        {/* Article Schema.org */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: title,
+              description,
+              inLanguage: 'de',
+              author: {
+                '@type': 'Person',
+                name: author.name,
+              },
+              datePublished: new Date().toISOString(),
+              dateModified: new Date().toISOString(),
+              image: `${company.url}/og/cloud-vs-onprem.jpg`,
+              publisher: {
+                '@type': 'Organization',
+                name: company.name,
+                url: company.url,
+                logo: {
+                  '@type': 'ImageObject',
+                  url: company.logo,
+                },
+              },
+              mainEntityOfPage: canonical,
+            }),
+          }}
+        />
 
-      {/* Globaler Pop-up-Handler (mit echtem Link auf "Klicke hier") */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(){
-              var calendly = "https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung";
-              function isInsideTOC(node){
-                while(node){
-                  if(node.classList && node.classList.contains('toc')) return true;
-                  node = node.parentElement;
-                }
-                return false;
-              }
-              function showPopup(){
-                var backdrop = document.getElementById('popup-backdrop');
-                if(!backdrop) return;
-                backdrop.classList.add('show');
-                var closeBtn = backdrop.querySelector('[data-close]');
-                closeBtn && closeBtn.focus();
-              }
-              function hidePopup(){
-                var backdrop = document.getElementById('popup-backdrop');
-                if(!backdrop) return;
-                backdrop.classList.remove('show');
-              }
-              document.addEventListener('click', function(e){
-                var a = e.target.closest('a');
-                if(!a) return;
-                if(isInsideTOC(a)) return; // TOC darf normal navigieren
-                if(a.id === 'popup-calendly-link') return; // Calendly-Link NICHT abfangen
-                if(a.hasAttribute('data-bypass-popup')) return; // optionaler Escape-Hatch
-                e.preventDefault();
-                showPopup();
-              }, true);
-              document.addEventListener('submit', function(e){
-                e.preventDefault();
-                showPopup();
-              }, true);
-              document.addEventListener('keydown', function(e){
-                if(e.key === 'Escape') hidePopup();
-              });
-              document.addEventListener('click', function(e){
-                var backdrop = document.getElementById('popup-backdrop');
-                if(!backdrop) return;
-                if(e.target === backdrop) hidePopup();
-                if(e.target.closest('[data-close]')) hidePopup();
-              });
-              // Setze den echten Link-Target auf das "Klicke hier"
-              document.addEventListener('DOMContentLoaded', function(){
-                var link = document.getElementById('popup-calendly-link');
-                if(link){
-                  link.setAttribute('href', calendly);
-                  link.setAttribute('target', '_blank');
-                  link.setAttribute('rel', 'noopener noreferrer');
-                }
-              });
-            })();
-          `,
-        }}
-      />
+        {/* Company Schema.org */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: company.name,
+              url: company.url,
+              logo: company.logo,
+            }),
+          }}
+        />
+      </Head>
 
-      {/* Styles */}
-      <style dangerouslySetInnerHTML={{ __html: css }} />
-
-      {/* Modal Markup */}
-      <div id="popup-backdrop" className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-        <div className="modal">
-          <h3 id="popup-title">Hinweis</h3>
-          <p>
-            Die Verlinkungen im Beispiel‑Blog sind eingeschränkt und werden für dein Angebot individuell eingerichtet. Neugierig?{' '}
-            <a id="popup-calendly-link">
-              Klicke hier
-            </a>{' '}
-            und buche dir dein Erstgespräch.
-          </p>
-          <div className="actions">
-            <button className="btn" type="button" data-close>Schließen</button>
-          </div>
-        </div>
-      </div>
-
-      <header className="hero">
-        <div className="container">
-          <h1 itemProp="headline">
-            Cloud oder eigener Server – was passt besser zu deinem Unternehmen?
+      <article lang="de" className="relative mx-auto max-w-4xl px-5 sm:px-6 lg:px-8 py-10 text-zinc-900">
+        {/* Header */}
+        <header className="mb-10">
+          <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
+            {title}
           </h1>
-          <p className="subhead">
-            Wir erklären die Unterschiede Schritt für Schritt: Was kostet es, wie sicher ist es und wie schnell kannst du starten? Mit echten Beispielen und einer einfachen Checkliste.
+          <p className="mt-3 text-lg text-zinc-700">
+            Cloud, On‑Premises oder Hybrid? Dieser praxisnahe Leitfaden zeigt dir, wie du Kosten, Risiko, Compliance und Geschwindigkeit so ausbalancierst, dass die Architektur zu deinen Zielen passt.
           </p>
 
-          {/* Hero Bild – zwischen Subhead (Text darüber) und CTA */}
-          <div
-            className="placeholder"
-            role="img"
-            aria-label="Hero Bild Platzhalter"
-            style={{ margin: "6px 0 10px" }}
-          >
-            Hero‑Bild Platzhalter (1920×640)
-          </div>
-
-          <a className="soft-cta" href="#template">
-            Jetzt Checkliste & Template öffnen
-          </a>
-
-          <div className="byline">
-            <img
-              src="https://images.example.com/authors/alex-neumann.jpg"
-              alt="Autor: Dr. Alex Neumann"
-              loading="lazy"
-            />
-            <div>
-              <div>
-                <strong itemProp="author">Dr. Alex Neumann</strong> ·
-                Cloud‑Architekt &amp; FinOps‑Praktiker
-              </div>
-              <div className="meta">
-                <span>
-                  Zuletzt aktualisiert:{' '}
-                  <time itemProp="dateModified" dateTime="2025-08-18">
-                    18.08.2025
-                  </time>
-                </span>
-                <span>
-                  Lesedauer: <span id="readingTime">–</span>
-                </span>
+          {/* Hero placeholder */}
+          <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">
+            <div className={`h-64 sm:h-80 w-full bg-gradient-to-r ${racingGreen} p-6 flex items-end`}> 
+              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-sm max-w-lg">
+                <p className="text-sm text-zinc-700">
+                  <strong>Hero‑Bild (Platzhalter):</strong> Moderne Serverracks links, stilisierte Cloud‑Silhouette rechts. Dazwischen ein Pfeil‑Flow, der Hybrid illustriert. Farbakkente in Racing‑Green.
+                </p>
               </div>
             </div>
-          </div>
+            <figcaption className="sr-only">Illustration eines Hybrid‑Setups aus Cloud und eigenen Servern</figcaption>
+          </figure>
 
-          <div className="badges">
-            <span className="badge">Mit Checkliste</span>
-            <span className="badge">Aktuelle Zahlen</span>
-            <span className="badge">EU‑Regeln (NIS2/DORA) erklärt</span>
+          {/* Meta row */}
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-zinc-600">
+            <div className="flex items-center gap-3">
+              <img src={author.image} alt="Autor:in" className="w-10 h-10 rounded-full object-cover" loading="lazy" />
+              <div>
+                <div className="font-medium text-zinc-900">{author.name}</div>
+                <div>{author.role}</div>
+              </div>
+            </div>
+            <span className="hidden sm:inline" aria-hidden>•</span>
+            <div>Zuletzt aktualisiert: <time dateTime={new Date().toISOString()}>{updated}</time></div>
+            <span className="hidden sm:inline" aria-hidden>•</span>
+            <div>Lesedauer: {readingMinutes} Min</div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      <article className="container" itemProp="articleBody">
-        {/* Das Wichtigste auf einen Blick */}
-        <section className="tldr" aria-label="Das Wichtigste auf einen Blick">
-          <h2>Kurz & klar</h2>
-          <ul>
-            <li>
-              <strong>Entscheide pro Anwendung</strong> statt aus dem Bauch: Zähle Latenz (Reaktionszeit), Datenschutz, Flexibilität und Kosten mit.
-            </li>
-            <li>
-              <strong>Cloud beschleunigt & skaliert</strong> – aber nur mit guter Kostensteuerung (FinOps = "Cloud‑Kosten im Griff").
-            </li>
-            <li>
-              <strong>Eigener Server (On‑Premise)</strong> ist stark bei sehr kurzer Reaktionszeit, Spezial‑Hardware, voller Datenkontrolle und gleichmäßiger Last.
-            </li>
-            <li>
-              <strong>Compliance</strong>: EU‑Vorgaben wie NIS2/DORA verlangen Nachweise, klare Abläufe und Tests – egal ob Cloud oder On‑Prem.
-            </li>
+        {/* TL;DR */}
+        <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+          <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
+          <ul className="space-y-3">
+            <TLDRItem icon={Gauge}>Cloud punktet bei <strong>Time‑to‑Market</strong> und <strong>Skalierung</strong>; On‑Premises überzeugt mit <strong>Planbarkeit</strong> und <strong>hoher Kontrolle</strong>.</TLDRItem>
+            <TLDRItem icon={ShieldCheck}>Regulatorik: <strong>NIS2</strong> (ab 18.10.2024 wirksam), <strong>DORA</strong> (seit 17.01.2025) und der <strong>Data Act</strong> (ab 12.09.2025) beeinflussen Architektur‑ und Anbieterwahl.</TLDRItem>
+            <TLDRItem icon={PiggyBank}>Ohne <strong>FinOps</strong> bzw. Kosten‑Governance wird Cloud schnell teuer. Konstante Grundlasten können on‑prem günstiger laufen.</TLDRItem>
+            <TLDRItem icon={Network}>Die Realität ist <strong>Hybrid</strong>: Baseline on‑prem, variable Spitzen in die Cloud – mit klaren Guardrails und Exit‑Strategien.</TLDRItem>
+            <TLDRItem icon={FileSearch}>Nutze <strong>Datenklassifizierung</strong> und <strong>Verschlüsselung mit eigenem Key‑Management</strong>, um Souveränitätsrisiken zu reduzieren.</TLDRItem>
           </ul>
-        </section>
+        </aside>
 
-        {/* Inhaltsverzeichnis */}
-        <nav className="toc">
-          <div className="toc-inner infobox">
-            <div className="kicker">Inhalt</div>
-            <a href="#definition">1. Grundlagen – was ist was?</a>
-            <a href="#nutzen">2. Nutzen & Entscheidungen im Alltag</a>
-            <a href="#frameworks">3. Modelle & Entscheidungshilfe</a>
-            <a href="#howto">4. Schritt‑für‑Schritt‑Checkliste</a>
-            <a href="#usecases">5. Praxisbeispiele</a>
-            <a href="#tools">6. Nützliche Tools & Vorlagen</a>
-            <a href="#risks">7. Risiken vermeiden – Best Practices</a>
-            <a href="#faq">8. FAQ</a>
-            <a href="#kontakt">9. Kontakt & Demo</a>
-          </div>
+        {/* ToC */}
+        <nav aria-label="Inhaltsverzeichnis" className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+          <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
+          <ol className="list-decimal ml-5 space-y-2">
+            <li><a className={`hover:underline ${accent} font-medium`} href="#grundlagen">Was steckt hinter Cloud und eigenem Server?</a></li>
+            <li><a className={`hover:underline ${accent} font-medium`} href="#status-quo">Status Quo & Trends: Hybrid wird zur Norm</a></li>
+            <li><a className={`hover:underline ${accent} font-medium`} href="#kosten">Kosten & Wirtschaftlichkeit: TCO, FinOps und Planbarkeit</a></li>
+            <li><a className={`hover:underline ${accent} font-medium`} href="#compliance">Compliance, Sicherheit & Souveränität: EU‑Regeln im Blick</a></li>
+            <li><a className={`hover:underline ${accent} font-medium`} href="#auswahl">Entscheidungsrahmen: In 7 Schritten zur passenden Zielarchitektur</a></li>
+            <li><a className={`hover:underline ${accent} font-medium`} href="#fehler">Typische Fehler & Risiken – und wie du sie vermeidest</a></li>
+            <li><a className={`hover:underline ${accent} font-medium`} href="#faq">FAQ</a></li>
+            <li><a className={`hover:underline ${accent} font-medium`} href="#zusammenfassung">Zusammenfassung</a></li>
+          </ol>
         </nav>
 
-        {/* Definition & Grundlagen */}
-        <section id="definition">
-          <h2>Grundlagen: Cloud, eigener Server & Hybrid</h2>
-          <p>
-            <strong>Cloud</strong> bedeutet: Rechenleistung, Speicher und Datenbanken werden als Service über das Internet bereitgestellt – du mietest also, was du brauchst.
-            <strong> On‑Premise</strong> heißt: Deine Systeme laufen im eigenen Rechenraum oder in einem gemieteten Rack – du kaufst und betreibst selbst.
-            <strong> Hybrid</strong> mischt beides, <strong>Multi‑Cloud</strong> nutzt mehrere Cloud‑Anbieter parallel.
-          </p>
-          <div className="infobox">
-            <strong>Abgrenzung in einfachen Worten:</strong> Eine <em>Private Cloud</em> ist eine "eigene Cloud" (z. B. mit VMware oder OpenStack) – sie kann bei dir stehen oder extern betrieben werden. <em>Edge</em> sind kleine lokale Rechenknoten vor Ort, wenn es auf Millisekunden ankommt (z. B. in der Fertigung).
-          </div>
-          <div
-            className="placeholder"
-            role="img"
-            aria-label="Diagramm: Architektur-Optionen"
-          >
-            Diagramm‑Platzhalter – Optionen: On‑Prem · Private Cloud · Public Cloud · Hybrid/Edge
-          </div>
-        </section>
+        {/* Content */}
+        <section>
+          {/* 1 */}
+          <Anchor id="grundlagen" />
+          <h2 className="text-2xl font-bold mb-4">{sections[0].title}</h2>
+          <p className="mb-6 leading-relaxed">{sections[0].content}</p>
 
-        {/* Nutzen & Business-Relevanz */}
-        <section id="nutzen">
-          <h2>Warum das Thema wichtig ist</h2>
-          <p>
-            Die Ausgaben für Cloud wachsen weiter kräftig. Gründe: Datenplattformen und KI benötigen oft kurzfristig viel Leistung – in der Cloud lässt sich das flexibel zuschalten. Das hilft beim schnelleren Go‑to‑Market und bei Innovationen.
-          </p>
-
-          <p>
-            Gleichzeitig ringen viele Firmen mit der <strong>Kostenkontrolle</strong>. Studien zeigen: Budgets werden häufig überschritten, und Ausgaben steigen. Darum wird <em>FinOps</em> wichtiger – das ist im Kern ein gemeinsamer Prozess von Technik und Finanzen, um Cloud‑Kosten planbar zu machen.
-          </p>
-
-          <blockquote className="quote">
-            „Ohne klare Verantwortliche für Kosten – von der Architektur bis zum Betrieb – wirkt die Cloud schnell wie ein Blankoscheck.“
-          </blockquote>
-
-          <div className="grid grid-2">
-            <div className="infobox">
-              <strong>Sicherheit & Regeln (EU):</strong> <em>NIS2</em> sind neue Sicherheitsvorgaben für viele Organisationen. Für die Finanzbranche gilt zusätzlich <em>DORA</em>. Beide verlangen klare Prozesse, regelmäßige Tests und Nachweise – unabhängig vom gewählten Modell.
+          <div className="grid sm:grid-cols-2 gap-5 mb-10">
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <div className="flex items-center gap-2 mb-2"><Cloud className={`w-5 h-5 ${accent}`} /><strong>Cloud – Kurz erklärt</strong></div>
+              <ul className="space-y-2 text-sm">
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Bereitstellung in Minuten, elastische Skalierung, globale Reichweite.</li>
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Bezahlung nach Nutzung (OpEx), viele Managed Services.</li>
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Souveränitäts‑Optionen (z. B. EU‑Data‑Boundary, Sovereign Controls).</li>
+              </ul>
             </div>
-            <div className="infobox">
-              <strong>Stabilität & Ausfälle:</strong> Ausfälle passieren seltener, sind aber oft teurer. Plane daher nicht nur Verfügbarkeit, sondern auch die Kosten von Ausfallzeiten mit ein.
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <div className="flex items-center gap-2 mb-2"><Server className={`w-5 h-5 ${accent}`} /><strong>Eigener Server – Kurz erklärt</strong></div>
+              <ul className="space-y-2 text-sm">
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Maximale physische Kontrolle, feste Latenzen, lokale Datenhaltung.</li>
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Hoher CapEx, Lifecycle‑Management, Hardware‑/Energieverantwortung.</li>
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Ideal für konstante Baseline‑Lasten und Spezialhardware.</li>
+              </ul>
             </div>
           </div>
 
-          <div className="infobox">
-            <strong>Nachhaltigkeit:</strong> Große Cloud‑Anbieter sind oft energie‑ und CO₂‑effizienter als der Betrieb im eigenen Haus. Nutze Emissions‑Dashboards der Anbieter, und vergleiche die Werte mit deinen Zahlen – Standort und Architektur machen einen großen Unterschied.
-          </div>
-        </section>
+          {/* 2 */}
+          <Anchor id="status-quo" />
+          <h2 className="text-2xl font-bold mb-4">{sections[1].title}</h2>
+          <p className="mb-5 leading-relaxed">{sections[1].content}</p>
 
-        {/* Modelle & Framework */}
-        <section id="frameworks">
-          <h2>Modelle & Entscheidungshilfe</h2>
-          <h3>Wo läuft welche Anwendung am besten?</h3>
-          <div
-            className="table-wrap placeholder"
-            aria-label="Tabelle: Workload-Placement-Matrix"
-          >
-            <table className="table" aria-describedby="matrix-desc">
-              <caption id="matrix-desc" className="small">
-                Einfache Orientierung (mehr Sterne = tendenziell besser)
-              </caption>
+          {/* Chart */}
+          <ComparisonChart />
+
+          {/* Expertenzitat */}
+          <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+            <blockquote className="text-lg font-medium">
+              „Hybrid ist kein Kompromiss, sondern die passende Antwort auf unterschiedliche Risiko‑, Leistungs‑ und Regulierungsprofile im selben Unternehmen.“
+            </blockquote>
+            <figcaption className="mt-2 text-sm text-zinc-600">— Redaktionelle Einschätzung auf Basis aktueller Branchenreports</figcaption>
+          </figure>
+
+          {/* 3 */}
+          <Anchor id="kosten" />
+          <h2 className="text-2xl font-bold mt-10 mb-4">{sections[2].title}</h2>
+          <p className="leading-relaxed mb-4">{sections[2].content}</p>
+
+          <div className="mt-4 grid md:grid-cols-2 gap-6">
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold mb-2 flex items-center gap-2"><PiggyBank className={`w-5 h-5 ${accent}`} /> Wenn Cloud wirtschaftlich vorn liegt</h3>
+              <ul className="space-y-2 text-sm">
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Starke Lastspitzen / saisonale Nutzung</li>
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Schneller Markteintritt, Experimentieren, MVPs</li>
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Zugang zu Managed Services (Datenbanken, ML, Streaming)</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold mb-2 flex items-center gap-2"><BadgeEuro className={`w-5 h-5 ${accent}`} /> Wenn eigener Server wirtschaftlich vorn liegt</h3>
+              <ul className="space-y-2 text-sm">
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Konstante Grundlast, geringe Varianz</li>
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Lizenzmodelle oder Spezialhardware (z. B. FPGA, HBA)</li>
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Datenlokation zwingend und Netzwerk‑Egress kostentreibend</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Vergleichstabelle */}
+          <div className="mt-8 overflow-x-auto">
+            <table className="w-full text-sm border-separate border-spacing-y-2" aria-describedby="vergleich-caption">
+              <caption id="vergleich-caption" className="sr-only">Vergleich Cloud vs. eigener Server nach Aspekten</caption>
               <thead>
-                <tr>
-                  <th>Kriterium</th>
-                  <th>On‑Premise</th>
-                  <th>Public Cloud</th>
-                  <th>Hybrid</th>
+                <tr className="text-left">
+                  <th className="px-3 py-2">Aspekt</th>
+                  <th className="px-3 py-2">Cloud</th>
+                  <th className="px-3 py-2">Eigener Server</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Reaktionszeit (Latenz)</td>
-                  <td>⭐⭐⭐⭐⭐</td>
-                  <td>⭐⭐</td>
-                  <td>⭐⭐⭐⭐</td>
-                </tr>
-                <tr>
-                  <td>Flexibles Hoch‑/Runterskalieren</td>
-                  <td>⭐⭐</td>
-                  <td>⭐⭐⭐⭐⭐</td>
-                  <td>⭐⭐⭐⭐</td>
-                </tr>
-                <tr>
-                  <td>Datenkontrolle/‑standort</td>
-                  <td>⭐⭐⭐⭐⭐</td>
-                  <td>⭐⭐⭐*</td>
-                  <td>⭐⭐⭐⭐</td>
-                </tr>
-                <tr>
-                  <td>Schnelligkeit beim Start (Time‑to‑Market)</td>
-                  <td>⭐⭐⭐</td>
-                  <td>⭐⭐⭐⭐⭐</td>
-                  <td>⭐⭐⭐⭐</td>
-                </tr>
-                <tr>
-                  <td>Kostenmodell</td>
-                  <td>Mehr Fixkosten (CAPEX)</td>
-                  <td>Mehr laufende Kosten (OPEX)</td>
-                  <td>Gemischt</td>
-                </tr>
-                <tr>
-                  <td>Risiko Abhängigkeit (Lock‑in)</td>
-                  <td>Mittel</td>
-                  <td>Hoch*</td>
-                  <td>Mittel</td>
-                </tr>
+                {[
+                  {
+                    a: "Kostenmodell",
+                    c: "OpEx, nutzungsbasiert; FinOps nötig",
+                    o: "CapEx + laufende Kosten; planbar bei konstanter Last",
+                  },
+                  { a: "Bereitstellung", c: "Minuten/Stunden", o: "Wochen/Monate" },
+                  { a: "Skalierung", c: "Elastisch, global", o: "Begrenzt durch Hardware/Colo" },
+                  { a: "Kontrolle", c: "Geteilte Verantwortung", o: "Maximale Hoheit, volle Verantwortung" },
+                  { a: "Souveränität", c: "Boundary/Sovereign‑Optionen", o: "Physisch vor Ort, Schlüsselhoheit" },
+                  { a: "Latenz", c: "Edge/Regions möglich", o: "Standortnah, deterministisch" },
+                ].map((row) => (
+                  <tr key={row.a} className="bg-zinc-50 rounded-xl">
+                    <th scope="row" className="px-3 py-2 font-medium">{row.a}</th>
+                    <td className="px-3 py-2">{row.c}</td>
+                    <td className="px-3 py-2">{row.o}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
-          <p className="small">
-            *Durch Architektur (z. B. Container, offene Schnittstellen) und Verträge (Daten‑Portabilität, Exit‑Regeln) reduzierbar.
-          </p>
 
-          <h3>Compliance‑Brille für die EU</h3>
-          <p>
-            Für <strong>NIS2</strong> lohnt sich ein einfacher Katalog pro Anwendung: Zugriffe, Protokolle, Notfälle, Lieferanten. <strong>DORA</strong> fordert in der Finanzbranche zusätzlich einen sehr genauen Blick auf externe IT‑Dienstleister – inkl. Tests und Register.
-          </p>
-
-          <div className="infobox">
-            <strong>Deutschland (BSI/C5) kurz erklärt:</strong> Das <em>BSI‑C5</em> ist ein anerkannter Mindeststandard für Cloud‑Sicherheit. Viele große Anbieter haben entsprechende Prüfberichte. Prüfe Zeitraum, Umfang und Feststellungen.
+          {/* 4 */}
+          <Anchor id="compliance" />
+          <h2 className="text-2xl font-bold mt-12 mb-4">{sections[3].title}</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
+              <h3 className="font-semibold mb-2 flex items-center gap-2"><ShieldCheck className={`w-5 h-5 ${accent}`} /> Relevante Vorgaben kurz & knapp</h3>
+              <ul className="text-sm space-y-2">
+                <li><Pill>NIS2</Pill> Erhöhte Anforderungen an Cyber‑Resilienz in wichtigen Sektoren (Anwendung in den Mitgliedstaaten seit 18.10.2024).</li>
+                <li><Pill>DORA</Pill> Einheitliche Regeln für digitale Betriebsstabilität im Finanzsektor (gilt seit 17.01.2025).</li>
+                <li><Pill>Data Act</Pill> Erleichtert u. a. <em>Cloud‑Wechsel</em> (Anwendung ab 12.09.2025, mit Übergangsfristen für Wechselgebühren).</li>
+                <li><Pill>BSI C5</Pill> Deutscher Mindeststandard für Cloud‑Sicherheitsaudits (C5‑Testat als Entscheidungsanker).</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
+              <h3 className="font-semibold mb-2 flex items-center gap-2"><Landmark className={`w-5 h-5 ${accent}`} /> Souveränität pragmatisch umsetzen</h3>
+              <ul className="text-sm space-y-2">
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Datenklassifizierung (z. B. Öffentlich, Intern, Vertraulich, Hochsensibel)</li>
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Kundenseitige Verschlüsselung mit <strong>eigenen Schlüsseln</strong> (KMS/HSM extern)</li>
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Regionswahl, EU‑Boundary/Sovereign‑Controls nutzen</li>
+                <li className="flex gap-2"><CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Vertraglich: Exit‑Klauseln, Portabilität, Audit‑/Logging‑Zugriff</li>
+              </ul>
+            </div>
           </div>
 
-          <h3>Kosten & Risiko im Blick</h3>
-          <div className="placeholder" aria-label="Diagramm: TCO & Risiko">
-            Diagramm‑Platzhalter – Kostenblöcke (Rechenleistung, Speicher, Datenübertragung/Egress, Lizenzen, Betrieb) + Risikoblöcke (Ausfall, Compliance, Abhängigkeiten)
-          </div>
-          <div className="chips" aria-label="Beispielfaktoren">
-            <span className="chip">Datenübertragung (Egress)</span>
-            <span className="chip">Rabatte/Commitments</span>
-            <span className="chip">Strom & Kühlung</span>
-            <span className="chip">Personal & Know‑how</span>
-            <span className="chip">Wiederanlauf‑Zeit</span>
-          </div>
-        </section>
+          {/* Bildplatzhalter 1 */}
+          <figure className="mt-8 grid sm:grid-cols-2 gap-5 items-center">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1200&q=80&auto=format&fit=crop" alt="Platzhalterbild: Rechenzentrumsflur mit Serverracks" className="rounded-2xl border border-zinc-200" />
+            <figcaption className="text-sm text-zinc-600">Passendes Motiv: RZ‑Gang, gekennzeichnete EU‑Region – Bildunterschrift betont Datenlokation & Souveränität.</figcaption>
+          </figure>
 
-        {/* How-to */}
-        <section id="howto">
-          <h2>Schritt‑für‑Schritt‑Checkliste</h2>
-          <ol>
-            <li>
-              <strong>Ziele & Kennzahlen klären:</strong> Wie schnell willst du liefern? Wie viel darf es kosten? Welche Verfügbarkeit brauchst du? Nimm auch CO₂‑Ziele mit auf.
-            </li>
-            <li>
-              <strong>Anwendungen einordnen:</strong> Braucht es sehr kurze Reaktionszeiten? Strenge Datenvorgaben? Spezial‑Hardware? Markiere <em>Cloud‑ready</em>, <em>modernisieren</em> oder <em>bleibt lokal</em>.
-            </li>
-            <li>
-              <strong>Kosten & Risiken schätzen:</strong> Laufende (OPEX) vs. feste Kosten (CAPEX), Datenübertragung & Lizenzen – plus typische Kosten im Ausfall.
-            </li>
-            <li>
-              <strong>Regeln abgleichen:</strong> Lege je Anwendung fest, welche Nachweise für NIS2/DORA/BSI‑C5 nötig sind.
-            </li>
-            <li>
-              <strong>Betriebsmodell & FinOps aufsetzen:</strong> Klare Verantwortliche, Tagging, Budgetsicht, automatische Sparregeln (Rightsizing/Abschalt‑Zeiten).
-            </li>
-            <li>
-              <strong>Pilot & Plan B:</strong> Starte klein, beobachte, und halte einen Ausstiegsplan bereit (Datenformate, SLAs, Kündigungsfristen).
-            </li>
+          {/* 5 */}
+          <Anchor id="auswahl" />
+          <h2 className="text-2xl font-bold mt-12 mb-4">{sections[4].title}</h2>
+          <ol className="list-decimal ml-5 space-y-3 leading-relaxed">
+            <li><strong>Geschäftsziele schärfen:</strong> Welche messbaren Outcomes (z. B. Release‑Frequenz, Verfügbarkeit, Margen) sind in 12–24 Monaten nötig?</li>
+            <li><strong>Workloads segmentieren:</strong> Latenz‑kritisch? Datenrestriktionen? Schwankende Last? Lizenz‑/Spezialhardware‑Bedarfe?</li>
+            <li><strong>Regulatorik mappen:</strong> NIS2/DORA‑Pflichten, Data‑Act‑Wechselbarkeit, Branchenstandards (z. B. ISO 27001, BSI C5).</li>
+            <li><strong>Plattform‑Standards definieren:</strong> Cloud‑Landing‑Zone oder On‑Prem‑Referenzarchitektur (Netz, IAM, Observability, Backup/DR).</li>
+            <li><strong>Finanzmodell aufsetzen:</strong> FinOps (Showback/Chargeback, Budgets, Reservierungen), CapEx‑Planung für on‑prem.</li>
+            <li><strong>Security‑by‑Design:</strong> Zero‑Trust, Identities first, flächendeckende Verschlüsselung, Geheimnis‑/Schlüsselverwaltung.</li>
+            <li><strong>Exit‑Strategien vorbereiten:</strong> Daten‑/VM‑Portabilität, Vertragsklauseln, testbare Migrations‑Runbooks (auch zurück!).</li>
           </ol>
 
-          <div id="template" className="infobox">
-            <strong>Template auf Anfrage:</strong> Einfache Entscheidungsmatrix je Anwendung (Kriterien, Gewichtung, Score) + Beispiel‑Regeln (Tagging, Datenübertragung‑Budget) + NIS2/DORA‑Checkliste.
-          </div>
-        </section>
+          {/* Bildplatzhalter 2 */}
+          <figure className="mt-8">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1200&q=80&auto=format&fit=crop" alt="Platzhalterbild: Team plant Architektur auf Whiteboard" className="rounded-2xl border border-zinc-200" />
+            <figcaption className="text-sm text-zinc-600">Illustration eines Architektur‑Workshops: Zielbild, Abhängigkeiten, Migrationswellen.</figcaption>
+          </figure>
 
-        {/* Praxisbeispiele */}
-        <section id="usecases">
-          <h2>Praxisbeispiele</h2>
-          <div className="grid grid-2">
-            <div className="screenshot placeholder">
-              Use‑Case‑Platzhalter – Fertigung (OT/IIoT)
+          {/* 6 */}
+          <Anchor id="fehler" />
+          <h2 className="text-2xl font-bold mt-12 mb-4">{sections[5].title}</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
+              <h3 className="font-semibold mb-2 flex items-center gap-2"><Info className="w-5 h-5 text-rose-700" /> Vermeidbare Fehler</h3>
+              <ul className="text-sm space-y-2">
+                <li>Nur IaaS‑Preise vergleichen statt Gesamtkosten (Netz, Backup, Betrieb, Egress).</li>
+                <li>Keine Rollen & Verantwortlichkeiten (FinOps, SecOps, Plattformteam) definiert.</li>
+                <li>Fehlende Automatisierung/Guardrails – manuelle Konfiguration, Drift, Shadow‑IT.</li>
+                <li>Kein technischer & vertraglicher Exit‑Plan; fehlende Datenportabilität.</li>
+              </ul>
             </div>
-            <div>
-              <h3>Fertigung (nahe an den Maschinen)</h3>
-              <p>
-                Steuerungen und Bildverarbeitung brauchen oft <em>&lt;10 ms</em> Reaktionszeit. Lösung: <strong>On‑Prem/Edge</strong> für die Steuerung, <strong>Cloud</strong> für Training und Auswertung. Daten werden vor Ort gepuffert und regelmäßig in einen zentralen Datenspeicher übertragen.
-              </p>
-            </div>
-
-            <div className="screenshot placeholder">
-              Use‑Case‑Platzhalter – SaaS/Scale‑out
-            </div>
-            <div>
-              <h3>SaaS‑Produkt (stark schwankende Nutzung)</h3>
-              <p>
-                Wenn Nutzung stark schwankt oder international ist, punktet die <strong>Public Cloud</strong>. Mit FinOps (z. B. Rabatte, automatisches Hoch/Runter) bleiben die Kosten planbar; wichtige Kennzahlen sind Kosten pro Kunde und Zeit bis zum Feature‑Release.
-              </p>
-            </div>
-
-            <div className="screenshot placeholder">
-              Use‑Case‑Platzhalter – Financial Services
-            </div>
-            <div>
-              <h3>Bank/Versicherung (DORA)</h3>
-              <p>
-                Strenge <strong>Kontrolle externer IT‑Dienstleister</strong> und Resilienz‑Tests sind Pflicht. Häufige Lösung ist <strong>Hybrid</strong>: Kernsysteme bleiben lokal/Private Cloud, Analysen & KI laufen in der Public Cloud – inklusive klarer Ausstiegswege.
-              </p>
-            </div>
-
-            <div className="screenshot placeholder">Use‑Case‑Platzhalter – Öffentlicher Sektor/Healthcare</div>
-            <div>
-              <h3>Öffentlicher Sektor/Healthcare (DE)</h3>
-              <p>
-                Ausschreibungen verlangen oft <strong>BSI‑C5</strong>‑Nachweise. Prüfe die Berichte der Anbieter (Zeitraum, Umfang, Abdeckung) in deiner Due‑Diligence; Datenstandort und Mandantenfähigkeit sind Schlüsselthemen.
-              </p>
-            </div>
-
-            <div className="screenshot placeholder">Use‑Case‑Platzhalter – KI/ML</div>
-            <div>
-              <h3>KI & Machine Learning</h3>
-              <p>
-                Training braucht kurzfristig sehr viel Rechenleistung – hier ist die <strong>Cloud</strong> mit elastischen GPUs im Vorteil. Dauerhaftes Ausführen von Modellen mit gleichmäßiger Last kann <strong>On‑Prem</strong> günstiger sein. Nachhaltigkeit (Region/Emissionen) mitdenken.
-              </p>
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+              <h3 className="font-semibold mb-2 flex items-center gap-2"><CheckCircle2 className={`w-5 h-5 ${accent}`} /> Gute Praktiken</h3>
+              <ul className="text-sm space-y-2">
+                <li>Plattform‑Blueprint (Netz, IAM, Observability, DR) als Code, wiederverwendbar.</li>
+                <li>FinOps‑Prozesse (Budgets, KPIs, Reservierungen, Rightsizing) verankern.</li>
+                <li>Durchgängige Verschlüsselung & Schlüssel‑Trennung (Kundenschlüssel).</li>
+                <li>Regelmäßige <em>Game Days</em> für Failover, Restore und Exit‑Szenarien.</li>
+              </ul>
             </div>
           </div>
-        </section>
 
-        {/* Tools, Templates, Ressourcen */}
-        <section id="tools">
-          <h2>Nützliche Tools & Ressourcen</h2>
-          <ul>
-            <li>
-              Entscheidungsmatrix & Checkliste (auf Anfrage) – Kriterien, Gewichtung, Scores, Nachweise.
-            </li>
-            <li>Cloud‑Kosten: Flexera State of the Cloud 2025.</li>
-            <li>Compliance: ENISA NIS2 Guidance; DORA‑Infos (EIOPA).</li>
-            <li>Nachhaltigkeit: Google Cloud Carbon Footprint; Effizienz‑Studien.</li>
-            <li>BSI/C5: Überblick & C5‑Katalog (PDF).
-            </li>
-          </ul>
-
-          {/* Micro‑CTAs */}
-          <div className="micro-ctas">
-            <a href="/guides/finops">Guide: FinOps einführen</a> -{' '}
-            <a href="/guides/cloud-strategy">Cloud‑Strategie entwickeln</a> -{' '}
-            <a href="/tools/tco-calculator">TCO‑Rechner (Beta)</a>
-          </div>
-        </section>
-
-        {/* Risiken & Best Practices */}
-        <section id="risks">
-          <h2>Risiken vermeiden & gute Gewohnheiten</h2>
-          <h3>Typische Stolperfallen</h3>
-          <ul>
-            <li>
-              <strong>Keine Tags/Verantwortlichen:</strong> Ohne klare Zuständigkeiten steigen Cloud‑Kosten schnell. Gegenmittel: Tagging‑Regeln und Rollen (wer entscheidet was?).
-            </li>
-            <li>
-              <strong>Überraschung bei Datenkosten:</strong> Kosten für Datenabflüsse zwischen Regionen werden oft unterschätzt. Gegenmittel: Architektur mit wenig Egress und klaren Datenstandorten.
-            </li>
-            <li>
-              <strong>Folgen von Ausfällen unterschätzt:</strong> Reine Verfügbarkeits‑SLAs reichen nicht. Gegenmittel: Resilienz‑Tests und Notfallübungen.
-            </li>
-          </ul>
-
-          <h3>Bewährte Vorgehensweisen</h3>
-          <ul>
-            <li>
-              <strong>Pro Anwendung entscheiden:</strong> Nutze die Matrix, dokumentiere Annahmen und Nachweise.
-            </li>
-            <li>
-              <strong>Kosten & Sicherheit früh mitplanen:</strong> Schon im Architektur‑Entwurf berücksichtigen, nicht erst am Ende.
-            </li>
-            <li>
-              <strong>Nachhaltigkeit integrieren:</strong> Region und Architektur nach Emissionsdaten wählen – und berichten.
-            </li>
-          </ul>
+          {/* Weiterführende interne Links (Cluster) */}
+          <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+            <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
+            <ul className="list-disc ml-5 text-sm space-y-2">
+              <li><a className={`hover:underline ${accent}`} href="/blog/finops-einfuehrung">FinOps einführen: Kosten sichtbar machen und steuern</a></li>
+              <li><a className={`hover:underline ${accent}`} href="/blog/hybrid-cloud-architektur">Referenzarchitektur für Hybrid‑Cloud: Guardrails in der Praxis</a></li>
+              <li><a className={`hover:underline ${accent}`} href="/blog/nis2-dora-checkliste">NIS2 & DORA Checkliste: Was jetzt auf CTO/CISO zukommt</a></li>
+              <li><a className={`hover:underline ${accent}`} href="/blog/cloud-kosten-senken">Cloud‑Kosten senken ohne Qualitätseinbußen</a></li>
+            </ul>
+          </aside>
         </section>
 
         {/* FAQ */}
-        <section id="faq">
-          <h2>FAQ</h2>
-          <details>
-            <summary>
-              <strong>Wie vergleiche ich Kosten fair?</strong>
-            </summary>
-            <p>
-              Vergleiche gleiche Leistung und Sicherheit (z. B. 99,9 % vs. 99,99 % Verfügbarkeit, mehrere Standorte, 24/7‑Betrieb). Rechne Datenübertragung, Lizenzen, Personal, Strom/Kühlung und Ausfallkosten mit.
-            </p>
-          </details>
-          <details>
-            <summary>
-              <strong>Ist Hybrid ein guter Kompromiss?</strong>
-            </summary>
-            <p>
-              Ja – wenn die Grundlagen sitzen: sauberes Netzwerk‑Design, einheitliche Zugriffe (IAM), gemeinsames Monitoring, Kostensteuerung und klare Nachweise für Compliance.
-            </p>
-          </details>
-          <details>
-            <summary>
-              <strong>Wie setze ich NIS2/DORA pragmatisch um?</strong>
-            </summary>
-            <p>
-              Erstelle je Anwendung einen einfachen Maßnahmen‑Zettel mit Nachweisen (Härtung, Monitoring, Incident). Teste regelmäßig, prüfe deine Dienstleister und halte einen Ausstiegsplan bereit.
-            </p>
-          </details>
-          <details>
-            <summary>
-              <strong>Welche Workloads sind Cloud‑geeignet?</strong>
-            </summary>
-            <p>
-              Anwendungen mit stark schwankender Last und weltweiter Nutzung (SaaS, E‑Commerce, Streaming, KI‑Training) profitieren besonders.
-            </p>
-          </details>
-          <details>
-            <summary>
-              <strong>Welche Risiken bringt Vendor‑Lock‑in?</strong>
-            </summary>
-            <p>
-              Abhängigkeit erschwert späteren Wechsel. Abhilfe: offene Schnittstellen, Container/OSS, Datenportabilität und vertragliche Exit‑Regeln.
-            </p>
-          </details>
-          <details>
-            <summary>
-              <strong>Welche Rolle spielt Nachhaltigkeit?</strong>
-            </summary>
-            <p>
-              Große Anbieter sind oft effizienter. Achte auf Region und Architektur, und miss deine Emissionen mit den bereitgestellten Dashboards.
-            </p>
-          </details>
+        <section id="faq" className="mt-14">
+          <h2 className="text-2xl font-bold mb-4">FAQ</h2>
+          <div className="divide-y divide-zinc-200 border border-zinc-200 rounded-2xl">
+            {[
+              {
+                q: "Wann ist On‑Premises günstiger als Cloud?",
+                a: "Wenn Lasten stabil und gut planbar sind, Hardware lange genutzt wird und Egress‑/Netzwerkkosten in der Cloud ins Gewicht fallen. Voraussetzung: Effizienter Betrieb, gute Auslastung und realistische Kapazitätsplanung.",
+              },
+              {
+                q: "Wie adressiere ich das CLOUD‑Act‑Risiko?",
+                a: "Technisch durch kundenseitige Verschlüsselung mit Schlüsselhoheit, juristisch durch geeignete Vertragsklauseln und Datenlokation in der EU. Souveränitäts‑Features (EU‑Boundary, Sovereign Controls) reduzieren das Risiko zusätzlich – ersetzen aber keine Schlüsselstrategie.",
+              },
+              {
+                q: "Welche Kennzahl ist für Nachhaltigkeit relevant?",
+                a: "PUE (Power Usage Effectiveness) zeigt den Facility‑Overhead; für ein vollständiges Bild gehören auch CO₂‑Intensität des Strommixes und Auslastung/Right‑Sizing der IT‑Lasten in die Bewertung.",
+              },
+              {
+                q: "Brauche ich zwingend Hybrid‑Cloud?",
+                a: "Nicht zwingend – aber in der Praxis bietet der Mix oft das beste Verhältnis aus Geschwindigkeit, Kosten und Kontrolle. Wichtig sind klare Schnittstellen, Identitäten und einheitliches Observability‑/Security‑Modell.",
+              },
+              {
+                q: "Wie plane ich den Anbieterwechsel?",
+                a: "Früh Exit‑Kriterien, Zielformate (z. B. OVA, S3‑kompatibel), Test‑Migrationen und Daten‑/Schlüssel‑Portabilität definieren. Vertragsseitig Wechsel‑SLA, Gebühren (Data Act Übergangsregeln beachten) und Support festschreiben.",
+              },
+            ].map((f) => (
+              <details key={f.q} className="group p-5">
+                <summary className="flex cursor-pointer items-center justify-between font-medium">
+                  <span>{f.q}</span>
+                  <ArrowRight className={`w-4 h-4 transition-transform group-open:rotate-90 ${accent}`} />
+                </summary>
+                <div className="mt-2 text-zinc-700">{f.a}</div>
+              </details>
+            ))}
+          </div>
+
+          {/* FAQ Schema.org */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: [
+                  {
+                    '@type': 'Question',
+                    name: 'Wann ist On‑Premises günstiger als Cloud?',
+                    acceptedAnswer: { '@type': 'Answer', text: 'Wenn Lasten stabil und gut planbar sind, Hardware lange genutzt wird und Egress-/Netzwerkkosten in der Cloud ins Gewicht fallen. Voraussetzung: Effizienter Betrieb, gute Auslastung und realistische Kapazitätsplanung.' },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'Wie adressiere ich das CLOUD‑Act‑Risiko?',
+                    acceptedAnswer: { '@type': 'Answer', text: 'Technisch durch kundenseitige Verschlüsselung mit Schlüsselhoheit, juristisch durch geeignete Vertragsklauseln und Datenlokation in der EU. Souveränitäts‑Features reduzieren das Risiko zusätzlich – ersetzen aber keine Schlüsselstrategie.' },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'Welche Kennzahl ist für Nachhaltigkeit relevant?',
+                    acceptedAnswer: { '@type': 'Answer', text: 'PUE (Power Usage Effectiveness) zeigt den Facility‑Overhead; für ein vollständiges Bild gehören auch CO₂‑Intensität des Strommixes und Auslastung/Right‑Sizing der IT‑Lasten in die Bewertung.' },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'Brauche ich zwingend Hybrid‑Cloud?',
+                    acceptedAnswer: { '@type': 'Answer', text: 'Nicht zwingend – aber in der Praxis bietet der Mix oft das beste Verhältnis aus Geschwindigkeit, Kosten und Kontrolle. Wichtig sind klare Schnittstellen, Identitäten und einheitliches Observability-/Security‑Modell.' },
+                  },
+                ],
+              }),
+            }}
+          />
+        </section>
+
+        {/* Summary */}
+        <section id="zusammenfassung" className="mt-14">
+          <h2 className="text-2xl font-bold mb-3">Kurzfazit</h2>
+          <p className="leading-relaxed">
+            <strong>Cloud oder eigener Server?</strong> Die beste Antwort ist meist <em>Hybrid</em>: Nutze die Stärke der Cloud für Geschwindigkeit, Elastizität und Services – und setze auf eigene Server, wenn Kontrolle, Planbarkeit, spezielle Latenz‑/Lizenzanforderungen oder strenge Datenlokation dominieren. Entscheidend ist ein klarer Entscheidungsrahmen mit Governance für Kosten (FinOps), Sicherheit (Zero‑Trust, Verschlüsselung), Compliance (NIS2/DORA) und <em>wechselbaren</em> Architekturen im Sinne des Data Act.
+          </p>
         </section>
 
         {/* CTA */}
-        <section id="kontakt" className="cta-panel">
-          <h2>Kontakt & Demo</h2>
-          <p>
-            Wir prüfen deine Anwendungen, schätzen Kosten/CO₂ & Risiko und bauen mit dir eine klare Roadmap – inklusive einfacher Nachweisdokumente für NIS2/DORA.
-          </p>
-          <form action="/api/contact" method="post" className="grid grid-2">
-            <div>
-              <label htmlFor="name">Name</label>
-              <input id="name" name="name" placeholder="Vor- und Nachname" required />
-            </div>
-            <div>
-              <label htmlFor="phone">Telefon</label>
-              <input id="phone" name="phone" placeholder="+49 ..." />
-            </div>
-            <div>
-              <label htmlFor="email">E‑Mail</label>
-              <input id="email" name="email" type="email" placeholder="name@unternehmen.de" required />
-            </div>
-            <div style={{ gridColumn: "1 / -1" }}>
-              <label htmlFor="msg">Nachricht</label>
-              <textarea id="msg" name="msg" rows={4} placeholder="Kurze Beschreibung, Ziele, gewünschter Zeitraum ..." />
-            </div>
-            <div style={{ gridColumn: "1 / -1" }}>
-              <button className="primary" type="submit">Demo anfordern</button>
-            </div>
-          </form>
-        </section>
-
-        {/* Quellen */}
-        <section aria-label="Quellen & weiterführende Links">
-          <h2>Quellen (Auswahl, 2024–2025)</h2>
-          <ol className="footnotes">
-            <li><a className="ref" href="https://www.ciodive.com/news/cloud-spend-growth-forecast-2025-gartner/733401/" target="_blank" rel="noopener">Gartner‑Prognose: Public‑Cloud‑Ausgaben 2025</a> (CIO Dive, 11/2024).</li>
-            <li><a className="ref" href="https://www.flexera.com/about-us/press-center/new-flexera-report-finds-84-percent-of-organizations-struggle-to-manage-cloud-spend" target="_blank" rel="noopener">Flexera: State of the Cloud 2025</a> (03/2025).</li>
-            <li><a className="ref" href="https://www.enisa.europa.eu/publications/nis2-technical-implementation-guidance" target="_blank" rel="noopener">ENISA: NIS2 Technical Implementation Guidance</a> (06/2025).</li>
-            <li><a className="ref" href="https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en" target="_blank" rel="noopener">EIOPA: DORA – seit 17.01.2025 anwendbar</a>.</li>
-            <li><a className="ref" href="https://www.datacenterdynamics.com/en/news/uptime-institute-outages-in-2024-less-frequent-and-severe-but-more-expensive/" target="_blank" rel="noopener">Uptime Institute: Ausfälle seltener, aber teurer</a> (05/2025).</li>
-            <li><a className="ref" href="https://www.scitepress.org/Papers/2024/133121/133121.pdf" target="_blank" rel="noopener">Sohani/Agrawal: Cloud‑CO₂‑Tools</a> (2024/2025).</li>
-            <li><a className="ref" href="https://cloud.google.com/carbon-footprint" target="_blank" rel="noopener">Google Cloud: Carbon Footprint Dashboard</a>.</li>
-            <li><a className="ref" href="https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Empfehlungen-nach-Angriffszielen/Cloud-Computing/Kriterienkatalog-C5/kriterienkatalog-c5_node.html" target="_blank" rel="noopener">BSI: C5‑Überblick</a> &{' '}
-              <a className="ref" href="https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/CloudComputing/ComplianceControlsCatalogue-Cloud_Computing-C5.pdf" target="_blank" rel="noopener">C5‑Katalog (PDF)</a>.
-            </li>
-          </ol>
-        </section>
-
-        {/* Autor */}
-        <section aria-label="Autor: Expertise">
-          <div className="author-card">
-            <img
-              src="https://images.example.com/authors/alex-neumann.jpg"
-              alt="Dr. Alex Neumann"
-              loading="lazy"
-            />
-            <div>
-              <strong>Über den Autor</strong><br />
-              Dr. Alex Neumann ist Cloud‑Architekt & FinOps‑Praktiker mit über 12 Jahren Erfahrung in hybriden Plattformen, Kostensteuerung und regulierten Umgebungen. Er begleitet Unternehmen von der Strategie über das Architektur‑Design bis zur Umsetzung – mit messbaren Ergebnissen.
-              <div className="small" style={{ marginTop: 6 }}>
-                <a href="https://www.linkedin.com/in/alex-neumann" target="_blank" rel="noopener">
-                  LinkedIn‑Profil ansehen
-                </a>
-              </div>
-              <div className="small">Reviewed by: Marco Weber, CISO (08/2025)</div>
-              <div className="tags">
-                Themen: <a href="/guides/cloud-strategy">Cloud‑Strategie</a>, <a href="/guides/finops">FinOps</a>, <a href="/services/cloud-migration">Cloud‑Migration</a>
-              </div>
-            </div>
+        <section aria-label="Kontakt" className="mt-14">
+          <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+            <h2 className="text-xl font-bold mb-2">Kosten‑/Architektur‑Check gewünscht?</h2>
+            <p className="text-zinc-700 mb-4">Wir analysieren deinen Workload‑Mix und entwerfen eine belastbare Hybrid‑Architektur inkl. Kosten‑ und Exit‑Plan.</p>
+            <form className="mx-auto grid max-w-xl gap-3 text-left" onSubmit={(e) => e.preventDefault()}>
+              <label className="text-sm">Name<input required name="name" className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2" placeholder="Max Mustermann" /></label>
+              <label className="text-sm">Telefon<input required name="phone" className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2" placeholder="+49 …" /></label>
+              <label className="text-sm">E‑Mail<input required type="email" name="email" className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2" placeholder="max@firma.de" /></label>
+              <button type="submit" className={`mt-2 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r ${racingGreen} px-4 py-2 font-semibold text-white shadow-sm`} aria-label="Demo anfordern">
+                Demo anfordern
+              </button>
+            </form>
           </div>
         </section>
-      </article>
 
-      <footer>
-        <div className="container small">
-          © 2025 AI Blog‑Artikel · <a href="/impressum">Impressum</a> ·{' '}
-          <a href="/datenschutz">Datenschutz</a>
-        </div>
-      </footer>
-    </div>
+        {/* E-E-A-T */}
+        <section className="mt-14">
+          <h2 className="text-2xl font-bold mb-3">Über die Autorin</h2>
+          <div className="flex items-center gap-4">
+            <img src={author.image} alt="Autorin" className="w-16 h-16 rounded-full object-cover" loading="lazy" />
+            <div>
+              <div className="font-semibold">{author.name}</div>
+              <div className="text-sm text-zinc-700">{author.role}. Fokus: Cloud‑Strategie, FinOps, Plattform‑Teams.</div>
+              <a href={author.linkedin} className={`text-sm hover:underline ${accent}`}>LinkedIn‑Profil</a>
+            </div>
+          </div>
+          <p className="mt-3 text-sm text-zinc-700">Reviewed by: <em>—</em> (optional)</p>
+        </section>
+
+        {/* Quellenverzeichnis */}
+        <section className="mt-14">
+          <h2 className="text-2xl font-bold mb-3">Quellen & weiterführende Studien</h2>
+          <ul className="list-disc ml-5 space-y-2 text-sm">
+            <li>NIST SP 800‑145: The NIST Definition of Cloud Computing – https://csrc.nist.gov/pubs/sp/800/145/final</li>
+            <li>Uptime Institute Global Data Center Survey 2024 – https://datacenter.uptimeinstitute.com/rs/711-RIA-145/images/2024.GlobalDataCenterSurvey.Report.pdf</li>
+            <li>BSI C5 – Cloud Computing Compliance Controls Catalogue – https://www.bsi.bund.de/EN/Themen/…/Kriterienkatalog-C5/kriterienkatalog-c5_node.html</li>
+            <li>NIS2 (EU) – https://digital-strategy.ec.europa.eu/en/policies/nis2-directive</li>
+            <li>DORA (EU) – https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora</li>
+            <li>EU Data Act – gilt ab 12.09.2025 – https://eur-lex.europa.eu/EN/legal-content/summary/rules-on-fair-access-to-and-use-of-data-data-act.html</li>
+            <li>IEA (2025): Energy & AI – Data‑Center‑Strombedarf bis 2030 – https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai</li>
+            <li>Flexera (2025): State of the Cloud Report – https://www.flexera.com/blog/finops/the-latest-cloud-computing-trends-flexera-2025-state-of-the-cloud-report/</li>
+            <li>FinOps Foundation (2025): State of FinOps Library – https://data.finops.org/library</li>
+            <li>Microsoft EU Data Boundary (2025) – https://blogs.microsoft.com/on-the-issues/2025/02/26/microsoft-completes-landmark-eu-data-boundary/</li>
+            <li>AWS European Sovereign Cloud (2025) – https://aws.eu/</li>
+            <li>Google: Sovereign Controls by T‑Systems – https://cloud.google.com/sovereign-controls-by-partners/docs/sovereign-controls-tsi</li>
+          </ul>
+        </section>
+
+        {/* Mini‑Glossar */}
+        <section className="mt-14 mb-20">
+          <h2 className="text-2xl font-bold mb-3">Mini‑Glossar</h2>
+          <dl className="grid sm:grid-cols-2 gap-4 text-sm">
+            <div className="rounded-xl border border-zinc-200 p-4"><dt className="font-semibold">CapEx</dt><dd>Investive Ausgaben (z. B. Server‑Hardware, RZ‑Ausstattung), die über Jahre abgeschrieben werden.</dd></div>
+            <div className="rounded-xl border border-zinc-200 p-4"><dt className="font-semibold">OpEx</dt><dd>Laufende Betriebs‑Ausgaben (z. B. Instanz‑/Lizenz‑/Energie‑/Personal‑Kosten) – typisch für Cloud.</dd></div>
+            <div className="rounded-xl border border-zinc-200 p-4"><dt className="font-semibold">PUE</dt><dd>Power Usage Effectiveness; Verhältnis Gesamtstrom / IT‑Strom. Je näher 1, desto effizienter die Facility.</dd></div>
+            <div className="rounded-xl border border-zinc-200 p-4"><dt className="font-semibold">Latenz</dt><dd>Verzögerung in ms bei Datenübertragung. Kritisch für Echtzeit‑/Edge‑Anwendungen.</dd></div>
+            <div className="rounded-xl border border-zinc-200 p-4"><dt className="font-semibold">Daten‑Souveränität</dt><dd>Fähigkeit, Hoheit über Datenzugriffe, -speicherung und -verarbeitung rechtskonform sicherzustellen.</dd></div>
+          </dl>
+        </section>
+
+        <footer className="mt-10 text-center text-xs text-zinc-500">
+          © {new Date().getFullYear()} {company.name}. Alle Rechte vorbehalten.
+        </footer>
+      </article>
+    </>
   );
 }
