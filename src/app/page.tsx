@@ -131,109 +131,35 @@ function CalendlyModal({
   );
 }
 
-/* --------------------------- Header (mit Mobile-Hamburger) --------------------------- */
+/* --------------------------- Header (nur Desktop) --------------------------- */
 function Header() {
-  const [open, setOpen] = React.useState(false);
-
-  React.useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpen(false);
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
-  const navItems = [
-    { href: "#blog", label: "Blog-Beispiele" },
-    { href: "#preise", label: "Preise" },
-    { href: "#ablauf", label: "Ablauf" },
-    { href: "#faq", label: "FAQ" },
-  ];
-
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-100 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        {/* Left: Brand */}
-        <a href="#" className={`text-lg font-semibold ${serifClass} tracking-tight`}>
-          <span className="italic font-bold">findbar</span>
-        </a>
-
-        {/* Desktop-Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((n) => (
-            <a key={n.href} href={n.href} className="text-sm text-slate-700 hover:text-slate-900">
-              {n.label}
-            </a>
-          ))}
-          <Button asChild>
-            <a className="text-white" href="#preise">Jetzt anfragen</a>
-          </Button>
+    <header className="hidden md:block border-b border-slate-100 bg-white">
+      <div className="mx-auto flex max-w-7xl items-center justify-center gap-8 px-6 py-4">
+        <nav className="flex flex-wrap gap-6">
+          <a href="#blog" className="text-sm" style={{ color: "#334155" }}>
+            Blog-Beispiele
+          </a>
+          <a href="#preise" className="text-sm" style={{ color: "#334155" }}>
+            Preise
+          </a>
+          <a href="#ablauf" className="text-sm" style={{ color: "#334155" }}>
+            Ablauf
+          </a>
+          <a href="#faq" className="text-sm" style={{ color: "#334155" }}>
+            FAQ
+          </a>
         </nav>
-
-        {/* Mobile: Hamburger */}
-        <button
-          className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100"
-          aria-label="Menü öffnen"
-          aria-expanded={open}
-          onClick={() => setOpen(true)}
-        >
-          <Menu className="h-6 w-6" />
-        </button>
+        <Button asChild>
+          <a className="text-white" href="#preise">
+            Jetzt anfragen
+          </a>
+        </Button>
       </div>
-
-      {/* Mobile Panel */}
-      {open && (
-        <div className="md:hidden fixed inset-0 z-50">
-          {/* Overlay */}
-          <button
-            className="absolute inset-0 bg-black/40"
-            aria-label="Menü schließen"
-            onClick={() => setOpen(false)}
-          />
-          {/* Sheet */}
-          <div
-            className="ml-auto h-full w-80 max-w-[85%] bg-white shadow-xl border-l border-slate-200 flex flex-col"
-            role="dialog"
-            aria-modal="true"
-          >
-            <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200">
-              <span className={`text-base font-semibold ${serifClass}`}>Menü</span>
-              <button
-                className="inline-flex items-center justify-center rounded-md p-2 hover:bg-slate-100"
-                aria-label="Menü schließen"
-                onClick={() => setOpen(false)}
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            <nav className="p-2">
-              {navItems.map((n) => (
-                <a
-                  key={n.href}
-                  href={n.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-3 text-slate-800 hover:bg-slate-100"
-                >
-                  {n.label}
-                </a>
-              ))}
-              <div className="p-2">
-                <Button asChild className="w-full">
-                  <a href="#preise" onClick={() => setOpen(false)}>Jetzt anfragen</a>
-                </Button>
-              </div>
-            </nav>
-
-            <div className="mt-auto px-4 py-3 text-xs text-slate-500 border-t border-slate-200">
-              © {new Date().getFullYear()} findbar
-            </div>
-          </div>
-        </div>
-      )}
     </header>
   );
 }
+
 
 
 function Hero() {
