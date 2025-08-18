@@ -39,6 +39,8 @@ const author = {
   linkedin: "https://www.linkedin.com/in/lenakoch/",
 };
 
+<hr></hr>
+
 const reviewer = {
   name: "Dr. Markus Weber",
   role: "CISO & Compliance-Experte",
