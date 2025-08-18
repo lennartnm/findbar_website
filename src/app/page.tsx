@@ -258,7 +258,7 @@ function VisitorRevealSection() {
     <section id="reveal" className="relative overflow-hidden py-20 border-t border-slate-100 bg-white">
       <div className={containerClass}>
         {/* Headline */}
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-left md:text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs shadow-sm">
             <Eye className="h-3.5 w-3.5 text-slate-700" />
             <span className="text-slate-700">Lead-Identifizierung</span>
@@ -281,20 +281,15 @@ function VisitorRevealSection() {
               <span className="text-xs text-slate-500">Echtzeit-Scan</span>
             </div>
 
-            {/* Visual Box – DACH Map mit sichtbarerem Scan */}
+            {/* Visual Box */}
             <div className="relative px-5 pt-4 pb-5">
               <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-50">
-                {/* DACH-Karte Hintergrund */}
                 <img
                   src="DACH Scan.png"
                   alt="Traffic Map DACH"
                   className="absolute inset-0 h-full w-full object-contain opacity-80"
                 />
-
-                {/* Scan Overlay – kräftiger */}
                 <div className="absolute inset-0 animate-scanY bg-gradient-to-b from-transparent via-emerald-400/40 to-transparent mix-blend-multiply" />
-
-                {/* Heat Dots über DACH */}
                 <div className="absolute inset-0">
                   {[{x:"45%",y:"38%"},{x:"52%",y:"55%"},{x:"35%",y:"60%"}].map((pos,i)=>(
                     <div
@@ -304,8 +299,6 @@ function VisitorRevealSection() {
                     />
                   ))}
                 </div>
-
-                {/* OVERLAY-Info */}
                 <div className="absolute left-4 right-4 bottom-4">
                   <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white/90 backdrop-blur px-3 py-2 text-xs text-slate-700 shadow-sm">
                     <Search className="h-4 w-4" />
@@ -344,7 +337,7 @@ function VisitorRevealSection() {
           </div>
         </div>
 
-        {/* Journey 1–5 */}
+        {/* Journey Steps */}
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-6 text-center">
           {steps.map((title, i) => (
             <div key={i} className="flex flex-col items-center">
@@ -357,7 +350,6 @@ function VisitorRevealSection() {
         </div>
       </div>
 
-      {/* Keyframes */}
       <style>{`
         @keyframes scanY { 
           0% { transform: translateY(-100%); } 
@@ -367,13 +359,11 @@ function VisitorRevealSection() {
           animation: scanY 2.2s linear infinite; 
           will-change: transform; 
         }
-        @media (prefers-reduced-motion: reduce) { 
-          .animate-scanY { animation: none; } 
-        }
       `}</style>
     </section>
   );
 }
+
 
 
 
@@ -425,10 +415,10 @@ function BlogSection() {
   return (
     <section id="blog" className="bg-white py-20">
       <div className={containerClass}>
-        <h2 className={`text-3xl font-semibold text-center ${serifClass}`}>
+        <h2 className={`text-3xl font-semibold text-left md:text-center ${serifClass}`}>
           Blog-Beispiele
         </h2>
-        <p className="mt-4 text-center text-slate-600">
+        <p className="mt-4 text-left md:text-center text-slate-600">
           Wie kann so ein KI-optimierter Artikel auf deiner Webseite aussehen? Schau dir hier ausgewählte Beispiele an.
         </p>
 
@@ -486,6 +476,7 @@ function BlogSection() {
     </section>
   );
 }
+
 
 
 /* ---------------------- So helfen dir KI-optimierte Blogartikel ---------------------- */
@@ -1011,17 +1002,12 @@ function AblaufSection() {
           style={{ background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)` }}
         >
           <div className="relative z-10 px-6 py-12 md:px-12">
-            <h2 className={`text-center text-3xl font-semibold ${serifClass}`}>
+            <h2 className={`text-left md:text-center text-3xl font-semibold ${serifClass}`}>
               Unser Ablauf – transparent & effizient
             </h2>
 
             {/* GRID: 2 Reihen x 3 Spalten */}
-            <ol
-              className="
-                mt-12 grid gap-6
-                md:grid-cols-3
-              "
-            >
+            <ol className="mt-12 grid gap-6 md:grid-cols-3">
               {ablaufMitErfolg.map(({ icon: Icon, title, desc }, i) => (
                 <li key={i}>
                   <article
@@ -1052,9 +1038,7 @@ function AblaufSection() {
                     <hr className="my-4 border-white/10" />
 
                     {/* Beschreibung */}
-                    <p className="text-sm leading-relaxed text-white/90">
-                      {desc}
-                    </p>
+                    <p className="text-sm leading-relaxed text-white/90">{desc}</p>
                   </article>
                 </li>
               ))}
@@ -1070,9 +1054,6 @@ function AblaufSection() {
 }
 
 /* ---- Steps (inkl. Erfolg als #6) ---- */
-// Nutzt nur Icons, die oben bereits importiert sind:
-// ClipboardList, FileText, CheckCircle, Package, BarChart3, Award
-
 const ablaufMitErfolg = [
   {
     icon: ClipboardList,
@@ -1105,6 +1086,7 @@ const ablaufMitErfolg = [
     desc: "Mehr Sichtbarkeit, bessere Leads und nachhaltiges Wachstum für dein Business.",
   },
 ];
+
 
 
 /* ---------------------- FAQ Section ---------------------- */
