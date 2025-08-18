@@ -1002,12 +1002,17 @@ function AblaufSection() {
           style={{ background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)` }}
         >
           <div className="relative z-10 px-6 py-12 md:px-12">
-            <h2 className={`text-left md:text-center text-3xl font-semibold ${serifClass}`}>
+            <h2 className={`text-center text-3xl font-semibold ${serifClass}`}>
               Unser Ablauf – transparent & effizient
             </h2>
 
             {/* GRID: 2 Reihen x 3 Spalten */}
-            <ol className="mt-12 grid gap-6 md:grid-cols-3">
+            <ol
+              className="
+                mt-12 grid gap-6
+                md:grid-cols-3
+              "
+            >
               {ablaufMitErfolg.map(({ icon: Icon, title, desc }, i) => (
                 <li key={i}>
                   <article
@@ -1038,7 +1043,9 @@ function AblaufSection() {
                     <hr className="my-4 border-white/10" />
 
                     {/* Beschreibung */}
-                    <p className="text-sm leading-relaxed text-white/90">{desc}</p>
+                    <p className="text-sm leading-relaxed text-white/90">
+                      {desc}
+                    </p>
                   </article>
                 </li>
               ))}
@@ -1086,6 +1093,7 @@ const ablaufMitErfolg = [
     desc: "Mehr Sichtbarkeit, bessere Leads und nachhaltiges Wachstum für dein Business.",
   },
 ];
+
 
 
 
