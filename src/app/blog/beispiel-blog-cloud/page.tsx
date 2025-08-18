@@ -315,12 +315,12 @@ export default function Article() {
     {/* Mobile first: 4:5 */}
     <source
       media="(max-width: 640px)"
-      srcSet="/Scan.png"
+      srcSet="/Cloud.png"
     />
     {/* Desktop: 16:9 */}
     <img
       loading="lazy"
-      src="/Scan.png"
+      src="/Cloud.png"
       alt="Rechenzentrumsracks und moderne Cloud-Symbolik – Hybrid illustriert"
       className="w-full h-auto object-cover"
     />
@@ -608,11 +608,11 @@ export default function Article() {
   <picture>
     <source
       media="(max-width: 640px)"
-      srcSet="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=900&h=1125&fit=crop&q=80&auto=format"
+      srcSet="/Person lehnt an Server.png"
     />
     <img
       loading="lazy"
-      src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1600&h=900&fit=crop&q=80&auto=format"
+      src="/Person lehnt an Server.png"
       alt="Rechenzentrumsflur mit Serverracks"
       className="rounded-2xl border border-zinc-200 w-full h-auto object-cover"
     />
@@ -655,17 +655,17 @@ export default function Article() {
             <picture>
               <source
                 media="(max-width: 640px)"
-                srcSet="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=900&h=1125&fit=crop&q=80&auto=format"
+                srcSet="/Server.png"
               />
               <img
                 loading="lazy"
-                src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=1600&h=900&fit=crop&q=80&auto=format"
+                src="/Server.png"
                 alt="Team plant Architektur auf einem Whiteboard"
                 className="rounded-2xl border border-zinc-200 w-full h-auto object-cover"
               />
             </picture>
             <figcaption className="text-sm text-zinc-600">
-              Illustration eines Architektur-Workshops: Zielbild, Abhängigkeiten, Migrationswellen.
+              Ein klassisches Serverraum in einem Bürogebäude.
             </figcaption>
           </figure>
 
