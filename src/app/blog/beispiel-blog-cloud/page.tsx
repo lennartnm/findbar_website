@@ -39,11 +39,10 @@ const author = {
   linkedin: "https://www.linkedin.com/in/lenakoch/",
 };
 
-
-
 const reviewer = {
   name: "Dr. Markus Weber",
   role: "CISO & Compliance-Experte",
+ 
   linkedin: "https://www.linkedin.com/in/markusweber/",
 };
 
@@ -912,12 +911,7 @@ export default function Article() {
           </div>
 
           <div className="mt-4 flex items-center gap-3">
-            <img
-              src={reviewer.image}
-              alt="Reviewer"
-              className="w-10 h-10 rounded-full object-cover"
-              loading="lazy"
-            />
+        
             <p className="text-sm text-zinc-700">
               Reviewed by: <strong>{reviewer.name}</strong> – {reviewer.role}.{' '}
               <a href={reviewer.linkedin} className={`hover:underline ${accent}`}>
