@@ -309,26 +309,24 @@ export default function Article() {
             Architektur zu deinen Zielen passt.
           </p>
 
-          {/* Hero with Unsplash (16:9 desktop, 4:5 mobile) */}
+         {/* Hero 16:6 */}
 <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
-  <picture>
-    {/* Mobile first: 4:5 */}
-    <source
-      media="(max-width: 640px)"
-      srcSet="/Cloud.png"
-    />
-    {/* Desktop: 16:9 */}
-    <img
-      loading="lazy"
-      src="/Cloud.png"
-      alt="Rechenzentrumsracks und moderne Cloud-Symbolik – Hybrid illustriert"
-      className="w-full h-auto object-cover"
-    />
-  </picture>
+  <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
+    <picture>
+      <source media="(max-width: 640px)" srcSet="/Cloud.png" />
+      <img
+        loading="lazy"
+        src="/Cloud.png"
+        alt="Rechenzentrumsracks und moderne Cloud-Symbolik – Hybrid illustriert"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+    </picture>
+  </div>
   <figcaption className="sr-only">
     Illustration eines Hybrid-Setups aus Cloud und eigenen Servern
   </figcaption>
 </figure>
+
 
 
           {/* Meta row – better legibility */}
@@ -603,24 +601,24 @@ export default function Article() {
 
           </div>
 
-        {/* Bild 1 – volle Breite */}
-<figure className="mt-8">
-  <picture>
-    <source
-      media="(max-width: 640px)"
-      srcSet="/Person lehnt an Server.png"
-    />
-    <img
-      loading="lazy"
-      src="/Person lehnt an Server.png"
-      alt="Rechenzentrumsflur mit Serverracks"
-      className="rounded-2xl border border-zinc-200 w-full h-auto object-cover"
-    />
-  </picture>
+       {/* Bild 1 – volle Breite, 16:6 */}
+<figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
+  <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
+    <picture>
+      <source media="(max-width: 640px)" srcSet="/Person lehnt an Server.png" />
+      <img
+        loading="lazy"
+        src="/Person lehnt an Server.png"
+        alt="Rechenzentrumsflur mit Serverracks"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+    </picture>
+  </div>
   <figcaption className="text-sm text-zinc-600">
     Passendes Motiv: RZ-Gang, EU-Region – Bildunterschrift betont Datenlokation &amp; Souveränität.
   </figcaption>
 </figure>
+
 
 
           {/* 5 */}
@@ -650,24 +648,24 @@ export default function Article() {
             </li>
           </ol>
 
-          {/* Bild 2 (Unsplash, responsive crop) */}
-          <figure className="mt-8">
-            <picture>
-              <source
-                media="(max-width: 640px)"
-                srcSet="/Server.png"
-              />
-              <img
-                loading="lazy"
-                src="/Server.png"
-                alt="Team plant Architektur auf einem Whiteboard"
-                className="rounded-2xl border border-zinc-200 w-full h-auto object-cover"
-              />
-            </picture>
-            <figcaption className="text-sm text-zinc-600">
-              Ein klassisches Serverraum in einem Bürogebäude.
-            </figcaption>
-          </figure>
+         {/* Bild 2 – 16:6 */}
+<figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
+  <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
+    <picture>
+      <source media="(max-width: 640px)" srcSet="/Server.png" />
+      <img
+        loading="lazy"
+        src="/Server.png"
+        alt="Team plant Architektur auf einem Whiteboard"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+    </picture>
+  </div>
+  <figcaption className="text-sm text-zinc-600">
+    Ein klassisches Serverraum in einem Bürogebäude.
+  </figcaption>
+</figure>
+
 
           {/* 6 */}
           <Anchor id="fehler" />
