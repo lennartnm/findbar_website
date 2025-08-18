@@ -910,15 +910,15 @@ export default function Article() {
             </div>
           </div>
 
-          <div className="mt-4 flex items-center gap-3">
-        
-            <p className="text-sm text-zinc-700">
-              Reviewed by: <strong>{reviewer.name}</strong> – {reviewer.role}.{' '}
-              <a href={reviewer.linkedin} className={`hover:underline ${accent}`}>
-                LinkedIn
-              </a>
-            </p>
-          </div>
+         <div className="mt-4 flex items-center gap-3">
+  <ArrowRight className={`w-4 h-4 ${accent}`} aria-hidden />
+  <p className="text-sm text-zinc-700">
+    Reviewed by: <strong>{reviewer.name}</strong> – {reviewer.role}.{' '}
+    <a href={reviewer.linkedin} className={`hover:underline ${accent}`}>
+      LinkedIn
+    </a>
+  </p>
+</div>
         </section>
 
         {/* Quellenverzeichnis */}
