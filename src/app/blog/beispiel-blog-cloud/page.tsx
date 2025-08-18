@@ -72,6 +72,33 @@ export default function Page() {
             "Erstelle ein Controls-Register je Workload, weise Evidenzen zu (Härtung, Monitoring, Incident-Prozesse), teste regelmäßig und führe Lieferantenreviews samt Exit-Plan durch.",
         },
       },
+      {
+        "@type": "Question",
+        name: "Welche Workloads sind besonders Cloud-geeignet?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Variable, global genutzte und stark skalierende Workloads (SaaS, E-Commerce, Streaming, ML-Training) profitieren am meisten von Public Cloud.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Welche Risiken birgt Vendor-Lock-in – und wie minimiere ich sie?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Lock-in kann Kosten und Flexibilität beeinträchtigen. Gegenmaßnahmen: Container/OSS, offene Schnittstellen, Datenportabilität, vertragliche Exit-Klauseln und Multi-Region/Provider-Strategien.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Welche Rolle spielt Nachhaltigkeit bei der Entscheidung?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Hyperscaler sind häufig energie- und CO₂-effizienter. Entscheidend sind Region, Architektur und Messbarkeit via Emissions-Dashboards; vergleiche Anbieterwerte mit deinen On-Prem-Kennzahlen.",
+        },
+      },
     ],
   };
 
@@ -136,7 +163,7 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ldFaq) }}
       />
 
-      {/* Client-Snippet für Lesedauer (ohne next/script) */}
+      {/* Client-Snippet für Lesedauer */}
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -153,7 +180,41 @@ export default function Page() {
         }}
       />
 
-      {/* Seitenstil ohne styled-jsx */}
+      {/* Globaler Pop-up-Handler für alle Links/Formulare außerhalb des Inhaltsverzeichnisses */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(){
+              var msg = "Die Funktionalität der Verlinkungen im Beispiel-Blog ist limitiert und wird auf dein Angebot zugeschnitten. Interesse? Klicke hier und buche dir dein Erstgespräch: https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung";
+              function isInsideTOC(node){
+                while(node){
+                  if(node.classList && node.classList.contains('toc')) return true;
+                  node = node.parentElement;
+                }
+                return false;
+              }
+              document.addEventListener('click', function(e){
+                var a = e.target.closest('a');
+                if(!a) return;
+                // Ausnahme: Inhaltsverzeichnis-Links dürfen normal funktionieren
+                if(isInsideTOC(a)) return;
+                // Sonst Pop-up anzeigen und verhindern
+                e.preventDefault();
+                alert(msg);
+              }, true);
+              // Formulare abfangen
+              document.addEventListener('submit', function(e){
+                var form = e.target;
+                if(!form) return;
+                e.preventDefault();
+                alert(msg);
+              }, true);
+            })();
+          `,
+        }}
+      />
+
+      {/* Seitenstil */}
       <style dangerouslySetInnerHTML={{ __html: css }} />
 
       <header className="hero">
@@ -166,6 +227,17 @@ export default function Page() {
             Kosten, Sicherheit, Flexibilität: Der direkte Vergleich hilft dir,
             fundiert zu entscheiden – inklusive Praxisbeispiele und Checkliste.
           </p>
+
+          {/* Hero Bild – zwischen Subhead (Text darüber) und CTA */}
+          <div
+            className="placeholder"
+            role="img"
+            aria-label="Hero Bild Platzhalter"
+            style={{ margin: "6px 0 10px" }}
+          >
+            Hero-Bild Platzhalter (1920×640)
+          </div>
+
           <a className="soft-cta" href="#template">
             Jetzt Workload-Template herunterladen
           </a>
@@ -204,9 +276,9 @@ export default function Page() {
       </header>
 
       <article className="container" itemProp="articleBody">
-        {/* TL;DR */}
-        <section className="tldr" aria-label="TL;DR">
-          <h2>TL;DR</h2>
+        {/* Das Wichtigste auf einen Blick */}
+        <section className="tldr" aria-label="Das Wichtigste auf einen Blick">
+          <h2>Das Wichtigste auf einen Blick</h2>
           <ul>
             <li>
               <strong>Entscheide pro Workload</strong>, nicht ideologisch:
@@ -227,19 +299,19 @@ export default function Page() {
           </ul>
         </section>
 
-        {/* Inhaltsverzeichnis */}
+        {/* Inhaltsverzeichnis – mit Nummerierung */}
         <nav className="toc">
           <div className="toc-inner infobox">
             <div className="kicker">Inhalt</div>
-            <a href="#definition">Definition &amp; Grundlagen</a>
-            <a href="#nutzen">Nutzen &amp; Business-Relevanz</a>
-            <a href="#frameworks">Modelle &amp; Entscheidungs-Framework</a>
-            <a href="#howto">How-to: Schritt-für-Schritt-Checkliste</a>
-            <a href="#usecases">Praxisbeispiele</a>
-            <a href="#tools">Tools, Templates &amp; Ressourcen</a>
-            <a href="#risks">Risiken, Fehler vermeiden &amp; Best Practices</a>
-            <a href="#faq">FAQ</a>
-            <a href="#kontakt">Kontakt &amp; Demo</a>
+            <a href="#definition">1. Definition &amp; Grundlagen</a>
+            <a href="#nutzen">2. Nutzen &amp; Business-Relevanz</a>
+            <a href="#frameworks">3. Modelle &amp; Entscheidungs-Framework</a>
+            <a href="#howto">4. How-to: Schritt-für-Schritt-Checkliste</a>
+            <a href="#usecases">5. Praxisbeispiele</a>
+            <a href="#tools">6. Tools, Templates &amp; Ressourcen</a>
+            <a href="#risks">7. Risiken, Fehler vermeiden &amp; Best Practices</a>
+            <a href="#faq">8. FAQ</a>
+            <a href="#kontakt">9. Kontakt &amp; Demo</a>
           </div>
         </nav>
 
@@ -451,11 +523,9 @@ export default function Page() {
           </ol>
 
           <div id="template" className="infobox">
-            <strong>Template:</strong>{" "}
-            <a href="#download-template">Workload-Entscheidungsmatrix (Excel/CSV)</a>{" "}
-            mit Kriterien, Gewichtung &amp; Score-Berechnung. Enthält
-            Beispiel-Policies (Tagging, Egress-Budgets) und eine Checkliste für
-            NIS2/DORA-Evidenzen.
+            <strong>Template (auf Anfrage):</strong> Workload-Entscheidungsmatrix
+            mit Kriterien, Gewichtung &amp; Score-Berechnung inkl. Beispiel-Policies
+            (Tagging, Egress-Budgets) und NIS2/DORA-Checkliste.
           </div>
         </section>
 
@@ -535,10 +605,7 @@ export default function Page() {
           <h2>Tools, Templates &amp; Ressourcen</h2>
           <ul>
             <li>
-              <a href="#download-template">
-                Workload-Entscheidungsmatrix &amp; Checkliste (Excel/CSV)
-              </a>{" "}
-              – Gewichtungen, Scores, Evidenz-Nachweise.
+              Workload-Entscheidungsmatrix &amp; Checkliste (auf Anfrage) – Gewichtungen, Scores, Evidenz-Nachweise.
             </li>
             <li>FinOps &amp; Kosten: Flexera State of the Cloud 2025.</li>
             <li>Compliance Leitplanken: ENISA NIS2 Technical Guidance; DORA-Infos (EIOPA).</li>
@@ -546,9 +613,10 @@ export default function Page() {
             <li>BSI/C5: C5-Überblick &amp; C5-Katalog (PDF).</li>
           </ul>
 
+          {/* Micro-CTAs – durch Bindestriche getrennt */}
           <div className="micro-ctas">
-            <a href="/guides/finops">Guide: FinOps einführen</a>
-            <a href="/guides/cloud-strategy">Cloud-Strategie entwickeln</a>
+            <a href="/guides/finops">Guide: FinOps einführen</a> -{" "}
+            <a href="/guides/cloud-strategy">Cloud-Strategie entwickeln</a> -{" "}
             <a href="/tools/tco-calculator">TCO-Rechner (Beta)</a>
           </div>
         </section>
@@ -591,7 +659,7 @@ export default function Page() {
           </ul>
         </section>
 
-        {/* FAQ */}
+        {/* FAQ – 6 Einträge */}
         <section id="faq">
           <h2>FAQ</h2>
           <details>
@@ -624,9 +692,36 @@ export default function Page() {
               Exit-Plan.
             </p>
           </details>
+          <details>
+            <summary>
+              <strong>Welche Workloads sind Cloud-geeignet?</strong>
+            </summary>
+            <p>
+              Variabel skalierende Workloads mit globaler Nutzung (SaaS, KI,
+              E-Commerce) profitieren stark von Cloud.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <strong>Welche Risiken bringt Vendor-Lock-in?</strong>
+            </summary>
+            <p>
+              Abhängigkeit von Diensten erschwert Wechsel. Lösung: offene
+              Schnittstellen, Container/OSS, Portabilität &amp; Exit-Strategie.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <strong>Welche Rolle spielt Nachhaltigkeit?</strong>
+            </summary>
+            <p>
+              Hyperscaler sind oft energieeffizienter; regionale Unterschiede und
+              Architekturentscheidungen beachten, Kennzahlen messen und berichten.
+            </p>
+          </details>
         </section>
 
-        {/* CTA unten */}
+        {/* CTA unten – ohne Frühstarter-Bonus */}
         <section id="kontakt" className="cta-panel">
           <h2>Kontakt &amp; Demo</h2>
           <p>
@@ -654,7 +749,6 @@ export default function Page() {
               <button className="primary" type="submit">Demo anfordern</button>
             </div>
           </form>
-          <p className="small">Frühstarter-Bonus: Kostenfreie 45-Min-Sprechstunde für die erste 10 Workload-Kandidatenanalyse.</p>
         </section>
 
         {/* Quellen */}
@@ -683,6 +777,11 @@ export default function Page() {
             <div>
               <strong>Über den Autor</strong><br />
               Dr. Alex Neumann ist Cloud-Architekt &amp; FinOps-Practitioner mit 12+ Jahren Erfahrung in hybriden Plattformen, Kostensteuerung und regulierten Umgebungen. Er begleitet Unternehmen von der Strategie über das Architekturdesign bis zur Umsetzung mit messbaren Geschäftsergebnissen.
+              <div className="small" style={{ marginTop: 6 }}>
+                <a href="https://www.linkedin.com/in/alex-neumann" target="_blank" rel="noopener">
+                  LinkedIn-Profil ansehen
+                </a>
+              </div>
               <div className="small">Reviewed by: Marco Weber, CISO (08/2025)</div>
               <div className="tags">
                 Themen: <a href="/guides/cloud-strategy">Cloud-Strategie</a>, <a href="/guides/finops">FinOps</a>, <a href="/services/cloud-migration">Cloud-Migration</a>
@@ -691,36 +790,7 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Download (CSV via Data-URI) */}
-        <section id="download-template" className="infobox" aria-label="Download Workload-Entscheidungsmatrix">
-          <h2>Workload-Entscheidungsmatrix (CSV)</h2>
-          <p>Lade die Vorlage herunter und passe Kriterien/Gewichtungen an deine Anforderungen an.</p>
-          <a
-            className="btn-download"
-            download="workload-entscheidung.csv"
-            href={
-              "data:text/csv;charset=utf-8,%EF%BB%BF" +
-              encodeURIComponent(
-                [
-                  "Kategorie,Kriterium,Gewichtung (1-5),Score (1-5),Gewichteter Score",
-                  "Architektur,Latenz (<ms),5,,, ",
-                  "Architektur,Datenhoheit/Residenz,5,,, ",
-                  "Kosten,TCO (12-36 Monate),4,,, ",
-                  "Kosten,Egress-Kosten,3,,, ",
-                  "Compliance,NIS2/DORA Controls erfüllt,5,,, ",
-                  "Compliance,BSI-C5 Anforderungen,4,,, ",
-                  "Operations,Observability /24x7,3,,, ",
-                  "Operations,Team-Skill/Verfügbarkeit,3,,, ",
-                  "Risiko,Vendor-Lock-in,3,,, ",
-                  "Risiko,Exit-Plan definiert,4,,, ",
-                  "„Summe“,,,,",
-                ].join("\n")
-              )
-            }
-          >
-            CSV herunterladen
-          </a>
-        </section>
+        {/* Entfernt: Download-Section (Workload-Entscheidungsmatrix) */}
       </article>
 
       <footer>
