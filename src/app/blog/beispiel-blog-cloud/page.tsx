@@ -353,18 +353,7 @@ export default function Article() {
               </div>
             </div>
 
-            <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1">
-              <ShieldCheck className="w-4 h-4 text-emerald-700" aria-hidden />
-              <div className="flex items-center gap-2">
-                <span className="text-emerald-900">Reviewed by:</span>
-                <a
-                  href={reviewer.linkedin}
-                  className={`font-medium hover:underline ${accent}`}
-                >
-                  {reviewer.name}
-                </a>
-              </div>
-            </div>
+        
           </div>
         </header>
 
@@ -606,45 +595,48 @@ export default function Article() {
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <Landmark className={`w-5 h-5 ${accent}`} /> Souveränität pragmatisch umsetzen
-              </h3>
-              <ul className="text-sm space-y-2">
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Datenklassifizierung (z. B. Öffentlich, Intern, Vertraulich, Hochsensibel)
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Kundenseitige Ende-zu-Ende-Verschlüsselung mit <strong>Schlüsselhoheit</strong> (KMS/HSM auch außerhalb des Cloud-Providers möglich)
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Regionswahl, EU-Boundary/Sovereign-Controls nutzen
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Vertraglich: Exit-Klauseln, Portabilität, Audit-/Logging-Zugriff
-                </li>
-              </ul>
-            </div>
+           {/* Souveränität pragmatisch umsetzen */}
+<div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
+  <h3 className="font-semibold mb-2 flex items-center gap-2">
+    <Landmark className={`w-5 h-5 ${accent}`} /> Souveränität pragmatisch umsetzen
+  </h3>
+  <ul className="text-sm space-y-2">
+    <li className="flex gap-2">
+      <CheckCircle2 className={`w-5 h-5 mt-1 ${accent}`} /> Datenklassifizierung (z. B. Öffentlich, Intern, Vertraulich, Hochsensibel)
+    </li>
+    <li className="flex gap-2">
+      <CheckCircle2 className={`w-5 h-5 mt-1 ${accent}`} /> Kundenseitige Ende-zu-Ende-Verschlüsselung mit <strong>Schlüsselhoheit</strong> (KMS/HSM auch außerhalb des Cloud-Providers möglich)
+    </li>
+    <li className="flex gap-2">
+      <CheckCircle2 className={`w-5 h-5 mt-1 ${accent}`} /> Regionswahl, EU-Boundary/Sovereign-Controls nutzen
+    </li>
+    <li className="flex gap-2">
+      <CheckCircle2 className={`w-5 h-5 mt-1 ${accent}`} /> Vertraglich: Exit-Klauseln, Portabilität, Audit-/Logging-Zugriff
+    </li>
+  </ul>
+</div>
+
           </div>
 
-          {/* Bild 1 (Unsplash, responsive crop) */}
-          <figure className="mt-8 grid sm:grid-cols-2 gap-5 items-center">
-            <picture>
-              <source
-                media="(max-width: 640px)"
-                srcSet="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=900&h=1125&fit=crop&q=80&auto=format"
-              />
-              <img
-                loading="lazy"
-                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1600&h=900&fit=crop&q=80&auto=format"
-                alt="Rechenzentrumsflur mit Serverracks"
-                className="rounded-2xl border border-zinc-200 w-full h-auto object-cover"
-              />
-            </picture>
-            <figcaption className="text-sm text-zinc-600">
-              Passendes Motiv: RZ-Gang, EU-Region – Bildunterschrift betont Datenlokation &amp; Souveränität.
-            </figcaption>
-          </figure>
+        {/* Bild 1 – volle Breite */}
+<figure className="mt-8">
+  <picture>
+    <source
+      media="(max-width: 640px)"
+      srcSet="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=900&h=1125&fit=crop&q=80&auto=format"
+    />
+    <img
+      loading="lazy"
+      src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1600&h=900&fit=crop&q=80&auto=format"
+      alt="Rechenzentrumsflur mit Serverracks"
+      className="rounded-2xl border border-zinc-200 w-full h-auto object-cover"
+    />
+  </picture>
+  <figcaption className="text-sm text-zinc-600">
+    Passendes Motiv: RZ-Gang, EU-Region – Bildunterschrift betont Datenlokation &amp; Souveränität.
+  </figcaption>
+</figure>
+
 
           {/* 5 */}
           <Anchor id="auswahl" />
