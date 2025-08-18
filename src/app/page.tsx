@@ -58,9 +58,9 @@ const ablauf = [
 
 // PRICING DATEN – mit altem Preis
 const plans = [
-  { id: "starter", articles: 20, price: 499, oldPrice: 799, popular: false },
-  { id: "growth",  articles: 40, price: 699, oldPrice: 1099, popular: true  },
-  { id: "scale",   articles: 60, price: 899, oldPrice: 1399, popular: false },
+  { id: "starter", articles: 15, price: 499, oldPrice: 799, popular: false },
+  { id: "growth",  articles: 30, price: 699, oldPrice: 1099, popular: true  },
+  { id: "scale",   articles: 45, price: 899, oldPrice: 1399, popular: false },
 ];
 
 
@@ -983,7 +983,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
         </div>
 
         <p className="mt-6 text-center text-xs text-slate-500">
-          Alle Pakete verstehen sich exkl. Mwst. und einmaliger Aufsetzgebühr von 199€. 
+          Alle Pakete verstehen sich exkl. Mwst. und einmaliger Aufsetzgebühr von 299€. 
           Sie beinhalten alles von Recherche bis Veröffentlichung und nachhaltige Lead-Gewinnung, 
           für maximalen Outcome für dein Angebot.
         </p>
