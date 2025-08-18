@@ -110,6 +110,17 @@ const TLDRItem = ({
   </li>
 );
 
+const CheckLi = ({ children }: { children: ReactNode }) => (
+  <li className="flex items-start gap-2">
+    <CheckCircle2
+      className={`w-4 h-4 mt-1 flex-none ${accent}`}
+      aria-hidden
+    />
+    <span className="flex-1">{children}</span>
+  </li>
+);
+
+
 const Pill = ({ children }: { children: ReactNode }) => (
   <span
     className={`inline-flex items-center rounded-full bg-gradient-to-r ${racingGreen} text-white px-3 py-1 text-xs font-medium`}
@@ -443,16 +454,11 @@ export default function Article() {
                 <strong>Cloud – Kurz erklärt</strong>
               </div>
               <ul className="space-y-2 text-sm">
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Bereitstellung in Minuten, elastische Skalierung, globale Reichweite.
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Bezahlung nach Nutzung (OpEx), viele Managed Services.
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Souveränitäts-Optionen (z. B. EU-Data-Boundary, Sovereign Controls).
-                </li>
-              </ul>
+  <CheckLi>Bereitstellung in Minuten, elastische Skalierung, globale Reichweite.</CheckLi>
+  <CheckLi>Bezahlung nach Nutzung (OpEx), viele Managed Services.</CheckLi>
+  <CheckLi>Souveränitäts-Optionen (z. B. EU-Data-Boundary, Sovereign Controls).</CheckLi>
+</ul>
+
             </div>
 
             <div className="rounded-2xl border border-zinc-200 p-5">
@@ -461,16 +467,11 @@ export default function Article() {
                 <strong>Eigener Server – Kurz erklärt</strong>
               </div>
               <ul className="space-y-2 text-sm">
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Maximale physische Kontrolle, feste Latenzen, lokale Datenhaltung.
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Hoher CapEx, Lifecycle-Management, Hardware-/Energieverantwortung.
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Ideal für konstante Baseline-Lasten und Spezialhardware.
-                </li>
-              </ul>
+  <CheckLi>Maximale physische Kontrolle, feste Latenzen, lokale Datenhaltung.</CheckLi>
+  <CheckLi>Hoher CapEx, Lifecycle-Management, Hardware-/Energieverantwortung.</CheckLi>
+  <CheckLi>Ideal für konstante Baseline-Lasten und Spezialhardware.</CheckLi>
+</ul>
+
             </div>
           </div>
 
@@ -503,32 +504,22 @@ export default function Article() {
                 <PiggyBank className={`w-5 h-5 ${accent}`} /> Wenn Cloud wirtschaftlich vorn liegt
               </h3>
               <ul className="space-y-2 text-sm">
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Starke Lastspitzen / saisonale Nutzung
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Schneller Markteintritt, Experimentieren, MVPs
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Zugang zu Managed Services (Datenbanken, ML, Streaming)
-                </li>
-              </ul>
+  <CheckLi>Starke Lastspitzen / saisonale Nutzung</CheckLi>
+  <CheckLi>Schneller Markteintritt, Experimentieren, MVPs</CheckLi>
+  <CheckLi>Zugang zu Managed Services (Datenbanken, ML, Streaming)</CheckLi>
+</ul>
+
             </div>
             <div className="rounded-2xl border border-zinc-200 p-5">
               <h3 className="font-semibold mb-2 flex items-center gap-2">
                 <BadgeEuro className={`w-5 h-5 ${accent}`} /> Wenn eigener Server wirtschaftlich vorn liegt
               </h3>
-              <ul className="space-y-2 text-sm">
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Konstante Grundlast, geringe Varianz
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Lizenzmodelle oder Spezialhardware (z. B. FPGA, HBA)
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className={`w-4 h-4 mt-1 ${accent}`} /> Datenlokation zwingend und Netzwerk-Egress kostentreibend
-                </li>
-              </ul>
+             <ul className="space-y-2 text-sm">
+  <CheckLi>Konstante Grundlast, geringe Varianz</CheckLi>
+  <CheckLi>Lizenzmodelle oder Spezialhardware (z. B. FPGA, HBA)</CheckLi>
+  <CheckLi>Datenlokation zwingend und Netzwerk-Egress kostentreibend</CheckLi>
+</ul>
+
             </div>
           </div>
 
@@ -601,19 +592,12 @@ export default function Article() {
     <Landmark className={`w-5 h-5 ${accent}`} /> Souveränität pragmatisch umsetzen
   </h3>
   <ul className="text-sm space-y-2">
-    <li className="flex gap-2">
-      <CheckCircle2 className={`w-5 h-5 mt-1 ${accent}`} /> Datenklassifizierung (z. B. Öffentlich, Intern, Vertraulich, Hochsensibel)
-    </li>
-    <li className="flex gap-2">
-      <CheckCircle2 className={`w-5 h-5 mt-1 ${accent}`} /> Kundenseitige Ende-zu-Ende-Verschlüsselung mit <strong>Schlüsselhoheit</strong> (KMS/HSM auch außerhalb des Cloud-Providers möglich)
-    </li>
-    <li className="flex gap-2">
-      <CheckCircle2 className={`w-5 h-5 mt-1 ${accent}`} /> Regionswahl, EU-Boundary/Sovereign-Controls nutzen
-    </li>
-    <li className="flex gap-2">
-      <CheckCircle2 className={`w-5 h-5 mt-1 ${accent}`} /> Vertraglich: Exit-Klauseln, Portabilität, Audit-/Logging-Zugriff
-    </li>
-  </ul>
+  <CheckLi>Datenklassifizierung (z. B. Öffentlich, Intern, Vertraulich, Hochsensibel)</CheckLi>
+  <CheckLi>Kundenseitige Ende-zu-Ende-Verschlüsselung mit <strong>Schlüsselhoheit</strong> (KMS/HSM auch außerhalb des Cloud-Providers möglich)</CheckLi>
+  <CheckLi>Regionswahl, EU-Boundary/Sovereign-Controls nutzen</CheckLi>
+  <CheckLi>Vertraglich: Exit-Klauseln, Portabilität, Audit-/Logging-Zugriff</CheckLi>
+</ul>
+
 </div>
 
           </div>
