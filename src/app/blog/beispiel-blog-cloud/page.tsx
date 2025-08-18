@@ -315,12 +315,12 @@ export default function Article() {
               {/* Mobile first: 4:5 */}
               <source
                 media="(max-width: 640px)"
-                srcSet="Cloud vs. On-Premise.png"
+                srcSet="/Cloud vs. On-Premise.png"
               />
               {/* Desktop: 16:9 */}
               <img
                 loading="lazy"
-                src="Cloud vs. On-Premise.png"
+                src="/Cloud vs. On-Premise.png"
                 alt="Rechenzentrumsracks und moderne Cloud-Symbolik – Hybrid illustriert"
                 className="w-full h-auto object-cover"
               />
