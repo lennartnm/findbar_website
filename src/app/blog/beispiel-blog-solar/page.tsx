@@ -3,25 +3,32 @@ import {
 CheckCircle2,
 ShieldCheck,
 Gauge,
-Network,
-FileSearch,
+PiggyBank,
+Battery,
+SolarPanel,
 Landmark,
+BadgeEuro,
+Factory,
+Building2,
+Calculator,
+FileSearch,
 ArrowRight,
 Info,
 CalendarClock,
 Timer,
-Brain,
-Megaphone,
 LineChart,
-Sparkles,
-Users,
-BadgeCheck,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
-/* -----------------------------------------------------
-Helper
------------------------------------------------------ */
+/**
+──────────────────────────────────────────────────────────────────────────────
+Green Energy im Unternehmen – Photovoltaik und Energiespeicher sinnvoll einsetzen
+Ready-to-deploy Next.js article page
+Style, structure & visual patterns based on the provided Beispielcode.
+(TL;DR box, checkmark bullets, Kurzfazit design, gradients, 16:6 images)
+──────────────────────────────────────────────────────────────────────────────
+*/
+// ---------- Helper ----------
 const formatDateDE = (date = new Date()) =>
 new Intl.DateTimeFormat("de-DE", {
 day: "2-digit",
@@ -31,20 +38,18 @@ timeZone: "Europe/Berlin",
 }).format(date);
 const racingGreen = "from-emerald-700 to-emerald-500"; // Accent gradient
 const accent = "text-emerald-700";
-/* -----------------------------------------------------
-Content Data (edit freely)
------------------------------------------------------ */
+// ---------- Content Data (edit freely) ----------
 const author = {
-name: "Nora Schubert",
-role: "B2B Marketing & KI-Strategin (10+ Jahre Erfahrung)",
+name: "Jonas Richter",
+role: "Energie- & PV-Berater (10+ Jahre Erfahrung)",
 image:
 "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=240&h=240&q=80&crop=faces&fit=crop",
-linkedin: "https://www.linkedin.com/in/noraschubert/",
+linkedin: "https://www.linkedin.com/in/jonas-richter/",
 };
 const reviewer = {
-name: "Prof. Dr. Felix Hartmann",
-role: "Forscher für Vertrauen & Markenwirkung",
-linkedin: "https://www.linkedin.com/in/felixhartmann/",
+name: "Dr. Laura Hoffmann",
+role: "EE-Ökonomin & Fördermittel-Expertin",
+linkedin: "https://www.linkedin.com/in/laurahoffmann/",
 };
 const company = {
 name: "Deine Firma GmbH",
@@ -52,147 +57,206 @@ url: "https://www.deinefirma.de",
 logo:
 "https://images.unsplash.com/photo-1548345680-f5475ea5df84?w=256&h=256&q=80&fit=crop&crop=faces",
 };
-/* Sections used for reading time estimate (strings only) */
+// Sections for ToC & reading time
 const sections = [
 {
 id: "grundlagen",
 title:
-"Warum 2025 der Vertrauensvorschuss vor Sales den Unterschied macht",
+"Was bedeuten kWp, Eigenverbrauch, Marktprämie – und wie spielt der Speicher mit?",
 content:
-"B2B-Kaufentscheidungen entstehen 2025 zunehmend in selbstgesteuerten, digitalen Buying Journeys – häufig ohne direkten Kontakt mit Sales bis kurz vor die Shortlist. Studien von Forrester und Gartner zeigen eine klare Präferenz für rep-freie Erlebnisse; gleichzeitig wächst die Unsicherheit: komplexe Buying-Teams, lange Zyklen, Skepsis gegenüber Marketingbotschaften. Wer früh Vertrauen aufbaut, reduziert wahrgenommenes Risiko und schafft eine positive Voreinstellung. KI hilft, diesen Vertrauensvorsprung systematisch zu erzeugen: bessere Inhalte, schnellere Antworten, nachvollziehbare Belege, konsistente Qualität – ohne Massen-Spam. Grundlage ist eine saubere Datenbasis, Governance gegen Halluzinationen und ein klarer redaktioneller Anspruch.",
+"Photovoltaik (PV) wandelt Sonnenlicht direkt in Strom um. Für Unternehmen sind Dachanlagen attraktiv, weil sie Lasten direkt auf dem Gelände decken (Eigenverbrauch). Die Kenngröße kWp beschreibt die Nennleistung unter Standardbedingungen, die reale Jahresarbeit liegt in Deutschland je nach Ausrichtung grob um 900–1.050 kWh je kWp. Speicher erhöhen die Eigenverbrauchsquote, glätten Lastspitzen und senken Netzentgelte, indem sie Leistungsspitzen kappen.",
 },
 {
-id: "trends",
-title: "Status Quo 2025: Hidden Buyers, rep-freie Präferenzen & KI",
+id: "wirtschaftlichkeit",
+title: "Wirtschaftlichkeit verstehen: LCOE vs. Strompreis & CO₂-Effekt",
 content:
-"Edelman & LinkedIn rücken 2025 die Hidden Buyer in den Fokus: interne Einflussnehmende, die Thought Leadership aktiv konsumieren und Kaufentscheidungen prägen. In Gartner- und Forrester-Analysen bevorzugen eine Mehrheit der B2B-Käufer rep-freie, digitale Erlebnisse; gleichzeitig beklagen viele Käufer Unzufriedenheit mit Anbietern nach dem Kauf. McKinsey zeigt, dass GenAI signifikante Hebel in Marketing & Sales hebt – von Produktivität bis Umsatzwachstum –, sofern Qualitäts- und Vertrauensmechanismen mitgedacht werden.",
+"Die Stromgestehungskosten (LCOE) neuer PV-Anlagen in Deutschland liegen deutlich unter typischen Gewerbestrompreisen. Für Entscheider heißt das: Je höher der Eigenverbrauchsanteil, desto schneller amortisiert sich die Anlage. Batteriespeicher erhöhen die Autarkie und helfen, Leistungspreise zu senken. Zusätzlich reduziert eigener Solarstrom die Emissionen des Strombezugs spürbar.",
 },
 {
-id: "framework",
-title: "Framework: Vertrauensmaschine mit KI in fünf Ebenen",
+id: "investition",
+title: "Investition & Amortisation: Von CAPEX zu Payback",
 content:
-"Das Vertrauensframework bündelt KI-Workflows in fünf Ebenen: (1) Autorität durch herausragende Thought Leadership, (2) Beweise via Referenzen, Demos & Daten, (3) Hilfsbereitschaft durch nützliche Tools & Erklärungen, (4) Transparenz zu Preis, Roadmap, Sicherheit & Nachhaltigkeit, (5) Reputation über unabhängige Gütesiegel und Stimmen aus dem Markt. Jede Ebene lässt sich mit KI skalieren – immer mit Faktenprüfung, Quellenangaben und menschlicher Review.",
+"Die Investition umfasst Module, Unterkonstruktion, Wechselrichter, DC/AC, Statik, Installation, ggf. Brandschutz, Speicher und Anschlusskosten. Amortisation ergibt sich aus vermiedenen Strombezugskosten, Einspeisevergütung und reduzierten Netzentgelten/Leistungspreisen. Ein solider Business Case rechnet konservativ mit Erträgen, Degradation, Betriebskosten und Zinskosten.",
 },
 {
-id: "taktiken",
-title: "12 konkrete KI-Taktiken für mehr Vertrauen vor dem Erstgespräch",
+id: "foerderung",
+title: "Förderungen & Finanzierung: EEG, KfW, BAFA-EEW im Überblick",
 content:
-"Von Research-Sprints über RAG-gestützte Content-Assembly bis zu Digital Sales Rooms, die sich pro Account automatisch anreichern – der Werkzeugkasten ist reif. Entscheidend ist ein Redaktionsprozess mit Freigabe-Gates, Fact-Checks und klaren Stil- und Quellenregeln, um Substanz vor Volumen zu stellen.",
+"Die EEG-Vergütung sichert planbare Einnahmen für Überschüsse. KfW-Kredite und die BAFA-EEW (Zuschuss/Bonus) verbessern die Liquidität. Wichtig: Der Nullsteuersatz bei PV-Lieferungen gilt vor allem bei Wohngebäuden oder begünstigten Gebäudetypen – klassische Gewerbedächer fallen meist nicht darunter.",
 },
 {
-id: "messung",
-title: "Messung: Leading-Indikatoren für Vertrauen und Kaufbereitschaft",
+id: "planung",
+title: "Dimensionierung & Technik: So planst du PV + Speicher richtig",
 content:
-"Vertrauen wird sichtbar in wiederkehrenden Besuchen, geteilten Inhalten, direkten Marken-Suchen, eingeladenen Pitches, DSR-Aktivität, Meeting-Akzeptanzraten und Opportunity-Konversionsraten. Ergänzend helfen Umfragen (z. B. wahrgenommenes Risiko, Klarheit) und Qualitäts-Signale (Zitierquote, Quellenqualität).",
+"Startpunkt ist der Lastgang: Er entscheidet über Anlagengröße, Speicherbedarf und Ziel-Eigenverbrauch. Dachstatik, Verschattung, Brandschutz und Wartungswege sind Pflicht. Für Speicher gilt: typischerweise 1–3 Stunden Entladedauer; Round-Trip-Wirkungsgrade liegen oft bei 80–95 %, Zyklenzahlen im tausender Bereich – abhängig von Chemie und Betrieb.",
 },
 {
-id: "risiken",
-title: "Risiken & Gegenmaßnahmen",
+id: "fehler",
+title: "Typische Fehler & Risiken: Was Projekte ausbremst",
 content:
-"KI verleitet zu Content-Inflation. Risiken: Halluzinationen, Bias, Datenschutz, übergriffige Personalisierung, rechtliche Stolpersteine. Gegenmittel: RAG mit kuratiertem Wissensspeicher, Quellenoffenlegung, menschliche Redaktion, QA-Checklisten, Logging & Audit, klare Opt-outs und Purpose-Limits pro Use Case.",
+"Ohne Lastdaten und konservative Annahmen wird der Case schnell zu optimistisch. Häufige Fehler sind fehlende Sicherung gegen Preis- und Regulierungsrisiken, unklare Vertrags-/Gewährleistungsregeln und eine zu kleine (oder zu große) Speicherdimensionierung.",
 },
 ];
-const wordCount = sections.reduce((sum, s) => sum + s.content.split(/\s+/).length, 0);
-const readingMinutes = Math.max(10, Math.ceil(wordCount / 180)); // conservative 180 wpm
-/* -----------------------------------------------------
-UI Components (reuse visual patterns from example)
------------------------------------------------------ */
-const TLDRItem = ({ icon: Icon, children }: { icon: LucideIcon; children: ReactNode }) => (
+const wordCount = sections.reduce(
+(sum, s) => sum + s.content.split(/\s+/).length,
+0
+);
+const readingMinutes = Math.max(12, Math.ceil(wordCount / 170)); // conservative
+// ---------- UI Components ----------
+const TLDRItem = ({
+icon: Icon,
+children,
+}: {
+icon: LucideIcon;
+children: ReactNode;
+}) => (
 <li className="flex items-start gap-3"> <Icon className={`w-5 h-5 mt-1 ${accent}`} aria-hidden /> <span>{children}</span> </li> );
 const CheckLi = ({ children }: { children: ReactNode }) => (
 <li className="flex items-start gap-2"> <CheckCircle2 className={`w-4 h-4 mt-1 flex-none ${accent}`} aria-hidden /> <span className="flex-1">{children}</span> </li> );
 const Pill = ({ children }: { children: ReactNode }) => (
-<span
-className={inline-flex items-center rounded-full bg-gradient-to-r ${racingGreen} text-white px-3 py-1 text-xs font-medium}
-{children}
-</span> );
-const Anchor = ({ id }: { id: string }) => <div id={id} aria-hidden className="pt-24 -mt-24" />;
-/* -----------------------------------------------------
-Static SVG chart – Vertrauenshebel vs. Wirkung
------------------------------------------------------ */
-const TrustImpactChart = () => {
+  <span
+    className={`inline-flex items-center rounded-full bg-gradient-to-r ${racingGreen} text-white px-3 py-1 text-xs font-medium`}
+  >
+    {children}
+  </span>
+);
+const Anchor = ({ id }: { id: string }) => (
+<div id={id} aria-hidden className="pt-24 -mt-24" /> ); // stable anchor
+// Simple static SVG chart – PV vs. Netzstrom-Kostenvergleich
+const CostChart = () => {
+// Values illustrative; backed by sources in text (Fraunhofer ISE LCOE; BDEW Industriepreise).
 const items = [
-{ k: "Thought Leadership Qualität", impact: 9, effort: 6 },
-{ k: "Drittanbieter-Referenzen/Siegel", impact: 8, effort: 5 },
-{ k: "Produkt-Demo/Trial & DSR", impact: 8, effort: 4 },
-{ k: "Transparente Preise & Roadmap", impact: 7, effort: 5 },
-{ k: "Nachhaltigkeitsnachweise (ESG)", impact: 7, effort: 6 },
+{ k: "PV (Rooftop, neu)", value: 12 }, // ct/kWh (typisch <15)
+{ k: "Gewerbestrom 2025 (Ø klein/mittel)", value: 18 }, // ct/kWh BDEW
 ];
-const max = 10;
-const barH = 16;
-const gap = 6;
-const rowH = barH * 2 + gap + 16;
-const padTop = 14;
+const max = 22;
 const width = 720;
+const barH = 28;
+const gap = 18;
+const padTop = 16;
 const left = 220;
-const right = width - 20;
-const scale = (v: number) => (right - left) * (v / max);
+const right = width - 24;
+const scale = (v: number) => ((right - left) * v) / max;
 return (
 <figure className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
 <svg
-viewBox={0 0 ${width} ${items.length * rowH + padTop}}
+viewBox={0 0 ${width} ${items.length * (barH + gap) + padTop}}
 role="img"
-aria-label="Diagramm: Vertrauenshebel und relative Wirkung (0–10) vs. Implementierungsaufwand"
+aria-label="Diagramm: Vergleich PV-LCOE vs. durchschnittlicher Gewerbestrompreis (ct/kWh)"
 >
 <defs>
-<linearGradient id="gImpact" x1="0" x2="1">
+<linearGradient id="g1" x1="0" x2="1">
 <stop offset="0%" stopColor="#047857" />
 <stop offset="100%" stopColor="#10b981" />
 </linearGradient>
 </defs>
-      {items.map((row, i) => {
-      const y = padTop + i * rowH;
-      return (
-        <g key={row.k}>
-          <text x={10} y={y + barH + 6} className="fill-zinc-700" fontSize="12">
-            {row.k}
-          </text>
-          {/* Aufwand (grau, oben) */}
-          <rect x={left} y={y} width={scale(row.effort)} height={barH} fill="#e5e7eb" rx="6" />
-          <text x={left + scale(row.effort) + 6} y={y + barH - 4} fontSize="11" className="fill-zinc-500">
-            {row.effort}
-          </text>
-          {/* Wirkung (grün, unten) */}
-          <rect
-            x={left}
-            y={y + barH + gap}
-            width={scale(row.impact)}
-            height={barH}
-            fill="url(#gImpact)"
-            rx="6"
-          />
-          <text
-            x={left + scale(row.impact) + 6}
-            y={y + barH + gap + barH - 4}
-            fontSize="11"
-            className="fill-emerald-700"
-          >
-            {row.impact}
-          </text>
-        </g>
-      );
-    })}
-  </svg>
-  <figcaption className="mt-2 text-sm text-zinc-600">
-    Oben: Implementierungsaufwand (grau), unten: erwartete Wirkung auf Vertrauen/Conversion (grün). Einschätzungen auf
-    Basis aktueller Studien und Praxisprojekten.
-  </figcaption>
+{items.map((row, i) => {
+const y = padTop + i * (barH + gap);
+const isPV = i === 0;
+return (
+<g key={row.k}>
+<text x={10} y={y + barH - 8} className="fill-zinc-700" fontSize="12">
+{row.k}
+</text>
+<rect
+x={left}
+y={y}
+width={scale(row.value)}
+height={barH}
+fill={isPV ? "url(#g1)" : "#e5e7eb"}
+rx="8"
+/>
+<text
+x={left + scale(row.value) + 6}
+y={y + barH - 8}
+fontSize="12"
+className={isPV ? "fill-emerald-700" : "fill-zinc-500"}
+>
+{row.value.toFixed(0)} ct
+</text>
+</g>
+);
+})}
+</svg>
+<figcaption className="mt-2 text-sm text-zinc-600">
+PV-Stromgestehungskosten (LCOE) neuer Dachanlagen in DE oft <15 ct/kWh
+vs. Ø Gewerbestrompreis ~18 ct/kWh (Neuabschlüsse 2025, inkl. Stromsteuer). 
+Fraunhofer ISE
+bdew.de
+
+</figcaption>
 </figure>
 );
 };
-/* Glossary row */
-const GlossaryRow = ({ term, def }: { term: string; def: string }) => (
-<div className="grid grid-cols-[160px_1fr] gap-4 p-4"> <dt className="font-semibold text-zinc-900">{term}</dt> <dd className="text-zinc-700">{def}</dd> </div> );
-/* -----------------------------------------------------
-Page
------------------------------------------------------ */
+// Einspeisevergütung – kompakte Tabelle (08/2025–01/2026)
+const FeedInTable = () => {
+const rows = [
+{
+size: "≤10 kWp",
+teil: "8,26",
+voll: "12,87",
+},
+{
+size: "≤40 kWp",
+teil: "7,20",
+voll: "10,85",
+},
+{
+size: "≤100 kWp",
+teil: "5,96",
+voll: "10,85",
+},
+{
+size: "≤400 kWp",
+teil: "5,96",
+voll: "9,03",
+},
+{
+size: "≤1.000 kWp",
+teil: "5,96",
+voll: "7,78",
+},
+];
+return (
+<div className="mt-6 overflow-x-auto">
+<table className="w-full text-sm border-separate border-spacing-y-2" aria-describedby="eeg-2025-caption" >
+<caption id="eeg-2025-caption" className="sr-only">
+EEG-Einspeisevergütung (08/2025–01/2026)
+</caption>
+<thead>
+<tr className="text-left">
+<th className="px-3 py-2">Anlagengröße</th>
+<th className="px-3 py-2">Teileinspeisung (ct/kWh)</th>
+<th className="px-3 py-2">Volleinspeisung (ct/kWh)</th>
+</tr>
+</thead>
+<tbody>
+{rows.map((r) => (
+<tr key={r.size} className="bg-zinc-50 rounded-xl">
+<th scope="row" className="px-3 py-2 font-medium">
+{r.size}
+</th>
+<td className="px-3 py-2">{r.teil}</td>
+<td className="px-3 py-2">{r.voll}</td>
+</tr>
+))}
+</tbody>
+</table>
+<p className="text-xs text-zinc-600 mt-2">
+Anzulegende Werte (Marktprämie) für Inbetriebnahmen 01.08.2025–31.01.2026, Gebäudeanlagen (§48 EEG 2023). Quelle: Bundesnetzagentur. 
+bundesnetzagentur.de
+
+</p>
+</div>
+);
+};
 export default function Article() {
 const updated = formatDateDE();
 const title =
-"B2B-Kunden gewinnen 2025 mit KI: Vertrauensvorschuss vor Sales – so gelingt’s";
+"Green Energy im Unternehmen: Photovoltaik & Energiespeicher wirtschaftlich planen";
 const description =
-"Wie du 2025 mit KI einen Vertrauensvorsprung schaffst: Thought Leadership, Social Proof, Digital Sales Rooms, Metriken & Praxis-Workflows – kompakt und umsetzbar.";
-const canonical = ${company.url}/blog/b2b-kunden-gewinnen-mit-ki-2025;
+"PV & Batteriespeicher im Unternehmen: Investition, Amortisation, Förderungen (EEG, KfW, BAFA-EEW), Dimensionierung, Risiken – mit Zahlen & Checklisten.";
+const canonical = ${company.url}/blog/pv-und-energiespeicher-im-unternehmen;
 return (
 <>
 <Head>
@@ -200,20 +264,27 @@ return (
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
 <meta name="robots" content="index, follow" />
-      <meta property="og:type" content="article" />
+          <meta property="og:type" content="article" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={`${company.url}/og/b2b-ki-vertrauen-2025.jpg`} />
+    <meta
+      property="og:image"
+      content={`${company.url}/og/pv-speicher-wirtschaftlichkeit.jpg`}
+    />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${company.url}/og/b2b-ki-vertrauen-2025.jpg`} />
+    <meta
+      name="twitter:image"
+      content={`${company.url}/og/pv-speicher-wirtschaftlichkeit.jpg`}
+    />
 
     {/* Article Schema.org */}
     <script
       type="application/ld+json"
+      // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
@@ -225,7 +296,7 @@ return (
           reviewedBy: { "@type": "Person", name: reviewer.name },
           datePublished: new Date().toISOString(),
           dateModified: new Date().toISOString(),
-          image: `${company.url}/og/b2b-ki-vertrauen-2025.jpg`,
+          image: `${company.url}/og/pv-speicher-wirtschaftlichkeit.jpg`,
           publisher: {
             "@type": "Organization",
             name: company.name,
@@ -240,6 +311,7 @@ return (
     {/* Company Schema.org */}
     <script
       type="application/ld+json"
+      // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
@@ -262,26 +334,28 @@ return (
         {title}
       </h1>
       <p className="mt-3 text-lg text-zinc-700">
-        Der Wettbewerb nimmt zu, Budgets sind knapp – und Kaufentscheider meiden kalte
-        Akquise. Die Lösung: Du baust{" "}
-        <strong>Vertrauen vor dem ersten Gespräch</strong> auf und positionierst
-        dein Unternehmen als <strong>Experte</strong>. KI hilft dir dabei, das
-        systematisch, schnell und messbar zu skalieren.
+        Du möchtest Stromkosten senken, CO₂ reduzieren und unabhängiger
+        werden? Dieser Leitfaden zeigt, wie Unternehmen Photovoltaik mit
+        Energiespeichern so planen, dass sich Investition und Amortisation
+        wirklich rechnen – inklusive Förderungen und konkreter
+        Entscheidungslogik.
       </p>
 
-      {/* Hero 16:6 */}
+      {/* Hero 16:6 – Placeholder with ideal prompt */}
       <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
         <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
-          {/* Platzhalter: Für KI-Bildgenerator – Prompt im Alt-Text */}
-          <img
-            loading="eager"
-            src="/hero-b2b-ki-vertrauen-2025.png"
-            alt="KI-Bild-Prompt: 'B2B Buying Committee in modernem Konferenzraum, transparente Daten-Layer, Vertrauenssymbole (Siegel, Referenzen), digitale Sales-Räume – fotorealistisch, 16:9, hochwertiges Licht'"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          <picture>
+            {/* Placeholder, no actual fetch – describe ideal image for AI gen */}
+            <img
+              loading="eager"
+              src={`${company.url}/hero/pv-rooftop-placeholder.jpg`}
+              alt='Platzhalter: 16:9 KI-Bildprompt – "Großes Gewerbedach mit PV-Feld bei Sonne, Batterieschränke im Vordergrund, Mitarbeiter mit Helm prüft Lastgang, klare Linien, moderne Industriearchitektur"'
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </picture>
         </div>
         <figcaption className="sr-only">
-          Symbolbild: Buying-Committee, Vertrauenssignale & KI-Assistenz
+          Idealisiertes Hero-Motiv für PV & Speicher in Unternehmen
         </figcaption>
       </figure>
 
@@ -308,7 +382,9 @@ return (
           <CalendarClock className="w-4 h-4 text-zinc-600" aria-hidden />
           <div>
             <span className="sr-only">Zuletzt aktualisiert am </span>
-            <time dateTime={new Date().toISOString()}>Zuletzt aktualisiert: {updated}</time>
+            <time dateTime={new Date().toISOString()}>
+              Zuletzt aktualisiert: {updated}
+            </time>
           </div>
         </div>
 
@@ -326,22 +402,24 @@ return (
       <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
       <ul className="space-y-3">
         <TLDRItem icon={Gauge}>
-          <strong>Vertrauen vor Sales entscheidet</strong>: 2025 prägen{" "}
-          <em>Hidden Buyers</em> und rep-freie Präferenzen die Journey – hochwertige
-          Thought Leadership beeinflusst Kaufbereitschaft und RFP-Einladungen (Edelman/LinkedIn 2025).
+          <strong>PV ist heute oft günstiger</strong> als Bezug: LCOE &lt; 15 ct/kWh
+          sind typisch, Gewerbestrom liegt um ~18 ct/kWh (Neuabschlüsse 2025). :contentReference[oaicite:2]{index=2}
         </TLDRItem>
-        <TLDRItem icon={ShieldCheck}>
-          <strong>KI skaliert Qualität</strong>: GenAI steigert Produktivität und Umsatzhebel,
-          wenn Inhalte <em>belegt, überprüft und hilfreich</em> sind – keine Massenware (McKinsey 2025).
+        <TLDRItem icon={Battery}>
+          <strong>Speicher</strong> erhöht Eigenverbrauch, senkt <strong>Leistungspreise</strong> und hilft
+          bei Negativpreis-Spitzen (Mittag). RTE i. d. R. 80–95 %, Zyklen &gt; 4.000. :contentReference[oaicite:3]{index=3}
         </TLDRItem>
-        <TLDRItem icon={Network}>
-          <strong>Digital zuerst</strong>: Ein Großteil der Interaktionen läuft digital; viele Käufer
-          bevorzugen eine rep-freie Erfahrung – Vertrauen entsteht über Inhalte, Demos und Beweise
-          (Gartner/Forrester 2024–2025).
+        <TLDRItem icon={Landmark}>
+          <strong>Förderungen</strong>: EEG-Einspeisevergütung, KfW-Kredite, BAFA-EEW-Zuschüsse –
+          Kombination je nach Case möglich. :contentReference[oaicite:4]{index=4}
+        </TLDRItem>
+        <TLDRItem icon={PiggyBank}>
+          <strong>Amortisation</strong> ergibt sich über vermiedene Stromkosten, Vergütung und
+          reduzierte Netzentgelte/Leistungspreise; solide Lastdaten sind Pflicht. :contentReference[oaicite:5]{index=5}
         </TLDRItem>
         <TLDRItem icon={FileSearch}>
-          <strong>Messbar machen</strong>: Beobachte Leading-Indikatoren wie Direct/Brand Search,
-          DSR-Aktivität, geteilte Inhalte und Meeting-Akzeptanzraten – nicht nur klassische MQLs.
+          <strong>Steuern/USt</strong>: 0 % USt gilt überwiegend bei Wohn-/begünstigten Gebäuden –
+          reine Gewerbedächer meist mit 19 %. :contentReference[oaicite:6]{index=6}
         </TLDRItem>
       </ul>
     </aside>
@@ -359,27 +437,27 @@ return (
           </a>
         </li>
         <li>
-          <a className={`hover:underline ${accent} font-medium`} href="#trends">
+          <a className={`hover:underline ${accent} font-medium`} href="#wirtschaftlichkeit">
             {sections[1].title}
           </a>
         </li>
         <li>
-          <a className={`hover:underline ${accent} font-medium`} href="#framework">
+          <a className={`hover:underline ${accent} font-medium`} href="#investition">
             {sections[2].title}
           </a>
         </li>
         <li>
-          <a className={`hover:underline ${accent} font-medium`} href="#taktiken">
+          <a className={`hover:underline ${accent} font-medium`} href="#foerderung">
             {sections[3].title}
           </a>
         </li>
         <li>
-          <a className={`hover:underline ${accent} font-medium`} href="#messung">
+          <a className={`hover:underline ${accent} font-medium`} href="#planung">
             {sections[4].title}
           </a>
         </li>
         <li>
-          <a className={`hover:underline ${accent} font-medium`} href="#risiken">
+          <a className={`hover:underline ${accent} font-medium`} href="#fehler">
             {sections[5].title}
           </a>
         </li>
@@ -398,321 +476,257 @@ return (
 
     {/* Content */}
     <section>
-      {/* 1 */}
+      {/* 1 – Grundlagen */}
       <Anchor id="grundlagen" />
       <h2 className="text-2xl font-bold mb-4">{sections[0].title}</h2>
       <p className="mb-6 leading-relaxed">
-        {sections[0].content}
+        Photovoltaik (PV) erzeugt Gleichstrom aus Sonnenlicht; Wechselrichter
+        wandeln ihn in Wechselstrom. Die Nennleistung (kWp) ist die
+        Maximalleistung unter Standard-Testbedingungen. Real entscheidend ist die
+        Jahresarbeit pro kWp (<em>Specific Yield</em>): Für deutsche Dachanlagen
+        liegen die Vollbenutzungsstunden typischerweise um ~922 h/a (≈ kWh/kWp),
+        abhängig von Ausrichtung, Neigung und Verschattung. :contentReference[oaicite:7]{index=7}
       </p>
 
       <div className="grid sm:grid-cols-2 gap-5 mb-10">
         <div className="rounded-2xl border border-zinc-200 p-5">
           <div className="flex items-center gap-2 mb-2">
-            <Megaphone className={`w-5 h-5 ${accent}`} />
-            <strong>Was ist „Vertrauensvorschuss“?</strong>
+            <SolarPanel className={`w-5 h-5 ${accent}`} />
+            <strong>Eigenverbrauch &amp; Einspeisung</strong>
           </div>
           <ul className="space-y-2 text-sm">
-            <CheckLi>
-              Positive Voreinstellung beim Buying-Committee <em>vor</em> Kontakt mit Sales.
-            </CheckLi>
-            <CheckLi>
-              Beruht auf <strong>Autorität</strong> (Expertise), <strong>Beweisen</strong> (Referenzen, Demos) und{" "}
-              <strong>Transparenz</strong> (Preise, Sicherheit, ESG).
-            </CheckLi>
-            <CheckLi>
-              Wird in digitalen Kanälen aufgebaut: Content, Communities, Events, Digital Sales Rooms.
-            </CheckLi>
+            <CheckLi>Eigenverbrauch: Direktnutzung im Betrieb senkt Strombezug.</CheckLi>
+            <CheckLi>Einspeisung: Überschüsse werden vergütet (EEG/Marktprämie).</CheckLi>
+            <CheckLi>Volleinspeiser vs. Teileinspeiser: je nach Lastprofil wählen.</CheckLi>
           </ul>
         </div>
 
         <div className="rounded-2xl border border-zinc-200 p-5">
           <div className="flex items-center gap-2 mb-2">
-            <Brain className={`w-5 h-5 ${accent}`} />
-            <strong>Wie hilft KI konkret?</strong>
+            <Battery className={`w-5 h-5 ${accent}`} />
+            <strong>Rolle des Speichers</strong>
           </div>
           <ul className="space-y-2 text-sm">
-            <CheckLi>Recherchiert schneller, fasst zusammen, vergleicht Quellen.</CheckLi>
-            <CheckLi>Erstellt hochwertige Entwürfe mit RAG – inklusive Zitate & Belege.</CheckLi>
-            <CheckLi>Personalisiert Inhalte ohne Daten auszuufern (Privacy by Design).</CheckLi>
+            <CheckLi>Erhöht Eigenverbrauchsquote und Autarkie.</CheckLi>
+            <CheckLi>Peak Shaving: Senkt Leistungspreise aus Netzentgelten.</CheckLi>
+            <CheckLi>RTE häufig 80–95 %; Zyklen &gt; 4.000 je nach Chemie und Betrieb.</CheckLi>
           </ul>
+          <p className="text-xs text-zinc-600 mt-2">
+            Wirkungsgrad-/Zyklusbereiche: Literatur-Reviews &amp; Programmberichte. :contentReference[oaicite:8]{index=8}
+          </p>
         </div>
       </div>
 
-      {/* 2 */}
-      <Anchor id="trends" />
+      {/* 2 – Wirtschaftlichkeit */}
+      <Anchor id="wirtschaftlichkeit" />
       <h2 className="text-2xl font-bold mb-4">{sections[1].title}</h2>
       <p className="mb-5 leading-relaxed">
-        <Pill>Edelman/LinkedIn 2025</Pill>{" "}
-        Thought Leadership wirkt besonders auf <em>Hidden Buyers</em> – interne
-        Einflussnehmende außerhalb der offiziellen Buying List – und erhöht die Offenheit für Outreach und
-        Einladungen in den Pitch. Quelle: Edelman & LinkedIn, „B2B Thought Leadership Impact Report 2025“.
-      </p>
-      <p className="mb-5 leading-relaxed">
-        <Pill>Forrester & Gartner</Pill> Ein signifikanter Anteil der B2B-Käufer bevorzugt
-        rep-freie, digitale Prozesse; dennoch steigt die Kaufreue bei reinem Self-Service. Anbieter, die
-        digitale <strong>Buyer Enablement</strong> mit menschlicher Expertise kombinieren, gewinnen Vertrauen.
-      </p>
-      <p className="mb-5 leading-relaxed">
-        <Pill>McKinsey 2025</Pill> GenAI entfaltet Wirkung entlang der gesamten Go-to-Market-Kette –
-        von Segmentierung und Content bis Deal-Support –, wenn Governance (Quellen, Freigaben, Logging) mitwächst.
+        Für neue Dach-PV liegen die Stromgestehungskosten (LCOE) laut
+        Fraunhofer-Studien im Regelfall unter 15 ct/kWh. Gleichzeitig zahlen
+        kleine bis mittlere Industriebetriebe 2025 im Durchschnitt rund
+        18 ct/kWh (Neuabschlüsse, inkl. Stromsteuer). Der direkte Ersatz von
+        Bezugsstrom durch Eigenproduktion erzeugt somit einen stabilen
+        Kostenvorteil, der durch Speicher weiter vergrößert werden kann. :contentReference[oaicite:9]{index=9}
       </p>
 
-      {/* Chart */}
-      <TrustImpactChart />
+      <CostChart />
 
-      {/* Expertenzitat */}
-      <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
-        <blockquote className="text-lg font-medium">
-          „Vertrauen ist 2025 die härteste Währung im B2B. GenAI lohnt sich dort am meisten,
-          wo es <em>Belege</em> sichtbarer macht und <em>Komplexität</em> für Buying-Teams reduziert.“
-        </blockquote>
-        <figcaption className="mt-2 text-sm text-zinc-600">
-          — Redaktionelle Einschätzung auf Basis aktueller Studien (Edelman/LinkedIn 2025; McKinsey 2025;
-          Forrester/Gartner 2024–2025)
+      <p className="mt-5 leading-relaxed">
+        Neben Kosten wirkt auch CO₂: PV-Strom in Deutschland erreicht – je nach
+        Standort und Technologie – Lebenszyklus-Emissionen von grob 30–35 g
+        CO₂e/kWh, deutlich unter dem Strommix. :contentReference[oaicite:10]{index=10}
+      </p>
+
+      {/* Unsplash Bild 1 – 16:6 */}
+      <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+        <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
+          <img
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=1600&h=600&fit=crop&crop=entropy&q=80"
+            alt="Gewerbedach mit PV-Modulen in der Sonne – Symbol für Eigenverbrauch im Unternehmen"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+        <figcaption className="text-sm text-zinc-600">
+          Eigenverbrauch ist der größte Hebel für die Wirtschaftlichkeit.
         </figcaption>
       </figure>
 
-      {/* 3 */}
-      <Anchor id="framework" />
+      {/* 3 – Investition & Amortisation */}
+      <Anchor id="investition" />
       <h2 className="text-2xl font-bold mt-10 mb-4">{sections[2].title}</h2>
       <div className="grid md:grid-cols-2 gap-6">
-        <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
+        <div className="rounded-2xl border border-zinc-200 p-5">
           <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <Sparkles className={`w-5 h-5 ${accent}`} /> Ebene 1: Autorität
+            <PiggyBank className={`w-5 h-5 ${accent}`} /> Kostenblöcke (CapEx &amp; OpEx)
           </h3>
-          <ul className="text-sm space-y-2">
-            <CheckLi>Jährliche „Flaggschiff-Studie“ (eigene Daten + Sekundärquellen).</CheckLi>
-            <CheckLi>Point-of-View-Artikel zu kontroversen Themen – mit Quellen.</CheckLi>
-            <CheckLi>Speaker-Decks + Kurzvideos; Distribution via LinkedIn & Newsletter.</CheckLi>
+          <ul className="space-y-2 text-sm">
+            <CheckLi>Module, Unterkonstruktion, Wechselrichter, DC/AC.</CheckLi>
+            <CheckLi>Installation, Statik/Brandschutz, Netzanschluss.</CheckLi>
+            <CheckLi>Speicher: Leistung (kW) &amp; Kapazität (kWh), EMS.</CheckLi>
+            <CheckLi>Betrieb: Wartung, Versicherung, Monitoring, Rücklagen.</CheckLi>
           </ul>
         </div>
-
-        <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
+        <div className="rounded-2xl border border-zinc-200 p-5">
           <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <BadgeCheck className={`w-5 h-5 ${accent}`} /> Ebene 2: Beweise
+            <Calculator className={`w-5 h-5 ${accent}`} /> Payback-Treiber
           </h3>
-          <ul className="text-sm space-y-2">
-            <CheckLi>Kurzstudien, Benchmarks, ROI-Kalkulatoren, interaktive Demos.</CheckLi>
-            <CheckLi>Case Library mit quantifizierten Ergebnissen & Zitaten.</CheckLi>
-            <CheckLi>DSRs (Digital Sales Rooms) pro Account – kuratierte Evidenzen.</CheckLi>
+          <ul className="space-y-2 text-sm">
+            <CheckLi>Eigenverbrauchsanteil &amp; Strompreis (Arbeitspreis).</CheckLi>
+            <CheckLi>Einspeisevergütung (Volleinspeiser/Teileinspeiser).</CheckLi>
+            <CheckLi>Leistungspreisreduktion via Peak Shaving.</CheckLi>
+            <CheckLi>Förderkonditionen (Zins/Zuschuss), steuerliche Effekte.</CheckLi>
           </ul>
-        </div>
-
-        <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
-          <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <Users className={`w-5 h-5 ${accent}`} /> Ebene 3: Hilfsbereitschaft
-          </h3>
-          <ul className="text-sm space-y-2">
-            <CheckLi>Guides, Checklisten, Mini-Tools – „Enablement vor Pitch“.</CheckLi>
-            <CheckLi>Antwortzeit &amp; Klarheit erhöhen (AI Assistants mit Quellen).</CheckLi>
-            <CheckLi>Community-Beteiligung statt Einweg-Kommunikation.</CheckLi>
-          </ul>
-        </div>
-
-        <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
-          <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <Landmark className={`w-5 h-5 ${accent}`} /> Ebenen 4–5: Transparenz & Reputation
-          </h3>
-          <ul className="text-sm space-y-2">
-            <CheckLi>Preismodelle &amp; Erwartungsmanagement offenlegen.</CheckLi>
-            <CheckLi>Sicherheits-/Nachhaltigkeitsnachweise teilen (Datenpunkte!).</CheckLi>
-            <CheckLi>Unabhängige Gütesiegel/Analystenberichte verlinken.</CheckLi>
-          </ul>
+          <p className="text-xs text-zinc-600 mt-2">
+            Netzentgelt-Systematik inkl. Leistungspreis für Unternehmen. :contentReference[oaicite:11]{index=11}
+          </p>
         </div>
       </div>
 
-      {/* Bild 1 – 16:6 (Unsplash API) */}
-      <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
-        <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
-          <picture>
-            <source
-              media="(max-width: 640px)"
-              srcSet="https://images.unsplash.com/photo-1529336953121-ad0b0f80b6d8?w=1200&q=80&auto=format&fit=crop"
-            />
-            <img
-              loading="lazy"
-              src="https://images.unsplash.com/photo-1529336953121-ad0b0f80b6d8?w=2000&q=80&auto=format&fit=crop"
-              alt="Meeting eines Buying-Committees – Notebooks, Diagramme, kollaborative Entscheidungen"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </picture>
-        </div>
-        <figcaption className="text-sm text-zinc-600">
-          Buying-Committee: Vertrauen entsteht durch Evidenz, Klarheit und Hilfsbereitschaft – nicht durch Druck.
-        </figcaption>
-      </figure>
+      {/* Beispielhafte EEG-Tabelle */}
+      <FeedInTable />
 
-      {/* 4 */}
-      <Anchor id="taktiken" />
-      <h2 className="text-2xl font-bold mt-12 mb-4">{sections[3].title}</h2>
-
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="rounded-2xl border border-zinc-200 p-5">
-          <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <FileSearch className={`w-5 h-5 ${accent}`} /> Research & Content
-          </h3>
-          <ul className="text-sm space-y-2">
-            <CheckLi>
-              <strong>Research-Sprints (GenAI + Analysten):</strong> Cluster-Fragen, Quellenkorpus, Synthesen,
-              Zitatverwaltung; monatlicher „Insights Brief“ (Edelman/LinkedIn 2025 als Referenzformat).
-            </CheckLi>
-            <CheckLi>
-              <strong>RAG-gestützte Content-Assembly:</strong> Eigene Cases, Produkt-Docs, Studien; automatische
-              Quellen-Fußnoten + Link-Outs.
-            </CheckLi>
-            <CheckLi>
-              <strong>Expert:innen-Q&A Assistant:</strong> Website-Chat mit dokumentierten Antworten & Quellen; Eskalation an Menschen.
-            </CheckLi>
-          </ul>
-        </div>
-
-        <div className="rounded-2xl border border-zinc-200 p-5">
-          <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <LineChart className={`w-5 h-5 ${accent}`} /> ABM & Distribution
-          </h3>
-          <ul className="text-sm space-y-2">
-            <CheckLi>
-              <strong>Intent-Signale + Snippet-Factory:</strong> Account-spezifische Snippets für Social & E-Mail – mit
-              strengen Frequency Caps.
-            </CheckLi>
-            <CheckLi>
-              <strong>Digital Sales Rooms (DSR):</strong> Automatisch befüllt mit relevanten Belegen, Demos, ROI-Calc;
-              Notification nur bei echter Aktivität.
-            </CheckLi>
-            <CheckLi>
-              <strong>Employee Advocacy:</strong> AI generiert persönliche Kurzposts, aber menschliche Anpassung ist Pflicht.
-            </CheckLi>
-          </ul>
-        </div>
-
-        <div className="rounded-2xl border border-zinc-200 p-5">
-          <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <ShieldCheck className={`w-5 h-5 ${accent}`} /> Governance & Qualität
-          </h3>
-          <ul className="text-sm space-y-2">
-            <CheckLi>Fact-Check-Playbook (Quellenklassen A/B/C, 4-Augen-Freigabe).</CheckLi>
-            <CheckLi>PII-Minimierung, Consent-Management, Opt-out für Personalisierung.</CheckLi>
-            <CheckLi>Halluzinations-Prevention: Retrieval, Confidence-Scores, Red-Flags.</CheckLi>
-          </ul>
-        </div>
-
-        <div className="rounded-2xl border border-zinc-200 p-5">
-          <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <Info className={`w-5 h-5 ${accent}`} /> Schnellstarter (30 Tage)
-          </h3>
-          <ol className="text-sm space-y-2 list-decimal ml-5">
-            <li>Wissensspeicher kuratieren (Cases, Decks, Policies, Studien).</li>
-            <li>Top-3 Pain Points definieren; FAQ & „Wie geht…?“-Artikel planen.</li>
-            <li>RAG-Assistent pilotieren (nur Docs mit Freigabe).</li>
-            <li>DSR-Template erstellen; ein Pilot-Account auswählen.</li>
-            <li>Metriken & QA-Gates festlegen (siehe Mess-Teil).</li>
-          </ol>
-        </div>
-      </div>
-
-      {/* Bild 2 – 16:6 (Unsplash API) */}
-      <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
-        <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
-          <picture>
-            <source
-              media="(max-width: 640px)"
-              srcSet="https://images.unsplash.com/photo-1523956208760-8a27b05f7b3b?w=1200&q=80&auto=format&fit=crop"
-            />
-            <img
-              loading="lazy"
-              src="https://images.unsplash.com/photo-1523956208760-8a27b05f7b3b?w=2000&q=80&auto=format&fit=crop"
-              alt="Dashboard mit Metriken zu Content-Performance, DSR-Aktivität, Marken-Suchen"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </picture>
-        </div>
-        <figcaption className="text-sm text-zinc-600">
-          Übersichtliche Messung: Leading-Indikatoren für Vertrauen sind oft schneller sichtbar als Umsatzmetriken.
-        </figcaption>
-      </figure>
-
-      {/* 5 */}
-      <Anchor id="messung" />
-      <h2 className="text-2xl font-bold mt-12 mb-4">{sections[4].title}</h2>
-      <div className="mt-4 grid md:grid-cols-2 gap-6">
-        <div className="rounded-2xl border border-zinc-200 p-5">
-          <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <LineChart className={`w-5 h-5 ${accent}`} /> Leading-Indikatoren
-          </h3>
-          <ul className="text-sm space-y-2">
-            <CheckLi>Wiederkehrende Besuche pro Buying-Unit (anonym & bekannt).</CheckLi>
-            <CheckLi>Direkter Traffic, Marken-Suchen, Newsletter-CTR/Reply.</CheckLi>
-            <CheckLi>DSR-Engagement (Zeit, geteilte Artefakte, Kommentare).</CheckLi>
-            <CheckLi>Share-Rate von Thought Leadership, Earned Mentions.</CheckLi>
-          </ul>
-        </div>
-        <div className="rounded-2xl border border-zinc-200 p-5">
-          <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <Users className={`w-5 h-5 ${accent}`} /> Pipeline-Nähe
-          </h3>
-          <ul className="text-sm space-y-2">
-            <CheckLi>Meeting-Akzeptanzraten, RFP-/Pitch-Einladungen.</CheckLi>
-            <CheckLi>„No Decision“-Quote sinkt; Deal-Qualität steigt.</CheckLi>
-            <CheckLi>Time-to-First-Opportunity, Stage-Konversionen.</CheckLi>
-          </ul>
-        </div>
-      </div>
-
-      {/* Vergleichstabelle */}
+      {/* Vergleichstabelle – Beispielannahmen */}
       <div className="mt-8 overflow-x-auto">
-        <table className="w-full text-sm border-separate border-spacing-y-2" aria-describedby="vergleich-caption">
-          <caption id="vergleich-caption" className="sr-only">
-            Vergleich: Vertrauensmaßnahmen & Wirkung
+        <table
+          className="w-full text-sm border-separate border-spacing-y-2"
+          aria-describedby="bc-caption"
+        >
+          <caption id="bc-caption" className="sr-only">
+            Beispielhafte Business-Case-Parameter
           </caption>
           <thead>
             <tr className="text-left">
-              <th className="px-3 py-2">Maßnahme</th>
-              <th className="px-3 py-2">Wirkung auf Vertrauen</th>
-              <th className="px-3 py-2">Hinweis</th>
+              <th className="px-3 py-2">Parameter</th>
+              <th className="px-3 py-2">PV + Speicher</th>
+              <th className="px-3 py-2">Nur Netzbezug</th>
             </tr>
           </thead>
           <tbody>
             {[
               {
-                a: "Flaggschiff-Studie",
-                b: "Hohe Autorität, Earned Mentions",
-                c: "Zahlen, Methodik & Rohdaten offenlegen",
+                p: "Ersatz Strombezug (ct/kWh)",
+                a: "≈ 12–15 (LCOE PV) + Speicherverluste",
+                b: "≈ 18 (Ø 2025 klein/mittel)",
               },
               {
-                a: "Case Library",
-                b: "Beweisführung & Risikoreduktion",
-                c: "Outcome > Features; Zahlen kontextualisieren",
+                p: "Leistungspreise (€/kW·a)",
+                a: "↓ durch Peak Shaving",
+                b: "Unverändert",
               },
               {
-                a: "DSR pro Account",
-                b: "Klarheit & Konsistenz in der Evaluation",
-                c: "Kein Overload; relevantes Material kuratieren",
-              },
-              {
-                a: "Preistransparenz",
-                b: "Erwartungsmanagement",
-                c: "Spannen & Trade-offs statt starrer Preislisten",
-              },
-              {
-                a: "Sustainability-Report",
-                b: "Glaubwürdigkeit & Differenzierung",
-                c: "Zertifizierte Daten, Fortschritt vs. Versprechen",
+                p: "Preisrisiko",
+                a: "↓ (Fixkosten-dominiert)",
+                b: "↑ (Marktpreise/Abgaben)",
               },
             ].map((row) => (
-              <tr key={row.a} className="bg-zinc-50 rounded-xl">
+              <tr key={row.p} className="bg-zinc-50 rounded-xl">
                 <th scope="row" className="px-3 py-2 font-medium">
-                  {row.a}
+                  {row.p}
                 </th>
+                <td className="px-3 py-2">{row.a}</td>
                 <td className="px-3 py-2">{row.b}</td>
-                <td className="px-3 py-2">{row.c}</td>
               </tr>
             ))}
           </tbody>
         </table>
+        <p className="text-xs text-zinc-600 mt-2">
+          LCOE/Preise auf Basis jüngster Studien/Verbandszahlen; Details siehe Quellen. :contentReference[oaicite:12]{index=12}
+        </p>
       </div>
 
-      {/* 6 */}
-      <Anchor id="risiken" />
+      {/* 4 – Förderungen & Finanzierung */}
+      <Anchor id="foerderung" />
+      <h2 className="text-2xl font-bold mt-12 mb-4">{sections[3].title}</h2>
+
+      <div className="grid gap-6 md:grid-cols-2">
+        <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
+          <h3 className="font-semibold mb-2 flex items-center gap-2">
+            <Landmark className={`w-5 h-5 ${accent}`} /> Relevante Programme
+          </h3>
+          <ul className="text-sm space-y-2">
+            <li>
+              <Pill>EEG</Pill> Marktprämie/Einspeisevergütung, Sätze je Segment (vgl.
+              Tabelle oben). :contentReference[oaicite:13]{index=13}
+            </li>
+            <li>
+              <Pill>KfW</Pill> Kredite/Finanzierung für PV im Unternehmen (Zinsvorteile,
+              Laufzeiten). :contentReference[oaicite:14]{index=14}
+            </li>
+            <li>
+              <Pill>BAFA-EEW</Pill> Zuschüsse/Bonusse für Energie- &amp; Ressourceneffizienz
+              (u. a. Lastmanagement/Prozessoptimierung, Speicher teils integrierbar). :contentReference[oaicite:15]{index=15}
+            </li>
+          </ul>
+        </div>
+
+        <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
+          <h3 className="font-semibold mb-2 flex items-center gap-2">
+            <BadgeEuro className={`w-5 h-5 ${accent}`} /> Steuer-/USt-Hinweise
+          </h3>
+          <ul className="text-sm space-y-2">
+            <CheckLi>
+              0 % USt nach § 12 Abs. 3 UStG gilt für Lieferungen&nbsp;an/nahe
+              Wohngebäuden bzw. begünstigten Gebäuden –{" "}
+              <em>Gewerbedächer sind meist nicht begünstigt</em>.
+            </CheckLi>
+            <CheckLi>
+              Prüfe Vorsteuerabzug/Optionen bei Unternehmer-Erwerb und Mischnutzung.
+            </CheckLi>
+          </ul>
+          <p className="text-xs text-zinc-600 mt-2">
+            Offizielle FAQ &amp; Leitfäden geben Details/Beispiele. :contentReference[oaicite:16]{index=16}
+          </p>
+        </div>
+      </div>
+
+      {/* Unsplash Bild 2 – 16:6 */}
+      <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
+        <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
+          <img
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1584276433295-4b60a54d5b39?w=1600&h=600&fit=crop&crop=entropy&q=80"
+            alt="Batterieschränke (BESS) in Industriehalle – symbolisiert Peak Shaving & Lastmanagement"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+        <figcaption className="text-sm text-zinc-600">
+          Batteriespeicher verschieben Solarstrom und kappen teure Leistungsspitzen.
+        </figcaption>
+      </figure>
+
+      {/* 5 – Planung & Dimensionierung */}
+      <Anchor id="planung" />
+      <h2 className="text-2xl font-bold mt-12 mb-4">{sections[4].title}</h2>
+      <ol className="list-decimal ml-5 space-y-3 leading-relaxed">
+        <li>
+          <strong>Lastgang analysieren:</strong> 12–24 Monate Daten (15-min/1-min)
+          zeigen Baseline, Spitzen und PV-Potenzial.
+        </li>
+        <li>
+          <strong>Dach &amp; Standort prüfen:</strong> Statik, Dachhaut, Brandschutz,
+          Verschattung, Flucht-/Wartungswege, Blitzschutz.
+        </li>
+        <li>
+          <strong>PV-Größe bestimmen:</strong> Ziel-Eigenverbrauch festlegen; bei
+          Rooftop sind ~900–1.050 kWh/kWp·a üblich (Ausrichtung!). :contentReference[oaicite:17]{index=17}
+        </li>
+        <li>
+          <strong>Speicher dimensionieren:</strong> Für Peak Shaving 1–2 h Volllast,
+          für Eigenverbrauch 2–4 h; RTE berücksichtigen. :contentReference[oaicite:18]{index=18}
+        </li>
+        <li>
+          <strong>Netz &amp; Entgelte:</strong> Arbeitspreis vs. Leistungspreis im Blick;
+          perspektivisch Reformen/Kapazitätspreise diskutiert. :contentReference[oaicite:19]{index=19}
+        </li>
+        <li>
+          <strong>Wirtschaftlich rechnen:</strong> LCOE, CAPEX, OPEX, Degradation,
+          Finanzierungszins, Vergütung, CO₂– und Preisrisiken.
+        </li>
+      </ol>
+
+      {/* 6 – Fehler & Best Practices */}
+      <Anchor id="fehler" />
       <h2 className="text-2xl font-bold mt-12 mb-4">{sections[5].title}</h2>
       <div className="grid md:grid-cols-2 gap-6">
         <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
@@ -720,10 +734,17 @@ return (
             <Info className="w-5 h-5 text-rose-700" /> Vermeidbare Fehler
           </h3>
           <ul className="text-sm space-y-2">
-            <li>Content-Flut ohne Substanz; keine Quellen, keine Beweise.</li>
-            <li>Überpersonalisierung & Tracking ohne klare Einwilligung.</li>
-            <li>Halluzinationen durch fehlende Retrieval-/QA-Prozesse.</li>
-            <li>Fehlende Freigabe-Gates & Logs für Audit/Compliance.</li>
+            <li>
+              Invest ohne Lastdaten → falsche Größe, niedriger Eigenverbrauch.
+            </li>
+            <li>
+              Speicher rein „kWh-getrieben“ → Peak Shaving übersehen, RTE/Zyklen
+              ignoriert.
+            </li>
+            <li>
+              Vergütungs-/USt-Regeln nicht sauber geprüft → Planabweichungen.
+            </li>
+            <li>Unklare O&amp;M-/Garantie- und Schnittstellenverantwortung.</li>
           </ul>
         </div>
         <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
@@ -731,31 +752,31 @@ return (
             <CheckCircle2 className={`w-5 h-5 ${accent}`} /> Gute Praktiken
           </h3>
           <ul className="text-sm space-y-2">
-            <li>Quellenoffenlegung, Methodik, Zahlen – jederzeit nachvollziehbar.</li>
-            <li>RAG + Fact-Checks + menschliche Redaktion als Standard.</li>
-            <li>Privacy by Design, Frequency Caps, klare Opt-outs.</li>
-            <li>DSR-Playbooks & Enablement für Buying-Teams.</li>
+            <li>Lastgang + Szenarien (Preis, Wachstum, Schichten) simulieren.</li>
+            <li>PV-Layout mit Verschattungssimulation &amp; Brandschutz prüfen.</li>
+            <li>EMS-Regeln: Eigenverbrauch vor Einspeisung, Peak Shaving priorisieren.</li>
+            <li>Fördermix (EEG + KfW + EEW) früh mit Bank/BAFA abstimmen.</li>
           </ul>
         </div>
       </div>
 
-      {/* Interne Links */}
+      {/* Weiterführende interne Links */}
       <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
         <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
         <ul className="list-disc ml-5 text-sm space-y-2">
           <li>
-            <a className={`hover:underline ${accent}`} href="/blog/ai-content-governance">
-              AI Content Governance: Quellen, QA & Freigaben richtig aufsetzen
+            <a className={`hover:underline ${accent}`} href="/blog/lastgang-analysieren">
+              Lastgang analysieren &amp; Peak Shaving planen
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent}`} href="/blog/abm-2025">
-              ABM 2025: DSRs & Signal-gestützte Distribution in der Praxis
+            <a className={`hover:underline ${accent}`} href="/blog/ppa-stromliefervertrag">
+              Solar-PPA für Unternehmen: Chancen &amp; Risiken
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent}`} href="/blog/ai-sales-playbooks">
-              AI Sales Playbooks: Vom ersten Touchpoint bis zum Closing
+            <a className={`hover:underline ${accent}`} href="/blog/co2-bilanz-strommix">
+              CO₂-Bilanz von Strommix vs. Eigenstrom
             </a>
           </li>
         </ul>
@@ -768,30 +789,32 @@ return (
       <div className="divide-y divide-zinc-200 border border-zinc-200 rounded-2xl">
         {[
           {
-            q: "Welche Rolle spielt Thought Leadership im B2B 2025 wirklich?",
-            a: "Eine zentrale: Hochwertige Thought-Leadership-Inhalte beeinflussen die Wahrnehmung im Buying-Committee – inklusive Hidden Buyers. Studien zeigen, dass solche Inhalte Offenheit für Outreach und Pitch-Einladungen erhöhen, wenn sie substanziell und belegt sind.",
+            q: "Volleinspeiser oder Teileinspeiser – was ist wirtschaftlicher?",
+            a: "Teileinspeiser profitieren vom Ersatz teuren Bezugsstroms (Eigenverbrauch), Volleinspeiser erzielen höhere Vergütungssätze je kWh. Die richtige Wahl hängt vom Lastprofil und der möglichen Eigenverbrauchsquote ab.",
           },
           {
-            q: "Wie vermeide ich KI-Content, der nach Massenware klingt?",
-            a: "Mit RAG (Retrieval Augmented Generation), strenger Quellenkurationsliste, Stilguide, Zitaten, Zahlen und menschlicher Redaktion. Weniger, dafür besser – und immer mit Beweisen.",
+            q: "Wie groß soll mein Speicher sein?",
+            a: "Für Peak Shaving orientiert man sich an der Differenz zwischen Lastspitzen und Grundlast (1–2 h Entladedauer). Für Eigenverbrauch typisch 2–4 h. Prüfe RTE und garantierte Zyklen der Batterie.",
           },
           {
-            q: "Brauche ich unbedingt Digital Sales Rooms?",
-            a: "Nicht zwingend – aber DSRs bündeln Belege, Demos und nächste Schritte an einem Ort pro Account. Gerade bei rep-freien Präferenzen helfen sie, Orientierung zu geben und Vertrauen zu vertiefen.",
+            q: "Wie wirken negative Börsenpreise?",
+            a: "Sie treten v. a. an sonnigen Mittagen auf. Mit Speicher kannst du Überschüsse puffern und Last verlagern – das erhöht den Nutzen der PV-Anlage im Betrieb. ",
           },
           {
-            q: "Welche KPIs zeigen früh, dass Vertrauen wächst?",
-            a: "Wiederkehrende Besuche, Share-Rate, Direct/Brand Search, DSR-Engagement, Meeting-Akzeptanz, Einladungen in RFP/Pitches – bevor Umsatzmetriken sichtbar werden.",
+            q: "Welche Förderungen sind 2025 relevant?",
+            a: "EEG (Einspeisevergütung), KfW-Finanzierungen für PV-Projekte und BAFA-EEW-Zuschüsse (insb. bei Effizienz-/Dekarbonisierungsprojekten).",
           },
           {
-            q: "Wie gehe ich mit Compliance & Datenschutz um?",
-            a: "PII-Minimierung, rechtliche Einwilligungen, Transparenz, Logging; technische Schutzmaßnahmen (z. B. Zugriffsebenen, Red-Flag-Checks) und klare Freigabeprozesse für Inhalte.",
+            q: "Gilt die 0 % USt auch bei Firmengebäuden?",
+            a: "Nur wenn das Gebäude die Voraussetzungen (z. B. Wohn- oder begünstigte Nutzung) erfüllt. Reine Gewerbedächer fallen in der Regel nicht darunter – dort gilt der Regelsteuersatz.",
           },
         ].map((f) => (
           <details key={f.q} className="group p-5">
             <summary className="flex cursor-pointer items-center justify-between font-medium">
               <span>{f.q}</span>
-              <ArrowRight className={`w-4 h-4 transition-transform group-open:rotate-90 ${accent}`} />
+              <ArrowRight
+                className={`w-4 h-4 transition-transform group-open:rotate-90 ${accent}`}
+              />
             </summary>
             <div className="mt-2 text-zinc-700">{f.a}</div>
           </details>
@@ -801,37 +824,57 @@ return (
       {/* FAQ Schema.org */}
       <script
         type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: [
-              ...[
-                {
-                  q: "Welche Rolle spielt Thought Leadership im B2B 2025 wirklich?",
-                  a: "Hochwertige Thought-Leadership-Inhalte beeinflussen die Wahrnehmung im Buying-Committee – inklusive Hidden Buyers. Substanzielle Inhalte erhöhen Offenheit für Outreach und Pitch-Einladungen, wenn sie belegt sind.",
-                },
-                {
-                  q: "Wie vermeide ich KI-Content, der nach Massenware klingt?",
-                  a: "RAG, kuratierte Quellen, Stilguide, Zitate, Zahlen und menschliche Redaktion – Qualität statt Volumen; Beweise sind Pflicht.",
-                },
-                {
-                  q: "Brauche ich unbedingt Digital Sales Rooms?",
-                  a: "DSRs bündeln Belege, Demos und nächste Schritte pro Account – hilfreich bei rep-freien Präferenzen, um Orientierung zu geben.",
-                },
-                {
-                  q: "Welche KPIs zeigen früh, dass Vertrauen wächst?",
-                  a: "Wiederkehrende Besuche, Share-Rate, Direct/Brand Search, DSR-Engagement, Meeting-Akzeptanz, RFP-/Pitch-Einladungen.",
-                },
-                {
-                  q: "Wie gehe ich mit Compliance & Datenschutz um?",
-                  a: "PII-Minimierung, Einwilligungen, Transparenz, Logging; technische Schutzmaßnahmen und klare Freigaben für Inhalte.",
-                },
-              ].map((x) => ({
+              {
                 "@type": "Question",
-                name: x.q,
-                acceptedAnswer: { "@type": "Answer", text: x.a },
-              })),
+                name: "Volleinspeiser oder Teileinspeiser – was ist wirtschaftlicher?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "Teileinspeiser profitieren vom Ersatz teuren Bezugsstroms (Eigenverbrauch), Volleinspeiser erzielen höhere Vergütungssätze je kWh. Die richtige Wahl hängt vom Lastprofil und der möglichen Eigenverbrauchsquote ab.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Wie groß soll mein Speicher sein?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "Für Peak Shaving orientiert man sich an der Differenz zwischen Lastspitzen und Grundlast (1–2 h Entladedauer). Für Eigenverbrauch typisch 2–4 h. Prüfe RTE und garantierte Zyklen der Batterie.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Wie wirken negative Börsenpreise?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "Sie treten v. a. an sonnigen Mittagen auf. Mit Speicher kannst du Überschüsse puffern und Last verlagern – das erhöht den Nutzen der PV-Anlage im Betrieb.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Welche Förderungen sind 2025 relevant?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "EEG (Einspeisevergütung), KfW-Finanzierungen für PV-Projekte und BAFA-EEW-Zuschüsse (insb. bei Effizienz-/Dekarbonisierungsprojekten).",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Gilt die 0 % USt auch bei Firmengebäuden?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "Nur wenn das Gebäude die Voraussetzungen (z. B. Wohn- oder begünstigte Nutzung) erfüllt. Reine Gewerbedächer fallen in der Regel nicht darunter – dort gilt der Regelsteuersatz.",
+                },
+              },
             ],
           }),
         }}
@@ -842,25 +885,31 @@ return (
     <section id="zusammenfassung" className="mt-14">
       <h2 className="text-2xl font-bold mb-3">Kurzfazit</h2>
       <p className="leading-relaxed">
-        <strong>B2B-Kunden 2025 gewinnen</strong> heißt: <em>Vertrauen vor Sales</em> systematisch aufbauen –
-        mit Thought Leadership, klaren Beweisen, hilfreichen Formaten und transparenter Kommunikation. KI ist der
-        <em>Multiplikator</em>, der Qualität skaliert, Antworten beschleunigt und Belege sichtbar macht – unter der
-        Bedingung guter Governance (RAG, Quellen, Freigaben). So wirst du als <strong>Experte</strong> wahrgenommen,
-        reduzierst Risiko im Buying-Committee und erhöhst die Chancen auf Shortlist, Pitch-Einladung und Abschluss.
+        <strong>PV + Speicher sind für viele Unternehmen heute ein klarer Business Case:</strong>{" "}
+        PV-Stromgestehungskosten liegen deutlich unter typischen Gewerbestrompreisen.
+        Der Speicher hebt die Eigenverbrauchsquote, reduziert Leistungspreise und
+        macht dich robuster gegen Preisspitzen und Negativpreise. Mit EEG-Vergütung,
+        KfW-Finanzierungen und BAFA-EEW kannst du die Amortisation zusätzlich
+        verbessern. Entscheidend sind ein sauberer Lastgang, konservative Annahmen und
+        eine Größenwahl, die Eigenverbrauch und Peak Shaving optimal balanciert. :contentReference[oaicite:20]{index=20}
       </p>
     </section>
 
     {/* CTA */}
     <section aria-label="Kontakt" className="mt-14">
       <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
-        <h2 className="text-xl font-bold mb-2">Vertrauens- &amp; KI-Enablement-Check gewünscht?</h2>
+        <h2 className="text-xl font-bold mb-2">PV-/Speicher-Wirtschaftlichkeitscheck?</h2>
         <p className="text-zinc-700 mb-4">
-          Wir analysieren deine Journey, richten eine schlanke KI-Vertrauensmaschine ein (RAG, DSR, Metriken) und
-          liefern ein 90-Tage-Playbook inkl. Qualitätssicherung.
+          Wir analysieren deinen Lastgang und rechnen einen belastbaren Business Case
+          inkl. Fördermix (EEG/KfW/EEW), Peak-Shaving-Strategie und Amortisationsplan.
         </p>
 
-        {/* Demo-Formular (UI, ohne Funktion) */}
-        <div className="mx-auto grid max-w-xl gap-3 text-left" role="group" aria-describedby="cta-note">
+        {/* Form UI only */}
+        <div
+          className="mx-auto grid max-w-xl gap-3 text-left"
+          role="group"
+          aria-describedby="cta-note"
+        >
           <label className="text-sm">
             Name
             <input
@@ -889,7 +938,7 @@ return (
 
           <button
             type="button"
-            className={`mt-2 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r ${racingGreen} px-4 py-2 font-semibold text-white shadow-sm opacity-70 cursor-not-allowed`}
+            className="mt-2 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-700 to-emerald-500 px-4 py-2 font-semibold text-white shadow-sm opacity-70 cursor-not-allowed"
             aria-disabled="true"
             title="Demo – ohne Funktion"
           >
@@ -904,13 +953,18 @@ return (
 
     {/* E-E-A-T */}
     <section className="mt-14">
-      <h2 className="text-2xl font-bold mb-3">Über die Autorin</h2>
+      <h2 className="text-2xl font-bold mb-3">Über den Autor</h2>
       <div className="flex items-center gap-4">
-        <img src={author.image} alt="Autorin" className="w-16 h-16 rounded-full object-cover" loading="lazy" />
+        <img
+          src={author.image}
+          alt="Autor"
+          className="w-16 h-16 rounded-full object-cover"
+          loading="lazy"
+        />
         <div>
           <div className="font-semibold">{author.name}</div>
           <div className="text-sm text-zinc-700">
-            {author.role}. Fokus: Thought Leadership, ABM, Digital Sales Rooms &amp; RAG-Governance.
+            {author.role}. Fokus: PV-Wirtschaftlichkeit, BESS, Netzentgelte &amp; Förderungen.
           </div>
           <a href={author.linkedin} className={`text-sm hover:underline ${accent}`}>
             LinkedIn-Profil
@@ -929,53 +983,43 @@ return (
       </div>
     </section>
 
-    {/* Quellen */}
+    {/* Quellenverzeichnis */}
     <section className="mt-14">
       <h2 className="text-2xl font-bold mb-3">Quellen &amp; weiterführende Studien</h2>
       <ul className="list-disc ml-5 space-y-2 text-sm">
         <li>
-          Edelman & LinkedIn (2025): B2B Thought Leadership Impact Report –{" "}
-          https://www.edelman.com/expertise/Business-Marketing/2025-b2b-thought-leadership-report
+          Fraunhofer ISE (2024): Levelized Cost of Electricity – Renewable Energy
+          Technologies. (LCOE PV &lt; 15 ct/kWh). :contentReference[oaicite:21]{index=21}
         </li>
         <li>
-          Edelman & LinkedIn (2025) – PDF{" "}
-          https://www.edelman.com/sites/g/files/aatuss191/files/2025-07/2025%20Edelman-LinkedIn%20B2B%20Thought%20Leadership%20Impact%20Report_FINAL.pdf
+          BDEW (Juli 2025): Strompreisanalyse – Ø Neuabschlüsse klein/mittel 2025 ~
+          18 ct/kWh inkl. Stromsteuer. :contentReference[oaicite:22]{index=22}
         </li>
         <li>
-          McKinsey (2025): Unlocking profitable B2B growth through gen AI –{" "}
-          https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/unlocking-profitable-b2b-growth-through-gen-ai
+          Bundesnetzagentur (EEG 2023/2025): Anzulegende Werte 08/2025–01/2026
+          (Gebäudeanlagen). :contentReference[oaicite:23]{index=23}
         </li>
         <li>
-          McKinsey (2024): Generative AI & B2B Sales –{" "}
-          https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/an-unconstrained-future-how-generative-ai-could-reshape-b2b-sales
+          Fraunhofer ISE (2025): Recent Facts about Photovoltaics in Germany – Vollbenutzungsstunden Dach ~922 h. :contentReference[oaicite:24]{index=24}
         </li>
         <li>
-          Gartner / Forrester (2024–2025): Rep-freie Präferenzen & digitaler Kauf – Überblick{" "}
-          https://www.demandgenreport.com/industry-news/news-brief/3-out-of-5-b2b-buyers-prefer-a-rep-free-buying-experience-gartner/49802/
+          KfW (2025): Photovoltaik für Unternehmen – Übersicht Fördermöglichkeiten. :contentReference[oaicite:25]{index=25}
         </li>
         <li>
-          Forrester (2024): The State of Business Buying – Press Room –{" "}
-          https://www.forrester.com/press-newsroom/forrester-the-state-of-business-buying-2024/
+          BAFA/EEW (2024/2025): Bundesförderung für Energie- und
+          Ressourceneffizienz in der Wirtschaft. :contentReference[oaicite:26]{index=26}
         </li>
         <li>
-          Forrester (2024): Younger Generations Are Shaking Up B2B Buying –{" "}
-          https://www.forrester.com/blogs/younger-b2b-buyers/
+          BMF (2023–2025): FAQ Nullsteuersatz § 12 Abs. 3 UStG (PV). :contentReference[oaicite:27]{index=27}
         </li>
         <li>
-          Demand Gen Report (2024): Content Preferences Benchmark Survey – PDF –{" "}
-          https://53a3b3d3789413ab876e-c1e3bb10b0333d7ff7aa972d61f8c669.ssl.cf1.rackcdn.com/DGR_DG283_SURV_ContentPref_April_2024_Final.pdf
+          NYSERDA (2024): Storage Impact – RTE-Bandbreite Li-Ion 77–95 %. :contentReference[oaicite:28]{index=28}
         </li>
         <li>
-          CMI (2024/25): B2B Content Marketing Benchmarks –{" "}
-          https://contentmarketinginstitute.com/b2b-research/b2b-content-marketing-trends-research
+          MDPI Batteries (2025): Review – Li-Ion Zyklen &gt; 4.000 möglich (chemie-/betriebsspezifisch). :contentReference[oaicite:29]{index=29}
         </li>
         <li>
-          Deloitte Digital x WSJ (2024): Trust & Sustainability im B2B –{" "}
-          https://deloitte.wsj.com/cmo/looking-to-improve-b2b-customer-trust-demonstrating-sustainability-can-help-2af65d54
-        </li>
-        <li>
-          Edelman (2025): Trust Barometer – Global Report –{" "}
-          https://www.edelman.com/trust/2025/trust-barometer
+          FfE (2025): Negative Strompreise am Day-Ahead 2024 (459 h). :contentReference[oaicite:30]{index=30}
         </li>
       </ul>
     </section>
@@ -984,26 +1028,37 @@ return (
     <section className="mt-14 mb-20">
       <h2 className="text-2xl font-bold mb-3">Mini-Glossar</h2>
       <dl className="rounded-2xl border border-zinc-200 divide-y">
-        <GlossaryRow
-          term="Hidden Buyers"
-          def="Interne Einflussnehmende ohne offizielle Rolle im Buying-Committee, die Entscheidungen mitprägen."
-        />
-        <GlossaryRow
-          term="RAG (Retrieval Augmented Generation)"
-          def="GenAI-Ansatz, der Antworten mit dokumentenbasiertem Abruf verknüpft – für belegbare, überprüfbare Inhalte."
-        />
-        <GlossaryRow
-          term="Digital Sales Room (DSR)"
-          def="Digitaler, account-spezifischer Raum mit kuratierten Belegen, Demos, Docs und Nächsten Schritten."
-        />
-        <GlossaryRow
-          term="ABM (Account-Based Marketing)"
-          def="Strategie zur fokussierten, account-spezifischen Ansprache und Enablement von Buying-Units."
-        />
-        <GlossaryRow
-          term="Buyer Enablement"
-          def="Materialien & Tools, die Käufer:innen helfen, intern Entscheidungen zu treffen – statt nur zu überzeugen."
-        />
+        <div className="grid grid-cols-[160px_1fr] gap-4 p-4">
+          <dt className="font-semibold text-zinc-900">kWp</dt>
+          <dd className="text-zinc-700">
+            Kilowatt Peak – Nennleistung der PV unter Standard-Testbedingungen.
+          </dd>
+        </div>
+        <div className="grid grid-cols-[160px_1fr] gap-4 p-4">
+          <dt className="font-semibold text-zinc-900">Eigenverbrauch</dt>
+          <dd className="text-zinc-700">
+            Anteil des erzeugten PV-Stroms, der direkt im Unternehmen genutzt wird.
+          </dd>
+        </div>
+        <div className="grid grid-cols-[160px_1fr] gap-4 p-4">
+          <dt className="font-semibold text-zinc-900">Marktprämie</dt>
+          <dd className="text-zinc-700">
+            EEG-Fördermechanismus: Differenz zwischen Marktpreis und anzulegendem
+            Wert wird ausgeglichen.
+          </dd>
+        </div>
+        <div className="grid grid-cols-[160px_1fr] gap-4 p-4">
+          <dt className="font-semibold text-zinc-900">Leistungspreis</dt>
+          <dd className="text-zinc-700">
+            Netzentgeltkomponente für die maximale abgenommene Leistung (€/kW·a).
+          </dd>
+        </div>
+        <div className="grid grid-cols-[160px_1fr] gap-4 p-4">
+          <dt className="font-semibold text-zinc-900">RTE</dt>
+          <dd className="text-zinc-700">
+            Round-Trip-Effizienz von Speichern; Verhältnis abgegebener zu aufgenommener Energie.
+          </dd>
+        </div>
       </dl>
     </section>
   </article>
