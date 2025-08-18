@@ -220,7 +220,8 @@ export default function Page() {
                 var a = e.target.closest('a');
                 if(!a) return;
                 if(isInsideTOC(a)) return; // TOC darf normal navigieren
-                // alle anderen Links abfangen
+                if(a.id === 'popup-calendly-link') return; // Calendly-Link NICHT abfangen
+                if(a.hasAttribute('data-bypass-popup')) return; // optionaler Escape-Hatch
                 e.preventDefault();
                 showPopup();
               }, true);
@@ -240,7 +241,11 @@ export default function Page() {
               // Setze den echten Link-Target auf das "Klicke hier"
               document.addEventListener('DOMContentLoaded', function(){
                 var link = document.getElementById('popup-calendly-link');
-                if(link) link.setAttribute('href', calendly);
+                if(link){
+                  link.setAttribute('href', calendly);
+                  link.setAttribute('target', '_blank');
+                  link.setAttribute('rel', 'noopener noreferrer');
+                }
               });
             })();
           `,
@@ -250,20 +255,19 @@ export default function Page() {
       {/* Styles */}
       <style dangerouslySetInnerHTML={{ __html: css }} />
 
-      {/* Modal Markup (enthält den hyperverlinkten Text "Klicke hier") */}
+      {/* Modal Markup (enthält den hyperverlinkten Text "Klicke hier"; Button entfernt) */}
       <div id="popup-backdrop" className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="popup-title">
         <div className="modal">
           <h3 id="popup-title">Hinweis</h3>
           <p>
             Die Funktionalität der Verlinkungen im Beispiel-Blog ist limitiert und wird auf dein Angebot zugeschnitten. Interesse?{" "}
-            <a id="popup-calendly-link" target="_blank" rel="noopener">
+            <a id="popup-calendly-link">
               Klicke hier
             </a>{" "}
             und buche dir dein Erstgespräch.
           </p>
           <div className="actions">
             <button className="btn" type="button" data-close>Schließen</button>
-            <a className="btn primary" id="popup-calendly-link" target="_blank" rel="noopener">Zum Termin</a>
           </div>
         </div>
       </div>
