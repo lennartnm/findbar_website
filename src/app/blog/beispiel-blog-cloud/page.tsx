@@ -1,5 +1,7 @@
 import Head from "next/head";
 import { CheckCircle2, ShieldCheck, Gauge, PiggyBank, Server, Cloud, Scale, Network, FileSearch, Landmark, BadgeEuro, Clock, ArrowRight, Info } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import type { ReactNode } from "react";
 
 // ---------- Helper ----------
 const formatDateDE = (date = new Date()) =>
@@ -71,14 +73,14 @@ const wordCount = sections.reduce((sum, s) => sum + s.content.split(/\s+/).lengt
 const readingMinutes = Math.max(8, Math.ceil(wordCount / 180)); // 180 wpm conservative
 
 // ---------- UI Components ----------
-const TLDRItem = ({ icon: Icon, children }) => (
+const TLDRItem = ({ icon: Icon, children }: { icon: LucideIcon; children: ReactNode }) => (
   <li className="flex items-start gap-3">
     <Icon className={`w-5 h-5 mt-1 ${accent}`} aria-hidden />
     <span>{children}</span>
   </li>
 );
 
-const Pill = ({ children }) => (
+const Pill (
   <span className={`inline-flex items-center rounded-full bg-gradient-to-r ${racingGreen} text-white px-3 py-1 text-xs font-medium`}>{children}</span>
 );
 
@@ -589,10 +591,3 @@ export default function Article() {
           </dl>
         </section>
 
-        <footer className="mt-10 text-center text-xs text-zinc-500">
-          © {new Date().getFullYear()} {company.name}. Alle Rechte vorbehalten.
-        </footer>
-      </article>
-    </>
-  );
-}
