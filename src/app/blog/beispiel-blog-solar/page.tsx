@@ -9,7 +9,7 @@ Building2,
 Calculator,
 FileText,
 Leaf,
-Lightning,
+Zap,
 BarChart3,
 CalendarClock,
 Info,
@@ -455,7 +455,7 @@ Amortisation, Förderungen
             <div className="rounded-xl border border-slate-200 bg-white p-4">
               <h3 className="font-semibold">EEG & Vergütung</h3>
               <ul className="mt-2 space-y-2 text-sm">
-                <li className="flex items-start gap-2"><Lightning className="h-4 w-4 text-orange-600"/><span>
+                <li className="flex items-start gap-2"><Zap className="h-4 w-4 text-orange-600"/><span>
                   <strong>Vergütungssätze</strong> werden halbjährlich angepasst; die
                   <a className="text-[#1b4d2b] underline ml-1" href="https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/EEG_Foerderung/start.html" target="_blank" rel="noopener">Bundesnetzagentur</a> veröffentlicht die jeweils gültigen Werte inkl. Unterscheidung zwischen Teile- und Volleinspeisung.
                 </span></li>
