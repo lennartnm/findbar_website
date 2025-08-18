@@ -310,25 +310,26 @@ export default function Article() {
           </p>
 
           {/* Hero with Unsplash (16:9 desktop, 4:5 mobile) */}
-          <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
-            <picture>
-              {/* Mobile first: 4:5 */}
-              <source
-                media="(max-width: 640px)"
-                img="/Cloud vs. On-Premise.png"
-              />
-              {/* Desktop: 16:9 */}
-              <img
-                loading="lazy"
-                img="/Cloud vs. On-Premise.png"
-                alt="Rechenzentrumsracks und moderne Cloud-Symbolik – Hybrid illustriert"
-                className="w-full h-auto object-cover"
-              />
-            </picture>
-            <figcaption className="sr-only">
-              Illustration eines Hybrid-Setups aus Cloud und eigenen Servern
-            </figcaption>
-          </figure>
+<figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+  <picture>
+    {/* Mobile first: 4:5 */}
+    <source
+      media="(max-width: 640px)"
+      srcSet="/Cloud vs. On-Premise.png"
+    />
+    {/* Desktop: 16:9 */}
+    <img
+      loading="lazy"
+      src="/Cloud vs. On-Premise.png"
+      alt="Rechenzentrumsracks und moderne Cloud-Symbolik – Hybrid illustriert"
+      className="w-full h-auto object-cover"
+    />
+  </picture>
+  <figcaption className="sr-only">
+    Illustration eines Hybrid-Setups aus Cloud und eigenen Servern
+  </figcaption>
+</figure>
+
 
           {/* Meta row – better legibility */}
           <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-zinc-700">
