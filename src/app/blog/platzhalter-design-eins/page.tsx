@@ -1,3 +1,5 @@
+// Anweisung für ChatGPT: Importiere weitere Icons, hier, die du zur sinnvollen Darstellung in den unteren Sections benötigst
+
 import Head from "next/head";
 import {
   CheckCircle2,
@@ -27,10 +29,14 @@ const formatDateDE = (date = new Date()) =>
     timeZone: "Europe/Berlin",
   }).format(date);
 
+
+// Anweisung für ChatGPT: Ersetze den Farbverlauf durch verfügbare Informationen, behalte sonst RacingGreen bei
+
 const racingGreen = "from-emerald-700 to-emerald-500"; // Accent gradient
 const accent = "text-emerald-700";
 
-// ---------- Content Data (edit freely) ----------
+// Anweisung für ChatGPT: Passe die Platzhalter für Autorenname, Rolle, Image,LinkedIn, Reviewer, Company mit den zur Verfügung gestellten Informationen an
+
 const author = {
   name: "Autorenname",
   role: "Jobtitel und Erfahrungslevel des Autoren",
@@ -51,6 +57,9 @@ const company = {
 };
 
 // Sections used for ToC and reading time (strings only). Keep ids stable!
+
+// Anweisung für ChatGPT: Ersetze Titel und Content der Sections, behalte die Länge in etwa bei, ändere außerdem die Section IDs für einen sinnvollen Namen und passe den Code im weiteren Verlauf unten an. Die ersten beiden Sections sollen weiterhin die Grundlagen, Status Quo, und Trends aufgreifen. Abschnitt 3 bis 5 bitte sinnvoll ausfüllen. Greife typische Fehler bei Abschnitt 6 auf
+
 const sections = [
   {
     id: "grundlagen",
@@ -125,14 +134,17 @@ const Anchor = ({ id }: { id: string }) => (
 ); // stable anc
 
 // Simple static SVG chart (no client JS)
+
+// Anweisung für ChatGPT: Passe die Faktoren und zu vergleichenden Aspekte hier an, passe außerdem die Anzahl der zu vergleichenden Faktoren sinnvoll an, passe ebenfalls die Werte inhaltsgemäß quellenbasiert an
+
 const ComparisonChart = () => {
   const items = [
-    { k: "Faktor 1", onprem: 9, cloud: 5 },
-    { k: "Faktor 2", onprem: 9, cloud: 6 },
-    { k: "Faktor 3", onprem: 6, cloud: 8 },
-    { k: "Faktor 4", onprem: 7, cloud: 9 },
-    { k: "Faktor 5", onprem: 7, cloud: 8 },
-    { k: "Faktor 6", onprem: 9, cloud: 6 },
+    { k: "Faktor 1", vergleich1: 9, vergleich2: 5 },
+    { k: "Faktor 2", vergleich1: 9, vergleich2: 6 },
+    { k: "Faktor 3", vergleich1: 6, vergleich2: 8 },
+    { k: "Faktor 4", vergleich1: 7, vergleich2: 9 },
+    { k: "Faktor 5", vergleich1: 7, vergleich2: 8 },
+    { k: "Faktor 6", vergleich1: 9, vergleich2: 6 },
   ];
   const max = 10;
   const barH = 16;
@@ -149,7 +161,7 @@ const ComparisonChart = () => {
       <svg
         viewBox={`0 0 ${width} ${items.length * rowH + padTop}`}
         role="img"
-        aria-label="Vergleichsdiagramm: On-Premises vs. Cloud (Platzhalter)"
+        aria-label="Platzhalter für sinnvolle Beschreibung des Diagramms"
       >
         <defs>
           <linearGradient id="g1" x1="0" x2="1">
@@ -166,20 +178,20 @@ const ComparisonChart = () => {
                 {row.k}
               </text>
               {/* On-prem (grey, top bar) */}
-              <rect x={left} y={y} width={scale(row.onprem)} height={barH} fill="#e5e7eb" rx="6" />
-              <text x={left + scale(row.onprem) + 6} y={y + barH - 4} fontSize="11" className="fill-zinc-500">
-                {row.onprem}
+              <rect x={left} y={y} width={scale(row.vergleich1)} height={barH} fill="#e5e7eb" rx="6" />
+              <text x={left + scale(row.vergleich1) + 6} y={y + barH - 4} fontSize="11" className="fill-zinc-500">
+                {row.vergleich1}
               </text>
               {/* Cloud (green, bottom bar) */}
-              <rect x={left} y={y + barH + gap} width={scale(row.cloud)} height={barH} fill="url(#g1)" rx="6" />
-              <text x={left + scale(row.cloud) + 6} y={y + barH + gap + barH - 4} fontSize="11" className="fill-emerald-700">
-                {row.cloud}
+              <rect x={left} y={y + barH + gap} width={scale(row.vergleich2)} height={barH} fill="url(#g1)" rx="6" />
+              <text x={left + scale(row.vergleich2) + 6} y={y + barH + gap + barH - 4} fontSize="11" className="fill-emerald-700">
+                {row.vergleich2}
               </text>
             </g>
           );
         })}
       </svg>
-      <figcaption className="mt-2 text-sm text-zinc-600">Platzhalter: Bewertung 0–10, oben On‑Prem, unten Cloud.</figcaption>
+      <figcaption className="mt-2 text-sm text-zinc-600">Platzhalter für die Bildunterschrift des Diagramms</figcaption>
     </figure>
   );
 };
@@ -191,6 +203,8 @@ const GlossaryRow = ({ term, def }: { term: string; def: string }) => (
     <dd className="text-zinc-700">{def}</dd>
   </div>
 );
+
+// Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an
 
 export default function Article() {
   const updated = formatDateDE();
@@ -306,6 +320,8 @@ export default function Article() {
           </div>
         </header>
 
+// Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an, ein bis zwei Sätze pro TL;DR Stichpunkt
+
         {/* TL;DR */}
         <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
           <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
@@ -348,6 +364,8 @@ export default function Article() {
             </li>
           </ol>
         </nav>
+
+// Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an, wähle ein neues passendes Icon für die beiden zu vergleichenden Aspekte. ein bis zwei Sätze pro Stichpunkt
 
         {/* Content */}
         <section>
@@ -392,10 +410,15 @@ export default function Article() {
           <ComparisonChart />
 
           {/* Expertenzitat */}
+
+// Anweisung für ChatGPT: Wähle hier basierend auf deiner Recherche ein Zitat oder eine Aussage eines branchenbekannten Experten, kennzeichne, ob direktes oder indirektes Zitat und gebe eine Quelle an
+
           <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
             <blockquote className="text-lg font-medium">„PLATZHALTER FÜR ZITAT VON EINEM EXPERTEN“</blockquote>
             <figcaption className="mt-2 text-sm text-zinc-600">— PLATZHALTER FÜR NAME ODER QUELLE</figcaption>
           </figure>
+
+// Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an, wähle ein neues passendes Icon für die beiden zu vergleichenden Aspekte. ein bis zwei Sätze pro Stichpunkt
 
           {/* 3 */}
           <Anchor id="abschnitt-3" />
@@ -424,6 +447,8 @@ export default function Article() {
               </ul>
             </div>
           </div>
+
+// Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an, wähle basierend auf deiner Recherche und vorher angezeigten Textinhalten sinnvoll zwei zu vergleichende Möglichkeiten, passe die Anzahl der zu vergleichenden Aspekte zwischen 3 und 10 inhaltsbasiert sinnvoll an
 
           {/* Vergleichstabelle */}
           <div className="mt-8 overflow-x-auto">
@@ -454,6 +479,8 @@ export default function Article() {
               </tbody>
             </table>
           </div>
+
+// Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an, pro Stichpunkt ein Satz
 
           {/* 4 */}
           <Anchor id="abschnitt-4" />
@@ -493,6 +520,8 @@ export default function Article() {
             </div>
           </div>
 
+// Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an
+
           {/* Bild 1 – volle Breite, 16:6 */}
           <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
             <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
@@ -503,6 +532,8 @@ export default function Article() {
             </div>
             <figcaption className="text-sm text-zinc-600">PLATZHALTER für Beschreibung des Bildes als Bildunterschrift</figcaption>
           </figure>
+
+// Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an, wähle ein neues passendes Icon für die beiden zu vergleichenden Aspekte. Zwei Sätze pro Stichpunkt
 
           {/* 5 */}
           <Anchor id="abschnitt-5" />
@@ -517,6 +548,9 @@ export default function Article() {
             <li>Platzhalter für Satz 7</li>
           </ol>
 
+// Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an
+
+
           {/* Bild 2 – 16:6 */}
           <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
             <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
@@ -527,6 +561,9 @@ export default function Article() {
             </div>
             <figcaption className="text-sm text-zinc-600">Platzhalter für Bildunterschrift</figcaption>
           </figure>
+
+// Anweisung für ChatGPT: Passe Platzhalter der Fehler und guten Praktiken an, wähle passenden Titel (H5) und pro Stichpunkt ein bis zwei Sätze
+
 
           {/* 6 */}
           <Anchor id="fehler" />
@@ -556,6 +593,9 @@ export default function Article() {
             </div>
           </div>
 
+// Anweisung für ChatGPT: Passe Platzhalter hier basierend auf dem Inhalt an
+
+
           {/* Weiterführende interne Links (Cluster) */}
           <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
             <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
@@ -575,6 +615,9 @@ export default function Article() {
             </ul>
           </aside>
         </section>
+
+// Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an, Antworten sind jeweils zwei bis drei Sätze lang
+
 
         {/* FAQ */}
         <section id="faq" className="mt-14">
@@ -649,6 +692,9 @@ export default function Article() {
           <p className="leading-relaxed">Platzhalter für Zusammenfassung</p>
         </section>
 
+// Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an
+
+
         {/* CTA */}
         <section aria-label="Kontakt" className="mt-14">
           <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
@@ -700,6 +746,9 @@ export default function Article() {
           </div>
         </section>
 
+// Anweisung für ChatGPT: Liste hier die Quellen deiner Recherche, passe die Anzahl der Quellen je nach Recherche an dein tatsächliches Ergebnis an
+
+
         {/* Quellenverzeichnis */}
         <section className="mt-14">
           <h2 className="text-2xl font-bold mb-3">Quellen &amp; weiterführende Studien</h2>
@@ -719,6 +768,9 @@ export default function Article() {
           </ul>
         </section>
 
+// Anweisung für ChatGPT: Erkläre hier fünf fachlich relevante Begriffe aus dem Blogartikel, die Erklärung ist jeweils ein Satz
+
+
         {/* Mini-Glossar */}
         <section className="mt-14 mb-20">
           <h2 className="text-2xl font-bold mb-3">Mini-Glossar</h2>
@@ -734,3 +786,5 @@ export default function Article() {
     </>
   );
 }
+
+
