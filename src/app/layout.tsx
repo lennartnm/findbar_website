@@ -13,3 +13,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
+import CookieBanner from "@/components/CookieBanner";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="de">
+      <body>
+        {children}
+        <CookieBanner />
+      </body>
+    </html>
+  );
+}
+
