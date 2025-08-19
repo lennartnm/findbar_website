@@ -132,17 +132,18 @@ const Anchor = ({ id }: { id: string }) => (
 
 
 // ---------- Einfache statische Vergleichsgrafik ----------
-const ComparisonChart = () => {
+const ComparisonChart: React.FC = () => {
   // Relative Wirksamkeit (1–10) zweier Vertrauenshebel:
-  // Grau = Vendor-Eigendarstellung; Grün = Unabhängige/soziale Belege (quellenbasiert: G2 2024, Edelman-LinkedIn 2024)
+  // Grau = Vendor-Eigendarstellung; Grün = Unabhängige/soziale Belege
   const items = [
     { k: "Peer-Reviews & Ratings", vergleich1: 6, vergleich2: 9 },
     { k: "Kundenreferenzen (Video/Case)", vergleich1: 6, vergleich2: 9 },
     { k: "Zertifizierungen & Security-Nachweise", vergleich1: 7, vergleich2: 8 },
-    { k: "Thought Leadership (Expertenautor:innen)", vergleich1: 5, vergleich2: 8 },
+    { k: "Thought Leadership (Expert:innen)", vergleich1: 5, vergleich2: 8 },
     { k: "Live-Demos/PoV mit Daten", vergleich1: 7, vergleich2: 9 },
     { k: "Transparente KI-Kennzeichnung", vergleich1: 5, vergleich2: 8 },
   ];
+
   const max = 10;
   const barH = 16;
   const gap = 6;
@@ -158,7 +159,7 @@ const ComparisonChart = () => {
       <svg
         viewBox={`0 0 ${width} ${items.length * rowH + padTop}`}
         role="img"
-        aria-label="Vergleich: Vendor-Eigendarstellung (grau) vs. Unabhängige Belege (grün) nach Vertrauenseffekt (1–10)"
+        aria-label="Vergleich: Vendor-Eigendarstellung (grau) vs. Unabhängige/soziale Belege (grün) nach Vertrauenseffekt (1–10)"
       >
         <defs>
           <linearGradient id="g1" x1="0" x2="1">
@@ -174,11 +175,13 @@ const ComparisonChart = () => {
               <text x={10} y={y + barH + 6} className="fill-zinc-700" fontSize="12">
                 {row.k}
               </text>
+
               {/* Vendor-Eigendarstellung (grau, obere Leiste) */}
               <rect x={left} y={y} width={scale(row.vergleich1)} height={barH} fill="#e5e7eb" rx="6" />
               <text x={left + scale(row.vergleich1) + 6} y={y + barH - 4} fontSize="11" className="fill-zinc-500">
                 {row.vergleich1}
               </text>
+
               {/* Unabhängige/soziale Belege (grün, untere Leiste) */}
               <rect x={left} y={y + barH + gap} width={scale(row.vergleich2)} height={barH} fill="url(#g1)" rx="6" />
               <text x={left + scale(row.vergleich2) + 6} y={y + barH + gap + barH - 4} fontSize="11" className="fill-emerald-700">
@@ -188,13 +191,15 @@ const ComparisonChart = () => {
           );
         })}
       </svg>
-      <figcaption className="mt-2 text-sm text-zinc-600">
-  Einordnung basierend auf: Käufer vertrauen Peers/Drittquellen mehr als Vendor-Sites (G2 2024)
-  und hochwertiges Thought Leadership steigert RFP-Einladungen (Edelman-LinkedIn 2024).
-</figcaption>
 
+      <figcaption className="mt-2 text-sm text-zinc-600">
+        Einordnung: Käufer vertrauen Peer-/Drittquellen stärker als Vendor-Sites (G2 2024);
+        hochwertiges Thought Leadership erhöht RFP-Einladungen (Edelman-LinkedIn 2024).
+      </figcaption>
+    </figure>
   );
 };
+
 
 // Glossar-Zeile
 const GlossaryRow = ({ term, def }: { term: string; def: string }) => (
