@@ -299,9 +299,7 @@ export default function Article() {
               </div>
             </div>
 
-            <span className="hidden sm:inline" aria-hidden="true">
-              •
-            </span>
+         
 
             <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-200 rounded-full px-3 py-1">
               <CalendarClock className="w-4 h-4 text-zinc-600" aria-hidden="true" />
