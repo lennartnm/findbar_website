@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <title>Meine erste Website</title>
@@ -48,4 +47,4 @@
     <button>Klick mich!</button>
   </main>
 </body>
-</html>
+
