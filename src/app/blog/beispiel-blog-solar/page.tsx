@@ -1,1033 +1,667 @@
-// /src/app/blog/beispiel-blog-solar/page.tsx
 import Head from "next/head";
 import {
-  CheckCircle2,
-  ShieldCheck,
-  Gauge,
-  PiggyBank,
-  BatteryCharging,
-  Sun,
-  FileSearch,
-  Landmark,
-  BadgeEuro,
-  ArrowRight,
-  Info,
-  CalendarClock,
-  Timer,
-  BarChart3,
+CheckCircle2,
+ArrowRight,
+Info,
+CalendarClock,
+Timer,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
-
-/**
- * ------------------------------------------------------------
- *  Green Energy im Unternehmen – PV & Speicher wirtschaftlich planen
- *  Struktur, Farben, Fonts, TL;DR, Checkmarks & Kurzfazit
- *  angelehnt an den bereitgestellten Beispielcode.
- * ------------------------------------------------------------
- */
-
 // ---------- Helper ----------
 const formatDateDE = (date = new Date()) =>
-  new Intl.DateTimeFormat("de-DE", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-    timeZone: "Europe/Berlin",
-  }).format(date);
-
+new Intl.DateTimeFormat("de-DE", {
+day: "2-digit",
+month: "long",
+year: "numeric",
+timeZone: "Europe/Berlin",
+}).format(date);
+// Farbwelt
 const racingGreen = "from-emerald-700 to-emerald-500"; // Accent gradient
 const accent = "text-emerald-700";
-
-// ---------- Content Data ----------
+// Autor, Review, Firma (E-E-A-T)
 const author = {
-  name: "Jonas Meyer",
-  role: "Energie- & PV-Strategie (10+ Jahre Erfahrung)",
-  image:
-    "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=240&h=240&q=80&crop=faces&fit=crop",
-  linkedin: "https://www.linkedin.com/in/jonasmeyer/",
+name: "Jana Weber, M.Sc.",
+role: "Energieökonomin & PV-Projektleiterin",
+image: "/autor.webp",
+linkedin: "https://www.linkedin.com/in/janaweber-energy/",
 };
-
 const reviewer = {
-  name: "Dr. Katharina Schulz",
-  role: "Energierecht & Fördermittel",
-  linkedin: "https://www.linkedin.com/in/katharinaschulz/",
+name: "Dr. Leon Fischer",
+role: "Elektroingenieur (TÜV)",
+linkedin: "https://www.linkedin.com/in/leon-fischer/",
 };
-
 const company = {
-  name: "Deine Firma GmbH",
-  url: "https://www.deinefirma.de",
-  logo:
-    "https://images.unsplash.com/photo-1548345680-f5475ea5df84?w=256&h=256&q=80&fit=crop&crop=faces",
+name: "Ihre Firma GmbH",
+url: "https://www.deinefirma.de",
+logo: "/logo.png",
 };
-
-// Sections used for ToC and reading time (strings only). Keep ids stable!
+// ---------- Sections for ToC & Lesedauer ----------
 const sections = [
-  {
-    id: "grundlagen",
-    title:
-      "Was bringen PV & Batteriespeicher im Unternehmen – in einfachen Worten?",
-    content:
-      "Photovoltaik (PV) wandelt Sonnenlicht in Strom (kWp = installierte Spitzenleistung; kWh = erzeugte/gespeicherte Energiemenge). Unternehmen nutzen PV-Strom idealerweise direkt (Eigenverbrauch), der Rest wird gegen Vergütung ins Netz eingespeist. Ein Batteriespeicher erhöht die Eigenverbrauchsquote, verschiebt Solarstrom in Abend- und Morgenstunden und kann Lastspitzen kappen (Peak Shaving). Wirtschaftlich entscheidend: dein Lastgang (wann und wie viel Strom ihr bezieht), der Strompreis (Arbeitspreis ct/kWh + ggf. Leistungspreis €/kW), die Systemkosten (CapEx + Betrieb), die Dach- bzw. Flächenqualität (Ausrichtung, Verschattung) und die Förder-/Regellage (EEG, KfW, BAFA).",
-  },
-  {
-    id: "wirtschaftlichkeit",
-    title: "Wirtschaftlichkeit verstehen: LCOE, Eigenverbrauch & Amortisation",
-    content:
-      "Die Kennzahl Levelized Cost of Electricity (LCOE) beschreibt Stromgestehungskosten über die Lebensdauer. PV auf Gewerbedächern liegt in Deutschland – je nach Größe, Standort, Kapitalkosten und O&M – deutlich unter typischen Netzstromkosten. Der wichtigste Hebel ist Eigenverbrauch: Jede selbst verbrauchte kWh ersetzt teureren Netzstrom. Speicher rechnen sich, wenn Lastspitzengebühren (Leistungspreise) relevant sind oder wenn sich Zeitverschiebung/Arbitrage mit dynamischen Tarifen lohnt. Rechne konservativ: PV-Ertrag (kWh/kWp·a) × kWp → Jahresertrag. Davon Eigenverbrauchsquote × Strompreisersparnis + Einspeiseerlöse = jährlicher Cashflow vor OPEX. Amortisation ≈ Investition / (jährlicher Netto-Cashflow).",
-  },
-  {
-    id: "planung",
-    title: "Dimensionierung & Technik: In 7 Schritten zur passenden Auslegung",
-    content:
-      "1) Lastprofil analysieren (15-min-Werte, mindestens 12 Monate) und Tages-/Wochenmuster erkennen. 2) Dach & Statik prüfen (Flachdach: Aufständerung + Ballast; Satteldach: Dachdeckung, Durchdringung, Brandschutz). 3) Ausrichtung/Neigung optimieren (Ost/West für lange Erzeugungszeiten, Süd für hohe Peaks). 4) DC/AC-Verhältnis festlegen (1.1–1.3 üblich), Stringplanung & Verschattungsanalyse. 5) Speichergröße definieren (Daumenregel: 0,5–1,0 kWh pro 1 kWp; bei Peak Shaving zusätzlich Leistung [kW] nach Spitzenbedarf). 6) Zähler- & Schutzkonzept, NA-Schutz, Messkonzept (Eigenverbrauch, Überschuss, ggf. Direktvermarktung). 7) Betriebs- & Wartungskonzept (Monitoring, Reinigung, Garantie-/Degradationsmanagement).",
-  },
-  {
-    id: "investitionen",
-    title: "Investition, Finanzierung & Förderungen: Was es 2025 zu beachten gilt",
-    content:
-      "Neben Eigenmitteln sind Förderkredite und Zuschüsse wichtige Stellhebel. KfW-Programm 270 (Erneuerbare Energien – Standard) finanziert PV-Anlagen und Speicher – Konditionen sind laufzeit- und bonitätsabhängig. Ergänzend kommen Programme der Bundesförderung für Energie- und Ressourceneffizienz in der Wirtschaft (EEW, BAFA – v. a. Modul 4) in Frage, wenn Speicher Lastspitzen senkt oder Prozesse energieeffizienter werden. Für die Einspeisung sind EEG-Sätze und ggf. Direktvermarktung relevant. Wichtig: Konditionen ändern sich – prüfe tagesaktuell und nutze Hausbank/Förderlotsen.",
-  },
-  {
-    id: "recht",
-    title: "EEG, Solarpaket & Direktvermarktung: Reglerahmen für Gewerbe",
-    content:
-      "Für PV bis 100 kW gibt es feste EEG-Fördersätze; Volleinspeiser erhalten höhere Vergütung als Teileinspeiser. Größere Anlagen nutzen in der Regel Direktvermarktung mit gleitender Marktprämie (anzulegender Wert minus Marktwert). Mit dem Solarpaket I wurden Erleichterungen und Detailanpassungen eingeführt (u. a. Vereinfachungen, technische Anforderungen). Bei negativen Börsenpreisen kann für neue Anlagen zeitweise keine Vergütung fließen – das ist in der Planung zu berücksichtigen. Direktvermarktungspflichten und technische Anforderungen (Fernsteuerbarkeit, Messung) hängen von der Anlagengröße und dem Inbetriebnahmedatum ab.",
-  },
-  {
-    id: "fehler",
-    title: "Typische Fehler & Risiken – und wie du sie vermeidest",
-    content:
-      "Häufige Stolpersteine: Speicher überdimensionieren (zu lange Lade-/Entladezeiten, zu wenig Zyklen) oder unterdimensionieren (Peak Shaving wirkungslos), nur auf kWp-Preis schauen statt auf Gesamtnutzen (LCOE, Lastprofil, Leistungspreise), fehlende Wartungs- & Monitoringprozesse, unklare Mess-/Zählerkonzepte und ungeklärte steuerliche Fragen (z. B. USt/ESt bei Vermietung, Stromlieferung an Dritte im Gebäude). Gegenmaßnahmen: Saubere Datenbasis, Lastgangsimulation mit und ohne Speicher, Sensitivitätsanalyse (Strompreis, Zins, Ertrag), klare Verträge (Direktvermarktung, Service Level), und „Test-Peak-Shaving“ mit Messphase.",
-  },
+{
+id: "grundlagen",
+title: "Was bringt PV im Betrieb? Grundlagen in 5 Minuten",
+content:
+"Photovoltaik (PV) wandelt Sonnenlicht in Strom. Für Unternehmen heißt das: weniger Stromzukauf, planbare Energiekosten und ein messbarer CO2-Impact. Zentrale Begriffe: kWp (Kilowattpeak, die installierte Spitzenleistung), kWh (Kilowattstunde, die erzeugte/verbrauchte Energie), Eigenverbrauchsquote (Anteil des PV-Stroms, den du selbst nutzt) und Lastprofil (wie dein Verbrauch über den Tag verläuft). Für flache Gewerbedächer sind Ost-West- oder Süd-Ausrichtungen möglich – Süd maximiert Jahresertrag, Ost-West glättet die Produktion und passt besser zu typischen Betriebszeiten. Batteriespeicher erhöhen den Eigenverbrauch, verschieben PV-Strom in Abend-/Morgenstunden und helfen, teure Lastspitzen (kW) zu kappen.",
+},
+{
+id: "status-quo",
+title: "Status quo 2025: Vergütungssätze, Strompreise & neue Regeln",
+content:
+"Zum 1. August 2025 gelten für neue Anlagen bis 100 kW EEG-Fördersätze von 7,86 ct/kWh (Teileinspeisung bis 10 kWp) und 12,47 ct/kWh (Volleinspeisung bis 10 kWp); für 10–40 kWp: 6,80 bzw. 10,45 ct/kWh; für 40–100 kWp: 5,56 bzw. 10,45 ct/kWh. Parallel zahlen kleine bis mittlere Industriebetriebe bei Neuabschlüssen im Schnitt rund 18 ct/kWh für Strom (2025). Seit Februar 2025 gilt zudem das „Solarspitzengesetz“: Bei negativen Börsenstrompreisen gibt es für Neuanlagen zeitweise keine Vergütung; diese Zeiträume werden an das Ende der 20-jährigen Vergütungsdauer angehängt. Fazit: Eigenverbrauch bleibt der wichtigste Hebel, Speicher werden wirtschaftlich relevanter.",
+},
+{
+id: "planung",
+title: "Von der Idee zum Konzept: Bedarf, Größe & Eigenverbrauch planen",
+content:
+"Starte mit Messdaten: Mindestens zwei Wochen Lastgang (15-Min-Werte) – ideal 12 Monate. Schätze den spezifischen PV-Ertrag am Standort (in DE grob 900–1.100 kWh/kWp·a, abhängig von Ausrichtung/Neigung). Ziel: Eine Anlagengröße, die tagsüber einen hohen Eigenverbrauch ermöglicht. Speichergröße leitest du aus der Restkurve ab: Wie viel PV-Überschuss fällt an, und welche Abend-/Frühspitzen möchtest du decken? Richtwert für Gewerbe: 1,5–3 kWh Speicherkapazität pro kWp PV zur Eigenverbrauchsoptimierung – abhängig von Öffnungszeiten, E-Mobilität und Prozessen.",
+},
+{
+id: "business-case",
+title: "Business Case: Investition, Amortisation & Beispielrechnung",
+content:
+"Investitionskosten variieren je nach Dach, Statik und Elektrik. Für 50–200 kWp-Aufdachanlagen liegen typische Bandbreiten 2025 oft zwischen ~800 und 1.500 €/kWp. Gewerbliche Lithium-Speicher bewegen sich (turnkey, abhängig von Leistung, Dauer, Brandschutz) grob in der Größenordnung ~250–500 €/kWh. Laufende Kosten für Wartung/Versicherung kann man mit 1–2 % p. a. vom Invest abschätzen. Wirtschaftlichkeit treibt vor allem: Strompreis (bezogen vs. vermieden), Eigenverbrauchsquote, Einspeisetarife, negative-Preis-Regel, Speicherwirkungsgrad (~90 %) und Zyklenlebensdauer (mehrere tausend Vollzyklen).",
+},
+{
+id: "foerderung",
+title: "Förderungen & Finanzierung: EEG, Marktprämie, KfW-270 & Co.",
+content:
+"EEG-Einspeisevergütung oder Marktprämie sichern Erlöse. Das Solarpaket I vereinfacht u. a. Genehmigungen, hebt teils die Direktvermarktungspflicht an und stärkt Mieterstrom. Für CAPEX-Finanzierung nutzen Unternehmen häufig das KfW-Programm 270 (zinsgünstiger Kredit). Zusätzlich können PPAs, Contracting oder Energy-as-a-Service Lösungen CAPEX vom CAPEX-Budget entkoppeln. Steuerlich gilt in der Praxis häufig lineare AfA über 20 Jahre; der 0-%-USt-Satz greift in der Regel nur bei PV/Batterien auf oder an Wohngebäuden – bei reinen Gewerbebauten meist nicht.",
+},
+{
+id: "fehler",
+title: "Typische Fehler & Risiken – und wie du sie vermeidest",
+content:
+"Häufige Stolpersteine: Zu kleine Eigenverbrauchsbasis, fehlende Lastdaten, Speicher nur „nach Gefühl“, Netzanschlussfragen zu spät geklärt, unterschätzte Regelungen (z. B. negative Preise, Smart-Meter-Pflichten), unrealistische Ertragsannahmen und zu optimistische OPEX-/Lebensdauer-Annahmen. Mit sauberem Mess- und Angebotsvergleich, realistischen Annahmen und klaren Verträgen lassen sich die Risiken stark reduzieren.",
+},
 ];
-
-const wordCount = sections.reduce(
-  (sum, s) => sum + s.content.split(/\s+/).length,
-  0
-);
-const readingMinutes = Math.max(12, Math.ceil(wordCount / 180)); // 180 wpm conservative
-
+const wordCount = sections.reduce((sum, s) => sum + s.content.split(/\s+/).length, 0);
+const readingMinutes = Math.max(8, Math.ceil(wordCount / 180)); // ~180 wpm
 // ---------- UI Components ----------
-const TLDRItem = ({
-  icon: Icon,
-  children,
-}: {
-  icon: LucideIcon;
-  children: ReactNode;
-}) => (
-  <li className="flex items-start gap-3">
-    <Icon className={`w-5 h-5 mt-1 ${accent}`} aria-hidden />
-    <span>{children}</span>
-  </li>
-);
-
+const TLDRItem = ({ children }: { children: ReactNode }) => (
+<li className="flex items-start gap-3">
+ <ArrowRight className={`w-5 h-5 mt-1 ${accent}`} aria-hidden="true" />
+ <span>{children}</span>
+ </li>
+ );
 const CheckLi = ({ children }: { children: ReactNode }) => (
-  <li className="flex items-start gap-2">
-    <CheckCircle2 className={`w-4 h-4 mt-1 flex-none ${accent}`} aria-hidden />
-    <span className="flex-1">{children}</span>
-  </li>
-);
-
+<li className="flex items-start gap-2">
+ <CheckCircle2 className={`w-4 h-4 mt-1 flex-none ${accent}`} aria-hidden="true" />
+ <span className="flex-1">{children}</span>
+ </li>
+ );
 const Pill = ({ children }: { children: ReactNode }) => (
-  <span
-    className={`inline-flex items-center rounded-full bg-gradient-to-r ${racingGreen} text-white px-3 py-1 text-xs font-medium`}
-  >
-    {children}
-  </span>
+<span className={inline-flex items-center rounded-full bg-gradient-to-r ${racingGreen} text-white px-3 py-1 text-xs font-medium}>
+{children}
+</span>
 );
-
 const Anchor = ({ id }: { id: string }) => (
-  <div id={id} aria-hidden="true" className="pt-24 -mt-24" />
-); // stable anchor
-
-// Simple static SVG chart – Business Case: PV ohne vs. mit Speicher (0–10)
+<div id={id} aria-hidden="true" className="pt-24 -mt-24" />
+ ); // stable anchor
+// --------- Static SVG Chart (no client JS) ----------
 const ComparisonChart = () => {
-  const items = [
-    { k: "Stromkostenersparnis", ohne: 7, mit: 9 },
-    { k: "Eigenverbrauchsquote", ohne: 6, mit: 9 },
-    { k: "Amortisationsdauer", ohne: 8, mit: 6 },
-    { k: "Peak Shaving (Leistungspreise)", ohne: 3, mit: 8 },
-    { k: "Resilienz/Backup", ohne: 2, mit: 7 },
-    { k: "Planbarkeit & Komplexität", ohne: 8, mit: 5 },
-  ];
-  const max = 10;
-  const barH = 16;
-  const gap = 6;
-  const rowH = barH * 2 + gap + 16;
-  const padTop = 14;
-  const width = 720;
-  const left = 200;
-  const right = width - 20;
-  const scale = (v: number) => (right - left) * (v / max);
+// Vergleich: Teileinspeisung (Eigenverbrauch) vs. Volleinspeisung
+const items = [
+{ k: "Wirtschaftlichkeit im Mittel", vergleich1: 9, vergleich2: 6 },
+{ k: "Planbarkeit der Erlöse", vergleich1: 8, vergleich2: 7 },
+{ k: "Regelungsrisiko (Negativpreise)", vergleich1: 8, vergleich2: 6 },
+{ k: "Bürokratie/Komplexität", vergleich1: 7, vergleich2: 6 },
+{ k: "Netznutzen/Lastverschiebung mit Speicher", vergleich1: 9, vergleich2: 5 },
+{ k: "Skalierbarkeit auf Bestandsdächern", vergleich1: 8, vergleich2: 8 },
+];
+// Legende: vergleich1 = Teileinspeisung (Eigenverbrauch), vergleich2 = Volleinspeisung
+const max = 10;
+const barH = 16;
+const gap = 6;
+const rowH = barH * 2 + gap + 16;
+const padTop = 14;
+const width = 720;
+const left = 200;
+const right = width - 20;
+const scale = (v: number) => (right - left) * (v / max);
+return (
+<figure className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+<svg
+viewBox={0 0 ${width} ${items.length * rowH + padTop}}
+role="img"
+aria-label="Bewertung (0–10) zweier PV-Strategien: Teileinspeisung/Eigenverbrauch (grau, oben) vs. Volleinspeisung (grün, unten) nach sechs Kriterien"
+>
+<defs>
+<linearGradient id="g1" x1="0" x2="1">
+<stop offset="0%" stopColor="#047857" />
+<stop offset="100%" stopColor="#10b981" />
+</linearGradient>
+</defs>
+      {items.map((row, i) => {
+      const y = padTop + i * rowH;
+      return (
+        <g key={row.k}>
+          <text x={10} y={y + barH + 6} className="fill-zinc-700" fontSize="12">
+            {row.k}
+          </text>
+          {/* Teileinspeisung (grau, top bar) */}
+          <rect x={left} y={y} width={scale(row.vergleich1)} height={barH} fill="#e5e7eb" rx="6" />
+          <text x={left + scale(row.vergleich1) + 6} y={y + barH - 4} fontSize="11" className="fill-zinc-500">
+            {row.vergleich1}
+          </text>
+          {/* Volleinspeisung (grün, bottom bar) */}
+          <rect x={left} y={y + barH + gap} width={scale(row.vergleich2)} height={barH} fill="url(#g1)" rx="6" />
+          <text x={left + scale(row.vergleich2) + 6} y={y + barH + gap + barH - 4} fontSize="11" className="fill-emerald-700">
+            {row.vergleich2}
+          </text>
+        </g>
+      );
+    })}
+  </svg>
+  <figcaption className="mt-2 text-sm text-zinc-600">
+    Einordnung basierend auf aktuellen EEG-Sätzen (08/2025), Strompreisen im Mittelstand und der Negativpreis-Regel (Solarspitzengesetz). Quellen u. a.: Bundesnetzagentur; BDEW.
+  </figcaption>
+</figure>
 
-  return (
-    <figure className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
-      <svg
-        viewBox={`0 0 ${width} ${items.length * rowH + padTop}`}
-        role="img"
-        aria-label="Diagramm: Wirtschaftlicher Vergleich PV ohne vs. mit Speicher (0–10)"
-      >
-        <defs>
-          <linearGradient id="g1" x1="0" x2="1">
-            <stop offset="0%" stopColor="#047857" />
-            <stop offset="100%" stopColor="#10b981" />
-          </linearGradient>
-        </defs>
-
-        {items.map((row, i) => {
-          const y = padTop + i * rowH;
-          return (
-            <g key={row.k}>
-              <text x={10} y={y + barH + 6} className="fill-zinc-700" fontSize="12">
-                {row.k}
-              </text>
-              {/* Ohne Speicher (grey, top bar) */}
-              <rect
-                x={left}
-                y={y}
-                width={scale(row.ohne)}
-                height={barH}
-                fill="#e5e7eb"
-                rx="6"
-              />
-              <text
-                x={left + scale(row.ohne) + 6}
-                y={y + barH - 4}
-                fontSize="11"
-                className="fill-zinc-500"
-              >
-                {row.ohne}
-              </text>
-              {/* Mit Speicher (green, bottom bar) */}
-              <rect
-                x={left}
-                y={y + barH + gap}
-                width={scale(row.mit)}
-                height={barH}
-                fill="url(#g1)"
-                rx="6"
-              />
-              <text
-                x={left + scale(row.mit) + 6}
-                y={y + barH + gap + barH - 4}
-                fontSize="11"
-                className="fill-emerald-700"
-              >
-                {row.mit}
-              </text>
-            </g>
-          );
-        })}
-      </svg>
-      <figcaption className="mt-2 text-sm text-zinc-600">
-        Vergleich (0–10) pro Kriterium. Oben: Grau = PV ohne Speicher, unten: Grün = PV mit
-        Speicher. Richtwerte – je Standort & Tarifmodell variabel.
-      </figcaption>
-    </figure>
   );
 };
-
 // Glossary row
 const GlossaryRow = ({ term, def }: { term: string; def: string }) => (
-  <div className="grid grid-cols-[160px_1fr] gap-4 p-4">
-    <dt className="font-semibold text-zinc-900">{term}</dt>
-    <dd className="text-zinc-700">{def}</dd>
-  </div>
-);
-
+<div className="grid grid-cols-[160px_1fr] gap-4 p-4">
+ <dt className="font-semibold text-zinc-900">{term}</dt>
+ <dd className="text-zinc-700">{def}</dd>
+ </div>
+ );
 export default function Article() {
-  const updated = formatDateDE();
-  const title =
-    "Green Energy im Unternehmen: Photovoltaik & Energiespeicher wirtschaftlich planen";
-  const description =
-    "Investition, Amortisation, Förderungen: So setzen Firmen PV-Anlagen und Speicherlösungen wirtschaftlich ein – mit Rechenweg, Checklisten & aktuellen Regelungen.";
-  const canonical = `${company.url}/blog/photovoltaik-speicher-wirtschaftlich-planen`;
+const updated = formatDateDE();
+const title = "PV & Speicher im Unternehmen: Investition, Amortisation, Förderungen richtig planen";
+const description = "So planst du PV-Anlagen und Batteriespeicher wirtschaftlich: aktuelle EEG-Sätze 2025, ROI-Rechnung, KfW-270 & Praxis-Tipps.";
+const canonical = ${company.url}/blog/pv-speicher-wirtschaftlich-planen;
+// FAQ Content (sichtbar + Schema)
+const faqs = [
+{
+q: "Wann lohnt sich ein Batteriespeicher im Gewerbe wirklich?",
+a: "Wenn dein Lastprofil deutliche Abend-/Morgenspitzen hat, der Arbeitspreis hoch ist und viel PV-Überschuss anfällt. Speicher erhöhen die Eigenverbrauchsquote und helfen, Lastspitzen (kW) zu kappen. Rechne konservativ mit ~90 % Rundtrip-Wirkungsgrad und realistischen Zyklen – die Wirtschaftlichkeit hängt stark von Nutzung und Strompreis ab.",
+},
+{
+q: "Welche EEG-Vergütung gilt aktuell für neue Dachanlagen bis 100 kW?",
+a: "Für Inbetriebnahmen vom 1. August 2025 bis 31. Januar 2026 gelten (Gebäude): Teileinspeisung 7,86/6,80/5,56 ct/kWh (≤10/≤40/≤100 kW), Volleinspeisung 12,47/10,45/10,45 ct/kWh. Für Direktvermarktung gelten entsprechende anzulegende Werte.",
+},
+{
+q: "Was ändert das „Solarspitzengesetz“ für Unternehmen?",
+a: "Bei negativen Börsenstrompreisen entfällt für neue Anlagen (ab 25.02.2025, Details je nach Smart-Meter-Status) die Vergütung in diesen Zeitfenstern; die Zeiträume werden an die Vergütungsdauer angehängt. Ohne Smart Meter/Steuerbox gilt teils eine 60-%-Einspeisegrenze.",
+},
+{
+q: "Welche Förderungen gibt es für Firmen?",
+a: "Neben EEG (Einspeisevergütung/Marktprämie) ist KfW-270 die Standardfinanzierung für PV/Speicher. Je nach Bundesland kommen Programme für Speicher/Ladeinfrastruktur hinzu. Alternativen: PPA, Contracting oder Energy-as-a-Service, um CAPEX zu vermeiden.",
+},
+{
+q: "Wie setze ich die AfA und die 0-%-USt korrekt an?",
+a: "In der Praxis wird PV häufig linear über 20 Jahre abgeschrieben (AfA). Der 0-%-USt-Satz gilt in der Regel für Lieferungen/Installationen auf oder in der Nähe von Wohngebäuden – bei reinen Gewerbebauten meist nicht. Bitte steuerlich prüfen lassen.",
+},
+];
+return (
+<>
+<Head>
+<title>{${title} | ${company.name}}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="robots" content="index, follow" />
+      <meta property="og:type" content="article" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="/hero-placeholder.webp" />
 
-  return (
-    <>
-      <Head>
-        <title>{`${title} | ${company.name}`}</title>
-        <meta name="description" content={description} />
-        <link rel="canonical" href={canonical} />
-        <meta name="robots" content="index, follow" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/hero-placeholder.webp" />
 
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta
-          property="og:image"
-          content={`${company.url}/og/pv-speicher-business-case.jpg`}
-        />
-        <meta property="og:url" content={canonical} />
+    {/* Article Schema.org */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: title,
+          description,
+          inLanguage: "de",
+          author: { "@type": "Person", name: author.name },
+          reviewedBy: { "@type": "Person", name: reviewer.name },
+          datePublished: new Date().toISOString(),
+          dateModified: new Date().toISOString(),
+          image: "/hero-placeholder.webp",
+          publisher: {
+            "@type": "Organization",
+            name: company.name,
+            url: company.url,
+            logo: { "@type": "ImageObject", url: company.logo },
+          },
+          mainEntityOfPage: canonical,
+        }),
+      }}
+    />
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta
-          name="twitter:image"
-          content={`${company.url}/og/pv-speicher-business-case.jpg`}
-        />
+    {/* Company Schema.org */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: company.name,
+          url: company.url,
+          logo: company.logo,
+        }),
+      }}
+    />
+  </Head>
 
-        {/* Article Schema.org */}
-        <script
-          type="application/ld+json"
-          // JSON-LD must be a string
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Article",
-              headline: title,
-              description,
-              inLanguage: "de",
-              author: { "@type": "Person", name: author.name },
-              reviewedBy: { "@type": "Person", name: reviewer.name },
-              datePublished: new Date().toISOString(),
-              dateModified: new Date().toISOString(),
-              image: `${company.url}/og/pv-speicher-business-case.jpg`,
-              publisher: {
-                "@type": "Organization",
-                name: company.name,
-                url: company.url,
-                logo: { "@type": "ImageObject", url: company.logo },
-              },
-              mainEntityOfPage: canonical,
-            }),
-          }}
-        />
+  <article lang="de" className="relative mx-auto max-w-4xl px-5 sm:px-6 lg:px-8 py-10 text-zinc-900">
+    {/* Header */}
+    <header className="mb-10">
+      <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">{title}</h1>
+      <p className="mt-3 text-lg text-zinc-700">
+        Du willst PV und Speicher wirtschaftlich einsetzen? Hier findest du aktuelle Vergütungssätze (2025), eine einfache ROI-Rechnung, Förderoptionen und konkrete Planungsschritte.
+      </p>
 
-        {/* Company Schema.org */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: company.name,
-              url: company.url,
-              logo: company.logo,
-            }),
-          }}
-        />
-      </Head>
+      {/* Hero 16:6 */}
+      <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+        <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/hero-placeholder.webp" />
+            <img loading="lazy" src="/hero-placeholder.webp" alt="Illustration: Unternehmensdach mit PV, Batteriespeicher im Technikraum, Lastgang-Diagramm" className="absolute inset-0 h-full w-full object-cover" />
+          </picture>
+        </div>
+        <figcaption className="sr-only">
+          Ideal für ein KI-Hero: „Industriehalle im Morgenlicht mit PV-Modulen auf dem Flachdach, innen ein Batteriespeicher-Rack; Fokus auf Nachhaltigkeit, Wirtschaftlichkeit; 16:9“
+        </figcaption>
+      </figure>
 
-      <article
-        lang="de"
-        className="relative mx-auto max-w-4xl px-5 sm:px-6 lg:px-8 py-10 text-zinc-900"
-      >
-        {/* Header */}
-        <header className="mb-10">
-          <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
-            {title}
-          </h1>
-          <p className="mt-3 text-lg text-zinc-700">
-            Du willst Stromkosten, CO₂ und Risiko senken? Dieser Leitfaden zeigt, wie
-            Unternehmen Photovoltaik und Batteriespeicher so planen, dass sich Investition und
-            Amortisation rechnen – mit einfachen Rechenwegen, konkreten Größenordnungen und
-            den wichtigsten Förderoptionen für 2025.
-          </p>
-
-          {/* Hero 16:6 */}
-          <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
-            <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
-              {/* Hero: bewusst Platzhalter (KI-/Foto-Briefing) */}
-              <div className="absolute inset-0 grid place-items-center bg-zinc-50 text-center px-6">
-                <div className="max-w-2xl text-zinc-700">
-                  <strong>Hero-Bild (16:6) – Platzhalter:</strong> Luftaufnahme eines
-                  Gewerbedachs mit PV-Modulen und sichtbarem Batteriespeicher/Wechselrichter-
-                  Container; daneben Produktionshalle (Industrie), sonniger Himmel,
-                  Fokus auf professionelle Umsetzung & Arbeitssicherheit.
-                </div>
-              </div>
-            </div>
-            <figcaption className="sr-only">
-              Ideales Motiv: PV auf Gewerbedach + Batteriespeicher vor Produktionshalle.
-            </figcaption>
-          </figure>
-
-          {/* Meta row – better legibility */}
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-zinc-700">
-            <div className="flex items-center gap-3">
-              <img
-                src={author.image}
-                alt="Autor:in"
-                className="w-10 h-10 rounded-full object-cover"
-                loading="lazy"
-              />
-              <div>
-                <div className="font-medium text-zinc-900">{author.name}</div>
-                <div>{author.role}</div>
-              </div>
-            </div>
-
-            <span className="hidden sm:inline" aria-hidden>
-              •
-            </span>
-
-            <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-200 rounded-full px-3 py-1">
-              <CalendarClock className="w-4 h-4 text-zinc-600" aria-hidden />
-              <div>
-                <span className="sr-only">Zuletzt aktualisiert am </span>
-                <time dateTime={new Date().toISOString()}>
-                  Zuletzt aktualisiert: {updated}
-                </time>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-200 rounded-full px-3 py-1">
-              <Timer className="w-4 h-4 text-zinc-600" aria-hidden />
-              <div>
-                Lesedauer: <span className="tabular-nums">{readingMinutes} Min</span>
-              </div>
-            </div>
+      {/* Meta row */}
+      <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-zinc-700">
+        <div className="flex items-center gap-3">
+          <img src={author.image} alt="Autor:in" className="w-10 h-10 rounded-full object-cover" loading="lazy" />
+          <div>
+            <div className="font-medium text-zinc-900">{author.name}</div>
+            <div>{author.role}</div>
           </div>
-        </header>
+        </div>
 
-        {/* TL;DR */}
-        <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-          <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
-          <ul className="space-y-3">
-            <TLDRItem icon={Gauge}>
-              PV senkt <strong>Arbeitspreis-Risiken</strong>, Speicher erhöht die{" "}
-              <strong>Eigenverbrauchsquote</strong> und kann <strong>Leistungspreise</strong>{" "}
-              glätten – Basis ist immer dein <strong>Lastprofil</strong>.
-            </TLDRItem>
-            <TLDRItem icon={ShieldCheck}>
-              Regulatorik 2025: <strong>EEG-Fördersätze bis 100 kW</strong>, größere Anlagen
-              i. d. R. <strong>Direktvermarktung mit Marktprämie</strong>;{" "}
-              <em>Solarpaket I</em> bringt Erleichterungen – Details je Anlagengröße beachten.
-            </TLDRItem>
-            <TLDRItem icon={PiggyBank}>
-              Rechne mit <strong>LCOE vs. Netzpreis</strong> und prüfe{" "}
-              <strong>Sensitivitäten</strong> (Strompreis, Zins, Ertrag). Speicher nur so groß,
-              wie er <strong>Lastspitzen</strong> und <strong>Zeitschnitt</strong> wirklich
-              bedient.
-            </TLDRItem>
-            <TLDRItem icon={BatteryCharging}>
-              Business-Case Speicher: <strong>Peak Shaving</strong> +{" "}
-              <strong>Eigenverbrauch</strong> + (optional) <strong>Tarif-Arbitrage</strong>.
-            </TLDRItem>
-            <TLDRItem icon={Landmark}>
-              Fördercheck: <strong>KfW 270</strong> (Kredit) +{" "}
-              <strong>BAFA-EEW Modul 4</strong> (Zuschüsse bei Effizienz/Prozessbezug).
-            </TLDRItem>
+        <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-200 rounded-full px-3 py-1">
+          <CalendarClock className="w-4 h-4 text-zinc-600" aria-hidden="true" />
+          <div>
+            <span className="sr-only">Zuletzt aktualisiert am </span>
+            <time dateTime={new Date().toISOString()}>{updated}</time>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-200 rounded-full px-3 py-1">
+          <Timer className="w-4 h-4 text-zinc-600" aria-hidden="true" />
+          <div>
+            Lesedauer: <span className="tabular-nums">{readingMinutes} Min</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    {/* TL;DR */}
+    <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+      <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
+      <ul className="space-y-3">
+        <TLDRItem><strong>Eigenverbrauch schlägt Einspeisung:</strong> Mit ~18 ct/kWh Stromkosten im Mittelstand und EEG-Sätzen von ~5,6–12,5 ct/kWh ist die Nutzung im Betrieb meist wirtschaftlicher als die Volleinspeisung.</TLDRItem>
+        <TLDRItem><strong>Solarspitzengesetz beachten:</strong> Bei negativen Börsenpreisen entfällt die Vergütung zeitweise – Speicher/Lastverschiebung erhöhen deshalb den Nutzen der Anlage.</TLDRItem>
+        <TLDRItem><strong>Planung datenbasiert:</strong> Lastgang (15-Min), spezifischer Ertrag (~900–1.100 kWh/kWp·a), Ziel-Eigenverbrauchsquote und Speichergröße (Richtwert 1,5–3 kWh/kWp) bestimmen den Business Case.</TLDRItem>
+        <TLDRItem><strong>Invest & Opex realistisch:</strong> Aufdach-Gewerbe: ~800–1.500 €/kWp; Speicher grob ~250–500 €/kWh; Opex 1–2 % p. a.; Wirkungsgrad ~90 %, mehrere tausend Zyklen.</TLDRItem>
+        <TLDRItem><strong>Förderung/Finanzierung:</strong> EEG oder Marktprämie, KfW-270, ggf. Mieterstrom/PPAs/Contracting. AfA häufig 20 Jahre; 0-%-USt in der Regel nur bei Wohngebäuden.</TLDRItem>
+      </ul>
+    </aside>
+
+    {/* ToC */}
+    <nav aria-label="Inhaltsverzeichnis" className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+      <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
+      <ol className="list-decimal ml-5 space-y-2">
+        <li><a className={`hover:underline ${accent} font-medium`} href="#grundlagen">Grundlagen & Begriffe</a></li>
+        <li><a className={`hover:underline ${accent} font-medium`} href="#status-quo">Status quo 2025</a></li>
+        <li><a className={`hover:underline ${accent} font-medium`} href="#planung">Planung: Größe & Speicher</a></li>
+        <li><a className={`hover:underline ${accent} font-medium`} href="#business-case">Business Case & ROI</a></li>
+        <li><a className={`hover:underline ${accent} font-medium`} href="#foerderung">Förderungen & Finanzierung</a></li>
+        <li><a className={`hover:underline ${accent} font-medium`} href="#fehler">Fehler vermeiden</a></li>
+        <li><a className={`hover:underline ${accent} font-medium`} href="#faq">FAQ</a></li>
+        <li><a className={`hover:underline ${accent} font-medium`} href="#zusammenfassung">Kurzfazit</a></li>
+      </ol>
+    </nav>
+
+    {/* Content */}
+    <section>
+      {/* 1 */}
+      <Anchor id="grundlagen" />
+      <h2 className="text-2xl font-bold mb-4">{sections[0].title}</h2>
+      <p className="mb-6 leading-relaxed">{sections[0].content}</p>
+
+      {/* Erklärung von zwei zentralen fachlichen Gegebenheiten */}
+      <div className="grid md:grid-cols-2 gap-6 pb-8">
+        <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="mb-2">
+            <strong>Eigenverbrauch vs. Einspeisung</strong>
+          </div>
+          <ul className="space-y-2 text-sm">
+            <CheckLi>Eigenverbrauch spart deinen Beschaffungspreis (inkl. Umlagen/Abgaben) – meist deutlich über EEG-Vergütung.</CheckLi>
+            <CheckLi>Volleinspeisung bietet höhere Vergütungssätze als Überschuss, ist aber weniger flexibel und sensibler für Negativpreise.</CheckLi>
+            <CheckLi>Mit Speicher verschiebst du PV-Strom in teure Zeiten und reduzierst Lastspitzen (kW-Bezug).</CheckLi>
           </ul>
-        </aside>
+        </div>
 
-        {/* ToC */}
-        <nav
-          aria-label="Inhaltsverzeichnis"
-          className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
-        >
-          <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
-          <ol className="list-decimal ml-5 space-y-2">
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#grundlagen">
-                Was bringen PV & Batteriespeicher im Unternehmen?
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#wirtschaftlichkeit">
-                Wirtschaftlichkeit: LCOE, Eigenverbrauch & Amortisation
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#planung">
-                Dimensionierung & Technik – 7 Schritte
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#investitionen">
-                Investition, Finanzierung & Förderungen 2025
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#recht">
-                EEG, Solarpaket & Direktvermarktung
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#fehler">
-                Typische Fehler & Risiken
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#faq">
-                FAQ
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#zusammenfassung">
-                Zusammenfassung
-              </a>
-            </li>
-          </ol>
-        </nav>
-
-        {/* Content */}
-        <section>
-          {/* 1 */}
-          <Anchor id="grundlagen" />
-          <h2 className="text-2xl font-bold mb-4">{sections[0].title}</h2>
-          <p className="mb-6 leading-relaxed">{sections[0].content}</p>
-
-          {/* Inline Expertenkontext */}
-          <div className="grid sm:grid-cols-2 gap-5 mb-10">
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <div className="flex items-center gap-2 mb-2">
-                <Sun className={`w-5 h-5 ${accent}`} />
-                <strong>Photovoltaik – kurz erklärt</strong>
-              </div>
-              <ul className="space-y-2 text-sm">
-                <CheckLi>kWp = Modulspitzenleistung, kWh = Energieertrag/Verbrauch.</CheckLi>
-                <CheckLi>Jahresertrag grob: 900–1.100 kWh je kWp (Standort & Neigung).</CheckLi>
-                <CheckLi>Eigenverbrauch spart den teureren Netzstrombezug.</CheckLi>
-              </ul>
-            </div>
-
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <div className="flex items-center gap-2 mb-2">
-                <BatteryCharging className={`w-5 h-5 ${accent}`} />
-                <strong>Speicher – kurz erklärt</strong>
-              </div>
-              <ul className="space-y-2 text-sm">
-                <CheckLi>Erhöht Eigenverbrauch & verschiebt PV-Strom zeitlich.</CheckLi>
-                <CheckLi>Peak Shaving senkt Leistungspreise (kW-Gebühren).</CheckLi>
-                <CheckLi>Lebensdauer: Zyklen & Kalenderalter beachten (Garantie).</CheckLi>
-              </ul>
-            </div>
+        <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="mb-2">
+            <strong>Spezifischer Ertrag & Lastprofil</strong>
           </div>
+          <ul className="space-y-2 text-sm">
+            <CheckLi>Richtwert in Deutschland: ~900–1.100 kWh/kWp·a (Standort, Neigung, Verschattung beachten).</CheckLi>
+            <CheckLi>Ein 100 kWp-Dach liefert grob 90.000–110.000 kWh/Jahr – wichtig für die Dimensionierung von Speicher & Anschluss.</CheckLi>
+            <CheckLi>15-Min-Messdaten (mind. 2 Wochen, besser 12 Monate) sind Basis für saubere Auslegung.</CheckLi>
+          </ul>
+        </div>
+      </div>
 
-          {/* 2 */}
-          <Anchor id="wirtschaftlichkeit" />
-          <h2 className="text-2xl font-bold mb-4">{sections[1].title}</h2>
-          <p className="leading-relaxed mb-5">
-            {sections[1].content}
-            {/* Quellenhinweis: Fraunhofer ISE LCOE / Photovoltaics Report */}
-            {/*  */}
-          </p>
+      {/* 2 */}
+      <Anchor id="status-quo" />
+      <h2 className="text-2xl font-bold mb-4">{sections[1].title}</h2>
+      <p className="mb-5 leading-relaxed">{sections[1].content}</p>
 
-          {/* Chart */}
-          <ComparisonChart />
+      {/* Chart */}
+      <ComparisonChart />
 
-          {/* Beispielrechnung Box */}
-          <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
-            <blockquote className="text-lg font-medium">
-              Beispiel: 200&nbsp;kWp Dachanlage, Ertrag 1.000&nbsp;kWh/kWp·a → 200.000&nbsp;kWh/a.
-              Bei 60&nbsp;% Eigenverbrauch ersetzt du 120.000&nbsp;kWh Netzstrom. Liegt dein
-              Vollkosten-Netzpreis bei 0,18&nbsp;€/kWh (Industrie ohne Privilegien; Richtwert),
-              sparst du ≈ 21.600&nbsp;€/a. Überschuss (80.000&nbsp;kWh) wird vergütet. Speicher
-              erhöht Eigenverbrauch z.&nbsp;B. auf 75&nbsp;% – prüfe, ob die zusätzlichen
-              Einsparungen die Mehrinvestition tragen.
-            </blockquote>
-            <figcaption className="mt-2 text-sm text-zinc-600">
-              Werte variieren stark (Tarife, Standort, Betriebstempo, Lastprofil).
-            </figcaption>
-            {/*  */}
-          </figure>
+      {/* Expertenzitat */}
+      <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+        <blockquote className="text-lg font-medium">
+          (indirektes Zitat) Studien von Fraunhofer ISE zeigen: PV zählt in Deutschland zu den günstigsten Stromerzeugungsoptionen; auf Dächern liegen die Stromgestehungskosten im niedrigen bis einstelligen Cent-Bereich pro kWh – ein starkes Argument für Eigenverbrauch.
+        </blockquote>
+        <figcaption className="mt-2 text-sm text-zinc-600">— Fraunhofer ISE, LCOE-Studien & Photovoltaics Report (2024/2025)</figcaption>
+      </figure>
 
-          {/* 3 */}
-          <Anchor id="planung" />
-          <h2 className="text-2xl font-bold mt-10 mb-4">{sections[2].title}</h2>
-          <p className="leading-relaxed mb-4">{sections[2].content}</p>
+      {/* 3 */}
+      <Anchor id="planung" />
+      <h2 className="text-2xl font-bold mt-10 mb-4">{sections[2].title}</h2>
+      <p className="leading-relaxed mb-4">{sections[2].content}</p>
 
-          <div className="mt-4 grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <BarChart3 className={`w-5 h-5 ${accent}`} /> Heuristiken &amp; Richtwerte
-              </h3>
-              <ul className="space-y-2 text-sm">
-                <CheckLi>Eigenverbrauch ohne Speicher häufig 40–70&nbsp;% (Gewerbe).</CheckLi>
-                <CheckLi>
-                  Speichergröße: 0,5–1,0&nbsp;kWh je kWp (Eigenverbrauch), für Peak Shaving
-                  zusätzlich Leistungsbedarf in kW dimensionieren.
-                </CheckLi>
-                <CheckLi>DC/AC-Ratio 1.1–1.3 für bessere Vollaststunden des Wechselrichters.</CheckLi>
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <FileSearch className={`w-5 h-5 ${accent}`} /> Mess- &amp; Simulationscheck
-              </h3>
-              <ul className="space-y-2 text-sm">
-                <CheckLi>15-min-Lastdaten aus Zähler/EMS ziehen und „dry-run“ simulieren.</CheckLi>
-                <CheckLi>
-                  Szenarien: ohne/mit Speicher, mit dynamischem Tarif, Peak-Shaving-Setpoints.
-                </CheckLi>
-                <CheckLi>Sensitivitäten: Strompreis ±20&nbsp;%, Zins ±2 pp, Ertrag ±5&nbsp;%.</CheckLi>
-              </ul>
-            </div>
-          </div>
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="rounded-2xl border border-zinc-200 p-5">
+          <h3 className="font-semibold mb-2">PV ohne Speicher – wann sinnvoll?</h3>
+          <ul className="space-y-2 text-sm">
+            <CheckLi>Wenn dein Tagesverbrauch groß ist (z. B. Produktion/Logistik) und PV-Erzeugung tagsüber direkt genutzt wird.</CheckLi>
+            <CheckLi>Wenn Netzanschluss/Statik die Speicherintegration vorerst erschweren und du schnell starten willst.</CheckLi>
+            <CheckLi>Wenn Einspeisesätze/Marktprämie und geringe Negativpreis-Risiken am Standort den Case tragen.</CheckLi>
+          </ul>
+        </div>
 
-          {/* Bild 1 – Unsplash, 16:6 */}
-          <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
-            <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
-              <picture>
-                <source
-                  media="(max-width: 640px)"
-                  srcSet="https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=1200&q=80&auto=format&fit=crop"
-                />
-                <img
-                  loading="lazy"
-                  src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=1920&q=80&auto=format&fit=crop"
-                  alt="Gewerbedach mit großflächiger PV-Anlage und Aufständerung"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              </picture>
-            </div>
-            <figcaption className="text-sm text-zinc-600">
-              PV auf großen Gewerbedächern skaliert schnell – entscheidend ist eine saubere
-              Statik- und Verschattungsprüfung.
-            </figcaption>
-          </figure>
+        <div className="rounded-2xl border border-zinc-200 p-5">
+          <h3 className="font-semibold mb-2">PV + Speicher – wann sinnvoll?</h3>
+          <ul className="space-y-2 text-sm">
+            <CheckLi>Bei deutlichen Abend-/Morgenspiten, Break-Even durch vermiedene kWh-Kosten + Lastspitzen (kW-Preis).</CheckLi>
+            <CheckLi>Wenn du Flexibilität für E-Mobilität/Prozesse brauchst und Negativpreis-Zeitfenster überbrücken willst.</CheckLi>
+            <CheckLi>Wenn du Lastverschiebung (Peak-Shaving, Time-Shifting) und ggf. Vermarktung/Regelleistung perspektivisch planst.</CheckLi>
+          </ul>
+        </div>
+      </div>
 
-          {/* 4 */}
-          <Anchor id="investitionen" />
-          <h2 className="text-2xl font-bold mt-12 mb-4">{sections[3].title}</h2>
-          <p className="leading-relaxed mb-4">
-            {sections[3].content}
-            {/*  */}
-          </p>
-
-          <div className="mt-4 grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <PiggyBank className={`w-5 h-5 ${accent}`} /> Was treibt den Business-Case?
-              </h3>
-              <ul className="space-y-2 text-sm">
-                <CheckLi>
-                  <strong>Netzpreis</strong> (Arbeitspreis + ggf. Leistungspreis) vs. LCOE PV.
-                </CheckLi>
-                <CheckLi>
-                  <strong>Eigenverbrauchsquote</strong> &amp; <strong>Erzeugungsprofil</strong>.
-                </CheckLi>
-                <CheckLi>
-                  <strong>Kapitalkosten</strong> (Zins, Laufzeit) &amp; Betrieb (O&amp;M).
-                </CheckLi>
-                <CheckLi>Förderkredit/Zuschuss &amp; Steuer-/Bilanzierungseffekte.</CheckLi>
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <BadgeEuro className={`w-5 h-5 ${accent}`} /> Rechenweg (vereinfacht)
-              </h3>
-              <ul className="space-y-2 text-sm">
-                <CheckLi>Jahresertrag = kWp × spezifischer Ertrag (kWh/kWp·a).</CheckLi>
-                <CheckLi>
-                  Cashflow = Eigenverbrauch (kWh) × Netzpreis (€) + Einspeise-Erlös.
-                </CheckLi>
-                <CheckLi>Amortisation ≈ Investition / Cashflow (vor Steuern/OPEX).</CheckLi>
-                <CheckLi>IRR/NPV für belastbare Investment-Entscheidung ergänzen.</CheckLi>
-              </ul>
-            </div>
-          </div>
-
-          {/* 5 */}
-          <Anchor id="recht" />
-          <h2 className="text-2xl font-bold mt-12 mb-4">{sections[4].title}</h2>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <ShieldCheck className={`w-5 h-5 ${accent}`} /> Relevante Punkte (2025)
-              </h3>
-              <ul className="text-sm space-y-2">
-                <li>
-                  <Pill>EEG-Vergütung</Pill> Feste Sätze bis 100&nbsp;kW (Teileinspeisung vs.
-                  Volleinspeisung; halbjährliche Degression). {/*  */}
-                </li>
-                <li>
-                  <Pill>Direktvermarktung</Pill> Größere Anlagen i. d. R. Direktvermarktung mit
-                  Marktprämie (anzulegender Wert – Marktwert). {/*  */}
-                </li>
-                <li>
-                  <Pill>Solarpaket I</Pill> Vereinfachungen/Anpassungen für PV – technische
-                  Anforderungen und Abläufe je Größe. {/*  */}
-                </li>
-                <li>
-                  <Pill>Negative Preise</Pill> Bei künftigen Anlagen können Phasen ohne
-                  Vergütung auftreten (Planung berücksichtigen). {/*  */}
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <Landmark className={`w-5 h-5 ${accent}`} /> Förderung &amp; Finanzierung
-              </h3>
-              <ul className="text-sm space-y-2">
-                <CheckLi>
-                  <strong>KfW 270</strong>: Kredit für PV & Speicher – Konditionen variieren,
-                  Hausbank ansprechen. {/*  */}
-                </CheckLi>
-                <CheckLi>
-                  <strong>BAFA-EEW Modul 4</strong>: Zuschüsse für Effizienz-Maßnahmen (u. a.
-                  prozessbezogene Optimierung); Bedingungen je Unternehmensgröße.
-                  {/*  */}
-                </CheckLi>
-                <CheckLi>
-                  <strong>Praxis</strong>: Kombination aus Kredit + Zuschuss + optimierter
-                  Mess-/Direktvermarktung.
-                </CheckLi>
-              </ul>
-            </div>
-          </div>
-
-          {/* Bild 2 – Unsplash, 16:6 */}
-          <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
-            <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
-              <picture>
-                <source
-                  media="(max-width: 640px)"
-                  srcSet="https://images.unsplash.com/photo-1567446537708-ac4aa75c9c28?w=1200&q=80&auto=format&fit=crop"
-                />
-                <img
-                  loading="lazy"
-                  src="https://images.unsplash.com/photo-1567446537708-ac4aa75c9c28?w=1920&q=80&auto=format&fit=crop"
-                  alt="Batteriespeicher-Container und Umspannanlage neben Werkshalle"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              </picture>
-            </div>
-            <figcaption className="text-sm text-zinc-600">
-              Stationäre Speicher: Für Peak Shaving zählt die abrufbare Leistung (kW) und die
-              erlaubte Entladetiefe – nicht nur die Kapazität (kWh).
-            </figcaption>
-          </figure>
-
-          {/* 6 */}
-          <Anchor id="fehler" />
-          <h2 className="text-2xl font-bold mt-12 mb-4">{sections[5].title}</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <Info className="w-5 h-5 text-rose-700" /> Vermeidbare Fehler
-              </h3>
-              <ul className="text-sm space-y-2">
-                <li>Kein Lastgang → Speicher/Anlage am Bedarf vorbei ausgelegt.</li>
-                <li>Nur kWp-Preis statt Gesamtnutzen (LCOE, Peak Shaving) betrachtet.</li>
-                <li>Messkonzept/Steuerbarkeit unklar (Direktvermarktung, § 9-Anforderungen).</li>
-                <li>Wartung/Monitoring vernachlässigt – Ertragsverluste bleiben unentdeckt.</li>
-                <li>Steuer-/Rechtsfragen (Lieferung an Dritte im Haus) nicht geklärt.</li>
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <CheckCircle2 className={`w-5 h-5 ${accent}`} /> Gute Praktiken
-              </h3>
-              <ul className="text-sm space-y-2">
-                <li>12-Monats-Lastdaten, Standortertrag & Sensitivitäten simulieren.</li>
-                <li>Peak-Shaving-Setpoints testen (Messphase) – Speicherleistung verifizieren.</li>
-                <li>Service-/Garantiekonzept (Zyklen, SoH, Austausch) fixieren.</li>
-                <li>Direktvermarkter & Netzbetreiber früh einbinden (Fernsteuerbarkeit).</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Weiterführende interne Links (Cluster) */}
-          <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-            <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
-            <ul className="list-disc ml-5 text-sm space-y-2">
-              <li>
-                <a
-                  className={`hover:underline ${accent}`}
-                  href="/blog/lastgang-analyse-unternehmen"
-                >
-                  Lastgang analysieren: So findest du den optimalen PV-/Speicher-Mix
-                </a>
-              </li>
-              <li>
-                <a className={`hover:underline ${accent}`} href="/blog/dynamische-stromtarife-b2b">
-                  Dynamische Tarife & Arbitrage im B2B – Chancen & Risiken
-                </a>
-              </li>
-              <li>
-                <a className={`hover:underline ${accent}`} href="/blog/eeg-direktvermarktung-guide">
-                  EEG-Direktvermarktung: Technik, Verträge, Vergütung – ein Praxisleitfaden
-                </a>
-              </li>
-              <li>
-                <a className={`hover:underline ${accent}`} href="/blog/pv-betrieb-optimieren">
-                  Betrieb & Monitoring: Erträge sichern, Degradation managen
-                </a>
-              </li>
-            </ul>
-          </aside>
-        </section>
-
-        {/* FAQ */}
-        <section id="faq" className="mt-14">
-          <h2 className="text-2xl font-bold mb-4">FAQ</h2>
-          <div className="divide-y divide-zinc-200 border border-zinc-200 rounded-2xl">
+      {/* Vergleichstabelle */}
+      <div className="mt-8 overflow-x-auto">
+        <table className="w-full text-sm border-separate border-spacing-y-2" aria-describedby="vergleich-caption">
+          <caption id="vergleich-caption" className="sr-only">Vergleich Überschusseinspeisung vs. Volleinspeisung</caption>
+          <thead>
+            <tr className="text-left">
+              <th className="px-3 py-2">Aspekt</th>
+              <th className="px-3 py-2">Teileinspeisung (Eigenverbrauch)</th>
+              <th className="px-3 py-2">Volleinspeisung</th>
+            </tr>
+          </thead>
+          <tbody>
             {[
-              {
-                q: "Wie groß sollte der Speicher im Gewerbe sein?",
-                a: "Für Eigenverbrauch grob 0,5–1,0 kWh pro kWp PV. Für Peak Shaving ist die Leistung (kW) entscheidend – sie muss deine typischen 15-min-Spitzen decken. Starte mit einer Mess-/Testphase und prüfe dann die Wirtschaftlichkeit in Szenarien.",
-              },
-              {
-                q: "Lohnt sich PV auch ohne Speicher?",
-                a: "Ja – in vielen Betrieben ist der Eigenverbrauch tagsüber hoch genug. Speicher kommt hinzu, wenn Leistungspreise relevant sind oder sich Zeitverschiebung/Tarifarbitrage rechnet. Der Business-Case steht und fällt mit deinem Lastprofil.",
-              },
-              {
-                q: "Was sind typische Strompreise für Unternehmen?",
-                a: "Stark abhängig von Abnahme, Privilegien und Region. Modellierte Industriestrompreise ohne Vergünstigungen lagen 2024 grob im Bereich um 17 ct/kWh; Prüfe deine Vertragskonditionen individuell.",
-              },
-              {
-                q: "Welche EEG-Regeln gelten für Gewerbe-PV?",
-                a: "Bis 100 kW feste EEG-Sätze (Teileinspeisung/Volleinspeisung). Größere Anlagen gehen in die Direktvermarktung mit gleitender Marktprämie. Technische Anforderungen (z. B. Fernsteuerbarkeit) je Größe/Datum beachten.",
-              },
-              {
-                q: "Welche Förderungen gibt es?",
-                a: "KfW 270 als Förderkredit für PV & Speicher; Zuschüsse über BAFA-EEW (insb. Modul 4) bei Effizienz-/Prozessbezug. Konditionen ändern sich – Hausbank/BAFA-Merkblätter prüfen.",
-              },
-            ].map((f) => (
-              <details key={f.q} className="group p-5">
-                <summary className="flex cursor-pointer items-center justify-between font-medium">
-                  <span>{f.q}</span>
-                  <ArrowRight
-                    className={`w-4 h-4 transition-transform group-open:rotate-90 ${accent}`}
-                  />
-                </summary>
-                <div className="mt-2 text-zinc-700">{f.a}</div>
-              </details>
+              { a: "Erlöslogik", c: "Einsparung teurer Bezugsstrom + EEG für Überschuss", o: "EEG-Vergütung bzw. Marktprämie für gesamte Erzeugung" },
+              { a: "Negativpreis-Regel", c: "Weniger kritisch (Eigenverbrauch priorisiert)", o: "Kritischer (vergütungsfreie Zeiten möglich)" },
+              { a: "Planbarkeit", c: "Hoch (strompreisindexierte Einsparung)", o: "Hoch (fixe Sätze), aber abhängig von Gesetzeslage" },
+              { a: "Komplexität", c: "Messkonzept, ggf. Speicher-EMS", o: "Einfacher Betrieb, aber Direktvermarktung bei >100 kW ggf." },
+              { a: "Skalierung", c: "An Lastprofil gekoppelt", o: "An Dach/Netz geknüpft" },
+              { a: "Nachhaltigkeit/CSR", c: "Hohe Wirkung (direkte Emissionsvermeidung)", o: "Nachweisbar, aber indirekter" },
+            ].map((row) => (
+              <tr key={row.a} className="bg-zinc-50 rounded-xl">
+                <th scope="row" className="px-3 py-2 font-medium text-left">{row.a}</th>
+                <td className="px-3 py-2">{row.c}</td>
+                <td className="px-3 py-2">{row.o}</td>
+              </tr>
             ))}
-          </div>
+          </tbody>
+        </table>
+      </div>
 
-          {/* FAQ Schema.org */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                mainEntity: [
-                  {
-                    "@type": "Question",
-                    name: "Wie groß sollte der Speicher im Gewerbe sein?",
-                    acceptedAnswer: {
-                      "@type": "Answer",
-                      text:
-                        "Für Eigenverbrauch grob 0,5–1,0 kWh pro kWp PV. Für Peak Shaving ist die Leistung (kW) entscheidend – sie muss typische 15-min-Spitzen decken.",
-                    },
-                  },
-                  {
-                    "@type": "Question",
-                    name: "Lohnt sich PV auch ohne Speicher?",
-                    acceptedAnswer: {
-                      "@type": "Answer",
-                      text:
-                        "Ja. In vielen Betrieben ist der Eigenverbrauch tagsüber hoch genug. Speicher rechnet sich, wenn Leistungspreise relevant sind oder Arbitrage möglich ist.",
-                    },
-                  },
-                  {
-                    "@type": "Question",
-                    name: "Was sind typische Strompreise für Unternehmen?",
-                    acceptedAnswer: {
-                      "@type": "Answer",
-                      text:
-                        "Variiert. Modellierte Industriestrompreise ohne Vergünstigungen lagen 2024 bei etwa 17 ct/kWh; konkrete Verträge prüfen.",
-                    },
-                  },
-                  {
-                    "@type": "Question",
-                    name: "Welche EEG-Regeln gelten für Gewerbe-PV?",
-                    acceptedAnswer: {
-                      "@type": "Answer",
-                      text:
-                        "Bis 100 kW feste EEG-Sätze; größere Anlagen in Direktvermarktung mit Marktprämie. Technische Anforderungen je Größe/Datum beachten.",
-                    },
-                  },
-                ],
-              }),
-            }}
-          />
-        </section>
+      {/* 4 */}
+      <Anchor id="business-case" />
+      <h2 className="text-2xl font-bold mt-12 mb-4">{sections[3].title}</h2>
 
-        {/* Summary */}
-        <section id="zusammenfassung" className="mt-14">
-          <h2 className="text-2xl font-bold mb-3">Kurzfazit</h2>
-          <p className="leading-relaxed">
-            <strong>PV & Speicher im Unternehmen</strong> lohnen sich, wenn sie zu deinem
-            Lastprofil passen: PV senkt Arbeitspreise über hohen Eigenverbrauch, Speicher
-            addiert Nutzen aus Peak Shaving und Zeitschnitt. Plane datenbasiert (Lastgang,
-            Simulation), prüfe Förderkredit/Zuschuss und beachte EEG-Details (Vergütung,
-            Direktvermarktung, technische Anforderungen). So erreichst du eine{" "}
-            <em>robuste Amortisation</em> und reduzierst gleichzeitig CO₂-Emissionen – ohne
-            die Abläufe im Betrieb zu stören.
-          </p>
-        </section>
-
-        {/* CTA */}
-        <section aria-label="Kontakt" className="mt-14">
-          <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
-            <h2 className="text-xl font-bold mb-2">
-              PV-/Speicher-Business-Case für dein Unternehmen prüfen?
-            </h2>
-            <p className="text-zinc-700 mb-4">
-              Wir analysieren Lastgang, Tarife und Flächen und entwerfen einen belastbaren
-              Business-Case inkl. Fördercheck und Peak-Shaving-Plan.
-            </p>
-
-            {/* Demo-Form (ohne Funktion) */}
-            <div
-              className="mx-auto grid max-w-xl gap-3 text-left"
-              role="group"
-              aria-describedby="cta-note"
-            >
-              <label className="text-sm">
-                Name
-                <input
-                  name="name"
-                  className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2"
-                  placeholder="Max Mustermann"
-                />
-              </label>
-              <label className="text-sm">
-                Telefon
-                <input
-                  name="phone"
-                  className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2"
-                  placeholder="+49 …"
-                />
-              </label>
-              <label className="text-sm">
-                E-Mail
-                <input
-                  type="email"
-                  name="email"
-                  className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2"
-                  placeholder="max@firma.de"
-                />
-              </label>
-
-              <button
-                type="button"
-                className="mt-2 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-700 to-emerald-500 px-4 py-2 font-semibold text-white shadow-sm opacity-70 cursor-not-allowed"
-                aria-disabled="true"
-                title="Demo – ohne Funktion"
-              >
-                Demo anfordern
-              </button>
-              <p id="cta-note" className="text-xs text-zinc-500 mt-1">
-                Demo-Formular – nur Vorschau, es werden keine Daten gesendet.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* E-E-A-T */}
-        <section className="mt-14">
-          <h2 className="text-2xl font-bold mb-3">Über den Autor</h2>
-          <div className="flex items-center gap-4">
-            <img
-              src={author.image}
-              alt="Autor"
-              className="w-16 h-16 rounded-full object-cover"
-              loading="lazy"
-            />
-            <div>
-              <div className="font-semibold">{author.name}</div>
-              <div className="text-sm text-zinc-700">
-                {author.role}. Fokus: PV-Strategie, Lastgang-Analysen, Energiespeicher.
-              </div>
-              <a href={author.linkedin} className={`text-sm hover:underline ${accent}`}>
-                LinkedIn-Profil
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-4 flex items-center gap-3">
-            <ArrowRight className={`w-4 h-4 ${accent}`} aria-hidden />
-            <p className="text-sm text-zinc-700">
-              Reviewed by: <strong>{reviewer.name}</strong> – {reviewer.role}.{" "}
-              <a href={reviewer.linkedin} className={`hover:underline ${accent}`}>
-                LinkedIn
-              </a>
-            </p>
-          </div>
-        </section>
-
-        {/* Quellenverzeichnis */}
-        <section className="mt-14">
-          <h2 className="text-2xl font-bold mb-3">Quellen &amp; weiterführende Studien</h2>
-          <ul className="list-disc ml-5 space-y-2 text-sm">
-            <li>
-              Bundesnetzagentur: EEG-Förderung & Fördersätze – Einspeisevergütung bis 100 kW,
-              Marktprämie, Direktvermarktung.
-              https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/EEG_Foerderung/start.html
-              {/*  */}
-            </li>
-            <li>
-              BMWK: Solarpaket I – Überblick & FAQ (Regelungen/Erleichterungen).
-              https://www.bmwk.de/Redaktion/DE/Artikel/Energie/solarpaket-1.html
-              {/*  */}
-            </li>
-            <li>
-              Fraunhofer ISE: Aktuelle Fakten zur Photovoltaik in Deutschland – Fassung vom
-              18.08.2025.
-              https://www.ise.fraunhofer.de/de/veroeffentlichungen/studien/aktuelle-fakten-zur-photovoltaik-in-deutschland.html
-              {/*  */}
-            </li>
-            <li>
-              Fraunhofer ISE: Stromgestehungskosten erneuerbare Energien (2024).
-              https://www.ise.fraunhofer.de/de/veroeffentlichungen/studien/studie-stromgestehungskosten-erneuerbare-energien.html
-              {/*  */}
-            </li>
-            <li>
-              IEA: Renewables 2024 – Electricity & Markttrends bis 2030.
-              https://www.iea.org/reports/renewables-2024/electricity
-              {/*  */}
-            </li>
-            <li>
-              SMARD/BNetzA: Industriestrompreise – Entwicklung 2024/2025 (modelliert).
-              https://www.smard.de
-              {/*  */}
-            </li>
-            <li>
-              ADAC/Finanztip: Einspeisevergütung 2025 – aktuelle Sätze & Hinweise (neg. Preise).
-              https://www.adac.de/rund-ums-haus/energie/spartipps/einspeiseverguetung-pv-anlagen/
-              {/*  */}
-            </li>
-            <li>
-              KfW 270 – Erneuerbare Energien (Standard): Förderkredit für PV & Speicher.
-              https://www.kfw.de/inlandsfoerderung/Unternehmen/Energie-Umwelt/Förderprodukte/Erneuerbare-Energien-Standard-(270)/
-              {/*  */}
-            </li>
-            <li>
-              BAFA EEW Modul 4 – Basis-/Premiumförderung (KMU-Quoten & Bedingungen).
-              https://www.bafa.de/DE/Energie/Energieeffizienz/Energieeffizienz_und_Prozesswaerme/Modul4_Energiebezogene_Optimierung_Basisfoerderung/modul4_energiebezogene_optimierung_basisfoerderung_node.html
-              {/*  */}
-            </li>
+      <div className="grid gap-6 md:grid-cols-2">
+        <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
+          <h3 className="font-semibold mb-2">Zusammenfassung ROI-Logik</h3>
+          <ul className="text-sm space-y-2">
+            <li><Pill>Ertrag</Pill> Spezifischer Ertrag × kWp = Jahres-kWh (P50/P90 berücksichtigen).</li>
+            <li><Pill>Sparen</Pill> Eigenverbrauchs-kWh × Strompreis (ct/kWh) = Einsparung.</li>
+            <li><Pill>Einspeisung</Pill> Überschuss-kWh × EEG-Satz = Vergütung (Negativpreise beachten).</li>
+            <li><Pill>OPEX</Pill> Wartung/Versicherung ~1–2 % p. a.; EMS/IT ggf. zusätzlich.</li>
           </ul>
-        </section>
+        </div>
 
-        {/* Mini-Glossar */}
-        <section className="mt-14 mb-20">
-          <h2 className="text-2xl font-bold mb-3">Mini-Glossar</h2>
-          <dl className="rounded-2xl border border-zinc-200 divide-y">
-            <GlossaryRow
-              term="kWp"
-              def="Kilowattpeak – installierte Spitzenleistung der PV-Module unter Standard-Testbedingungen."
-            />
-            <GlossaryRow
-              term="Eigenverbrauchsquote"
-              def="Anteil des erzeugten PV-Stroms, den das Unternehmen selbst nutzt (statt einzuspeisen)."
-            />
-            <GlossaryRow
-              term="LCOE"
-              def="Levelized Cost of Electricity – Stromgestehungskosten über die Lebensdauer je kWh."
-            />
-            <GlossaryRow
-              term="Peak Shaving"
-              def="Reduktion teurer Lastspitzen (kW) mit Speicher; senkt Leistungspreise/Netzentgelte je nach Tarif."
-            />
-            <GlossaryRow
-              term="Direktvermarktung"
-              def="Vermarktung des PV-Stroms an der Börse über einen Direktvermarkter; Vergütung via Marktpreis + Marktprämie."
-            />
-          </dl>
-        </section>
-      </article>
-    </>
+        <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
+          <h3 className="font-semibold mb-2">Beispielrechnung (vereinfachtes Modell)</h3>
+          <ul className="text-sm space-y-2">
+            <CheckLi>100 kWp Dachanlage, 1.000 kWh/kWp·a ⇒ 100.000 kWh/Jahr. Eigenverbrauch 70 %, Überschuss 30 %.</CheckLi>
+            <CheckLi>Strompreis 18 ct/kWh (Neuabschluss kleiner/mittlerer Industriebetrieb, 2025). EEG für Überschuss: 6,80–7,86 ct/kWh (bis 40 kW/≤10 kW).</CheckLi>
+            <CheckLi>Invest PV: 1.000 €/kWp ⇒ 100.000 €; OPEX 1,5 % = 1.500 €/a. Speicher optional: 200 kWh × 350 €/kWh ⇒ 70.000 €.</CheckLi>
+            <CheckLi>Einsparung: 70.000 kWh × 0,18 € = 12.600 €/a; Einspeiseerlös: 30.000 kWh × ~0,07 € ≈ 2.100 €/a; Summe ≈ 14.700 €/a vor OPEX.</CheckLi>
+            <CheckLi>PV-Payback ca. 100.000 € / (14.700 € − 1.500 €) ≈ 7,4 Jahre (ohne Speicher; Steuern/Finanzierung nicht berücksichtigt).</CheckLi>
+          </ul>
+        </div>
+      </div>
+
+      {/* Bild 1 – Unsplash */}
+      <figure className="mt-8">
+        <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
+          <picture>
+            <source media="(max-width: 640px)" srcSet="https://source.unsplash.com/1600x600/?solar,rooftop,industry" />
+            <img loading="lazy" src="https://source.unsplash.com/1600x600/?solar,rooftop,industry" alt="Gewerbedach mit PV-Modulen im Morgenlicht" className="absolute inset-0 h-full w-full object-cover" />
+          </picture>
+        </div>
+        <figcaption className="mt-2 text-sm text-zinc-600">PV auf dem Flachdach einer Produktionshalle: Ost-West-Ausrichtung glättet die Erzeugung und passt zu Betriebszeiten.</figcaption>
+      </figure>
+
+      {/* 5 */}
+      <Anchor id="foerderung" />
+      <h2 className="text-2xl font-bold mt-12 mb-4">{sections[4].title}</h2>
+      <ol className="list-decimal ml-5 space-y-3 leading-relaxed">
+        <li><strong>EEG-Vergütung/Marktprämie:</strong> Fixe Sätze über 20 Jahre; bei Negativpreisen zeitweise Null-Vergütung für Neuanlagen (Details je Smart-Meter-Status).</li>
+        <li><strong>Solarpaket I (2024):</strong> Entbürokratisierung, u. a. Erleichterungen bei Netzanschluss/Repowering, gestärkter Mieterstrom, Direktvermarktungspflichten angepasst (z. B. Befreiungen bis 200 kWp).</li>
+        <li><strong>KfW-270 Kredit:</strong> Zinsgünstige Finanzierung für PV/Speicher; Finanzierung von Planung/Installation möglich (Hausbankprinzip).</li>
+        <li><strong>Steuern:</strong> In der Praxis häufig lineare AfA über 20 Jahre; 0-%-USt idR nur bei Wohngebäuden (PV + Speicher). Firmengebäude sind meist nicht begünstigt.</li>
+        <li><strong>Alternative Modelle:</strong> PPA/Direktvermarktung, Contracting, Energy-as-a-Service (OPEX-Modell) – sinnvoll bei CAPEX-Knappheit oder Risiko-Sharing.</li>
+        <li><strong>Landesprogramme:</strong> Punktuell Speicher-/Ladeinfrastruktur-Förderungen; Bedingungen und Budgets prüfen (stark variierend).</li>
+        <li><strong>Compliance:</strong> MaStR-Registrierung, Messkonzept, VDE-Normen, Brandschutz/Statik – frühzeitig klären.</li>
+      </ol>
+
+      {/* Bild 2 – Unsplash */}
+      <figure className="mt-8">
+        <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
+          <picture>
+            <source media="(max-width: 640px)" srcSet="https://source.unsplash.com/1600x600/?battery,energy,storage,industrial" />
+            <img loading="lazy" src="https://source.unsplash.com/1600x600/?battery,energy,storage,industrial" alt="Batteriespeicher-Racks in einem Technikraum" className="absolute inset-0 h-full w-full object-cover" />
+          </picture>
+        </div>
+        <figcaption className="mt-2 text-sm text-zinc-600">Gewerblicher Lithium-Speicher: Eigenverbrauchsoptimierung, Lastspitzenkappung und Flexibilität für E-Mobilität.</figcaption>
+      </figure>
+
+      {/* 6 */}
+      <Anchor id="fehler" />
+      <h2 className="text-2xl font-bold mt-12 mb-4">{sections[5].title}</h2>
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
+          <h3 className="font-semibold mb-2 flex items-center gap-2">
+            <Info className="w-5 h-5 text-rose-700" aria-hidden="true" /> Vermeidbare Fehler
+          </h3>
+          <ul className="text-sm space-y-2">
+            <li>Nur Jahresverbrauch statt Lastgangdaten nutzen – führt oft zu falschen Speichergrößen.</li>
+            <li>Negativpreis-Regel ignorieren – Einspeiseerlöse überschätzt, Speicherwert unterschätzt.</li>
+            <li>OPEX, Degradation und Wirkungsgrad zu optimistisch – Payback schöngerechnet.</li>
+            <li>Netzanschluss/Statik/Brandschutz zu spät klären – Verzögerungen und Zusatzkosten.</li>
+          </ul>
+        </div>
+        <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+          <h3 className="font-semibold mb-2 flex items-center gap-2">
+            <CheckCircle2 className={`w-5 h-5 ${accent}`} aria-hidden="true" /> Gute Praktiken
+          </h3>
+          <ul className="text-sm space-y-2">
+            <li>Mind. 2 Wochen 15-Min-Lastgang, ideal 12 Monate; konservative P50/P90-Ertragsannahmen.</li>
+            <li>Messkonzept & Smart-Meter-Rollout früh planen; EMS mit klaren Betriebsstrategien.</li>
+            <li>Mehrere Angebote (PV/ESS/Finanzierung) vergleichen; Service-Level & Garantien prüfen.</li>
+            <li>CO₂-Bilanz & CSR dokumentieren; interne Kommunikation/Branding nutzen.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Weiterführende interne Links */}
+      <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+        <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
+        <ul className="list-disc ml-5 text-sm space-y-2">
+          <li><a className={`hover:underline ${accent}`} href="/blog/lastspitzen-kappen-speicher">Lastspitzen kappen: Speicher richtig dimensionieren</a></li>
+          <li><a className={`hover:underline ${accent}`} href="/blog/strombeschaffung-ppa-grundlagen">Strombeschaffung mit PPA: Chancen & Risiken</a></li>
+          <li><a className={`hover:underline ${accent}`} href="/blog/ladeinfrastruktur-fuhrpark">PV & Ladeinfrastruktur für den Firmenfuhrpark</a></li>
+          <li><a className={`hover:underline ${accent}`} href="/blog/energiemanagement-iso50001">ISO 50001: Energiemanagement im Mittelstand</a></li>
+        </ul>
+      </aside>
+    </section>
+
+    {/* FAQ */}
+    <section id="faq" className="mt-14">
+      <h2 className="text-2xl font-bold mb-4">FAQ</h2>
+      <div className="divide-y divide-zinc-200 border border-zinc-200 rounded-2xl">
+        {faqs.map((f) => (
+          <details key={f.q} className="group p-5">
+            <summary className="flex cursor-pointer items-center justify-between font-medium">
+              <span>{f.q}</span>
+              <ArrowRight className={`w-4 h-4 transition-transform group-open:rotate-90 ${accent}`} aria-hidden="true" />
+            </summary>
+            <div className="mt-2 text-zinc-700">{f.a}</div>
+          </details>
+        ))}
+      </div>
+
+      {/* FAQ Schema.org */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: f.a,
+              },
+            })),
+          }),
+        }}
+      />
+    </section>
+
+    {/* Summary */}
+    <section id="zusammenfassung" className="mt-14">
+      <h2 className="text-2xl font-bold mb-3">Kurzfazit</h2>
+      <p className="leading-relaxed">
+        Für Unternehmen ist PV der Einstieg in planbare, günstigere Energie – und Speicher machen das System robust gegenüber Negativpreisen und Lastspitzen. Der wirtschaftliche Sweet-Spot entsteht,
+        wenn du datenbasiert dimensionierst (Lastprofil!), Eigenverbrauch priorisierst und Förder-/Finanzierungsoptionen geschickt kombinierst. Mit realistischen Annahmen liegt der Payback
+        vieler Dachanlagen im Bereich mehrerer Jahre; Speicher rechnen sich, wenn sie regelmäßig genutzt werden (Eigenverbrauch + Peak-Shaving). Technisch sauber planen, rechtliche Rahmenbedingungen
+        berücksichtigen – und starten.
+      </p>
+    </section>
+
+    {/* CTA */}
+    <section aria-label="Kontakt" className="mt-14">
+      <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+        <h2 className="text-xl font-bold mb-2">Willst du wissen, wie groß PV & Speicher für deinen Standort sein sollten?</h2>
+        <p className="text-zinc-700 mb-4">Wir erstellen dir eine schnelle, konservative Wirtschaftlichkeitsabschätzung auf Basis deiner Lastgangdaten.</p>
+
+        {/* Demo UI */}
+        <div className="mx-auto grid max-w-xl gap-3 text-left" role="group" aria-describedby="cta-note">
+          <label className="text-sm">
+            Name
+            <input name="name" className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2" placeholder="Max Mustermann" />
+          </label>
+          <label className="text-sm">
+            Telefon
+            <input name="phone" className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2" placeholder="+49 123456789" />
+          </label>
+          <label className="text-sm">
+            E-Mail
+            <input type="email" name="email" className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2" placeholder="max@firma.de" />
+          </label>
+
+          <button type="button" className="mt-2 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-700 to-emerald-500 px-4 py-2 font-semibold text-white shadow-sm opacity-70 cursor-not-allowed" aria-disabled="true" title="Demo – ohne Funktion">
+            Demo anfordern
+          </button>
+          <p id="cta-note" className="text-xs text-zinc-500 mt-1">Demo-Formular – nur Vorschau, es werden keine Daten gesendet.</p>
+        </div>
+      </div>
+    </section>
+
+    {/* E-E-A-T */}
+    <section className="mt-14">
+      <h2 className="text-2xl font-bold mb-3">Über die Autorin</h2>
+      <div className="flex items-center gap-4">
+        <img src={author.image} alt="Autorin" className="w-16 h-16 rounded-full object-cover" loading="lazy" />
+        <div>
+          <div className="font-semibold">{author.name}</div>
+          <div className="text-sm text-zinc-700">{author.role}. Schwerpunkte: PV-Wirtschaftlichkeit, Speicher, Energiemanagement.</div>
+          <a href={author.linkedin} className={`text-sm hover:underline ${accent}`}>LinkedIn-Profil</a>
+        </div>
+      </div>
+
+      <div className="mt-4 flex items-center gap-3">
+        <ArrowRight className={`w-4 h-4 ${accent}`} aria-hidden="true" />
+        <p className="text-sm text-zinc-700">
+          Reviewed by: <strong>{reviewer.name}</strong> – {reviewer.role}.{" "}
+          <a href={reviewer.linkedin} className={`hover:underline ${accent}`}>LinkedIn</a>
+        </p>
+      </div>
+    </section>
+
+    {/* Quellenverzeichnis */}
+    <section className="mt-14">
+      <h2 className="text-2xl font-bold mb-3">Quellen &amp; weiterführende Studien</h2>
+      <ul className="list-disc ml-5 space-y-2 text-sm">
+        <li>Bundesnetzagentur – EEG-Fördersätze (gültig ab 01.08.2025): https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/EEG_Foerderung/start.html</li>
+        <li>ADAC – Einspeisevergütung 2025 (Übersicht & Beispiele): https://www.adac.de/rund-ums-haus/energie/spartipps/einspeiseverguetung-pv-anlagen/</li>
+        <li>BDEW – Strompreisanalyse Juli 2025 (Industriepreise): https://www.bdew.de/service/daten-und-grafiken/bdew-strompreisanalyse/</li>
+        <li>BMWK – Solarpaket I (Regelungen & Ziele): https://www.bmwk.de/Redaktion/DE/Artikel/Energie/solarpaket-1.html</li>
+        <li>Fraunhofer ISE – LCOE-Studie (2024): https://www.ise.fraunhofer.de/en/publications/studies/cost-of-electricity.html</li>
+        <li>Fraunhofer ISE – Photovoltaics Report (29.05.2025): https://www.ise.fraunhofer.de/content/dam/ise/de/documents/publications/studies/Photovoltaics-Report.pdf</li>
+        <li>JRC PVGIS – Ertragsabschätzung: https://re.jrc.ec.europa.eu/pvg_tools/en/tools.html</li>
+        <li>KfW – Programm 270 (Merkblatt 05/2025): https://www.kfw.de/inlandsfoerderung/Unternehmen/Energie-Umwelt/Förderprodukte/Erneuerbare-Energien-Standard-(270)/</li>
+        <li>SolarPower Europe – European Market Outlook for Battery Storage 2025–2029: https://www.solarpowereurope.org/insights/outlooks/european-market-outlook-for-battery-storage-2025-2029/detail</li>
+        <li>DIHK – Leitfaden Stromspeicher in Industrie & Gewerbe (2025): https://www.dihk.de/resource/blob/130814/eb5c844e8cfcf4facd2a3c1f26d75d21/dihk-leitfaden-gewerbespeicher-data.pdf</li>
+        <li>EEG §51 – Nullvergütung bei negativen Preisen (Solarspitzengesetz, Überblick): https://www.solarwirtschaft.de/unsere-themen/photovoltaik/standpunkte/faq-solarspitzengesetz/</li>
+        <li>BMF – FAQ Nullsteuersatz PV ab 2023 (Wohngebäude-Bezug): https://www.bundesfinanzministerium.de/Content/DE/FAQ/foerderung-photovoltaikanlagen.html</li>
+      </ul>
+    </section>
+
+    {/* Mini-Glossar */}
+    <section className="mt-14 mb-20">
+      <h2 className="text-2xl font-bold mb-3">Mini-Glossar</h2>
+      <dl className="rounded-2xl border border-zinc-200 divide-y">
+        <GlossaryRow term="kWp" def="Kilowattpeak – installierte Spitzenleistung der PV-Anlage unter Standard-Testbedingungen." />
+        <GlossaryRow term="kWh" def="Kilowattstunde – Energiemenge; was eine Anlage/Verbraucher in einer Stunde mit 1 kW Leistung erzeugt/verbraucht." />
+        <GlossaryRow term="Eigenverbrauchsquote" def="Anteil des erzeugten PV-Stroms, der direkt im Betrieb genutzt wird." />
+        <GlossaryRow term="Marktprämie" def="EEG-Fördermechanismus bei Direktvermarktung; Ausgleich zwischen Marktpreis und anzulegendem Wert." />
+        <GlossaryRow term="Peak-Shaving" def="Kappen von Leistungsspitzen (kW), um Leistungspreise/Netzentgelte zu reduzieren – oft per Batteriespeicher." />
+      </dl>
+    </section>
+  </article>
+</>
+
   );
 }
