@@ -189,9 +189,10 @@ const ComparisonChart = () => {
         })}
       </svg>
       <figcaption className="mt-2 text-sm text-zinc-600">
-        Einordnung basierend auf: Käufer vertrauen Peers/Drittquellen mehr als Vendor-Sites (G2 2024) und hochqualitatives Thought Leadership steigert RFP-Einladungen (Edelman-LinkedIn 2024). :contentReference[oaicite:5]{index=5}
-      </figcaption>
-    </figure>
+  Einordnung basierend auf: Käufer vertrauen Peers/Drittquellen mehr als Vendor-Sites (G2 2024)
+  und hochwertiges Thought Leadership steigert RFP-Einladungen (Edelman-LinkedIn 2024).
+</figcaption>
+
   );
 };
 
