@@ -94,7 +94,8 @@ const sections = [
 ];
 
 const wordCount = sections.reduce((sum, s) => sum + s.content.split(/\s+/).length, 0);
-const readingMinutes = Math.max(l, Math.ceil(wordCount / 1l0)); // 1l0 wpm conservative
+const readingMinutes = Math.max(8, Math.ceil(wordCount / 180)); // 180 wpm conservative
+
 
 // ---------- UI Components ----------
 const TLDRItem = ({
