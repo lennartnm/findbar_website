@@ -103,18 +103,18 @@ const wordCount = sections.reduce((sum, s) => sum + s.content.split(/\s+/).lengt
 const readingMinutes = Math.max(8, Math.ceil(wordCount / 180)); // 180 wpm conservative
 
 // ---------- UI Components ----------
+
 const TLDRItem = ({
-  icon: Icon,
   children,
 }: {
-  icon: LucideIcon;
   children: ReactNode;
 }) => (
   <li className="flex items-start gap-3">
-    <Icon className={`w-5 h-5 mt-1 ${accent}`} aria-hidden="true" />
+    <ArrowRight className={`w-5 h-5 mt-1 ${accent}`} aria-hidden="true" />
     <span>{children}</span>
   </li>
 );
+
 
 const CheckLi = ({ children }: { children: ReactNode }) => (
   <li className="flex items-start gap-2">
@@ -373,31 +373,29 @@ export default function Article() {
           <p className="mb-6 leading-relaxed">{sections[0].content}</p>
 
           {/* Erklärung von zwei zentralen fachlichen Gegebenheiten */}
-          <div className="grid sm:grid-cols-2 gap-5 mb-10">
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <div className="flex items-center gap-2 mb-2">
-                <Cloud className={`w-5 h-5 ${accent}`} aria-hidden="true" />
-                <strong>Fachliche Gegebenheit erklärt</strong>
-              </div>
-              <ul className="space-y-2 text-sm">
-                <CheckLi>Platzhalter für Stichpunkt 1</CheckLi>
-                <CheckLi>Platzhalter für Stichpunkt 2</CheckLi>
-                <CheckLi>Platzhalter für Stichpunkt 3</CheckLi>
-              </ul>
-            </div>
+          <div className="rounded-2xl border border-zinc-200 p-5">
+  <div className="mb-2">
+    <strong>Fachliche Gegebenheit erklärt</strong>
+  </div>
+  <ul className="space-y-2 text-sm">
+    <CheckLi>Platzhalter für Stichpunkt 1</CheckLi>
+    <CheckLi>Platzhalter für Stichpunkt 2</CheckLi>
+    <CheckLi>Platzhalter für Stichpunkt 3</CheckLi>
+  </ul>
+</div>
 
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <div className="flex items-center gap-2 mb-2">
-                <Server className={`w-5 h-5 ${accent}`} aria-hidden="true" />
-                <strong>Fachliche Gegebenheit erklärt</strong>
-              </div>
-              <ul className="space-y-2 text-sm">
-                <CheckLi>Platzhalter für Stichpunkt 1</CheckLi>
-                <CheckLi>Platzhalter für Stichpunkt 2</CheckLi>
-                <CheckLi>Platzhalter für Stichpunkt 3</CheckLi>
-              </ul>
-            </div>
-          </div>
+
+          <div className="rounded-2xl border border-zinc-200 p-5">
+  <div className="mb-2">
+    <strong>Fachliche Gegebenheit erklärt</strong>
+  </div>
+  <ul className="space-y-2 text-sm">
+    <CheckLi>Platzhalter für Stichpunkt 1</CheckLi>
+    <CheckLi>Platzhalter für Stichpunkt 2</CheckLi>
+    <CheckLi>Platzhalter für Stichpunkt 3</CheckLi>
+  </ul>
+</div>
+
 
           {/* 2 */}
           <Anchor id="status-quo" />
@@ -423,28 +421,28 @@ export default function Article() {
           <h2 className="text-2xl font-bold mt-10 mb-4">{sections[2].title}</h2>
           <p className="leading-relaxed mb-4">{sections[2].content}</p>
 
-          <div className="mt-4 grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <ShieldCheck className={`w-5 h-5 ${accent}`} aria-hidden="true" /> Erneuter Vergleich zwei fachlich identifizierten Möglichkeiten
-              </h3>
-              <ul className="space-y-2 text-sm">
-                <CheckLi>Stichpunkt 1</CheckLi>
-                <CheckLi>Stichpunkt 2</CheckLi>
-                <CheckLi>Stichpunkt 3</CheckLi>
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <BadgeEuro className={`w-5 h-5 ${accent}`} aria-hidden="true" /> Erneuter Vergleich zwei fachlich identifizierten Möglichkeiten
-              </h3>
-              <ul className="space-y-2 text-sm">
-                <CheckLi>Stichpunkt 1</CheckLi>
-                <CheckLi>Stichpunkt 2</CheckLi>
-                <CheckLi>Stichpunkt 3</CheckLi>
-              </ul>
-            </div>
-          </div>
+          <div className="rounded-2xl border border-zinc-200 p-5">
+  <h3 className="font-semibold mb-2">
+    Erneuter Vergleich zwei fachlich identifizierten Möglichkeiten
+  </h3>
+  <ul className="space-y-2 text-sm">
+    <CheckLi>Stichpunkt 1</CheckLi>
+    <CheckLi>Stichpunkt 2</CheckLi>
+    <CheckLi>Stichpunkt 3</CheckLi>
+  </ul>
+</div>
+
+          <div className="rounded-2xl border border-zinc-200 p-5">
+  <h3 className="font-semibold mb-2">
+    Erneuter Vergleich zwei fachlich identifizierten Möglichkeiten
+  </h3>
+  <ul className="space-y-2 text-sm">
+    <CheckLi>Stichpunkt 1</CheckLi>
+    <CheckLi>Stichpunkt 2</CheckLi>
+    <CheckLi>Stichpunkt 3</CheckLi>
+  </ul>
+</div>
+
 
           {/* Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an, wähle basierend auf deiner Recherche und vorher angezeigten Textinhalten sinnvoll zwei zu vergleichende Möglichkeiten, passe die Anzahl der zu vergleichenden Aspekte zwischen 3 und 10 inhaltsbasiert sinnvoll an */}
 
@@ -469,7 +467,7 @@ export default function Article() {
                   { a: "Platzhalter für Aspekt 6", c: "Performance 1", o: "Performance 2" },
                 ].map((row) => (
                   <tr key={row.a} className="bg-zinc-50 rounded-xl">
-                    <th scope="row" className="px-3 py-2 font-medium">{row.a}</th>
+               <th scope="row" className="px-3 py-2 font-medium text-left">{row.a}</th>
                     <td className="px-3 py-2">{row.c}</td>
                     <td className="px-3 py-2">{row.o}</td>
                   </tr>
@@ -486,9 +484,7 @@ export default function Article() {
 
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <Landmark className={`w-5 h-5 ${accent}`} aria-hidden="true" /> Zusammenfassung Thema 1
-              </h3>
+             <h3 className="font-semibold mb-2">Zusammenfassung Thema 1</h3>
               <ul className="text-sm space-y-2">
                 <li>
                   <Pill>Ein Wort</Pill> Stichpunkt 1
@@ -506,9 +502,7 @@ export default function Article() {
             </div>
 
             <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
-                <Network className={`w-5 h-5 ${accent}`} aria-hidden="true" /> Zusammenfassung Thema 2
-              </h3>
+             <h3 className="font-semibold mb-2">Zusammenfassung Thema 2</h3>
               <ul className="text-sm space-y-2">
                 <CheckLi>Stichpunkt 1</CheckLi>
                 <CheckLi>Stichpunkt 2</CheckLi>
@@ -520,16 +514,16 @@ export default function Article() {
 
           {/* Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an */}
 
-          {/* Bild 1 – volle Breite, 16:6 */}
-          <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
-            <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
-              <picture>
-                <source media="(max-width: 640px)" srcSet="/bild-1.webp" />
-                <img loading="lazy" src="/bild-1.webp" alt="PLATZHALTER für Beschreibung des Bildes" className="absolute inset-0 h-full w-full object-cover" />
-              </picture>
-            </div>
-            <figcaption className="text-sm text-zinc-600">PLATZHALTER für Beschreibung des Bildes als Bildunterschrift</figcaption>
-          </figure>
+         {/* Bild 1 */}
+<figure className="mt-8">
+  <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
+    <picture>
+      <source media="(max-width: 640px)" srcSet="/bild-1.webp" />
+      <img loading="lazy" src="/bild-1.webp" alt="PLATZHALTER für Beschreibung des Bildes" className="absolute inset-0 h-full w-full object-cover" />
+    </picture>
+  </div>
+  <figcaption className="mt-2 text-sm text-zinc-600">PLATZHALTER für Beschreibung des Bildes als Bildunterschrift</figcaption>
+</figure>
 
           {/* Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an, wähle ein neues passendes Icon für die beiden zu vergleichenden Aspekte. Zwei Sätze pro Stichpunkt */}
 
@@ -548,16 +542,16 @@ export default function Article() {
 
           {/* Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an */}
 
-          {/* Bild 2 – 16:6 */}
-          <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
-            <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
-              <picture>
-                <source media="(max-width: 640px)" srcSet="/bild-2.webp" />
-                <img loading="lazy" src="/bild-2.webp" alt="Platzhalter für Beschreibung des Bildes" className="absolute inset-0 h-full w-full object-cover" />
-              </picture>
-            </div>
-            <figcaption className="text-sm text-zinc-600">Platzhalter für Bildunterschrift</figcaption>
-          </figure>
+         {/* Bild 2 */}
+<figure className="mt-8">
+  <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
+    <picture>
+      <source media="(max-width: 640px)" srcSet="/bild-2.webp" />
+      <img loading="lazy" src="/bild-2.webp" alt="Platzhalter für Beschreibung des Bildes" className="absolute inset-0 h-full w-full object-cover" />
+    </picture>
+  </div>
+  <figcaption className="mt-2 text-sm text-zinc-600">Platzhalter für Bildunterschrift</figcaption>
+</figure>
 
           {/* Anweisung für ChatGPT: Passe Platzhalter der Fehler und guten Praktiken an, wähle passenden Titel (H5) und pro Stichpunkt ein bis zwei Sätze */}
 
