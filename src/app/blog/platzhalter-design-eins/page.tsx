@@ -14,12 +14,13 @@ ArrowRight,
 Info,
 CalendarClock,
 Timer,
-Scale,
-MessageSquareText,
+Battery,
+Sun,
+Factory,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
-/* ---------- Helper ---------- */
+// ---------- Helper ----------
 const formatDateDE = (date = new Date()) =>
 new Intl.DateTimeFormat("de-DE", {
 day: "2-digit",
@@ -27,83 +28,75 @@ month: "long",
 year: "numeric",
 timeZone: "Europe/Berlin",
 }).format(date);
-/* ---------- Theme ---------- */
+// ---------- Theme ----------
 const racingGreen = "from-emerald-700 to-emerald-500"; // Accent gradient
 const accent = "text-emerald-700";
-/* ---------- Meta: Company / Author ---------- */
+// ---------- Entities (fülle bei Bedarf mit echten Daten aus deinem Projekt) ----------
 const author = {
-name: "Julia Weber",
-role: "Senior Talent Acquisition Consultant (8+ Jahre)",
-image: "/autor.webp",
-linkedin: "https://www.linkedin.com/in/juliaweber-ta/",
+name: "Lena Schneider, M.Sc. Energieökonomie",
+role: "Senior Consultant Energie & Sustainability",
+image:
+"https://images.unsplash.com/photo-1544006659-f0b21884ce1d?auto=format&fit=crop&w=240&q=80",
+linkedin: "https://www.linkedin.com/in/lena-schneider-energy/",
 };
 const reviewer = {
-name: "Dr. Markus Brandt",
-role: "Head of People & Culture",
-linkedin: "https://www.linkedin.com/in/markus-brandt-people/",
+name: "Dr.-Ing. Markus Weber",
+role: "PV-Projektierer & Energieberater (TÜV)",
+linkedin: "https://www.linkedin.com/in/markus-weber-pv/",
 };
 const company = {
-name: "Talentwerk GmbH",
-url: "https://www.talentwerk.de",
+name: "Deine Firma GmbH",
+url: "https://www.deinefirma.de",
 logo: "/logo.png",
 };
-/* ---------- Sections (ToC + Reading Time) ---------- */
+// Sections used for ToC and reading time (strings only). Keep ids stable!
 const sections = [
 {
 id: "grundlagen",
-title: "Schlechte vs. gute Recruiter: Woran machst du es fest?",
+title:
+"Warum PV und Speicher? Grundlagen für Unternehmen in 5 Minuten erklärt",
 content:
-"Gute Recruiter sind Talent-Advisor: Sie verbinden sauberes Anforderungs-Management, transparente Kommunikation und datenbasierte Entscheidungen mit echtem Sparring für Hiring Manager. Schlechte Recruiter arbeiten transaktionsgetrieben: viel Volumen, wenig Qualität, kaum Rückmeldung. Studien zeigen, dass positive Candidate Experience messbar zu besseren Hiring-Ergebnissen führt und sich auch geschäftlich auszahlt. Gleichzeitig erwarten Kandidat:innen heute schnelle Reaktionen, klare Erwartungen und Fairness – bleibt das aus, springen sie ab. 
-api.eremedia.com
-",
+"Photovoltaik (PV) wandelt Sonnenlicht in elektrischen Strom um. Für Unternehmen ist PV heute eine der günstigsten Stromquellen: Selbst erzeugter Solarstrom senkt Energiekosten, macht unabhängiger von Preisschwankungen und reduziert CO₂-Emissionen. In Deutschland liefern gut geplante Dachanlagen je nach Standort typischerweise 900–1.100 kWh pro kWp und Jahr. Kombiniert man PV mit einem Batteriespeicher, erhöht sich die Eigenverbrauchsquote deutlich – Lastspitzen können gekappt und der Netzbezug reduziert werden. Wichtig ist ein belastbarer Business Case aus CAPEX, OPEX, Stromgestehungskosten (LCOE) und realistischem Lastprofil.",
 },
 {
 id: "status-quo",
-title: "Status quo & Trends: Vom CV-Fokus zum Skills- und AI-gestützten Recruiting",
+title:
+"Status quo 2025: Preise, Vergütungen & Rahmenbedingungen für Firmen",
 content:
-"Recruiting verlagert sich in Richtung Skills-basierter Auswahl und verantwortungsvoller KI-Nutzung. Laut LinkedIn sparen Teams, die Generative AI bereits testen oder integrieren, im Schnitt rund einen Arbeitstag pro Woche ein und rücken stärker in eine beratende Rolle – Beziehungskompetenz wird massiv wichtiger. Für die EU setzt die Pay-Transparency-Richtlinie zusätzliche Standards: Gehaltsband vor dem Interview (teils in der Anzeige) und transparente, diskriminierungsfreie Prozesse werden zur Pflicht (Umsetzung bis Juni 2026). Gute Recruiter antizipieren das und machen Transparenz heute schon zum Standard. 
-LinkedIn Business Solutions
-Council of the European Union
-Lockton
-",
+"Der durchschnittliche Industriestrompreis für kleine bis mittlere Betriebe liegt 2025 bei rund 18 ct/kWh (Neuabschlüsse inkl. Stromsteuer). Neue Aufdach-PV-Anlagen erzeugen Strom oft zwischen ca. 6–14 ct/kWh (LCOE), je nach Größe, Zins und Dachkosten. Für Einspeisung gelten anzulegende Werte nach EEG: Für Inbetriebnahmen zwischen 01.08.2025 und 31.01.2026 liegen die Vergütungen bei Teileinspeisung z. B. zwischen 5,96 und 8,26 ct/kWh (je nach Leistungsklasse), bei Volleinspeisung zwischen 7,78 und 12,87 ct/kWh. An Tagen mit negativen Börsenpreisen entfällt die Vergütung für Neuanlagen zeitweise. Finanzierung: Der KfW-Kredit 270 unterstützt Unternehmen mit zinsgünstigen Darlehen für PV- und Speichervorhaben.",
 },
 {
-id: "signale",
-title: "15 klare Signale: So erkennst du gute von schlechten Recruitern",
+id: "investition",
+title:
+"Investition & Amortisation: So rechnest du PV-Anlagen und Speicher wirtschaftlich",
 content:
-"Es gibt wiederkehrende Muster: Antwortzeiten, Briefing-Qualität, Marktverständnis, Umgang mit Feedback, Tiefe der Shortlist und Compliance. Gute Recruiter setzen Erwartungsmanagement (Timeline, Prozessschritte) sauber auf, liefern strukturierte Updates, spiegeln den Markt (Gehalt, Verfügbarkeit, Alternativen) und erklären Entscheidungslogik. Schlechte Recruiter pitchen vage, ghosten, schicken unqualifizierte Profile im Schrotflintenmodus und ignorieren Datenschutz sowie Pay-Transparency-Anforderungen. Die folgende Liste macht es greifbar – nutze sie als Schnell-Check im Alltag.",
+"Die Wirtschaftlichkeit steht und fällt mit deinem Verbrauchsprofil. PV lohnt sich vor allem, wenn tagsüber viel Last anliegt. Speicher heben den Eigenverbrauch von meist ~30–40 % (ohne Speicher) auf 60–70 % (mit Speicher) und senken teure Leistungsspitzen. Kalkuliere immer mit konservativen Erträgen, realistischen Degradation-Annahmen, 20-Jahres-Perspektive (EEG) und Szenarien für Strompreis-Entwicklung. Ergebnis ist die Amortisationszeit und ein interner Zinsfuß (IRR), der mit Alternativinvestitionen vergleichbar ist.",
 },
 {
-id: "praxis",
-title: "Praxis: Zwei Wege – transaktionsorientiert vs. beratungsorientiert",
+id: "foerderung",
+title:
+"Förderungen & Finanzierung: EEG, Direktvermarktung, KfW 270 – was passt zu dir?",
 content:
-"Transaktionsorientiertes Recruiting optimiert kurzfristig auf Volumen und Geschwindigkeit, oft zulasten der Passgenauigkeit und Candidate Experience. Beratungsorientierte Recruiter arbeiten hypothesengetrieben, priorisieren Qualität der Gespräche, kalibrieren früh und coachen Hiring Manager – das erhöht Fairness, reduziert Absprünge und steigert die Empfehlungsrate. Daten aus der CandE-Benchmark zeigen: Kontinuierliche Kommunikation und klarer Abschluss (Zusage/Absage) sind zentrale Hebel der Wahrnehmung von Fairness. 
-api.eremedia.com
-",
+"Unter 100 kW installierter Leistung kannst du die feste Vergütung gem. EEG nutzen; ab 100 kW ist Direktvermarktung Pflicht. Volleinspeisung bietet höhere Vergütungen, Teileinspeisung optimiert die Eigenstromnutzung. Für CAPEX-Finanzierung ist KfW 270 der Standard – zusätzlich können Länderprogramme oder kommunale Zuschüsse existieren. Steuerlich gelten Besonderheiten wie der Nullsteuersatz nach § 12 Abs. 3 UStG für Lieferungen an Betreiber bestimmter PV-Anlagen (Prüfung im Einzelfall, z. B. Gebäudekategorie).",
 },
 {
-id: "checkliste",
-title: "Checkliste & Workflow: In 7 Schritten zum Recruiting-Qualitäts-Check",
+id: "vorgehen",
+title:
+"In 7 Schritten zur PV-Anlage mit Speicher: Von der Idee zum belastbaren Business Case",
 content:
-"Du kannst in jeder Phase systematisch prüfen: 1) Intake, 2) Sourcing, 3) Outreach, 4) Interview-Design, 5) Shortlist & Feedback, 6) Offer, 7) Retention-Signal. Ergänze pro Schritt KPIs (z. B. Time-to-First-Response, Interview-Show-Rate, Candidate-NPS) und nutze einfache, rechtssichere Standards (Gehaltsband kommunizieren, DSGVO-konforme Einwilligung, klare Datenlöschung). So trennst du gute von schlechten Praktiken im Tagesgeschäft. 
-Council of the European Union
-European Data Protection Supervisor
-",
+"Von der Dachprüfung über das Erzeugungs- und Lastprofil bis zu Ausschreibung, Finanzierung und Inbetriebnahme – diese sieben Schritte führen strukturiert zur Entscheidung. Jedes Unternehmen ist anders: Plane individuell, dokumentiere Annahmen transparent und simuliere mindestens drei Szenarien.",
 },
 {
 id: "fehler",
-title: "Typische Fehler & Risiken – und wie du sie vermeidest",
+title:
+"Typische Fehler & Risiken – und wie du sie vermeidest",
 content:
-"Häufige Stolpersteine: unklare Rollenprofile, kein strukturiertes Interview, fehlende Rückmeldungen, keine Transparenz zu Gehalt, unklare Datenhaltung. Risiken steigen durch regulatorische Entwicklungen (EU-Pay-Transparency, DSGVO). Best Practice: frühe Kalibrierung mit Hiring Manager, strukturierte Bewertungsbögen, verbindliche SLAs (Antwort in 48 h), Gehaltsband pro Rolle, dokumentierte Einwilligungen & Löschfristen. 
-Council of the European Union
-Lockton
-support.hroffice.eu
-",
+"Zu große Speicher, überoptimistische Erträge oder fehlende Prüfungen von Statik, Brandschutz und Blitzschutz sind die häufigsten Kostentreiber. Gute Praxis: Datenbasiert planen, unabhängig kalkulieren, Vergütungsklauseln verstehen und Wartung/Monitoring von Beginn an mitdenken.",
 },
 ];
 const wordCount = sections.reduce((sum, s) => sum + s.content.split(/\s+/).length, 0);
-const readingMinutes = Math.max(8, Math.ceil(wordCount / 180)); // 180 wpm conservative
-/* ---------- UI Components ---------- */
+const readingMinutes = Math.max(8, Math.ceil(wordCount / 180)); // 180 wpm konservativ
+// ---------- UI Components ----------
 const TLDRItem = ({
 icon: Icon,
 children,
@@ -120,16 +113,16 @@ const Pill = ({ children }: { children: ReactNode }) => (
 </span>
 );
 const Anchor = ({ id }: { id: string }) => (
-<div id={id} aria-hidden className="pt-24 -mt-24" /> );
-/* ---------- Static SVG Chart ---------- */
+<div id={id} aria-hidden className="pt-24 -mt-24" /> ); // stable anc
+// Simple static SVG chart (no client JS)
 const ComparisonChart = () => {
 const items = [
-{ k: "Transparenz (Gehalt, Prozess)", vergleich1: 3, vergleich2: 9 },
-{ k: "Antwortgeschwindigkeit (SLAs)", vergleich1: 4, vergleich2: 9 },
-{ k: "Fach-/Marktverständnis", vergleich1: 5, vergleich2: 9 },
-{ k: "Candidate Experience & Fairness", vergleich1: 4, vergleich2: 9 },
-{ k: "Datenschutz & Compliance", vergleich1: 5, vergleich2: 9 },
-{ k: "Daten-/Skills-basiert & KI-Kompetenz", vergleich1: 5, vergleich2: 8 },
+{ k: "Eigenverbrauchsquote", vergleich1: 3, vergleich2: 7 }, // ~30% vs. ~70%
+{ k: "Autarkiegrad", vergleich1: 2, vergleich2: 6 },
+{ k: "Spitzenlastreduktion", vergleich1: 1, vergleich2: 6 },
+{ k: "CO₂-Minderung (Score)", vergleich1: 5, vergleich2: 8 },
+{ k: "Planbarkeit über 20 Jahre", vergleich1: 6, vergleich2: 8 },
+{ k: "Wirtschaftlichkeit (Score)", vergleich1: 6, vergleich2: 8 },
 ];
 const max = 10;
 const barH = 16;
@@ -145,7 +138,7 @@ return (
 <svg
 viewBox={0 0 ${width} ${items.length * rowH + padTop}}
 role="img"
-aria-label="Vergleich: schlechter Recruiter (oben, grau) vs. guter Recruiter (unten, grün) entlang zentraler Qualitätsfaktoren"
+aria-label="Vergleich: PV ohne Speicher (grau) vs. PV mit Speicher (grün) – Nutzenkriterien im Unternehmenskontext"
 >
 <defs>
 <linearGradient id="g1" x1="0" x2="1">
@@ -153,43 +146,43 @@ aria-label="Vergleich: schlechter Recruiter (oben, grau) vs. guter Recruiter (un
 <stop offset="100%" stopColor="#10b981" />
 </linearGradient>
 </defs>
-      {items.map((row, i) => {
+          {items.map((row, i) => {
       const y = padTop + i * rowH;
       return (
         <g key={row.k}>
           <text x={10} y={y + barH + 6} className="fill-zinc-700" fontSize="12">
             {row.k}
           </text>
-          {/* Schlechtes Recruiting (grau, obere Leiste) */}
+          {/* Ohne Speicher (grey, top bar) */}
           <rect x={left} y={y} width={scale(row.vergleich1)} height={barH} fill="#e5e7eb" rx="6" />
           <text x={left + scale(row.vergleich1) + 6} y={y + barH - 4} fontSize="11" className="fill-zinc-500">
-            {row.vergleich1}
+            {row.vergleich1}/10
           </text>
-          {/* Gutes Recruiting (grün, untere Leiste) */}
+          {/* Mit Speicher (green, bottom bar) */}
           <rect x={left} y={y + barH + gap} width={scale(row.vergleich2)} height={barH} fill="url(#g1)" rx="6" />
           <text x={left + scale(row.vergleich2) + 6} y={y + barH + gap + barH - 4} fontSize="11" className="fill-emerald-700">
-            {row.vergleich2}
+            {row.vergleich2}/10
           </text>
         </g>
       );
     })}
   </svg>
   <figcaption className="mt-2 text-sm text-zinc-600">
-    Gute Recruiter performen sichtbar stärker bei Transparenz, Tempo, Fairness und Compliance; die Gewichtung folgt aktuellen EU- und Marktanforderungen.
+    Heuristischer Vergleich gängiger Nutzenkriterien. Grundlage: typische Eigenverbrauchsquoten (~30–40 % ohne, ~60–70 % mit Speicher) und Industrie-Use-Cases 2025.
   </figcaption>
 </figure>
 );
 };
-/* ---------- Glossary row ---------- */
+// Glossary row
 const GlossaryRow = ({ term, def }: { term: string; def: string }) => (
 <div className="grid grid-cols-[160px_1fr] gap-4 p-4"> <dt className="font-semibold text-zinc-900">{term}</dt> <dd className="text-zinc-700">{def}</dd> </div> );
-/* ---------- Page ---------- */
 export default function Article() {
 const updated = formatDateDE();
-const title = "Schlechte Recruiter vs. Gute Recruiter erkennen: Signale, Checkliste & Beispiele";
+const title =
+"Green Energy im Unternehmen: Photovoltaik & Batteriespeicher wirtschaftlich planen";
 const description =
-"Woran erkennst du gute Recruiter? 15 klare Signale, EU-Compliance (Pay Transparency, DSGVO), Trends zu Skills & KI – inkl. Checkliste für deinen Qualitäts-Check.";
-const canonical = ${company.url}/blog/schlechte-gute-recruiter-erkennen;
+"Investition, Amortisation, Förderungen: So setzen Firmen PV-Anlagen und Speicher wirtschaftlich ein – mit Zahlen, Beispielen und einer 7-Schritte-Checkliste.";
+const canonical = ${company.url}/blog/pv-batteriespeicher-unternehmen;
 return (
 <>
 <Head>
@@ -197,7 +190,7 @@ return (
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
 <meta name="robots" content="index, follow" />
-      <meta property="og:type" content="article" />
+          <meta property="og:type" content="article" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -249,38 +242,51 @@ return (
     />
   </Head>
 
-  <article lang="de" className="relative mx-auto max-w-4xl px-5 sm:px-6 lg:px-8 py-10 text-zinc-900">
+  <article
+    lang="de"
+    className="relative mx-auto max-w-4xl px-5 sm:px-6 lg:px-8 py-10 text-zinc-900"
+  >
     {/* Header */}
     <header className="mb-10">
-      <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">{title}</h1>
+      <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
+        {title}
+      </h1>
       <p className="mt-3 text-lg text-zinc-700">
-        Du willst Recruiting-Qualität erkennen – schnell, fair und compliant? Hier ist dein Kompass: klare Signale, EU-Anforderungen und eine praxistaugliche Checkliste.
+        PV senkt Kosten, Speicher erhöht Unabhängigkeit – hier erfährst du
+        in klaren Schritten, wie du Invest, Förderung und Amortisation für
+        dein Unternehmen richtig planst.
       </p>
 
       {/* Hero 16:6 */}
       <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
         <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
           <picture>
-            {/* Hero: idealer Prompt (16:9): „Modernes Recruiting-Team im Gespräch mit Kandidat:in, heller Meetingraum, Diversity, Fokus auf Transparenz & Fairness, realistischer Stil“ */}
             <source
               media="(max-width: 640px)"
-              srcSet="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&h=450&fit=crop&auto=format&q=60"
+              srcSet="/hero-placeholder.webp"
             />
             <img
-              loading="lazy"
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&h=600&fit=crop&auto=format&q=60"
-              alt="Recruiting-Gespräch im modernen Meetingraum: transparent, strukturiert, wertschätzend"
+              loading="eager"
+              src="/hero-placeholder.webp"
+              alt="Ideales Hero-Motiv (Prompt-Vorschlag für KI-Bild, 16:9): Moderne Industriehalle mit PV-Dach, Tageslicht, sichtbares Batteriespeichersystem im Technikraum, Managementteam blickt auf Dashboard mit Eigenverbrauch und Peak-Shaving."
               className="absolute inset-0 h-full w-full object-cover"
             />
           </picture>
         </div>
-        <figcaption className="sr-only">Transparente, strukturierte Interviewsituation als visuelles Leitmotiv.</figcaption>
+        <figcaption className="sr-only">
+          Titelbild-Platzhalter; Beschreibung enthält Motiv-Vorschlag.
+        </figcaption>
       </figure>
 
       {/* Meta row – better legibility */}
       <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-zinc-700">
         <div className="flex items-center gap-3">
-          <img src={author.image} alt="Autor:in" className="w-10 h-10 rounded-full object-cover" loading="lazy" />
+          <img
+            src={author.image}
+            alt="Autor:in"
+            className="w-10 h-10 rounded-full object-cover"
+            loading="lazy"
+          />
           <div>
             <div className="font-medium text-zinc-900">{author.name}</div>
             <div>{author.role}</div>
@@ -313,55 +319,65 @@ return (
       <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
       <ul className="space-y-3">
         <TLDRItem icon={ShieldCheck}>
-          Gute Recruiter agieren als Talent-Advisor: klare Erwartungen, strukturierte Interviews, sauberes Feedback – das steigert Fairness und Abschlussquote. :contentReference[oaicite:5]{index=5}
+          PV senkt deinen Strombezug dauerhaft; mit Speicher steigerst du die
+          Eigenverbrauchsquote typischerweise von ~30–40 % auf 60–70 % und
+          glättest Lastspitzen.
         </TLDRItem>
         <TLDRItem icon={Gauge}>
-          Trends 2025: Skills-basierte Auswahl und verantwortungsvoller KI-Einsatz beschleunigen Prozesse und erhöhen die Qualität der Einstellungen. :contentReference[oaicite:6]{index=6}
+          Rechne mit LCOE von ca. 6–14 ct/kWh für gewerbliche Dächer; das liegt
+          meist unter aktuellen Industriestrompreisen (~18 ct/kWh, 2025).
         </TLDRItem>
         <TLDRItem icon={PiggyBank}>
-          Pay-Transparency-Richtlinie (EU) verpflichtet zu Gehaltsband & Transparenz – wer das heute schon lebt, gewinnt Vertrauen und spart Zeit. :contentReference[oaicite:7]{index=7}
+          Amortisation: 6–10 Jahre sind häufig erreichbar – abhängig von CAPEX,
+          Lastprofil, Eigenverbrauch und Finanzierung.
         </TLDRItem>
         <TLDRItem icon={Network}>
-          Messbare Standards (Time-to-First-Response, Candidate-NPS, Show-Rate) machen Qualität sichtbar und verhindern Ghosting. :contentReference[oaicite:8]{index=8}
+          Förderkulisse: EEG-Vergütungen 2025 (Teile/Volleinspeisung) + KfW 270
+          für zinsgünstige Finanzierung; ab 100 kW ist Direktvermarktung Pflicht.
         </TLDRItem>
         <TLDRItem icon={FileSearch}>
-          Checkliste & Workflow helfen dir, in 7 Schritten Qualität zu prüfen – von Intake bis Offer inklusive DSGVO-Basics. :contentReference[oaicite:9]{index=9}
+          Business-Case sauber modellieren: konservative Erträge, Degradation,
+          Wartung (1–2 % p. a.), Szenarien und Risiken (z. B. Nullvergütung bei
+          negativen Preisen) berücksichtigen.
         </TLDRItem>
       </ul>
     </aside>
 
     {/* ToC */}
-    <nav aria-label="Inhaltsverzeichnis" className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+    <nav
+      aria-label="Inhaltsverzeichnis"
+      className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
+    >
       <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
       <ol className="list-decimal ml-5 space-y-2">
         <li>
           <a className={`hover:underline ${accent} font-medium`} href="#grundlagen">
-            Schlechte vs. gute Recruiter: Woran machst du es fest?
+            Grundlagen: Funktionsweise & Nutzen
           </a>
         </li>
         <li>
           <a className={`hover:underline ${accent} font-medium`} href="#status-quo">
-            Status quo & Trends: Skills & KI
+            Status quo 2025: Preise & Vergütung
           </a>
         </li>
         <li>
-          <a className={`hover:underline ${accent} font-medium`} href="#signale">
-            15 Signale im Alltag
+          <a className={`hover:underline ${accent} font-medium`} href="#investition">
+            Investition & Amortisation
           </a>
         </li>
         <li>
-          <a className={`hover:underline ${accent} font-medium`} href="#praxis">
-            Praxisvergleich: Transaktion vs. Beratung
+          <a className={`hover:underline ${accent} font-medium`} href="#foerderung">
+            Förderungen & Finanzierung
           </a>
         </li>
         <li>
-          <a className={`hover:underline ${accent} font-medium`} href="#checkliste">
-            Checkliste & Workflow
+          <a className={`hover:underline ${accent} font-medium`} href="#vorgehen">
+            7-Schritte-Vorgehen
           </a>
         </li>
         <li>
           <a className={`hover:underline ${accent} font-medium`} href="#fehler">
-            Typische Fehler & Risiken
+            Fehler vermeiden & Best Practices
           </a>
         </li>
         <li>
@@ -370,7 +386,10 @@ return (
           </a>
         </li>
         <li>
-          <a className={`hover:underline ${accent} font-medium`} href="#zusammenfassung">
+          <a
+            className={`hover:underline ${accent} font-medium`}
+            href="#zusammenfassung"
+          >
             Kurzfazit
           </a>
         </li>
@@ -388,25 +407,43 @@ return (
       <div className="grid sm:grid-cols-2 gap-5 mb-10">
         <div className="rounded-2xl border border-zinc-200 p-5">
           <div className="flex items-center gap-2 mb-2">
-            <MessageSquareText className={`w-5 h-5 ${accent}`} />
-            <strong>Erwartungsmanagement & Kommunikation</strong>
+            <Sun className={`w-5 h-5 ${accent}`} />
+            <strong>So funktioniert PV im Betrieb</strong>
           </div>
           <ul className="space-y-2 text-sm">
-            <CheckLi>Gute Recruiter definieren Timeline, Schritte und Entscheidungskriterien upfront – inkl. SLA für Rückmeldungen.</CheckLi>
-            <CheckLi>Sie bieten Feedback-Loops nach Interviews und sorgen für „definitive closure“ (Zusage/Absage).</CheckLi>
-            <CheckLi>Ghosting und vage Aussagen sind klare Red Flags.</CheckLi>
+            <CheckLi>
+              Module erzeugen Gleichstrom (DC), ein Wechselrichter wandelt in
+              nutzbaren Wechselstrom (AC) und speist in deine Hausverteilung ein.
+            </CheckLi>
+            <CheckLi>
+              Priorität hat Eigenverbrauch; Überschüsse gehen ins Netz (Teileinspeisung)
+              oder komplett (Volleinspeisung).
+            </CheckLi>
+            <CheckLi>
+              Typische spezifische Erträge in Deutschland: ~900–1.100 kWh/kWp∙a
+              je nach Standort, Ausrichtung und Verschattung.
+            </CheckLi>
           </ul>
         </div>
 
         <div className="rounded-2xl border border-zinc-200 p-5">
           <div className="flex items-center gap-2 mb-2">
-            <Server className={`w-5 h-5 ${accent}`} />
-            <strong>Skills-basierte Auswahl & Daten</strong>
+            <Battery className={`w-5 h-5 ${accent}`} />
+            <strong>Warum Speicher den Business Case stärkt</strong>
           </div>
           <ul className="space-y-2 text-sm">
-            <CheckLi>Fokus auf Skills & Outcomes statt reiner Titel-historie; strukturierte Bewertungsbögen.</CheckLi>
-            <CheckLi>Datengestützte KPIs (z. B. Show-Rate, Time-to-First-Response, Candidate-NPS) steuern Qualität.</CheckLi>
-            <CheckLi>KI erleichtert Routine (Suchen, Messaging) – mit menschlicher Kontrolle für Fairness & Compliance. :contentReference[oaicite:10]{index=10}</CheckLi>
+            <CheckLi>
+              Speicher verschieben PV-Strom in die Abend-/Morgenstunden, heben
+              die Eigenverbrauchsquote auf 60–70 % und reduzieren Netzbezug.
+            </CheckLi>
+            <CheckLi>
+              Peak-Shaving: Batterien puffern kurze Lastspitzen, senken
+              Leistungspreise und Anschlussleistungen.
+            </CheckLi>
+            <CheckLi>
+              Bei dynamischen Tarifen können Speicher zusätzlich Arbitragechancen
+              nutzen – nur mit sauberem Energiemanagement sinnvoll.
+            </CheckLi>
           </ul>
         </div>
       </div>
@@ -414,7 +451,9 @@ return (
       {/* 2 */}
       <Anchor id="status-quo" />
       <h2 className="text-2xl font-bold mb-4">{sections[1].title}</h2>
-      <p className="mb-5 leading-relaxed">{sections[1].content}</p>
+      <p className="mb-5 leading-relaxed">
+        {sections[1].content}
+      </p>
 
       {/* Chart */}
       <ComparisonChart />
@@ -422,62 +461,117 @@ return (
       {/* Expertenzitat */}
       <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
         <blockquote className="text-lg font-medium">
-          „Positive Candidate Experiences führen zu positiven Hiring-Outcomes – mit spürbaren Business-Effekten.“
+          „Solarenergie hat fossile Energieträger in puncto Wirtschaftlichkeit
+          hinter sich gelassen – die Zukunft der Stromerzeugung ist erneuerbar.“
         </blockquote>
         <figcaption className="mt-2 text-sm text-zinc-600">
-          — Gerry Crispin, Talent Board (direktes Zitat aus dem CandE Benchmark Report). :contentReference[oaicite:11]{index=11}
+          — Indirektes Zitat nach Prof. Dr. Andreas W. Bett (Fraunhofer ISE),
+          Experteninterview Intersolar (2021)
         </figcaption>
       </figure>
 
       {/* 3 */}
-      <Anchor id="signale" />
+      <Anchor id="investition" />
       <h2 className="text-2xl font-bold mt-10 mb-4">{sections[2].title}</h2>
       <p className="leading-relaxed mb-4">{sections[2].content}</p>
 
       <div className="mt-4 grid md:grid-cols-2 gap-6">
         <div className="rounded-2xl border border-zinc-200 p-5">
           <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <ShieldCheck className={`w-5 h-5 ${accent}`} /> Belege für Qualität (gute Recruiter)
+            <ShieldCheck className={`w-5 h-5 ${accent}`} /> Zwei Wege zur
+            Wirtschaftlichkeit: Eigenverbrauch vs. Volleinspeisung
           </h3>
           <ul className="space-y-2 text-sm">
-            <CheckLi>Antwort in 24–48 h, klarer Prozessfahrplan, verbindliche Termine.</CheckLi>
-            <CheckLi>Gehaltsband & Benefits transparent, frühe Erwartungsklärung zu Hybrid/Office.</CheckLi>
-            <CheckLi>Strukturierte Interviews, kalibrierte Scorecards, konsistentes Feedback. :contentReference[oaicite:12]{index=12}</CheckLi>
+            <CheckLi>
+              <strong>Eigenverbrauch + Speicher:</strong> Maximiert den Nutzen
+              pro kWh, reduziert Netzbezug und Leistungsspitzen.
+            </CheckLi>
+            <CheckLi>
+              <strong>Volleinspeisung:</strong> Höhere Vergütungssätze, sinnvoll
+              bei geringer Tageslast oder ungeeignetem Lastprofil.
+            </CheckLi>
+            <CheckLi>
+              Kombinationen (z. B. zeitweise Volleinspeisung) sind möglich – prüfe
+              vertragliche Details und Bilanzkreisvorgaben.
+            </CheckLi>
           </ul>
         </div>
         <div className="rounded-2xl border border-zinc-200 p-5">
           <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <BadgeEuro className={`w-5 h-5 ${accent}`} /> Warnzeichen (schlechte Recruiter)
+            <BadgeEuro className={`w-5 h-5 ${accent}`} /> Kosten & Kennzahlen,
+            die in jede Kalkulation gehören
           </h3>
           <ul className="space-y-2 text-sm">
-            <CheckLi>Kein Gehaltsband, ausweichende Antworten zu Rolle/Entscheidungen. :contentReference[oaicite:13]{index=13}</CheckLi>
-            <CheckLi>Massenaussendungen ohne Bezug, Unkenntnis des Marktes/Stacks.</CheckLi>
-            <CheckLi>Ghosting, keine Absagekultur, fehlende DSGVO-Basics. :contentReference[oaicite:14]{index=14}</CheckLi>
+            <CheckLi>
+              CAPEX (Module, WR, Montage, Statik, Brandschutz, Netzanschluss),
+              OPEX (Wartung, Versicherung, Monitoring).
+            </CheckLi>
+            <CheckLi>
+              LCOE-Berechnung inkl. Degradation (z. B. 0,3–0,5 % p. a.),
+              Diskontsatz/Zins (KfW vs. Bank), Restwert.
+            </CheckLi>
+            <CheckLi>
+              Szenarien für Strompreis, Vergütung und negative Börsenpreise
+              (zeitweise Nullvergütung) berücksichtigen.
+            </CheckLi>
           </ul>
         </div>
       </div>
 
       {/* Vergleichstabelle */}
       <div className="mt-8 overflow-x-auto">
-        <table className="w-full text-sm border-separate border-spacing-y-2" aria-describedby="vergleich-caption">
+        <table
+          className="w-full text-sm border-separate border-spacing-y-2"
+          aria-describedby="vergleich-caption"
+        >
           <caption id="vergleich-caption" className="sr-only">
-            Gegenüberstellung schlechter vs. guter Recruiter entlang relevanter Aspekte
+            Vergleich Teileinspeisung mit Speicher vs. Volleinspeisung ohne
+            Speicher – betriebswirtschaftliche und technische Aspekte
           </caption>
           <thead>
             <tr className="text-left">
               <th className="px-3 py-2">Aspekt</th>
-              <th className="px-3 py-2">Schlechter Recruiter</th>
-              <th className="px-3 py-2">Guter Recruiter</th>
+              <th className="px-3 py-2">Teileinspeisung + Speicher</th>
+              <th className="px-3 py-2">Volleinspeisung ohne Speicher</th>
             </tr>
           </thead>
           <tbody>
             {[
-              { a: "Briefing & Rollenverständnis", c: "vage, ohne Must-Haves", o: "präzise, outcome-basiert, kalibriert" },
-              { a: "Kommunikation", c: "reaktiv, unregelmäßig", o: "proaktiv, SLAs & Updates" },
-              { a: "Transparenz (Gehalt/Prozess)", c: "ausweichend", o: "Gehaltsband & Schritte klar (EU-konform)" },
-              { a: "Interview-Design", c: "ungleich, subjektiv", o: "strukturiert, vergleichbar, fair" },
-              { a: "Shortlist-Qualität", c: "Schrotflinte", o: "kuratiert, erklärt, divers" },
-              { a: "Datenschutz (DSGVO)", c: "unklar, keine Einwilligung", o: "Einwilligung, Fristen, Löschung dokumentiert" },
+              {
+                a: "Einnahmen/Nutzen je kWh",
+                c: "Stromkostenersparnis (~18 ct/kWh) + begrenzte EEG-Vergütung",
+                o: "Nur EEG-Vergütung; kaum Eigenbedarfseffekt",
+              },
+              {
+                a: "Eigenverbrauchsquote",
+                c: "Hoch (60–70 %)",
+                o: "Sehr niedrig",
+              },
+              {
+                a: "Leistungspreise",
+                c: "Senkung durch Peak-Shaving möglich",
+                o: "Unverändert",
+              },
+              {
+                a: "Komplexität",
+                c: "Höher (Energiemanagement, Speicher-BMS)",
+                o: "Gering",
+              },
+              {
+                a: "Vergütung bei negativen Börsenpreisen",
+                c: "Zeitweise 0 ct/kWh (betrifft Einspeiseanteil)",
+                o: "Zeitweise 0 ct/kWh",
+              },
+              {
+                a: "Direktvermarktungspflicht",
+                c: "< 100 kW: nein; ≥ 100 kW: ja",
+                o: "< 100 kW: nein; ≥ 100 kW: ja",
+              },
+              {
+                a: "Amortisation (typisch)",
+                c: "6–10 Jahre (profilabhängig)",
+                o: "8–12 Jahre (preis-/vergütungsabhängig)",
+              },
             ].map((row) => (
               <tr key={row.a} className="bg-zinc-50 rounded-xl">
                 <th scope="row" className="px-3 py-2 font-medium">
@@ -492,39 +586,56 @@ return (
       </div>
 
       {/* 4 */}
-      <Anchor id="praxis" />
+      <Anchor id="foerderung" />
       <h2 className="text-2xl font-bold mt-12 mb-4">{sections[3].title}</h2>
 
       <div className="grid gap-6 md:grid-cols-2">
         <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
           <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <Landmark className={`w-5 h-5 ${accent}`} /> Zusammenfassung „Transaktion“
+            <Landmark className={`w-5 h-5 ${accent}`} /> Förderlandschaft & Recht
           </h3>
           <ul className="text-sm space-y-2">
             <li>
-              <Pill>Tempo</Pill> Schnelles Sourcing ohne Tiefgang, Fokus auf CV-Schlagwörter.
+              <Pill>EEG</Pill> Anzulegende Werte (Aug 2025–Jan 2026): z. B.
+              5,96–8,26 ct/kWh (Teileinspeisung), 7,78–12,87 ct/kWh
+              (Volleinspeisung) je nach Leistungsklasse.
             </li>
             <li>
-              <Pill>Volumen</Pill> Viele Kontakte, geringe Relevanz, höhere Absprungraten.
+              <Pill>Direktvermarktung</Pill> Ab 100 kW Pflicht; für Dächer < 100 kW
+              kann feste Vergütung gewählt werden.
             </li>
             <li>
-              <Pill>Risiko</Pill> Fairness-Wahrnehmung sinkt; Candidate Resentment steigt.
+              <Pill>KfW 270</Pill> Zinsgünstige Kredite für PV, Speicher, Netze –
+              Laufzeiten/Zinsbindung je nach Bonität und Programmstand.
             </li>
             <li>
-              <Pill>Outcome</Pill> Mehr Nachbesetzungen, schwächere Quality-of-Hire.
+              <Pill>Umsatzsteuer</Pill> Nullsteuersatz (§ 12 Abs. 3 UStG) kann bei
+              Lieferung an Betreiber bestimmter PV-Anlagen greifen (Einzelfall prüfen).
             </li>
           </ul>
         </div>
 
         <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
           <h3 className="font-semibold mb-2 flex items-center gap-2">
-            <Network className={`w-5 h-5 ${accent}`} /> Zusammenfassung „Beratung“
+            <Network className={`w-5 h-5 ${accent}`} /> Technik-Quickcheck
           </h3>
           <ul className="text-sm space-y-2">
-            <CheckLi>Frühe Kalibrierung mit Hiring Manager, Hypothesentests, Marktspiegel.</CheckLi>
-            <CheckLi>Strukturierte Interviews & Scorecards erhöhen Vergleichbarkeit und Fairness.</CheckLi>
-            <CheckLi>Klare Kommunikation inkl. Absagekultur stärkt Marke & Empfehlungsrate. :contentReference[oaicite:15]{index=15}</CheckLi>
-            <CheckLi>Skills- & KI-gestützt für Qualität und Zeitgewinn – mit menschlicher Kontrolle. :contentReference[oaicite:16]{index=16}</CheckLi>
+            <CheckLi>
+              Wechselrichter passend zum DC-Oversizing (z. B. 1,1–1,3×) wählen;
+              String-Design auf Verschattung prüfen.
+            </CheckLi>
+            <CheckLi>
+              Speichergröße an Lastprofil koppeln (Faustformeln/HTW-Guidelines),
+              Überdimensionierung vermeiden.
+            </CheckLi>
+            <CheckLi>
+              Brandschutz/Blitzschutz, Dachstatik und Fluchtwege frühzeitig
+              berücksichtigen.
+            </CheckLi>
+            <CheckLi>
+              Monitoring & O&M vertraglich fixieren (KPIs, Reaktionszeiten,
+              Verfügbarkeiten).
+            </CheckLi>
           </ul>
         </div>
       </div>
@@ -535,45 +646,59 @@ return (
           <picture>
             <source
               media="(max-width: 640px)"
-              srcSet="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&h=450&fit=crop&auto=format&q=60"
+              srcSet="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1200&q=60"
             />
             <img
               loading="lazy"
-              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&h=600&fit=crop&auto=format&q=60"
-              alt="Kalibrierungsmeeting zwischen Recruiter:in und Hiring Manager mit Scorecards"
+              src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=2400&q=80"
+              alt="Industriehalle mit PV-Dach und Technikraum; Visualisierung eines Batterieschranks (Peak-Shaving/Eigenverbrauch)."
               className="absolute inset-0 h-full w-full object-cover"
             />
           </picture>
         </div>
         <figcaption className="text-sm text-zinc-600">
-          Kalibrierung am Start spart später Runden: Scorecards & Marktspiegel machen Entscheidungen schneller und fairer.
+          PV-Dach im Gewerbe: Eigenverbrauch hat Priorität; Speicher stabilisieren
+          den Lastgang und reduzieren Leistungsspitzen.
         </figcaption>
       </figure>
 
       {/* 5 */}
-      <Anchor id="checkliste" />
+      <Anchor id="vorgehen" />
       <h2 className="text-2xl font-bold mt-12 mb-4">{sections[4].title}</h2>
       <ol className="list-decimal ml-5 space-y-3 leading-relaxed">
         <li>
-          <strong>Intake sauber machen:</strong> Rolle in Outcomes übersetzen, „Must-have vs. Nice-to-have“, Gehaltsband fixieren (EU-konform). :contentReference[oaicite:17]{index=17}
+          <strong>Dach- & Standortcheck:</strong> Statik, Belegungsplan,
+          Verschattung, Blitz-/Brandschutz klären. Prüfe Alternativen wie Carports
+          oder Nebengebäude.
         </li>
         <li>
-          <strong>Marktspiegel teilen:</strong> Angebot/Nachfrage, typische Bandbreiten, Konkurrenz um Talente – transparent darlegen.
+          <strong>Last- & Ertragsprofil erstellen:</strong> ¼-h-Messdaten/Smart-Meter
+          auswerten, saisonale Schwankungen und Schichtbetrieb berücksichtigen.
+          PV-Erträge konservativ simulieren (900–1.100 kWh/kWp∙a).
         </li>
         <li>
-          <strong>Sourcing fokussieren:</strong> Hypothesengetrieben statt Gießkanne; diverse Pools einbeziehen.
+          <strong>Systemauslegung:</strong> DC-/AC-Seiten dimensionieren, Strings
+          planen, Speichergröße auf Lastspitzen und Nachtbedarf abstimmen. Energiemanagement
+          (EMS) definieren.
         </li>
         <li>
-          <strong>Outreach personalisieren:</strong> Bezug zur Person & Rolle, Timing & Next Steps klar, Antwort-SLAs benennen.
+          <strong>Business-Case bauen:</strong> CAPEX/OPEX, LCOE, Szenarien für
+          Strompreise & EEG-Vergütung; Amortisation (Payback) und IRR ermitteln.
         </li>
         <li>
-          <strong>Interview-Design strukturieren:</strong> Kompetenzen definieren, Fragen mappen, Bewertungsbögen nutzen. :contentReference[oaicite:18]{index=18}
+          <strong>Förderung & Finanzierung:</strong> EEG-Pfad wählen
+          (Teile- vs. Volleinspeisung, Direktvermarktungspflicht ab 100 kW),
+          KfW 270/Bank anfragen, Konditionen vergleichen.
         </li>
         <li>
-          <strong>Feedback & Closure sichern:</strong> Innerhalb 48 h Rückmeldung; begründete Absagekultur verhindert Resentment. :contentReference[oaicite:19]{index=19}
+          <strong>Ausschreibung & Umsetzung:</strong> Angebote standardisieren,
+          Qualitätskriterien (Wirkungsgrade, Garantien, Referenzen) festlegen. Bauzeiten
+          und Netzanschluss früh fixieren.
         </li>
         <li>
-          <strong>DSGVO & Aufbewahrung:</strong> Einwilligungen dokumentieren, Löschfristen (z. B. 6–12 Monate) implementieren. :contentReference[oaicite:20]{index=20}
+          <strong>Inbetriebnahme & Betrieb:</strong> Abnahme, MaStR-Eintrag,
+          Zählerkonzept und Direktvermarktung einrichten. Monitoring und
+          Wartungsplan aktiv leben.
         </li>
       </ol>
 
@@ -583,18 +708,19 @@ return (
           <picture>
             <source
               media="(max-width: 640px)"
-              srcSet="https://images.unsplash.com/photo-1522071901873-411886a10004?w=1200&h=450&fit=crop&auto=format&q=60"
+              srcSet="https://images.unsplash.com/photo-1542452255191-c85a98f1ad3b?auto=format&fit=crop&w=1200&q=60"
             />
             <img
               loading="lazy"
-              src="https://images.unsplash.com/photo-1522071901873-411886a10004?w=1600&h=600&fit=crop&auto=format&q=60"
-              alt="Strukturiertes Interview mit Scorecards und klarem Prozessfahrplan"
+              src="https://images.unsplash.com/photo-1542452255191-c85a98f1ad3b?auto=format&fit=crop&w=2400&q=80"
+              alt="Projektteam im Technikraum mit Wechselrichter-Wand und Batterieschrank; Blick auf Dashboard mit Eigenverbrauch."
               className="absolute inset-0 h-full w-full object-cover"
             />
           </picture>
         </div>
         <figcaption className="text-sm text-zinc-600">
-          Struktur schlägt Bauchgefühl: Skills-Mapping & Scorecards erhöhen Vergleichbarkeit und Fairness.
+          Umsetzung mit Plan: Standardisierte Ausschreibungen, klare KPIs für
+          Montage, Anschluss und Inbetriebnahme.
         </figcaption>
       </figure>
 
@@ -608,11 +734,21 @@ return (
           </h3>
           <ul className="text-sm space-y-2">
             <li>
-              Unklare Rolle & kein Gehaltsband: erhöht Absprünge und verfehlt EU-Erwartungen (Pay Transparency). :contentReference[oaicite:21]{index=21}
+              <strong>Überdimensionierter Speicher:</strong> bindet Kapital und
+              bringt kaum Mehrwert, wenn nachts wenig Last anliegt.
             </li>
-            <li>Ghosting & fehlende Absagekultur: beschädigt Marke und Empfehlungsbereitschaft. :contentReference[oaicite:22]{index=22}</li>
-            <li>Unstrukturierte Interviews: fördern Bias und inkonsistente Entscheidungen. :contentReference[oaicite:23]{index=23}</li>
-            <li>DSGVO-Unsicherheit: keine Einwilligung, keine Löschroutine – hohes Risiko. :contentReference[oaicite:24]{index=24}</li>
+            <li>
+              <strong>Zu optimistische Ertragsannahmen:</strong> ignoriere nicht
+              Verschattung, Reinigung, Degradation und Ausfallzeiten.
+            </li>
+            <li>
+              <strong>Vergütungsklauseln übersehen:</strong> Nullvergütung bei
+              negativen Börsenpreisen kann Erlöse schmälern.
+            </li>
+            <li>
+              <strong>Unklare O&M-Verantwortung:</strong> fehlendes Monitoring
+              führt zu stillen Ertragsverlusten.
+            </li>
           </ul>
         </div>
         <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
@@ -620,10 +756,22 @@ return (
             <CheckCircle2 className={`w-5 h-5 ${accent}`} /> Gute Praktiken
           </h3>
           <ul className="text-sm space-y-2">
-            <li>Frühe Kalibrierung, Scorecards & Feedback-SLAs (48 h) – fair und effizient. :contentReference[oaicite:25]{index=25}</li>
-            <li>Gehaltsband in der Anzeige/vor Interview; klare Benefits & Arbeitsmodell. :contentReference[oaicite:26]{index=26}</li>
-            <li>KI für Recherche & Messaging nutzen, Entscheidungshoheit bleibt menschlich. :contentReference[oaicite:27]{index=27}</li>
-            <li>Einwilligungen & Löschfristen dokumentieren (6–12 Monate gängig). :contentReference[oaicite:28]{index=28}</li>
+            <li>
+              <strong>Datenbasierte Auslegung:</strong> ¼-h-Profile, Temperatur-
+              und Produktionskalender nutzen.
+            </li>
+            <li>
+              <strong>Qualität vor Preis:</strong> geprüfte Komponenten, Garantien
+              und Service-KPIs vertraglich fixieren.
+            </li>
+            <li>
+              <strong>Szenarien & Sensitivitäten:</strong> Strompreis, Zins, CAPEX
+              und Vergütung variieren und robust entscheiden.
+            </li>
+            <li>
+              <strong>Transparente Governance:</strong> interne Stakeholder einbinden,
+              ESG-Kennzahlen und CO₂-Reporting vorbereiten.
+            </li>
           </ul>
         </div>
       </div>
@@ -633,23 +781,23 @@ return (
         <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
         <ul className="list-disc ml-5 text-sm space-y-2">
           <li>
-            <a className={`hover:underline ${accent}`} href="/recruiting-prozess-optimieren">
-              Recruiting-Prozess optimieren: Von Intake bis Offer
+            <a className={`hover:underline ${accent}`} href="/blog/lastmanagement-peak-shaving">
+              Lastmanagement & Peak-Shaving im Mittelstand
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent}`} href="/candidate-experience-verbessern">
-              Candidate Experience verbessern: 9 schnelle Hebel
+            <a className={`hover:underline ${accent}`} href="/blog/pv-ausschreibung-direktvermarktung">
+              Dach-PV ab 100 kW: Ausschreibung & Direktvermarktung
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent}`} href="/leitfaden-pay-transparency">
-              Leitfaden Pay Transparency: Was 2026 gilt
+            <a className={`hover:underline ${accent}`} href="/blog/lcoe-solar-batterie-berechnen">
+              LCOE & IRR für Solar- und Batteriesysteme berechnen
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent}`} href="/ki-im-recruiting">
-              KI im Recruiting: Chancen, Risiken & Best Practices
+            <a className={`hover:underline ${accent}`} href="/blog/energieeinkauf-dynamische-tarife">
+              Dynamische Stromtarife & Flexibilität nutzen
             </a>
           </li>
         </ul>
@@ -662,30 +810,32 @@ return (
       <div className="divide-y divide-zinc-200 border border-zinc-200 rounded-2xl">
         {[
           {
-            q: "Was ist das wichtigste Signal für gute Recruiter?",
-            a: "Klarheit und Verbindlichkeit: Prozess, Timeline, Kriterien und Gehaltsband werden upfront erklärt; Rückmeldungen erfolgen innerhalb 24–48 h und es gibt einen sauberen Abschluss (Zusage/Absage). :contentReference[oaicite:29]{index=29}",
+            q: "Lohnt sich ein Speicher für mein Unternehmen wirklich?",
+            a: "Wenn dein Verbrauch überwiegend werktags und in den Abendstunden anfällt, ja: Der Speicher erhöht die Eigenverbrauchsquote und kann Leistungspreise senken. Bei reiner Tageslast ohne Peaks kann eine größere PV-Fläche ohne Speicher wirtschaftlicher sein.",
           },
           {
-            q: "Welche Rolle spielt KI im Recruiting?",
-            a: "KI nimmt Routinearbeit ab (Suche, Messaging, Vorqualifizierung) und verschafft Zeit für Beziehungsarbeit – Entscheidungen und Fairnesssicherung bleiben menschlich. Teams berichten von spürbaren Effizienzgewinnen. :contentReference[oaicite:30]{index=30}",
+            q: "Wie groß sollte der Speicher sein?",
+            a: "Richte dich nach Lastgängen und PV-Überschüssen: Ziel ist, typische Abend-/Morgenspannen abzudecken und Peaks zu glätten, nicht eine Vollautarkie. Faustregeln der HTW Berlin helfen bei der Dimensionierung; vermeide Überdimensionierung.",
           },
           {
-            q: "Muss ich ein Gehaltsband nennen?",
-            a: "Mit der EU-Pay-Transparency-Richtlinie wird Transparenz zur Norm; in vielen Fällen ist ein Gehaltsband spätestens vor dem Interview verpflichtend, teils direkt in der Anzeige. Frühe Transparenz erhöht zudem die Passung. :contentReference[oaicite:31]{index=31}",
+            q: "Was passiert bei negativen Börsenpreisen?",
+            a: "Für Neuanlagen kann die EEG-Vergütung zeitweise entfallen; Eigenverbrauch ist davon nicht betroffen. Plane konservativ und prüfe vertragliche Details in Direktvermarktungstarifen.",
           },
           {
-            q: "Wie lange darf ich Kandidat:innendaten speichern?",
-            a: "Nur so lange wie nötig; viele Unternehmen löschen nach 6–12 Monaten oder holen eine erneute Einwilligung ein. Wichtig sind dokumentierte Prozesse und einfache Widerrufsmöglichkeiten. :contentReference[oaicite:32]{index=32}",
+            q: "Welche Finanzierung ist üblich?",
+            a: "KfW 270 ist der Standard für zinsgünstige Kredite; alternativ kommen Hausbanken oder Contracting-Modelle in Frage. Wichtig sind Zinsbindung, Tilgungsplan und Sicherheiten.",
           },
           {
-            q: "Wie messe ich Qualität im Recruiting?",
-            a: "Nutze wenige, klare KPIs: Time-to-First-Response, Interview-Show-Rate, Candidate-NPS, Offer-Acceptance-Rate und Quality-of-Hire (Retention, interne Mobilität, Performance). Kontinuierliches Messen verbessert Fairnesswahrnehmung. :contentReference[oaicite:33]{index=33}",
+            q: "Wie schnell amortisiert sich eine PV-Anlage?",
+            a: "Häufig 6–10 Jahre, abhängig von CAPEX, LCOE, Eigenverbrauch und Strompreisniveau. Ein belastbarer Business-Case mit Szenarien liefert die verlässlichste Aussage.",
           },
         ].map((f) => (
           <details key={f.q} className="group p-5">
             <summary className="flex cursor-pointer items-center justify-between font-medium">
               <span>{f.q}</span>
-              <ArrowRight className={`w-4 h-4 transition-transform group-open:rotate-90 ${accent}`} />
+              <ArrowRight
+                className={`w-4 h-4 transition-transform group-open:rotate-90 ${accent}`}
+              />
             </summary>
             <div className="mt-2 text-zinc-700">{f.a}</div>
           </details>
@@ -702,38 +852,34 @@ return (
             mainEntity: [
               {
                 "@type": "Question",
-                name: "Was ist das wichtigste Signal für gute Recruiter?",
+                name: "Lohnt sich ein Speicher für mein Unternehmen wirklich?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text:
-                    "Klarheit und Verbindlichkeit: Prozess, Timeline, Kriterien und Gehaltsband werden upfront erklärt; Rückmeldungen erfolgen innerhalb 24–48 h und es gibt einen sauberen Abschluss (Zusage/Absage).",
+                  text: "Wenn dein Verbrauch überwiegend werktags und in den Abendstunden anfällt, ja: Der Speicher erhöht die Eigenverbrauchsquote und kann Leistungspreise senken. Bei reiner Tageslast ohne Peaks kann eine größere PV-Fläche ohne Speicher wirtschaftlicher sein.",
                 },
               },
               {
                 "@type": "Question",
-                name: "Welche Rolle spielt KI im Recruiting?",
+                name: "Wie groß sollte der Speicher sein?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text:
-                    "KI nimmt Routinearbeit ab und verschafft Zeit für Beziehungsarbeit – Entscheidungen und Fairnesssicherung bleiben menschlich. Teams berichten von spürbaren Effizienzgewinnen.",
+                  text: "Richte dich nach Lastgängen und PV-Überschüssen: Ziel ist, typische Abend-/Morgenspannen abzudecken und Peaks zu glätten, nicht eine Vollautarkie. Faustregeln der HTW Berlin helfen bei der Dimensionierung; vermeide Überdimensionierung.",
                 },
               },
               {
                 "@type": "Question",
-                name: "Muss ich ein Gehaltsband nennen?",
+                name: "Was passiert bei negativen Börsenpreisen?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text:
-                    "Mit der EU-Pay-Transparency-Richtlinie wird Transparenz zur Norm; in vielen Fällen ist ein Gehaltsband spätestens vor dem Interview verpflichtend, teils direkt in der Anzeige.",
+                  text: "Für Neuanlagen kann die EEG-Vergütung zeitweise entfallen; Eigenverbrauch ist davon nicht betroffen. Plane konservativ und prüfe vertragliche Details in Direktvermarktungstarifen.",
                 },
               },
               {
                 "@type": "Question",
-                name: "Wie lange darf ich Kandidat:innendaten speichern?",
+                name: "Welche Finanzierung ist üblich?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text:
-                    "Nur so lange wie nötig; viele Unternehmen löschen nach 6–12 Monaten oder holen eine erneute Einwilligung ein. Wichtig sind dokumentierte Prozesse und einfache Widerrufsmöglichkeiten.",
+                  text: "KfW 270 ist der Standard für zinsgünstige Kredite; alternativ kommen Hausbanken oder Contracting-Modelle in Frage. Wichtig sind Zinsbindung, Tilgungsplan und Sicherheiten.",
                 },
               },
             ],
@@ -746,31 +892,57 @@ return (
     <section id="zusammenfassung" className="mt-14">
       <h2 className="text-2xl font-bold mb-3">Kurzfazit</h2>
       <p className="leading-relaxed">
-        Gute Recruiter erkennst du an Transparenz, Struktur und Fairness – und daran, dass sie als Berater:innen für Hiring Manager agieren. Sie nutzen Skills-basierte Auswahl und
-        verantwortungsvoll KI, messen Qualität kontinuierlich und halten EU-Standards (Pay Transparency, DSGVO) ein. Das Ergebnis sind schnellere, fairere Prozesse, bessere Hires und
-        eine stärkere Arbeitgebermarke. :contentReference[oaicite:34]{index=34}
+        Für viele Unternehmen ist PV die kalkulierbarste Energie-Investition der
+        nächsten Jahre. Wer ein passendes Lastprofil hat, erzielt mit
+        Teileinspeisung und gut dimensioniertem Speicher die höchste
+        Wirtschaftlichkeit: Eigenverbrauch ersetzt teure Netzenergie, Peak-Shaving
+        reduziert Leistungspreise, die EEG-Vergütung stabilisiert Erlöse für
+        Überschüsse. Entscheidend sind eine datengestützte Planung, konservative
+        Annahmen und eine saubere Umsetzung – dann stimmen Amortisation und IRR.
       </p>
     </section>
 
     {/* CTA */}
     <section aria-label="Kontakt" className="mt-14">
       <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
-        <h2 className="text-xl font-bold mb-2">Recruiting-Qualität prüfen lassen?</h2>
-        <p className="text-zinc-700 mb-4">Wir auditieren Prozess, Kommunikation & Compliance – inkl. Quick-Wins in 14 Tagen.</p>
+        <h2 className="text-xl font-bold mb-2">
+          Kostenloser Quick-Check: Passt PV + Speicher zu deinem Lastprofil?
+        </h2>
+        <p className="text-zinc-700 mb-4">
+          Wir prüfen Dach, Lastprofil und Förderpfad und schicken dir innerhalb
+          weniger Tage eine grobe Wirtschaftlichkeitsabschätzung.
+        </p>
 
         {/* Kein <form>, keine Handler – nur UI */}
-        <div className="mx-auto grid max-w-xl gap-3 text-left" role="group" aria-describedby="cta-note">
+        <div
+          className="mx-auto grid max-w-xl gap-3 text-left"
+          role="group"
+          aria-describedby="cta-note"
+        >
           <label className="text-sm">
             Name
-            <input name="name" className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2" placeholder="Max Mustermann" />
+            <input
+              name="name"
+              className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2"
+              placeholder="Max Mustermann"
+            />
           </label>
           <label className="text-sm">
             Telefon
-            <input name="phone" className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2" placeholder="+49 123456789" />
+            <input
+              name="phone"
+              className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2"
+              placeholder="+49 123456789"
+            />
           </label>
           <label className="text-sm">
             E-Mail
-            <input type="email" name="email" className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2" placeholder="max@firma.de" />
+            <input
+              type="email"
+              name="email"
+              className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2"
+              placeholder="max@firma.de"
+            />
           </label>
 
           {/* Button ohne Submit-Funktion */}
@@ -780,7 +952,7 @@ return (
             aria-disabled="true"
             title="Demo – ohne Funktion"
           >
-            Audit anfragen
+            Demo anfordern
           </button>
           <p id="cta-note" className="text-xs text-zinc-500 mt-1">
             Demo-Formular – nur Vorschau, es werden keine Daten gesendet.
@@ -793,13 +965,22 @@ return (
     <section className="mt-14">
       <h2 className="text-2xl font-bold mb-3">Über die Autorin</h2>
       <div className="flex items-center gap-4">
-        <img src={author.image} alt="Autorin" className="w-16 h-16 rounded-full object-cover" loading="lazy" />
+        <img
+          src={author.image}
+          alt="Autorin"
+          className="w-16 h-16 rounded-full object-cover"
+          loading="lazy"
+        />
         <div>
           <div className="font-semibold">{author.name}</div>
           <div className="text-sm text-zinc-700">
-            {author.role}. Fokus: Candidate Experience, Interview-Design, EU-Compliance (Pay Transparency, DSGVO).
+            {author.role}. Schwerpunkte: PV-Projektierung, LCOE-Modelle,
+            Batteriespeicher-Auslegung in Industrie & Gewerbe.
           </div>
-          <a href={author.linkedin} className={`text-sm hover:underline ${accent}`}>
+          <a
+            href={author.linkedin}
+            className={`text-sm hover:underline ${accent}`}
+          >
             LinkedIn-Profil
           </a>
         </div>
@@ -821,25 +1002,40 @@ return (
       <h2 className="text-2xl font-bold mb-3">Quellen &amp; weiterführende Studien</h2>
       <ul className="list-disc ml-5 space-y-2 text-sm">
         <li>
-          Talent Board / ERE Media: „2023 Global Candidate Experience (CandE) Benchmark Research Report“, PDF (126 S.). :contentReference[oaicite:35]{index=35}
+          Fraunhofer ISE (2025): Photovoltaics Report – Markt, Kosten, Ausbau.
         </li>
         <li>
-          LinkedIn Talent Solutions: „The Future of Recruiting 2025“ – Executive Summary & Methodik-Seite. :contentReference[oaicite:36]{index=36}
+          Fraunhofer ISE (2025): Public electricity generation 2024 – 62,7 % erneuerbar, PV-Erzeugung 72,2 TWh.
         </li>
         <li>
-          Council of the European Union: „Pay transparency in the EU“ – Übersicht zu Richtlinie (EU) 2023/970. :contentReference[oaicite:37]{index=37}
+          Fraunhofer ISE (aktual. 2025): Aktuelle Fakten zur Photovoltaik in Deutschland – LCOE neuer Dachanlagen ~6–14 ct/kWh.
         </li>
         <li>
-          Lockton: „The EU Pay Transparency Directive – It’s time to prepare“ (Transpositionsfrist bis 7. Juni 2026). :contentReference[oaicite:38]{index=38}
+          Bundesnetzagentur (08/2025–01/2026): Anzulegende Werte EEG – Teile-/Volleinspeisung nach Leistungsklassen.
         </li>
         <li>
-          European Data Protection Supervisor (EDPS): „Selection and recruitment of staff“ – Hinweise zu Aufbewahrung/Löschung. :contentReference[oaicite:39]{index=39}
+          Finanztip/ADAC (08/2025): Einspeisevergütung 2025; Nullvergütung bei negativen Börsenpreisen.
         </li>
         <li>
-          HR-ON: „GDPR and Recruitment: 5 Key Tips“ – Praxis zu Löschfristen (6–12 Monate). :contentReference[oaicite:40]{index=40}
+          BDEW Strompreisanalyse (07/2025): Industriestrompreise 2025 ~18 ct/kWh (Neuabschlüsse, KMU).
         </li>
         <li>
-          Harvard Business Review: „Reengineering the Recruitment Process“ – strukturierte Verfahren & Skills-Fokus. :contentReference[oaicite:41]{index=41}
+          SMARD/BNetzA (2024): Modellierter Industriestrompreis 2024 ~16,8 ct/kWh.
+        </li>
+        <li>
+          HTW Berlin (2025): Stromspeicher-Inspektion – Effizienz & Energiemanagement.
+        </li>
+        <li>
+          KfW (05/2025): Programm 270 – Erneuerbare Energien Standard (Merkblatt).
+        </li>
+        <li>
+          BMF (FAQ): Umsatzsteuerlicher Nullsteuersatz § 12 Abs. 3 UStG für PV-Lieferungen an Betreiber – Abgrenzungen.
+        </li>
+        <li>
+          Solarzentrum Berlin (2025): Leitfaden Gewerbe & PV – Peak-Shaving, Speicher-Use-Cases.
+        </li>
+        <li>
+          1KOMMA5°/Zolar (2025): Ertragsbandbreiten in DE (≈900–1.100 kWh/kWp∙a).
         </li>
       </ul>
     </section>
@@ -848,11 +1044,26 @@ return (
     <section className="mt-14 mb-20">
       <h2 className="text-2xl font-bold mb-3">Mini-Glossar</h2>
       <dl className="rounded-2xl border border-zinc-200 divide-y">
-        <GlossaryRow term="Candidate Experience" def="Gesamte Wahrnehmung von Bewerbenden entlang des Recruiting-Prozesses – Tempo, Fairness, Transparenz und Feedback." />
-        <GlossaryRow term="Talent-Advisor" def="Recruiter:in, die/der Hiring Manager berät, Marktrealität spiegelt und Entscheidungen methodisch absichert." />
-        <GlossaryRow term="Scorecard" def="Standardisierter Bewertungsbogen je Kompetenz, macht Interviews vergleichbar und reduziert Bias." />
-        <GlossaryRow term="Pay Transparency" def="EU-Vorgabe, Gehaltsinformationen transparent zu machen; z. B. Gehaltsband vor dem Interview offenlegen." />
-        <GlossaryRow term="Time-to-First-Response" def="Zeitspanne von Bewerbung/Outreach bis zur ersten qualifizierten Rückmeldung – Kernindikator für Prozessqualität." />
+        <GlossaryRow
+          term="Eigenverbrauchsquote"
+          def="Anteil des PV-Stroms, der im Unternehmen direkt selbst genutzt wird (statt ins Netz einzuspeisen)."
+        />
+        <GlossaryRow
+          term="Autarkiegrad"
+          def="Anteil des Gesamtverbrauchs, der durch eigene PV-Erzeugung (ggf. mit Speicher) gedeckt wird."
+        />
+        <GlossaryRow
+          term="Anzulegender Wert"
+          def="Aus dem EEG abgeleiteter Referenzwert zur Berechnung der Marktprämie bzw. Einspeisevergütung."
+        />
+        <GlossaryRow
+          term="Direktvermarktung"
+          def="Vermarktung des erzeugten Stroms über einen Direktvermarkter am Spotmarkt; ab 100 kW verpflichtend."
+        />
+        <GlossaryRow
+          term="Peak-Shaving"
+          def="Gezieltes Kappen kurzer Leistungsspitzen durch Batteriespeicher, um Leistungspreise zu senken."
+        />
       </dl>
     </section>
   </article>
