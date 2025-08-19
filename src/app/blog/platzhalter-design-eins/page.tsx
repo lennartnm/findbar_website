@@ -366,24 +366,24 @@ export default function Article() {
           {/* Erklärung von zwei zentralen fachlichen Gegebenheiten */}
      <div className="grid md:grid-cols-2 gap-6">
   <div className="rounded-2xl border border-zinc-200 p-5">
-    <h3 className="font-semibold mb-2">
-      Erneuter Vergleich zwei fachlich identifizierten Möglichkeiten
-    </h3>
+    <div className="mb-2">
+      <strong>Fachliche Gegebenheit erklärt</strong>
+    </div>
     <ul className="space-y-2 text-sm">
-      <CheckLi>Stichpunkt 1</CheckLi>
-      <CheckLi>Stichpunkt 2</CheckLi>
-      <CheckLi>Stichpunkt 3</CheckLi>
+      <CheckLi>Platzhalter für Stichpunkt 1</CheckLi>
+      <CheckLi>Platzhalter für Stichpunkt 2</CheckLi>
+      <CheckLi>Platzhalter für Stichpunkt 3</CheckLi>
     </ul>
   </div>
 
   <div className="rounded-2xl border border-zinc-200 p-5">
-    <h3 className="font-semibold mb-2">
-      Erneuter Vergleich zwei fachlich identifizierten Möglichkeiten
-    </h3>
+    <div className="mb-2">
+      <strong>Fachliche Gegebenheit erklärt</strong>
+    </div>
     <ul className="space-y-2 text-sm">
-      <CheckLi>Stichpunkt 1</CheckLi>
-      <CheckLi>Stichpunkt 2</CheckLi>
-      <CheckLi>Stichpunkt 3</CheckLi>
+      <CheckLi>Platzhalter für Stichpunkt 1</CheckLi>
+      <CheckLi>Platzhalter für Stichpunkt 2</CheckLi>
+      <CheckLi>Platzhalter für Stichpunkt 3</CheckLi>
     </ul>
   </div>
 </div>
