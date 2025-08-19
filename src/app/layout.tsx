@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import CookieBanner from "@/components/CookieBanner";
+import CookieBanner from "@/components/ui/CookieBanner";
 
 export const metadata: Metadata = {
   title: "findbar – KI-optimierte Blog-Artikel",
