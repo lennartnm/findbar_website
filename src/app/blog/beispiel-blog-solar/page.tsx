@@ -91,9 +91,9 @@ const CheckLi = ({ children }: { children: ReactNode }) => (
  </li>
  );
 const Pill = ({ children }: { children: ReactNode }) => (
-<span className={inline-flex items-center rounded-full bg-gradient-to-r ${racingGreen} text-white px-3 py-1 text-xs font-medium}>
-{children}
-</span>
+  <span className={`inline-flex items-center rounded-full bg-gradient-to-r ${racingGreen} text-white px-3 py-1 text-xs font-medium`}>
+    {children}
+  </span>
 );
 const Anchor = ({ id }: { id: string }) => (
 <div id={id} aria-hidden="true" className="pt-24 -mt-24" />
