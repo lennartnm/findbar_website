@@ -415,27 +415,30 @@ export default function Article() {
           <h2 className="text-2xl font-bold mt-10 mb-4">{sections[2].title}</h2>
           <p className="leading-relaxed mb-4">{sections[2].content}</p>
 
-          <div className="rounded-2xl border border-zinc-200 p-5">
-  <h3 className="font-semibold mb-2">
-    Erneuter Vergleich zwei fachlich identifizierten Möglichkeiten
-  </h3>
-  <ul className="space-y-2 text-sm">
-    <CheckLi>Stichpunkt 1</CheckLi>
-    <CheckLi>Stichpunkt 2</CheckLi>
-    <CheckLi>Stichpunkt 3</CheckLi>
-  </ul>
+          <div className="grid md:grid-cols-2 gap-6">
+  <div className="rounded-2xl border border-zinc-200 p-5">
+    <h3 className="font-semibold mb-2">
+      Erneuter Vergleich zwei fachlich identifizierten Möglichkeiten
+    </h3>
+    <ul className="space-y-2 text-sm">
+      <CheckLi>Stichpunkt 1</CheckLi>
+      <CheckLi>Stichpunkt 2</CheckLi>
+      <CheckLi>Stichpunkt 3</CheckLi>
+    </ul>
+  </div>
+
+  <div className="rounded-2xl border border-zinc-200 p-5">
+    <h3 className="font-semibold mb-2">
+      Erneuter Vergleich zwei fachlich identifizierten Möglichkeiten
+    </h3>
+    <ul className="space-y-2 text-sm">
+      <CheckLi>Stichpunkt 1</CheckLi>
+      <CheckLi>Stichpunkt 2</CheckLi>
+      <CheckLi>Stichpunkt 3</CheckLi>
+    </ul>
+  </div>
 </div>
 
-          <div className="rounded-2xl border border-zinc-200 p-5">
-  <h3 className="font-semibold mb-2">
-    Erneuter Vergleich zwei fachlich identifizierten Möglichkeiten
-  </h3>
-  <ul className="space-y-2 text-sm">
-    <CheckLi>Stichpunkt 1</CheckLi>
-    <CheckLi>Stichpunkt 2</CheckLi>
-    <CheckLi>Stichpunkt 3</CheckLi>
-  </ul>
-</div>
 
 
           {/* Anweisung für ChatGPT: Passe Platzhalter hier inhaltsbasiert an, wähle basierend auf deiner Recherche und vorher angezeigten Textinhalten sinnvoll zwei zu vergleichende Möglichkeiten, passe die Anzahl der zu vergleichenden Aspekte zwischen 3 und 10 inhaltsbasiert sinnvoll an */}
