@@ -315,11 +315,11 @@ export default function Article() {
         <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
           <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
           <ul className="space-y-3">
-            <TLDRItem icon={ArrowRight}>Platzhalter für TL;DR Punkt 1, <strong>wichtiges</strong> betonen.</TLDRItem>
-            <TLDRItem icon={ArrowRight}>Platzhalter für TL;DR Punkt 2, <strong>wichtiges</strong> betonen.</TLDRItem>
-            <TLDRItem icon={ArrowRight}>Platzhalter für TL;DR Punkt 3, <strong>wichtiges</strong> betonen.</TLDRItem>
-            <TLDRItem icon={ArrowRight}>Platzhalter für TL;DR Punkt 4, <strong>wichtiges</strong> betonen.</TLDRItem>
-            <TLDRItem icon={ArrowRight}>Platzhalter für TL;DR Punkt 5, <strong>wichtiges</strong> betonen.</TLDRItem>
+            <TLDRItem>Platzhalter für TL;DR Punkt 1, <strong>wichtiges</strong> betonen.</TLDRItem>
+            <TLDRItem>Platzhalter für TL;DR Punkt 2, <strong>wichtiges</strong> betonen.</TLDRItem>
+            <TLDRItem>Platzhalter für TL;DR Punkt 3, <strong>wichtiges</strong> betonen.</TLDRItem>
+            <TLDRItem>Platzhalter für TL;DR Punkt 4, <strong>wichtiges</strong> betonen.</TLDRItem>
+            <TLDRItem>Platzhalter für TL;DR Punkt 5, <strong>wichtiges</strong> betonen.</TLDRItem>
           </ul>
         </aside>
 
