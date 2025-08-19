@@ -364,7 +364,7 @@ export default function Article() {
           <p className="mb-6 leading-relaxed">{sections[0].content}</p>
 
           {/* Erklärung von zwei zentralen fachlichen Gegebenheiten */}
-     <div className="grid md:grid-cols-2 gap-6">
+<div className="grid md:grid-cols-2 gap-6 pb-8">
   <div className="rounded-2xl border border-zinc-200 p-5">
     <div className="mb-2">
       <strong>Fachliche Gegebenheit erklärt</strong>
@@ -387,6 +387,7 @@ export default function Article() {
     </ul>
   </div>
 </div>
+
 
 
 
