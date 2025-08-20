@@ -706,91 +706,42 @@ export default function Article() {
           </aside>
         </section>
 
-        {/* FAQ */}
-        <section id="faq" className="mt-14">
-          <h2 className="text-2xl font-bold mb-4">FAQ</h2>
-          <div className="divide-y divide-zinc-200 border border-zinc-200 rounded-2xl">
-            {[
-              {
-                q: "Wann ist On-Premises günstiger als Cloud?",
-                a: "Wenn Lasten stabil und gut planbar sind, Hardware lange genutzt wird und Egress-/Netzwerkkosten in der Cloud ins Gewicht fallen. Voraussetzung: Effizienter Betrieb, gute Auslastung und realistische Kapazitätsplanung.",
-              },
-              {
-                q: "Wie adressiere ich das CLOUD-Act-Risiko?",
-                a: "Technisch durch kundenseitige Verschlüsselung mit Schlüsselhoheit, juristisch durch geeignete Vertragsklauseln und Datenlokation in der EU. Souveränitäts-Features (EU-Boundary, Sovereign Controls) reduzieren das Risiko zusätzlich – ersetzen aber keine Schlüsselstrategie.",
-              },
-              {
-                q: "Welche Kennzahl ist für Nachhaltigkeit relevant?",
-                a: "PUE (Power Usage Effectiveness) zeigt den Facility-Overhead; für ein vollständiges Bild gehören auch CO₂-Intensität des Strommixes und Auslastung/Right-Sizing der IT-Lasten in die Bewertung.",
-              },
-              {
-                q: "Brauche ich zwingend Hybrid-Cloud?",
-                a: "Nicht zwingend – aber in der Praxis bietet der Mix oft das beste Verhältnis aus Geschwindigkeit, Kosten und Kontrolle. Wichtig sind klare Schnittstellen, Identitäten und einheitliches Observability-/Security-Modell.",
-              },
-              {
-                q: "Wie plane ich den Anbieterwechsel?",
-                a: "Früh Exit-Kriterien, Zielformate (z. B. OVA, S3-kompatibel), Test-Migrationen und Daten-/Schlüssel-Portabilität definieren. Vertragsseitig Wechsel-SLA, Gebühren (Data Act Übergangsregeln beachten) und Support festschreiben.",
-              },
-            ].map((f) => (
-              <details key={f.q} className="group p-5">
-                <summary className="flex cursor-pointer items-center justify-between font-medium">
-                  <span>{f.q}</span>
-                  <ArrowRight className={`w-4 h-4 transition-transform group-open:rotate-90 ${accent}`} />
-                </summary>
-                <div className="mt-2 text-zinc-700">{f.a}</div>
-              </details>
-            ))}
-          </div>
+     <section id="faq" className="mt-14">
+  <h2 className="text-2xl font-bold mb-4">FAQ</h2>
+  <div className="space-y-6 text-zinc-700">
+    <div>
+      <h3 className="font-semibold">Wann ist On-Premises günstiger als Cloud?</h3>
+      <p>
+        Wenn Lasten stabil und gut planbar sind, Hardware lange genutzt wird und 
+        Egress-/Netzwerkkosten in der Cloud ins Gewicht fallen. Voraussetzung: 
+        Effizienter Betrieb, gute Auslastung und realistische Kapazitätsplanung.
+      </p>
+    </div>
+  </div>
 
-          {/* FAQ Schema.org */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                mainEntity: [
-                  {
-                    "@type": "Question",
-                    name: "Wann ist On-Premises günstiger als Cloud?",
-                    acceptedAnswer: {
-                      "@type": "Answer",
-                      text:
-                        "Wenn Lasten stabil und gut planbar sind, Hardware lange genutzt wird und Egress-/Netzwerkkosten in der Cloud ins Gewicht fallen. Voraussetzung: Effizienter Betrieb, gute Auslastung und realistische Kapazitätsplanung.",
-                    },
-                  },
-                  {
-                    "@type": "Question",
-                    name: "Wie adressiere ich das CLOUD-Act-Risiko?",
-                    acceptedAnswer: {
-                      "@type": "Answer",
-                      text:
-                        "Technisch durch kundenseitige Verschlüsselung mit Schlüsselhoheit, juristisch durch geeignete Vertragsklauseln und Datenlokation in der EU. Souveränitäts-Features reduzieren das Risiko zusätzlich – ersetzen aber keine Schlüsselstrategie.",
-                    },
-                  },
-                  {
-                    "@type": "Question",
-                    name: "Welche Kennzahl ist für Nachhaltigkeit relevant?",
-                    acceptedAnswer: {
-                      "@type": "Answer",
-                      text:
-                        "PUE (Power Usage Effectiveness) zeigt den Facility-Overhead; für ein vollständiges Bild gehören auch CO₂-Intensität des Strommixes und Auslastung/Right-Sizing der IT-Lasten in die Bewertung.",
-                    },
-                  },
-                  {
-                    "@type": "Question",
-                    name: "Brauche ich zwingend Hybrid-Cloud?",
-                    acceptedAnswer: {
-                      "@type": "Answer",
-                      text:
-                        "Nicht zwingend – aber in der Praxis bietet der Mix oft das beste Verhältnis aus Geschwindigkeit, Kosten und Kontrolle. Wichtig sind klare Schnittstellen, Identitäten und einheitliches Observability-/Security-Modell.",
-                    },
-                  },
-                ],
-              }),
-            }}
-          />
-        </section>
+  {/* FAQ Schema.org – nur für 1 Frage */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wann ist On-Premises günstiger als Cloud?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text":
+                "Wenn Lasten stabil und gut planbar sind, Hardware lange genutzt wird und Egress-/Netzwerkkosten in der Cloud ins Gewicht fallen. Voraussetzung: Effizienter Betrieb, gute Auslastung und realistische Kapazitätsplanung."
+            }
+          }
+        ]
+      }),
+    }}
+  />
+</section>
+
 
         {/* Summary */}
         <section id="zusammenfassung" className="mt-14">
