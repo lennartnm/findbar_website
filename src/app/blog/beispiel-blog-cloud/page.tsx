@@ -752,15 +752,12 @@ export default function Article() {
         </section>
 
         {/* CTA */}
-   {/* CTA (mit Pop-up), passe die Platzhalter an */}
-<section aria-label="Kontakt" className="mt-14">
+ <section aria-label="Kontakt" className="mt-14">
   <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
     <h2 className="text-xl font-bold mb-2">
       Platzhalter für offene Fragestellung zum Kernthema des Artikels
     </h2>
-    <p className="text-zinc-700 mb-4">
-      Platzhalter für Value Proposition
-    </p>
+    <p className="text-zinc-700 mb-4">Platzhalter für Value Proposition</p>
 
     <form
       className="mx-auto grid max-w-xl gap-3 text-left"
@@ -814,7 +811,7 @@ export default function Article() {
   {/* Pop-up (Modal) */}
   <div
     id="cta-pop"
-    className="fixed inset-0 z-50 hidden items-center justify-center p-4"
+    className="fixed inset-0 z-50 hidden items-center justify-center p-4 target:flex"
   >
     {/* Klick auf Overlay schließt wieder */}
     <a
@@ -856,14 +853,8 @@ export default function Article() {
       </p>
     </div>
   </div>
-
-  {/* Zeige Modal, wenn angesprungen */}
-  <style jsx>{`
-    #cta-pop:target {
-      display: flex !important;
-    }
-  `}</style>
 </section>
+
 
 
 
