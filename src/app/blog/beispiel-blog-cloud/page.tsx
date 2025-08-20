@@ -350,77 +350,34 @@ export default function Article() {
 
 
 
-        {/* TL;DR */}
-        <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-          <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
-          <ul className="space-y-3">
-            <TLDRItem icon={Gauge}>
-              Cloud punktet bei <strong>Time-to-Market</strong> und <strong>Skalierung</strong>; On-Premises überzeugt mit <strong>Planbarkeit</strong> und <strong>hoher Kontrolle</strong>.
-            </TLDRItem>
-            <TLDRItem icon={ShieldCheck}>
-              Regulatorik: <strong>NIS2</strong> (ab 18.10.2024 wirksam), <strong>DORA</strong> (seit 17.01.2025) und der <strong>Data Act</strong> (ab 12.09.2025) beeinflussen Architektur- und Anbieterwahl.
-            </TLDRItem>
-            <TLDRItem icon={PiggyBank}>
-              Ohne <strong>FinOps</strong> bzw. Kosten-Governance wird Cloud schnell teuer. Konstante Grundlasten können on-prem günstiger laufen.
-            </TLDRItem>
-            <TLDRItem icon={Network}>
-              Die Realität ist <strong>Hybrid</strong>: Baseline on-prem, variable Spitzen in die Cloud – mit klaren Guardrails und Exit-Strategien.
-            </TLDRItem>
-            <TLDRItem icon={FileSearch}>
-              Nutze <strong>Datenklassifizierung</strong> und <strong>Verschlüsselung mit eigenem Key-Management</strong>, um Souveränitätsrisiken zu reduzieren.
-            </TLDRItem>
-          </ul>
-        </aside>
+       {/* TL;DR */}
+<aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+  <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
+  <ul className="list-disc ml-5 space-y-2 text-zinc-800">
+    <li>
+      Cloud punktet bei <strong>Time-to-Market</strong> und <strong>Skalierung</strong>; 
+      On-Premises überzeugt mit <strong>Planbarkeit</strong> und <strong>hoher Kontrolle</strong>.
+    </li>
+    <li>
+      Regulatorik: <strong>NIS2</strong> (ab 18.10.2024 wirksam), <strong>DORA</strong> (seit 17.01.2025) 
+      und der <strong>Data Act</strong> (ab 12.09.2025) beeinflussen Architektur- und Anbieterwahl.
+    </li>
+    <li>
+      Ohne <strong>FinOps</strong> bzw. Kosten-Governance wird Cloud schnell teuer. 
+      Konstante Grundlasten können on-prem günstiger laufen.
+    </li>
+    <li>
+      Die Realität ist <strong>Hybrid</strong>: Baseline on-prem, variable Spitzen in die Cloud – 
+      mit klaren Guardrails und Exit-Strategien.
+    </li>
+    <li>
+      Nutze <strong>Datenklassifizierung</strong> und 
+      <strong> Verschlüsselung mit eigenem Key-Management</strong>, 
+      um Souveränitätsrisiken zu reduzieren.
+    </li>
+  </ul>
+</aside>
 
-        {/* ToC */}
-        <nav
-          aria-label="Inhaltsverzeichnis"
-          className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
-        >
-          <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
-          <ol className="list-decimal ml-5 space-y-2">
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#grundlagen">
-                Was steckt hinter Cloud und eigenem Server?
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#status-quo">
-                Status Quo & Trends: Hybrid wird zur Norm
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#kosten">
-                Kosten & Wirtschaftlichkeit: TCO, FinOps und Planbarkeit
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#compliance">
-                Compliance, Sicherheit & Souveränität: EU-Regeln im Blick
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#auswahl">
-                Entscheidungsrahmen: In 7 Schritten zur passenden Zielarchitektur
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#fehler">
-                Typische Fehler & Risiken – und wie du sie vermeidest
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#faq">
-                FAQ
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent} font-medium`} href="#zusammenfassung">
-                Zusammenfassung
-              </a>
-            </li>
-          </ol>
-        </nav>
 
         {/* Content */}
         <section>
