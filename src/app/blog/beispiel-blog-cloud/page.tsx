@@ -325,7 +325,7 @@ export default function Article() {
     </figcaption>
   </figure>
 
-  {/* Meta row – einfacher dargestellt */}
+  {/* Meta row – Autor */}
   <div className="mt-6 flex items-center gap-3 text-sm text-zinc-700">
     <img
       src={author.image}
@@ -336,14 +336,16 @@ export default function Article() {
     <div>
       <div className="font-medium text-zinc-900">{author.name}</div>
       <div>{author.role}</div>
-      <div className="mt-1">
-        Zuletzt aktualisiert am{" "}
-        <time dateTime={new Date().toISOString()}>{updated}</time>
-        {" · "}Lesedauer: <span className="tabular-nums">{readingMinutes} Min</span>
-      </div>
     </div>
   </div>
+
+  {/* Datum & Lesedauer separat in eigener Zeile (statisch) */}
+  <div className="mt-2 text-sm text-zinc-600">
+    Zuletzt aktualisiert am <time dateTime="2025-08-20">20.08</time>
+    {" · "}Lesedauer: <span className="tabular-nums">8 Min</span>
+  </div>
 </header>
+
 
 
         {/* TL;DR */}
