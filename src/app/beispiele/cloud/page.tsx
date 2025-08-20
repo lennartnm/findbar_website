@@ -110,36 +110,37 @@ export default function Page() {
       {/* TL;DR */}
       {/* TL;DR */}
       <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-        <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
-        <ul className="list-disc ml-5 space-y-2 text-zinc-800">
-          <li>
-            <strong>Kosten:</strong> Cloud verschiebt Ausgaben von CapEx zu OpEx und skaliert
-            granular; On-Prem lohnt sich bei stabiler Last und hohen Auslastungsgraden; Hybrid
-            senkt Migrations- und Exit-Risiken. Für eine seriöse TCO nutze Kalkulatoren und
-            Messdaten statt Pauschalwerte. :contentReference[oaicite:0]{index=0}
-          </li>
-          <li>
-            <strong>Sicherheit &amp; Compliance:</strong> Cloud folgt dem
-            Shared-Responsibility-Modell und bietet starke Standards, On-Prem bietet maximale
-            Datensouveränität. Der europäische Threat Landscape Report zeigt: Resilienz &amp;
-            Governance sind zentral. :contentReference[oaicite:1]{index=1}
-          </li>
-          <li>
-            <strong>Flexibilität:</strong> Cloud punktet bei Time-to-Value und Elastizität,
-            On-Prem bei deterministischer Latenz; Hybrid kombiniert das Beste aus beiden Welten
-            für sensible Workloads (z. B. regulierte Daten). :contentReference[oaicite:2]{index=2}
-          </li>
-          <li>
-            <strong>Marktentwicklung:</strong> Endkundenausgaben für Public Cloud werden 2025
-            voraussichtlich ~723 Mrd. US-$ erreichen – aber ohne FinOps drohen Kostenentgleisungen. :contentReference[oaicite:3]{index=3}
-          </li>
-          <li>
-            <strong>Entscheidungshilfe:</strong> Nutze die Checkliste &amp; das Scoring-Framework
-            (unten), um Workloads Cloud-, On-Prem- oder Hybrid-geeignet zuzuordnen – inkl. Exit-,
-            Lock-in- und Egress-Bewertung.
-          </li>
-        </ul>
-      </aside>
+  <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
+  <ul className="list-disc ml-5 space-y-2 text-zinc-800">
+    <li>
+      <strong>Kosten:</strong> Cloud verschiebt Ausgaben von CapEx zu OpEx und skaliert
+      granular; On-Prem lohnt sich bei stabiler Last und hohen Auslastungsgraden; Hybrid
+      senkt Migrations- und Exit-Risiken. Für eine seriöse TCO nutze Kalkulatoren und
+      Messdaten statt Pauschalwerte.
+    </li>
+    <li>
+      <strong>Sicherheit &amp; Compliance:</strong> Cloud folgt dem
+      Shared-Responsibility-Modell und bietet starke Standards, On-Prem bietet maximale
+      Datensouveränität. Der europäische Threat Landscape Report zeigt: Resilienz &amp;
+      Governance sind zentral.
+    </li>
+    <li>
+      <strong>Flexibilität:</strong> Cloud punktet bei Time-to-Value und Elastizität,
+      On-Prem bei deterministischer Latenz; Hybrid kombiniert das Beste aus beiden Welten
+      für sensible Workloads (z. B. regulierte Daten).
+    </li>
+    <li>
+      <strong>Marktentwicklung:</strong> Endkundenausgaben für Public Cloud werden 2025
+      voraussichtlich ~723 Mrd. US-$ erreichen – aber ohne FinOps drohen Kostenentgleisungen.
+    </li>
+    <li>
+      <strong>Entscheidungshilfe:</strong> Nutze die Checkliste &amp; das Scoring-Framework
+      (unten), um Workloads Cloud-, On-Prem- oder Hybrid-geeignet zuzuordnen – inkl. Exit-,
+      Lock-in- und Egress-Bewertung.
+    </li>
+  </ul>
+</aside>
+
 
       {/* ToC */}
       {/* ToC */}
