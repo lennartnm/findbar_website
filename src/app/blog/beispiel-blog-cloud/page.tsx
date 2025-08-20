@@ -752,56 +752,86 @@ export default function Article() {
         </section>
 
         {/* CTA */}
-        <section aria-label="Kontakt" className="mt-14">
-          <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
-            <h2 className="text-xl font-bold mb-2">Kosten-/Architektur-Check gewünscht?</h2>
-            <p className="text-zinc-700 mb-4">
-              Wir analysieren deinen Workload-Mix und entwerfen eine belastbare Hybrid-Architektur inkl. Kosten- und Exit-Plan.
-            </p>
+       {/* CTA (mit Pop-up), passe die Platzhalter an */}
+<section aria-label="Kontakt" className="mt-14">
+  <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+    <h2 className="text-xl font-bold mb-2">Platzhalter für offene Fragestellung zum Kernthema des Artikels</h2>
+    <p className="text-zinc-700 mb-4">
+      Platzhalter für Value Proposition
+    </p>
 
-            {/* Kein <form>, keine Handler – nur UI */}
-            <div className="mx-auto grid max-w-xl gap-3 text-left" role="group" aria-describedby="cta-note">
-              <label className="text-sm">
-                Name
-                <input
-                  name="name"
-                  className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2"
-                  placeholder="Max Mustermann"
-                />
-              </label>
-              <label className="text-sm">
-                Telefon
-                <input
-                  name="phone"
-                  className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2"
-                  placeholder="+49 …"
-                />
-              </label>
-              <label className="text-sm">
-                E-Mail
-                <input
-                  type="email"
-                  name="email"
-                  className="mt-1 w-full rounded-xl border border-zinc-300 px-3 py-2"
-                  placeholder="max@firma.de"
-                />
-              </label>
+    <div className="mx-auto grid max-w-xl gap-3 text-left" role="group" aria-describedby="cta-note">
+      <label className="text-sm">
+        Name
+        <input name="name" className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2" placeholder="Max Mustermann" />
+      </label>
+      <label className="text-sm">
+        Telefon
+        <input name="phone" className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2" placeholder="+49 123456789" />
+      </label>
+      <label className="text-sm">
+        E-Mail
+        <input name="topic" className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2" placeholder="max@mustermann.de" />
+      </label>
 
-              {/* Button ohne Submit-Funktion */}
-              <button
-                type="button"
-                className="mt-2 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-700 to-emerald-500 px-4 py-2 font-semibold text-white shadow-sm opacity-70 cursor-not-allowed"
-                aria-disabled="true"
-                title="Demo – ohne Funktion"
-              >
-                Demo anfordern
-              </button>
-              <p id="cta-note" className="text-xs text-zinc-500 mt-1">
-                Demo-Formular – nur Vorschau, es werden keine Daten gesendet.
-              </p>
-            </div>
-          </div>
-        </section>
+      {/* Button öffnet das Pop-up via :target */}
+      <a
+        href="#cta-pop"
+        className="mt-2 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+      >
+        Unverbindlich anfragen
+      </a>
+
+      <p id="cta-note" className="text-xs text-zinc-500">
+        Mit Absenden des Formulars akzeptierst du unsere Datenschutzbedingungen.
+      </p>
+    </div>
+  </div>
+
+  {/* Pop-up (Modal) */}
+  <div id="cta-pop" className="fixed inset-0 z-50 hidden items-center justify-center p-4">
+    {/* Klick auf Overlay schließt wieder */}
+    <a href="#" className="absolute inset-0 bg-black/50" aria-label="Overlay schließen" />
+
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cta-pop-title"
+      className="relative w-full max-w-md rounded-xl bg-white p-6 shadow-xl"
+    >
+      {/* Schließen-Button */}
+      <a
+        href="#"
+        aria-label="Fenster schließen"
+        className="absolute right-3 top-3 rounded-md border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
+      >
+        ✕
+      </a>
+
+      <h3 id="cta-pop-title" className="mb-2 text-lg font-semibold">Hinweis</h3>
+      <p className="text-zinc-800">
+        In diesem Beispiel-Blogartikel funktionieren die Links nicht. Möchtest du solch ein Projekt auch für dein Angebot umsetzen?{" "}
+        <a
+          href="https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung?month=2025-08"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-emerald-700 underline"
+        >
+          Klicke hier
+        </a>{" "}
+        und lass uns sprechen. – Lennart, Gründer
+      </p>
+    </div>
+  </div>
+
+  {/* Zeige Modal, wenn angesprungen */}
+  <style jsx>{`
+    #cta-pop:target { display: flex; }
+  `}</style>
+</section>
+
+
+
 
         {/* E-E-A-T */}
         <section className="mt-14">
