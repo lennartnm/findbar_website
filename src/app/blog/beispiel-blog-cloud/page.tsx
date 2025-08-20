@@ -752,26 +752,49 @@ export default function Article() {
         </section>
 
         {/* CTA */}
-       {/* CTA (mit Pop-up), passe die Platzhalter an */}
+   {/* CTA (mit Pop-up), passe die Platzhalter an */}
 <section aria-label="Kontakt" className="mt-14">
   <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
-    <h2 className="text-xl font-bold mb-2">Platzhalter für offene Fragestellung zum Kernthema des Artikels</h2>
+    <h2 className="text-xl font-bold mb-2">
+      Platzhalter für offene Fragestellung zum Kernthema des Artikels
+    </h2>
     <p className="text-zinc-700 mb-4">
       Platzhalter für Value Proposition
     </p>
 
-    <div className="mx-auto grid max-w-xl gap-3 text-left" role="group" aria-describedby="cta-note">
+    <form
+      className="mx-auto grid max-w-xl gap-3 text-left"
+      role="group"
+      aria-describedby="cta-note"
+    >
       <label className="text-sm">
         Name
-        <input name="name" className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2" placeholder="Max Mustermann" />
+        <input
+          type="text"
+          name="name"
+          className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+          placeholder="Max Mustermann"
+          required
+        />
       </label>
       <label className="text-sm">
         Telefon
-        <input name="phone" className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2" placeholder="+49 123456789" />
+        <input
+          type="tel"
+          name="phone"
+          className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+          placeholder="+49 123456789"
+        />
       </label>
       <label className="text-sm">
         E-Mail
-        <input name="topic" className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2" placeholder="max@mustermann.de" />
+        <input
+          type="email"
+          name="email"
+          className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+          placeholder="max@mustermann.de"
+          required
+        />
       </label>
 
       {/* Button öffnet das Pop-up via :target */}
@@ -785,13 +808,20 @@ export default function Article() {
       <p id="cta-note" className="text-xs text-zinc-500">
         Mit Absenden des Formulars akzeptierst du unsere Datenschutzbedingungen.
       </p>
-    </div>
+    </form>
   </div>
 
   {/* Pop-up (Modal) */}
-  <div id="cta-pop" className="fixed inset-0 z-50 hidden items-center justify-center p-4">
+  <div
+    id="cta-pop"
+    className="fixed inset-0 z-50 hidden items-center justify-center p-4"
+  >
     {/* Klick auf Overlay schließt wieder */}
-    <a href="#" className="absolute inset-0 bg-black/50" aria-label="Overlay schließen" />
+    <a
+      href="#"
+      className="absolute inset-0 bg-black/50"
+      aria-label="Overlay schließen"
+    />
 
     <div
       role="dialog"
@@ -808,9 +838,12 @@ export default function Article() {
         ✕
       </a>
 
-      <h3 id="cta-pop-title" className="mb-2 text-lg font-semibold">Hinweis</h3>
+      <h3 id="cta-pop-title" className="mb-2 text-lg font-semibold">
+        Hinweis
+      </h3>
       <p className="text-zinc-800">
-        In diesem Beispiel-Blogartikel funktionieren die Links nicht. Möchtest du solch ein Projekt auch für dein Angebot umsetzen?{" "}
+        In diesem Beispiel-Blogartikel funktionieren die Links nicht. Möchtest
+        du solch ein Projekt auch für dein Angebot umsetzen?{" "}
         <a
           href="https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung?month=2025-08"
           target="_blank"
@@ -826,9 +859,12 @@ export default function Article() {
 
   {/* Zeige Modal, wenn angesprungen */}
   <style jsx>{`
-    #cta-pop:target { display: flex; }
+    #cta-pop:target {
+      display: flex !important;
+    }
   `}</style>
 </section>
+
 
 
 
