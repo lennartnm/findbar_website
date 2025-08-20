@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 
@@ -184,20 +183,19 @@ export default function Page() {
             On-Premise volle Hoheit und Vorhersehbarkeit. Hybrid vereint beides
             – sinnvoll, wenn du klare Workload-Kriterien definierst.
           </li>
-         <li>
-  <strong>Kosten (TCO):</strong> Cloud senkt CapEx und skaliert nach Bedarf, erfordert aber <em>FinOps</em> für Kostenkontrolle. Organisationen mit reifem FinOps erzielen bessere Transparenz und Governance.
-</li>
-
+          <li>
+            <strong>Kosten (TCO):</strong> Cloud senkt CapEx und skaliert nach Bedarf, erfordert aber <em>FinOps</em> für Kostenkontrolle. Organisationen mit reifem FinOps erzielen bessere Transparenz und Governance.
+          </li>
           <li>
             <strong>Sicherheit &amp; Compliance:</strong> Für Cloud-Dienste
             existieren etablierte Standards wie NIST SP 800-145 (Definition),
             BSI C5 (deutscher Mindeststandard) und die in der EU diskutierte
-            EUCS-Zertifizierung. :contentReference[oaicite:1]{index=1}
+            EUCS-Zertifizierung.
           </li>
           <li>
             <strong>Risikolage:</strong> Ransomware und Verfügbarkeitsangriffe
             bleiben Top-Bedrohungen. Resilienz- und Backup-Strategien sind
-            Pflicht – unabhängig vom Betriebsmodell. :contentReference[oaicite:2]{index=2}
+            Pflicht – unabhängig vom Betriebsmodell.
           </li>
           <li>
             <strong>Entscheidung:</strong> Richte dich nach
@@ -299,7 +297,7 @@ export default function Page() {
           elastisch und werden vom Anbieter betrieben. Die anerkannte
           Referenzdefinition liefert NIST SP 800-145 (u. a. On-Demand
           Self-Service, breite Netzzugänglichkeit, Ressourcen-Pooling,
-          Elastizität und gemessener Service). :contentReference[oaicite:3]{index=3}
+          Elastizität und gemessener Service).
         </p>
         <p>
           <strong>On-Premise</strong> heißt: Du betreibst Hardware und Software
@@ -364,7 +362,7 @@ export default function Page() {
           Cloud-Kosten müssen messbar, zuordenbar und steuerbar werden
           (Chargeback/Showback, Budgets, Commitments). Aktuelle FinOps-Daten
           zeigen: Organisationen legen 2024/25 einen klaren Fokus auf das
-          Reduzieren von Verschwendung und das Managen von Commitments. :contentReference[oaicite:4]{index=4}
+          Reduzieren von Verschwendung und das Managen von Commitments.
         </p>
 
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4">
@@ -433,7 +431,6 @@ export default function Page() {
           <figcaption className="mt-2 text-sm text-zinc-600">
             — Indirektes Zitat in Anlehnung an aktuelle Empfehlungen zur
             Cloud-Governance &amp; Kostenkontrolle (FinOps/Governance-Trends).
-            :contentReference[oaicite:5]{index=5}
           </figcaption>
         </figure>
       </section>
@@ -446,13 +443,13 @@ export default function Page() {
           <strong> NIST SP 800-145</strong> (Grundprinzipien der Cloud),
           <strong> BSI C5</strong> als Mindeststandard für Cloud-Anbieter in
           Deutschland sowie die geplante <strong>EUCS</strong>-Zertifizierung
-          auf EU-Ebene. :contentReference[oaicite:6]{index=6}
+          auf EU-Ebene.
         </p>
         <p>
           Zur Bedrohungslage: Die ENISA „Threat Landscape 2024“ nennt
           Verfügbarkeitsangriffe und Ransomware als Top-Risiken – deshalb sind
           Härtung, Patch-Management, Netzwerksegmentierung und getestete
-          Wiederanlaufpläne Pflicht, egal ob Cloud oder On-Premise. :contentReference[oaicite:7]{index=7}
+          Wiederanlaufpläne Pflicht, egal ob Cloud oder On-Premise.
         </p>
 
         <div className="grid sm:grid-cols-2 gap-4 mt-6">
@@ -496,7 +493,7 @@ export default function Page() {
           </div>
           <figcaption className="text-sm text-zinc-600">
             Compliance schafft Vertrauen: Prüfe Nachweise (z. B. BSI C5) und
-            verankere Verantwortlichkeiten klar. :contentReference[oaicite:8]{index=8}
+            verankere Verantwortlichkeiten klar.
           </figcaption>
         </figure>
 
@@ -504,7 +501,7 @@ export default function Page() {
           <strong>Recht &amp; Regulierung:</strong> Behalte DSGVO,
           Auftragsverarbeitung, NIS2 und – sobald final – die EUCS im Blick. In
           Brüssel wird weiter über Ausgestaltung und Marktwirkung der EUCS
-          diskutiert. :contentReference[oaicite:9]{index=9}
+          diskutiert.
         </div>
       </section>
 
@@ -547,12 +544,12 @@ export default function Page() {
           andere wandert in die Cloud. Beobachte Trends wie
           <strong> Cloud-Repatriation</strong> – viele Unternehmen verschieben
           Workloads situativ zurück, ohne die Cloud grundsätzlich in Frage zu
-          stellen. Das Ziel ist Optimierung, nicht Ideologie. :contentReference[oaicite:10]{index=10}
+          stellen. Das Ziel ist Optimierung, nicht Ideologie.
         </p>
         <p>
           Für EU-Organisationen kann die künftige EUCS-Zertifizierung eine neue
           Entscheidungsdimension eröffnen, insbesondere bei Souveränitäts- und
-          Lieferkettenanforderungen. :contentReference[oaicite:11]{index=11}
+          Lieferkettenanforderungen.
         </p>
       </section>
 
@@ -578,13 +575,13 @@ export default function Page() {
                   k: "Lastprofil",
                   c: "Volatil, saisonal, unklar",
                   o: "Stabil, vorhersehbar, dauerhaft hoch",
-                  n: "Workload-Analyse &amp; Forecasting notwendig (FinOps). :contentReference[oaicite:12]{index=12}",
+                  n: "Workload-Analyse &amp; Forecasting notwendig (FinOps).",
                 },
                 {
                   k: "Compliance/Souveränität",
                   c: "Mit C5-Attest, EUCS-Level beachten",
                   o: "Volle physische Kontrolle",
-                  n: "Branche/Behörde? Prüfe Zertifizierungen/Standorte. :contentReference[oaicite:13]{index=13}",
+                  n: "Branche/Behörde? Prüfe Zertifizierungen/Standorte.",
                 },
                 {
                   k: "Time-to-Value",
@@ -646,15 +643,15 @@ export default function Page() {
           </li>
           <li>
             <strong>Kosten-Szenarien rechnen:</strong> 3–5 Jahre, TCO,
-            Risiken/Reserven, Commitments. :contentReference[oaicite:14]{index=14}
+            Risiken/Reserven, Commitments.
           </li>
           <li>
             <strong>Sicherheitsgrundlagen definieren:</strong> C5-Nachweise
-            prüfen, Zero Trust, Backup/Recovery-Tests. :contentReference[oaicite:15]{index=15}
+            prüfen, Zero Trust, Backup/Recovery-Tests.
           </li>
           <li>
             <strong>Governance &amp; FinOps verankern:</strong> Budgets,
-            Showback/Chargeback, Tagging, KPIs. :contentReference[oaicite:16]{index=16}
+            Showback/Chargeback, Tagging, KPIs.
           </li>
           <li>
             <strong>Automatisieren:</strong> IaC, CI/CD, Policy-as-Code,
@@ -666,7 +663,7 @@ export default function Page() {
           </li>
           <li>
             <strong>Iterieren:</strong> Regelmäßige Review-Zyklen, ggf.
-            Repatriation oder Re-Plattform. :contentReference[oaicite:17]{index=17}
+            Repatriation oder Re-Plattform.
           </li>
         </ol>
       </section>
@@ -683,7 +680,7 @@ export default function Page() {
               Ein Modell für bequemen, bedarfsgesteuerten Zugriff auf einen
               gemeinsam genutzten Pool konfigurierbarer Ressourcen (u. a.
               Netzwerke, Server, Speicher, Anwendungen) – schnell
-              bereitzustellen und mit gemessener Nutzung. :contentReference[oaicite:18]{index=18}
+              bereitzustellen und mit gemessener Nutzung.
             </p>
           </div>
           <div>
@@ -693,7 +690,7 @@ export default function Page() {
             <p>
               Weder noch. Sicherheit hängt von Prozessen, Architektur und
               Umsetzung ab. Standards und Attests (z. B. BSI C5) helfen bei der
-              Bewertung von Cloud-Anbietern. :contentReference[oaicite:19]{index=19}
+              Bewertung von Cloud-Anbietern.
             </p>
           </div>
           <div>
@@ -703,7 +700,7 @@ export default function Page() {
             <p>
               FinOps schafft Kostentransparenz, Verantwortlichkeiten und
               Steuerung (z. B. Commitments, Budgets). 2024/25 ist das Reduzieren
-              von Verschwendung ein Top-Prioritätsthema. :contentReference[oaicite:20]{index=20}
+              von Verschwendung ein Top-Prioritätsthema.
             </p>
           </div>
           <div>
@@ -714,7 +711,7 @@ export default function Page() {
               EUCS (im Entstehen) soll eine EU-weit einheitliche
               Cloud-Zertifizierung bieten, die Unternehmen bei der Auswahl
               sicherer Dienste unterstützt. Details und Zeitplan sind weiterhin
-              in Diskussion. :contentReference[oaicite:21]{index=21}
+              in Diskussion.
             </p>
           </div>
           <div>
@@ -725,7 +722,7 @@ export default function Page() {
               Das Zurückholen bestimmter Workloads aus der Public Cloud in
               On-Premise/Private/Hybrid-Umgebungen, meist zur Optimierung von
               Kosten, Latenz oder Compliance – nicht als generelle Abkehr von
-              Cloud. :contentReference[oaicite:22]{index=22}
+              Cloud.
             </p>
           </div>
         </div>
@@ -800,7 +797,7 @@ export default function Page() {
           Fälle profitieren von der Cloud (mit FinOps-Steuerung); stabile,
           latenzkritische und streng regulierte Szenarien passen oft besser
           On-Premise oder in eine Private/Hybrid-Cloud. Standards wie BSI C5
-          und die kommende EUCS erleichtern die Bewertung. :contentReference[oaicite:23]{index=23}
+          und die kommende EUCS erleichtern die Bewertung.
         </p>
       </section>
 
@@ -877,7 +874,7 @@ export default function Page() {
             aria-label="Overlay schließen"
           />
 
-          <div
+        <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="cta-pop-title"
@@ -974,17 +971,17 @@ export default function Page() {
                 {
                   t: "BSI C5",
                   e:
-                    "Prüfkatalog des BSI als Mindeststandard zur Bewertung der Sicherheit von Cloud-Diensten (Attestierung). :contentReference[oaicite:24]{index=24}",
+                    "Prüfkatalog des BSI als Mindeststandard zur Bewertung der Sicherheit von Cloud-Diensten (Attestierung).",
                 },
                 {
                   t: "EUCS",
                   e:
-                    "Geplantes EU-Zertifizierungsschema für Cloud-Services zur einheitlichen Sicherheitsbewertung. :contentReference[oaicite:25]{index=25}",
+                    "Geplantes EU-Zertifizierungsschema für Cloud-Services zur einheitlichen Sicherheitsbewertung.",
                 },
                 {
                   t: "Cloud-Repatriation",
                   e:
-                    "Gezielte Rückführung einzelner Workloads aus der Public Cloud in Private/On-Premise/Hybrid-Umgebungen. :contentReference[oaicite:26]{index=26}",
+                    "Gezielte Rückführung einzelner Workloads aus der Public Cloud in Private/On-Premise/Hybrid-Umgebungen.",
                 },
               ].map((row) => (
                 <tr key={row.t} className="border-t border-zinc-200">
@@ -1046,7 +1043,7 @@ export default function Page() {
             >
               PDF
             </a>
-            . :contentReference[oaicite:27]{index=27}
+            .
           </li>
           <li>
             BSI – Cloud Computing Compliance Criteria Catalogue (C5:2020).{" "}
@@ -1057,7 +1054,7 @@ export default function Page() {
             >
               PDF
             </a>
-            . :contentReference[oaicite:28]{index=28}
+            .
           </li>
           <li>
             ENISA Threat Landscape 2024 – European Union Agency for
@@ -1069,7 +1066,7 @@ export default function Page() {
             >
               Report
             </a>
-            . :contentReference[oaicite:29]{index=29}
+            .
           </li>
           <li>
             FinOps Foundation – 2024 Insights &amp; Priorities.{" "}
@@ -1080,7 +1077,7 @@ export default function Page() {
             >
               Article
             </a>
-            . :contentReference[oaicite:30]{index=30}
+            .
           </li>
           <li>
             Reuters – EU Cybersecurity Label (EUCS) Update &amp; Debate.{" "}
@@ -1091,7 +1088,7 @@ export default function Page() {
             >
               News
             </a>
-            . :contentReference[oaicite:31]{index=31}
+            .
           </li>
           <li>
             CIO – Cloud Repatriation als Optimierung, nicht Abkehr.{" "}
@@ -1102,11 +1099,10 @@ export default function Page() {
             >
               Article
             </a>
-            . :contentReference[oaicite:32]{index=32}
+            .
           </li>
         </ul>
       </section>
     </article>
   );
 }
-
