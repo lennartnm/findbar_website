@@ -326,7 +326,7 @@ export default function Page() {
           </div>
         </div>
 
-     {/* Bild 1 – Vorlage */}
+    {/* Bild 1 – Vorlage */}
 <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
   <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
     <picture>
@@ -342,11 +342,13 @@ export default function Page() {
       />
     </picture>
   </div>
+
   {/* Beschriftung direkt unter dem Bild */}
   <figcaption className="px-4 py-2 text-sm text-zinc-600">
     On-Premise bietet maximale Kontrolle – aber auch volle Betriebspflicht.
   </figcaption>
 </figure>
+
 
 
       <section id="kosten" className="mt-14">
