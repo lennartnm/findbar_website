@@ -860,17 +860,17 @@ export default function Article() {
 
 
 
-        {/* E-E-A-T */}
+          {/* E-E-A-T */}
         <section className="mt-14">
-          <h2 className="text-2xl font-bold mb-3">Über die Autorin</h2>
+          <h2 className="text-2xl font-bold mb-3">Über den Autor</h2>
           <div className="flex items-center gap-4">
-            <img src={author.image} alt="Autorin" className="w-16 h-16 rounded-full object-cover" loading="lazy" />
+            <img src=”/Platzhalter für Autorenbild.webp” alt="Autorin" className="w-16 h-16 rounded-full object-cover" loading="lazy" />
             <div>
-              <div className="font-semibold">{author.name}</div>
+              <div className="font-semibold">Platzhalter für Autorenname</div>
               <div className="text-sm text-zinc-700">
-                {author.role}. Fokus: Cloud-Strategie, FinOps, Plattform-Teams.
+               Platzhalter für Autorenrolle und persönliche Fokusthemen
               </div>
-              <a href={author.linkedin} className={`text-sm hover:underline ${accent}`}>
+              <a href=Platzhalter für Autoren-LinkedIn className={`text-sm hover:underline ${accent}`}>
                 LinkedIn-Profil
               </a>
             </div>
@@ -879,13 +879,15 @@ export default function Article() {
          <div className="mt-4 flex items-center gap-3">
   <ArrowRight className={`w-4 h-4 ${accent}`} aria-hidden />
   <p className="text-sm text-zinc-700">
-    Reviewed by: <strong>{reviewer.name}</strong> – {reviewer.role}.{' '}
-    <a href={reviewer.linkedin} className={`hover:underline ${accent}`}>
+    Überprüft von: <strong>Platzhalter für Reviewer Name</strong> – Platzhalter für Reviewer Job Titel.{' '}
+    <a href=Platzhalter für Reviewer LinkedIn className={`hover:underline ${accent}`}>
       LinkedIn
     </a>
   </p>
 </div>
         </section>
+
+
 
         {/* Quellenverzeichnis */}
         <section className="mt-14">
