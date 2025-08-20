@@ -184,12 +184,10 @@ export default function Page() {
             On-Premise volle Hoheit und Vorhersehbarkeit. Hybrid vereint beides
             – sinnvoll, wenn du klare Workload-Kriterien definierst.
           </li>
-          <li>
-            <strong>Kosten (TCO):</strong> Cloud senkt CapEx und skaliert nach
-            Bedarf, erfordert aber <em>FinOps</em> für Kostenkontrolle.
-            Organisationen mit reifem FinOps erzielen bessere Transparenz und
-            Governance. :contentReference[oaicite:0]{index=0}
-          </li>
+         <li>
+  <strong>Kosten (TCO):</strong> Cloud senkt CapEx und skaliert nach Bedarf, erfordert aber <em>FinOps</em> für Kostenkontrolle. Organisationen mit reifem FinOps erzielen bessere Transparenz und Governance.
+</li>
+
           <li>
             <strong>Sicherheit &amp; Compliance:</strong> Für Cloud-Dienste
             existieren etablierte Standards wie NIST SP 800-145 (Definition),
