@@ -143,7 +143,12 @@ export default function Page() {
   };
 
   return (
-<article className="prose prose-zinc mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 my-12 md:my-16 flow-root">
+<article
+  className="
+    prose prose-zinc mx-auto max-w-4xl px-4 sm:px-6 lg:px-8
+    mt-12 md:mt-16 mb-0
+    relative after:block after:h-12 md:after:h-16 after:content-['']
+  ">
 
       <script type="application/ld+json">
         {JSON.stringify(articleSchema)}
