@@ -176,11 +176,12 @@ export default function Page() {
             Kontrolle, Datenhoheit und planbare Fixkosten;{" "}
             <strong>Hybrid</strong> kombiniert das Beste aus beiden Welten.
           </li>
-          <li>
-            <strong>Kosten:</strong> Cloud verhindert hohe CapEx, erfordert aber
-            aktives FinOps zur Kostensteuerung (Cloud-Spend ist laut Flexera
-            Top-Herausforderung). :contentReference[oaicite:2]{index=2}
-          </li>
+         <li>
+  <strong>Kosten:</strong> Cloud verhindert hohe CapEx, erfordert aber
+  aktives FinOps zur Kostensteuerung (Cloud-Spend ist laut Flexera
+  eine häufige Herausforderung).
+</li>
+
           <li>
             <strong>Sicherheit & Compliance:</strong> Prüfe ISO&nbsp;27001,
             BSI&nbsp;C5 und Datenübermittlungen (EDPB-Empfehlungen nach
