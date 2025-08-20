@@ -1,4 +1,4 @@
-// src/app/blog/cloud-vs-on-premise/page.tsx
+
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 
