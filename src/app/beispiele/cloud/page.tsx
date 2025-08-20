@@ -326,24 +326,21 @@ export default function Page() {
           </div>
         </div>
 
-    {/* Bild 1 – Vorlage */}
-<figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
-  <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
-    <picture>
-      <source
-        media="(max-width: 640px)"
-        srcSet="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop"
-      />
-      <img
-        loading="lazy"
-        src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop"
-        alt="Serverracks On-Premise – Symbol für eigene Infrastruktur"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-    </picture>
-  </div>
+{/* Bild 1 – Vorlage */}
+<figure className="mt-8 rounded-2xl border border-zinc-200 overflow-hidden">
+  <picture>
+    <source
+      media="(max-width: 640px)"
+      srcSet="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop"
+    />
+    <img
+      loading="lazy"
+      src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1600&auto=format&fit=crop"
+      alt="Serverracks On-Premise – Symbol für eigene Infrastruktur"
+      className="w-full h-auto object-cover aspect-[16/6]"
+    />
+  </picture>
 
-  {/* Beschriftung direkt unter dem Bild */}
   <figcaption className="px-4 py-2 text-sm text-zinc-600">
     On-Premise bietet maximale Kontrolle – aber auch volle Betriebspflicht.
   </figcaption>
