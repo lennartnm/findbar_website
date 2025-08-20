@@ -307,6 +307,12 @@ export default function Article() {
     Platzhalter für Sub-Headline, ein bis zwei Sätze, was in dem Artikel zu erwarten ist
   </p>
 
+{/* Datum & Lesedauer separat in eigener Zeile (statisch) */}
+  <div className="mt-2 text-sm text-zinc-600">
+    Zuletzt aktualisiert am <time dateTime="2025-08-20">20.08</time>
+    {" · "}Lesedauer: <span className="tabular-nums">8 Min</span>
+  </div>
+          
   {/* Hero 16:6 */}
   <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
     <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
@@ -339,11 +345,7 @@ export default function Article() {
     </div>
   </div>
 
-  {/* Datum & Lesedauer separat in eigener Zeile (statisch) */}
-  <div className="mt-2 text-sm text-zinc-600">
-    Zuletzt aktualisiert am <time dateTime="2025-08-20">20.08</time>
-    {" · "}Lesedauer: <span className="tabular-nums">8 Min</span>
-  </div>
+  
 </header>
 
 
