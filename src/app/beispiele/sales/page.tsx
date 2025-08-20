@@ -347,7 +347,7 @@ export default function Page() {
             <strong>Vertrauensvorschuss</strong> bedeutet, dass die Käuferseite
             dir <em>vor</em> eurem ersten Gespräch grundlegende Kompetenz,
             Integrität und Fürsorge zutraut. Das erreichst du, indem du
-            <em>sichtbare Beweise</em> für Kompetenz, Zuverlässigkeit und
+            <em> sichtbare Beweise</em> für Kompetenz, Zuverlässigkeit und
             Fairness bereitstellst: echte Ergebnisse (Case Studies mit Zahlen),
             unabhängige Bestätigungen (z. B. Analyst-Erwähnungen), ein klares
             Erwartungsmanagement (Agenda, Zielbild) und <em>Signale der
