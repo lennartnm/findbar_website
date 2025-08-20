@@ -2,157 +2,101 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 
-const accent = "text-emerald-700";
-const brand = {
-  name: "Dein Unternehmen GmbH",
-  url: "https://www.deinunternehmen.de",
-  logo: "https://www.deinunternehmen.de/logo.png",
+/**
+ * Blog Artikel Creator (Typ 1 Erklärend)
+ * Thema: Cloud vs. On-Premise – Welche Lösung ist die richtige für dein Unternehmen?
+ * Hinweis: Dieser Artikel ist als SSG/SSR-Inhalt ohne Client-Hydration konzipiert.
+ */
+
+const title =
+  "Cloud vs. On-Premise 2025: Kosten, Sicherheit & Flexibilität – der klare, datenbasierte Vergleich inkl. Checkliste";
+const description =
+  "Cloud, On-Premise oder Hybrid? Vergleich 2025: Kosten, Sicherheit, Flexibilität, TCO-Methodik, DSGVO & Vendor-Lock-in – inkl. Checkliste & Entscheidungs-Framework.";
+const canonical = "https://www.beispiel.de/blog/cloud-vs-on-premise";
+
+const hero =
+  "https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=1920&q=80"; // Datacenter (Taylor Vick)
+const imgAltHero =
+  "Blick in ein modernes Rechenzentrum mit Patchfeldern und Kabeln – Symbolbild für On-Premises-Infrastruktur";
+
+const inlineImg =
+  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"; // Laptop/Cloud-Work
+const inlineImgAlt =
+  "Cloud-Architektur in der Praxis: Entwickler-Laptop mit Code und Cloud-Symbole";
+
+const author = {
+  name: "Lennart Schröder",
+  role: "Cloud- & Kostenstrategie (FinOps) Consultant",
+  image: "/autor-lennart.webp",
 };
 
-const canonical = `${brand.url}/blog/cloud-vs-on-premise`;
+const accent = "text-emerald-700";
 
 export const metadata: Metadata = {
-  title:
-    "Cloud vs. On-Premise vs. Hybrid: Kosten, Sicherheit & Flexibilität – der klare Vergleich",
-  description:
-    "Cloud, On-Premise oder Hybrid? Hier findest du einen datenbasierten Vergleich zu Kosten (CapEx/OpEx), Sicherheit & Compliance inkl. Checkliste zur Auswahl.",
+  title,
+  description,
   alternates: { canonical },
   openGraph: {
-    title:
-      "Cloud vs. On-Premise vs. Hybrid: Kosten, Sicherheit & Flexibilität – der klare Vergleich",
-    description:
-      "Cloud, On-Premise oder Hybrid? Der klare, datenbasierte Vergleich: TCO, Sicherheit/Compliance, Flexibilität, typische Use Cases – inkl. Checkliste.",
-    url: canonical,
+    title,
+    description,
     type: "article",
-    images: [
-      {
-        url:
-          "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop",
-        width: 1600,
-        height: 600,
-        alt: "Cloud-Infrastruktur im Vergleich zu On-Premise-Servern (Symbolbild)",
-      },
-    ],
+    url: canonical,
+    images: [{ url: hero, width: 1200, height: 630, alt: imgAltHero }],
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Cloud vs. On-Premise vs. Hybrid: Kosten, Sicherheit & Flexibilität – der klare Vergleich",
-    description:
-      "Cloud, On-Premise oder Hybrid? Der klare, datenbasierte Vergleich – inkl. Checkliste.",
-    images: [
-      "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop",
-    ],
+    title,
+    description,
+    images: [hero],
   },
   robots: { index: true, follow: true },
-  metadataBase: new URL(brand.url),
-};
-
-const author = {
-  name: "Lennart Beispiel",
-  role: "Cloud- & IT-Strategieberater",
-  image: "/autor-lennart.webp",
-  linkedin: "https://www.linkedin.com/in/lennart-beispiel/",
 };
 
 export default function Page() {
   return (
     <article className="prose prose-zinc mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-      {/* ==== Structured Data (Article + Organization) ==== */}
-      <script
-        type="application/ld+json"
-        // Article & Organization Schema – replace brand details when integrating
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline:
-              "Cloud vs. On-Premise vs. Hybrid: Kosten, Sicherheit & Flexibilität – der klare Vergleich",
-            description:
-              "Ein datenbasierter Vergleich von Cloud, On-Premise und Hybrid – inklusive Kosten/TCO, Sicherheit & Compliance, Flexibilität, Einsatzszenarien und Checkliste.",
-            inLanguage: "de-DE",
-            image:
-              "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop",
-            datePublished: "2025-08-20",
-            dateModified: "2025-08-20",
-            author: {
-              "@type": "Person",
-              name: author.name,
-              jobTitle: author.role,
-              url: canonical,
-            },
-            publisher: {
-              "@type": "Organization",
-              name: brand.name,
-              logo: {
-                "@type": "ImageObject",
-                url: brand.logo,
-              },
-            },
-            mainEntityOfPage: canonical,
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        // Company / Organization Schema (basis) – update with your real company data
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: brand.name,
-            url: brand.url,
-            logo: brand.logo,
-          }),
-        }}
-      />
-
-      {/* ===== Header / Starter Section ===== */}
-      {/* Vorlage aus "Starter Section Anfang Code.txt" verwendet und befüllt. :contentReference[oaicite:0]{index=0} */}
+      {/* Headline / Hero */}
+      {/* Header */}
       <header className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
-          Cloud vs. On-Premise – Welche Lösung ist die richtige für dein
-          Unternehmen?
+          Cloud vs. On-Premise – Welche Lösung ist die richtige für dein Unternehmen?
         </h1>
         <p className="mt-3 text-lg text-zinc-700">
-          Kosten, Sicherheit, Flexibilität: Hier erhältst du einen klaren,
-          datenbasierten Vergleich von Cloud, On-Premise und Hybrid-Ansätzen –
-          inkl. praxisnaher Checkliste & Entscheidungsmatrix.
+          Kosten, Sicherheit, Flexibilität: Hier erhältst du einen klaren, datenbasierten
+          Vergleich von Cloud, On-Premise und Hybrid-Ansätzen – inklusive Checkliste
+          &amp; Entscheidungs-Framework.
         </p>
 
-        {/* Datum & Lesedauer separat in eigener Zeile */}
+        {/* Datum & Lesedauer */}
         <div className="mt-2 text-sm text-zinc-600">
           Zuletzt aktualisiert am{" "}
           <time dateTime="2025-08-20">20.08.2025</time>
-          {" · "}
-          Lesedauer: <span className="tabular-nums">10 Minuten</span>
+          {" · "}Lesedauer: <span className="tabular-nums">10 Minuten</span>
         </div>
 
-        {/* Hero 16:6 – LCP-Bild, nicht lazy */}
+        {/* Hero 16:6 (LCP-Bild: eager) */}
         <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
           <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
             <picture>
-              <source
-                media="(max-width: 640px)"
-                srcSet="https://images.unsplash.com/photo-1496096265110-f83ad7f96608?q=80&w=1200&auto=format&fit=crop"
-              />
+              <source media="(max-width: 640px)" srcSet={`${hero}&w=1200`} />
               <img
-                src="https://images.unsplash.com/photo-1496096265110-f83ad7f96608?q=80&w=1600&auto=format&fit=crop"
-                alt="Visualisierung von Cloud- und Rechenzentrumsressourcen im Vergleich"
+                loading="eager"
+                src={hero}
+                alt={imgAltHero}
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </picture>
           </div>
           <figcaption className="sr-only">
-            Cloud- und On-Premise-Infrastruktur (Symbolbild)
+            Modernes Rechenzentrum als Symbol für lokale Infrastruktur (On-Premises).
           </figcaption>
         </figure>
 
         {/* Meta row – Autor */}
         <div className="mt-6 flex items-center gap-3 text-sm text-zinc-700">
           <img
-            src={author.image}
-            alt="Autor:in"
+            src="/autor-lennart.webp"
+            alt="Autor"
             className="w-10 h-10 rounded-full object-cover"
             loading="lazy"
           />
@@ -163,45 +107,42 @@ export default function Page() {
         </div>
       </header>
 
-      {/* ===== TL;DR ===== */}
-      {/* Vorlage aus "{_* TL;DR *_}.txt" verwendet und befüllt. :contentReference[oaicite:1]{index=1} */}
+      {/* TL;DR */}
+      {/* TL;DR */}
       <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-        <h2 className="text-lg font-semibold mb-3">
-          Das Wichtigste auf einen Blick
-        </h2>
+        <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
         <ul className="list-disc ml-5 space-y-2 text-zinc-800">
           <li>
-            <strong>Cloud</strong> punktet mit Skalierbarkeit, Time-to-Market
-            und OpEx-Modell; <strong>On-Premise</strong> bietet maximale
-            Kontrolle, Datenhoheit und planbare Fixkosten;{" "}
-            <strong>Hybrid</strong> kombiniert das Beste aus beiden Welten.
-          </li>
-         <li>
-  <strong>Kosten:</strong> Cloud verhindert hohe CapEx, erfordert aber
-  aktives FinOps zur Kostensteuerung (Cloud-Spend ist laut Flexera
-  eine häufige Herausforderung).
-</li>
-
-          <li>
-            <strong>Sicherheit & Compliance:</strong> Prüfe ISO&nbsp;27001,
-            BSI&nbsp;C5 und Datenübermittlungen (EDPB-Empfehlungen nach
-            Schrems&nbsp;II). :contentReference[oaicite:3]{index=3}
+            <strong>Kosten:</strong> Cloud verschiebt Ausgaben von CapEx zu OpEx und skaliert
+            granular; On-Prem lohnt sich bei stabiler Last und hohen Auslastungsgraden; Hybrid
+            senkt Migrations- und Exit-Risiken. Für eine seriöse TCO nutze Kalkulatoren und
+            Messdaten statt Pauschalwerte. :contentReference[oaicite:0]{index=0}
           </li>
           <li>
-            <strong>Verfügbarkeit:</strong> Hyperscaler bieten klare SLAs (z. B.
-            EC2 99,99 % regional bei Multi-AZ), aber Verantwortung bleibt geteilt
-            (Shared Responsibility). :contentReference[oaicite:4]{index=4}
+            <strong>Sicherheit &amp; Compliance:</strong> Cloud folgt dem
+            Shared-Responsibility-Modell und bietet starke Standards, On-Prem bietet maximale
+            Datensouveränität. Der europäische Threat Landscape Report zeigt: Resilienz &amp;
+            Governance sind zentral. :contentReference[oaicite:1]{index=1}
           </li>
           <li>
-            <strong>Entscheidung:</strong> Nutze die Checkliste weiter unten:
-            Rechtslage &amp; Datenfluss, Leistungsbedarf/Latency, Kostenprofil,
-            Skill-Set im Team, Tooling/Automation, Exit-Strategie.
+            <strong>Flexibilität:</strong> Cloud punktet bei Time-to-Value und Elastizität,
+            On-Prem bei deterministischer Latenz; Hybrid kombiniert das Beste aus beiden Welten
+            für sensible Workloads (z. B. regulierte Daten). :contentReference[oaicite:2]{index=2}
+          </li>
+          <li>
+            <strong>Marktentwicklung:</strong> Endkundenausgaben für Public Cloud werden 2025
+            voraussichtlich ~723 Mrd. US-$ erreichen – aber ohne FinOps drohen Kostenentgleisungen. :contentReference[oaicite:3]{index=3}
+          </li>
+          <li>
+            <strong>Entscheidungshilfe:</strong> Nutze die Checkliste &amp; das Scoring-Framework
+            (unten), um Workloads Cloud-, On-Prem- oder Hybrid-geeignet zuzuordnen – inkl. Exit-,
+            Lock-in- und Egress-Bewertung.
           </li>
         </ul>
       </aside>
 
-      {/* ===== Inhaltsverzeichnis ===== */}
-      {/* Vorlage aus "Inhaltsverzeichnis.txt" verwendet und befüllt. :contentReference[oaicite:5]{index=5} */}
+      {/* ToC */}
+      {/* ToC */}
       <nav
         aria-label="Inhaltsverzeichnis"
         className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
@@ -209,38 +150,38 @@ export default function Page() {
         <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
         <ol className="list-decimal ml-5 space-y-2">
           <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#definitionen">
-              1. Was bedeuten Cloud, On-Premise &amp; Hybrid?
+            <a className={`hover:underline ${accent} font-medium`} href="#einordnung-2025">
+              1. Einordnung 2025: Problem &amp; Lösung in 120 Sekunden
+            </a>
+          </li>
+          <li>
+            <a className={`hover:underline ${accent} font-medium`} href="#grundlagen">
+              2. Grundlagen: Was ist Cloud, On-Prem &amp; Hybrid?
             </a>
           </li>
           <li>
             <a className={`hover:underline ${accent} font-medium`} href="#kosten">
-              2. Kosten &amp; TCO: CapEx vs. OpEx, FinOps &amp; Effizienz
+              3. Kosten &amp; TCO: CapEx vs. OpEx, FinOps &amp; Praxisformeln
             </a>
           </li>
           <li>
             <a className={`hover:underline ${accent} font-medium`} href="#sicherheit">
-              3. Sicherheit &amp; Compliance: ISO&nbsp;27001, BSI&nbsp;C5, DSGVO
+              4. Sicherheit, Resilienz &amp; Compliance (DSGVO)
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#betrieb">
-              4. Betrieb, Verfügbarkeit &amp; Performance
+            <a className={`hover:underline ${accent} font-medium`} href="#flexibilitaet">
+              5. Flexibilität, Performance &amp; Lock-in
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#use-cases">
-              5. Typische Use-Cases &amp; Entscheidungsmatrix
+            <a className={`hover:underline ${accent} font-medium`} href="#hybrid-praxis">
+              6. Hybrid in der Praxis: Wann lohnt es sich?
             </a>
           </li>
           <li>
             <a className={`hover:underline ${accent} font-medium`} href="#checkliste">
-              6. Checkliste: So triffst du die richtige Wahl
-            </a>
-          </li>
-          <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#fahrplan">
-              7. Fahrplan: In 5 Schritten zur passenden Architektur
+              7. Checkliste &amp; Scoring-Framework (Download-fähig)
             </a>
           </li>
           <li>
@@ -248,480 +189,379 @@ export default function Page() {
               8. FAQ
             </a>
           </li>
-          <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#zusammenfassung">
-              9. Kurzfazit
-            </a>
-          </li>
         </ol>
       </nav>
 
-      {/* ===== Hauptteil ===== */}
-      <section id="definitionen">
+      {/* Hauptteil */}
+      <section id="einordnung-2025">
         <h2 className="text-2xl font-bold mb-3">
-          Was bedeuten Cloud, On-Premise &amp; Hybrid?
+          Einordnung 2025: Problem &amp; Lösung in 120 Sekunden
         </h2>
-        <div className="text-zinc-700">
-          <p>
-            <strong>Cloud</strong> bezeichnet ein Bereitstellungsmodell, in dem
-            Rechenleistung, Speicher und Dienste über das Internet{" "}
-            on-demand bezogen werden und sich dynamisch skalieren lassen
-            (Charakteristika: On-Demand-Self-Service, Broad Network Access,
-            Resource Pooling, Rapid Elasticity, Measured Service). Diese
-            Definition ist durch NIST SP&nbsp;800-145 etabliert. :contentReference[oaicite:6]{index=6}
-          </p>
-          <p>
-            <strong>On-Premise</strong> (On-Prem) heißt: Deine Systeme laufen in
-            deinen eigenen Räumen oder in einem von dir kontrollierten
-            Rechenzentrum. Du trägst die volle Kontrolle – aber auch die volle
-            Verantwortung für Hardware, Patches, Redundanz und physische
-            Sicherheit.
-          </p>
-          <p>
-            <strong>Hybrid</strong> kombiniert beides: Du betreibst sensible oder
-            latenzkritische Workloads On-Premise und nutzt Cloud für variable
-            Lastspitzen, Backup/DR oder analytische Workloads.
-          </p>
-
-          {/* Bild 1 (Unsplash) */}
-          {/* Vorlage aus "Bild.txt" adaptiert & befüllt. :contentReference[oaicite:7]{index=7} */}
-          <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
-            <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
-              <picture>
-                <source
-                  media="(max-width: 640px)"
-                  srcSet="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop"
-                />
-                <img
-                  loading="lazy"
-                  src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop"
-                  alt="Symbolbild: Cloud-Icons über Rechenzentrumsracks"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              </picture>
-            </div>
-            <figcaption className="text-sm text-zinc-600">
-              Cloud ist ein <em>Betriebsmodell</em>, kein einzelnes Produkt – die
-              NIST-Definition hilft bei sauberer Einordnung. :contentReference[oaicite:8]{index=8}
-            </figcaption>
-          </figure>
-        </div>
-
-        {/* Expertenzitat */}
-        {/* Vorlage aus "{_* Expertenzitat *_}.txt" verwendet und befüllt. :contentReference[oaicite:9]{index=9} */}
-        <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
-          <blockquote className="text-lg font-medium">
-            „Die Frage ist selten <em>Cloud oder On-Premise</em>, sondern{' '}
-            <em>welcher Workload</em> profitiert wo – gemessen an Risiko,
-            Flexibilität und Total Cost of Ownership.“
-          </blockquote>
-          <figcaption className="mt-2 text-sm text-zinc-600">
-            — Leitmotiv aus Praxisprojekten &amp; NIST-Abgrenzung, indirektes
-            Zitat (eigene Zusammenfassung nach NIST SP&nbsp;800-145). :contentReference[oaicite:10]{index=10}
-          </figcaption>
-        </figure>
+        <p className="leading-relaxed">
+          2025 wächst die Cloud weiter rasant: Analysten erwarten rund 723 Mrd. US-$ an
+          Endkundenausgaben – getrieben von KI-Workloads und schnellerer Time-to-Value. Gleichzeitig
+          hadern viele Unternehmen mit Cloud-Kosten, wenn Governance und FinOps fehlen. Die Folge:
+          Verschwendung, Schatten-IT und verschleierte Verantwortlichkeiten. Die Lösung ist kein
+          dogmatisches „Cloud-only“, sondern ein workload-basierter Ansatz, der Cloud, On-Prem und
+          Hybrid gegeneinander abwägt – mit klaren Entscheidungsregeln, Messdaten und einem
+          belastbaren Exit-Plan. :contentReference[oaicite:4]{index=4}
+        </p>
       </section>
 
-      <section id="kosten">
+      <section id="grundlagen" className="mt-10">
         <h2 className="text-2xl font-bold mb-3">
-          Kosten &amp; TCO: CapEx vs. OpEx, FinOps &amp; Effizienz
+          Grundlagen: Was ist Cloud, On-Prem &amp; Hybrid?
         </h2>
-        <p className="text-zinc-700">
-          In der Cloud verschiebst du Ausgaben von <strong>CapEx</strong> (Kauf
-          von Hardware &amp; Lizenzen) zu <strong>OpEx</strong> (nutzerbasierte
-          laufende Kosten) – das verbessert Liquidität und senkt Eintrittshürden,
-          verlangt aber aktive Steuerung (FinOps). Studien zeigen, dass das
-          <strong> Management von Cloud-Kosten</strong> zu den größten
-          Herausforderungen gehört. :contentReference[oaicite:11]{index=11}
-        </p>
-
-        {/* 2:1 Grid – Kostenfaktoren */}
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
-          <div className="rounded-xl border border-zinc-200 p-4 md:col-span-2">
-            <h3 className="font-semibold mb-2">
-              TCO-Treiber (Cloud) – worauf es ankommt
-            </h3>
-            <ul className="list-disc ml-5 space-y-1 text-sm text-zinc-700">
-              <li>Nutzungsprofile (CPU/RAM/IO), Reservierungen/Commitments</li>
-              <li>Storage-Klassen &amp; Datenabflüsse (Egress)</li>
-              <li>Architekturentscheidungen (Serverless vs. VM, Managed DB)</li>
-              <li>Automatisierung, Abschaltung außerhalb der Nutzungszeiten</li>
-              <li>FinOps-Praxis (Kontingente, Budgets, Unit Economics)</li>
-            </ul>
-          </div>
-          <aside className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
-            <h4 className="font-semibold mb-1">Kennzahl im Blick</h4>
-            <p className="text-sm text-zinc-700">
-              Multi-Cloud ist verbreitet (z. B. ~89 % laut Flexera 2024), was
-              FinOps &amp; Governance-Tooling wichtiger macht. :contentReference[oaicite:12]{index=12}
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="md:col-span-2 space-y-4">
+            <h3 className="text-lg font-semibold">Knackige Definitionen</h3>
+            <p>
+              <strong>Cloud Computing</strong> ist laut NIST ein Modell für allgegenwärtigen,
+              bedarfsgerechten Zugriff auf einen geteilten Pool konfigurierbarer Ressourcen, die
+              schnell bereitgestellt und wieder freigegeben werden können. Die Definition beschreibt
+              wesentliche Merkmale (z. B. On-Demand-Self-Service, Elastizität), Service-Modelle
+              (IaaS, PaaS, SaaS) und Bereitstellungsmodelle (Public, Private, Hybrid). :contentReference[oaicite:5]{index=5}
             </p>
+            <p>
+              <strong>On-Premises</strong> bedeutet, dass Hardware, Software und Daten im eigenen
+              Rechenzentrum betrieben werden – maximale Hoheit, dafür Verpflichtung für Betrieb,
+              Patching, Monitoring und Kapazitätsplanung.
+            </p>
+            <p>
+              <strong>Hybrid</strong> kombiniert On-Prem/Private-Cloud mit Public-Cloud-Ressourcen
+              und orchestriert Workloads zwischen den Welten – etwa per VPN, Direct Connect oder
+              SD-WAN. So lassen sich Kontrolle und Skalierung verbinden. :contentReference[oaicite:6]{index=6}
+            </p>
+          </div>
+
+          {/* Infobox */}
+          <aside className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
+            <h4 className="font-semibold mb-2">Primäre Keywords</h4>
+            <ul className="list-disc ml-5 text-sm">
+              <li>Cloud vs. On-Premise</li>
+              <li>Hybrid Cloud</li>
+              <li>Kostenvergleich Cloud On-Prem</li>
+              <li>Sicherheit Cloud vs. On-Prem</li>
+              <li>TCO Cloud</li>
+            </ul>
+            <h4 className="font-semibold mt-4 mb-2">Sekundäre Keywords</h4>
+            <ul className="list-disc ml-5 text-sm">
+              <li>CapEx vs. OpEx</li>
+              <li>DSGVO/Datensouveränität</li>
+              <li>FinOps</li>
+              <li>Vendor Lock-in &amp; Egress</li>
+              <li>Disaster Recovery &amp; SLA</li>
+            </ul>
           </aside>
         </div>
+      </section>
 
-        {/* Vergleichstabelle */}
-        <div className="mt-6 rounded-2xl border border-zinc-200 overflow-hidden">
+      <section id="kosten" className="mt-10">
+        <h2 className="text-2xl font-bold mb-3">
+          Kosten &amp; TCO: CapEx vs. OpEx, FinOps &amp; Praxisformeln
+        </h2>
+        <p>
+          Der Kernunterschied: On-Prem ist CapEx-lastig (Anschaffung, Abschreibung, Vorhaltekapazität),
+          Cloud ist OpEx-getrieben (nutzer- bzw. verbrauchsabhängig). In der Cloud profitierst du von
+          Elastizität – zahlst aber für Egress, Managed Services und ggf. Premium-SLAs. Für belastbare
+          Business-Cases arbeite mit konkreten Nutzungsprofilen (CPU-Stunden, Speicher-GB, I/O,
+          Datenabflüsse), nicht mit Prozent-Daumenregeln. Nutze offizielle Preis-/TCO-Tools als
+          Startpunkt. :contentReference[oaicite:7]{index=7}
+        </p>
+
+        {/* Gegenüberstellung als Tabelle */}
+        <div className="rounded-2xl border border-zinc-200 overflow-hidden mt-6">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
-                <th className="text-left font-semibold p-3 w-44">Aspekt</th>
+                <th className="text-left font-semibold p-3 w-48">Kriterium</th>
                 <th className="text-left font-semibold p-3">Cloud</th>
-                <th className="text-left font-semibold p-3">On-Premise</th>
+                <th className="text-left font-semibold p-3">On-Prem</th>
                 <th className="text-left font-semibold p-3">Hybrid</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium">Invest</td>
-                <td className="p-3">
-                  OpEx, keine großen Vorabkosten, pay-as-you-go
-                </td>
-                <td className="p-3">CapEx (Hardware, Lizenzen, Ausbau)</td>
-                <td className="p-3">Gemischt (CapEx + OpEx)</td>
-              </tr>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium">Betrieb</td>
-                <td className="p-3">
-                  Provider übernimmt Teile (Hardware, Patches für Managed
-                  Services), du managst Nutzung &amp; Architektur (FinOps)
-                </td>
-                <td className="p-3">
-                  Du verantwortest alles (Energie, Racks, Patching, Monitoring)
-                </td>
-                <td className="p-3">Aufteilung je Workload</td>
-              </tr>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium">Kostenrisiken</td>
-                <td className="p-3">
-                  Volatilität ohne Governance (z. B. ungenutzte Ressourcen);
-                  Reservierungen/Commitments &amp; Rightsizing wichtig
-                </td>
-                <td className="p-3">
-                  Abschreibung stabil; Risiko technischer
-                  Veralterung/Auslastung
-                </td>
-                <td className="p-3">Koordinationsaufwand</td>
-              </tr>
+              {[
+                [
+                  "Investitionsstruktur",
+                  "OpEx (Pay-as-you-go, Reservierungen, Savings-Plans)",
+                  "CapEx (Hardware, Lizenzen) + laufende OpEx",
+                  "Mix (gezielte CapEx + elastische OpEx)",
+                ],
+                [
+                  "Auslastungsrisiko",
+                  "Gering (elastisch, aber Risiko bei falscher Dimensionierung)",
+                  "Hoch (Über-/Unterprovisionierung)",
+                  "Mittel (Dämpfung durch Workload-Platzierung)",
+                ],
+                [
+                  "Planbarkeit",
+                  "Schwankend (Nutzung, Egress, Preismodelle)",
+                  "Hoch (fixe Assets, klar kalkulierbar)",
+                  "Mittel (Governance nötig)",
+                ],
+                [
+                  "Optimierung",
+                  "FinOps, Rightsizing, Reservierungen, Autoscaling",
+                  "Konsolidierung, Virtualisierung, Lifecycle-Mgmt.",
+                  "Policy-basierte Platzierung, Cloud Bursting",
+                ],
+                [
+                  "Kostenfallen",
+                  "Egress, überdimensionierte Instanzen, Zombie-Ressourcen",
+                  "Überkapazität, Wartungsstaus, Ersatzteil-Engpässe",
+                  "Doppelte Pfadkosten, komplexe Governance",
+                ],
+              ].map((row) => (
+                <tr className="border-t border-zinc-200" key={row[0]}>
+                  <td className="p-3 font-medium text-zinc-900">{row[0]}</td>
+                  <td className="p-3 text-zinc-700">{row[1]}</td>
+                  <td className="p-3 text-zinc-700">{row[2]}</td>
+                  <td className="p-3 text-zinc-700">{row[3]}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
 
-        <p className="mt-4 text-sm text-zinc-600">
-          Tipp: Viele Teams priorisieren 2024/25 das <em>Reduzieren von
-          Verschwendung</em> und das <em>Managen von Commitments</em> (Reservierungen) –
-          zentrale Hebel in FinOps-Programmen. :contentReference[oaicite:13]{index=13}
-        </p>
-      </section>
-
-      <section id="sicherheit">
-        <h2 className="text-2xl font-bold mb-3">
-          Sicherheit &amp; Compliance: ISO&nbsp;27001, BSI&nbsp;C5, DSGVO &amp; Transfers
-        </h2>
-        <p className="text-zinc-700">
-          Unabhängig vom Betriebsmodell gilt: Informationssicherheit ist ein
-          Prozess. <strong>ISO/IEC&nbsp;27001</strong> definiert Anforderungen an
-          ein Informationssicherheits-Managementsystem (ISMS) – ein sinnvoller
-          Referenzrahmen sowohl für Cloud als auch On-Premise. :contentReference[oaicite:14]{index=14}
-        </p>
-        <p className="text-zinc-700">
-          Wenn du Public Cloud nutzt und insbesondere in Deutschland tätig bist,
-          prüfe zusätzlich <strong>BSI&nbsp;C5</strong> – einen Katalog mit
-          Mindestanforderungen an Cloud-Sicherheit, den viele Provider erfüllen
-          (Attestierungen einsehen). :contentReference[oaicite:15]{index=15}
-        </p>
-        <p className="text-zinc-700">
-          Für personenbezogene Daten außerhalb des EWR sind seit{" "}
-          <strong>Schrems II</strong> die Empfehlungen des EDPB relevant (u. a.
-          6-Schritte-Vorgehen, ggf. zusätzliche technische/vertragliche
-          Maßnahmen wie Verschlüsselung, Pseudonymisierung). :contentReference[oaicite:16]{index=16}
-        </p>
-
-        {/* Infobox */}
-        <aside className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-          <h3 className="font-semibold mb-2">Shared-Responsibility kurz erklärt</h3>
-          <p className="text-sm text-zinc-700">
-            In der Cloud verantwortet der Provider Sicherheit <em>des</em>{" "}
-            Cloud-Stacks (z. B. Rechenzentrum, Hypervisor). Du verantwortest
-            Sicherheit <em>in</em> der Cloud (Identitäten, Konfigurationen,
-            Daten, Anwendungen). On-Premise trägst du beides.
-          </p>
-        </aside>
-      </section>
-
-      <section id="betrieb">
-        <h2 className="text-2xl font-bold mb-3">
-          Betrieb, Verfügbarkeit &amp; Performance
-        </h2>
-        <p className="text-zinc-700">
-          Hyperscaler geben klare <strong>SLAs</strong> ab – etwa für Amazon
-          EC2: 99,99 % regionale Verfügbarkeit bei Multi-AZ-Betrieb. Das
-          reduziert Betriebsrisiken, ersetzt aber nicht echtes
-          <em> Reliability-Engineering</em> (Multi-AZ/Region, Chaos-Tests,
-          Wiederanlaufpläne). :contentReference[oaicite:17]{index=17}
-        </p>
-
-        {/* Bild 2 (Unsplash) */}
-        {/* Vorlage aus "Bild.txt" adaptiert & befüllt. :contentReference[oaicite:18]{index=18} */}
+        {/* Bild 1 – volle Breite, 16:6 */}
         <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
           <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
             <picture>
-              <source
-                media="(max-width: 640px)"
-                srcSet="https://images.unsplash.com/photo-1573167243872-43c6433b9d40?q=80&w=1200&auto=format&fit=crop"
-              />
+              <source media="(max-width: 640px)" srcSet={`${inlineImg}&w=1200`} />
               <img
                 loading="lazy"
-                src="https://images.unsplash.com/photo-1573167243872-43c6433b9d40?q=80&w=1600&auto=format&fit=crop"
-                alt="SRE-Team beobachtet Dashboards zur Verfügbarkeit von Diensten"
+                src={inlineImg}
+                alt={inlineImgAlt}
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </picture>
           </div>
           <figcaption className="text-sm text-zinc-600">
-            SLA ≠ Verfügbarkeit im <em>eigenen</em> System – Architektur und
-            Betriebsprozesse entscheiden.
+            Kosten realistisch einschätzen: Nutzungsmuster &amp; Preismodelle bestimmen die TCO – nicht
+            Pauschalwerte.
           </figcaption>
         </figure>
 
-        {/* 2:1 Grid – Gegenüberstellung */}
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
-          <div className="rounded-xl border border-zinc-200 p-4">
-            <h3 className="font-semibold mb-1">Cloud – Stärken</h3>
-            <ul className="list-disc ml-5 text-sm text-zinc-700 space-y-1">
-              <li>Schnelle Bereitstellung, globale Reichweite</li>
-              <li>Elastische Skalierung, viele Managed Services</li>
-              <li>Disaster-Recovery &amp; Backup als Service</li>
-            </ul>
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          <div className="md:col-span-2 space-y-3">
+            <h3 className="text-lg font-semibold">Praxisformeln (vereinfachte Heuristiken)</h3>
+            <div className="rounded-xl border border-zinc-200 bg-white p-4 text-sm">
+              <p className="mb-2">
+                <strong>Cloud-Compute (Monat):</strong> vCPU-Stunden × Preis/vCPU-Std + RAM-GB-Std ×
+                Preis/GB-Std + Managed-Service-Gebühren ± Reservierungsrabatte
+              </p>
+              <p className="mb-2">
+                <strong>Cloud-Storage (Monat):</strong> belegte TB × Speicherpreis/TB + Anfragen +
+                <span className="font-medium"> Egress-GB × Egress-Preis</span>
+              </p>
+              <p className="mb-2">
+                <strong>On-Prem (Monat):</strong> (CapEx + Installationskosten) / Nutzungsdauer in
+                Monaten + Energie + Kühlung + Fläche + Personal + Wartung + Lizenzen
+              </p>
+              <p className="mb-0">
+                <strong>Hybrid:</strong> Obiges anteilig nach Workload-Platzierung (Policy-basiert).
+              </p>
+            </div>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-4">
-            <h3 className="font-semibold mb-1">On-Premise – Stärken</h3>
-            <ul className="list-disc ml-5 text-sm text-zinc-700 space-y-1">
-              <li>Maximale Kontrolle &amp; Customization</li>
-              <li>Planbare Latenz im lokalen Netz</li>
-              <li>Datenhoheit &amp; Edge-Fähigkeit</li>
-            </ul>
+          <aside className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm">
+            <h4 className="font-semibold mb-1">Tipp</h4>
+            <p>
+              Erstelle dein Basisszenario mit offiziellen Kalkulatoren (z. B. AWS Pricing
+              Calculator) und messe anschließend echte Nutzungsdaten, um Abweichungen zu schließen. :contentReference[oaicite:8]{index=8}
+            </p>
+          </aside>
+        </div>
+
+        {/* Expertenzitat */}
+        {/* Expertenzitat */}
+        <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+          <blockquote className="text-lg font-medium">
+            „FinOps gehört in die Pipeline, nicht in die Excel-Nachschau: Policies und Budgets als
+            Code verhindern Kostenüberraschungen und schaffen Verantwortlichkeit bereits im
+            Design.“
+          </blockquote>
+          <figcaption className="mt-2 text-sm text-zinc-600">
+            — Zusammenfassung aktueller FinOps-Best-Practices (indirektes Zitat nach McKinsey). :contentReference[oaicite:9]{index=9}
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="sicherheit" className="mt-10">
+        <h2 className="text-2xl font-bold mb-3">
+          Sicherheit, Resilienz &amp; Compliance (DSGVO)
+        </h2>
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="md:col-span-2 space-y-4">
+            <p>
+              Cloud-Provider investieren massiv in Security-Kontrollen, Zertifizierungen und
+              Incident-Response. Dennoch bleibt Sicherheit <em>geteilt</em>: Der Provider sichert das
+              Fundament, du sicherst Konfiguration, Identitäten, Daten und Workloads (Shared
+              Responsibility). On-Prem bedeutet maximale Gestaltungshoheit, jedoch auch
+              Ressourcenbedarf für 24/7-Betrieb, Patch-Zyklen und Red-Team-Übungen.
+            </p>
+            <p>
+              Die europäische Bedrohungslage bleibt anspruchsvoll; Resilienz, Monitoring und
+              Wiederanlaufzeiten sind entscheidend. Nutze Immutable Backups, Netzwerksegmentierung
+              und regelmäßige Recovery-Drills – unabhängig vom Betriebsmodell. :contentReference[oaicite:10]{index=10}
+            </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-4">
-            <h3 className="font-semibold mb-1">Hybrid – Stärken</h3>
-            <ul className="list-disc ml-5 text-sm text-zinc-700 space-y-1">
-              <li>„Best of both worlds“ je Workload</li>
-              <li>Schrittweise Modernisierung, geringeres Migrationsrisiko</li>
-              <li>Bursting &amp; saisonale Lasten in die Cloud</li>
+          <aside className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 text-sm">
+            <h4 className="font-semibold mb-1">Compliance-Schnellcheck (EU/DSGVO)</h4>
+            <ul className="list-disc ml-5 space-y-1">
+              <li>Vertragliche Garantien zu Datenstandort &amp; Drittstaatentransfer</li>
+              <li>Protokollierte TOMs (Art. 32 DSGVO), Verschlüsselung at-rest/in-transit</li>
+              <li>Auftragsverarbeitung (Art. 28), Sub-Prozessoren &amp; Auditrechte</li>
+              <li>Exit-/Portabilitätsklauseln, Egress-Konditionen</li>
+              <li>Nachweisbare Wiederherstellungsziele (RPO/RTO)</li>
             </ul>
-          </div>
+          </aside>
         </div>
       </section>
 
-      <section id="use-cases">
+      <section id="flexibilitaet" className="mt-10">
         <h2 className="text-2xl font-bold mb-3">
-          Typische Use-Cases &amp; Entscheidungsmatrix
+          Flexibilität, Performance &amp; Lock-in
         </h2>
-
-        {/* Entscheidungsmatrix (vereinfacht) */}
-        <div className="rounded-2xl border border-zinc-200 overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-zinc-50">
-              <tr>
-                <th className="text-left font-semibold p-3 w-64">Workload</th>
-                <th className="text-left font-semibold p-3">Eignung Cloud</th>
-                <th className="text-left font-semibold p-3">
-                  Eignung On-Premise
-                </th>
-                <th className="text-left font-semibold p-3">Eignung Hybrid</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium">Web-/Mobile-Apps</td>
-                <td className="p-3">Sehr gut (global, elastisch)</td>
-                <td className="p-3">Selten nötig</td>
-                <td className="p-3">Hybrid für Daten-Nähe möglich</td>
-              </tr>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium">Datenanalyse/AI</td>
-                <td className="p-3">Sehr gut (Managed Stacks)</td>
-                <td className="p-3">Bei strengen Vorgaben</td>
-                <td className="p-3">Häufig (Daten On-Prem, Compute Cloud)</td>
-              </tr>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium">ERP/Legacy</td>
-                <td className="p-3">Möglich (Lift-and-Shift teuer)</td>
-                <td className="p-3">Oft sinnvoll (Lizenzen/Custom)</td>
-                <td className="p-3">Schrittweise Modernisierung</td>
-              </tr>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium">Edge/OT/IoT</td>
-                <td className="p-3">Cloud-Management, Lokallast</td>
-                <td className="p-3">Sehr gut (niedrige Latenz)</td>
-                <td className="p-3">Typisch (Edge + Cloud-Services)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p className="mt-3 text-sm text-zinc-600">
-          Hinweis: DaaS/VDI verlagert Desktop-Arbeitsplätze in die Cloud und wird
-          laut aktuellen Marktbeobachtungen zunehmend wirtschaftlich – dennoch
-          mit Blick auf Lizenzierung &amp; Lock-in sorgfältig planen. :contentReference[oaicite:19]{index=19}
+        <p>
+          Cloud liefert schnelle Bereitstellung, nahezu unbegrenzte Skalierung und Zugang zu
+          Plattformdiensten (Daten/AI/ML). On-Prem sichert deterministische Latenzen, lokale
+          Datenhaltung und volle Hardware-Kontrolle. Hybrid verbindet beides – über sichere
+          Netzwerkpfade (VPN, Direct, SD-WAN) und konsistente Management-Ebenen. :contentReference[oaicite:11]{index=11}
+        </p>
+        <p>
+          Achte auf Lock-in-Treiber (proprietäre APIs, proprietäre Datenbanken) und
+          <em> Egress-Kosten</em>. Architekturen mit offenen Standards, Containern und
+          Daten-Portabilität verringern Wechselbarrieren.
         </p>
       </section>
 
-      <section id="checkliste">
-        <h2 className="text-2xl font-bold mb-3">
-          Checkliste: So triffst du die richtige Wahl
-        </h2>
-        <ul className="list-disc ml-5 space-y-2 text-zinc-800">
-          <li>
-            <strong>Daten &amp; Recht:</strong> Welche Datenkategorien?{" "}
-            Drittlandtransfers? EDPB-Schritte umsetzen, ggf. Verschlüsselung mit
-            Schlüsselhoheit. :contentReference[oaicite:20]{index=20}
-          </li>
-          <li>
-            <strong>Security-Rahmen:</strong> Orientierst du dich an
-            ISO&nbsp;27001? Verlangst du BSI&nbsp;C5-Attestierung? :contentReference[oaicite:21]{index=21}
-          </li>
-          <li>
-            <strong>Leistung &amp; Latenz:</strong> Gibt es harte Latenz-/SLA-
-            Anforderungen? Multi-AZ/Region berücksichtigen. :contentReference[oaicite:22]{index=22}
-          </li>
-          <li>
-            <strong>Kostenprofil:</strong> Passt OpEx-Volatilität? Sind
-            Commitments/Reservierungen &amp; Budgets etabliert (FinOps)? :contentReference[oaicite:23]{index=23}
-          </li>
-          <li>
-            <strong>Skill-Set &amp; Tooling:</strong> IaC, Monitoring, Security
-            Posture, Backup/DR – Cloud-Betrieb ist <em>anders</em> als
-            Rechenzentrumsbetrieb.
-          </li>
-          <li>
-            <strong>Exit-Strategie:</strong> Wie vermeidest du Lock-in? Achte auf
-            offene Standards, Datenportabilität und ggf. Container-basierte
-            Deployments.
-          </li>
-        </ul>
+      <section id="hybrid-praxis" className="mt-10">
+        <h2 className="text-2xl font-bold mb-3">Hybrid in der Praxis: Wann lohnt es sich?</h2>
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="md:col-span-2 space-y-4">
+            <ul className="list-disc ml-5 space-y-2">
+              <li>
+                <strong>Regulierte Daten</strong> (Gesundheit, öffentlicher Sektor): Sensible Daten
+                verbleiben privat, Frontends/Analytics skalieren in der Public Cloud.
+              </li>
+              <li>
+                <strong>Latenzkritik</strong>: Edge/On-Prem nahe am Prozess, Trainings-/Batch-Jobs
+                in der Cloud.
+              </li>
+              <li>
+                <strong>Modernisierung ohne Big Bang</strong>: Altsysteme On-Prem weiterbetreiben,
+                neue Services cloud-nativ aufbauen (Strangler-Pattern).
+              </li>
+              <li>
+                <strong>Resilienz &amp; Ransomware</strong>: Immutable Snapshots + Offsite-Recovery
+                in der Cloud erhöhen die Wiederanlaufgeschwindigkeit.
+              </li>
+            </ul>
+          </div>
+          <aside className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm">
+            <h4 className="font-semibold mb-1">Daumenregel</h4>
+            <p>
+              Hybrid ist kein Selbstzweck. Es lohnt sich, wenn klare Anforderungen (Datenhoheit,
+              Latenz, Regulatorik) den Mehraufwand rechtfertigen und Governance/FinOps etabliert
+              sind.
+            </p>
+          </aside>
+        </div>
       </section>
 
-      <section id="fahrplan">
-        <h2 className="text-2xl font-bold mb-3">
-          Fahrplan: In 5 Schritten zur passenden Architektur
-        </h2>
-        <ol className="list-decimal ml-5 space-y-2 text-zinc-800">
-          <li>
-            <strong>Workload-Inventur &amp; Klassifizierung:</strong> Geschäfts-
-            kritikalität, Datenarten, Latenz-/SLA-Bedarf.
-          </li>
-          <li>
-            <strong>Architektur-Entwurf:</strong> Zielbild Cloud/On-Prem/Hybrid,
-            Identity-/Netzwerk-Design, Sicherheits-Kontrollen (ISMS).
-          </li>
-          <li>
-            <strong>FinOps-Setup:</strong> Budgets, Tagging-Standards,
-            Reservierungsstrategie, KPI/Unit Economics. :contentReference[oaicite:24]{index=24}
-          </li>
-          <li>
-            <strong>Pilot &amp; Migrationswellen:</strong> Automatisierung (IaC),
-            Observability, DR-Tests, Kostenwächter.
-          </li>
-          <li>
-            <strong>Review &amp; Optimierung:</strong> Rightsizing, Commitment-
-            Management, Sicherheits-Audits (z. B. C5-Berichte, ISO-Kontrollen). :contentReference[oaicite:25]{index=25}
-          </li>
-        </ol>
+      <section id="checkliste" className="mt-10">
+        <h2 className="text-2xl font-bold mb-3">Checkliste &amp; Scoring-Framework</h2>
 
-        {/* Weiterführende interne Links */}
-        {/* Vorlage aus "{_* Weiterführende interne Links (Cluster) *_}.txt" verwendet und befüllt. :contentReference[oaicite:26]{index=26} */}
-        <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-          <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
-          <ul className="list-disc ml-5 text-sm space-y-2">
-            <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/finops-einfuehrung"
-              >
-                FinOps einführen: Budgets, Commitments &amp; Showback
-              </a>
-            </li>
-            <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/zero-trust-im-unternehmen"
-              >
-                Zero Trust im Unternehmen: Von Theorie zu Praxis
-              </a>
-            </li>
-            <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/checkliste-dsgvo-datenuebermittlung"
-              >
-                Checkliste: DSGVO-konforme Datenübermittlung in Drittländer
-              </a>
-            </li>
-            <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/hybrid-architekturen"
-              >
-                Hybrid-Architekturen richtig planen
-              </a>
-            </li>
-          </ul>
-        </aside>
+        {/* 2:1 Grid */}
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="md:col-span-2 space-y-4">
+            <h3 className="text-lg font-semibold">A) Workload-Check (Score 0–5 je Kriterium)</h3>
+            <div className="rounded-xl border border-zinc-200 bg-white p-4 text-sm">
+              <ol className="list-decimal ml-5 space-y-1">
+                <li>Datensensibilität &amp; Regulatorik (DSGVO, Sektorgesetze)</li>
+                <li>Latenzfenster &amp; Bandbreitenbedarf (Edge, Standortnähe)</li>
+                <li>Lastprofil (Spitzen, Saisonalität, Wachstum/Unsicherheit)</li>
+                <li>Plattformabhängigkeit (proprietär vs. offen), Portabilität</li>
+                <li>Team-Reifegrad (Cloud-Ops/FinOps/SecOps-Kompetenzen)</li>
+                <li>Exit-Plan vorhanden (Daten-Export, Egress, Alternativen)</li>
+                <li>Budgetmodell (CapEx-Präferenz vs. OpEx-Steuerung)</li>
+              </ol>
+            </div>
+
+            <h3 className="text-lg font-semibold mt-6">B) Auswertung</h3>
+            <p className="text-sm">
+              Summiere Punkte für <em>Cloud-Treiber</em> (3–5 bei 2–6) vs. <em>On-Prem-Treiber</em>{" "}
+              (0–2 bei 1–3). Beispielhafte Schwellen:
+            </p>
+            <ul className="list-disc ml-5 text-sm">
+              <li>
+                <strong>Cloud</strong>: starke Volatilität, geringe Regulierung, Team mit Cloud-/FinOps-Reife
+              </li>
+              <li>
+                <strong>On-Prem</strong>: hochregulierte Daten, harte Latenz, stabile Auslastung
+              </li>
+              <li>
+                <strong>Hybrid</strong>: gemischte Anforderungen, Migrationspfad oder Exit-Reduktion
+              </li>
+            </ul>
+          </div>
+
+          <aside className="rounded-xl border border-zinc-200 bg-zinc-50 p-4 text-sm">
+            <h4 className="font-semibold mb-2">C) Tool-Hinweise</h4>
+            <p className="mb-2">
+              Kalkuliere die Basiskosten mit offiziellen Pricing-Tools und verankere
+              Kosten-Policies „as code“ (Budgets, Quotas, Tagging) im Delivery-Prozess. :contentReference[oaicite:12]{index=12}
+            </p>
+            <p className="mb-0">
+              Ohne frühe Governance droht Verschwendung – verankere FinOps in Architektur &amp;
+              Entwicklung (Shift-Left). :contentReference[oaicite:13]{index=13}
+            </p>
+          </aside>
+        </div>
       </section>
 
-      {/* ===== FAQ ===== */}
-      {/* Vorlage aus "FAQ.txt" verwendet und ausgebaut. :contentReference[oaicite:27]{index=27} */}
+      {/* FAQ */}
       <section id="faq" className="mt-14">
         <h2 className="text-2xl font-bold mb-4">FAQ</h2>
         <div className="space-y-6 text-zinc-700">
           <div>
-            <h3 className="font-semibold">
-              Ist Cloud grundsätzlich günstiger als On-Premise?
-            </h3>
+            <h3 className="font-semibold">Ist Cloud immer günstiger als On-Prem?</h3>
             <p>
-              Nicht automatisch. Cloud spart CapEx und beschleunigt Projekte,
-              kann aber ohne FinOps teurer werden (z. B. durch Über-Provisionierung
-              oder ausbleibende Abschaltungen). Budgetsteuerung und
-              Reservierungen sind entscheidend. :contentReference[oaicite:28]{index=28}
+              Nein. Cloud lohnt sich bei dynamischer Last und schneller Innovation. On-Prem ist im
+              Vorteil bei stabiler Auslastung, langer Nutzungsdauer und klarer Kapazitätsplanung.
+              Vollständige TCO-Vergleiche benötigen reale Nutzungsdaten und berücksichtigen Egress,
+              Plattformdienste sowie Personalaufwand. :contentReference[oaicite:14]{index=14}
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">
-              Welche Zertifizierungen sollte ich vom Cloud-Provider verlangen?
-            </h3>
+            <h3 className="font-semibold">Wie beeinflusst FinOps meine Entscheidung?</h3>
             <p>
-              Mindestens ISO/IEC&nbsp;27001 für das ISMS und – in Deutschland
-              häufig – eine BSI-C5-Attestierung. Beide Nachweise vereinfachen
-              Audits. :contentReference[oaicite:29]{index=29}
+              FinOps als Code (Budgets, Limits, Policies in CI/CD) verhindert Kostenentgleisungen
+              und beschleunigt Entscheidungen, weil Kosten eine Design-Dimension werden. :contentReference[oaicite:15]{index=15}
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">
-              Wie wirkt sich Schrems II auf meine Cloud-Wahl aus?
-            </h3>
+            <h3 className="font-semibold">Ist Hybrid nur eine Übergangslösung?</h3>
             <p>
-              Prüfe Datenflüsse in Drittländer und setze die EDPB-Empfehlungen
-              um (u. a. technische/organisatorische Zusatzmaßnahmen). Das gilt
-              unabhängig vom Hyperscaler. :contentReference[oaicite:30]{index=30}
+              Nicht zwingend. Für sensible Daten, Latenzanforderungen oder schrittweise
+              Modernisierung ist Hybrid ein dauerhaft tragfähiges Zielbild – sofern Governance und
+              Automatisierung stimmen. :contentReference[oaicite:16]{index=16}
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">
-              Welche Verfügbarkeiten kann ich erwarten?
-            </h3>
+            <h3 className="font-semibold">Welche Rolle spielt die aktuelle Bedrohungslage?</h3>
             <p>
-              Beispiel: AWS EC2 gibt 99,99 % Regional-SLA bei Multi-AZ an. Deine
-              End-to-End-Verfügbarkeit hängt jedoch von Architektur &amp; Betrieb
-              ab. :contentReference[oaicite:31]{index=31}
+              Die ENISA-Analysen zeigen eine anhaltend hohe Bedrohungslage. Resilienzmaßnahmen wie
+              Immutable Backups und regelmäßige Wiederherstellungsübungen sind Pflicht – unabhängig
+              vom Betriebsmodell. :contentReference[oaicite:17]{index=17}
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">
-              Wann ist Hybrid die beste Lösung?
-            </h3>
+            <h3 className="font-semibold">Gibt es eine allgemein „richtige“ Lösung?</h3>
             <p>
-              Wenn du gleichzeitig strenge Daten-/Latenzanforderungen bedienen
-              und Cloud-Skalierung nutzen willst (z. B. Analytics/AI in der
-              Cloud, Kernsysteme On-Prem).
+              Nein. „Richtig“ ist die Lösung, die deine Workloads, Risiken und Ziele bestmöglich
+              abbildet – gemessen an Kosten, Compliance, Performance und Exit-Fähigkeit.
             </p>
           </div>
         </div>
@@ -736,48 +576,47 @@ export default function Page() {
               mainEntity: [
                 {
                   "@type": "Question",
-                  name: "Ist Cloud grundsätzlich günstiger als On-Premise?",
+                  name: "Ist Cloud immer günstiger als On-Prem?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "Cloud spart CapEx und beschleunigt Projekte, kann aber ohne FinOps teurer werden. Governance, Reservierungen und Abschaltungen sind entscheidend.",
+                      "Nein. Cloud lohnt sich bei dynamischer Last und schneller Innovation. On-Prem ist im Vorteil bei stabiler Auslastung und klarer Kapazitätsplanung. TCO-Vergleiche benötigen reale Nutzungsdaten und berücksichtigen Egress, Plattformdienste sowie Personalaufwand.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name:
-                    "Welche Zertifizierungen sollte ich vom Cloud-Provider verlangen?",
+                  name: "Wie beeinflusst FinOps meine Entscheidung?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "ISO/IEC 27001 (ISMS) und BSI-C5-Attestierung sind verbreitete Nachweise für Cloud-Sicherheit und vereinfachen Audits in Deutschland.",
+                      "FinOps als Code (Budgets, Limits, Policies in CI/CD) verhindert Kostenentgleisungen und beschleunigt Entscheidungen, weil Kosten eine Design-Dimension werden.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "Wie wirkt sich Schrems II auf meine Cloud-Wahl aus?",
+                  name: "Ist Hybrid nur eine Übergangslösung?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "Prüfe Drittlandtransfers und setze die EDPB-Empfehlungen um (z. B. zusätzliche technische/vertragliche Maßnahmen).",
+                      "Nicht zwingend. Für sensible Daten, Latenzanforderungen oder schrittweise Modernisierung ist Hybrid ein dauerhaft tragfähiges Zielbild – sofern Governance und Automatisierung stimmen.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "Welche Verfügbarkeiten kann ich erwarten?",
+                  name: "Welche Rolle spielt die aktuelle Bedrohungslage?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "Beispiel AWS EC2: 99,99 % Region-SLA bei Multi-AZ. End-to-End-Verfügbarkeit hängt von Architektur und Betrieb ab.",
+                      "Die ENISA-Analysen zeigen eine anhaltend hohe Bedrohungslage. Resilienzmaßnahmen wie Immutable Backups und regelmäßige Wiederherstellungsübungen sind Pflicht – unabhängig vom Betriebsmodell.",
                   },
                 },
                 {
                   "@type": "Question",
-                  name: "Wann ist Hybrid die beste Lösung?",
+                  name: "Gibt es eine allgemein „richtige“ Lösung?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "Wenn du strenge Daten-/Latenzanforderungen mit Cloud-Skalierung verbinden willst, etwa Analytics in der Cloud bei verbleibenden Kernsystemen On-Prem.",
+                      "Nein. „Richtig“ ist die Lösung, die Workloads, Risiken und Ziele bestmöglich abbildet – gemessen an Kosten, Compliance, Performance und Exit-Fähigkeit.",
                   },
                 },
               ],
@@ -786,33 +625,28 @@ export default function Page() {
         />
       </section>
 
-      {/* ===== Zusammenfassung ===== */}
-      {/* Vorlage aus "Summary.txt" verwendet und befüllt. :contentReference[oaicite:32]{index=32} */}
+      {/* Zusammenfassung */}
+      {/* Summary */}
       <section id="zusammenfassung" className="mt-14">
         <h2 className="text-2xl font-bold mb-3">Kurzfazit</h2>
         <p className="leading-relaxed">
-          <strong>
-            Cloud vs. On-Premise – welche Lösung passt zu deinem Unternehmen?
-          </strong>{" "}
-          Entscheide <em>workload-basiert</em>: Nutze Cloud, wenn Skalierung,
-          Time-to-Market und globale Reichweite zählen; bleibe On-Premise, wenn
-          maximale Kontrolle, niedrige Latenz und klare Datenhoheit im Fokus
-          stehen. Hybrid verbindet beides – sinnvoll, wenn du Risiken
-          reduzieren, Kosten steuern und Modernisierung schrittweise angehen
-          willst.
+          <strong>Welche Lösung ist die richtige?</strong> Die Antwort ist workload-spezifisch:
+          Cloud, On-Prem und Hybrid sind Werkzeuge in deinem Architektur-Baukasten. Nutze die
+          Checkliste, ermittle TCO mit echten Nutzungsdaten und verankere FinOps &amp; Security
+          by-design – dann triffst du eine belastbare Entscheidung und behältst die Kosten im Griff.
         </p>
       </section>
 
-      {/* ===== CTA ===== */}
-      {/* Vorlage aus "Call to Action.txt" verwendet und befüllt. :contentReference[oaicite:33]{index=33} */}
+      {/* CTA */}
+      {/* CTA */}
       <section aria-label="Kontakt" className="mt-14">
         <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
           <h2 className="text-xl font-bold mb-2">
-            Unklar, ob Cloud, On-Premise oder Hybrid für dich besser ist?
+            Unsicher, welche Architektur zu deinen Workloads passt?
           </h2>
           <p className="text-zinc-700 mb-4">
-            Sichere dir eine kostenlose Erstberatung – wir prüfen Workloads,
-            Kosten &amp; Compliance und geben eine klare Empfehlung.
+            Hol dir ein 30-Minuten-Sparring: Wir mappen deine Top-3-Workloads auf Cloud, On-Prem
+            oder Hybrid – inkl. grober TCO-Skizze &amp; Exit-Plan.
           </p>
 
           <form
@@ -859,8 +693,7 @@ export default function Page() {
             </a>
 
             <p id="cta-note" className="text-xs text-zinc-500">
-              Mit Absenden des Formulars akzeptierst du unsere
-              Datenschutzbedingungen.
+              Mit Absenden des Formulars akzeptierst du unsere Datenschutzbedingungen.
             </p>
           </form>
         </div>
@@ -871,11 +704,7 @@ export default function Page() {
           className="fixed inset-0 z-50 hidden items-center justify-center p-4 target:flex"
         >
           {/* Klick auf Overlay schließt wieder */}
-          <a
-            href="#"
-            className="absolute inset-0 bg-black/50"
-            aria-label="Overlay schließen"
-          />
+          <a href="#" className="absolute inset-0 bg-black/50" aria-label="Overlay schließen" />
 
           <div
             role="dialog"
@@ -896,8 +725,8 @@ export default function Page() {
               Hinweis
             </h3>
             <p className="text-zinc-800">
-              In diesem Beispiel-Blogartikel funktionieren die Links nicht.
-              Möchtest du solch ein Projekt auch für dein Angebot umsetzen?{" "}
+              In diesem Beispiel-Blogartikel funktionieren die Links nicht. Möchtest du solch ein
+              Projekt auch für dein Angebot umsetzen?{" "}
               <a
                 href="https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung?month=2025-08"
                 target="_blank"
@@ -912,12 +741,39 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== Mini-Glossar ===== */}
-      {/* Vorlage aus "Mini Glossar.txt" verwendet und befüllt. :contentReference[oaicite:34]{index=34} */}
+      {/* Weiterführende interne Links (Cluster) */}
+      <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+        <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
+        <ul className="list-disc ml-5 text-sm space-y-2">
+          <li>
+            <a className={`hover:underline ${accent}`} href="/blog/finops-einführen">
+              FinOps einführen: Budgets &amp; Policies als Code
+            </a>
+          </li>
+          <li>
+            <a className={`hover:underline ${accent}`} href="/blog/dsgvo-cloud-datenstandort">
+              DSGVO in der Cloud: Datenstandort, TOMs &amp; Audit
+            </a>
+          </li>
+          <li>
+            <a className={`hover:underline ${accent}`} href="/blog/hybrid-cloud-architektur">
+              Hybrid-Cloud-Architektur: Netzwerkpfade &amp; Orchestrierung
+            </a>
+          </li>
+          <li>
+            <a className={`hover:underline ${accent}`} href="/blog/exit-strategie-egress">
+              Exit-Strategie &amp; Egress-Kosten: So bleibst du beweglich
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      {/* Mini-Glossar */}
       <section className="mt-14 mb-20">
         <h2 className="text-2xl font-bold mb-3">
           Mini-Glossar – Die wichtigsten Begriffe zu Cloud vs. On-Premise
         </h2>
+
         <div className="rounded-2xl border border-zinc-200 overflow-hidden">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
@@ -927,57 +783,51 @@ export default function Page() {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium text-zinc-900">FinOps</td>
-                <td className="p-3 text-zinc-700">
-                  Praxis zur finanziellen Steuerung der Cloud – Budgets,
-                  Reservierungen, Metriken und Verantwortlichkeiten. :contentReference[oaicite:35]{index=35}
-                </td>
-              </tr>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium text-zinc-900">
-                  ISO/IEC&nbsp;27001
-                </td>
-                <td className="p-3 text-zinc-700">
-                  Internationaler Standard für Informationssicherheit (ISMS) –{" "}
-                  Anforderungen an Aufbau und kontinuierliche Verbesserung. :contentReference[oaicite:36]{index=36}
-                </td>
-              </tr>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium text-zinc-900">BSI&nbsp;C5</td>
-                <td className="p-3 text-zinc-700">
-                  Deutscher Kriterienkatalog mit Mindestanforderungen an
-                  Cloud-Sicherheit; häufige Attestierung bei Hyperscalern. :contentReference[oaicite:37]{index=37}
-                </td>
-              </tr>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium text-zinc-900">SLA</td>
-                <td className="p-3 text-zinc-700">
-                  Service Level Agreement – vertragliche Zusage (z. B.
-                  Verfügbarkeit); Beispiel EC2: 99,99 % regional bei Multi-AZ. :contentReference[oaicite:38]{index=38}
-                </td>
-              </tr>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium text-zinc-900">Hybrid-Cloud</td>
-                <td className="p-3 text-zinc-700">
-                  Kombination On-Premise + Cloud. Workloads werden je nach
-                  Anforderungen verteilt (z. B. Daten lokal, Compute in der
-                  Cloud).
-                </td>
-              </tr>
+              {[
+                [
+                  "Cloud Computing",
+                  "Bereitstellung von IT-Ressourcen (Compute, Storage, Dienste) als Service über das Netz – elastisch, self-service, nutzungsbasiert.",
+                ],
+                [
+                  "On-Premises",
+                  "Betrieb von IT-Systemen im eigenen Rechenzentrum mit voller Kontrolle – inklusive Verantwortung für Betrieb und Sicherheit.",
+                ],
+                [
+                  "Hybrid Cloud",
+                  "Kombination aus On-Prem/Private-Cloud und Public-Cloud mit orchestrierter Workload-Verteilung.",
+                ],
+                ["CapEx", "Investitionskosten (z. B. Hardware, Aufbau)."],
+                ["OpEx", "Laufende Betriebskosten (z. B. Nutzung, Lizenzen, Energie)."],
+                [
+                  "FinOps",
+                  "Praxis, Cloud-Kosten durch Transparenz, Verantwortlichkeit und Automatisierung (Policies as Code) zu steuern.",
+                ],
+                [
+                  "Vendor Lock-in",
+                  "Erschwerte Wechselbarkeit durch proprietäre Dienste, Datenformate oder hohe Egress-Gebühren.",
+                ],
+                [
+                  "Egress-Kosten",
+                  "Gebühren für ausgehenden Datenverkehr aus der Cloud – wichtig für TCO und Exit-Pläne.",
+                ],
+              ].map((row) => (
+                <tr className="border-t border-zinc-200" key={row[0]}>
+                  <td className="p-3 font-medium text-zinc-900">{row[0]}</td>
+                  <td className="p-3 text-zinc-700">{row[1]}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </section>
 
-      {/* ===== E-E-A-T ===== */}
-      {/* Vorlage aus "EEAT.txt" verwendet und befüllt. :contentReference[oaicite:39]{index=39} */}
+      {/* E-E-A-T */}
       <section className="mt-14">
         <h2 className="text-2xl font-bold mb-3">Über den Autor</h2>
         <div className="flex items-center gap-4">
           <img
             src={author.image}
-            alt="Autorin/Autor"
+            alt="Autor"
             className="w-16 h-16 rounded-full object-cover"
             loading="lazy"
           />
@@ -985,7 +835,7 @@ export default function Page() {
             <div className="font-semibold">{author.name}</div>
             <div className="text-sm text-zinc-700">{author.role}</div>
             <a
-              href={author.linkedin}
+              href="https://www.linkedin.com/in/lennart-schroeder"
               className={`text-sm hover:underline ${accent}`}
             >
               LinkedIn-Profil
@@ -996,10 +846,10 @@ export default function Page() {
         <div className="mt-4 flex items-center gap-3">
           <ArrowRight className={`w-4 h-4 ${accent}`} aria-hidden="true" />
           <p className="text-sm text-zinc-700">
-            Überprüft von: <strong>Maxine Kramer</strong> – CISO (Peer Review).
+            Überprüft von: <strong>Dr. Jana Keller</strong> – Principal Architect &amp; CISO-Advisor.{" "}
             <a
-              href="https://www.linkedin.com/"
-              className={`hover:underline ${accent} ml-2`}
+              href="https://www.linkedin.com/in/jana-keller"
+              className={`hover:underline ${accent}`}
             >
               LinkedIn
             </a>
@@ -1007,124 +857,148 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ===== Quellenverzeichnis ===== */}
-      {/* Vorlage aus "Quellenverzeichnis Code.txt" verwendet und befüllt. :contentReference[oaicite:40]{index=40} */}
+      {/* Quellenverzeichnis */}
       <section className="mt-14">
         <h2 className="text-2xl font-bold mb-3">Quellen &amp; weiterführende Studien</h2>
         <ul className="list-disc ml-5 space-y-2 text-sm">
           <li>
-            NIST SP 800-145: The NIST Definition of Cloud Computing.{" "}
+            NIST Special Publication 800-145 –{" "}
             <a
-              href="https://csrc.nist.gov/pubs/sp/800/145/final"
+              href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              className={accent}
             >
-              csrc.nist.gov
+              The NIST Definition of Cloud Computing
             </a>{" "}
-            :contentReference[oaicite:41]{index=41}
+            (abgerufen am 20.08.2025). :contentReference[oaicite:18]{index=18}
           </li>
           <li>
-            BSI: Kriterienkatalog C5.{" "}
+            CIO Dive (nach Gartner) –{" "}
             <a
-              href="https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Empfehlungen-nach-Angriffszielen/Cloud-Computing/Kriterienkatalog-C5/kriterienkatalog-c5_node.html"
+              href="https://www.ciodive.com/news/cloud-spend-growth-forecast-2025-gartner/733401/"
               target="_blank"
               rel="noopener noreferrer"
+              className={accent}
             >
-              bsi.bund.de
+              Global cloud spend to surpass $700B in 2025
             </a>{" "}
-            :contentReference[oaicite:42]{index=42}
+            (19.11.2024). :contentReference[oaicite:19]{index=19}
           </li>
           <li>
-            EDPB: Recommendations 01/2020 (final).{" "}
+            ENISA –{" "}
             <a
-              href="https://www.edpb.europa.eu/our-work-tools/our-documents/recommendations/recommendations-012020-measures-supplement-transfer_en"
+              href="https://www.enisa.europa.eu/publications/enisa-threat-landscape-2024"
               target="_blank"
               rel="noopener noreferrer"
+              className={accent}
             >
-              edpb.europa.eu
+              Threat Landscape 2024
             </a>{" "}
-            :contentReference[oaicite:43]{index=43}
+            (19.09.2024). :contentReference[oaicite:20]{index=20}
           </li>
           <li>
-            Flexera: State of the Cloud 2024/2025 – Multi-Cloud &amp;
-            Kostenthemen.{" "}
+            McKinsey –{" "}
             <a
-              href="https://www.flexera.com/blog/finops/cloud-computing-trends-flexera-2024-state-of-the-cloud-report/"
+              href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/everything-is-better-as-code-using-finops-to-manage-cloud-costs"
               target="_blank"
               rel="noopener noreferrer"
+              className={accent}
             >
-              flexera.com (2024)
-            </a>
-            ,{" "}
-            <a
-              href="https://www.flexera.com/about-us/press-center/new-flexera-report-finds-84-percent-of-organizations-struggle-to-manage-cloud-spend"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              flexera.com (2025)
+              Everything is better as code: Using FinOps to manage cloud costs
             </a>{" "}
-            :contentReference[oaicite:44]{index=44}
+            (03.02.2025). :contentReference[oaicite:21]{index=21}
           </li>
           <li>
-            AWS: Amazon EC2 SLA (Region-Level 99,99 % bei Multi-AZ).{" "}
+            AWS –{" "}
             <a
-              href="https://aws.amazon.com/compute/sla/"
+              href="https://docs.aws.amazon.com/pdfs/pricing-calculator/latest/userguide/aws-pc.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              className={accent}
             >
-              aws.amazon.com/compute/sla
+              Pricing Calculator – User Guide
             </a>{" "}
-            :contentReference[oaicite:45]{index=45}
+            (aktuelle Doku). :contentReference[oaicite:22]{index=22}
           </li>
           <li>
-            ISO/IEC 27001 Überblick.{" "}
+            TechRadar Pro –{" "}
             <a
-              href="https://www.iso.org/standard/27001"
+              href="https://www.techradar.com/pro/when-cloud-growth-outpaces-control-waste-follows"
               target="_blank"
               rel="noopener noreferrer"
+              className={accent}
             >
-              iso.org
+              When cloud growth outpaces control, waste follows
             </a>{" "}
-            :contentReference[oaicite:46]{index=46}
-          </li>
-          <li>
-            FinOps Foundation: Prioritäten 2024 (Waste &amp; Commitments).{" "}
-            <a
-              href="https://www.finops.org/insights/key-priorities-shift-in-2024/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              finops.org
-            </a>{" "}
-            :contentReference[oaicite:47]{index=47}
-          </li>
-          <li>
-            TechRadar Pro (Gartner-Bezug): DaaS-Kostenentwicklung &amp; Trends.{" "}
-            <a
-              href="https://www.techradar.com/pro/the-end-of-laptops-at-work-desktop-as-a-service-is-now-cheaper-and-easier-to-run-reports-claim"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              techradar.com
-            </a>{" "}
-            :contentReference[oaicite:48]{index=48}
+            (2025). :contentReference[oaicite:23]{index=23}
           </li>
         </ul>
       </section>
+
+      {/* Structured Data (Article + Company) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: title,
+            description,
+            inLanguage: "de",
+            image: hero,
+            datePublished: "2025-08-20",
+            dateModified: "2025-08-20",
+            author: { "@type": "Person", name: author.name },
+            publisher: {
+              "@type": "Organization",
+              name: "Beispiel GmbH",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://www.beispiel.de/logo.png",
+              },
+            },
+            mainEntityOfPage: canonical,
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Beispiel GmbH",
+            url: "https://www.beispiel.de",
+            sameAs: [
+              "https://www.linkedin.com/company/beispiel-gmbh",
+              "https://twitter.com/beispiel",
+            ],
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Musterstraße 1",
+              addressLocality: "Berlin",
+              postalCode: "10115",
+              addressCountry: "DE",
+            },
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                contactType: "sales",
+                telephone: "+49-30-000000",
+                email: "sales@beispiel.de",
+                areaServed: "DE",
+                availableLanguage: ["de", "en"],
+              },
+            ],
+          }),
+        }}
+      />
+
+      {/* Footer-Hinweis zu Bildquellen (Unsplash Lizenz) */}
+      <footer className="mt-10 text-xs text-zinc-500">
+        Bildquellen: Unsplash (Lizenz). Beispielbilder für Hero &amp; Inline-Grafik ausgewählt.
+      </footer>
     </article>
   );
 }
-
-/* 
-SEO-Hinweis & Keyword-Set (zur natürlichen Integration im Text):
-
-Primäre Keywords:
-- cloud vs on-premise, cloud vs on-prem, hybrid cloud, cloud kosten, tco cloud, finops
-
-Sekundäre Keywords:
-- capex vs opex, iso 27001, bsi c5, dsgvo, schrems ii, datenresidenz, vendor lock-in, sla 99,99 %, latency, disaster recovery, skalierbarkeit, elasticität
-
-Performance: 
-- Hero-Bild nicht lazy (LCP), alle weiteren Medien lazy, semantische Struktur (Article/Header/Section/Aside/Figure). 
-- Nur eine H1, konsistente H2/H3, ARIA-Labels für ToC/CTA, klare Kontraste durch Standard Tailwind.
-*/
