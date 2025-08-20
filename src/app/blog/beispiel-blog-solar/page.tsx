@@ -814,9 +814,10 @@ export default function Page() {
           <li>
             KfW – Photovoltaik für Unternehmen & Programm 270 (Förderkredite, Konditionen).
           </li>
-          <li>
-            BMWK – Solarpaket I (u. a. +1,5 ct/kWh für >40 kW Dachanlagen; Entbürokratisierung).
-          </li>
+         <li>
+  BMWK – Solarpaket I (u. a. +1,5 ct/kWh für &gt;40 kW Dachanlagen; Entbürokratisierung).
+</li>
+
           <li>
             Fraunhofer ISE – LCOE-Studie & Presseinfo (PV/PV+Speicher vs. konventionell).
           </li>
