@@ -300,72 +300,51 @@ export default function Article() {
       >
         {/* Header */}
         <header className="mb-10">
-          <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
-            {title}
-          </h1>
-          <p className="mt-3 text-lg text-zinc-700">
-            Cloud, On-Premises oder Hybrid? Dieser praxisnahe Leitfaden zeigt dir, wie du
-            Kosten, Risiko, Compliance und Geschwindigkeit so ausbalancierst, dass die
-            Architektur zu deinen Zielen passt.
-          </p>
+  <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
+    Platzhalter für Blogtitel
+  </h1>
+  <p className="mt-3 text-lg text-zinc-700">
+    Platzhalter für Sub-Headline, ein bis zwei Sätze, was in dem Artikel zu erwarten ist
+  </p>
 
-         {/* Hero 16:6 */}
-<figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
-  <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
-    <picture>
-      <source media="(max-width: 640px)" srcSet="/Cloud.png" />
-      <img
-        loading="lazy"
-        src="/Cloud.png"
-        alt="Rechenzentrumsracks und moderne Cloud-Symbolik – Hybrid illustriert"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-    </picture>
+  {/* Hero 16:6 */}
+  <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+    <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
+      <picture>
+        <source media="(max-width: 640px)" srcSet="/Cloud.png" />
+        <img
+          loading="lazy"
+          src="/Platzhalter.png"
+          alt="Platzhalter"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
+    </div>
+    <figcaption className="sr-only">
+      Platzhalter für Bildunterschrift
+    </figcaption>
+  </figure>
+
+  {/* Meta row – einfacher dargestellt */}
+  <div className="mt-6 flex items-center gap-3 text-sm text-zinc-700">
+    <img
+      src={author.image}
+      alt="Autor:in"
+      className="w-10 h-10 rounded-full object-cover"
+      loading="lazy"
+    />
+    <div>
+      <div className="font-medium text-zinc-900">{author.name}</div>
+      <div>{author.role}</div>
+      <div className="mt-1">
+        Zuletzt aktualisiert am{" "}
+        <time dateTime={new Date().toISOString()}>{updated}</time>
+        {" · "}Lesedauer: <span className="tabular-nums">{readingMinutes} Min</span>
+      </div>
+    </div>
   </div>
-  <figcaption className="sr-only">
-    Illustration eines Hybrid-Setups aus Cloud und eigenen Servern
-  </figcaption>
-</figure>
+</header>
 
-
-
-          {/* Meta row – better legibility */}
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-zinc-700">
-            <div className="flex items-center gap-3">
-              <img
-                src={author.image}
-                alt="Autor:in"
-                className="w-10 h-10 rounded-full object-cover"
-                loading="lazy"
-              />
-              <div>
-                <div className="font-medium text-zinc-900">{author.name}</div>
-                <div>{author.role}</div>
-              </div>
-            </div>
-
-            <span className="hidden sm:inline" aria-hidden>
-              •
-            </span>
-
-            <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-200 rounded-full px-3 py-1">
-              <CalendarClock className="w-4 h-4 text-zinc-600" aria-hidden />
-              <div>
-                <span className="sr-only">Zuletzt aktualisiert am </span>
-                <time dateTime={new Date().toISOString()}>{updated}</time>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 bg-zinc-100 border border-zinc-200 rounded-full px-3 py-1">
-              <Timer className="w-4 h-4 text-zinc-600" aria-hidden />
-              <div>
-                Lesedauer: <span className="tabular-nums">{readingMinutes} Min</span>
-              </div>
-            </div>
-
-        
-          </div>
-        </header>
 
         {/* TL;DR */}
         <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
