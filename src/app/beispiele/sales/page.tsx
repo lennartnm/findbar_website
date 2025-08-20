@@ -1,121 +1,28 @@
-// src/app/blog/b2b-kunden-gewinnen-2025-mit-ki/page.tsx
+// src/app/blog/b2b-sales-vertrauen/page.tsx
 import Head from "next/head";
 import { ArrowRight } from "lucide-react";
 
-const accent = "text-emerald-700";
-
-const author = {
-  name: "Lena Schwarz",
-  role: "B2B Growth Strategin & AI Consultant",
-  url: "https://www.findbar.de/team/lena-schwarz",
-};
-
-const company = {
-  name: "findbar GmbH",
-  url: "https://www.findbar.de",
-  logo: "https://www.findbar.de/logo.svg",
-  sameAs: ["https://www.linkedin.com/company/findbar/"],
-};
-
-export default function ArticlePage() {
+export default function Page() {
+  const accent = "text-emerald-700";
+  const canonical = "https://example.com/blog/b2b-sales-vertrauen";
   const title =
-    "B2B Kunden gewinnen 2025 mit KI: Vertrauen aufbauen, bevor das erste Gespräch entsteht";
+    "B2B Sales & sinkendes Vertrauen: Wie du mit Vertrauensvorschuss schon vor dem Erstgespräch deine Closing-Rate steigerst";
   const description =
-    "So gewinnst du 2025 planbar B2B-Kunden mit KI – trotz Vertrauensverlust und härterem Cold Calling. Taktiken, Playbook, Tools & KPIs.";
-  const canonical =
-    "https://www.findbar.de/blog/b2b-kunden-gewinnen-2025-mit-ki";
+    "Warum Vertrauen im B2B-Vertrieb sinkt – und wie du mit systematischem Vertrauensvorschuss vor dem Erstgespräch mehr Termine konvertierst und mehr Deals schließt.";
+  const publishDate = "2025-08-20";
 
-  const faq = [
-    {
-      q: "Wie kann ich 2025 ohne große Budgets KI für B2B-Leadgenerierung nutzen?",
-      a: "Starte mit drei Bausteinen: (1) KI-gestützte Recherche & Account-Scoring, (2) personalisierte Snippets für Outreach und Landingpages, (3) Vertrauenssignale automatisiert sichtbar machen (Referenzen, Sicherheits- und ROI-Claims mit Quellen). Nutze bestehende Tools (CRM, MAP) und ergänze kleine KI-Utilities statt Big-Bang-Projekte.",
-    },
-    {
-      q: "Ist Cold Calling 2025 noch sinnvoll?",
-      a: "Ja – aber nur signalbasiert. Kaltanrufe ohne Relevanz werden abgeblockt. Kombiniere Intent-Signale, Warm-ups (Social, E-Mail) und eine Value-first-Eröffnung. KI hilft, das Timing, die Hypothese zum Pain und passende Proof Points vorab zu validieren.",
-    },
-    {
-      q: "Welche Kennzahlen zeigen, dass mein Vertrauensaufbau funktioniert?",
-      a: "Frühe Trust-KPIs wie Click-to-Meeting-Rate, Zeit bis Erstantwort, Anteil Leads mit „Problem-fit“-Score, Social Proof Views und Anzahl wiederkehrender Website-Besucher aus Zielaccounts. Später: Win-Rate, Sales-Cycle-Dauer pro Deal-Stufe und Churn-Risiko in der Onboarding-Phase.",
-    },
-    {
-      q: "Was sind die größten KI-Risiken im B2B-Vertrieb?",
-      a: "Halluzinationen und veraltete Infos, Compliance-Verstöße (Datenschutz, Urheberrecht), und ungewollte Einheitskommunikation. Gegenmaßnahmen: Human-in-the-Loop, Quellenpflicht, Guardrails (PII-Filter), Marken-Styleguide als Prompt-Basis und klare Approval-Workflows.",
-    },
-    {
-      q: "Wie baue ich vor dem ersten Call einen Vertrauensvorschuss auf?",
-      a: "Verknüpfe personalisierte Inhalte (Mikro-Landingpages), echte Proof Points (Fallstudien, Benchmarks) und Sicherheits-/Compliance-Statements. Verstärke das durch Social Validation (Testimonials, Experten-Zitate) und Pre-Call Assets wie ROI-Kalkulatoren oder Diagnose-Checklisten.",
-    },
-    {
-      q: "Welche Inhalte funktionieren 2025 für B2B-Käufer:innen besonders gut?",
-      a: "Konkrete, problemnahe Formate: Schritt-für-Schritt-Guides, interaktive ROI-Rechner, kurze Video-Demos, kompakte Vergleichstabellen (Ist vs. Soll), sowie branchenspezifische Playbooks mit Daten und klaren Next Steps.",
-    },
-  ];
-
-  // Build FAQ JSON-LD
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faq.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
+  const author = {
+    name: "Lennart Schulze",
+    role: "B2B Growth Strategist",
+    image: "/autor-lennart.webp",
+    linkedin: "https://www.linkedin.com/in/lennart-schulze/",
   };
 
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: title,
-    description,
-    inLanguage: "de",
-    mainEntityOfPage: canonical,
-    author: {
-      "@type": "Person",
-      name: author.name,
-      url: author.url,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: company.name,
-      url: company.url,
-      logo: {
-        "@type": "ImageObject",
-        url: company.logo,
-      },
-    },
-    image: [
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=60",
-    ],
-    datePublished: "2025-08-20",
-    dateModified: "2025-08-20",
+  const publisher = {
+    name: "Findbar – B2B Growth Studio",
+    url: "https://example.com",
+    logo: "https://example.com/logo.svg",
   };
-
-  const organizationJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: company.name,
-    url: company.url,
-    logo: company.logo,
-    sameAs: company.sameAs,
-  };
-
-  const toc = [
-    { id: "einordnung-2025", label: "Warum 2025 anders ist" },
-    { id: "b2b-kaufprozess", label: "Was hat sich im B2B-Kaufprozess verändert?" },
-    { id: "vertrauenskrise", label: "Vertrauenskrise: Daten & Konsequenzen" },
-    { id: "vertrauensvorschuss", label: "Warum du einen Vertrauensvorschuss brauchst" },
-    { id: "ki-vertrauen", label: "Mit KI Vertrauen aufbauen – vor dem ersten Gespräch" },
-    { id: "cold-calling-2025", label: "Cold Calling 2025: Schwieriger, aber smarter" },
-    { id: "playbook-30-tage", label: "Playbook: 30-Tage KI-Outbound-Plan" },
-    { id: "toolstack", label: "Tool-Stack & Daten" },
-    { id: "messgroessen", label: "KPIs & Benchmarks für Vertrauen" },
-    { id: "fehler", label: "Typische Fehler & Governance" },
-    { id: "faq", label: "FAQ" },
-  ];
 
   return (
     <>
@@ -125,38 +32,70 @@ export default function ArticlePage() {
         <link rel="canonical" href={canonical} />
         <meta name="robots" content="index, follow" />
 
-        {/* Open Graph */}
+        {/* Open Graph / Twitter */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta
           property="og:image"
-          content="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=60"
+          content="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop"
         />
         <meta property="og:url" content={canonical} />
-        <meta property="og:site_name" content={company.name} />
-
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta
           name="twitter:image"
-          content="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=60"
+          content="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop"
         />
 
-        {/* Structured Data */}
+        {/* Article Schema.org */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+          // no self-closing script in React
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: title,
+              description,
+              inLanguage: "de",
+              author: {
+                "@type": "Person",
+                name: author.name,
+                url: author.linkedin,
+              },
+              datePublished: publishDate,
+              dateModified: publishDate,
+              image:
+                "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop",
+              publisher: {
+                "@type": "Organization",
+                name: publisher.name,
+                url: publisher.url,
+                logo: {
+                  "@type": "ImageObject",
+                  url: publisher.logo,
+                },
+              },
+              mainEntityOfPage: canonical,
+            }),
+          }}
         ></script>
+
+        {/* Company / Organization Schema.org */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        ></script>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: publisher.name,
+              url: publisher.url,
+              logo: publisher.logo,
+              sameAs: [author.linkedin],
+            }),
+          }}
         ></script>
       </Head>
 
@@ -170,20 +109,23 @@ export default function ArticlePage() {
         {/* Header */}
         <header className="mb-10">
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
-            B2B Kunden gewinnen im Jahr 2025 mit Hilfe von KI: Vertrauen vor dem
-            ersten Gespräch
+            B2B Sales &amp; sinkendes Vertrauen: Vertrauensvorschuss vor dem
+            Erstgespräch als Growth-Hebel
           </h1>
           <p className="mt-3 text-lg text-zinc-700">
-            Der Wettbewerb um Aufmerksamkeit ist explodiert, Cold Calling wird
-            härter – und gleichzeitig erwarten Entscheider:innen{" "}
-            <strong>klare Beweise für Wert</strong>, noch bevor sie mit Sales
-            sprechen. Hier zeige ich dir, wie du mit KI 2025 planbar Pipeline
-            aufbaust und einen <strong>Vertrauensvorschuss</strong> schaffst.
+            Käufer:innen sind skeptischer denn je. In diesem Leitfaden zeige ich
+            dir, wie du noch vor dem ersten Call einen{" "}
+            <strong>systematischen Vertrauensvorschuss</strong> aufbaust – mit
+            Thought Leadership, Social Proof, Warm Intros, einem{" "}
+            <em>Digital Sales Room</em> und einem <em>Mutual Action Plan</em> –
+            damit mehr Erstgespräche stattfinden und deine Closing-Rate sichtbar
+            steigt.
           </p>
 
           {/* Datum & Lesedauer separat in eigener Zeile (statisch) */}
           <div className="mt-2 text-sm text-zinc-600">
-            Zuletzt aktualisiert am <time dateTime="2025-08-20">20.08.2025</time>
+            Zuletzt aktualisiert am{" "}
+            <time dateTime="2025-08-20">20.08.2025</time>
             {" · "}Lesedauer:{" "}
             <span className="tabular-nums">10 Minuten</span>
           </div>
@@ -194,24 +136,26 @@ export default function ArticlePage() {
               <picture>
                 <source
                   media="(max-width: 640px)"
-                  srcSet="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=60"
+                  srcSet="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop"
                 />
                 <img
-                  loading="lazy"
-                  src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=60"
-                  alt="Strategieboard mit Datenpunkten und KI-Visualisierung – B2B-Pipeline planen"
+                  loading="eager"
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop"
+                  alt="Handshake zwischen zwei Geschäftspartnern als Symbol für Vertrauen im B2B-Vertrieb"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               </picture>
             </div>
-            <figcaption className="sr-only">KI als Vertrauensbooster im B2B</figcaption>
+            <figcaption className="sr-only">
+              Vertrauen ist die Währung des B2B-Vertriebs
+            </figcaption>
           </figure>
 
           {/* Meta row – Autor */}
           <div className="mt-6 flex items-center gap-3 text-sm text-zinc-700">
             <img
-              src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=128&q=60"
-              alt="Autorin"
+              src="/autor-lennart.webp"
+              alt="Autor: Lennart Schulze"
               className="w-10 h-10 rounded-full object-cover"
               loading="lazy"
             />
@@ -224,31 +168,39 @@ export default function ArticlePage() {
 
         {/* TL;DR */}
         <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-          <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
+          <h2 className="text-lg font-semibold mb-3">
+            Das Wichtigste auf einen Blick
+          </h2>
           <ul className="list-disc ml-5 space-y-2 text-zinc-800">
             <li>
-              <strong>Vertrauenslücke schließen:</strong> Käufer:innen verlangen
-              Beweise (ROI, Sicherheit, Peer-Stimmen) <em>vor</em> dem Erstgespräch. KI
-              hilft, diese Trust-Signale skalierbar zu liefern.
+              <strong>Sinkendes Vertrauen</strong>: B2B-Buyer bevorzugen
+              selbstgesteuerte Recherche und sind risikoaverser – Vertrauen muss{" "}
+              <em>vor</em> dem Erstgespräch sichtbar gemacht werden (z. B. mit
+              Thought Leadership, glaubwürdigen Referenzen, klaren
+              Erwartungen).
             </li>
             <li>
-              <strong>Cold Calling ist härter – aber smarter:</strong> Ohne Relevanz
-              keine Chance. Nutze Intent-Signale, Warm-ups und personalisierte{" "}
-              {'>'}30-Sekunden-Hypothesen statt generischer Pitches.
+              <strong>Vertrauensvorschuss</strong> heißt: Du reduzierst
+              wahrgenommenes Risiko, lieferst Kontext &amp; Beweise und
+              signalisierst Fairness –{" "}
+              <span className="font-medium">bevor</span> ihr miteinander
+              sprecht.
             </li>
             <li>
-              <strong>AI-first Outbound:</strong> Account-Scoring, Content-Snippets,
-              Mikro-Landingpages und Proof-Aggregation verkürzen den Sales-Cycle und
-              erhöhen die Win-Rate.
+              <strong>Die 7 Bausteine</strong>: Brand &amp; Thought Leadership,
+              Social Proof, Warm Introductions, Digital Sales Room, Mutual
+              Action Plan, Risiko-Paket (Security/Compliance), klare Agenda.
             </li>
             <li>
-              <strong>Governance schlägt Gimmicks:</strong> Quellenpflicht, PII-Filter,
-              Human-in-the-Loop und Marken-Guidelines sind Pflicht – sonst kippt
-              Vertrauen.
+              <strong>Sofort umsetzbar</strong>: Sende vorab ein kurzes
+              Kontext-Video, einen passenden Case mit Zahlen, eine
+              Erwartungs-Agenda und einen MAP-Teaser. Erscheine als Trusted
+              Advisor – nicht als Pitcher.
             </li>
             <li>
-              <strong>30-Tage-Plan inklusive:</strong> Tägliche Sprints und KPIs, um
-              sichtbare Ergebnisse in einem Monat zu erreichen.
+              <strong>Messung</strong>: Meeting-Show-Up-Rate, Vorab-Engagement
+              (DSR-Views), Zeit bis „MAP akzeptiert“, Opportunity-Win-Rate,
+              Cycle-Time.
             </li>
           </ul>
         </aside>
@@ -260,279 +212,342 @@ export default function ArticlePage() {
         >
           <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
           <ol className="list-decimal ml-5 space-y-2">
-            {toc.map((t) => (
-              <li key={t.id}>
-                <a className={`hover:underline ${accent} font-medium`} href={`#${t.id}`}>
-                  {t.label}
-                </a>
-              </li>
-            ))}
+            <li>
+              <a
+                className={`hover:underline ${accent} font-medium`}
+                href="#problem-trust"
+              >
+                Warum Vertrauen im B2B-Sales sinkt – und was das für dich
+                bedeutet
+              </a>
+            </li>
+            <li>
+              <a
+                className={`hover:underline ${accent} font-medium`}
+                href="#vertrauensvorschuss"
+              >
+                Was ist „Vertrauensvorschuss“ – und wie funktioniert er?
+              </a>
+            </li>
+            <li>
+              <a
+                className={`hover:underline ${accent} font-medium`}
+                href="#bausteine"
+              >
+                Die 7 Bausteine für Vertrauen vor dem Erstgespräch
+              </a>
+            </li>
+            <li>
+              <a
+                className={`hover:underline ${accent} font-medium`}
+                href="#playbooks"
+              >
+                Playbooks: Outbound, Inbound, RFP – Schritt-für-Schritt
+              </a>
+            </li>
+            <li>
+              <a
+                className={`hover:underline ${accent} font-medium`}
+                href="#metriken"
+              >
+                Metriken: So misst du den Effekt auf die Closing-Rate
+              </a>
+            </li>
+            <li>
+              <a
+                className={`hover:underline ${accent} font-medium`}
+                href="#roadmap"
+              >
+                30-Tage-Roadmap zur Umsetzung
+              </a>
+            </li>
+            <li>
+              <a
+                className={`hover:underline ${accent} font-medium`}
+                href="#fehler"
+              >
+                Häufige Fehler &amp; wie du sie vermeidest
+              </a>
+            </li>
           </ol>
         </nav>
 
         {/* Hauptteil */}
-        <section id="einordnung-2025">
-          <h2>Warum 2025 anders ist</h2>
-          <p>
-            2025 ist das Jahr, in dem sich B2B-Vertrieb und -Marketing endgültig{" "}
-            <strong>AI-first</strong> ausrichten – nicht, weil KI „cool“ ist, sondern
-            weil Käufer:innen in einem <em>Signalrauschen</em> aus Angeboten,
-            Preisoptionen und Sicherheitsfragen <strong>klare Beweise</strong> für Wert
-            verlangen. Studien zeigen, dass <em>Business-Entscheider:innen</em>{" "}
-            Vertrauen verlieren und nur Anbietern Zeit schenken, die{" "}
-            <strong>vorab Substanz</strong> liefern: konkrete Ergebnisse, belastbare
-            Quellen, Risiko-Reduktion und nachvollziehbare Datenschutz-Praktiken.
+        <section id="problem-trust">
+          <h2 className="text-2xl font-bold">
+            Warum sinkt Vertrauen – und was heißt das für deinen Sales-Prozess?
+          </h2>
+          <p className="leading-relaxed">
+            B2B-Kaufgruppen recherchieren heute überwiegend selbst, vergleichen
+            Anbieter anonym und treffen intern „defensive“ Safe-Choice-Entscheidungen.
+            Analystenberichte und Thought Leadership prägen dabei den ersten
+            Eindruck – nicht dein Pitch. Studien zeigen, dass viele B2B-Buyer
+            eine <em>rep-freie</em> Erfahrung bevorzugen, rein digitale Käufe
+            aber deutlich öfter zu <strong>Kaufreue</strong> führen. Das heißt:
+            Menschen wollen Selbstständigkeit <em>und</em> Sicherheit – beides
+            lieferst du durch <strong>frühen Vertrauensaufbau</strong> vor dem
+            Erstgespräch. (Quelle: Edelman Trust Barometer 2024; Gartner B2B
+            Buying Report; Forrester Business Trust)
           </p>
 
-          <div className="mt-6 rounded-2xl border border-zinc-200 p-5 bg-white">
-            <h3 className="font-semibold mb-2">
-              Problem → Lösung in 30 Sekunden (Above-the-Fold-Formel)
-            </h3>
-            <ul className="list-disc ml-5">
-              <li>
-                <strong>Problem:</strong> Geringe Antwortquoten, zähe Ersttermine,
-                interne Skepsis.
-              </li>
-              <li>
-                <strong>Ursache:</strong> Vertrauensdefizit und wachsende
-                Entscheidungsabwägungen; Buyers bevorzugen selbstbestimmte Recherche.
-              </li>
-              <li>
-                <strong>Lösung:</strong> KI-gestützter Trust-Funnel mit
-                personalisierten Hypothesen, Social Proof, Sicherheits- und ROI-Belegen
-                – <em>vor</em> dem Call.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="b2b-kaufprozess" className="mt-14">
-          <h2>Was hat sich im B2B-Kaufprozess verändert?</h2>
-          <p>
-            B2B-Kaufentscheidungen verlaufen fragmentiert, digital und
-            mehrstimmig: Buying-Groups recherchieren selbst, vergleichen Optionen,
-            prüfen Sicherheit und Budgetwirkung – häufig ohne direkten Kontakt zum
-            Vertrieb. Mehrere Branchenreports berichten 2025 von einer{" "}
-            <strong>klaren Präferenz für rep-freie oder hybrid-digitale Journeys</strong>,
-            während Supplier-Outreach ohne Relevanz aktiv gemieden wird. Gleichzeitig
-            steigt die Erwartung an <strong>nachweisbaren ROI</strong> und{" "}
-            <strong>Datensouveränität</strong>.
-          </p>
-
-          <div className="mt-6 grid md:grid-cols-3 gap-4">
-            <div className="rounded-xl border border-zinc-200 p-4">
-              <h3 className="font-semibold text-zinc-900">Selbstrecherche</h3>
-              <p className="text-zinc-700">
-                Große Teile der Bewertungsphase passieren ohne Vendor-Kontakt. Deine
-                Inhalte müssen <em>vor</em> dem Gespräch überzeugen.
-              </p>
-            </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
-              <h3 className="font-semibold text-zinc-900">Mehr Stakeholder</h3>
-              <p className="text-zinc-700">
-                Sicherheit, IT-Fit, Legal und Finanzen prägen die Entscheidung stärker
-                – Trust-Signale müssen funktionsübergreifend wirken.
-              </p>
-            </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
-              <h3 className="font-semibold text-zinc-900">Proof oder Pause</h3>
-              <p className="text-zinc-700">
-                Ohne <em>Proof Points</em> (KPIs, Cases, Compliance) gewinnt das Risiko.
-                KI kann diese Belege massenhaft, aber präzise personalisieren.
-              </p>
+          <div className="mt-6 rounded-2xl border border-zinc-200 bg-white">
+            <div className="grid md:grid-cols-2 gap-0">
+              <div className="p-5 border-b md:border-b-0 md:border-r border-zinc-200">
+                <h3 className="font-semibold mb-1">
+                  Key Insight: Risiko dominiert
+                </h3>
+                <p className="text-zinc-700">
+                  In Forrester-Daten geben viele B2B-Kaufende an, aus
+                  Risikoaversion häufig die vermeintlich sicherste Option zu
+                  wählen. Dein Job: wahrgenommenes Risiko senken – schon <em>vor</em> dem Call.
+                </p>
+              </div>
+              <div className="p-5">
+                <h3 className="font-semibold mb-1">
+                  Key Insight: Hybrid gewinnt
+                </h3>
+                <p className="text-zinc-700">
+                  75 % bevorzugen rep-frei – doch rein digitale Käufe
+                  bereuen viele. Ein <strong>hybrider</strong> Prozess aus
+                  Self-Service + menschlicher Beratung schafft Vertrauen und
+                  bessere Entscheidungen.
+                </p>
+              </div>
             </div>
           </div>
-        </section>
 
-        <section id="vertrauenskrise" className="mt-14">
-          <h2>Vertrauenskrise: Daten & Konsequenzen</h2>
-          <p>
-            Global wächst die Skepsis gegenüber Führung und Institutionen – und damit
-            auch gegenüber Versprechen von Anbietern. Für B2B heißt das:{" "}
-            <strong>Belege schlagen Behauptungen</strong>. Unternehmen mit transparenter
-            Kommunikation, klaren Quellen und realistischen Outcome-Prognosen holen
-            schneller Ersttermine und senken No-Show-Raten. Deine Aufgabe ist es,
-            Vertrauen messbar zu machen und frühzeitig zu verdienen.
-          </p>
-
-          <div className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
-            <h3 className="font-semibold mb-2">Auswirkungen auf deinen Funnel</h3>
-            <ul className="list-disc ml-5">
-              <li>
-                <strong>Pre-Call Proof:</strong> Cases, Benchmarks, Sicherheits- und
-                Datenschutz-Infos sichtbar <em>vor</em> dem Erstkontakt.
-              </li>
-              <li>
-                <strong>Signalbasierte Priorisierung:</strong> Intent-Signale entscheiden
-                über Timing und Pitch – nicht Listenvolumen.
-              </li>
-              <li>
-                <strong>Transparente Roadmaps:</strong> klare Steps, Risiken und
-                Mitwirkung der Kundenseite reduzieren Friktion.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="vertrauensvorschuss" className="mt-14">
-          <h2>Warum du einen Vertrauensvorschuss brauchst</h2>
-          <p>
-            Im ersten Gespräch geht es 2025 weniger darum, „zu erklären, was du
-            tust“, sondern zu bestätigen, dass du <em>verstanden</em> hast,{" "}
-            <strong>was beim Gegenüber weh tut</strong> – und dass du für ähnliche
-            Kontexte <strong>nachweislich Ergebnisse</strong> geliefert hast. Ein
-            Vertrauensvorschuss verkürzt die Zeit bis zum Business Case, verbessert die
-            Datenqualität im CRM und erhöht die Bereitschaft, interne Champions zu
-            aktivieren. KI macht diesen Vorschuss skalierbar.
-          </p>
-        </section>
-
-        <section id="ki-vertrauen" className="mt-14">
-          <h2>Mit KI Vertrauen aufbauen – <em>vor</em> dem ersten Gespräch</h2>
-          <p>
-            Der Kern: KI verwandelt verstreute Signale in <strong>relevante
-            Hypothesen</strong>, übersetzt Proof Points in <strong>personalisierte
-            Assets</strong> und liefert diese zur richtigen Zeit an die richtigen
-            Rollen. So entsteht der Eindruck von „du kennst unsere Welt“ –{" "}
-            <em>bevor</em> du anrufst.
-          </p>
-
-          {/* Bild 1 */}
+          {/* Bild 1 – volle Breite, 16:6 */}
           <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
             <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
               <picture>
                 <source
                   media="(max-width: 640px)"
-                  srcSet="https://images.unsplash.com/photo-1538688423619-a81d3f23454b?auto=format&fit=crop&w=1200&q=60"
+                  srcSet="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1200&auto=format&fit=crop"
                 />
                 <img
                   loading="lazy"
-                  src="https://images.unsplash.com/photo-1538688423619-a81d3f23454b?auto=format&fit=crop&w=1600&q=60"
-                  alt="Team analysiert Intent-Signale und passt Outbound-Strategie an"
+                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1600&auto=format&fit=crop"
+                  alt="B2B-Team bei der Recherche – Selbstinformation vor dem ersten Sales-Call"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               </picture>
             </div>
             <figcaption className="text-sm text-zinc-600">
-              Intent, Proof, Personalisierung: Die drei Säulen des KI-gestützten
-              Vertrauensaufbaus.
-            </figcaption>
-          </figure>
-
-          {/* 2-zu-1 Grid */}
-          <div className="mt-8 grid md:grid-cols-3 gap-5">
-            <div className="md:col-span-2 rounded-2xl border border-zinc-200 p-5">
-              <h3 className="font-semibold mb-2">1) Intent & Priorisierung</h3>
-              <p>
-                Sammle Kaufsignale (Website-Besuche, Content-Downloads, Tech-Stack,
-                Hiring, News) und lass KI daraus Hypothesen bauen:{" "}
-                <em>Welcher Pain ist wahrscheinlich? Welche Rolle treibt das Thema?
-                Welche Barrieren existieren?</em> Scoring priorisiert Accounts, bei
-                denen Timing, Reifegrad und Fit stimmen.
-              </p>
-              <ul className="list-disc ml-5">
-                <li>Firmografien + Trigger (z. B. Funding, Standorteröffnungen)</li>
-                <li>Produktnutzung/Trials (bei PLG) + Support-Tickets</li>
-                <li>Technographien + Sicherheitsstandards der Branche</li>
-              </ul>
-            </div>
-            <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-              <h4 className="font-semibold mb-1">Quick Win</h4>
-              <p className="text-sm">
-                Accounts mit <em>3+</em> Signalen erhalten automatisch eine{" "}
-                <strong>Mikro-Landingpage</strong> mit Case-Snippet, Sicherheitsinfo und
-                Call-to-Action zu einem 20-Min-Value-Check.
-              </p>
-            </aside>
-          </div>
-
-          <div className="mt-6 grid md:grid-cols-3 gap-5">
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <h3 className="font-semibold mb-2">2) Proof-Aggregation</h3>
-              <p>
-                KI extrahiert aus Cases, Reviews und Benchmarks die{" "}
-                <strong>relevanten Kennzahlen</strong> (z. B. „−28 % Time-to-Quote“,
-                „+18 % Upsell-Rate“) und ordnet sie Branche, Use Case und Tool-Stack zu.
-                Ergebnis: präzise, prüfbare Belege statt generischer Slides.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <h3 className="font-semibold mb-2">3) Personal-Snippets</h3>
-              <p>
-                Für jede Rolle werden <strong>Snippets</strong> erzeugt (CFO: ROI in
-                Monaten; CISO: Zertifikate, Datenflüsse; Ops: Integrationen). Diese
-                Snippets landen in E-Mails, Social-Posts und auf der Mikro-Landingpage.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-zinc-200 p-5">
-              <h3 className="font-semibold mb-2">4) Safety & Compliance</h3>
-              <p>
-                Transparente Datenschutz-Darstellung (Auftragsverarbeitung,
-                Speicherorte, Retention), Audit-Spuren für KI-Outputs und
-                <strong> Human-Review</strong> sind Pflicht – Vertrauen kippt sonst
-                sofort.
-              </p>
-            </div>
-          </div>
-
-          {/* Expertenzitat */}
-          <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
-            <blockquote className="text-lg font-medium">
-              „Vertrauen entsteht, wenn Anbieter Relevanz beweisen, Risiken adressieren
-              und Outcomes transparent machen – <em>bevor</em> Sales spricht. KI skaliert
-              genau diese drei Effekte.“
-            </blockquote>
-            <figcaption className="mt-2 text-sm text-zinc-600">
-              — Gartner, 2025 (indirektes Zitat)
+              Die meisten Entscheidungen reifen, bevor du im Meeting bist – du
+              musst <strong>vorher</strong> Vertrauen sichtbar machen.
             </figcaption>
           </figure>
         </section>
 
-        <section id="cold-calling-2025" className="mt-14">
-          <h2>Cold Calling 2025: schwieriger – und gleichzeitig relevanter denn je</h2>
-          <p>
-            Kalte Outbound-Anrufe ohne Bezug laufen ins Leere. Rechtliche
-            Rahmenbedingungen und eine hohe Ablehnungshaltung verlangen{" "}
-            <strong>Legitimität, Relevanz und Timing</strong>. Der Weg aus der Falle:
-            KI-gestützte Signal-Selektion, Warm-Up-Sequenzen (Social/E-Mail) und eine
-            <em>30-Sekunden-Hypothese</em>, die sofort zeigt, warum es sich lohnt,
-            zuzuhören.
+        <section id="vertrauensvorschuss" className="mt-12">
+          <h2 className="text-2xl font-bold">
+            Was ist „Vertrauensvorschuss“ – und wie funktioniert er?
+          </h2>
+          <p className="leading-relaxed">
+            <strong>Vertrauensvorschuss</strong> bedeutet, dass die Käuferseite
+            dir <em>vor</em> eurem ersten Gespräch grundlegende Kompetenz,
+            Integrität und Fürsorge zutraut. Das erreichst du, indem du
+            <em>sichtbare Beweise</em> für Kompetenz, Zuverlässigkeit und
+            Fairness bereitstellst: echte Ergebnisse (Case Studies mit Zahlen),
+            unabhängige Bestätigungen (z. B. Analyst-Erwähnungen), ein klares
+            Erwartungsmanagement (Agenda, Zielbild) und <em>Signale der
+            Zusammenarbeit</em> (z. B. ein gemeinsamer Fahrplan als Mutual
+            Action Plan). So verschiebst du die Wahrnehmung vom „Vendor“ hin zum{" "}
+            <strong>Trusted Advisor</strong>.
           </p>
 
-          <div className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
-            <table className="w-full text-sm">
-              <thead className="bg-zinc-50">
-                <tr>
-                  <th className="text-left font-semibold p-3">Aspekt</th>
-                  <th className="text-left font-semibold p-3">Klassischer Outbound</th>
-                  <th className="text-left font-semibold p-3">KI-gestützter Outbound</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium">Zielauswahl</td>
-                  <td className="p-3">Große Listen, generische ICP-Filter</td>
-                  <td className="p-3">Intent-Signale, Buying-Stage, Priorisierung</td>
-                </tr>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium">Botschaft</td>
-                  <td className="p-3">Feature-Pitch</td>
-                  <td className="p-3">
-                    Rollenbasierte Hypothese + relevanter Proof Point (Case, Benchmark)
-                  </td>
-                </tr>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium">Timing</td>
-                  <td className="p-3">zufällig</td>
-                  <td className="p-3">Signale (Besuche, Jobs, News), beste Call-Fenster</td>
-                </tr>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium">Compliance</td>
-                  <td className="p-3">manuell, fehleranfällig</td>
-                  <td className="p-3">PII-Filter, Opt-Out-Sync, Audit-Trails</td>
-                </tr>
-              </tbody>
-            </table>
+          {/* Expertenzitat */}
+          <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+            <blockquote className="text-lg font-medium">
+              „Thought Leadership und klare Belege für Wirkung sind
+              Vertrauens-Abkürzungen. Wer sie vor dem Erstgespräch liefert,
+              wird eher zu relevanten Gesprächen eingeladen – und gewinnt
+              bevorzugt die Shortlist.“
+            </blockquote>
+            <figcaption className="mt-2 text-sm text-zinc-600">
+              — Zusammenfassung zentraler Befunde aus dem Edelman &amp;
+              LinkedIn B2B Thought Leadership Impact Report 2024
+              (indirektes Zitat)
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="bausteine" className="mt-12">
+          <h2 className="text-2xl font-bold">
+            Die 7 Bausteine für Vertrauen <span className="whitespace-nowrap">vor dem Erstgespräch</span>
+          </h2>
+
+          <div className="mt-6 space-y-8">
+            {/* 1 */}
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold text-lg">
+                1) Brand &amp; Thought Leadership: werde im Kopf gewählt
+              </h3>
+              <p className="text-zinc-700">
+                In vielen Märkten sind nur ~5 % der Zielgruppe gerade
+                kaufbereit. Brand-Building und <em>echtes</em> Thought
+                Leadership sorgen dafür, dass du im richtigen Moment
+                erinnert wirst – und dass man dir zutraut, komplexe Probleme zu
+                lösen. Nutze prägnante, problemfokussierte Artikel, kurze
+                Research-Snippets und datenbasierte POVs, die Kaufentscheidungen{" "}
+                <em>vorstrukturieren</em>.
+              </p>
+              <ul className="mt-3 list-disc ml-5 text-sm">
+                <li>Fokussiere Kernprobleme, nicht Produktfeatures.</li>
+                <li>
+                  Zeige methodische Exzellenz (Frameworks, Modelle, Benchmarks).
+                </li>
+                <li>
+                  Distribuiere über LinkedIn &amp; Newsletter – ohne Gating,
+                  wenn möglich.
+                </li>
+              </ul>
+            </div>
+
+            {/* 2 */}
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold text-lg">
+                2) Social Proof, der zählt: Beweise statt Behauptungen
+              </h3>
+              <div className="mt-3">
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="rounded-xl bg-zinc-50 p-4">
+                    <div className="text-sm font-medium">Case-KPIs</div>
+                    <div className="text-zinc-700 text-sm">
+                      „+38 % SQL-Rate in 90 Tagen“ – mit Methode, Kontext &
+                      baseline.
+                    </div>
+                  </div>
+                  <div className="rounded-xl bg-zinc-50 p-4">
+                    <div className="text-sm font-medium">3rd-Party-Trust</div>
+                    <div className="text-zinc-700 text-sm">
+                      Erwähnungen/Reports (Analysten), Zertifizierungen,
+                      Sicherheits-Badges – verlinkt, prüfbar.
+                    </div>
+                  </div>
+                  <div className="rounded-xl bg-zinc-50 p-4">
+                    <div className="text-sm font-medium">
+                      Stimmen aus der Praxis
+                    </div>
+                    <div className="text-zinc-700 text-sm">
+                      Video-Testimonials, Referenzkontakte (optional), Logos –
+                      <em>passend</em> zum Use Case der Person.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 3 */}
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold text-lg">
+                3) Warm Introductions vor Cold Outreach
+              </h3>
+              <p className="text-zinc-700">
+                Ein warmes Intro über gemeinsame Kontakte oder bestehende
+                Kund:innen überträgt <em>geliehenes Vertrauen</em>. Baue
+                dafür eine kleine Referral-Motion auf: kurze Intro-Vorlage,
+                Give-Get für Partner, klare ICP/Trigger-Events für relevante
+                Empfehlungen.
+              </p>
+              <div className="mt-3 rounded-xl border border-zinc-200 p-4 bg-white">
+                <div className="text-sm font-semibold mb-2">
+                  Mini-Vorlage für ein Intro-Snippet (zum Weiterleiten)
+                </div>
+                <pre className="whitespace-pre-wrap text-sm">
+                  {`Hey {Name}, wir arbeiten gerade mit {Firma X} daran, {Problem Y} zu lösen.
+In 12 Wochen haben wir {konkretes Ergebnis}. Ich denke, das passt auch zu {Firma Z}.
+Wärst du offen für ein kurzes Intro?`}
+                </pre>
+              </div>
+            </div>
+
+            {/* 4 */}
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold text-lg">
+                4) Digital Sales Room (DSR): dein „Trust Hub“ vor dem Call
+              </h3>
+              <p className="text-zinc-700">
+                Sammle alle relevanten Vertrauenssignale auf einer
+                personalisierten Microsite: 90-Sekunden-Video, Agenda,
+                Team-Bios (LinkedIn), 1–2 Cases, Sicherheits-One-Pager,
+                ROI/TCO-Kalkulator und ein{" "}
+                <em>MAP-Teaser</em> mit Meilensteinen bis zur
+                Entscheidung. So fühlt sich das Erstgespräch wie ein
+                <strong>Fortschritt</strong> an – nicht wie ein Risiko.
+              </p>
+            </div>
+
+            {/* 5 */}
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold text-lg">
+                5) Mutual Action Plan (MAP): gemeinsam Klarheit schaffen
+              </h3>
+              <p className="text-zinc-700">
+                Ein MAP ist ein gemeinsam gepflegter Fahrplan inklusive
+                Meilensteinen, Verantwortlichkeiten und Entscheidungs­kriterien.
+                Stelle ihn bereits <em>vor</em> dem Erstgespräch in Aussicht und
+                bringe eine einfache Vorlage mit. Das senkt Unsicherheit und
+                beschleunigt komplexe Deals.
+              </p>
+              <div className="mt-4 rounded-xl overflow-hidden border border-zinc-200">
+                <table className="w-full text-sm">
+                  <thead className="bg-zinc-50">
+                    <tr>
+                      <th className="text-left font-semibold p-2">Meilenstein</th>
+                      <th className="text-left font-semibold p-2">Owner</th>
+                      <th className="text-left font-semibold p-2">Fällig</th>
+                      <th className="text-left font-semibold p-2">Erfolgskriterium</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-t border-zinc-200">
+                      <td className="p-2">Problem-/Impact-Alignment</td>
+                      <td className="p-2">Buying Champion</td>
+                      <td className="p-2">KW 35</td>
+                      <td className="p-2">Gemeinsame Problemformulierung (1-Pager)</td>
+                    </tr>
+                    <tr className="border-t border-zinc-200">
+                      <td className="p-2">Value Case (ROI/TCO)</td>
+                      <td className="p-2">Vendor SE</td>
+                      <td className="p-2">KW 36</td>
+                      <td className="p-2">Bestätigte Annahmen &amp; Zahlen</td>
+                    </tr>
+                    <tr className="border-t border-zinc-200">
+                      <td className="p-2">Security/Legal Review</td>
+                      <td className="p-2">Procurement</td>
+                      <td className="p-2">KW 37</td>
+                      <td className="p-2">Checklist „grün“</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* 6 */}
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold text-lg">
+                6) Risiko reduzieren: Security, Compliance, Fairness
+              </h3>
+              <p className="text-zinc-700">
+                Schicke früh ein <em>Risiko-Paket</em>: Security-Factsheet,
+                Datenverarbeitung (DSGVO), Architektur-Skizze, klare
+                Offboarding-Regeln, Referenzen aus regulierten Branchen. Das
+                zeigt: Ihr habt nichts zu verstecken – und seid vorbereitet.
+              </p>
+            </div>
+
+            {/* 7 */}
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold text-lg">
+                7) Agenda &amp; Erwartungsmanagement: Transparenz schlägt Taktik
+              </h3>
+              <p className="text-zinc-700">
+                Versende vorab eine <strong>2-Punkte-Agenda</strong> (Ziel,
+                Entscheidungskriterien) plus Option auf „No-Pitch-Call“. So
+                fühlen sich Buyer ernst genommen und steigen leichter ein.
+              </p>
+            </div>
           </div>
 
           {/* Bild 2 */}
@@ -541,158 +556,205 @@ export default function ArticlePage() {
               <picture>
                 <source
                   media="(max-width: 640px)"
-                  srcSet="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=60"
+                  srcSet="https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=1200&auto=format&fit=crop"
                 />
                 <img
                   loading="lazy"
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=60"
-                  alt="Sales-Team telefoniert mit datenbasiertem Playbook am Bildschirm"
+                  src="https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=1600&auto=format&fit=crop"
+                  alt="Videocall: Vertrauensaufbau durch klare Agenda und offene Kommunikation"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               </picture>
             </div>
             <figcaption className="text-sm text-zinc-600">
-              Cold Calling lebt – wenn Relevanz, Timing und Proof stimmen.
+              Kurzes Kontext-Video + Agenda im Vorfeld senken Hürden und
+              erhöhen Show-Up-Rates.
             </figcaption>
           </figure>
+        </section>
 
-          <div className="mt-6 rounded-2xl border border-zinc-200 p-5">
-            <h3 className="font-semibold mb-2">Die 30-Sekunden-Hypothese</h3>
-            <p className="text-zinc-700">
-              „Wir sehen bei <strong>[Firma]</strong> {">"} <strong>[Signal]</strong> und
-              dass <strong>[Rolle]</strong> dadurch meist{" "}
-              <strong>[Pain + Metrik]</strong> spürt. In ähnlichen Setups hat{" "}
-              <strong>[Case]</strong> in <strong>[Zeit]</strong>{" "}
-              <strong>[Outcome]</strong> erreicht – ohne{" "}
-              <strong>[typische Hürde]</strong>. Macht es Sinn, das in 20 Min. zu
-              prüfen?“
+        <section id="playbooks" className="mt-12">
+          <h2 className="text-2xl font-bold">
+            Playbooks: So setzt du Vertrauensvorschuss in typischen Szenarien um
+          </h2>
+
+          <div className="mt-6 grid md:grid-cols-2 gap-6">
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold">A) Outbound (kalter Erstkontakt)</h3>
+              <ol className="list-decimal ml-5 text-zinc-700 space-y-1">
+                <li>Warm-Intro prüfen (Netzwerk, Kund:innen, Partner).</li>
+                <li>
+                  Kurz-Mail mit Problem-Hypothese, 1 Beweis (Case-Zahl),{" "}
+                  <em>30-Sek. Loom</em>, Link zum DSR-Snippet.
+                </li>
+                <li>No-Pitch-Option: „Sparring zur Problemvalidierung“.</li>
+                <li>Erstgespräch: 15 min Problem-Alignment, 10 min MAP-Teaser.</li>
+              </ol>
+            </div>
+
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold">
+                B) Inbound (Demo-Anfrage, mid-funnel)
+              </h3>
+              <ol className="list-decimal ml-5 text-zinc-700 space-y-1">
+                <li>Auto-Reply mit Agenda-Vorschlag &amp; DSR-Link.</li>
+                <li>
+                  Passende Case Study + ROI-Mini-Rechner (3 Inputs, 1 Output).
+                </li>
+                <li>Team-Bios (LinkedIn), Security-One-Pager.</li>
+                <li>Im Erstcall gemeinsam MAP skizzieren und festhalten.</li>
+              </ol>
+            </div>
+
+            <div className="rounded-2xl border border-zinc-200 p-5 md:col-span-2">
+              <h3 className="font-semibold">C) RFP / Ausschreibung</h3>
+              <ul className="list-disc ml-5 text-zinc-700 space-y-1">
+                <li>
+                  Vorab „<strong>Decision-Brief</strong>“: Klarheit zu Kriterien,
+                  Risiken, Erfolgsmessung.
+                </li>
+                <li>
+                  Interaktive <strong>Evidence-Library</strong> (Zertifikate,
+                  Reports, Referenzen) im DSR.
+                </li>
+                <li>
+                  Senior-Sponsor früh sichtbar machen (Executive Alignment).
+                </li>
+                <li>MAP als Anhang: Meilensteine bis Go-Live.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+            <h3 className="font-semibold mb-1">Warm Intro vs. Cold Outreach</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-emerald-100">
+                  <tr>
+                    <th className="text-left font-semibold p-2">Aspekt</th>
+                    <th className="text-left font-semibold p-2">Warm Intro</th>
+                    <th className="text-left font-semibold p-2">Cold Outreach</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-t border-emerald-200">
+                    <td className="p-2">Vertrauen zu Beginn</td>
+                    <td className="p-2">geliehen &amp; hoch</td>
+                    <td className="p-2">null bis gering</td>
+                  </tr>
+                  <tr className="border-t border-emerald-200">
+                    <td className="p-2">Relevanz-Wahrnehmung</td>
+                    <td className="p-2">„für mich kuratiert“</td>
+                    <td className="p-2">„Standard-Pitch“</td>
+                  </tr>
+                  <tr className="border-t border-emerald-200">
+                    <td className="p-2">Wahrsch. auf Erstcall</td>
+                    <td className="p-2">deutlich höher</td>
+                    <td className="p-2">niedriger</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-2 text-xs text-zinc-700">
+              Tipp: Baue ein Referral-Programm auf (Partner, Kund:innen, Alumni)
+              und halte eine schlanke Intro-Vorlage bereit.
             </p>
           </div>
         </section>
 
-        <section id="playbook-30-tage" className="mt-14">
-          <h2>Playbook: 30-Tage KI-Outbound-Plan</h2>
-          <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
-            <ol className="list-decimal ml-5 space-y-2">
-              <li>
-                <strong>Tag 1–3:</strong> ICP verfeinern (Branche, Tool-Stacks,
-                Sicherheitsanforderungen), Datenbereinigung, PII-Filter aktivieren.
-              </li>
-              <li>
-                <strong>Tag 4–7:</strong> Signale einrichten (Web-Analytics,
-                Firmendaten, News), KI-Scoring kalibrieren, 20 Top-Accounts wählen.
-              </li>
-              <li>
-                <strong>Tag 8–12:</strong> Proof-Bibliothek bauen (Cases, Benchmarks,
-                Zertifikate), Snippets nach Rolle automatisch generieren.
-              </li>
-              <li>
-                <strong>Tag 13–16:</strong> Mikro-Landingpages pro Account erstellen
-                (Problem-Hypothese, Outcomes, Security, CTA).
-              </li>
-              <li>
-                <strong>Tag 17–21:</strong> Warm-Up (Social + E-Mail), dann Call-Wellen
-                in den besten Zeitfenstern; Live-Einwände sammeln und Snippets
-                nachschärfen.
-              </li>
-              <li>
-                <strong>Tag 22–26:</strong> A/B-Tests: Value-Hook, CTA-Friktion, Proof
-                Reihenfolge. Meeting-Show-Rate steigern (Reminder, Pre-Read).
-              </li>
-              <li>
-                <strong>Tag 27–30:</strong> Review: Pipeline-Zuwachs, Meetings, SQO,
-                Win-Signal-Korrelation. Nächste 40 Accounts aufsetzen.
-              </li>
-            </ol>
-          </div>
-        </section>
-
-        <section id="toolstack" className="mt-14">
-          <h2>Tool-Stack & Daten: Was du wirklich brauchst</h2>
-          <div className="grid md:grid-cols-2 gap-5">
+        <section id="metriken" className="mt-12">
+          <h2 className="text-2xl font-bold">
+            Metriken: Wie wirkt Vertrauensvorschuss auf die Closing-Rate?
+          </h2>
+          <div className="mt-4 grid md:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-zinc-200 p-5">
-              <h3 className="font-semibold">Must-haves</h3>
-              <ul className="list-disc ml-5">
-                <li>CRM mit sauberem Datenmodell & Pflichtfeldern für Proof</li>
-                <li>Marketing-Automation oder Sequences-Tool</li>
-                <li>Signalquellen (Web, Firmografie, Tech, News)</li>
-                <li>KI-Layer: Snippets, Scoring, Landingpage-Gerüst</li>
-                <li>Compliance-Guardrails: PII-Filter, Opt-Out-Sync, Logging</li>
+              <h3 className="font-semibold">Leading Indicators</h3>
+              <ul className="list-disc ml-5 text-zinc-700 space-y-1">
+                <li>Show-Up-Rate Erstgespräch</li>
+                <li>DSR-Engagement (Views, Zeit, Assets geöffnet)</li>
+                <li>„Agenda akzeptiert“-Antworten</li>
+                <li>„MAP angenommen“ innerhalb 7 Tage</li>
               </ul>
             </div>
             <div className="rounded-2xl border border-zinc-200 p-5">
-              <h3 className="font-semibold">Nice-to-haves</h3>
-              <ul className="list-disc ml-5">
-                <li>Interaktive ROI-Rechner und Vergleichsgeneratoren</li>
-                <li>Autorisierte Review-Feeds (G2, Capterra) als Proof-Quelle</li>
-                <li>Conversational-Intelligence mit anonymisiertem Redaction</li>
+              <h3 className="font-semibold">Lagging Indicators</h3>
+              <ul className="list-disc ml-5 text-zinc-700 space-y-1">
+                <li>Opportunity-Win-Rate (pro Segment)</li>
+                <li>Sales-Cycle-Dauer (Median)</li>
+                <li>Average Deal Size / Margen</li>
+                <li>Time-to-Value nach Go-Live</li>
               </ul>
             </div>
           </div>
-        </section>
-
-        <section id="messgroessen" className="mt-14">
-          <h2>KPIs & Benchmarks für Vertrauen</h2>
-          <p>
-            Miss Vertrauen wie jede Pipeline-Stufe. Starte mit Frühindikatoren,
-            bevor du auf Closed-Won schaust – sonst reagierst du zu spät.
+          <p className="mt-4 text-zinc-700">
+            Richte einfache Dashboards ein (CRM + DSR-Analytics). Vergleiche
+            Kohorten <em>mit</em> vs. <em>ohne</em> Vertrauenspaket vor dem
+            Erstgespräch. Schon kleine Steigerungen bei Show-Up- und
+            MAP-Akzeptanz schlagen deutlich auf Closing-Rate und Cycle-Time
+            durch.
           </p>
+        </section>
 
-          <div className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
-            <table className="w-full text-sm">
-              <thead className="bg-zinc-50">
-                <tr>
-                  <th className="text-left font-semibold p-3 w-56">Phase</th>
-                  <th className="text-left font-semibold p-3">Metriken</th>
-                  <th className="text-left font-semibold p-3">Zielkorridor (Start)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium">Awareness</td>
-                  <td className="p-3">
-                    % Zielaccounts mit ≥1 Signal/Woche, Social Proof Views
-                  </td>
-                  <td className="p-3">30–40 % Accounts/Woche</td>
-                </tr>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium">Engagement</td>
-                  <td className="p-3">Click-to-Meeting-Rate, Pre-Read-Öffnungen</td>
-                  <td className="p-3">3–6 % C2M, 50–70 % Pre-Read</td>
-                </tr>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium">Evaluation</td>
-                  <td className="p-3">Security-Review-Pass, Pilot-Start-Rate</td>
-                  <td className="p-3">70 % Pass, 20–30 % Pilot</td>
-                </tr>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium">Closing</td>
-                  <td className="p-3">Win-Rate, Cycle-Dauer in Tagen</td>
-                  <td className="p-3">25–35 % Win, −15–25 % Cycle vs. Baseline</td>
-                </tr>
-              </tbody>
-            </table>
+        <section id="roadmap" className="mt-12">
+          <h2 className="text-2xl font-bold">Deine 30-Tage-Roadmap</h2>
+          <div className="mt-4 space-y-4">
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold">Woche 1: Assets &amp; Story</h3>
+              <ul className="list-disc ml-5 text-zinc-700">
+                <li>1 Case mit <em>harten Zahlen</em> finalisieren.</li>
+                <li>Security-/Compliance-One-Pager erstellen.</li>
+                <li>Agenda-Vorlage &amp; MAP-Template definieren.</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold">Woche 2: Digital Sales Room</h3>
+              <ul className="list-disc ml-5 text-zinc-700">
+                <li>Microsite mit Video, Bios, Case, ROI-Mini-Tool.</li>
+                <li>Tracking für DSR-Events aktivieren.</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold">Woche 3: Warm-Intro-Engine</h3>
+              <ul className="list-disc ml-5 text-zinc-700">
+                <li>Referral-Liste &amp; Intro-Vorlagen aufsetzen.</li>
+                <li>Partner-Give-Get definieren (z. B. Co-Marketing).</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold">Woche 4: Enablement &amp; Test</h3>
+              <ul className="list-disc ml-5 text-zinc-700">
+                <li>Team-Training „No-Pitch-First-Call“.</li>
+                <li>AB-Test mit/ohne Vertrauenspaket starten.</li>
+              </ul>
+            </div>
           </div>
         </section>
 
-        <section id="fehler" className="mt-14">
-          <h2>Typische Fehler & Governance</h2>
-          <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
-            <ul className="list-disc ml-5">
-              <li>
-                <strong>KI ohne Quellen:</strong> Jede Aussage braucht belegbare
-                Herkunft. Hinterlege Links/Belege in deinem Asset-Gerüst.
-              </li>
-              <li>
-                <strong>Personalisierung ohne Relevanz:</strong> „Hallo {`{Vorname}`}``
-                reicht nicht. Relevanz = Signal × Hypothese × Proof.
-              </li>
-              <li>
-                <strong>Compliance hinten angestellt:</strong> Opt-Out,
-                Legitimate-Interest-Abwägung, Dokumentation – das sind Deal-Enabler,
-                keine Bremsen.
-              </li>
-            </ul>
+        <section id="fehler" className="mt-12">
+          <h2 className="text-2xl font-bold">
+            Häufige Fehler – und bessere Alternativen
+          </h2>
+          <div className="mt-4 grid md:grid-cols-2 gap-6">
+            <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
+              <h3 className="font-semibold">Fehler</h3>
+              <ul className="list-disc ml-5 text-zinc-700">
+                <li>Gating von mageren PDFs („Leadgen“ ohne Wert).</li>
+                <li>Feature-Demo im Erstcall ohne Problem-Alignment.</li>
+                <li>
+                  Keine <em>Belege</em> – nur Logos, keine Kennzahlen.
+                </li>
+                <li>Agenda fehlt, MAP kommt zu spät.</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+              <h3 className="font-semibold">Besser so</h3>
+              <ul className="list-disc ml-5 text-zinc-700">
+                <li>Wertvolle Inhalte frei zugänglich (Thought Leadership).</li>
+                <li>No-Pitch-Option + 2-Punkte-Agenda versenden.</li>
+                <li>Case-KPIs mit Methode &amp; Baseline.</li>
+                <li>MAP-Teaser schon vor dem Erstgespräch.</li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -700,25 +762,129 @@ export default function ArticlePage() {
         <section id="faq" className="mt-14">
           <h2 className="text-2xl font-bold mb-4">FAQ</h2>
           <div className="space-y-6 text-zinc-700">
-            {faq.map((item, idx) => (
-              <div key={idx}>
-                <h3 className="font-semibold">{item.q}</h3>
-                <p>{item.a}</p>
-              </div>
-            ))}
+            <div>
+              <h3 className="font-semibold">
+                Wie viel Material sollte ich vor dem Erstgespräch senden?
+              </h3>
+              <p>
+                Maximal 3–5 hochrelevante Assets: 90-Sekunden-Video, Agenda,
+                passender Case (mit Zahlen), Security-One-Pager und MAP-Teaser.
+                Alles weitere in deinen Digital Sales Room.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold">
+                Was, wenn ich noch keine großen Referenzen habe?
+              </h3>
+              <p>
+                Starte mit <em>Beweis-Proxies</em>: Pilot-Ergebnisse,
+                Benchmarks, Methoden-Transparenz, Zertifizierungen,
+                Gründer-/Team-Track-Record. Wichtig ist Nachprüfbarkeit.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold">
+                Wie führe ich einen Mutual Action Plan ein, ohne pushy zu sein?
+              </h3>
+              <p>
+                Positioniere den MAP als <em>Service</em>: „Damit wir intern
+                schneller Klarheit bekommen – darf ich unseren Fahrplan kurz
+                zeigen?“ Gemeinsam ausfüllen, Ownership benennen.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold">
+                Lohnt sich ein Warm-Intro-Programm wirklich?
+              </h3>
+              <p>
+                Ja – geliehenes Vertrauen senkt Reibung. Halte Intro-Vorlagen
+                bereit, biete Gegenwert (z. B. Co-Content) und bitte gezielt
+                um Intros zu ICP-Accounts.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold">
+                Welche KPI belegen den Erfolg?
+              </h3>
+              <p>
+                Vor allem: Show-Up-Rate, DSR-Engagement, MAP-Akzeptanz,
+                Win-Rate, Cycle-Time. Vergleiche Kohorten mit/ohne
+                Vertrauenspaket.
+              </p>
+            </div>
           </div>
-          {/* FAQ Schema is injected in Head */}
+
+          {/* FAQ Schema.org */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: [
+                  {
+                    "@type": "Question",
+                    name: "Wie viel Material sollte ich vor dem Erstgespräch senden?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text:
+                        "Maximal 3–5 hochrelevante Assets: 90-Sekunden-Video, Agenda, passender Case (mit Zahlen), Security-One-Pager und MAP-Teaser. Alles weitere in deinen Digital Sales Room.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "Was, wenn ich noch keine großen Referenzen habe?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text:
+                        "Nutze Beweis-Proxies: Pilot-Ergebnisse, Benchmarks, Methoden-Transparenz, Zertifizierungen, Gründer-/Team-Track-Record. Wichtig ist Nachprüfbarkeit.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name:
+                      "Wie führe ich einen Mutual Action Plan ein, ohne pushy zu sein?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text:
+                        "Positioniere den MAP als Service: „Damit wir intern schneller Klarheit bekommen – darf ich unseren Fahrplan kurz zeigen?“ Gemeinsam ausfüllen und Ownership benennen.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "Lohnt sich ein Warm-Intro-Programm wirklich?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text:
+                        "Ja – geliehenes Vertrauen senkt Reibung. Halte Intro-Vorlagen bereit, biete Gegenwert (z. B. Co-Content) und bitte gezielt um Intros zu ICP-Accounts.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "Welche KPI belegen den Erfolg?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text:
+                        "Show-Up-Rate, DSR-Engagement, MAP-Akzeptanz, Win-Rate, Cycle-Time. Vergleiche Kohorten mit/ohne Vertrauenspaket.",
+                    },
+                  },
+                ],
+              }),
+            }}
+          ></script>
         </section>
 
         {/* Summary */}
         <section id="zusammenfassung" className="mt-14">
           <h2 className="text-2xl font-bold mb-3">Kurzfazit</h2>
           <p className="leading-relaxed">
-            <strong>Wie gewinnst du 2025 B2B-Kunden trotz Vertrauensverlust und härterem Cold Calling?</strong>{" "}
-            Indem du KI nutzt, um <em>vor</em> dem Erstkontakt Relevanz und Belege zu
-            liefern: Intent-Signale erkennen, Proof personalisieren, Compliance
-            transparent machen. So entsteht ein Vertrauensvorschuss, der die
-            Erstgesprächsquote und die Win-Rate spürbar erhöht.
+            <strong>
+              Wie erhöhst du deine Closing-Rate in Zeiten sinkenden Vertrauens?
+            </strong>{" "}
+            Indem du <em>vor</em> dem Erstgespräch sichtbar Risiko reduzierst:
+            mit starken Belegen (Case-Zahlen, Security), klarer Agenda,
+            Thought-Leadership und einem gemeinsamen MAP. So wirst du als
+            Trusted Advisor wahrgenommen – und gewinnst häufiger die Shortlist.
           </p>
         </section>
 
@@ -726,12 +892,12 @@ export default function ArticlePage() {
         <section aria-label="Kontakt" className="mt-14">
           <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
             <h2 className="text-xl font-bold mb-2">
-              Bereit für einen AI-first Outbound, der Vertrauen vor dem ersten Call
-              schafft?
+              Willst du deinen Vertrauensvorschuss systematisieren?
             </h2>
             <p className="text-zinc-700 mb-4">
-              Wir bauen dir in 30 Tagen ein signalbasiertes KI-Playbook inkl.
-              Proof-Bibliothek, Mikro-Landingpages und KPI-Dashboard.
+              Wir bauen dir in 30 Tagen einen Digital Sales Room, MAP-Templates
+              und eine Warm-Intro-Engine – damit mehr Erstgespräche stattfinden
+              und mehr Deals schließen.
             </p>
 
             <form
@@ -821,7 +987,7 @@ export default function ArticlePage() {
                   href="https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung?month=2025-08"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-emerald-700 underline"
+                  className={`font-medium underline ${accent}`}
                 >
                   Klicke hier
                 </a>{" "}
@@ -831,31 +997,31 @@ export default function ArticlePage() {
           </div>
         </section>
 
-        {/* Weiterführende interne Links (Cluster) */}
+        {/* Weiterführende Artikel */}
         <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
           <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
           <ul className="list-disc ml-5 text-sm space-y-2">
             <li>
               <a
                 className={`hover:underline ${accent}`}
-                href="/blog/intent-signale-fuer-b2b-outbound"
+                href="/blog/mutual-action-plan"
               >
-                Intent-Signale im B2B: Von Daten zu Deals
+                Mutual Action Plan: Vorlage, Beispiele, Best Practices
               </a>
             </li>
             <li>
-              <a className={`hover:underline ${accent}`} href="/blog/roi-rechner-b2b">
-                Interaktive ROI-Rechner: So verkürzt du Sales-Zyklen
+              <a className={`hover:underline ${accent}`} href="/blog/digital-sales-room">
+                Digital Sales Room: Der schnellste Vertrauensaufbau im B2B
               </a>
             </li>
             <li>
-              <a className={`hover:underline ${accent}`} href="/blog/ki-governance">
-                KI-Governance im Vertrieb: Guardrails, die Vertrauen schützen
+              <a className={`hover:underline ${accent}`} href="/blog/warm-introductions">
+                Warm Introductions: So baust du deine Referral-Engine
               </a>
             </li>
             <li>
-              <a className={`hover:underline ${accent}`} href="/blog/social-proof-b2b">
-                Social Proof, der wirklich wirkt: Cases, Reviews, Benchmarks
+              <a className={`hover:underline ${accent}`} href="/blog/b2b-thought-leadership">
+                Thought Leadership, das wirklich Deals bewegt
               </a>
             </li>
           </ul>
@@ -864,8 +1030,9 @@ export default function ArticlePage() {
         {/* Mini-Glossar */}
         <section className="mt-14 mb-20">
           <h2 className="text-2xl font-bold mb-3">
-            Mini-Glossar – Die wichtigsten Begriffe zu „B2B-Kundengewinnung mit KI“
+            Mini-Glossar – Die wichtigsten Begriffe zu B2B-Vertrauen &amp; Closing-Rate
           </h2>
+
           <div className="rounded-2xl border border-zinc-200 overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-zinc-50">
@@ -876,42 +1043,46 @@ export default function ArticlePage() {
               </thead>
               <tbody>
                 <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">Intent-Signal</td>
-                  <td className="p-3 text-zinc-700">
-                    Messbarer Hinweis auf aktives Interesse (z. B. Besuch einer
-                    Pricing-Seite, Job-Posting, Tech-Stack-Wechsel).
+                  <td className="p-3 font-medium text-zinc-900">
+                    Vertrauensvorschuss
                   </td>
-                </tr>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">Proof Point</td>
                   <td className="p-3 text-zinc-700">
-                    Beleg für Wirksamkeit (Kennzahlen, Case-Snippet, Zertifikat,
-                    Benchmark), der Risiko reduziert.
+                    Vorweggenommene Glaubwürdigkeit durch Beweise, Referenzen
+                    und Transparenz – noch vor dem Erstgespräch.
                   </td>
                 </tr>
                 <tr className="border-t border-zinc-200">
                   <td className="p-3 font-medium text-zinc-900">
-                    Mikro-Landingpage
+                    Digital Sales Room (DSR)
                   </td>
                   <td className="p-3 text-zinc-700">
-                    Personalisierte Zielseite pro Account/Rolle mit Hypothese, Proof und
-                    CTA – vor dem Erstgespräch.
+                    Personalisierte Microsite, die alle relevanten
+                    Vertrauenssignale, Inhalte und nächsten Schritte bündelt.
                   </td>
                 </tr>
                 <tr className="border-t border-zinc-200">
                   <td className="p-3 font-medium text-zinc-900">
-                    Human-in-the-Loop (HITL)
+                    Mutual Action Plan (MAP)
                   </td>
                   <td className="p-3 text-zinc-700">
-                    Menschliche Qualitätskontrolle für KI-Outputs, inkl.
-                    Quellencheck, Compliance und Tonalität.
+                    Gemeinsamer Fahrplan mit Meilensteinen, Verantwortlichen und
+                    Erfolgskriterien – reduziert Unsicherheit und beschleunigt Entscheidungen.
                   </td>
                 </tr>
                 <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">Legitimate Interest</td>
+                  <td className="p-3 font-medium text-zinc-900">Social Proof</td>
                   <td className="p-3 text-zinc-700">
-                    Rechtsgrundlage der DSGVO für B2B-Outreach, wenn berechtigtes
-                    Interesse vorliegt und Opt-Out respektiert wird.
+                    Externe Belege wie Case-KPIs, Kundenstimmen, Zertifikate oder
+                    Analysten-Erwähnungen.
+                  </td>
+                </tr>
+                <tr className="border-t border-zinc-200">
+                  <td className="p-3 font-medium text-zinc-900">
+                    Trusted Advisor
+                  </td>
+                  <td className="p-3 text-zinc-700">
+                    Rollenbild im B2B-Sales: Problemlöser und Co-Pilot statt
+                    Vendor; fokus auf Risikoabbau und Mehrwert.
                   </td>
                 </tr>
               </tbody>
@@ -924,20 +1095,15 @@ export default function ArticlePage() {
           <h2 className="text-2xl font-bold mb-3">Über den Autor</h2>
           <div className="flex items-center gap-4">
             <img
-              src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=128&q=60"
-              alt="Autorin"
+              src={author.image}
+              alt="Autor"
               className="w-16 h-16 rounded-full object-cover"
               loading="lazy"
             />
             <div>
               <div className="font-semibold">{author.name}</div>
-              <div className="text-sm text-zinc-700">
-                {author.role}. Schwerpunkte: Intent-Daten, KI-Playbooks, Trust-Design.
-              </div>
-              <a
-                href="https://www.linkedin.com/in/"
-                className={`text-sm hover:underline ${accent}`}
-              >
+              <div className="text-sm text-zinc-700">{author.role}</div>
+              <a href={author.linkedin} className={`text-sm hover:underline ${accent}`}>
                 LinkedIn-Profil
               </a>
             </div>
@@ -946,10 +1112,8 @@ export default function ArticlePage() {
           <div className="mt-4 flex items-center gap-3">
             <ArrowRight className={`w-4 h-4 ${accent}`} aria-hidden="true" />
             <p className="text-sm text-zinc-700">
-              Überprüft von: <strong>Markus Feld</strong> – Head of Revenue
-              Operations.
-              <a href="https://www.linkedin.com/in/" className={`hover:underline ${accent}`}>
-                {" "}
+              Überprüft von: <strong>Julia Weber</strong> – Head of Sales Enablement.{" "}
+              <a href="https://www.linkedin.com" className={`hover:underline ${accent}`}>
                 LinkedIn
               </a>
             </p>
@@ -961,27 +1125,70 @@ export default function ArticlePage() {
           <h2 className="text-2xl font-bold mb-3">Quellen &amp; weiterführende Studien</h2>
           <ul className="list-disc ml-5 space-y-2 text-sm">
             <li>
-              Edelman – 2025 Trust Barometer (Global Report):{" "}
-              https://www.edelman.com/sites/g/files/aatuss191/files/2025-01/2025%20Edelman%20Trust%20Barometer_Final.pdf
+              Edelman &amp; LinkedIn: 2024 B2B Thought Leadership Impact Report – PDF:
+              <a
+                className={`ml-1 hover:underline ${accent}`}
+                href="https://www.edelman.com/sites/g/files/aatuss191/files/2024-02/_2024%20Edelman-LinkedIn%20B2B%20Thought%20Leadership%20Impact%20Report%20Final.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                edelman.com
+              </a>
             </li>
             <li>
-              Gartner – B2B Buying Journey Insights (2025):{" "}
-              https://www.gartner.com/en/sales/insights/b2b-buying-journey
+              Gartner: B2B Buying Report (rep-freie Präferenz vs. Kaufreue) – PDF:
+              <a
+                className={`ml-1 hover:underline ${accent}`}
+                href="https://emt.gartnerweb.com/ngw/globalassets/en/sales-service/documents/trends/gartner-b2b-buying-report.pdf."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                gartnerweb.com
+              </a>
             </li>
             <li>
-              Salesforce – State of Sales (aktuelle Ausgabe):{" "}
-              https://www.salesforce.com/resources/research-reports/state-of-sales/
+              Edelman: 2024 Trust Barometer – Global Report:
+              <a
+                className={`ml-1 hover:underline ${accent}`}
+                href="https://www.edelman.com/sites/g/files/aatuss191/files/2024-02/2024%20Edelman%20Trust%20Barometer%20Global%20Report_FINAL.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                edelman.com
+              </a>
             </li>
             <li>
-              HubSpot – 2025 State of Marketing: https://www.hubspot.com/state-of-marketing
+              Forrester: „Are B2B Buyers Cowards?“ – Blog/Research:
+              <a
+                className={`ml-1 hover:underline ${accent}`}
+                href="https://www.forrester.com/blogs/are-b2b-buyers-cowards/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                forrester.com
+              </a>
             </li>
             <li>
-              HubSpot – State of Cold Calling 2025:{" "}
-              https://blog.hubspot.com/sales/state-of-cold-calling
+              Forrester: „B2B Buyers Rate Their Most Trusted Information Sources“:
+              <a
+                className={`ml-1 hover:underline ${accent}`}
+                href="https://www.forrester.com/blogs/b2b-buyers-rate-their-most-trusted-information-sources/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                forrester.com
+              </a>
             </li>
             <li>
-              Forrester – Predictions 2025 (B2B Marketing & Sales):{" "}
-              https://www.forrester.com/predictions/b2b-2025/
+              LinkedIn B2B Institute: Die 95-5-Regel:
+              <a
+                className={`ml-1 hover:underline ${accent}`}
+                href="https://business.linkedin.com/marketing-solutions/b2b-institute/b2b-research/trends/95-5-rule"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                business.linkedin.com
+              </a>
             </li>
           </ul>
         </section>
