@@ -688,21 +688,78 @@ export default function Article() {
           </div>
         </section>
 
-        {/* Mini-Glossar */}
-        <section className="mt-14 mb-20">
-          <h2 className="text-2xl font-bold mb-3">Mini-Glossar</h2>
-          <dl className="rounded-2xl border border-zinc-200 divide-y">
-            <GlossaryRow term="LCL (Less than Container Load)" def="Stückgut. Du bezahlst pro m³ (CBM) + lokale Gebühren für Konsolidierung/De-Konsolidierung." />
-            <GlossaryRow term="FCL (Full Container Load)" def="Ganzcontainer (20′/40′/40HC). Fixe Containerkosten unabhängig von tatsächlichem Füllgrad." />
-            <GlossaryRow term="40HC" def="40-Fuß-High-Cube, Innenvolumen ~76 m³ – beliebt für voluminöse, leichtere Güter." />
-            <GlossaryRow term="TEU/FEU" def="Maßeinheiten: 20′ = 1 TEU, 40′ = 1 FEU = 2 TEU. Preisindizes listen i. d. R. FEU." />
-            <GlossaryRow term="PSS" def="Peak Season Surcharge – Saisonzuschlag in Nachfrage-Spitzen (z. B. Q3/Q4)." />
-            <GlossaryRow term="Demurrage" def="Gebühr für Standzeit im Terminal nach Freitagen (Lagergeld im Hafen)." />
-            <GlossaryRow term="Detention" def="Gebühr für späte Leercontainer-Rückgabe außerhalb des Terminals (Per-Diem)." />
-            <GlossaryRow term="VGM" def="Verified Gross Mass – vorgeschriebene Bruttomasse des Containers (SOLAS). Ohne VGM keine Verladung." />
-            <GlossaryRow term="ENS/ICS2" def="EU-Sicherheitsvoranmeldung. Seit 1.4.2025 Haus-Level für Seefracht verpflichtend." />
-          </dl>
-        </section>
+    {/* Mini-Glossar */}
+<section className="mt-14 mb-20">
+  <h2 className="text-2xl font-bold mb-3">Mini-Glossar</h2>
+
+  <div className="rounded-2xl border border-zinc-200 overflow-hidden">
+    <table className="w-full text-sm">
+      <thead className="bg-zinc-50">
+        <tr>
+          <th className="text-left font-semibold p-3 w-56">Begriff</th>
+          <th className="text-left font-semibold p-3">Erklärung</th>
+        </tr>
+      </thead>
+      <tbody className="divide-y divide-zinc-200">
+        <tr>
+          <td className="p-3 font-medium text-zinc-900">LCL (Less than Container Load)</td>
+          <td className="p-3 text-zinc-700">
+            Stückgut. Du bezahlst pro m³ (CBM) + lokale Gebühren für Konsolidierung/De-Konsolidierung.
+          </td>
+        </tr>
+        <tr>
+          <td className="p-3 font-medium text-zinc-900">FCL (Full Container Load)</td>
+          <td className="p-3 text-zinc-700">
+            Ganzcontainer (20′/40′/40HC). Fixe Containerkosten unabhängig vom tatsächlichen Füllgrad.
+          </td>
+        </tr>
+        <tr>
+          <td className="p-3 font-medium text-zinc-900">40HC</td>
+          <td className="p-3 text-zinc-700">
+            40-Fuß-High-Cube, Innenvolumen ~76 m³ – beliebt für voluminöse, leichtere Güter.
+          </td>
+        </tr>
+        <tr>
+          <td className="p-3 font-medium text-zinc-900">TEU/FEU</td>
+          <td className="p-3 text-zinc-700">
+            Maßeinheiten: 20′ = 1 TEU, 40′ = 1 FEU = 2 TEU. Preisindizes listen i. d. R. FEU.
+          </td>
+        </tr>
+        <tr>
+          <td className="p-3 font-medium text-zinc-900">PSS</td>
+          <td className="p-3 text-zinc-700">
+            Peak Season Surcharge – Saisonzuschlag in Nachfrage-Spitzen (z. B. Q3/Q4).
+          </td>
+        </tr>
+        <tr>
+          <td className="p-3 font-medium text-zinc-900">Demurrage</td>
+          <td className="p-3 text-zinc-700">
+            Gebühr für Standzeit im Terminal nach Freitagen (Lagergeld im Hafen).
+          </td>
+        </tr>
+        <tr>
+          <td className="p-3 font-medium text-zinc-900">Detention</td>
+          <td className="p-3 text-zinc-700">
+            Gebühr für späte Leercontainer-Rückgabe außerhalb des Terminals (Per-Diem).
+          </td>
+        </tr>
+        <tr>
+          <td className="p-3 font-medium text-zinc-900">VGM</td>
+          <td className="p-3 text-zinc-700">
+            Verified Gross Mass – vorgeschriebene Bruttomasse des Containers (SOLAS). Ohne VGM keine Verladung.
+          </td>
+        </tr>
+        <tr>
+          <td className="p-3 font-medium text-zinc-900">ENS/ICS2</td>
+          <td className="p-3 text-zinc-700">
+            EU-Sicherheitsvoranmeldung. Seit 1.4.2025 Haus-Level für Seefracht verpflichtend.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 
         {/* Quellen */}
         <section id="quellen" className="mt-10">
