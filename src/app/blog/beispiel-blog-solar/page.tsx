@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import { ArrowRight, CheckCircle2, Info, Zap, Shield, PiggyBank, LineChart } from "lucide-react";
+import { ArrowRight, Zap, Shield, PiggyBank } from "lucide-react";
 
 /**
  * SEO-Keyword-Notizen (aus SERP-Analyse, 20.08.2025):
@@ -90,11 +90,11 @@ export default function Page() {
     },
     {
       q: "Welche Einspeisevergütung erhalte ich 2025?",
-      a: "Für Teileinspeisung liegen die Sätze bis 7,86 ct/kWh, für Volleinspeisung bis 12,6 ct/kWh (Neuansetzungen ab Aug. 2025; Details je Anlagenklasse). Quelle siehe Quellenblock.",
+      a: "Für Teileinspeisung liegen die Sätze bis etwa 7,86 ct/kWh, für Volleinspeisung bis rund 12,6 ct/kWh (je nach Anlagenklasse und Zeitraum).",
     },
     {
       q: "Gilt die 0 % Umsatzsteuer für PV weiterhin?",
-      a: "Für Lieferung und Installation kleiner PV-Anlagen gilt weiterhin unter Bedingungen die Umsatzsteuerbefreiung (‘Nullsteuersatz’). Prüfe stets den aktuellen gesetzlichen Stand mit deinem Steuerberater.",
+      a: "Für Lieferung und Installation kleiner PV-Anlagen gilt weiterhin unter Bedingungen die Umsatzsteuerbefreiung (‘Nullsteuersatz’). Prüfe den aktuellen gesetzlichen Stand mit deinem Steuerberater.",
     },
     {
       q: "Was fördert die KfW für Unternehmen?",
@@ -106,13 +106,12 @@ export default function Page() {
     },
     {
       q: "Muss ich in die Direktvermarktung?",
-      a: "Ab bestimmten Größen und Einspeisemengen ja; Solarpaket I und EEG legen Schwellen fest. Für Anlagen >40 kW auf Dächern wurden Förderanreize angepasst; lies die Details im Abschnitt „Förderungen & Recht 2025“.",
+      a: "Ab bestimmten Größen und Einspeisemengen ja; EEG und Solarpaket I legen Schwellen fest. Für Anlagen >40 kW auf Dächern wurden Förderanreize angepasst.",
     },
   ];
 
   return (
     <article className="prose prose-zinc max-w-4xl">
-      {/* Header – aus Vorlage, gefüllt */}
       {/* Header */}
       <header className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
@@ -123,9 +122,9 @@ export default function Page() {
           Schritten, mit Rechenbeispiel und Checkliste.
         </p>
 
-        {/* Datum & Lesedauer separat in eigener Zeile (statisch) */}
+        {/* Datum & Lesedauer */}
         <div className="mt-2 text-sm text-zinc-600">
-          Zuletzt aktualisiert am <time dateTime="2025-08-20">20.08</time>
+          Zuletzt aktualisiert am <time dateTime="2025-08-20">20.08.2025</time>
           {" · "}Lesedauer: <span className="tabular-nums">18–22 Minuten</span>
         </div>
 
@@ -166,7 +165,6 @@ export default function Page() {
           </div>
         </div>
       </header>
-      {/* from Starter Section Anfang.txt :contentReference[oaicite:0]{index=0} */}
 
       {/* TL;DR */}
       <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
@@ -178,22 +176,21 @@ export default function Page() {
           </li>
           <li>
             Einspeisevergütung 2025: Bis ca. <strong>7,86 ct/kWh (Teileinspeisung)</strong> bzw.{" "}
-            <strong>bis 12,6 ct/kWh (Volleinspeisung)</strong> – Details und Klassen im Abschnitt „Förderungen“. :contentReference[oaicite:1]{index=1}
+            <strong>bis 12,6 ct/kWh (Volleinspeisung)</strong> – Details und Klassen im Abschnitt „Förderungen“.
           </li>
           <li>
             Stromgestehungskosten (LCOE) von PV sind in Deutschland sehr niedrig; PV <em>mit</em> Batterie kann
-            wettbewerbsfähig zu konventionellen Kraftwerken sein. :contentReference[oaicite:2]{index=2}
+            wettbewerbsfähig zu konventionellen Kraftwerken sein.
           </li>
           <li>
-            KfW (u. a. Programm 270) bietet zinsgünstige Kredite – Finanzierung immer über die Hausbank anstoßen. :contentReference[oaicite:3]{index=3}
+            KfW (u. a. Programm 270) bietet zinsgünstige Kredite – Finanzierung immer über die Hausbank anstoßen.
           </li>
           <li>
             Business Case: Rechne mit aktuellem Gewerbestrom (Ø ~25 ct/kWh für Neuverträge, Stand Aug. 2025) und
-            konservativen Erträgen – dann Amortisation typ. im Bereich 7–12 Jahre. :contentReference[oaicite:4]{index=4}
+            konservativen Erträgen – dann Amortisation typ. im Bereich 7–12 Jahre.
           </li>
         </ul>
       </aside>
-      {/* from {_* TL;DR *_}.txt :contentReference[oaicite:5]{index=5} */}
 
       {/* ToC */}
       <nav
@@ -211,7 +208,6 @@ export default function Page() {
           ))}
         </ol>
       </nav>
-      {/* from Inhaltsverzeichnis.txt :contentReference[oaicite:6]{index=6} */}
 
       {/* Hauptteil */}
       <section id="warum-jetzt">
@@ -221,19 +217,19 @@ export default function Page() {
         <p className="leading-relaxed">
           Die wirtschaftliche Logik ist einfach: Du ersetzt teuren Netzstrom durch günstigen Eigenstrom. Für Neuverträge
           liegt der durchschnittliche <strong>Gewerbestrompreis 08/2025 bei ~25,03 ct/kWh</strong> (bundesweiter
-          Durchschnitt). Jede selbst genutzte kWh aus der PV-Anlage senkt deine Stromrechnung entsprechend. :contentReference[oaicite:7]{index=7}
+          Durchschnitt). Jede selbst genutzte kWh aus der PV-Anlage senkt deine Stromrechnung entsprechend.
         </p>
         <p className="leading-relaxed">
-          Parallel sind die <strong>Stromgestehungskosten (LCOE) von PV</strong> laut Fraunhofer ISE niedrig; Studien zeigen,
+          Parallel sind die <strong>Stromgestehungskosten (LCOE) von PV</strong> laut aktuellen Studien niedrig; Analysen zeigen,
           dass <em>Photovoltaik – sogar mit Batteriespeicher</em> – in Deutschland sehr wettbewerbsfähig ist. Das senkt
-          dein Investitionsrisiko. :contentReference[oaicite:8]{index=8}
+          dein Investitionsrisiko.
         </p>
         <div className="mt-4 grid sm:grid-cols-3 gap-4">
           <div className="rounded-xl border border-zinc-200 p-4">
             <Zap className="w-5 h-5" aria-hidden="true" />
             <p className="mt-2 text-sm text-zinc-700">
               <strong>ESG & CO₂</strong>: Der nationale CO₂-Preis beträgt 2025 <strong>55 €/t</strong>. Eigener Solarstrom
-              reduziert indirekte Emissionen (Scope 2) und verbessert Ratings. :contentReference[oaicite:9]{index=9}
+              reduziert indirekte Emissionen (Scope 2) und verbessert Ratings.
             </p>
           </div>
           <div className="rounded-xl border border-zinc-200 p-4">
@@ -246,15 +242,14 @@ export default function Page() {
           <div className="rounded-xl border border-zinc-200 p-4">
             <PiggyBank className="w-5 h-5" aria-hidden="true" />
             <p className="mt-2 text-sm text-zinc-700">
-              <strong>Förderkulisse</strong>: EEG-Vergütung, Solarpaket I-Erleichterungen und KfW-Finanzierung unterstützen
-              Investitionen – Details unten. :contentReference[oaicite:10]{index=10}
+              <strong>Förderkulisse</strong>: EEG-Vergütung, Solarpaket-I-Erleichterungen und KfW-Finanzierung unterstützen
+              Investitionen – Details unten.
             </p>
           </div>
         </div>
       </section>
 
       {/* Vollbreites Bild */}
-      {/* Bild 1 – volle Breite, 16:6 */}
       <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
         <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
           <picture>
@@ -274,7 +269,6 @@ export default function Page() {
           PV auf dem Gewerbedach: Hoher Eigenverbrauch macht die Anlage besonders rentabel.
         </figcaption>
       </figure>
-      {/* from Bild.txt :contentReference[oaicite:11]{index=11} */}
 
       <section id="grundlagen" className="mt-14">
         <h2 className="text-2xl font-bold mb-3">Grundlagen: Eigenverbrauch, Einspeisung & Peak Shaving</h2>
@@ -304,10 +298,9 @@ export default function Page() {
             in vielen Fällen unter den Vollkosten konventioneller Kraftwerke liegen.“
           </blockquote>
           <figcaption className="mt-2 text-sm text-zinc-600">
-            — Zusammenfassung aus aktuellen Fraunhofer-ISE-Analysen (indirektes Zitat). :contentReference[oaicite:12]{index=12}
+            — Zusammenfassung aus aktuellen Studien und Marktanalysen.
           </figcaption>
         </figure>
-        {/* from {_* Expertenzitat *_}.txt :contentReference[oaicite:13]{index=13} */}
       </section>
 
       <section id="kosten-amortisation" className="mt-14">
@@ -338,7 +331,7 @@ export default function Page() {
         <p className="leading-relaxed mt-4">
           Orientierung: Für Neuansetzungen ab 08/2025 liegen <strong>Einspeisesätze</strong> (je nach Klasse) in der
           Teileinspeisung um 7–8 ct/kWh, in der Volleinspeisung um 12–13 ct/kWh. Die Werte ändern sich periodisch – prüfe
-          die tagesaktuellen Sätze. :contentReference[oaicite:14]{index=14}
+          die tagesaktuellen Sätze.
         </p>
       </section>
 
@@ -349,25 +342,25 @@ export default function Page() {
             <h3 className="font-semibold mb-2">EEG & Einspeisevergütung</h3>
             <p className="text-zinc-700">
               Das EEG regelt Vergütung bzw. Marktprämie; <strong>bis 100 kW</strong> gelten feste Vergütungssätze, größere
-              Anlagen gehen in die Direktvermarktung. :contentReference[oaicite:15]{index=15}
+              Anlagen gehen in die Direktvermarktung.
             </p>
             <p className="text-zinc-700 mt-2">
               Konkrete Vergütung <em>(Neuansetzungen)</em>: Teileinspeisung bis ~7,86 ct/kWh, Volleinspeisung bis ~12,6 ct/kWh
-              – je nach Anlagengröße und Zeitraum. :contentReference[oaicite:16]{index=16}
+              – je nach Anlagengröße und Zeitraum.
             </p>
           </div>
           <div className="rounded-2xl border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">Solarpaket I</h3>
             <p className="text-zinc-700">
               Für <strong>größere Dachanlagen ab 40 kW</strong> wurde die Förderung als Reaktion auf Kostenentwicklungen um{" "}
-              <strong>+1,5 ct/kWh</strong> angehoben; außerdem wurden diverse Verfahren vereinfacht. :contentReference[oaicite:17]{index=17}
+              <strong>+1,5 ct/kWh</strong> angehoben; außerdem wurden diverse Verfahren vereinfacht.
             </p>
           </div>
           <div className="rounded-2xl border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">KfW-Finanzierung (z. B. Programm 270)</h3>
             <p className="text-zinc-700">
               Zinsgünstige Kredite für <strong>PV, Speicher & Ladeinfrastruktur</strong>; Antragstellung über die Hausbank,
-              Konditionen bonitäts- und laufzeitabhängig. :contentReference[oaicite:18]{index=18}
+              Konditionen bonitäts- und laufzeitabhängig.
             </p>
           </div>
           <div className="rounded-2xl border border-zinc-200 p-5">
@@ -400,7 +393,6 @@ export default function Page() {
           Batteriespeicher: Lastspitzen kappen, Eigenverbrauch erhöhen – zwei Hebel für die Wirtschaftlichkeit.
         </figcaption>
       </figure>
-      {/* from Bild.txt :contentReference[oaicite:19]{index=19} */}
 
       <section id="dimensionierung" className="mt-14">
         <h2 className="text-2xl font-bold mb-3">Dimensionierung: So bestimmst du PV-Leistung &amp; Speichergröße</h2>
@@ -453,8 +445,8 @@ export default function Page() {
                 <li>Eigenverbrauch ohne Speicher: 55 % → 110.000 kWh/a</li>
                 <li>Eigenverbrauch mit Speicher: 75 % → 150.000 kWh/a</li>
                 <li>Einspeisung: 50.000 kWh/a</li>
-                <li>Gewerbestrompreis: 0,25 €/kWh (Ø Neuverträge 08/2025) :contentReference[oaicite:20]{index=20}</li>
-                <li>Einspeisevergütung (Teileinspeisung): 0,078 €/kWh (Richtwert) :contentReference[oaicite:21]{index=21}</li>
+                <li>Gewerbestrompreis: 0,25 €/kWh (Ø Neuverträge 08/2025)</li>
+                <li>Einspeisevergütung (Teileinspeisung): 0,078 €/kWh (Richtwert)</li>
               </ul>
             </div>
             <div>
@@ -504,7 +496,7 @@ export default function Page() {
             <strong>Wirtschaftlichkeit</strong>: Szenarien (mit/ohne Speicher) rechnen; Einspeise- & Strompreis-Szenarien.
           </li>
           <li>
-            <strong>Förderung & Finanzierung</strong>: KfW-Optionen, ggf. regionale Programme; frühe Hausbank-Einbindung. :contentReference[oaicite:22]{index=22}
+            <strong>Förderung & Finanzierung</strong>: KfW-Optionen, ggf. regionale Programme; frühe Hausbank-Einbindung.
           </li>
           <li>
             <strong>Netzanfrage & Messkonzept</strong>: Anmeldung beim Netzbetreiber, Zähler-/Messstellenkonzept wählen.
@@ -607,7 +599,6 @@ export default function Page() {
           }}
         />
       </section>
-      {/* from FAQ.txt :contentReference[oaicite:23]{index=23} */}
 
       {/* Summary */}
       <section id="zusammenfassung" className="mt-14">
@@ -616,10 +607,9 @@ export default function Page() {
           <strong>Wie planen Firmen PV & Speicher wirtschaftlich?</strong> Richte die Anlagengröße an deinem Lastprofil aus,
           maximiere den Eigenverbrauch und nutze einen Speicher für Peak Shaving. Prüfe EEG-Sätze und KfW-Finanzierung und
           kalkuliere konservativ – dann ist eine Amortisation im einstelligen bis niedrigen zweistelligen Jahresbereich
-          realistisch. :contentReference[oaicite:24]{index=24}
+          realistisch.
         </p>
       </section>
-      {/* from Summary.txt :contentReference[oaicite:25]{index=25} */}
 
       {/* CTA */}
       <section aria-label="Kontakt" className="mt-14">
@@ -715,7 +705,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-      {/* from Call to Action.txt :contentReference[oaicite:26]{index=26} */}
 
       {/* Weiterführende interne Links (Cluster) */}
       <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
@@ -743,7 +732,6 @@ export default function Page() {
           </li>
         </ul>
       </aside>
-      {/* from {_* Weiterführende interne Links (Cluster) *_}.txt :contentReference[oaicite:27]{index=27} */}
 
       {/* Mini-Glossar */}
       <section className="mt-14 mb-20">
@@ -777,7 +765,6 @@ export default function Page() {
           </table>
         </div>
       </section>
-      {/* from Mini Glossar.txt :contentReference[oaicite:28]{index=28} */}
 
       {/* E-E-A-T */}
       <section className="mt-14">
@@ -810,39 +797,37 @@ export default function Page() {
           </p>
         </div>
       </section>
-      {/* from EEAT.txt :contentReference[oaicite:29]{index=29} */}
 
       {/* Quellenverzeichnis */}
       <section className="mt-14">
         <h2 className="text-2xl font-bold mb-3">Quellen &amp; weiterführende Studien</h2>
         <ul className="list-disc ml-5 space-y-2 text-sm">
           <li>
-            Bundesnetzagentur – EEG-Förderung & Fördersätze (Überblick: feste Vergütung bis 100 kW, Marktprämie/Direktvermarktung). :contentReference[oaicite:30]{index=30}
+            Bundesnetzagentur – EEG-Förderung & Fördersätze (feste Vergütung bis 100 kW, Marktprämie/Direktvermarktung).
           </li>
           <li>
-            Finanztip – Einspeisevergütung 2025 (Teileinspeisung/Volleinspeisung; aktuelle Werte). :contentReference[oaicite:31]{index=31}
+            Finanztip – Einspeisevergütung 2025 (Teileinspeisung/Volleinspeisung; aktuelle Werte).
           </li>
           <li>
-            photovoltaik.org – Einspeisevergütung 2025 (Detailklassen & Zeiträume). :contentReference[oaicite:32]{index=32}
+            photovoltaik.org – Einspeisevergütung 2025 (Detailklassen & Zeiträume).
           </li>
           <li>
-            KfW – Photovoltaik für Unternehmen & Programm 270 (Förderkredite, Konditionen). :contentReference[oaicite:33]{index=33}
+            KfW – Photovoltaik für Unternehmen & Programm 270 (Förderkredite, Konditionen).
           </li>
           <li>
-            BMWK – Solarpaket I (u. a. +1,5 ct/kWh für >40 kW Dachanlagen; Entbürokratisierung). :contentReference[oaicite:34]{index=34}
+            BMWK – Solarpaket I (u. a. +1,5 ct/kWh für >40 kW Dachanlagen; Entbürokratisierung).
           </li>
           <li>
-            Fraunhofer ISE – LCOE-Studie & Presseinfo (PV/PV+Speicher vs. konventionell). :contentReference[oaicite:35]{index=35}
+            Fraunhofer ISE – LCOE-Studie & Presseinfo (PV/PV+Speicher vs. konventionell).
           </li>
           <li>
-            Strom-Report – Gewerbestrompreis Ø August 2025 (Neuabschlüsse). :contentReference[oaicite:36]{index=36}
+            Strom-Report – Gewerbestrompreis Ø August 2025 (Neuabschlüsse).
           </li>
           <li>
-            DEHSt (UBA) – Nationaler Emissionshandel (CO₂-Preis 55 €/t in 2025). :contentReference[oaicite:37]{index=37}
+            DEHSt/UBA – Nationaler Emissionshandel (CO₂-Preis 55 €/t in 2025).
           </li>
         </ul>
       </section>
-      {/* from Quellenverzeichnis.txt :contentReference[oaicite:38]{index=38} */}
 
       {/* Strukturierte Daten: Article + Organization */}
       <script
