@@ -348,6 +348,7 @@ export default function Page() {
 
 
 
+
       <section id="kosten" className="mt-14">
         <h2>Kosten &amp; TCO: CapEx vs. OpEx, FinOps &amp; Planung</h2>
         <p>
