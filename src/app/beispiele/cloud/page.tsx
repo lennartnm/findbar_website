@@ -1028,81 +1028,23 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Quellenverzeichnis */}
-      <section className="mt-14">
-        <h2 className="text-2xl font-bold mb-3">
-          Quellen &amp; weiterführende Studien
-        </h2>
-        <ul className="list-disc ml-5 space-y-2 text-sm">
-          <li>
-            NIST SP 800-145: The NIST Definition of Cloud Computing.{" "}
-            <a
-              href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-145.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              PDF
-            </a>
-            .
-          </li>
-          <li>
-            BSI – Cloud Computing Compliance Criteria Catalogue (C5:2020).{" "}
-            <a
-              href="https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/CloudComputing/ComplianceControlsCatalogue/2020/C5_2020.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              PDF
-            </a>
-            .
-          </li>
-          <li>
-            ENISA Threat Landscape 2024 – European Union Agency for
-            Cybersecurity.{" "}
-            <a
-              href="https://www.enisa.europa.eu/publications/enisa-threat-landscape-2024"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Report
-            </a>
-            .
-          </li>
-          <li>
-            FinOps Foundation – 2024 Insights &amp; Priorities.{" "}
-            <a
-              href="https://www.finops.org/insights/key-priorities-shift-in-2024/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Article
-            </a>
-            .
-          </li>
-          <li>
-            Reuters – EU Cybersecurity Label (EUCS) Update &amp; Debate.{" "}
-            <a
-              href="https://www.reuters.com/technology/cybersecurity/industry-groups-urge-quick-adoption-eu-cybersecurity-label-that-favours-big-tech-2025-02-28/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              News
-            </a>
-            .
-          </li>
-          <li>
-            CIO – Cloud Repatriation als Optimierung, nicht Abkehr.{" "}
-            <a
-              href="https://www.cio.com/article/2520890/the-great-repatriation-it-leaders-reset-cloud-strategies-to-optimize-value.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Article
-            </a>
-            .
-          </li>
-        </ul>
-      </section>
+    {/* Quellenverzeichnis */}
+<section className="mt-14">
+  <h2 className="text-2xl font-bold mb-3">Quellen &amp; weiterführende Studien</h2>
+  <ul className="list-disc ml-5 space-y-2 text-sm">
+    <li>
+      <a 
+        href="https://example.com/studie" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="text-blue-600 hover:underline"
+      >
+        Beispielstudie (2023): Auswirkungen von XY
+      </a>
+    </li>
+  </ul>
+</section>
+
     </article>
   );
 }
