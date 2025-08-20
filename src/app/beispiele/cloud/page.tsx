@@ -143,7 +143,7 @@ export default function Page() {
   };
 
   return (
-    <article className="prose prose-zinc mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+<article className="prose prose-zinc mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 my-12 md:my-16">
       <script type="application/ld+json">
         {JSON.stringify(articleSchema)}
       </script>
