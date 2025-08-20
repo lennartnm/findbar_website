@@ -849,7 +849,7 @@ export default function Article() {
         >
           Klicke hier
         </a>{" "}
-        und lass uns sprechen. – Lennart, Gründer
+        und lass uns sprechen.
       </p>
     </div>
   </div>
