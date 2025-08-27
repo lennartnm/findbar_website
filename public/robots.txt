@@ -1,22 +1,36 @@
+# Standard-Regeln für alle Bots
 User-agent: *
 Allow: /
-
-# Blockiere "Beispiele"-Bereich
 Disallow: /beispiele/
-
-# Technische Verzeichnisse blockieren (Next.js/Vercel)
 Disallow: /_next/
 Disallow: /api/
 Disallow: /static/
 Disallow: /private/
 Disallow: /*.json$
+Disallow: /*.xml$
 
-# Crawl-Delays für aggressive Bots
+# KI-Bots explizit erlauben
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Crawl-Delays für aggressive SEO-Bots
 User-agent: AhrefsBot
 Crawl-delay: 10
 
 User-agent: SemrushBot
 Crawl-delay: 10
 
-# Sitemap
+# Sitemap eintragen
 Sitemap: https://www.findbar.info/sitemap.xml
