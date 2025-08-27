@@ -984,7 +984,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
         </div>
 
         <p className="mt-6 text-center text-xs text-slate-500">
-          Alle Pakete verstehen sich exkl. Mwst. und einmaliger Aufsetzgebühr von 299€. 
+          Alle Pakete verstehen sich exkl. Mwst. und einmaliger Aufsetzgebühr von 199€. 
           Sie beinhalten alles von Recherche bis Veröffentlichung und nachhaltige Lead-Gewinnung, 
           für maximalen Outcome für dein Angebot.
         </p>
