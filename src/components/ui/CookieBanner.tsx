@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Check, X } from "lucide-react";
 
 const RG600 = "#1b4d2b"; // Racing Green
-const RG300 = "#7ca98e";
 const serifClass = "font-serif";
 
 export default function CookieBanner() {
@@ -19,6 +18,9 @@ export default function CookieBanner() {
   const accept = () => {
     localStorage.setItem("cookie-consent", "accepted");
     setVisible(false);
+
+    // Event auslösen → RootLayout hört darauf
+    window.dispatchEvent(new Event("cookie-consent-accepted"));
   };
 
   const decline = () => {
