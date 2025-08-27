@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "@/components/ui/layout/Header";
-import Footer from "@/components/ui/layout/Footer";
+import Header from "@/src/components/ui/Header";
+import Footer from "@/src/components/ui/Footer";
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return (
