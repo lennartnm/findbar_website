@@ -638,10 +638,10 @@ export default function Page() {
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
-              <source media="(max-width: 640px)" srcSet="/ms-neu.jpg" />
+              <source media="(max-width: 640px)" srcSet="/msg-neu.jpg" />
               <img
                 loading="lazy"
-                src="/ms-neu.jpg"
+                src="/msg-neu.jpg"
                 alt="Projektboard mit Meilensteinen für CSRD-Roadmap"
                 className="absolute inset-0 h-full w-full object-cover"
               />
