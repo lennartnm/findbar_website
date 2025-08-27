@@ -1,6 +1,14 @@
-// src/app/blog/csrd-esrs-umsetzung-2025/page.tsx
-import type { Metadata } from "next";
+import React from "react";
+import Head from "next/head";
 import { ArrowRight } from "lucide-react";
+
+/**
+ * Blog: CSRD & ESRS: Was Unternehmen 2025 konkret umsetzen müssen
+ * Praxisleitfaden für mittelständische B2B-Unternehmen: doppelte Wesentlichkeit, Datenprozesse, KPIs & Roadmap
+ * Autor: Max Mustermann – ESG-Reporting Manager (CSRD/ESRS)
+ * Reviewer: Claudia Müller – Chief Sustainability Officer (CSO)
+ * Company: Muster GmbH
+ */
 
 const accent = "text-emerald-700";
 
@@ -17,114 +25,88 @@ const reviewer = {
   linkedin: "https://linkedin.com",
 };
 
-const company = {
-  name: "Muster GmbH",
-  address: "Musterstraße 1",
-  email: "muster@beispiel.de",
-  phone: "49123456789",
-  url: "https://www.muster-gmbh.de",
-};
+const canonical = "https://www.muster-gmbh.de/blog/csrd-esrs-2025";
+const title =
+  "CSRD & ESRS 2025: Was mittelständische B2B-Unternehmen jetzt konkret umsetzen müssen";
+const description =
+  "Praxisleitfaden für mittelständische B2B-Unternehmen: doppelte Wesentlichkeit, Datenprozesse, KPIs, Scope 3 und Roadmap für die CSRD-/ESRS-Umsetzung 2025.";
 
-export const metadata: Metadata = {
-  title:
-    "CSRD & ESRS 2025: Was mittelständische B2B-Unternehmen jetzt konkret umsetzen müssen",
-  description:
-    "Praxisleitfaden zur CSRD-Umsetzung 2025: doppelte Wesentlichkeit, Datenprozesse, KPIs, EU-Taxonomie & Roadmap – speziell für mittelständische B2B-Unternehmen.",
-  alternates: {
-    canonical:
-      "https://www.muster-gmbh.de/blog/csrd-esrs-umsetzung-2025",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    type: "article",
-    title:
-      "CSRD & ESRS 2025: Was mittelständische B2B-Unternehmen jetzt konkret umsetzen müssen",
-    description:
-      "Praxisleitfaden zur CSRD-Umsetzung 2025: doppelte Wesentlichkeit, Datenprozesse, KPIs, EU-Taxonomie & Roadmap.",
-    url: "https://www.muster-gmbh.de/blog/csrd-esrs-umsetzung-2025",
-    images: [
-      {
-        url: "/esg.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Nachhaltigkeitsreporting: CSRD & ESRS – Roadmap 2025",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title:
-      "CSRD & ESRS 2025: Was mittelständische B2B-Unternehmen jetzt konkret umsetzen müssen",
-    description:
-      "Praxisleitfaden: doppelte Wesentlichkeit, Datenprozesse, KPIs & Roadmap – für Mittelstand.",
-    images: ["/esg.jpg"],
-  },
-};
-
-export default function Page() {
+export default function ArticlePage() {
+  const dateISO = "2025-08-27";
+  const dateShort = "27.08.2025";
   return (
     <>
-      {/* Article Schema.org */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline:
-              "CSRD & ESRS 2025: Was mittelständische B2B-Unternehmen jetzt konkret umsetzen müssen",
-            description:
-              "Praxisleitfaden zur CSRD-Umsetzung 2025 inklusive doppelter Wesentlichkeit, Datenprozessen, KPIs, EU-Taxonomie & Roadmap.",
-            inLanguage: "de-DE",
-            image: `${company.url}/esg.jpg`,
-            datePublished: "2025-08-27",
-            dateModified: "2025-08-27",
-            author: {
-              "@type": "Person",
-              name: author.name,
-              jobTitle: author.role,
-              url: author.linkedin,
-            },
-            publisher: {
-              "@type": "Organization",
-              name: company.name,
-              url: company.url,
-              logo: {
-                "@type": "ImageObject",
-                url: `${company.url}/esg.jpg`,
-              },
-            },
-            mainEntityOfPage: {
-              "@type": "WebPage",
-              "@id":
-                "https://www.muster-gmbh.de/blog/csrd-esrs-umsetzung-2025",
-            },
-          }),
-        }}
-      ></script>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <meta name="robots" content="index,follow" />
 
-      {/* Company Schema.org */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: company.name,
-            url: company.url,
-            email: company.email,
-            telephone: `+${company.phone}`,
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: company.address,
-              addressCountry: "DE",
-            },
-          }),
-        }}
-      ></script>
+        {/* Open Graph / Twitter */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content="https://www.muster-gmbh.de/esg.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content="https://www.muster-gmbh.de/esg.jpg" />
+
+        {/* Article Schema.org */}
+        <script
+          type="application/ld+json"
+          // Article schema
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: title,
+              description,
+              inLanguage: "de",
+              image: ["https://www.muster-gmbh.de/esg.jpg"],
+              datePublished: dateISO,
+              dateModified: dateISO,
+              author: {
+                "@type": "Person",
+                name: author.name,
+                jobTitle: author.role,
+                image: `https://www.muster-gmbh.de${author.image}`,
+                sameAs: [author.linkedin],
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Muster GmbH",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://www.muster-gmbh.de/logo.png",
+                },
+              },
+              mainEntityOfPage: canonical,
+            }),
+          }}
+        />
+
+        {/* Company Schema.org */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Muster GmbH",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Musterstraße 1",
+                addressCountry: "DE",
+              },
+              email: "muster@beispiel.de",
+              telephone: "+49 123456789",
+              url: "https://www.muster-gmbh.de",
+            }),
+          }}
+        />
+      </Head>
 
       <article
         className="
@@ -139,53 +121,50 @@ export default function Page() {
             CSRD &amp; ESRS: Was Unternehmen 2025 konkret umsetzen müssen
           </h1>
           <p className="mt-3 text-lg text-zinc-700">
-            Praxisleitfaden für mittelständische B2B-Unternehmen: doppelte
-            Wesentlichkeit, Datenprozesse, KPIs &amp; Roadmap – damit dein{" "}
-            <strong>Nachhaltigkeitsbericht</strong> 2025/26 sicher sitzt.
+            Du willst 2025 die{" "}
+            <strong>CSRD-Nachhaltigkeitsberichterstattung</strong> pragmatisch
+            aufsetzen? In diesem Leitfaden erfährst du, wie du die{" "}
+            <strong> doppelte Wesentlichkeit</strong> sauber durchführst,
+            Datenprozesse für ESRS etablierst, die wichtigsten{" "}
+            <strong>KPIs</strong> (inkl. Scope&nbsp;3) sicher erfasst und eine
+            realistische <strong>Roadmap</strong> bis zum ersten
+            Prüfungsdurchlauf baust.
           </p>
 
           {/* Datum & Lesedauer separat in eigener Zeile (statisch) */}
           <div className="mt-2 text-sm text-zinc-600">
-            Zuletzt aktualisiert am{" "}
-            <time dateTime="2025-08-27">27.08.2025</time>
-            {" · "}Lesedauer:{" "}
-            <span className="tabular-nums">10–12 Minuten</span>
+            Zuletzt aktualisiert am <time dateTime={dateISO}>{dateShort}</time>
+            {" · "}Lesedauer: <span className="tabular-nums">12 Minuten</span>
           </div>
 
           {/* Hero 16:6 */}
           <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
-            <div
-              className="relative w-full"
-              style={{ aspectRatio: "16 / 6" }}
-            >
+            <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
               <picture>
                 <source media="(max-width: 640px)" srcSet="/esg.jpg" />
                 <img
                   loading="eager"
-                  fetchPriority="high"
                   src="/esg.jpg"
-                  alt="ESG-Reporting Dashboard mit Kennzahlen und Trendlinien"
+                  alt="ESG-Strategie im Unternehmen: Team arbeitet am CSRD-Fahrplan auf einem großen Whiteboard"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               </picture>
             </div>
             <figcaption className="sr-only">
-              Visualisierung für ESG-Kennzahlen und Reporting-Prozesse
+              Strategieworkshop zur CSRD-Umsetzung.
             </figcaption>
           </figure>
 
           {/* Meta row – Autor */}
           <div className="mt-6 flex items-center gap-3 text-sm text-zinc-700">
             <img
-              src="/Autorenbild.jpg"
+              src={author.image}
               alt="Autor: Max Mustermann"
               className="w-10 h-10 rounded-full object-cover"
               loading="lazy"
             />
             <div>
-              <div className="font-medium text-zinc-900">
-                {author.name}
-              </div>
+              <div className="font-medium text-zinc-900">{author.name}</div>
               <div>{author.role}</div>
             </div>
           </div>
@@ -193,36 +172,39 @@ export default function Page() {
 
         {/* TL;DR */}
         <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-          <h2 className="text-lg font-semibold mb-3">
-            Das Wichtigste auf einen Blick
-          </h2>
+          <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
           <ul className="list-disc ml-5 space-y-2 text-zinc-800">
             <li>
-              <strong>2025 ist ein Scharnierjahr:</strong> Erste CSRD-Berichte
-              erscheinen (Datenjahr 2024). Für viele Mittelständler beginnt
-              jetzt die <em>Umsetzung</em> – mit Fokus auf Materialität,
-              Datenbasics und steuerbare KPIs.
+              <strong>Zeitleiste 2025:</strong> Durch die „Stop-the-clock“-Richtlinie
+              wurden Pflichten für viele (Welle&nbsp;2/3) um <strong>2 Jahre</strong>
+              verschoben – aber die <strong>Vorbereitung 2025</strong> bleibt
+              erfolgskritisch (Daten, Prozesse, Wesentlichkeit).
             </li>
             <li>
-              <strong>Doppelte Wesentlichkeit</strong> entscheidet über
-              Berichtsumfang. Ohne sauberen Prozess mit Stakeholdern,
-              Schwellenwerten &amp; Dokumentation riskierst du Lücken in ESRS
-              E1–S/G.
+              <strong>„Quick Fix“ 2025:</strong> Welle-1-Unternehmen berichten 2025/2026
+              nicht mehr als 2024; <strong>erweiterte Übergangserleichterungen</strong>{" "}
+              nehmen Druck aus ESRS-Details – ohne die Pflicht zur{" "}
+              <strong>limitierten Prüfung</strong> zu ändern.
             </li>
             <li>
-              <strong>Datenprozesse &amp; Governance:</strong> Definiere
-              eindeutige Ownership, Systemlandschaft, Kontrollen und
-              Nachweispfade – prüfungsfest von Anfang an.
+              <strong>Doppelte Wesentlichkeit</strong> zuerst: sauberer Prozess,
+              dokumentierte Schwellen, eindeutige Entscheidungen. Das steuert,{" "}
+              <em>was</em> du wirklich berichten musst.
             </li>
             <li>
-              <strong>KPIs, die zählen:</strong> Treibhausgase (Scope 1–3),
-              Energie, EU-Taxonomie (Umsatz/CapEx/OpEx), Workforce- und
-              Lieferketten-Indikatoren – schlank, messbar, auditierbar.
+              <strong>Datenprozesse &amp; KPIs:</strong> baue schlanke
+              Datenerhebung entlang der Wertschöpfung (Scope&nbsp;3 inklusive),
+              definiere Owner, Kontrollen &amp; Audit-Trail – prüfungssicher.
             </li>
             <li>
-              <strong>Roadmap bis zum Bericht:</strong> 6–9 Monate, in
-              Meilensteine geschnitten (Materialität → Daten → Taxonomie →
-              Draft → Assurance → Veröffentlichung).
+              <strong>Roadmap:</strong> 90-Tage-Start, 12-Monats-Plan und
+              Meilensteine bis zur ersten Veröffentlichung – passend für{" "}
+              <strong>mittelständische B2B-Unternehmen</strong>.
+            </li>
+            <li>
+              <strong>EU-Taxonomie &amp; Lieferkette:</strong> Taxonomie-KPIs
+              (Umsatz/CapEx/OpEx) sauber verknüpfen und Inhalte mit
+              Lieferketten-Pflichten abstimmen.
             </li>
           </ul>
         </aside>
@@ -232,174 +214,173 @@ export default function Page() {
           aria-label="Inhaltsverzeichnis"
           className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
         >
-          <h2 className="text-base font-semibold mb-3">
-            Inhaltsverzeichnis
-          </h2>
+          <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
           <ol className="list-decimal ml-5 space-y-2">
             <li>
-              <a
-                className={`hover:underline ${accent} font-medium`}
-                href="#warum-2025"
-              >
-                Warum 2025 für CSRD &amp; ESRS so wichtig ist
+              <a className={`hover:underline ${accent} font-medium`} href="#was-aendert-sich-2025">
+                Was ändert sich 2025 wirklich?
               </a>
             </li>
             <li>
-              <a
-                className={`hover:underline ${accent} font-medium`}
-                href="#wer-betroffen"
-              >
-                Wer ist betroffen &amp; ab wann? (Zeitplan)
+              <a className={`hover:underline ${accent} font-medium`} href="#wer-ist-betroffen-und-wann">
+                Wer ist betroffen – und wann?
               </a>
             </li>
             <li>
-              <a
-                className={`hover:underline ${accent} font-medium`}
-                href="#doppelte-wesentlichkeit"
-              >
-                Doppelte Wesentlichkeit – Schritt für Schritt erklärt
+              <a className={`hover:underline ${accent} font-medium`} href="#doppelte-wesentlichkeit">
+                Doppelte Wesentlichkeit: so gehst du vor
               </a>
             </li>
             <li>
-              <a
-                className={`hover:underline ${accent} font-medium`}
-                href="#datenprozesse"
-              >
-                Datenprozesse, Governance &amp; Prüfpfade
+              <a className={`hover:underline ${accent} font-medium`} href="#datenprozesse-kpis">
+                Datenprozesse &amp; KPIs: pragmatisch und prüfungssicher
               </a>
             </li>
             <li>
-              <a
-                className={`hover:underline ${accent} font-medium`}
-                href="#scope3-esrs-e1"
-              >
-                Klimabilanz (Scope 1–3) &amp; ESRS E1 – pragmatisch umsetzen
+              <a className={`hover:underline ${accent} font-medium`} href="#scope-3">
+                Scope&nbsp;3-Emissionen: vom Spend-basierten Start zum Primärdaten-Mix
               </a>
             </li>
             <li>
-              <a
-                className={`hover:underline ${accent} font-medium`}
-                href="#eu-taxonomie"
-              >
-                EU-Taxonomie: KPIs richtig ermitteln (Umsatz, CapEx, OpEx)
+              <a className={`hover:underline ${accent} font-medium`} href="#eu-taxonomie">
+                EU-Taxonomie &amp; ESRS: was zusammengehört
               </a>
             </li>
             <li>
-              <a
-                className={`hover:underline ${accent} font-medium`}
-                href="#kpi-set"
-              >
-                KPI-Set für den Mittelstand (Startpaket 2025)
+              <a className={`hover:underline ${accent} font-medium`} href="#lieferkette">
+                Lieferkettengesetz &amp; CSDDD: Abgleich mit ESRS
               </a>
             </li>
             <li>
-              <a
-                className={`hover:underline ${accent} font-medium`}
-                href="#roadmap"
-              >
-                Roadmap bis zum Bericht (6–9 Monate)
+              <a className={`hover:underline ${accent} font-medium`} href="#roadmap">
+                Roadmap 2025: 90-Tage-Plan &amp; 12-Monats-Fahrplan
               </a>
             </li>
             <li>
-              <a
-                className={`hover:underline ${accent} font-medium`}
-                href="#lieferkette"
-              >
-                Lieferkettengesetz &amp; CSDDD – was mitberichten?
+              <a className={`hover:underline ${accent} font-medium`} href="#faq">
+                FAQ
               </a>
             </li>
             <li>
-              <a
-                className={`hover:underline ${accent} font-medium`}
-                href="#assurance"
-              >
-                Assurance &amp; Vorbereitung auf die Prüfung
-              </a>
-            </li>
-            <li>
-              <a
-                className={`hover:underline ${accent} font-medium`}
-                href="#huerden"
-              >
-                Typische Hürden &amp; Quick Wins
+              <a className={`hover:underline ${accent} font-medium`} href="#zusammenfassung">
+                Kurzfazit
               </a>
             </li>
           </ol>
         </nav>
 
         {/* Hauptteil */}
-        <section id="warum-2025">
-          <h2 className="text-2xl font-bold mb-3">
-            Warum 2025 für CSRD &amp; ESRS so wichtig ist
-          </h2>
-          <p>
-            2025 erscheinen die ersten <strong>CSRD-Berichte</strong> auf Basis
-            der <strong>ESRS</strong> – für Unternehmen, die bereits 2024
-            berichtspflichtig waren. Für viele mittelständische B2B-Firmen ist
-            2025 das Jahr der <em>Umsetzung</em>: Prozesse stabilisieren,
-            Doppelmaterialität sauber dokumentieren, Datengrundlagen für 2025/26
-            legen, <strong>EU-Taxonomie</strong> verstehen und eine belastbare
-            KPI-Architektur schaffen. Wer jetzt strukturiert vorgeht, spart
-            später Zeit, Nerven und Prüfaufwand.
+        <section id="was-aendert-sich-2025">
+          <h2 className="text-2xl font-bold mb-2">Was ändert sich 2025 wirklich?</h2>
+          <p className="leading-relaxed">
+            2025 ist ein <strong>Umsetzungsjahr</strong>: Die EU hat zwei
+            entscheidende Schritte gesetzt. Erstens die sogenannte{" "}
+            <strong>„Stop-the-clock“-Richtlinie</strong>, die für viele
+            Unternehmen die CSRD-Pflichten um <strong>zwei Jahre</strong>{" "}
+            verschiebt (Welle&nbsp;2 und Welle&nbsp;3). Zweitens den{" "}
+            <strong>„Quick Fix“</strong> für die erste ESRS-Generation:
+            Unternehmen, die bereits für das Geschäftsjahr 2024 berichten
+            müssen (Welle&nbsp;1), müssen 2025/2026 <em>keine zusätzlichen</em>{" "}
+            Inhalte über 2024 hinaus offenlegen und profitieren teils von
+            erweiterten Übergangsregeln. Für dich heißt das: etwas mehr Luft –
+            aber keine Ausrede, die <strong>Grundlagen</strong> nicht zu
+            bauen.
           </p>
 
-          <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-            <p className="m-0">
-              <strong>AI-Visibility-Booster:</strong> Problem und Lösung in
-              15 Sekunden –{" "}
-              <em>
-                Du brauchst 2025 einen klaren Prozess für Materialität,
-                belastbare KPIs (inkl. Scope 3) und Taxonomie-KPIs sowie einen
-                Prüfpfad.
-              </em>{" "}
-              Die Lösung: eine pragmatische 6-Schritte-Roadmap inkl.
-              Verantwortlichkeiten, Datencontrolling und Draft-Review.
-            </p>
+          <div className="mt-6 grid gap-5 md:grid-cols-2">
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+              <h3 className="font-semibold mb-2">Kurz erklärt</h3>
+              <ul className="list-disc ml-5 space-y-2 text-sm">
+                <li>
+                  <strong>Stop-the-clock:</strong> Welle&nbsp;2/3 beginnt{" "}
+                  <u>zwei Jahre später</u> als ursprünglich geplant (siehe
+                  Zeitleiste unten).
+                </li>
+                <li>
+                  <strong>Quick Fix:</strong> Welle-1 berichtet 2025/2026{" "}
+                  <em>auf gleichem Level</em> wie 2024; gewisse Phase-ins
+                  gelten zusätzlich.
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold mb-2">
+                Was heißt das für mittelständische B2B-Unternehmen?
+              </h3>
+              <p className="text-sm">
+                Nutze 2025 für die <strong>doppelte Wesentlichkeit</strong>,
+                die <strong>Datenarchitektur</strong> (inkl. Scope&nbsp;3) und
+                <strong> Prozesse &amp; Kontrollen</strong>. So gehst du 2026
+                entspannt in Pilots, 2027 in die erste vollständige
+                Datenerhebung und 2028/2029 in die Veröffentlichung –
+                abhängig von deiner Unternehmensgröße und Welle.
+              </p>
+            </div>
           </div>
         </section>
 
-        <section id="wer-betroffen" className="mt-10">
-          <h2 className="text-2xl font-bold mb-3">
-            Wer ist betroffen &amp; ab wann? (Zeitplan)
-          </h2>
-          <div className="not-prose grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-zinc-200 p-4">
-              <h3 className="font-semibold mb-2">Pflicht (Auszug)</h3>
-              <ul className="list-disc ml-5 space-y-1">
-                <li>
-                  <strong>Welle 1:</strong> bisherige NFRD-Unternehmen – Berichte
-                  2025 (Datenjahr 2024).
-                </li>
-                <li>
-                  <strong>Welle 2/3:</strong> weitere große Unternehmen und
-                  gelistete KMU – gestaffelt ab 2026ff.; beachte laufende
-                  Vereinfachungen und Übergangsregeln.
-                </li>
-                <li>
-                  <strong>Assurance:</strong> Start mit Limited Assurance; Ausbau
-                  der Prüfanforderungen in den Folgejahren.
-                </li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
-              <h3 className="font-semibold mb-2">Wichtig 2025</h3>
-              <ul className="list-disc ml-5 space-y-1">
-                <li>
-                  <strong>Phase-ins / Quick-Fix:</strong> Erleichterungen für
-                  Welle 1 bei zusätzlichen ESRS-Angaben in 2025/26.
-                </li>
-                <li>
-                  <strong>Wertschöpfungskette:</strong> Schätzungen erlaubt,
-                  wenn Lieferantendaten (noch) fehlen – aber nachvollziehbar
-                  begründen.
-                </li>
-                <li>
-                  <strong>EU-Taxonomie:</strong> Umsatz/CapEx/OpEx-KPIs weiterhin
-                  zentral für Kapitalmarkt und Banken.
-                </li>
-              </ul>
-            </div>
+        <section id="wer-ist-betroffen-und-wann" className="mt-10">
+          <h2 className="text-2xl font-bold mb-2">Wer ist betroffen – und wann?</h2>
+          <p>
+            Die CSRD gilt stufenweise („Wellen“). Vereinfacht:
+          </p>
+          <div className="rounded-2xl border border-zinc-200 overflow-hidden mt-4">
+            <table className="w-full text-sm">
+              <thead className="bg-zinc-50">
+                <tr>
+                  <th className="text-left font-semibold p-3 w-56">Welle</th>
+                  <th className="text-left font-semibold p-3">Wer?</th>
+                  <th className="text-left font-semibold p-3">Erstes Berichtsjahr</th>
+                  <th className="text-left font-semibold p-3">Veröffentlichung</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-t border-zinc-200">
+                  <td className="p-3 font-medium">Welle 1</td>
+                  <td className="p-3">
+                    Unternehmen, die bereits unter der NFRD berichteten (z. B.
+                    große kapitalmarktorientierte)
+                  </td>
+                  <td className="p-3">2024 (unverändert)</td>
+                  <td className="p-3">2025</td>
+                </tr>
+                <tr className="border-t border-zinc-200">
+                  <td className="p-3 font-medium">Welle 2</td>
+                  <td className="p-3">
+                    andere große Unternehmen (i. d. R. zwei von drei:
+                    &gt; 250 MA, &gt; 40 Mio. € Umsatz, &gt; 20 Mio. € Bilanzsumme)
+                  </td>
+                  <td className="p-3">
+                    <strong>2027</strong> (statt 2025)
+                  </td>
+                  <td className="p-3">2028</td>
+                </tr>
+                <tr className="border-t border-zinc-200">
+                  <td className="p-3 font-medium">Welle 3</td>
+                  <td className="p-3">börsennotierte KMU (mit Opt-out-Möglichkeit)</td>
+                  <td className="p-3">
+                    <strong>2028</strong> (statt 2026)
+                  </td>
+                  <td className="p-3">2029</td>
+                </tr>
+                <tr className="border-t border-zinc-200">
+                  <td className="p-3 font-medium">Nicht-EU-Konzerne</td>
+                  <td className="p-3">
+                    mit &gt; 150 Mio. € EU-Umsatz und relevanter Präsenz
+                  </td>
+                  <td className="p-3">2028 (unverändert)</td>
+                  <td className="p-3">2029</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+          <p className="text-xs text-zinc-600 mt-2">
+            Hinweis: Es liegt zudem ein <em>Vereinfachungsvorschlag</em> der
+            EU-Kommission vor („Omnibus“), der die CSRD künftig nur für sehr
+            große Unternehmen (&gt; 1.000 MA) anwenden würde. Das ist{" "}
+            <strong>noch nicht beschlossen</strong>. Plane konservativ und
+            halte Entwicklungen im Blick.
+          </p>
         </section>
 
         {/* Bild 1 – volle Breite, 16:6 */}
@@ -410,349 +391,336 @@ export default function Page() {
               <img
                 loading="lazy"
                 src="/nachhaltigkeit.jpg"
-                alt="Projektteam plant CSRD-Roadmap an einem Whiteboard"
+                alt="Nachhaltigkeitsdaten entlang der Wertschöpfungskette: Prozessdiagramm an einer Glasscheibe"
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </picture>
           </div>
           <figcaption className="text-sm text-zinc-600">
-            Von der doppelten Wesentlichkeit bis zur Veröffentlichung: Eine
-            durchdachte Roadmap reduziert Schleifen und Prüfungsaufwand.
+            Grundlage jeder ESRS-Berichterstattung: stabile Datenflüsse, klare
+            Verantwortlichkeiten und nachvollziehbare Kontrollen.
           </figcaption>
         </figure>
 
         <section id="doppelte-wesentlichkeit" className="mt-10">
-          <h2 className="text-2xl font-bold mb-3">
-            Doppelte Wesentlichkeit – Schritt für Schritt erklärt
-          </h2>
+          <h2 className="text-2xl font-bold mb-2">Doppelte Wesentlichkeit: so gehst du vor</h2>
           <p>
-            Die <strong>doppelte Wesentlichkeitsanalyse</strong> vereint
-            <em>Impact-Materialität</em> (Auswirkungen des Unternehmens auf
-            Umwelt &amp; Menschen) und <em>Finanz-Materialität</em> (Auswirkungen
-            nachhaltigkeitsbezogener Themen auf Geschäft, Cashflows, Bewertung).
-            Sie entscheidet, welche ESRS-Angaben du liefern musst. Ein
-            schlanker, prüfbarer Prozess umfasst:
+            Die <strong>doppelte Wesentlichkeit</strong> verbindet zwei Blickwinkel:
+            <em>Impact</em> (Auswirkungen deines Unternehmens auf Umwelt &amp;
+            Menschen) und <em>Financial</em> (Risiken &amp; Chancen für dein
+            Unternehmen). Erst wenn ein Thema in mindestens einer Perspektive
+            wesentlich ist, musst du berichten. So setzt du es um:
           </p>
-          <ol className="list-decimal ml-5 space-y-2">
-            <li>
-              <strong>Scoping &amp; Kontext:</strong> Geschäftsmodell,
-              Wertschöpfungskette, Standorte, Stakeholder, relevante
-              Regulierungen.
-            </li>
-            <li>
-              <strong>Initiale Themenliste:</strong> ESRS-Themen + branchenspezifische
-              Risiken; konsolidieren, Dubletten vermeiden.
-            </li>
-            <li>
-              <strong>Stakeholder-Einbindung:</strong> strukturierte
-              Interviews/Workshops; klare Kriterien &amp; Schwellenwerte.
-            </li>
-            <li>
-              <strong>Bewertung &amp; Priorisierung:</strong> Impact (Schwere,
-              Häufigkeit, Reichweite) und Finanzwirkung (Wahrscheinlichkeit,
-              Größenordnung) mit nachvollziehbarer Scoring-Logik.
-            </li>
-            <li>
-              <strong>Validierung:</strong> Management-Review, Abgleich mit
-              Strategie, Risiken, Kontrollen; Dokumentation für die Prüfung.
-            </li>
-            <li>
-              <strong>Mapping auf ESRS:</strong> Betroffene
-              Offenlegungsanforderungen ableiten (inkl. EU-Taxonomie-Bezug).
-            </li>
-          </ol>
+
+          <div className="grid md:grid-cols-2 gap-5 mt-5">
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold mb-2">Schritt-für-Schritt</h3>
+              <ol className="list-decimal ml-5 space-y-2 text-sm">
+                <li>
+                  <strong>Kontext verstehen:</strong> Geschäftsmodell,
+                  Standorte, Produkte, Lieferketten, Stakeholder.
+                </li>
+                <li>
+                  <strong>IROs identifizieren:</strong> <em>Impacts, Risks,
+                  Opportunities</em> entlang Wertschöpfung (Up- &amp; Downstream).
+                </li>
+                <li>
+                  <strong>Bewerten &amp; priorisieren:</strong> klare Kriterien
+                  (Schwere, Reichweite, Unerlässlichkeit; Eintrittswahrscheinlichkeit,
+                  Finanzwirkung), transparente Schwellen &amp; Dokumentation.
+                </li>
+                <li>
+                  <strong>Entscheiden &amp; begründen:</strong> Materialitätsmatrix,
+                  Begründungen, Abgrenzung „nicht wesentlich“.
+                </li>
+                <li>
+                  <strong>Verknüpfen:</strong> für wesentliche Themen die
+                  relevanten ESRS-Datenpunkte &amp; KPIs ableiten.
+                </li>
+              </ol>
+            </div>
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+              <h3 className="font-semibold mb-2">Praktische Tipps</h3>
+              <ul className="list-disc ml-5 space-y-2 text-sm">
+                <li>
+                  <strong>Entitäten konsistent:</strong> gleiche Konsolidierungskreise
+                  wie im Abschluss, plus Wertschöpfungskette.
+                </li>
+                <li>
+                  <strong>Stakeholder einbinden:</strong> Vertrieb, Einkauf,
+                  HR, Produktion, Finanzen, Compliance.
+                </li>
+                <li>
+                  <strong>Audit-Trail früh denken:</strong> Quellen, Annahmen,
+                  Berechnungen versioniert ablegen.
+                </li>
+                <li>
+                  <strong>Update-Zyklus:</strong> jährlich prüfen; bei
+                  wesentlichen Änderungen ad hoc.
+                </li>
+              </ul>
+            </div>
+          </div>
 
           {/* Expertenzitat */}
           <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
             <blockquote className="text-lg font-medium">
-              „Die Materialität ist kein Excel-Häkchen, sondern die
-              <em> Architekturskizze</em> deines Berichts. Wer hier sauber
-              arbeitet, spart später 50 % der Schleifen im Audit.“
+              „Die doppelte Wesentlichkeit ist kein theoretisches Projekt –
+              sie ist dein <em>Scope-Fokusfilter</em>. Wer sie 2025 sauber
+              aufsetzt, spart 2026/2027 die meisten Diskussionen mit Audit
+              und Aufsichtsrat.“
             </blockquote>
             <figcaption className="mt-2 text-sm text-zinc-600">
-              — Max Mustermann, indirektes Zitat aus Projektpraxis
-            </figcaption>
-          </figure>
-
-          <div className="mt-6 rounded-2xl border border-zinc-200 p-5">
-            <h3 className="font-semibold mb-2">
-              Häufige Fragen zur Materialität
-            </h3>
-            <ul className="list-disc ml-5 space-y-2">
-              <li>
-                <strong>Ist E1 (Klima) immer Pflicht?</strong> Nein, alle
-                thematischen ESRS unterliegen der Materialität. Wenn Klima
-                <em> nicht</em> wesentlich ist, brauchst du eine klare
-                Begründung und Kurzangaben – realistisch ist Klima bei den
-                meisten B2B-Firmen relevant.
-              </li>
-              <li>
-                <strong>Was, wenn Lieferantendaten fehlen?</strong> Dann sind
-                methodisch saubere Schätzungen erlaubt – wichtig sind
-                Transparenz, Konsistenz und ein Plan, wie du echte Daten
-                nachziehst.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="datenprozesse" className="mt-10">
-          <h2 className="text-2xl font-bold mb-3">
-            Datenprozesse, Governance &amp; Prüfpfade
-          </h2>
-          <p>
-            Dein <strong>Datenmodell</strong> sollte die ESRS-Logik
-            widerspiegeln: von Policies, Maßnahmen und Zielen zu Kennzahlen und
-            Nachweisen. Für die <strong>Prüfung (Limited Assurance)</strong>{" "}
-            zählen klare Verantwortlichkeiten, Kontrollen und ein lückenfreier
-            Audit-Trail.
-          </p>
-
-          <div className="not-prose grid gap-4 md:grid-cols-[1.4fr_1fr]">
-            <div className="rounded-xl border border-zinc-200 p-4">
-              <h3 className="font-semibold mb-2">
-                Must-have-Kontrollen (2025)
-              </h3>
-              <ul className="list-disc ml-5 space-y-1">
-                <li>Datenquellenkatalog &amp; Owner je Kennzahl</li>
-                <li>Vier-Augen-Prinzip bei Berechnungen</li>
-                <li>Versionierung von Methoden &amp; Faktoren</li>
-                <li>Belegbare Stichproben &amp; Reperformances</li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
-              <h3 className="font-semibold mb-2">Nice-to-have</h3>
-              <ul className="list-disc ml-5 space-y-1">
-                <li>Automatisierte ETL-Pipelines</li>
-                <li>Systemgestützte Taxonomie-Tagging-Logik</li>
-                <li>Kontrollmatrix mit Risikobewertung</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="scope3-esrs-e1" className="mt-10">
-          <h2 className="text-2xl font-bold mb-3">
-            Klimabilanz (Scope 1–3) &amp; ESRS E1 – pragmatisch umsetzen
-          </h2>
-          <p>
-            Für viele B2B-Unternehmen sind <strong>Scope 3-Emissionen</strong>{" "}
-            entscheidend (v. a. eingekaufte Güter/Dienstleistungen, Transporte,
-            Nutzungsphase). Starte mit einem <em>materialitätsbasierten</em>{" "}
-            Screening, priorisiere 3–5 Kategorien und setze dann auf
-            Datenerhebung bei Schlüssel-Lieferanten – ergänzt um robuste
-            Schätzverfahren und Improvement-Plan.
-          </p>
-
-          <div className="rounded-2xl border border-zinc-200 p-5 mt-4">
-            <h3 className="font-semibold mb-2">Rechenweg (Kurz)</h3>
-            <ol className="list-decimal ml-5 space-y-2">
-              <li>Systemgrenzen &amp; Kategorien festlegen</li>
-              <li>Aktivitätsdaten beschaffen oder ableiten</li>
-              <li>Emissionsfaktoren dokumentiert zuordnen</li>
-              <li>Berechnen, plausibilisieren, Unsicherheiten offenlegen</li>
-              <li>Ziele &amp; Maßnahmen (inkl. Lieferanten-Engagement)</li>
-            </ol>
-          </div>
-
-          {/* Bild 2 – Unsplash */}
-          <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
-            <div
-              className="relative w-full"
-              style={{ aspectRatio: "16 / 6" }}
-            >
-              <img
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&auto=format&fit=crop&w=1920"
-                alt="Team arbeitet an Emissionsfaktoren und Scope-3-Kategorien am Laptop"
-                className="absolute inset-0 h-full w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <figcaption className="text-sm text-zinc-600">
-              Scope-3-Screening: Kategorien priorisieren, Datenlücken sauber
-              schätzen, Lieferanten systematisch einbinden.
+              — indirektes Zitat aus internen ESG-Trainings, {reviewer.name},{" "}
+              {reviewer.role}
             </figcaption>
           </figure>
         </section>
 
-        <section id="eu-taxonomie" className="mt-10">
-          <h2 className="text-2xl font-bold mb-3">
-            EU-Taxonomie: KPIs richtig ermitteln (Umsatz, CapEx, OpEx)
+        <section id="datenprozesse-kpis" className="mt-10">
+          <h2 className="text-2xl font-bold mb-2">
+            Datenprozesse &amp; KPIs: pragmatisch und prüfungssicher
           </h2>
           <p>
-            Die <strong>EU-Taxonomie</strong> verlangt die Offenlegung
-            taxonomie-fähiger und -ausgerichteter Anteile an Umsatz, CapEx und
-            OpEx. Praktisch heißt das: Aktivitäten klassifizieren, DNSH- und
-            Mindestschutz-Kriterien prüfen, Nachweise sammeln und KPIs
-            ableiten. Für den Mittelstand lohnt sich ein <em>CapEx-First</em>-
-            Ansatz: Investitionen systematisch taggen und auf
-            Taxonomie-Konformität prüfen.
+            Dein Ziel 2025: <strong>schlanke, stabile</strong> Prozesse mit
+            klaren Rollen (Data Owner, Controlling, ESG-Team), dokumentierten
+            Methoden und <strong>Kontrollen</strong>. So vermeidest du Brüche
+            zwischen Finance und Nachhaltigkeit.
           </p>
 
-          <div className="rounded-2xl border border-zinc-200 overflow-hidden">
+          <div className="grid md:grid-cols-3 gap-5 mt-5">
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold mb-2">Core-Prozesse</h3>
+              <ul className="list-disc ml-5 space-y-2 text-sm">
+                <li>Periodische Datenerhebung mit Cut-off &amp; Freigaben</li>
+                <li>Methodenhandbuch (Definitionen, Formeln, Quellen)</li>
+                <li>Kontrollen (Vier-Augen, Plausis, Ausreißer-Checks)</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold mb-2">Top-KPIs (Auswahl)</h3>
+              <ul className="list-disc ml-5 space-y-2 text-sm">
+                <li>ESRS&nbsp;E1: THG (Scope 1/2/3), Energie, Intensity</li>
+                <li>ESRS&nbsp;S1: Belegschaft (Fluktuation, Unfälle)</li>
+                <li>EU-Taxonomie: Umsatz/CapEx/OpEx ausgerichtet</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold mb-2">Kontrollen &amp; Prüfung</h3>
+              <ul className="list-disc ml-5 space-y-2 text-sm">
+                <li>Nachvollziehbare Herleitungen &amp; Belege</li>
+                <li>Änderungsmanagement &amp; Versionshistorie</li>
+                <li>Vorab-Audit („pre-assurance“) einzelner KPIs</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-6 rounded-2xl border border-zinc-200 overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-zinc-50">
                 <tr>
-                  <th className="text-left font-semibold p-3 w-56">
-                    KPI
-                  </th>
-                  <th className="text-left font-semibold p-3">
-                    Kurzdefinition &amp; Praxis-Hinweise
-                  </th>
+                  <th className="text-left font-semibold p-3">2025 Must-haves</th>
+                  <th className="text-left font-semibold p-3">Nice-to-have</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">
-                    Umsatz-KPI
+                  <td className="p-3">
+                    Dokumentierte Wesentlichkeit inkl. Schwellen, Methode &
+                    Ergebnis
                   </td>
-                  <td className="p-3 text-zinc-700">
-                    Anteil des Netto-Umsatzes aus Taxonomie-ausgerichteten
-                    Aktivitäten; Erlöskonten sauber mappen; Prüfbarkeit durch
-                    Belege sicherstellen.
-                  </td>
+                  <td className="p-3">Materialitäts-Dashboard mit Drill-down</td>
                 </tr>
                 <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">
-                    CapEx-KPI
-                  </td>
-                  <td className="p-3 text-zinc-700">
-                    Anteil der Investitionen, die Taxonomie-Kriterien erfüllen;
-                    CapEx-Plan und technische Kriterien frühzeitig abstimmen.
-                  </td>
+                  <td className="p-3">Methodenhandbuch &amp; KPI-Datenmodell</td>
+                  <td className="p-3">ESG-Daten im Data Warehouse</td>
                 </tr>
                 <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">
-                    OpEx-KPI
+                  <td className="p-3">
+                    Scope-3-Pilotrechnung (Top-5-Warengruppen)
                   </td>
-                  <td className="p-3 text-zinc-700">
-                    Anteil förderfähiger Betriebsaufwendungen; klare
-                    Abgrenzung (z. B. Instandhaltung, kurze Verträge,
-                    Direktkosten) dokumentieren.
-                  </td>
+                  <td className="p-3">Supplier Portal für Primärdaten</td>
+                </tr>
+                <tr className="border-t border-zinc-200">
+                  <td className="p-3">Kontrollen &amp; Freigabeprozess</td>
+                  <td className="p-3">Automatisierte Ausreißer-Erkennung</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </section>
 
-        <section id="kpi-set" className="mt-10">
-          <h2 className="text-2xl font-bold mb-3">
-            KPI-Set für den Mittelstand (Startpaket 2025)
+        <section id="scope-3" className="mt-10">
+          <h2 className="text-2xl font-bold mb-2">
+            Scope&nbsp;3-Emissionen: vom Spend-basierten Start zum Primärdaten-Mix
           </h2>
           <p>
-            Wähle wenige, <strong>steuerungsrelevante</strong> Kennzahlen, die
-            ESRS-konform sind und dein Geschäftsmodell wirklich abbilden:
+            Für viele Mittelständler ist <strong>Scope&nbsp;3</strong>{" "}
+            entscheidend – und herausfordernd. Starte <em>pragmatisch</em> mit
+            einer <strong>Spend-basierten</strong> Erstberechnung (Einkaufsdaten
+            × Emissionsfaktoren), verfeinere dann gezielt: für
+            <em>Hotspots</em> Primärdaten der Lieferanten, Aktivitäten-basierte
+            Methoden (z. B. Nutzung, Transporte) und bessere Faktoren. Wichtig
+            ist, deine <strong>Methodik</strong> transparent zu dokumentieren.
           </p>
-          <div className="not-prose grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-zinc-200 p-4">
-              <h3 className="font-semibold mb-2">Klima &amp; Umwelt</h3>
-              <ul className="list-disc ml-5 space-y-1">
-                <li>THG gesamt (tCO₂e) &amp; Intensitäten (pro Umsatz/Einheit)</li>
-                <li>Energieverbrauch &amp; Anteil Erneuerbare</li>
-                <li>Relevante Scope-3-Kategorien (Top 3–5)</li>
-              </ul>
+
+          <div className="grid md:grid-cols-2 gap-5 mt-5">
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold mb-2">Schrittfolge</h3>
+              <ol className="list-decimal ml-5 space-y-2 text-sm">
+                <li>Spend-Daten bereinigen &amp; Warengruppen clustern</li>
+                <li>Emissionsfaktoren zuordnen (Herkunft, Vintage, Qualität)</li>
+                <li>Top-Hotspots (Top-10 Lieferanten, Top-5 Kategorien) priorisieren</li>
+                <li>Primärdatenabfrage &amp; Aktivitäten-Methoden ergänzen</li>
+                <li>Verbesserungs-KPIs, Zielpfade &amp; Lieferantenprogramm</li>
+              </ol>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
-              <h3 className="font-semibold mb-2">Soziales &amp; Governance</h3>
-              <ul className="list-disc ml-5 space-y-1">
-                <li>Arbeitsunfälle &amp; Abwesenheitstage</li>
-                <li>Gender Pay Gap (so weit verfügbar)</li>
-                <li>Compliance-Fälle &amp; Trainingsquoten</li>
-              </ul>
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+              <h3 className="font-semibold mb-2">Do vs. Don’t (2-zu-1)</h3>
+              <div className="grid grid-cols-3 gap-4">
+                <div className="col-span-2">
+                  <div className="rounded-lg border border-emerald-200 bg-white p-3 text-sm">
+                    <strong>Do:</strong> Priorisieren, dokumentieren, Lieferanten
+                    früh einbinden, Unsicherheiten beziffern.
+                  </div>
+                </div>
+                <div>
+                  <div className="rounded-lg border border-red-200 bg-white p-3 text-sm">
+                    <strong>Don’t:</strong> Alles gleichzeitig, Quellen mischen
+                    ohne Kennzeichnung, Ergebnisse ohne Unsicherheiten publizieren.
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <p className="mt-3">
-            Ergänze je nach Materialität: Wasserentnahme (E3), Biodiversität
-            (E4), Circularity-Quoten (E5), Wertschöpfungsketten-KPIs (S2–S4),
-            Geschäftsgepflogenheiten (G1).
+        </section>
+
+        {/* Bild 2 – Unsplash */}
+        <figure className="mt-8 overflow-hidden rounded-2xl border border-zinc-200">
+          <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
+            <picture>
+              <source
+                media="(max-width: 640px)"
+                srcSet="https://images.unsplash.com/photo-1551281044-8f72f25d0f3b?q=80&auto=format&fit=crop&w=1200"
+              />
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1551281044-8f72f25d0f3b?q=80&auto=format&fit=crop&w=1800"
+                alt="Dashboard mit Emissions- und Energie-Kennzahlen"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </picture>
+          </div>
+          <figcaption className="text-sm text-zinc-600">
+            Scope-3 sichtbar machen: ein konsistentes KPI-Set erleichtert
+            Steuerung und Assurance.
+          </figcaption>
+        </figure>
+
+        <section id="eu-taxonomie" className="mt-10">
+          <h2 className="text-2xl font-bold mb-2">
+            EU-Taxonomie &amp; ESRS: was zusammengehört
+          </h2>
+          <p>
+            Die <strong>EU-Taxonomie</strong> verlangt die Offenlegung der
+            Anteile <strong>taxonomiefähiger</strong> und{" "}
+            <strong>taxonomiekonformer</strong> Umsätze, CapEx und OpEx. Für die
+            CSRD heißt das: Du verknüpfst ESRS-Informationen (z. B.
+            Geschäftsmodell, Strategien, Übergangspläne) mit Taxonomie-KPIs.
+            Praktisch: Erstelle für 2025 eine <em>Mapping-Tabelle</em>, die
+            Aktivitäten, technische Kriterien, DNSH/Min-Safeguards und KPI-Zuordnung
+            zeigt. So reduzierst du doppelten Aufwand.
+          </p>
+          <ul className="list-disc ml-5 space-y-2 text-sm">
+            <li>
+              <strong>Startpunkt:</strong> Aktivitäten-Inventar &amp; CapEx-Plan
+              (3–5 Jahre) – matchen mit Taxonomie-Kriterien.
+            </li>
+            <li>
+              <strong>Kontrollen:</strong> klare Evidenzen pro KPI (Vertrag,
+              Rechnung, technische Nachweise).
+            </li>
+            <li>
+              <strong>Abstimmung:</strong> Finance × Nachhaltigkeit × Technik
+              zur einheitlichen Bewertung.
+            </li>
+          </ul>
+        </section>
+
+        <section id="lieferkette" className="mt-10">
+          <h2 className="text-2xl font-bold mb-2">
+            Lieferkettengesetz &amp; CSDDD: Abgleich mit ESRS
+          </h2>
+          <p>
+            Inhalte aus dem deutschen Lieferkettengesetz (und künftig der
+            EU-CSDDD) überlappen mit ESRS-Themen (z. B. Menschenrechte,
+            Arbeitsbedingungen, Umwelt in der Lieferkette). Nutze eine
+            <strong> gemeinsame Risiko- &amp; Maßnahmenlogik</strong>:
+            Identifikation, Prävention, Abhilfe, Wirksamkeitskontrolle –
+            gespiegelt in ESRS-Angaben (Governance, Policies, Ziele, KPIs).
+            So vermeidest du Parallelwelten und reduzierst Aufwand bei
+            Nachweisen.
           </p>
         </section>
 
         <section id="roadmap" className="mt-10">
-          <h2 className="text-2xl font-bold mb-3">
-            Roadmap bis zum Bericht (6–9 Monate)
-          </h2>
-          <ol className="list-decimal ml-5 space-y-2">
-            <li>
-              <strong>Kick-off &amp; Gap-Analyse (2–4 Wo.):</strong>{" "}
-              Reifegrad / Pflichten, Ressourcen, Tools, Risiken.
-            </li>
-            <li>
-              <strong>Materialität (4–6 Wo.):</strong> Stakeholder,
-              Scoring-Modell, Management-Abnahme.
-            </li>
-            <li>
-              <strong>Datenaufbau (6–10 Wo.):</strong> Templates, Lieferanten,
-              Emissionsfaktoren, Kontrollen.
-            </li>
-            <li>
-              <strong>EU-Taxonomie (parallel, 4–8 Wo.):</strong> Aktivitäten
-              mappen, DNSH/Mindestschutz prüfen, KPIs berechnen.
-            </li>
-            <li>
-              <strong>Drafting &amp; Review (4–6 Wo.):</strong> ESRS-Kapitel,
-              Konsistenz, Visuals, Management-Review.
-            </li>
-            <li>
-              <strong>Pre-Assurance (2–4 Wo.):</strong> Stichproben, Nachweise,
-              Reperformances; Findings schließen.
-            </li>
-            <li>
-              <strong>Veröffentlichung &amp; Lessons Learned:</strong> Timing,
-              Kanäle, Verbesserungsplan 2026.
-            </li>
-          </ol>
-        </section>
-
-        <section id="lieferkette" className="mt-10">
-          <h2 className="text-2xl font-bold mb-3">
-            Lieferkettengesetz &amp; CSDDD – was mitberichten?
-          </h2>
+          <h2 className="text-2xl font-bold mb-2">Roadmap 2025: 90-Tage-Plan &amp; 12-Monats-Fahrplan</h2>
           <p>
-            In Deutschland gilt das <strong>Lieferkettensorgfaltspflichtengesetz</strong>{" "}
-            (LkSG) für größere Unternehmen. Auch wenn dein Unternehmen (noch)
-            nicht direkt betroffen ist, verlangt die CSRD{" "}
-            <em>wertschöpfungskettenbezogene</em> Angaben und Prozesse. Nutze
-            Synergien: Risikoanalyse, Maßnahmen, Beschwerdeverfahren und
-            Wirksamkeitsprüfung lassen sich in CSRD-Governance integrieren –
-            das hilft bei ESRS S2–S4 und Anfragen deiner Großkunden.
+            Diese Roadmap ist speziell für <strong>mittelständische
+            B2B-Unternehmen</strong> gedacht – ein „csrd umsetzung leitfaden
+            für mittelständische b2b unternehmen 2025“, der dich mit Fokus
+            durch das Jahr führt.
           </p>
-        </section>
 
-        <section id="assurance" className="mt-10">
-          <h2 className="text-2xl font-bold mb-3">
-            Assurance &amp; Vorbereitung auf die Prüfung
-          </h2>
-          <p>
-            <strong>Limited Assurance</strong> über den Nachhaltigkeitsbericht
-            bedeutet: Prüfer plausibilisieren Verfahren, Datenflüsse und
-            Kennzahlen. Bereite dich vor mit einem <em>Evidence-Pack</em>:
-            Datenquellen, Rechenlogiken, Emissionsfaktoren, Protokolle,
-            Management-Freigaben, Taxonomie-Nachweise. Plane früh eine
-            <em> Pre-Assurance</em>, um Überraschungen zu vermeiden.
-          </p>
-        </section>
-
-        <section id="huerden" className="mt-10">
-          <h2 className="text-2xl font-bold mb-3">
-            Typische Hürden &amp; Quick Wins
-          </h2>
-          <div className="not-prose grid gap-4 md:grid-cols-2">
-            <div className="rounded-xl border border-zinc-200 p-4">
-              <h3 className="font-semibold mb-2">Hürden</h3>
-              <ul className="list-disc ml-5 space-y-1">
-                <li>Unklare Ownership &amp; fehlende Kontrollen</li>
-                <li>Scope-3-Datengaps &amp; inkonsistente Methoden</li>
-                <li>Taxonomie-Nachweise nicht prüfbar abgelegt</li>
+          <div className="mt-5 grid md:grid-cols-2 gap-5">
+            <div className="rounded-2xl border border-zinc-200 p-5">
+              <h3 className="font-semibold mb-2">Die ersten 90 Tage</h3>
+              <ul className="list-disc ml-5 space-y-2 text-sm">
+                <li>
+                  <strong>Kick-off &amp; Governance:</strong> Sponsor im Vorstand,
+                  RACI, Projektplan, Risiko- &amp; Change-Plan.
+                </li>
+                <li>
+                  <strong>Materialität:</strong> Scoping-Workshop, IRO-Landkarte,
+                  Stakeholder-Plan, Bewertungslogik, Schwellen.
+                </li>
+                <li>
+                  <strong>Datenfundament:</strong> KPI-Liste (ESRS-getriggert),
+                  Quellenscan, Datamap, erste Kontrollen.
+                </li>
+                <li>
+                  <strong>Scope-3-Pilot:</strong> Spend-basierte Erstrechnung,
+                  Hotspots bestimmen, Lieferantenansprache.
+                </li>
               </ul>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
-              <h3 className="font-semibold mb-2">Quick Wins</h3>
-              <ul className="list-disc ml-5 space-y-1">
-                <li>Mini-Kontrollhandbuch (1 Seite je KPI)</li>
-                <li>Einheitliche Faktor-Bibliothek mit Versionen</li>
-                <li>CapEx-Tagging in Finanzsystemen aktivieren</li>
+
+            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+              <h3 className="font-semibold mb-2">Monate 4–12</h3>
+              <ul className="list-disc ml-5 space-y-2 text-sm">
+                <li>
+                  <strong>Materialität finalisieren</strong> und mit
+                  Aufsichtsrat/Prüfung vorbesprechen.
+                </li>
+                <li>
+                  <strong>KPI-Prozesse</strong> industrialisieren (Owner,
+                  Freigaben, Kontrollen, Tooling).
+                </li>
+                <li>
+                  <strong>Scope-3-Vertiefung</strong> (Primärdaten, Aktivitäten,
+                  Lieferantenprogramm).
+                </li>
+                <li>
+                  <strong>Taxonomie-Mapping</strong> &amp; Evidenzen vorbereiten.
+                </li>
+                <li>
+                  <strong>Pre-Assurance</strong> einzelner Kennzahlen und
+                  Verbesserungsplan.
+                </li>
+                <li>
+                  <strong>Entwurf Nachhaltigkeitsbericht</strong> mit Cross-Refs
+                  zu Lagebericht &amp; Abschluss; interner Dry-Run.
+                </li>
               </ul>
             </div>
           </div>
@@ -764,58 +732,54 @@ export default function Page() {
           <div className="space-y-6 text-zinc-700">
             <div>
               <h3 className="font-semibold">
-                Muss ich 2025 schon einen vollständigen CSRD-Bericht
-                veröffentlichen?
+                Gilt die CSRD 2025 schon für mein mittelständisches Unternehmen?
               </h3>
               <p>
-                Nur, wenn du zur ersten Welle gehörst (Datenjahr 2024). Viele
-                mittelständische B2B-Unternehmen sind 2025 primär in der
-                Umsetzung: Materialität, Daten, Taxonomie und
-                Prüfungsfähigkeit.
+                In vielen Fällen <strong>nein</strong> – die Anwendung für
+                Welle&nbsp;2 wurde um zwei Jahre auf{" "}
+                <strong>Geschäftsjahre ab 2027</strong> verschoben. Trotzdem
+                solltest du 2025 Materialität, Datenprozesse und Scope-3
+                aufsetzen, um 2026/2027 sauber testen zu können.
               </p>
             </div>
-
             <div>
-              <h3 className="font-semibold">
-                Wie streng ist die doppelte Wesentlichkeit?
-              </h3>
+              <h3 className="font-semibold">Muss ich Scope-3 gleich vollständig berichten?</h3>
               <p>
-                Sehr – sie bestimmt den Berichtsinhalt. Entscheidend sind
-                methodische Klarheit, Stakeholder-Einbindung, Schwellenwerte
-                und eine gute Dokumentation, damit die Prüfung hält.
+                Berichte ist <em>pflichtig</em>, wenn Klima wesentlich ist, aber
+                es gibt <strong>Übergangserleichterungen</strong>. Starte 2025
+                spend-basiert und vertiefe gezielt – wichtig sind Transparenz,
+                Unsicherheiten und ein Plan zur Datenverbesserung.
               </p>
             </div>
-
             <div>
               <h3 className="font-semibold">
-                Was mache ich bei fehlenden Scope-3-Daten?
+                Welche Prüfung ist vorgeschrieben – und ab wann?
               </h3>
               <p>
-                Transparent schätzen (anerkannte Methoden), Unsicherheiten
-                offenlegen und parallel Lieferantendaten aufbauen. Wichtig:
-                konsistente Methoden und ein Daten-Verbesserungsplan.
+                Aktuell ist eine <strong>limitierte Prüfung</strong> vorgesehen.
+                Die EU arbeitet an Leitlinien und Standards; ein Wechsel zu
+                „Reasonable Assurance“ ist derzeit <strong>nicht terminiert</strong>.
               </p>
             </div>
-
             <div>
               <h3 className="font-semibold">
-                Wie beginne ich mit der EU-Taxonomie?
+                Wie hängen EU-Taxonomie und ESRS zusammen?
               </h3>
               <p>
-                Starte mit dem CapEx-KPI: Investitionen taggen, technische
-                Kriterien prüfen, Nachweise sammeln. Danach Umsatz/OpEx
-                ergänzen.
+                ESRS liefern Kontext und Steuerungslogik (Strategie, Ziele,
+                Policies), die Taxonomie setzt konkrete <strong>KPI-Quoten</strong>
+                auf Umsatz/CapEx/OpEx. Baue ein gemeinsames Mapping und
+                Evidenz-Set.
               </p>
             </div>
-
             <div>
               <h3 className="font-semibold">
-                Welche Software brauche ich zwingend?
+                Was ist, wenn die „Omnibus“-Vorschläge kommen?
               </h3>
               <p>
-                Keine Pflicht zu einem bestimmten Tool. Wichtig sind klare
-                Templates, Nachweispfade und Kontrollen – Tooling kann
-                schrittweise wachsen.
+                Dann würden Pflichten <em>möglicherweise</em> nur sehr große
+                Unternehmen betreffen. Bis zur Entscheidung plane konservativ
+                und halte dein Programm schlank und skalierbar.
               </p>
             </div>
           </div>
@@ -831,54 +795,53 @@ export default function Page() {
                   {
                     "@type": "Question",
                     name:
-                      "Muss ich 2025 schon einen vollständigen CSRD-Bericht veröffentlichen?",
+                      "Gilt die CSRD 2025 schon für mein mittelständisches Unternehmen?",
                     acceptedAnswer: {
                       "@type": "Answer",
                       text:
-                        "Nur, wenn du zur ersten Welle gehörst (Datenjahr 2024). Viele mittelständische B2B-Unternehmen sind 2025 primär in der Umsetzung: Materialität, Daten, Taxonomie und Prüfungsfähigkeit.",
+                        "In vielen Fällen nein – die Anwendung für Welle 2 wurde um zwei Jahre auf Geschäftsjahre ab 2027 verschoben. Trotzdem solltest du 2025 Materialität, Datenprozesse und Scope-3 aufsetzen, um 2026/2027 sauber testen zu können.",
                     },
                   },
                   {
                     "@type": "Question",
-                    name:
-                      "Wie streng ist die doppelte Wesentlichkeit?",
+                    name: "Muss ich Scope-3 gleich vollständig berichten?",
                     acceptedAnswer: {
                       "@type": "Answer",
                       text:
-                        "Sie ist entscheidend: Die Analyse bestimmt den Berichtsinhalt. Methodische Klarheit, Stakeholder-Einbindung, Schwellenwerte und eine gute Dokumentation sind prüfungsrelevant.",
+                        "Berichte ist pflichtig, wenn Klima wesentlich ist, aber es gibt Übergangserleichterungen. Starte 2025 spend-basiert und vertiefe gezielt – wichtig sind Transparenz, Unsicherheiten und ein Plan zur Datenverbesserung.",
                     },
                   },
                   {
                     "@type": "Question",
-                    name: "Was mache ich bei fehlenden Scope-3-Daten?",
+                    name: "Welche Prüfung ist vorgeschrieben – und ab wann?",
                     acceptedAnswer: {
                       "@type": "Answer",
                       text:
-                        "Anerkannte Schätzmethoden nutzen, Unsicherheiten offenlegen, Lieferantendaten systematisch aufbauen und einen Verbesserungsplan definieren.",
+                        "Aktuell ist eine limitierte Prüfung vorgesehen. Die EU arbeitet an Leitlinien und Standards; ein Wechsel zu „Reasonable Assurance“ ist derzeit nicht terminiert.",
                     },
                   },
                   {
                     "@type": "Question",
-                    name: "Wie beginne ich mit der EU-Taxonomie?",
+                    name: "Wie hängen EU-Taxonomie und ESRS zusammen?",
                     acceptedAnswer: {
                       "@type": "Answer",
                       text:
-                        "Mit dem CapEx-KPI starten: Investitionen taggen, technische Kriterien prüfen, Nachweise sammeln; anschließend Umsatz/OpEx ergänzen.",
+                        "ESRS liefern Kontext und Steuerungslogik (Strategie, Ziele, Policies), die Taxonomie setzt konkrete KPI-Quoten auf Umsatz/CapEx/OpEx. Baue ein gemeinsames Mapping und Evidenz-Set.",
                     },
                   },
                   {
                     "@type": "Question",
-                    name: "Welche Software brauche ich zwingend?",
+                    name: "Was ist, wenn die „Omnibus“-Vorschläge kommen?",
                     acceptedAnswer: {
                       "@type": "Answer",
                       text:
-                        "Keine Pflicht. Entscheidend sind Templates, Nachweispfade und Kontrollen. Software kann pragmatisch schrittweise eingeführt werden.",
+                        "Dann würden Pflichten möglicherweise nur sehr große Unternehmen betreffen. Bis zur Entscheidung plane konservativ und halte dein Programm schlank und skalierbar.",
                     },
                   },
                 ],
               }),
             }}
-          ></script>
+          />
         </section>
 
         {/* Summary */}
@@ -886,15 +849,13 @@ export default function Page() {
           <h2 className="text-2xl font-bold mb-3">Kurzfazit</h2>
           <p className="leading-relaxed">
             <strong>
-              Wie setzt ein mittelständisches B2B-Unternehmen die CSRD 2025
-              konkret um?
+              Wie setzt du die CSRD/ESRS 2025 im Mittelstand pragmatisch um?
             </strong>{" "}
-            Mit einer fokussierten Roadmap: doppelte Wesentlichkeit sauber
-            durchführen, Datenprozesse und Kontrollen aufsetzen, ein
-            schlankes KPI-Set (inkl. Scope 3 &amp; Taxonomie) etablieren und
-            frühzeitig Richtung Assurance denken. So wird dein
-            Nachhaltigkeitsbericht prüfbar – und wirklich nützlich für
-            Steuerung und Finanzierung.
+            Indem du <em>jetzt</em> die doppelte Wesentlichkeit sauber
+            durchziehst, eine leichtgewichtige Datenarchitektur inkl.
+            Scope-3-Pilot etablierst, Taxonomie-KPIs mappst und eine klare
+            Roadmap mit Pre-Assurance aufsetzt. So bist du auf der sicheren
+            Seite – egal, wie Regulierungsdetails sich weiterentwickeln.
           </p>
         </section>
 
@@ -902,11 +863,12 @@ export default function Page() {
         <section aria-label="Kontakt" className="mt-14">
           <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
             <h2 className="text-xl font-bold mb-2">
-              Brauchst du 2025 einen klaren CSRD-Umsetzungsplan?
+              Bereit für deinen CSRD-Kick-off?
             </h2>
             <p className="text-zinc-700 mb-4">
-              Wir erstellen mit dir in 10 Tagen einen prüfungsfesten
-              Fahrplan – Materialität, KPIs, Taxonomie &amp; Assurance-Ready.
+              Wir unterstützen dich bei Wesentlichkeit, Scope-3-Set-up,
+              KPI-Prozessen und Pre-Assurance – maßgeschneidert für den
+              Mittelstand.
             </p>
 
             <form
@@ -990,9 +952,8 @@ export default function Page() {
                 Hinweis
               </h3>
               <p className="text-zinc-800">
-                In diesem Beispiel-Blogartikel funktionieren die Links
-                nicht. Möchtest du solch ein Projekt auch für dein Angebot
-                umsetzen?{" "}
+                In diesem Beispiel-Blogartikel funktionieren die Links nicht.
+                Möchtest du solch ein Projekt auch für dein Angebot umsetzen?{" "}
                 <a
                   href="https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung?month=2025-08"
                   target="_blank"
@@ -1012,36 +973,23 @@ export default function Page() {
           <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
           <ul className="list-disc ml-5 text-sm space-y-2">
             <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/doppelte-wesentlichkeit-richtig-aufsetzen"
-              >
-                Doppelte Wesentlichkeit richtig aufsetzen: Kriterien,
-                Schwellenwerte, Dokumentation
+              <a className={`hover:underline ${accent}`} href="#">
+                ESRS E1 in der Praxis: So startest du mit Scope-3
               </a>
             </li>
             <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/scope-3-daten-aufbauen"
-              >
-                Scope-3-Daten aufbauen: Von Schätzung zu Primärdaten
+              <a className={`hover:underline ${accent}`} href="#">
+                EU-Taxonomie: Umsatz/CapEx/OpEx richtig zuordnen
               </a>
             </li>
             <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/eu-taxonomie-kpi-capex-umsatz-opex"
-              >
-                EU-Taxonomie in der Praxis: Umsatz-, CapEx- und OpEx-KPI
+              <a className={`hover:underline ${accent}`} href="#">
+                Vom Excel zur Plattform: ESG-Datenarchitektur für KMU
               </a>
             </li>
             <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/esrs-checkliste-mittelstand"
-              >
-                ESRS-Checkliste für den Mittelstand: 30 Punkte für 2025
+              <a className={`hover:underline ${accent}`} href="#">
+                Wesentlichkeitsmatrix Schritt-für-Schritt erstellen
               </a>
             </li>
           </ul>
@@ -1057,29 +1005,23 @@ export default function Page() {
             <table className="w-full text-sm">
               <thead className="bg-zinc-50">
                 <tr>
-                  <th className="text-left font-semibold p-3 w-56">
-                    Begriff
-                  </th>
-                  <th className="text-left font-semibold p-3">
-                    Erklärung
-                  </th>
+                  <th className="text-left font-semibold p-3 w-56">Begriff</th>
+                  <th className="text-left font-semibold p-3">Erklärung</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-t border-zinc-200">
                   <td className="p-3 font-medium text-zinc-900">CSRD</td>
                   <td className="p-3 text-zinc-700">
-                    EU-Richtlinie zur Nachhaltigkeitsberichterstattung; legt
-                    fest, <em>wer</em> berichtet, <em>was</em> berichtet wird
-                    und <em>wie</em> es geprüft wird.
+                    EU-Richtlinie zur Nachhaltigkeitsberichterstattung, die
+                    Inhalte, Prüfpflicht und Anwendungsbereich festlegt.
                   </td>
                 </tr>
                 <tr className="border-t border-zinc-200">
                   <td className="p-3 font-medium text-zinc-900">ESRS</td>
                   <td className="p-3 text-zinc-700">
-                    Europäische Standards, die den Inhalt des
-                    Nachhaltigkeitsberichts konkretisieren (E, S, G und
-                    Querschnitt ESRS 1/2).
+                    Europäische Berichtsstandards, die detaillierte
+                    Offenlegungspflichten und KPIs definieren.
                   </td>
                 </tr>
                 <tr className="border-t border-zinc-200">
@@ -1087,17 +1029,15 @@ export default function Page() {
                     Doppelte Wesentlichkeit
                   </td>
                   <td className="p-3 text-zinc-700">
-                    Kombination aus Impact- und Finanz-Materialität; bestimmt
-                    den Berichtsumfang.
+                    Pflicht, Themen sowohl nach Wirkung auf Umwelt &amp;
+                    Menschen als auch nach finanzieller Relevanz zu bewerten.
                   </td>
                 </tr>
                 <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">
-                    Scope 3-Emissionen
-                  </td>
+                  <td className="p-3 font-medium text-zinc-900">Scope 3</td>
                   <td className="p-3 text-zinc-700">
-                    Indirekte Emissionen entlang der Wertschöpfungskette (z. B.
-                    eingekaufte Güter, Transport, Nutzung).
+                    Indirekte Emissionen der Wertschöpfungskette (Einkauf,
+                    Nutzung, Entsorgung etc.).
                   </td>
                 </tr>
                 <tr className="border-t border-zinc-200">
@@ -1105,17 +1045,15 @@ export default function Page() {
                     EU-Taxonomie
                   </td>
                   <td className="p-3 text-zinc-700">
-                    Klassifikationssystem, das festlegt, welche
-                    Wirtschaftsaktivitäten ökologisch nachhaltig sind – Basis
-                    für Umsatz/CapEx/OpEx-KPIs.
+                    Klassifizierung ökologisch nachhaltiger Wirtschaftstätigkeiten
+                    und zugehöriger Umsatz/CapEx/OpEx-KPIs.
                   </td>
                 </tr>
                 <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">LkSG</td>
+                  <td className="p-3 font-medium text-zinc-900">Assurance</td>
                   <td className="p-3 text-zinc-700">
-                    Deutsches Lieferkettengesetz; verpflichtet große
-                    Unternehmen zu menschenrechts- und
-                    umweltbezogenen Sorgfaltspflichten.
+                    Externe Prüfung der Nachhaltigkeitsberichterstattung
+                    (zunächst „limited assurance“).
                   </td>
                 </tr>
               </tbody>
@@ -1129,16 +1067,13 @@ export default function Page() {
           <div className="flex items-center gap-4">
             <img
               src={author.image}
-              alt="Autor"
+              alt="Autor: Max Mustermann"
               className="w-16 h-16 rounded-full object-cover"
               loading="lazy"
             />
             <div>
               <div className="font-semibold">{author.name}</div>
-              <div className="text-sm text-zinc-700">
-                {author.role} – Fokus: CSRD-Umsetzung, ESRS-Datenprozesse,
-                EU-Taxonomie-KPIs
-              </div>
+              <div className="text-sm text-zinc-700">{author.role}</div>
               <a
                 href={author.linkedin}
                 className={`text-sm hover:underline ${accent}`}
@@ -1151,8 +1086,7 @@ export default function Page() {
           <div className="mt-4 flex items-center gap-3">
             <ArrowRight className={`w-4 h-4 ${accent}`} aria-hidden="true" />
             <p className="text-sm text-zinc-700">
-              Überprüft von: <strong>{reviewer.name}</strong> –{" "}
-              {reviewer.role}.{" "}
+              Überprüft von: <strong>{reviewer.name}</strong> – {reviewer.role}.{" "}
               <a
                 href={reviewer.linkedin}
                 className={`hover:underline ${accent}`}
@@ -1165,89 +1099,62 @@ export default function Page() {
 
         {/* Quellenverzeichnis */}
         <section className="mt-14">
-          <h2 className="text-2xl font-bold mb-3">
-            Quellen &amp; weiterführende Studien
-          </h2>
+          <h2 className="text-2xl font-bold mb-3">Quellen &amp; weiterführende Studien</h2>
           <ul className="list-disc ml-5 space-y-2 text-sm">
             <li>
-              European Commission – Corporate sustainability reporting (CSRD):
-              Who, when, how (Timeline &amp; scope).{" "}
+              European Commission:{" "}
               <a
+                className={`hover:underline ${accent}`}
                 href="https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={accent}
               >
-                finance.ec.europa.eu
+                Corporate sustainability reporting – Überblick &amp; Zeitleiste
               </a>
             </li>
             <li>
-              Commission Delegated Regulation (EU) 2023/2772 (ESRS Set 1).{" "}
+              EUR-Lex:{" "}
               <a
-                href="https://pl.materiality.pl/wp-content/uploads/2024/01/ESRS_OJ_2023-2772_EN.pdf"
+                className={`hover:underline ${accent}`}
+                href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32025L0794"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={accent}
               >
-                EUR-Lex (PDF)
+                Richtlinie (EU) 2025/794 („Stop-the-clock“) – Verschiebung der
+                Anwendungsdaten
               </a>
             </li>
             <li>
-              EFRAG – Implementation Guidance IG 1: Materiality Assessment
-              (05/2024).{" "}
+              European Commission (11.07.2025):{" "}
               <a
+                className={`hover:underline ${accent}`}
+                href="https://finance.ec.europa.eu/publications/commission-adopts-quick-fix-companies-already-conducting-corporate-sustainability-reporting_en"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                „Quick-Fix“ für ESRS – Erleichterungen für Welle-1
+              </a>
+            </li>
+            <li>
+              EFRAG (05/2024):{" "}
+              <a
+                className={`hover:underline ${accent}`}
                 href="https://www.efrag.org/sites/default/files/sites/webpublishing/SiteAssets/IG%201%20Materiality%20Assessment_final.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={accent}
               >
-                efrag.org (PDF)
+                Implementation Guidance 1 – Materiality Assessment
               </a>
             </li>
             <li>
-              EFRAG – Implementation Guidance IG 2: Value Chain (05/2024).{" "}
+              EFRAG (31.07.2025):{" "}
               <a
-                href="https://www.efrag.org/sites/default/files/sites/webpublishing/SiteAssets/EFRAG%20IG%202%20Value%20Chain_final.pdf"
+                className={`hover:underline ${accent}`}
+                href="https://www.efrag.org/en/news-and-calendar/news/press-release-efrag-shares-revised-esrs-exposure-drafts-and-launches-60day-public-consultation"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={accent}
               >
-                efrag.org (PDF)
-              </a>
-            </li>
-            <li>
-              European Commission – FAQs zur Umsetzung der CSRD (08/2024).{" "}
-              <a
-                href="https://finance.ec.europa.eu/publications/frequently-asked-questions-implementation-eu-corporate-sustainability-reporting-rules_en"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={accent}
-              >
-                finance.ec.europa.eu
-              </a>
-            </li>
-            <li>
-              Commission Delegated Regulation (11/07/2025): Amending
-              2023/2772 (Postponement of certain disclosure requirements for
-              wave 1).{" "}
-              <a
-                href="https://ec.europa.eu/finance/docs/level-2-measures/csrd-delegated-act-2025-4812_en.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={accent}
-              >
-                ec.europa.eu (PDF)
-              </a>
-            </li>
-            <li>
-              BAFA – German Supply Chain Act (LkSG) Overview.{" "}
-              <a
-                href="https://www.bafa.de/EN/Supply_Chain_Act/Overview/overview_node.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={accent}
-              >
-                bafa.de
+                Überarbeitete ESRS-Entwürfe („Revisions &amp; Simplification“)
               </a>
             </li>
           </ul>
