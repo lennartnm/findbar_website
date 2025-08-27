@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className="border-b border-slate-100 bg-white">
       {/* exakt derselbe Container wie im restlichen Code */}
-      <div className="w-full max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="w-full max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
         <nav className="flex items-center gap-8 text-sm text-slate-700">
           <a href="/" className="transition-colors hover:text-slate-900">
             Startseite
@@ -16,7 +16,7 @@ export default function Header() {
         </nav>
 
         <Button asChild>
-          <a href="/kontakt">Jetzt anfragen</a>
+          <a href="/#preise">Jetzt anfragen</a>
         </Button>
       </div>
     </header>
