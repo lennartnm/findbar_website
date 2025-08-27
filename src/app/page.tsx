@@ -421,7 +421,7 @@ function BlogSection() {
           Blog-Beispiele
         </h2>
         <p className="mt-4 text-left md:text-center text-slate-600">
-          Wie kann so ein KI-optimierter Artikel auf deiner Webseite aussehen? Schau dir hier ausgewählte Beispiele an.
+          Wie kann so ein KI-optimierter Artikel auf deiner Webseite aussehen? Schau dir hier ausgewählte Beispiele an. Alle Blogbeiträge werden selbstverständlich an Markenstil und Tonalität angepasst.
         </p>
 
         <div className="mx-auto mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
