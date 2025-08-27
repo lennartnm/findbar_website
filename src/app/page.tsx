@@ -277,13 +277,10 @@ function VisitorRevealSection() {
         <div className="mt-12 grid gap-8 md:grid-cols-2">
           {/* Live-Traffic Card */}
           <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            {/* Header */}
             <div className="flex items-center justify-between px-5 pt-5">
               <span className={`text-lg font-semibold ${serifClass}`}>Live-Traffic</span>
               <span className="text-xs text-slate-500">Echtzeit-Scan</span>
             </div>
-
-            {/* Visual Box */}
             <div className="relative px-5 pt-4 pb-5">
               <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-50">
                 <img
@@ -304,7 +301,7 @@ function VisitorRevealSection() {
                 <div className="absolute left-4 right-4 bottom-4">
                   <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white/90 backdrop-blur px-3 py-2 text-xs text-slate-700 shadow-sm">
                     <Search className="h-4 w-4" />
-                    <span>Mustererkennung, IP-Auflösung & Firmendatenbanken</span>
+                    <span>Mustererkennung, IP-Auflösung &amp; Firmendatenbanken</span>
                   </div>
                 </div>
               </div>
@@ -334,26 +331,26 @@ function VisitorRevealSection() {
               ))}
             </ul>
             <div className="border-t border-emerald-200 bg-white/70 px-5 py-3 text-xs text-slate-600">
-              Direkt in CRM & Outreach nutzbar.
+              Direkt in CRM &amp; Outreach nutzbar.
             </div>
           </div>
         </div>
 
-    /* Journey Steps – einzelne, hellgraue Kärtchen */
-<div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-5 md:gap-6">
-  {steps.map((title, i) => (
-    <div
-      key={i}
-      className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-    >
-      <div className="mx-auto inline-flex size-10 items-center justify-center rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
-        {i + 1}
+        {/* Journey Steps – Kärtchen in hellgrau */}
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-5 md:gap-6">
+          {steps.map((title, i) => (
+            <div
+              key={i}
+              className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <div className="mx-auto inline-flex size-10 items-center justify-center rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
+                {i + 1}
+              </div>
+              <p className="mt-2 text-sm text-slate-700">{title}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <p className="mt-2 text-sm text-slate-700">{title}</p>
-    </div>
-  ))}
-</div>
-
 
       <style>{`
         @keyframes scanY { 
@@ -368,6 +365,7 @@ function VisitorRevealSection() {
     </section>
   );
 }
+
 
 
 
