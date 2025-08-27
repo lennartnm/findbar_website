@@ -339,18 +339,21 @@ function VisitorRevealSection() {
           </div>
         </div>
 
-        {/* Journey Steps */}
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-6 text-center">
-          {steps.map((title, i) => (
-            <div key={i} className="flex flex-col items-center">
-              <div className="shrink-0 inline-flex size-12 items-center justify-center rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
-                {i + 1}
-              </div>
-              <p className="mt-3 text-sm text-slate-700 max-w-[190px]">{title}</p>
-            </div>
-          ))}
-        </div>
+    /* Journey Steps – einzelne, hellgraue Kärtchen */
+<div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-5 md:gap-6">
+  {steps.map((title, i) => (
+    <div
+      key={i}
+      className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+    >
+      <div className="mx-auto inline-flex size-10 items-center justify-center rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
+        {i + 1}
       </div>
+      <p className="mt-2 text-sm text-slate-700">{title}</p>
+    </div>
+  ))}
+</div>
+
 
       <style>{`
         @keyframes scanY { 
