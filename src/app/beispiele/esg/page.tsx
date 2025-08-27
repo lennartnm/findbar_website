@@ -9,7 +9,7 @@ const author = {
   role: "ESG-Reporting Manager (CSRD/ESRS)",
   focus:
     "CSRD-Umsetzung, ESRS-Datenprozesse, doppelte Wesentlichkeit, Scope-3-Accounting",
-  image: "/public/Autorenbild.jpg",
+  image: "/Autorenbild.jpg",
   linkedin: "https://linkedin.com",
 };
 
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/public/nachhaltiges-windrad.jpg",
+        url: "/nachhaltiges-windrad.jpg",
         alt: "Windrad als Symbol für Nachhaltigkeit und Energiewende",
       },
     ],
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       "CSRD & ESRS 2025: Was mittelständische B2B-Unternehmen jetzt konkret umsetzen müssen",
     description:
       "Praxisleitfaden: doppelte Wesentlichkeit, Datenprozesse, KPIs & Roadmap – für mittelständische B2B-Unternehmen.",
-    images: ["/public/nachhaltiges-windrad.jpg"],
+    images: ["/nachhaltiges-windrad.jpg"],
   },
 };
 
@@ -120,7 +120,7 @@ export default function Page() {
         {/* Meta row – Autor */}
         <div className="mt-6 flex items-center gap-3 text-sm text-zinc-700">
           <img
-            src="/public/Autorenbild.jpg"
+            src="/Autorenbild.jpg"
             alt="Autor"
             className="w-10 h-10 rounded-full object-cover"
             loading="lazy"
@@ -513,10 +513,10 @@ export default function Page() {
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
-              <source media="(max-width: 640px)" srcSet="/public/nachhaltigkeit.jpg" />
+              <source media="(max-width: 640px)" srcSet="/nachhaltigkeit.jpg" />
               <img
                 loading="lazy"
-                src="/public/nachhaltigkeit.jpg"
+                src="/nachhaltigkeit.jpg"
                 alt="Team arbeitet an ESG-Datenprozessen und KPI-Definition"
                 className="absolute inset-0 h-full w-full object-cover"
               />
@@ -638,10 +638,10 @@ export default function Page() {
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
-              <source media="(max-width: 640px)" srcSet="/public/ms-neu.jpg" />
+              <source media="(max-width: 640px)" srcSet="/ms-neu.jpg" />
               <img
                 loading="lazy"
-                src="/public/ms-neu.jpg"
+                src="/ms-neu.jpg"
                 alt="Projektboard mit Meilensteinen für CSRD-Roadmap"
                 className="absolute inset-0 h-full w-full object-cover"
               />
@@ -1127,7 +1127,7 @@ export default function Page() {
           <li>
             Deloitte – Omnibus Update &amp; revidierte ESRS-Entwürfe (31.07.2025):{" "}
             <a
-              href="https://dart.deloitte.com/USDART/home/publications/deloitte/heads-up/2025/european-sustainability-omnibus-reporting-standards"
+              href="https://dart.deloitte.com/USDART/homeations/deloitte/heads-up/2025/european-sustainability-omnibus-reporting-standards"
               target="_blank"
               rel="noopener noreferrer"
               className={accent}
@@ -1173,7 +1173,7 @@ export default function Page() {
             description:
               "Praxisleitfaden zur CSRD-Umsetzung: doppelte Wesentlichkeit, Datenprozesse, KPIs & Roadmap – speziell für mittelständische B2B-Unternehmen.",
             inLanguage: "de",
-            image: `${company.url}/public/nachhaltiges-windrad.jpg`,
+            image: `${company.url}/nachhaltiges-windrad.jpg`,
             dateModified: "2025-08-27",
             author: {
               "@type": "Person",
@@ -1187,7 +1187,7 @@ export default function Page() {
               url: company.url,
               logo: {
                 "@type": "ImageObject",
-                url: `${company.url}/public/nachhaltiges-windrad.jpg`,
+                url: `${company.url}/nachhaltiges-windrad.jpg`,
               },
             },
             mainEntityOfPage: `${company.url}/blog/csrd-esrs-umsetzung-2025`,
