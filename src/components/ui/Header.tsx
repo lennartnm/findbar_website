@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 export default function Header() {
   return (
     <header className="border-b border-slate-100 bg-white">
-      <div className="w-full max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="w-full max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Linke Seite: Brand + Navigation */}
         <div className="flex items-center gap-10">
           {/* Brand */}
