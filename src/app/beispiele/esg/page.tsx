@@ -100,12 +100,12 @@ export default function Page() {
             <picture>
               <source
                 media="(max-width: 640px)"
-                srcSet="/public/nachhaltiges-windrad.jpg"
+                srcSet="public/nachhaltiges-windrad.jpg"
               />
               <img
                 fetchPriority="high"
                 loading="eager"
-                src="/public/nachhaltiges-windrad.jpg"
+                src="public/nachhaltiges-windrad.jpg"
                 alt="Hero-Bild: Windrad steht für die Transformation Richtung nachhaltiges Wirtschaften"
                 className="absolute inset-0 h-full w-full object-cover"
               />
