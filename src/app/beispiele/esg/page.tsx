@@ -170,7 +170,7 @@ export default function Page() {
                 <source media="(max-width: 640px)" srcSet="/esg.jpg" />
                 <img
                   loading="eager"
-                  fetchpriority="high"
+                  fetchPriority="high"
                   src="/esg.jpg"
                   alt="ESG-Dashboard auf großem Screen in einem modernen Büro – Symbolbild für CSRD/ESRS-Reporting"
                   className="absolute inset-0 h-full w-full object-cover"
