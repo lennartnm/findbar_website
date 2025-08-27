@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Blockiere "Beispiele"-Bereich
+Disallow: /beispiele/
+
+# Technische Verzeichnisse blockieren (Next.js/Vercel)
+Disallow: /_next/
+Disallow: /api/
+Disallow: /static/
+Disallow: /private/
+Disallow: /*.json$
+
+# Crawl-Delays für aggressive Bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Sitemap
+Sitemap: https://www.findbar.info/sitemap.xml
