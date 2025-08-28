@@ -435,7 +435,7 @@ export default function Page() {
           </picture>
         </div>
         <figcaption className="mt-2 text-xs text-zinc-600">
-          Illustration: Prozesskette vom Datensatz bis zum qualifizierten Bauteil.
+          Eine Halle mit industriellen 3D-Druckern.
         </figcaption>
       </figure>
 
