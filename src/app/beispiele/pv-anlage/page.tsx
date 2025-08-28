@@ -584,31 +584,56 @@ export default function PhotovoltaikUnternehmen2025() {
             </li>
           </ol>
 
-          <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-            <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
-            <ul className="list-disc ml-5 text-sm space-y-2">
-              <li>
-                <a className={`hover:underline ${accent}`} href="/blog/lastprofil-analyse-gewerbe">
-                  Lastprofil verstehen: So optimierst du den Eigenverbrauch
-                </a>
-              </li>
-              <li>
-                <a className={`hover:underline ${accent}`} href="/blog/pv-speicher-gewerbe">
-                  Batteriespeicher im Gewerbe: Lohnt sich Peak-Shaving?
-                </a>
-              </li>
-              <li>
-                <a className={`hover:underline ${accent}`} href="/blog/direktvermarktung">
-                  Direktvermarktung vs. unentgeltliche Abnahme: Entscheidungsleitfaden
-                </a>
-              </li>
-              <li>
-                <a className={`hover:underline ${accent}`} href="/blog/e-mobilitaet-laden">
-                  PV &amp; E-Mobilität: Laden am Betrieb sinnvoll umsetzen
-                </a>
-              </li>
-            </ul>
-          </aside>
+        <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+  <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
+  <ul className="list-disc ml-5 text-sm space-y-2">
+    <li>
+      <a
+        href="#cta-pop"
+        aria-haspopup="dialog"
+        aria-controls="cta-pop"
+        className={`hover:underline ${accent} inline-flex items-center gap-1 group`}
+      >
+        <span>Lastprofil verstehen: So optimierst du den Eigenverbrauch</span>
+        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-haspopup="dialog"
+        aria-controls="cta-pop"
+        className={`hover:underline ${accent} inline-flex items-center gap-1 group`}
+      >
+        <span>Batteriespeicher im Gewerbe: Lohnt sich Peak-Shaving?</span>
+        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-haspopup="dialog"
+        aria-controls="cta-pop"
+        className={`hover:underline ${accent} inline-flex items-center gap-1 group`}
+      >
+        <span>Direktvermarktung vs. unentgeltliche Abnahme: Entscheidungsleitfaden</span>
+        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-haspopup="dialog"
+        aria-controls="cta-pop"
+        className={`hover:underline ${accent} inline-flex items-center gap-1 group`}
+      >
+        <span>PV &amp; E-Mobilität: Laden am Betrieb sinnvoll umsetzen</span>
+        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+      </a>
+    </li>
+  </ul>
+</aside>
+
         </section>
 
         <section id="faq" className="mt-14">
