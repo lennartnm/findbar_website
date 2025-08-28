@@ -1,37 +1,50 @@
 // src/app/blog/vom-klick-zur-chance-b2b-sales-pipeline/page.tsx
 import type { Metadata } from "next";
+import { ArrowRight } from "lucide-react";
 
-const canonical = "https://www.findbar.info/blog/vom-klick-zur-chance-b2b-sales-pipeline";
 const accent = "text-emerald-700";
 
 const author = {
   name: "Lennart Niehausmeier",
-  role: "Digital Growth Specialist & Gründer findbar",
-  image: "/lennart-niehausmeier.jpg",
+  role: "Digital Growth Specialist & Gründer von findbar",
+  image: "/lennart-niehausmeier.webp",
   linkedin: "https://www.linkedin.com/in/lennart-niehausmeier/",
+};
+
+const site = {
+  name: "Findbar",
+  url: "https://www.findbar.info",
+  logo: "https://www.findbar.info/icon.png",
+  address: "Am Rabenecksiek 5, 32139 Spenge, Germany",
+  email: "lennart@findbar.info",
 };
 
 export const metadata: Metadata = {
   title:
     "Vom Klick zur Chance: Mit Content eine verlässliche B2B-Sales-Pipeline bauen",
   description:
-    "Warum Vertrauen Kaltakquise schlägt, wie Entscheider von Information zu Entscheidung wechseln und welche Content-Bausteine & Lead-Signale deine Pipeline planbar machen.",
-  alternates: { canonical },
+    "Wie du mit Content Vertrauen aufbaust, Kaltakquise schlägst und Entscheider von Information über Consideration bis Decision führst – praxisnah erklärt.",
+  alternates: {
+    canonical:
+      "https://www.findbar.info/blog/vom-klick-zur-chance-b2b-sales-pipeline",
+  },
   robots: { index: true, follow: true },
   openGraph: {
     type: "article",
-    url: canonical,
+    siteName: site.name,
+    url:
+      "https://www.findbar.info/blog/vom-klick-zur-chance-b2b-sales-pipeline",
     title:
       "Vom Klick zur Chance: Mit Content eine verlässliche B2B-Sales-Pipeline bauen",
     description:
-      "Vertrauen statt Kaltakquise: So orchestrierst du Content, Lead-Signale und Sales-Übergabe zu einer planbaren B2B-Pipeline.",
-    locale: "de_DE",
+      "Warum Vertrauen Kaltakquise schlägt und wie Content Entscheider von Information über Consideration bis Decision führt.",
     images: [
       {
-        url: "/vertrauen-beim-verkauf-ist-essentiell.jpg",
+        url:
+          "https://www.findbar.info/vertrauen-beim-verkauf-ist-essentiell.jpg",
         width: 1600,
         height: 600,
-        alt: "Vertrauen ist im B2B-Vertrieb essenziell – Hero",
+        alt: "Vertrauen ist beim B2B-Verkauf essenziell",
       },
     ],
   },
@@ -40,8 +53,10 @@ export const metadata: Metadata = {
     title:
       "Vom Klick zur Chance: Mit Content eine verlässliche B2B-Sales-Pipeline bauen",
     description:
-      "Content, der Vertrauen schafft – plus klare Lead-Signale & ein Sales-Playbook für den Erstkontakt.",
-    images: ["/vertrauen-beim-verkauf-ist-essentiell.jpg"],
+      "Warum Vertrauen Kaltakquise schlägt und wie Content Entscheider durch die Journey führt.",
+    images: [
+      "https://www.findbar.info/vertrauen-beim-verkauf-ist-essentiell.jpg",
+    ],
   },
 };
 
@@ -57,38 +72,39 @@ export default function Page() {
       {/* Header */}
       <header className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
-          Vom Klick zur Chance: So baut Content eine verlässliche B2B-Sales-Pipeline
+          Vom Klick zur Chance: So baut Content eine verlässliche B2B-Sales-Pipeline – einfach
+          erklärt
         </h1>
         <p className="mt-3 text-lg text-zinc-700">
-          Vertrauen schlägt Kaltakquise. In diesem Guide lernst du, wie Entscheider von{" "}
-          <em>Informational</em> &gt; <em>Consideration</em> &gt;{" "}
-          <em>Decision</em> wandern, welche Content-Bausteine pro Phase wirken, wie du
-          Lead-Signale liest – und wie der nahtlose Handover an Sales gelingt.
+          Warum Vertrauen Kaltakquise schlägt – und wie du Entscheider entlang der Reise von
+          Informational über Consideration bis Decision führst.
         </p>
 
-        {/* Datum & Lesedauer */}
+        {/* Datum & Lesedauer separat in eigener Zeile (statisch) */}
         <div className="mt-2 text-sm text-zinc-600">
-          Zuletzt aktualisiert am <time dateTime="2025-08-20">20.08</time>
-          {" · "}Lesedauer: <span className="tabular-nums">12 Minuten</span>
+          Zuletzt aktualisiert am{" "}
+          <time dateTime="2025-08-28">28.08</time>
+          {" · "}Lesedauer: <span className="tabular-nums">10 Minuten</span>
         </div>
 
-        {/* Hero 16:6 – LCP */}
+        {/* Hero 16:6 */}
         <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
           <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
             <picture>
-              <source media="(max-width: 640px)" srcSet="/vertrauen-beim-verkauf-ist-essentiell.jpg" />
+              <source
+                media="(max-width: 640px)"
+                srcSet="/vertrauen-beim-verkauf-ist-essentiell.jpg"
+              />
               <img
-                src="/vertrauen-beim-verkauf-ist-essentiell.jpg"
-                alt="Hero: Vertrauen ist beim Verkauf essenziell – ein Handschlag, der den Start einer B2B-Partnerschaft markiert"
-                className="absolute inset-0 h-full w-full object-cover"
                 loading="eager"
                 fetchPriority="high"
+                src="/vertrauen-beim-verkauf-ist-essentiell.jpg"
+                alt="Zwei Entscheider schütteln sich die Hand – Vertrauensaufbau im B2B-Verkauf"
+                className="absolute inset-0 h-full w-full object-cover"
               />
             </picture>
           </div>
-          <figcaption className="sr-only">
-            Vertrauenssituation im B2B-Vertrieb als Symbolbild.
-          </figcaption>
+          <figcaption className="sr-only">Vertrauen als Wachstumshebel im B2B-Vertrieb</figcaption>
         </figure>
 
         {/* Meta row – Autor */}
@@ -111,25 +127,26 @@ export default function Page() {
         <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
         <ul className="list-disc ml-5 space-y-2 text-zinc-800">
           <li>
-            <strong>Vertrauen schlägt Kaltakquise:</strong> Fremde mögen selten kaufen.
-            Sichtbarer Nutzen + wiederkehrende Touchpoints bauen Zutrauen auf.
+            Content schafft <strong>Vertrauen</strong> und Sichtbarkeit – damit du früher in die
+            Auswahl kommst und nicht erst anrufst, wenn die Entscheidung praktisch gefallen ist.
           </li>
           <li>
-            <strong>Reise des Entscheiders:</strong> Von Frage zu Lösung zu Auswahl –
-            steuere Content entlang <em>Informational</em> &gt; <em>Consideration</em>{" "}
-            &gt; <em>Decision</em>.
+            Baue deine Pipeline entlang der Journey: <strong>Informational</strong> (Problem
+            verstehen), <strong>Consideration</strong> (Lösungswege), <strong>Decision</strong>{" "}
+            (Angebot &amp; Proof).
           </li>
           <li>
-            <strong>Content-Bausteine pro Phase:</strong> Guide, Vergleich, Case, FAQ –
-            schlank produziert, sauber verlinkt, messbar.
+            Kombiniere <strong>Thought Leadership</strong>, praktische Guides und Proof-Formate
+            (Cases, Zahlen, Demos), statt nur Features zu bewerben.
           </li>
           <li>
-            <strong>Lead-Signale lesen:</strong> Wiederkehrende Besuche, Seitenpfade, Zeit
-            & Deep Dives sind starke Intent-Hinweise – nutze sie für Scoring.
+            Miss Wirkung mit <strong>Leading Indicators</strong> (Qualität der Sessions,
+            wiederkehrende Besucher, Content-Tiefe) – nicht nur mit MQL-Zahlen.
           </li>
           <li>
-            <strong>Übergabe an Sales:</strong> Mit einem klaren Playbook wird aus dem
-            ersten Kontakt kein Kaltstart, sondern ein Gespräch mit Kontext.
+            Verzahne Marketing &amp; Sales: Definiere gemeinsame <strong>Hand-Off-Signale</strong>,
+            pflege <strong>Content-Pfadlogiken</strong> und nutze <strong>Playbooks</strong> für
+            Social Selling &amp; Follow-ups.
           </li>
         </ul>
       </aside>
@@ -142,48 +159,44 @@ export default function Page() {
         <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
         <ol className="list-decimal ml-5 space-y-2">
           <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#warum-vertrauen-kaltakquise-schlaegt">
-              Warum Vertrauen Kaltakquise schlägt
+            <a className={`hover:underline ${accent} font-medium`} href="#warum-content-pipeline">
+              Warum Content eine Pipeline baut – und Kaltakquise selten
+              mithält
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#reise-des-entscheiders">
-              Die Reise des Entscheiders: Informational &gt; Consideration &gt; Decision
+            <a className={`hover:underline ${accent} font-medium`} href="#buyers-journey">
+              Die Reise des Entscheiders: Informational → Consideration → Decision
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#content-bausteine">
-              Content-Bausteine pro Phase (Guide, Vergleich, Case, FAQ)
+            <a className={`hover:underline ${accent} font-medium`} href="#vertrauen-statt-kalt">
+              Vertrauen statt Kaltakquise: Psychologie, Social Proof, Risikoabbau
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#lead-signale">
-              Lead-Signale verstehen (wiederkehrende Besuche, Seitenpfade, Zeit)
-            </a>
-          </li>
-            <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#lead-scoring">
-              MQL vs. SQL & Lead-Scoring in der Praxis
+            <a className={`hover:underline ${accent} font-medium`} href="#content-architektur">
+              Content-Architektur: Was braucht es pro Phase?
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#handover-playbook">
-              Übergabe an Sales: Playbook für die erste Kontaktaufnahme
+            <a className={`hover:underline ${accent} font-medium`} href="#distribution">
+              Distribution &amp; Touchpoints: SEO, Social, E-Mail, Events
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#kpis-messung">
-              KPIs & Messung: Von Klicks zu Chancen
+            <a className={`hover:underline ${accent} font-medium`} href="#messung">
+              Messen &amp; optimieren: KPIs, Lead-Signale, Attribution
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#fehler-vermeiden">
-              Häufige Fehler, die Leads kosten
+            <a className={`hover:underline ${accent} font-medium`} href="#playbooks">
+              Playbooks für Marketing &amp; Sales: Vom Klick zur Chance
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#tooling">
-              Tooling-Stack: Leichtgewicht, der skaliert
+            <a className={`hover:underline ${accent} font-medium`} href="#faqs">
+              Häufige Fragen
             </a>
           </li>
           <li>
@@ -192,586 +205,442 @@ export default function Page() {
             </a>
           </li>
           <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#cta">
-              Nächster Schritt
-            </a>
-          </li>
-          <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#mini-glossar">
-              Mini-Glossar
-            </a>
-          </li>
-          <li>
-            <a className={`hover:underline ${accent} font-medium`} href="#ueber-den-autor">
-              Über den Autor
-            </a>
-          </li>
-          <li>
             <a className={`hover:underline ${accent} font-medium`} href="#quellen">
-              Quellen &amp; weiterführende Studien
+              Quellen
             </a>
           </li>
         </ol>
       </nav>
 
       {/* Hauptteil */}
-      <section id="warum-vertrauen-kaltakquise-schlaegt" className="mt-10">
-        <h2 className="text-2xl font-bold mb-3">Warum Vertrauen Kaltakquise schlägt</h2>
-        <p className="leading-relaxed">
-          Kaltakquise stößt im B2B oft an Grenzen: Du kennst den Kontext deines Gegenübers
-          nicht, triffst ihn im falschen Moment und musst erst erklären, warum du überhaupt
-          relevant bist. Content dreht die Reihenfolge um. Er liefert <strong>Beweis</strong>{" "}
-          &gt; <strong>Nutzen</strong> &gt; <strong>Begehren</strong>. Menschen lernen dich
-          kennen, bevor du sie ansprichst. Das Tempo bestimmt der Entscheider, nicht dein
-          Outreach-Kalender. So baust du <em>Vertrauen</em> auf – die Voraussetzung für
-          jede ernsthafte Anfrage.
-        </p>
-
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="md:col-span-2 rounded-2xl border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Vertrauensbasierter Ansatz</h3>
-            <ul className="list-disc ml-5 space-y-2">
-              <li>Pull statt Push: Inhalte beantworten echte Fragen.</li>
-              <li>
-                Mehrere Touchpoints erhöhen Sicherheit: Guide &gt; Vergleich &gt; Case &gt; FAQ.
-              </li>
-              <li>Relevante Belege: Zahlen, Demos, Referenzen, klare nächste Schritte.</li>
-            </ul>
-          </div>
-          <aside className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
-            <h3 className="text-lg font-semibold mb-2">Kaltakquise</h3>
-            <ul className="list-disc ml-5 space-y-2">
-              <li>Unterbricht. Kein Problem fit.</li>
-              <li>Start bei Null: Kein Vertrauen, wenig Geduld.</li>
-              <li>Hohe Ablehnungsraten und kurze Gespräche.</li>
-            </ul>
-          </aside>
-        </div>
-
-        <figure className="mt-8">
-          <div
-            className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
-            style={{ aspectRatio: "16 / 6" }}
-          >
-            <picture>
-              <source media="(max-width: 640px)" srcSet="/verkauf-ohne-vertrauen-antrag-vergleich.jpg" />
-              <img
-                loading="lazy"
-                src="/verkauf-ohne-vertrauen-antrag-vergleich.jpg"
-                alt="Vergleich: Verkauf ohne Vertrauen vs. mit Vertrauen"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </picture>
-          </div>
-          <figcaption className="mt-2 text-xs text-zinc-600">
-            Ohne Vertrauen wirkt jeder Antrag wie Risiko – mit Vertrauen wie Chance.
-          </figcaption>
-        </figure>
-
-        <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
-          <blockquote className="text-lg font-medium">
-            Vertrauen entsteht, wenn du vor dem Pitch hilfst, Risiken erklärst und die
-            nächste Entscheidung leichter machst.
-          </blockquote>
-          <figcaption className="mt-2 text-sm text-zinc-600">
-            — Indirektes Zitat einer gängigen B2B-Vertriebsmaxime
-          </figcaption>
-        </figure>
-      </section>
-
-      <section id="reise-des-entscheiders" className="mt-14">
+      <section id="warum-content-pipeline" className="mt-12">
         <h2 className="text-2xl font-bold mb-3">
-          Die Reise des Entscheiders: Informational &gt; Consideration &gt; Decision
+          Warum Content eine Pipeline baut – und Kaltakquise selten mithält
         </h2>
         <p className="leading-relaxed">
-          Entscheider gehen selten linear vor, aber ihre Fragen klären sich in drei
-          wiederkehrenden Phasen. Du gewinnst Pipeline, wenn du jede Phase mit den
-          richtigen Formaten bedienst und diese logisch miteinander verknüpfst.
+          Kaltakquise ist ein Sprint. Content ist ein System. Wer heute B2B-Entscheider gewinnen
+          will, muss ihre Art der Informationssuche respektieren: Sie recherchieren selbstständig,
+          vergleichen anonym und bilden früh Präferenzen. Wenn du in dieser Phase nicht mit
+          relevanten, vertrauenswürdigen Inhalten präsent bist, erreichst du sie später kaum noch –
+          egal wie hart das Outbound-Team wählt, wann es anruft oder wie spitz die Liste ist. Der
+          Unterschied: Content senkt gefühltes Risiko, baut Kompetenz auf und bringt dich auf die
+          Shortlist, bevor der erste Termin entsteht.
         </p>
 
-        <div className="mt-6 rounded-2xl border border-zinc-200 overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-zinc-50">
-              <tr>
-                <th className="text-left font-semibold p-3 w-56">Phase</th>
-                <th className="text-left font-semibold p-3">Ziel des Users</th>
-                <th className="text-left font-semibold p-3">Beste Formate</th>
-                <th className="text-left font-semibold p-3">Starke CTAs</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-zinc-200">
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">Informational</td>
-                <td className="p-3">Problem verstehen, Begriffe klären, Optionen sichten.</td>
-                <td className="p-3">How-to-Guide, Definition, Checkliste, Rechner.</td>
-                <td className="p-3">„Weiterführender Vergleich“, „Template laden“.</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">Consideration</td>
-                <td className="p-3">Ansätze vergleichen, Risiken einschätzen, Stakeholder einbinden.</td>
-                <td className="p-3">Vergleichsartikel, ROI-Sheet, Webinar-Mitschnitt.</td>
-                <td className="p-3">„ROI-Kalkulation“, „Demo-Video“.</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">Decision</td>
-                <td className="p-3">Lieferant bewerten, Vertrauen bestätigen, Kauf rechtfertigen.</td>
-                <td className="p-3">Case Study, Referenz, Sicherheits-/Compliance-FAQ.</td>
-                <td className="p-3">„Erstgespräch buchen“, „Angebot anfordern“.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-          <strong>Praxis-Tipp:</strong> Verlinke jede Phase klar zur nächsten.
-          Unten im Guide gehört immer ein CTA auf den relevanten Vergleich; im Vergleich
-          geht es weiter zur passenden Case Study – ohne Sackgassen.
-        </div>
-      </section>
-
-      <section id="content-bausteine" className="mt-14">
-        <h2 className="text-2xl font-bold mb-3">
-          Content-Bausteine pro Phase (Guide, Vergleich, Case, FAQ)
-        </h2>
-        <p className="leading-relaxed">
-          Du brauchst keine Content-Fabrik. Vier Bausteine reichen, wenn sie sauber
-          geschrieben, verlinkt und gemessen sind. So setzt du sie auf.
-        </p>
-
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="rounded-2xl border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Guide (Informational)</h3>
-            <p className="mb-2">
-              Erklärt das Problem und die Lösungswege. Einfach, visuell, mit Beispielen.
-            </p>
-            <ul className="list-disc ml-5 space-y-2">
-              <li>Definiere Begriffe verständlich.</li>
-              <li>Checkliste, Mini-Rechner oder Template einbauen.</li>
-              <li>Am Ende zur Vergleichsseite weiterführen.</li>
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Vergleich (Consideration)</h3>
-            <p className="mb-2">
-              Hilft bei der Bewertung von Ansätzen oder Anbietern. Neutral, ehrlich, klar.
-            </p>
-            <ul className="list-disc ml-5 space-y-2">
-              <li>Objektive Kriterien: Kosten, Aufwand, Risiken, Time-to-Value.</li>
-              <li>Tabellarischer Überblick + Kurzfazit je Option.</li>
-              <li>Passend zur Case Study verlinken.</li>
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Case Study (Decision)</h3>
-            <p className="mb-2">
-              Zeigt echte Ergebnisse – vorher/nachher, Zahlen, Zitat. Konkreter Use Case.
-            </p>
-            <ul className="list-disc ml-5 space-y-2">
-              <li>Ausgangslage, Lösung, Ergebnis in Zahlen.</li>
-              <li>Risiken &amp; Learnings transparent benennen.</li>
-              <li>CTA: Erstgespräch oder Angebot.</li>
-            </ul>
-          </div>
-
-          <div className="rounded-2xl border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">FAQ (Decision/Trust)</h3>
-            <p className="mb-2">
-              Beantwortet Einwände: Datenschutz, Integration, Laufzeiten, ROI.
-            </p>
-            <ul className="list-disc ml-5 space-y-2">
-              <li>Kurze Antworten, klare Verlinkungen zu Belegen.</li>
-              <li>„Ja und“ statt „Nein, aber“ – lösungsorientiert.</li>
-              <li>Regelmäßig mit Sales-Feedback aktualisieren.</li>
-            </ul>
-          </div>
-        </div>
-
-        <figure className="mt-8">
-          <div
-            className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
-            style={{ aspectRatio: "16 / 6" }}
-          >
-            <picture>
-              <source media="(max-width: 640px)" srcSet="/online-meeting-ohne-vertrauen.jpg" />
-              <img
-                loading="lazy"
-                src="/online-meeting-ohne-vertrauen.jpg"
-                alt="Online-Meeting: Ohne Vertrauen wird die Entscheidung vertagt"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </picture>
-          </div>
-          <figcaption className="mt-2 text-xs text-zinc-600">
-            Wo Vertrauen fehlt, werden Meetings zu Prüfungen – Content nimmt die Hürden vorher.
-          </figcaption>
-        </figure>
-      </section>
-
-      <section id="lead-signale" className="mt-14">
-        <h2 className="text-2xl font-bold mb-3">
-          Lead-Signale verstehen (wiederkehrende Besuche, Seitenpfade, Zeit)
-        </h2>
-        <p className="leading-relaxed">
-          Nicht jeder Klick ist Interesse. Stark sind Signale, die <em>Absicht</em> und{" "}
-          <em>Reife</em> verraten. Drei Kategorien helfen dir bei der Einordnung.
-        </p>
-
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="rounded-2xl border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Wiederkehr</h3>
-            <p>3+ Besuche in 14 Tagen deuten auf echtes Projektinteresse hin.</p>
-          </div>
-          <div className="rounded-2xl border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Pfade</h3>
-            <p>Guide &gt; Vergleich &gt; Case ist ein Signal für Evaluations-Tiefe.</p>
-          </div>
-          <div className="rounded-2xl border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Zeit &amp; Tiefe</h3>
-            <p>
-              90+ Sekunden auf Vergleichsseiten oder Downloads (ROI-Sheet, Checklisten)
-              sind starke Impulse.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-          <strong>Hinweis:</strong> Einzelne Metriken können täuschen (z.B. Tab offen).
-          Kombiniere Signale und nutze Schwellenwerte statt Bauchgefühl.
-        </div>
-      </section>
-
-      <section id="lead-scoring" className="mt-14">
-        <h2 className="text-2xl font-bold mb-3">MQL vs. SQL &amp; Lead-Scoring in der Praxis</h2>
-        <p className="leading-relaxed">
-          Marketing-Qualified Leads (MQL) sind Kontakte mit relevantem Verhalten; Sales-Qualified
-          Leads (SQL) sind von Sales validiert und terminiert. Was zählt, ist die <em>Übersetzung</em>{" "}
-          von Signalen in klare Scores und Übergaberegeln. Ein leichtgewichtiges Scoring reicht
-          völlig aus.
-        </p>
-
-        <div className="mt-6 rounded-2xl border border-zinc-200 overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-zinc-50">
-              <tr>
-                <th className="text-left font-semibold p-3 w-56">Signal</th>
-                <th className="text-left font-semibold p-3">Bedingung</th>
-                <th className="text-left font-semibold p-3">Score</th>
-                <th className="text-left font-semibold p-3">Anmerkung</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-zinc-200">
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">Besuche</td>
-                <td className="p-3">3+ in 14 Tagen</td>
-                <td className="p-3">+15</td>
-                <td className="p-3">Intent-Indikator</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">Vergleich gelesen</td>
-                <td className="p-3">Mind. 90 Sek. Verweildauer</td>
-                <td className="p-3">+20</td>
-                <td className="p-3">Evaluations-Tiefe</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">Case Study</td>
-                <td className="p-3">Scrolltiefe 75%+</td>
-                <td className="p-3">+10</td>
-                <td className="p-3">Soziale Bewährtheit</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">FAQ Datenschutz</td>
-                <td className="p-3">Seitenaufruf</td>
-                <td className="p-3">+10</td>
-                <td className="p-3">Kaufnahes Interesse</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">Job-Rolle passt</td>
-                <td className="p-3">IT-Leitung, Fachbereichslead etc.</td>
-                <td className="p-3">+10</td>
-                <td className="p-3">Fit zur ICP</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">Negative Signale</td>
-                <td className="p-3">Hoher Bounce, Studenten-Mail</td>
-                <td className="p-3">−10</td>
-                <td className="p-3">Qualität sichern</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div className="mt-6 rounded-2xl border border-zinc-200 p-5">
-          <h3 className="text-lg font-semibold mb-2">Konvertiere Score in Status</h3>
-          <ul className="list-disc ml-5 space-y-2">
-            <li>
-              <strong>Score ≥ 30:</strong> MQL – Marketing führt Kontext zusammen, Sales bekommt
-              Handover.
-            </li>
-            <li>
-              <strong>Score ≥ 45:</strong> <em>Priorisiertes</em> MQL – innerhalb von 24h anrufen.
-            </li>
-            <li>
-              <strong>Nach Sales-Call</strong>: SQL oder Nurture mit konkretem nächsten Schritt.
-            </li>
+        <div className="mt-6 rounded-2xl border border-zinc-200 p-5 bg-white">
+          <h3 className="font-semibold text-lg mb-2">Pipeline-Hebel durch Content</h3>
+          <ul className="list-disc ml-5 space-y-1">
+            <li>Frühzeitige Sichtbarkeit bei Problemsuche &amp; Lösungsrecherche</li>
+            <li>Vertrauensaufbau durch Expertise, Belege und klare Sprache</li>
+            <li>Mehr qualifizierte Erstgespräche statt Kaltkontakte ohne Kontext</li>
+            <li>Planbare Nachfrage dank wiederholbarer Content-Formate</li>
           </ul>
         </div>
       </section>
 
-      <section id="handover-playbook" className="mt-14">
-        <h2 className="text-2xl font-bold mb-3">
-          Übergabe an Sales: Playbook für die erste Kontaktaufnahme
-        </h2>
-        <p className="leading-relaxed">
-          Der Erstkontakt entscheidet, ob der Faden reißt oder ein echter Dialog entsteht.
-          Mit Kontext aus Content &amp; Signalen fühlt es sich für beide Seiten wie eine
-          Fortsetzung an – nicht wie Kaltakquise.
-        </p>
+      {/* Bild 1 – volle Breite */}
+      <figure className="mt-8">
+        <div
+          className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+          style={{ aspectRatio: "16 / 6" }}
+        >
+          <picture>
+            <source
+              media="(max-width: 640px)"
+              srcSet="/verkauf-ohne-vertrauen-antrag-vergleich.jpg"
+            />
+            <img
+              loading="lazy"
+              src="/verkauf-ohne-vertrauen-antrag-vergleich.jpg"
+              alt="Vergleich: Vertrieb ohne Vertrauen führt zu Reibung und Abbrüchen"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </picture>
+        </div>
+        <figcaption className="mt-2 text-xs text-zinc-600">
+          Ohne Vertrauen bleibt jeder Antrag ein Hindernislauf – Content räumt Hürden früh aus dem
+          Weg.
+        </figcaption>
+      </figure>
 
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="rounded-2xl border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Was Sales bekommt</h3>
-            <ul className="list-disc ml-5 space-y-2">
-              <li>Letzte 5 Seiten + Zeit + Scrolltiefe.</li>
-              <li>Downloads (ROI-Sheet, Checkliste) und Formulareingaben.</li>
-              <li>Vermutete Use-Cases &amp; Stakeholder aus Seitenpfaden.</li>
-              <li>Score &amp; Begründung (transparente Regeln).</li>
-            </ul>
+      <section id="buyers-journey" className="mt-12">
+        <h2 className="text-2xl font-bold mb-3">
+          Die Reise des Entscheiders: Informational → Consideration → Decision
+        </h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="rounded-xl border border-zinc-200 p-4 bg-zinc-50">
+            <h3 className="font-semibold mb-1">Informational</h3>
+            <p className="text-sm">
+              Der Entscheider versteht das Problem. Er sucht Definitionen, Ursachen, Benchmarks,
+              Checklisten. Ziel: Orientierung und Vertrauen in deine Fachlichkeit.
+            </p>
           </div>
-          <div className="rounded-2xl border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Was Sales sagt (Beispiel-Script)</h3>
-            <p className="mb-2">
-              „Hallo {`{Name}`}, ich melde mich, weil Sie sich unseren Vergleich zu <em>X</em>{" "}
-              und die Case Study zu <em>Y</em> angesehen haben. Meist geht es in der Phase um
-              A oder B. Soll ich Ihnen in 15 Minuten zeigen, wie andere das gelöst haben?
-              Wenn es passt, skizzieren wir die nächsten 2–3 Schritte.“
+          <div className="rounded-xl border border-zinc-200 p-4 bg-zinc-50">
+            <h3 className="font-semibold mb-1">Consideration</h3>
+            <p className="text-sm">
+              Es geht um Lösungswege und Kriterien. Vergleiche, Frameworks, ROI-Skizzen, Tool-
+              und Prozessalternativen helfen bei der Bewertung.
+            </p>
+          </div>
+          <div className="rounded-xl border border-zinc-200 p-4 bg-zinc-50">
+            <h3 className="font-semibold mb-1">Decision</h3>
+            <p className="text-sm">
+              Jetzt zählen Belege: Cases, Demos, Referenzen, Sicherheits- und Integrationsfragen,
+              klare nächste Schritte.
             </p>
           </div>
         </div>
 
         <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-          <strong>Timing-Regel:</strong> Priorisierte MQLs innerhalb von 24h, alle anderen
-          innerhalb von 48h kontaktieren. Der Kontext bleibt frisch – das steigert die
-          Annahmequote.
+          <strong>Praxis-Tipp:</strong> Plane Content als <em>Pfade</em>, nicht als Einzelseiten.
+          Jeder Beitrag sollte 1–2 logische nächste Schritte verlinken (Guide → Tool-Vergleich →
+          Case → Demo).
         </div>
       </section>
 
-      <section id="kpis-messung" className="mt-14">
-        <h2 className="text-2xl font-bold mb-3">KPIs &amp; Messung: Von Klicks zu Chancen</h2>
+      {/* Expertenzitat */}
+      <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+        <blockquote className="text-lg font-medium">
+          „B2B-Kaufentscheidungen sind Risikomanagement. Wer das Risiko mit exzellentem Content
+          reduziert, wird eingeladen – wer nur klingelt, wird gefiltert.“
+        </blockquote>
+        <figcaption className="mt-2 text-sm text-zinc-600">
+          — Erfahrungswert aus 100+ Content-Projekten, indirektes Zitat
+        </figcaption>
+      </figure>
+
+      <section id="vertrauen-statt-kalt" className="mt-12">
+        <h2 className="text-2xl font-bold mb-3">
+          Vertrauen statt Kaltakquise: Psychologie, Social Proof, Risikoabbau
+        </h2>
         <p className="leading-relaxed">
-          Starte mit wenigen Kennzahlen, die Ursache und Wirkung abbilden – entlang Funnel
-          und Content-Pfad.
+          Content schlägt Kaltakquise nicht, weil Telefone schlecht sind – sondern weil Entscheider
+          heute <em>vor</em> dem ersten Kontakt wissen möchten, ob du verstehst, was bei ihnen auf
+          dem Spiel steht. Gute Inhalte greifen mentale Hürden auf: Unsicherheit über Nutzen und
+          Aufwand, Angst vor Fehlentscheidungen, interne Alignment-Probleme. Mit klaren Belegen,
+          nachvollziehbaren Beispielen und hilfreichen Tools machst du es leicht, „Ja“ zu sagen.
         </p>
 
-        <div className="mt-6 rounded-2xl border border-zinc-200 overflow-hidden">
+        <div className="mt-6 grid md:grid-cols-3 gap-4">
+          <div className="md:col-span-2 rounded-xl border border-zinc-200 p-4">
+            <h3 className="font-semibold mb-2">Die drei Säulen des Vertrauens</h3>
+            <ul className="list-disc ml-5 space-y-1">
+              <li>
+                <strong>Kompetenz:</strong> Klare Modelle, definierte Begriffe, nachvollziehbare
+                Rechnungen.
+              </li>
+              <li>
+                <strong>Integrität:</strong> Transparente Grenzen, ehrliche „Nicht für jeden“-Hinweise.
+              </li>
+              <li>
+                <strong>Wohlwollen:</strong> Inhalte, die <em>wirklich</em> helfen – nicht nur
+                verkaufen.
+              </li>
+            </ul>
+          </div>
+          <div className="rounded-xl border border-zinc-200 p-4 bg-zinc-50">
+            <h3 className="font-semibold mb-2">Belege, die zählen</h3>
+            <ul className="list-disc ml-5 space-y-1">
+              <li>Vorher-Nachher-Kennzahlen (z.&nbsp;B. Zeitersparnis, Genauigkeit)</li>
+              <li>Kundenzitate &amp; Referenzen mit Kontext</li>
+              <li>Risiko-Umgang: Pilot, Kündigungsfristen, Security-Facts</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Bild 2 – volle Breite */}
+      <figure className="mt-8">
+        <div
+          className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+          style={{ aspectRatio: "16 / 6" }}
+        >
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/online-meeting-ohne-vertrauen.jpg" />
+            <img
+              loading="lazy"
+              src="/online-meeting-ohne-vertrauen.jpg"
+              alt="Online-Meeting ohne Vertrauensbasis – kalter Start statt warmem Dialog"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </picture>
+        </div>
+        <figcaption className="mt-2 text-xs text-zinc-600">
+          Ohne vorbereitenden Content wird jedes Erstgespräch zur kalten Produktdemo.
+        </figcaption>
+      </figure>
+
+      <section id="content-architektur" className="mt-12">
+        <h2 className="text-2xl font-bold mb-3">Content-Architektur: Was braucht es pro Phase?</h2>
+
+        <div className="rounded-2xl border border-zinc-200 overflow-hidden">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
-                <th className="text-left font-semibold p-3 w-56">Bereich</th>
-                <th className="text-left font-semibold p-3">KPI</th>
-                <th className="text-left font-semibold p-3">Ziel/Interpretation</th>
+                <th className="text-left font-semibold p-3 w-48">Phase</th>
+                <th className="text-left font-semibold p-3">Core-Formate</th>
+                <th className="text-left font-semibold p-3 w-56">CTA &amp; Nächster Schritt</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-zinc-200">
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">Informational</td>
-                <td className="p-3">Unique Visitors, CTR To-Next, Dwell-Time</td>
-                <td className="p-3">Qualität des Traffics &amp; Anschlussfähigkeit.</td>
+            <tbody>
+              <tr className="border-t border-zinc-200 align-top">
+                <td className="p-3 font-medium">Informational</td>
+                <td className="p-3">
+                  „Was ist…?“-Artikel, Definitionen, Checklisten, Benchmarks, Problem-Diagnose,
+                  kurze Videos, Glossare.
+                </td>
+                <td className="p-3">
+                  Weiterführender Guide, Tool-Kalkulator, Newsletter-Opt-in für vertiefende Inhalte.
+                </td>
               </tr>
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">Consideration</td>
-                <td className="p-3">Vergleichs-Reads, Scroll 75%+, Downloads</td>
-                <td className="p-3">Evaluations-Tiefe &amp; Intent.</td>
+              <tr className="border-t border-zinc-200 align-top">
+                <td className="p-3 font-medium">Consideration</td>
+                <td className="p-3">
+                  Lösungswege, Frameworks, Vergleichstabellen, ROI-Skizzen, Anwendungsfälle,
+                  Webinare, Live-Q&amp;A.
+                </td>
+                <td className="p-3">Case Study, interaktiver ROI-Rechner, Termin zur Use-Case-Klärung.</td>
               </tr>
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">Decision</td>
-                <td className="p-3">Demo-Requests, Erstgespräche, Win-Rate</td>
-                <td className="p-3">Kaufbereitschaft &amp; Sales-Fit.</td>
-              </tr>
-              <tr>
-                <td className="p-3 font-medium text-zinc-900">Gesamt</td>
-                <td className="p-3">Cost per Opportunity, Pipeline-Coverage</td>
-                <td className="p-3">Effizienz &amp; Planbarkeit.</td>
+              <tr className="border-t border-zinc-200 align-top">
+                <td className="p-3 font-medium">Decision</td>
+                <td className="p-3">
+                  Referenzen, Demos, Proof-of-Concept, Integrations-Leitfäden, Security-Sheets,
+                  Preis-Transparenz.
+                </td>
+                <td className="p-3">POC/Pilot, Angebot anfordern, Security/IT-Abgleich.</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div className="mt-6 rounded-2xl border border-zinc-200 p-5">
-          <h3 className="text-lg font-semibold mb-2">Attribution pragmatisch</h3>
-          <p>
-            Arbeite mit <em>First-Touch</em> (Entdeckung) und <em>Last-Non-Direct</em>{" "}
-            (Konversion) als Standard. Für große Tickets ergänze eine manuelle
-            <em> Deal-Review</em> mit „Welche Inhalte haben euch überzeugt?“.
+        <div className="mt-6 grid md:grid-cols-3 gap-4">
+          <div className="md:col-span-2 rounded-xl border border-zinc-200 p-4">
+            <h3 className="font-semibold mb-2">SEO &amp; Intent</h3>
+            <p className="text-sm">
+              Baue Themencluster mit klaren Suchintentionen: Informations-Keywords für Definition
+              &amp; Diagnose; Vergleichs-Keywords für Lösungsbewertung; Brand-/Produktkeywords für
+              Kauf. Interne Verlinkung führt den Leser Schritt für Schritt.
+            </p>
+          </div>
+          <div className="rounded-xl border border-zinc-200 p-4 bg-zinc-50">
+            <h3 className="font-semibold mb-2">Proof-Formate</h3>
+            <p className="text-sm">
+              Cases mit Metriken, „Behind the Scenes“-Demos, Security-FAQ, Integrations-Blueprints –
+              alles, was Risiko real senkt.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="distribution" className="mt-12">
+        <h2 className="text-2xl font-bold mb-3">Distribution &amp; Touchpoints</h2>
+        <p className="leading-relaxed">
+          Content wirkt über Kanäle hinweg – wichtig ist die Reihenfolge und der Kontext. Nutze
+          organische Suche für die Anbahnung, Social für Reichweite &amp; Persönlichkeit, E-Mail für
+          Vertiefung und Events für Aktivierung. Das Ziel ist nicht Reichweite, sondern
+          <em>relevante</em> Kontakte, die eine nächste, klar definierte Aktion machen.
+        </p>
+
+        <div className="mt-6 grid md:grid-cols-3 gap-4">
+          <div className="rounded-xl border border-zinc-200 p-4 bg-white">
+            <h3 className="font-semibold mb-2">SEO &amp; Blog</h3>
+            <ul className="list-disc ml-5 space-y-1 text-sm">
+              <li>Antworten auf konkrete Fragen (Snippets, FAQ-Blöcke)</li>
+              <li>Interne Verlinkung als „Leitplanke“ zur nächsten Aktion</li>
+              <li>Evergreen-Assets regelmäßig aktualisieren</li>
+            </ul>
+          </div>
+          <div className="rounded-xl border border-zinc-200 p-4 bg-white">
+            <h3 className="font-semibold mb-2">Social &amp; Personal Brands</h3>
+            <ul className="list-disc ml-5 space-y-1 text-sm">
+              <li>Meinungen &amp; Learnings statt Produkt-Posts</li>
+              <li>Serienformate (z.&nbsp;B. wöchentliches Mini-Case)</li>
+              <li>Kommentieren &amp; Co-Create mit Kund:innen</li>
+            </ul>
+          </div>
+          <div className="rounded-xl border border-zinc-200 p-4 bg-white">
+            <h3 className="font-semibold mb-2">E-Mail &amp; Events</h3>
+            <ul className="list-disc ml-5 space-y-1 text-sm">
+              <li>Nurtures nach Intent, nicht nach Stufe „MQL“</li>
+              <li>Live-Demos, Clinics, Office Hours mit klarem Use Case</li>
+              <li>Follow-up mit Ressourcensammlung statt „Nur mal nachfragen“</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="messung" className="mt-12">
+        <h2 className="text-2xl font-bold mb-3">Messen &amp; optimieren</h2>
+        <div className="rounded-2xl border border-zinc-200 overflow-hidden">
+          <table className="w-full text-sm">
+            <thead className="bg-zinc-50">
+              <tr>
+                <th className="text-left font-semibold p-3 w-56">Ziel</th>
+                <th className="text-left font-semibold p-3">Leading Indicators</th>
+                <th className="text-left font-semibold p-3">Lagging Indicators</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-t border-zinc-200 align-top">
+                <td className="p-3 font-medium">Vertrauen</td>
+                <td className="p-3">Wiederkehrer-Rate, Scroll-Tiefe, Zeit pro Thema</td>
+                <td className="p-3">Antwortquoten, Demo-Anfragen, Referenz-Nennungen</td>
+              </tr>
+              <tr className="border-t border-zinc-200 align-top">
+                <td className="p-3 font-medium">Pipeline</td>
+                <td className="p-3">Qualität der Erstgespräche, Self-Reported Attribution</td>
+                <td className="p-3">Win-Rate, Sales-Cycle-Dauer, ACV</td>
+              </tr>
+              <tr className="border-t border-zinc-200 align-top">
+                <td className="p-3 font-medium">Effizienz</td>
+                <td className="p-3">Content-Nutzung durch Sales, No-Show-Rate</td>
+                <td className="p-3">CAC, LTV/CAC, Ramp-Time neuer Reps</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+          <strong>Hinweis zur Attribution:</strong> Kombiniere modellierte Daten (Analytics,
+          CRM-Touchpoints) mit <em>Self-Reported Attribution</em> auf Formularen (&bdquo;Wie hast du
+          von uns gehört?&ldquo;). So erfasst du Dark-Social-Effekte ohne Überinstrumentierung.
+        </div>
+      </section>
+
+      <section id="playbooks" className="mt-12">
+        <h2 className="text-2xl font-bold mb-3">Playbooks für Marketing &amp; Sales</h2>
+
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="md:col-span-2 rounded-xl border border-zinc-200 p-4">
+            <h3 className="font-semibold mb-2">Vom Klick zur Chance</h3>
+            <ol className="list-decimal ml-5 space-y-1 text-sm">
+              <li>Artikel beantwortet konkrete Frage &amp; bietet vertiefenden Guide an.</li>
+              <li>
+                Guide endet mit Case &amp; lädt zur Use-Case-Sprechstunde (15&nbsp;Min) ein.
+              </li>
+              <li>Sales sieht Intent-Signale (Seitenpfad, wiederkehrend, Ressourcen-DL).</li>
+              <li>
+                SDR folgt mit personalisiertem Pattern: „Ich habe gesehen, dass ... – hier sind die
+                2 relevantesten Cases für Ihre Branche.“
+              </li>
+            </ol>
+          </div>
+          <div className="rounded-xl border border-zinc-200 p-4 bg-zinc-50">
+            <h3 className="font-semibold mb-2">Sales-Enablement</h3>
+            <ul className="list-disc ml-5 space-y-1 text-sm">
+              <li>One-Pager je Branche/Persona</li>
+              <li>Mini-Demos als Loom (2–3&nbsp;Min)</li>
+              <li>Antwortbibliothek für Security/Legal</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-6 flex items-center gap-3">
+          <ArrowRight className={`w-5 h-5 ${accent}`} aria-hidden="true" />
+          <p className="text-sm text-zinc-700">
+            Wichtig: Definiere <strong>klare Hand-Off-Signale</strong> (z.&nbsp;B. Case-Konsum,
+            Themenkombi, Wiederkehr innerhalb 7&nbsp;Tagen) – erst dann outreachen.
           </p>
         </div>
       </section>
 
-      <section id="fehler-vermeiden" className="mt-14">
-        <h2 className="text-2xl font-bold mb-3">Häufige Fehler, die Leads kosten</h2>
-        <ul className="list-disc ml-5 space-y-2">
-          <li>
-            <strong>Kein roter Faden:</strong> Guide ohne Link zum Vergleich, Vergleich ohne Case.
-          </li>
-          <li>
-            <strong>Zuviel Jargon:</strong> Fachsprache ohne Erklärung schreckt Laien ab.
-          </li>
-          <li>
-            <strong>Kein Proof:</strong> Behauptungen ohne Zahlen oder Belege.
-          </li>
-          <li>
-            <strong>Unklare CTAs:</strong> „Kontakt“ ist zu vage. Besser: „15-Minuten-Check“.
-          </li>
-          <li>
-            <strong>Kein Handover:</strong> Sales ruft ohne Kontext an – das ist Kaltakquise.
-          </li>
-        </ul>
-      </section>
-
-      <section id="tooling" className="mt-14">
-        <h2 className="text-2xl font-bold mb-3">Tooling-Stack: Leichtgewicht, der skaliert</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="rounded-2xl border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Content</h3>
-            <ul className="list-disc ml-5 space-y-2">
-              <li>CMS oder Headless-Setup mit sauberer SEO-Struktur.</li>
-              <li>Analytics für Scrolltiefe, Zeit, Pfade.</li>
-              <li>Formulare mit UTM-Weitergabe und Consent-Steuerung.</li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Go-to-Market</h3>
-            <ul className="list-disc ml-5 space-y-2">
-              <li>CRM mit Lead-Scoring-Feld und Pflichtübergaben.</li>
-              <li>Kalenderbuchung mit gemeinsamer Verfügbarkeit.</li>
-              <li>Newsletter/Nurture mit Segmenten pro Phase.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Summary */}
-      <section id="zusammenfassung" className="mt-14">
-        <h2 className="text-2xl font-bold mb-3">Kurzfazit</h2>
-        <p className="leading-relaxed">
-          <strong>Wie baust du mit Content eine verlässliche B2B-Sales-Pipeline?</strong>{" "}
-          Indem du Vertrauen vor Kontakt stellst, Inhalte entlang der Entscheiderreise
-          orchestrierst, Lead-Signale klug bewertest und Sales mit einem klaren Playbook
-          ausstattest. So wird aus Klicks verlässliche Nachfrage – planbar und messbar.
-        </p>
-      </section>
-
-      {/* CTA */}
-      <section
-        id="cta"
-        className="mt-14 rounded-2xl border border-emerald-200 bg-emerald-50 p-6"
-      >
-        <h2 className="text-2xl font-bold mb-2">Nächster Schritt</h2>
-        <p className="mb-4">
-          Lass uns deinen roten Faden legen: 15 Minuten für eine schnelle Potenzial-Einschätzung
-          deiner Inhalte – gratis und konkret.
-        </p>
-        <a
-          href="https://www.findbar.info/kontakt"
-          className="inline-block rounded-xl border border-emerald-600 px-5 py-3 font-medium hover:bg-emerald-600 hover:text-white"
-          aria-label="Kostenloses Erstgespräch anfragen"
-        >
-          Kostenloses Erstgespräch
-        </a>
-      </section>
-
       {/* FAQ */}
-      <section id="faq" className="mt-14">
+      <section id="faqs" className="mt-14">
         <h2 className="text-2xl font-bold mb-4">FAQ</h2>
-        <div className="space-y-6 text-zinc-700">
+        <div className="space-y-6 text-zinc-700" id="faq">
           <div>
-            <h3 className="font-semibold">Brauche ich viel Content, um Leads zu gewinnen?</h3>
+            <h3 className="font-semibold">
+              Wie lange dauert es, bis Content eine B2B-Pipeline spürbar füllt?
+            </h3>
             <p>
-              Nein. Vier Bausteine reichen: Guide, Vergleich, Case, FAQ. Wichtig sind Klarheit,
-              Verlinkungen und Messung – nicht Masse.
+              Rechne mit 3–6&nbsp;Monaten bis zu stabilen organischen Zuflüssen. Beschleuniger sind
+              vorhandene E-Mail-Listen, Social-Reichweiten, Co-Marketing und gezielte
+              Performance-Anschubformate.
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">Wie schnell sehe ich Ergebnisse?</h3>
+            <h3 className="font-semibold">Brauche ich dafür immer ein großes Redaktionsteam?</h3>
             <p>
-              Erste Verbesserungen zeigen sich oft nach 6–8 Wochen (mehr Tiefe, erste Anfragen).
-              Stabile Pipeline entsteht über 3–6 Monate mit kontinuierlichem Feinschliff.
+              Nein. Starte mit 1–2 Kernformaten (z.&nbsp;B. „Was ist…?“ plus monatlicher Case) und
+              erweitere entlang der Nachfrage. Qualität &gt; Quantität.
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">Welche Rolle spielt SEO vs. Paid?</h3>
+            <h3 className="font-semibold">Wie erkenne ich kaufnahen Intent?</h3>
             <p>
-              Beides. SEO bringt stetige, kaufnahe Suchen; Paid beschleunigt die Sichtbarkeit
-              deiner Kerninhalte bei passenden Zielgruppen (z.B. LinkedIn, Retargeting).
+              Pfad-Signale: Nutzer lesen Vergleichs- und ROI-Inhalte, besuchen die Preis- oder
+              Integrationsseite und kehren innerhalb kurzer Zeit zurück. Kombiniere das mit
+              Self-Reported Attribution.
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">Wie messe ich Vertrauen?</h3>
+            <h3 className="font-semibold">Was, wenn meine Lösung erklärungsbedürftig ist?</h3>
             <p>
-              Indirekt über Kombinationen: wiederkehrende Besuche, Vergleichs-Reads, Case-Tiefe,
-              Antworten auf kaufnahe FAQs und Demo-Requests.
+              Umso besser für Content. Setze auf Diagnose-Guides, Decision-Frameworks und kurze
+              Video-Demos mit klaren „Was passiert danach?“-Hinweisen.
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">Was gehört in das Sales-Handover?</h3>
+            <h3 className="font-semibold">Welche Rolle spielt Kaltakquise dann noch?</h3>
             <p>
-              Letzte Seiten, Zeit/Scrolltiefe, Downloads, Score mit Begründung, vermutete Use-Cases
-              und empfohlener Gesprächsaufhänger.
+              Outbound bleibt sinnvoll – als <em>warmes</em> Follow-up auf konsumierten Content und
+              Events. Reine Kaltakquise ohne Kontext erzeugt heute selten den gewünschten
+              Vertrauenseffekt.
             </p>
           </div>
         </div>
 
+        {/* FAQ Schema.org */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "FAQPage",
-              "mainEntity": [
+              mainEntity: [
                 {
                   "@type": "Question",
-                  "name": "Brauche ich viel Content, um Leads zu gewinnen?",
-                  "acceptedAnswer": {
+                  name: "Wie lange dauert es, bis Content eine B2B-Pipeline spürbar füllt?",
+                  acceptedAnswer: {
                     "@type": "Answer",
-                    "text":
-                      "Nein. Vier Bausteine reichen: Guide, Vergleich, Case, FAQ. Wichtig sind Klarheit, Verlinkungen und Messung – nicht Masse.",
+                    text:
+                      "Rechne mit 3–6 Monaten bis zu stabilen organischen Zuflüssen. Beschleuniger sind vorhandene E-Mail-Listen, Social-Reichweiten, Co-Marketing und gezielte Performance-Anschubformate.",
                   },
                 },
                 {
                   "@type": "Question",
-                  "name": "Wie schnell sehe ich Ergebnisse?",
-                  "acceptedAnswer": {
+                  name: "Brauche ich dafür immer ein großes Redaktionsteam?",
+                  acceptedAnswer: {
                     "@type": "Answer",
-                    "text":
-                      "Erste Verbesserungen zeigen sich oft nach 6–8 Wochen. Stabile Pipeline entsteht über 3–6 Monate mit kontinuierlichem Feinschliff.",
+                    text:
+                      "Nein. Starte mit 1–2 Kernformaten (z. B. „Was ist…?“ plus monatlicher Case) und erweitere entlang der Nachfrage. Qualität ist wichtiger als Quantität.",
                   },
                 },
                 {
                   "@type": "Question",
-                  "name": "Welche Rolle spielt SEO vs. Paid?",
-                  "acceptedAnswer": {
+                  name: "Wie erkenne ich kaufnahen Intent?",
+                  acceptedAnswer: {
                     "@type": "Answer",
-                    "text":
-                      "Beides. SEO liefert stetige, kaufnahe Suchen; Paid beschleunigt die Sichtbarkeit deiner Kerninhalte bei passenden Zielgruppen.",
+                    text:
+                      "Nutzer, die Vergleichs- und ROI-Inhalte konsumieren, die Preis- oder Integrationsseite besuchen und innerhalb kurzer Zeit zurückkehren, zeigen starken Intent.",
                   },
                 },
                 {
                   "@type": "Question",
-                  "name": "Wie messe ich Vertrauen?",
-                  "acceptedAnswer": {
+                  name: "Was, wenn meine Lösung erklärungsbedürftig ist?",
+                  acceptedAnswer: {
                     "@type": "Answer",
-                    "text":
-                      "Über Signalkombinationen: wiederkehrende Besuche, Vergleichs-Reads, Case-Tiefe, kaufnahe FAQ und Demo-Requests.",
+                    text:
+                      "Setze auf Diagnose-Guides, Decision-Frameworks und kurze Video-Demos mit klaren „Was passiert danach?“-Hinweisen.",
                   },
                 },
                 {
                   "@type": "Question",
-                  "name": "Was gehört in das Sales-Handover?",
-                  "acceptedAnswer": {
+                  name: "Welche Rolle spielt Kaltakquise dann noch?",
+                  acceptedAnswer: {
                     "@type": "Answer",
-                    "text":
-                      "Letzte Seiten, Zeit/Scrolltiefe, Downloads, Score mit Begründung, vermutete Use-Cases und ein Gesprächsaufhänger.",
+                    text:
+                      "Outbound bleibt sinnvoll als warmes Follow-up auf konsumierten Content und Events. Reine Kaltakquise ohne Kontext erzeugt selten Vertrauen.",
                   },
                 },
               ],
@@ -780,8 +649,45 @@ export default function Page() {
         />
       </section>
 
+      {/* Summary */}
+      <section id="zusammenfassung" className="mt-14">
+        <h2 className="text-2xl font-bold mb-3">Kurzfazit</h2>
+        <p className="leading-relaxed">
+          <strong>Wie baut Content eine verlässliche B2B-Sales-Pipeline?</strong> Indem er
+          Entscheider früh erreicht, Risiken reduziert und klare nächste Schritte anbietet. Setze
+          pro Journey-Phase auf passende Formate, messe anhand sinnvoller Leading Indicators und
+          verzahne Marketing &amp; Sales über definierte Hand-Off-Signale. So wird aus Klicks
+          planbare Nachfrage.
+        </p>
+      </section>
+
+      {/* CTA ohne Formular, Button führt zu findbar.info */}
+      <section aria-label="Kontakt" className="mt-14">
+        <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+          <h2 className="text-xl font-bold mb-2">
+            Möchtest du Blogartikel für dein B2B-Angebot einführen?
+          </h2>
+          <p className="text-zinc-700 mb-4">
+            Unsere KI schreibt Expertenartikel und identifiziert anonyme B2B-Leser für dein
+            Sales-Team.
+          </p>
+
+          <div className="mx-auto max-w-xl">
+            <a
+              href="https://www.findbar.info"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+              aria-label="Zu findbar.info wechseln (öffnet in neuem Tab)"
+            >
+              Mehr erfahren
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Mini-Glossar */}
-      <section id="mini-glossar" className="mt-14 mb-20">
+      <section className="mt-14 mb-20">
         <h2 className="text-2xl font-bold mb-3">
           Mini-Glossar – Die wichtigsten Begriffe zu B2B-Sales-Pipeline &amp; Content
         </h2>
@@ -796,39 +702,38 @@ export default function Page() {
             </thead>
             <tbody>
               <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium text-zinc-900">MQL (Marketing-Qualified Lead)</td>
+                <td className="p-3 font-medium text-zinc-900">Buyers Journey</td>
                 <td className="p-3 text-zinc-700">
-                  Kontakt mit relevantem Verhalten (Signale) – bereit für die Übergabe an Sales.
+                  Weg eines Entscheiders von der Problemerkennung (Informational) über
+                  Lösungsbewertung (Consideration) bis zur Entscheidung (Decision).
                 </td>
               </tr>
               <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium text-zinc-900">SQL (Sales-Qualified Lead)</td>
+                <td className="p-3 font-medium text-zinc-900">Thought Leadership</td>
                 <td className="p-3 text-zinc-700">
-                  Von Sales validiert (Fit, Bedarf, Timing) und mit Termin/Next Step versehen.
+                  Inhalte, die Kompetenz und Perspektive zeigen – weniger Werbung, mehr
+                  Argumentationshilfe für die Zielgruppe.
                 </td>
               </tr>
               <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium text-zinc-900">Dwell-Time</td>
+                <td className="p-3 font-medium text-zinc-900">Intent-Signal</td>
                 <td className="p-3 text-zinc-700">
-                  Verweildauer auf einer Seite; Indikator für Relevanz und Tiefe.
+                  Verhalten, das Kaufnähe vermuten lässt, z.&nbsp;B. Konsum von Vergleichen oder
+                  Preis-/Integrationsseiten.
                 </td>
               </tr>
               <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium text-zinc-900">Pipeline-Coverage</td>
+                <td className="p-3 font-medium text-zinc-900">Sales-Enablement</td>
                 <td className="p-3 text-zinc-700">
-                  Verhältnis aus offener Pipeline zu Zielumsatz (z.B. 3×).
+                  Materialien und Prozesse, die Vertriebsgespräche mit Proof &amp; Kontext versorgen
+                  (Cases, One-Pager, Demos).
                 </td>
               </tr>
               <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium text-zinc-900">ICP (Ideal Customer Profile)</td>
+                <td className="p-3 font-medium text-zinc-900">Self-Reported Attribution</td>
                 <td className="p-3 text-zinc-700">
-                  Beschreibung deiner „Best-Fit“-Kunden (Branche, Größe, Reife, Use-Cases).
-                </td>
-              </tr>
-              <tr className="border-t border-zinc-200">
-                <td className="p-3 font-medium text-zinc-900">Attribution</td>
-                <td className="p-3 text-zinc-700">
-                  Verfahren, um den Beitrag einzelner Touchpoints zur Konversion einzuschätzen.
+                  Freitext-Angabe „Wie hast du von uns gehört?“ – erfasst Kanäle, die in Daten nicht
+                  sichtbar sind (z.&nbsp;B. Dark Social).
                 </td>
               </tr>
             </tbody>
@@ -837,7 +742,7 @@ export default function Page() {
       </section>
 
       {/* E-E-A-T */}
-      <section id="ueber-den-autor" className="mt-14">
+      <section className="mt-14">
         <h2 className="text-2xl font-bold mb-3">Über den Autor</h2>
         <div className="flex items-center gap-4">
           <img
@@ -846,18 +751,22 @@ export default function Page() {
             className="w-16 h-16 rounded-full object-cover"
             loading="lazy"
           />
-          <div>
-            <div className="font-semibold">{author.name}</div>
-            <div className="text-sm text-zinc-700">{author.role}</div>
-            <a href={author.linkedin} className={`text-sm hover:underline ${accent}`}>
-              LinkedIn-Profil
-            </a>
-          </div>
+            <div>
+              <div className="font-semibold">{author.name}</div>
+              <div className="text-sm text-zinc-700">{author.role}</div>
+              <a href={author.linkedin} className={`text-sm hover:underline ${accent}`}>
+                LinkedIn-Profil
+              </a>
+            </div>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 flex items-center gap-3">
+          <ArrowRight className={`w-4 h-4 ${accent}`} aria-hidden="true" />
           <p className="text-sm text-zinc-700">
-            Überprüft von: <strong>findbar Redaktion</strong> – B2B-Content &amp; Growth.
+            Überprüft von: <strong>{author.name}</strong> – {author.role}.{" "}
+            <a href={author.linkedin} className={`hover:underline ${accent}`}>
+              LinkedIn
+            </a>
           </p>
         </div>
       </section>
@@ -867,39 +776,64 @@ export default function Page() {
         <h2 className="text-2xl font-bold mb-3">Quellen &amp; weiterführende Studien</h2>
         <ul className="list-disc ml-5 space-y-2 text-sm">
           <li>
-            Edelman – Trust Barometer (B2B Insights):{" "}
-            <a href="https://www.edelman.com/trust" className={accent}>
-              https://www.edelman.com/trust
+            Edelman &amp; LinkedIn (2024): B2B Thought Leadership Impact Report –{" "}
+            <a
+              href="https://www.edelman.com/sites/g/files/aatuss191/files/2024-02/_2024%20Edelman-LinkedIn%20B2B%20Thought%20Leadership%20Impact%20Report%20Final.pdf"
+              className={accent}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.edelman.com/…/2024-B2B-Thought-Leadership-Impact-Report
             </a>
           </li>
           <li>
-            LinkedIn B2B Institute – Research &amp; Reports:{" "}
-            <a href="https://b2binstitute.org/research" className={accent}>
-              https://b2binstitute.org/research
+            Gartner: B2B Buying – 75% bevorzugen eine „rep-free“ Experience –{" "}
+            <a
+              href="https://www.gartner.com/en/sales/insights/b2b-buying-journey"
+              className={accent}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.gartner.com/en/sales/insights/b2b-buying-journey
             </a>
           </li>
           <li>
-            Google – Think with Google (B2B Buying Journey):{" "}
-            <a href="https://www.thinkwithgoogle.com" className={accent}>
-              https://www.thinkwithgoogle.com
+            Forrester (2024): The State of Business Buying –{" "}
+            <a
+              href="https://www.forrester.com/press-newsroom/forrester-the-state-of-business-buying-2024/"
+              className={accent}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.forrester.com/press-newsroom/…-business-buying-2024
             </a>
           </li>
           <li>
-            Gartner – B2B Buying Journey Ressourcen:{" "}
-            <a href="https://www.gartner.com/en/insights/sales" className={accent}>
-              https://www.gartner.com/en/insights/sales
+            Demand Gen Report (2024): Käufer sind zu ~70% durch, bevor sie Kontakt aufnehmen –{" "}
+            <a
+              href="https://www.demandgenreport.com/industry-news/80-of-b2b-buyers-initiate-first-contact-once-theyre-70-through-their-buying-journey/48394/"
+              className={accent}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.demandgenreport.com/…/buyers-initiate-first-contact…
             </a>
           </li>
           <li>
-            Forrester – B2B Demand &amp; Pipeline Studien:{" "}
-            <a href="https://www.forrester.com" className={accent}>
-              https://www.forrester.com
+            McKinsey (2024): B2B Pulse – Omnichannel &amp; Selbstbedienung –{" "}
+            <a
+              href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/five-fundamental-truths-how-b2b-winners-keep-growing"
+              className={accent}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://www.mckinsey.com/…/five-fundamental-truths…
             </a>
           </li>
         </ul>
       </section>
 
-      {/* Structured Data: Article + Organization */}
+      {/* Structured Data – Article & Organization */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -909,21 +843,30 @@ export default function Page() {
             headline:
               "Vom Klick zur Chance: Mit Content eine verlässliche B2B-Sales-Pipeline bauen",
             description:
-              "Warum Vertrauen Kaltakquise schlägt und wie du die Entscheiderreise mit den richtigen Content-Bausteinen, Lead-Signalen und einem Sales-Playbook orchestrierst.",
-            inLanguage: "de",
-            image: ["https://www.findbar.info/vertrauen-beim-verkauf-ist-essentiell.jpg"],
-            datePublished: "2025-08-20",
-            dateModified: "2025-08-20",
+              "Warum Vertrauen Kaltakquise schlägt – und wie Content Entscheider von Informational über Consideration bis Decision führt.",
+            inLanguage: "de-DE",
+            image: [
+              "https://www.findbar.info/vertrauen-beim-verkauf-ist-essentiell.jpg",
+            ],
             author: {
               "@type": "Person",
               name: author.name,
+              jobTitle: author.role,
+              url: author.linkedin,
             },
             publisher: {
               "@type": "Organization",
-              name: "Findbar",
-              logo: { "@type": "ImageObject", url: "https://www.findbar.info/icon.png" },
+              name: site.name,
+              url: site.url,
+              logo: {
+                "@type": "ImageObject",
+                url: site.logo,
+              },
             },
-            mainEntityOfPage: canonical,
+            datePublished: "2025-08-28",
+            dateModified: "2025-08-28",
+            mainEntityOfPage:
+              "https://www.findbar.info/blog/vom-klick-zur-chance-b2b-sales-pipeline",
           }),
         }}
       />
@@ -933,17 +876,17 @@ export default function Page() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: "Findbar",
-            url: "https://www.findbar.info",
-            email: "mailto:lennart@findbar.info",
+            name: site.name,
+            url: site.url,
+            logo: site.logo,
+            email: "mailto:" + site.email,
             address: {
               "@type": "PostalAddress",
               streetAddress: "Am Rabenecksiek 5",
-              postalCode: "32139",
               addressLocality: "Spenge",
+              postalCode: "32139",
               addressCountry: "DE",
             },
-            logo: "https://www.findbar.info/icon.png",
             sameAs: [author.linkedin],
           }),
         }}
