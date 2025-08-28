@@ -145,16 +145,16 @@ export default function Page() {
           <li>
             Qualitätssicherung folgt heute verbindlichen Normen wie ISO{" "}
             52920 und 52901 – wichtig für reproduzierbare Prozesse,
-            dokumentierte Prüfpläne und auditable Lieferketten. :contentReference[oaicite:0]{index=0}
+            dokumentierte Prüfpläne und auditable Lieferketten. 
           </li>
           <li>
             Der AM-Markt wächst weiter, allerdings differenziert nach Segmenten;
             2024 lag das globale Wachstum laut Wohlers bei 9,1&nbsp;% auf
-            21,9&nbsp;Mrd.&nbsp;USD. :contentReference[oaicite:1]{index=1}
+            21,9&nbsp;Mrd.&nbsp;USD. 
           </li>
           <li>
             Digitales Ersatzteillager senkt Lagerkosten und Lieferzeiten – 3D-Druck
-            ermöglicht On-Demand-Produktion direkt am Einsatzort. :contentReference[oaicite:2]{index=2}
+            ermöglicht On-Demand-Produktion direkt am Einsatzort. 
           </li>
           <li>
             Best Practice: starte mit wirtschaftlich klaren Anwendungsfällen,
@@ -296,7 +296,7 @@ export default function Page() {
             Statt Teile jahrelang physisch zu lagern, werden geprüfte Datensätze
             in einem digitalen Lager verwaltet und bei Bedarf produziert. Das
             reduziert Lagerkosten und verkürzt die Lieferzeit erheblich –
-            besonders für seltene Varianten, Altgeräte oder abgelegene Standorte. :contentReference[oaicite:3]{index=3}
+            besonders für seltene Varianten, Altgeräte oder abgelegene Standorte. 
           </p>
 
           <h3 className="font-semibold mt-6 mb-2">4) Seriennahe Teile &amp; Kleinserien</h3>
@@ -311,14 +311,14 @@ export default function Page() {
           <p className="leading-relaxed">
             Additive Reparaturverfahren verkürzen Turnaround-Zeiten und sparen
             Rohmaterial sowie Werkzeugkosten – etwa bei Triebwerkskomponenten,
-            wo neue AM-Reparaturpfade signifikante Zeitgewinne schaffen. :contentReference[oaicite:4]{index=4}
+            wo neue AM-Reparaturpfade signifikante Zeitgewinne schaffen. 
           </p>
 
           <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4">
             <p className="text-sm">
               Branchenbeispiele: Luft- und Raumfahrt nutzt AM für leichte,
               hochkomplexe Geometrien wie Einspritzköpfe und Pumpen – ein
-              Treiber der Serienreife in Metall. :contentReference[oaicite:5]{index=5}
+              Treiber der Serienreife in Metall. 
             </p>
           </div>
         </div>
@@ -383,7 +383,7 @@ export default function Page() {
         </div>
 
         <p className="text-sm text-zinc-600 mt-2">
-          Einordnung zu PBF und Binder Jetting nach aktuellen Branchenvergleichen. :contentReference[oaicite:6]{index=6}
+          Einordnung zu PBF und Binder Jetting nach aktuellen Branchenvergleichen. 
         </p>
 
         {/* Expertenzitat */}
@@ -450,7 +450,7 @@ export default function Page() {
           und Produktionsstätten) sowie ISO/ASTM&nbsp;52901 (Qualitätsanforderungen
           für Serienfertigung). Ergänzend entsteht mit AM-spezifischen
           Hersteller-Zertifizierungen ein transparenter Nachweis der
-          Fertigungsreife. :contentReference[oaicite:7]{index=7}
+          Fertigungsreife. 
         </p>
 
         <div className="mt-6 grid md:grid-cols-2 gap-4">
@@ -479,7 +479,7 @@ export default function Page() {
             Markt-Update 2025: Der AM-Markt wächst, jedoch uneinheitlich; Service,
             Software und Materialien legen zu, während Systemhersteller
             schwanken. Für dich heißt das&colon; prüfe Partnerschaften und
-            Lieferfähigkeit. :contentReference[oaicite:8]{index=8}
+            Lieferfähigkeit. 
           </p>
         </div>
       </section>
