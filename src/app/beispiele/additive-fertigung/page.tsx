@@ -478,7 +478,7 @@ export default function Page() {
           <p className="text-sm">
             Markt-Update 2025: Der AM-Markt wächst, jedoch uneinheitlich; Service,
             Software und Materialien legen zu, während Systemhersteller
-            schwanken. Für dich heißt das&colon; prüfe Partnerschaften und
+            schwanken. Für dich heißt das; prüfe Partnerschaften und
             Lieferfähigkeit. 
           </p>
         </div>
@@ -566,7 +566,7 @@ export default function Page() {
             <div className="rounded-xl border border-zinc-200 p-4">
               <h3 className="font-semibold mb-1">2) DfAM anwenden</h3>
               <p className="text-sm">
-                Bauteile neu denken&colon; Kanäle integrieren, Wandstärken
+                Bauteile neu denken; Kanäle integrieren, Wandstärken
                 variieren, Gitterstrukturen, Bauteilkonsolidierung – dabei
                 Toleranzen und Nachbearbeitung mitplanen.
               </p>
@@ -574,8 +574,8 @@ export default function Page() {
             <div className="rounded-xl border border-zinc-200 p-4">
               <h3 className="font-semibold mb-1">3) Verfahren auswählen</h3>
               <p className="text-sm">
-                Metall&colon; PBF für hohe Präzision, Binder Jetting für Volumen.
-                Polymer&colon; FFF für Betriebsmittel, Harzverfahren für feine
+                Metall; PBF für hohe Präzision, Binder Jetting für Volumen.
+                Polymer; FFF für Betriebsmittel, Harzverfahren für feine
                 Oberflächen.
               </p>
             </div>
@@ -596,19 +596,16 @@ export default function Page() {
           </div>
 
           <aside className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
-            <h3 className="font-semibold mb-2">Keyword-Karte für deinen Content</h3>
+            <h3 className="font-semibold mb-2">Additive Fertigung erfolgreich einführen</h3>
             <ul className="list-disc ml-5 text-sm space-y-1">
               <li>
-                Primär&colon; additive Fertigung, 3D-Druck, Maschinenbau,
-                Metall-3D-Druck
+              Bauteile auswählen: Kandidaten mit hoher Komplexität, Variantenvielfalt oder langen Lieferzeiten identifizieren.
               </li>
               <li>
-                Sekundär&colon; Pulverbettschmelzen, Binder Jetting, DfAM,
-                Serienfertigung, digitales Ersatzteillager, Qualitätssicherung
+                AM-gerecht designen: DfAM nutzen, Bauteile konsolidieren, Strukturen optimieren und Nachbearbeitung mitdenken.
               </li>
               <li>
-                Long-Tail&colon; 3D-Druck Ersatzteile Maschinenbau, Binder
-                Jetting vs. PBF, DfAM Richtlinien Maschinenbau
+                Umsetzen & skalieren: Passendes Verfahren wählen, Prozess qualifizieren, digitalisieren und Lieferketten absichern.
               </li>
             </ul>
           </aside>
@@ -876,7 +873,7 @@ export default function Page() {
         aria-controls="cta-pop"
         className={`font-medium underline ${accent}`}
       >
-        Qualität in der additiven Fertigung&colon; Prüfplan bis Erstmuster
+        Qualität in der additiven Fertigung; Prüfplan bis Erstmuster
       </a>
     </li>
     <li>
@@ -885,7 +882,7 @@ export default function Page() {
         aria-controls="cta-pop"
         className={`font-medium underline ${accent}`}
       >
-        Digitales Ersatzteillager&colon; Von CAD bis On-Demand-Teile
+        Digitales Ersatzteillager; Von CAD bis On-Demand-Teile
       </a>
     </li>
     <li>
@@ -894,7 +891,7 @@ export default function Page() {
         aria-controls="cta-pop"
         className={`font-medium underline ${accent}`}
       >
-        PBF vs. Binder Jetting&colon; Das richtige Verfahren wählen
+        PBF vs. Binder Jetting; Das richtige Verfahren wählen
       </a>
     </li>
   </ul>
@@ -920,14 +917,14 @@ export default function Page() {
               <tr className="border-t border-zinc-200">
                 <td className="p-3 font-medium text-zinc-900">DfAM</td>
                 <td className="p-3 text-zinc-700">
-                  Design for Additive Manufacturing&colon; Konstruktionsprinzipien,
+                  Design for Additive Manufacturing; Konstruktionsprinzipien,
                   die die Stärken additiver Verfahren ausnutzen.
                 </td>
               </tr>
               <tr className="border-t border-zinc-200">
                 <td className="p-3 font-medium text-zinc-900">PBF</td>
                 <td className="p-3 text-zinc-700">
-                  Powder Bed Fusion&colon; Metall-Pulver wird schichtweise mittels
+                  Powder Bed Fusion; Metall-Pulver wird schichtweise mittels
                   Laser oder Elektronenstrahl verschmolzen.
                 </td>
               </tr>
@@ -941,7 +938,7 @@ export default function Page() {
               <tr className="border-t border-zinc-200">
                 <td className="p-3 font-medium text-zinc-900">HIP</td>
                 <td className="p-3 text-zinc-700">
-                  Heißisostatisches Pressen&colon; Verdichtung zur Reduktion von
+                  Heißisostatisches Pressen; Verdichtung zur Reduktion von
                   Porosität und zur Eigenschaftsverbesserung.
                 </td>
               </tr>
@@ -978,7 +975,7 @@ export default function Page() {
 
         <div className="mt-4 flex items-center gap-3">
           <p className="text-sm text-zinc-700">
-            Überprüft von&colon; <strong>{reviewer.name}</strong> – {reviewer.role}.{" "}
+            Überprüft von; <strong>{reviewer.name}</strong> – {reviewer.role}.{" "}
             <a href={reviewer.linkedin} className={`hover:underline ${accent}`}>
               LinkedIn
             </a>
@@ -1014,7 +1011,7 @@ export default function Page() {
             </a>
           </li>
           <li>
-            ISO/ASTM 52920&colon;2023 – Qualifikations-Prinzipien; ISO/ASTM 52901 –
+            ISO/ASTM 52920;2023 – Qualifikations-Prinzipien; ISO/ASTM 52901 –
             Qualitätsanforderungen Serienfertigung.{" "}
             <a
               href="https://www.iso.org/obp/ui/en/"
