@@ -264,7 +264,7 @@ export default function Page() {
         </figcaption>
       </figure>
 
-      <section id="haeufige-fehler">
+      <section id="haeufige-fehler" className="mt-14">
         <h2 className="text-2xl font-bold mb-3">
           Typische Fehler in der Nachfolgeplanung (und wie du sie vermeidest)
         </h2>
@@ -371,7 +371,7 @@ export default function Page() {
         </figcaption>
       </figure>
 
-      <section id="5-stufen-plan">
+      <section id="5-stufen-plan" className="mt-14">
         <h2 className="text-2xl font-bold mb-3">Der 5-Stufen-Plan: So gehst du strukturiert vor</h2>
 
         <div className="rounded-2xl border border-zinc-200 p-5">
@@ -422,7 +422,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="bewertung-preis">
+      <section id="bewertung-preis" className="mt-14">
         <h2 className="text-2xl font-bold mb-3">
           Unternehmensbewertung &amp; Kaufpreis: Was realistisch ist
         </h2>
@@ -468,7 +468,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="steuern-recht">
+      <section id="steuern-recht" className="mt-14">
         <h2 className="text-2xl font-bold mb-3">
           Steuern &amp; Recht: Stolperfallen und smarte Strukturen
         </h2>
@@ -494,7 +494,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section id="mensch-faktor">
+      <section id="mensch-faktor" className="mt-14">
         <h2 className="text-2xl font-bold mb-3">
           Der Faktor Mensch: Kommunikation, Kultur, Führung
         </h2>
@@ -734,7 +734,7 @@ export default function Page() {
             aria-label="Overlay schließen"
           />
 
-          <div
+        <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="cta-pop-title"
