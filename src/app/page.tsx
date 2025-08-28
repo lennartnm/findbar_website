@@ -397,7 +397,7 @@ function BenefitsMarquee() {
   );
 }
 
-/* ------------------------- BlogSection: 6 Items + Carousel (3 sichtbar) ------------------------ */
+/* ------------------------- BlogSection: 6 Items + Carousel (Pfeile außerhalb) ------------------------ */
 function BlogSection() {
   const items = [
     {
@@ -438,13 +438,11 @@ function BlogSection() {
     },
   ];
 
-  // wie viele Karten gleichzeitig sichtbar: 1 auf Mobile, 3 ab md
-  const [visible, setVisible] = React.useState(3);
+  const [visible, setVisible] = React.useState(3); // 1 (mobile) / 3 (md+)
   const [index, setIndex] = React.useState(0);
   const viewportRef = React.useRef<HTMLDivElement>(null);
   const [stepPx, setStepPx] = React.useState(0);
 
-  // Sichtbarkeit je Breakpoint
   React.useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
     const update = () => setVisible(mq.matches ? 3 : 1);
@@ -453,7 +451,6 @@ function BlogSection() {
     return () => mq.removeEventListener("change", update);
   }, []);
 
-  // Schrittweite in px = sichtbare Breite / visible
   React.useEffect(() => {
     const updateStep = () => {
       const w = viewportRef.current?.clientWidth ?? 0;
@@ -474,17 +471,11 @@ function BlogSection() {
     };
   }, [visible]);
 
-  // Max. Index (damit am Ende nicht "ins Leere" gescrollt wird)
   const maxIndex = Math.max(0, items.length - visible);
-
-  // clampen, falls sich visible ändert
-  React.useEffect(() => {
-    setIndex((i) => Math.min(i, maxIndex));
-  }, [maxIndex]);
+  React.useEffect(() => setIndex((i) => Math.min(i, maxIndex)), [maxIndex]);
 
   const canPrev = index > 0;
   const canNext = index < maxIndex;
-
   const prev = () => setIndex((i) => Math.max(0, i - 1));
   const next = () => setIndex((i) => Math.min(maxIndex, i + 1));
 
@@ -500,40 +491,30 @@ function BlogSection() {
           und Tonalität angepasst.
         </p>
 
-        {/* Carousel */}
-        <div className="relative mt-10">
-          {/* Buttons */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-10 flex items-center justify-between">
-            <button
-              onClick={prev}
-              disabled={!canPrev}
-              aria-label="Vorherige Beispiele"
-              className="pointer-events-auto ml-[-8px] md:ml-[-16px] inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/95 shadow-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              <ArrowLeft className="h-5 w-5 text-slate-700" />
-            </button>
-            <button
-              onClick={next}
-              disabled={!canNext}
-              aria-label="Nächste Beispiele"
-              className="pointer-events-auto mr-[-8px] md:mr-[-16px] inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/95 shadow-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
-            >
-              <ArrowRight className="h-5 w-5 text-slate-700" />
-            </button>
-          </div>
+        {/* Carousel-Row: Pfeile außerhalb des Viewports */}
+        <div className="mt-10 flex items-center gap-3 md:gap-4">
+          {/* Left arrow (außerhalb) */}
+          <button
+            onClick={prev}
+            disabled={!canPrev}
+            aria-label="Vorherige Beispiele"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <ArrowLeft className="h-5 w-5 text-slate-700" />
+          </button>
 
-          {/* sanfte Rand-Verläufe */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute left-0 top-0 z-5 h-full w-10 md:w-16 bg-gradient-to-r from-white to-transparent"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute right-0 top-0 z-5 h-full w-10 md:w-16 bg-gradient-to-l from-white to-transparent"
-          />
+          {/* Viewport mit Gradients */}
+          <div ref={viewportRef} className="relative flex-1 overflow-hidden">
+            {/* sanfte Rand-Verläufe */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-0 top-0 z-[1] h-full w-8 md:w-14 bg-gradient-to-r from-white to-transparent"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute right-0 top-0 z-[1] h-full w-8 md:w-14 bg-gradient-to-l from-white to-transparent"
+            />
 
-          {/* Viewport */}
-          <div ref={viewportRef} className="overflow-hidden">
             <motion.div
               className="flex gap-6"
               animate={{ x: -index * stepPx }}
@@ -545,7 +526,6 @@ function BlogSection() {
                   key={i}
                   className="basis-full md:basis-1/3 shrink-0 overflow-hidden rounded-xl border border-slate-200 text-left shadow-sm transition-shadow hover:shadow-md"
                 >
-                  {/* Vorschaubild */}
                   <div className="aspect-[16/9] w-full overflow-hidden bg-slate-100">
                     <img
                       src={b.image}
@@ -554,8 +534,6 @@ function BlogSection() {
                       loading="lazy"
                     />
                   </div>
-
-                  {/* Textbereich */}
                   <div className="p-6">
                     <h3 className={`mb-1 text-lg ${serifClass}`}>{b.title}</h3>
                     <p className="text-sm text-slate-600">{b.tease}</p>
@@ -572,24 +550,35 @@ function BlogSection() {
             </motion.div>
           </div>
 
-          {/* kleine Dots (optional) */}
-          <div className="mt-4 flex justify-center gap-2">
-            {Array.from({ length: maxIndex + 1 }).map((_, iDot) => (
-              <button
-                key={iDot}
-                onClick={() => setIndex(iDot)}
-                aria-label={`Zu Slide ${iDot + 1}`}
-                className={`h-1.5 w-4 rounded-full transition ${
-                  index === iDot ? "bg-slate-800" : "bg-slate-300 hover:bg-slate-400"
-                }`}
-              />
-            ))}
-          </div>
+          {/* Right arrow (außerhalb) */}
+          <button
+            onClick={next}
+            disabled={!canNext}
+            aria-label="Nächste Beispiele"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <ArrowRight className="h-5 w-5 text-slate-700" />
+          </button>
+        </div>
+
+        {/* kleine Dots */}
+        <div className="mt-4 flex justify-center gap-2">
+          {Array.from({ length: maxIndex + 1 }).map((_, iDot) => (
+            <button
+              key={iDot}
+              onClick={() => setIndex(iDot)}
+              aria-label={`Zu Slide ${iDot + 1}`}
+              className={`h-1.5 w-4 rounded-full transition ${
+                index === iDot ? "bg-slate-800" : "bg-slate-300 hover:bg-slate-400"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 
 
