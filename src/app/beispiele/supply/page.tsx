@@ -262,7 +262,7 @@ export default function Page() {
             </ul>
           </div>
           <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-            <h4 className="font-semibold mb-2">Ergebnis in 1 Satz</h4>
+            <h4 className="font-semibold mb-2">Merke:</h4>
             <p className="text-sm text-zinc-800">
               Resilienz schafft <strong>Planbarkeit &amp; Liefertreue</strong> –
               mit überschaubaren Mehrkosten, wenn du gezielt die richtigen
