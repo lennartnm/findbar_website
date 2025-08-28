@@ -44,7 +44,7 @@ const author = {
   role: "Berater für digitale Fertigung & Industrial 3D-Druck",
   focus:
     "Additive Fertigung, Ersatzteil-Strategien, DfAM (Design for Additive Manufacturing)",
-  image: "/public/Autorenbild.jpg",
+  image: "/Autorenbild.jpg",
   linkedin: "https://linkedin.com",
 };
 
