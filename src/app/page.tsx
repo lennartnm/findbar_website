@@ -426,7 +426,7 @@ function BlogSection() {
       tease: "Der Wettbewerb um Talente ist hart – aber mit einer klaren Arbeitgebermarke, einer starken Karriere-Seite und Social Proof erreichst du genau die Menschen, die wirklich zu dir passen.",
       image: "/fachkraft1.jpg",
       alt: "Fachkräfte",
-      link: "/beispiele/fachkräfte",
+      link: "/beispiele/fachkräftemangel",
     },
     {
       title: "Digitale B2B-Onlineshops: 4 Strategien für ein reibungsloses Kauferlebnis",
