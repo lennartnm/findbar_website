@@ -425,10 +425,10 @@ export default function Page() {
           style={{ aspectRatio: "16 / 6" }}
         >
           <picture>
-            <source media="(max-width: 640px)" srcSet="/drucl3.png" />
+            <source media="(max-width: 640px)" srcSet="/druck3.png" />
             <img
               loading="lazy"
-              src="/drucl3.png"
+              src="/druck3.png"
               alt="Illustration eines 3D-Druckers"
               className="absolute inset-0 h-full w-full object-cover"
             />
