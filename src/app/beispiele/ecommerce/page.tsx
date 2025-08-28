@@ -517,11 +517,11 @@ export default function Page() {
             <picture>
               <source
                 media="(max-width: 640px)"
-                srcSet="https://images.unsplash.com/photo-1580894894513-541e068a6b67?q=80&auto=format&fit=crop&w=1200"
+                srcSet="/ecommerce3.png"
               />
               <img
                 loading="lazy"
-                src="https://images.unsplash.com/photo-1580894894513-541e068a6b67?q=80&auto=format&fit=crop&w=2000"
+                src="/ecommerce3.png"
                 alt="Einkaufswagen-Icon vor Laptop – Visual für Checkout & Payment im E-Commerce"
                 className="absolute inset-0 h-full w-full object-cover"
               />
