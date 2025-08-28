@@ -15,7 +15,7 @@ type PostMeta = {
 const prettify = (s: string) =>
   s.replace(/-/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
 
-async function getLatestPosts(limit = 9): Promise<PostMeta[]> {
+async function getLatestPosts(limit?: number): Promise<PostMeta[]> {
   const blogDir = path.join(process.cwd(), "src", "app", "blog");
   const entries = await fs.readdir(blogDir, { withFileTypes: true });
 
@@ -86,13 +86,15 @@ async function getLatestPosts(limit = 9): Promise<PostMeta[]> {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
-  return metas.slice(0, limit);
+  // Wenn limit gesetzt ist, schneiden – sonst alle zurückgeben
+  return typeof limit === "number" ? metas.slice(0, limit) : metas;
 }
 
 export const revalidate = 3600; // ISR: re-build the list hourly
 
 export default async function BlogIndexPage() {
-  const posts = await getLatestPosts(9);
+  // ohne Limit -> alle Posts
+  const posts = await getLatestPosts();
 
   return (
     <div className="w-full max-w-4xl mx-auto px-6 py-12">
