@@ -9,6 +9,16 @@ import {
 } from "lucide-react";
 
 
+export const metadata: Metadata = {
+  title: "findbar – KI-optimierte Blog-Artikel",
+  description: "Skaliere Dein Unternehmen mit KI-optimierten Blog-Artikeln.",
+  icons: {
+    icon: "/public/icon.png",        // liegt in /public
+    shortcut: "/public/icon.png",
+    apple: "/public/icon.png",       // optional – falls du ein eigenes apple-touch-icon hast, hier ersetzen
+  },
+};
+
 // Farben
 const RG600 = "#1b4d2b"; // Racing Green
 const RG300 = "#7ca98e";
