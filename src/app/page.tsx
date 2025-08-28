@@ -4,26 +4,10 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import {
-  Eye,
-  Target,
-  TrendingUp,
-  Clock,
-  Users,
-  Globe,
-  BarChart,
-  Zap,
-  Award,
-  Search,
-  ClipboardList,
-  FileText,
-  CheckCircle,
-  Package,
-  BarChart3,
-  ArrowRight,
-  Check,
-  Menu,
-  X,
+  Eye, Target, TrendingUp, Clock, Users, Globe, BarChart, Zap, Award, Search,
+  ClipboardList, FileText, CheckCircle, Package, BarChart3, ArrowRight, ArrowLeft, Check, Menu, X,
 } from "lucide-react";
+
 
 // Farben
 const RG600 = "#1b4d2b"; // Racing Green
@@ -413,8 +397,97 @@ function BenefitsMarquee() {
   );
 }
 
-/* ------------------------- BlogSection (mit neuen Beispielen) ------------------------ */
+/* ------------------------- BlogSection: 6 Items + Carousel (3 sichtbar) ------------------------ */
 function BlogSection() {
+  const items = [
+    {
+      title: "Cloud vs. On-Premise – Welche Lösung ist die richtige für dein Unternehmen?",
+      tease: "Kosten, Sicherheit, Flexibilität: Der direkte Vergleich hilft dir, fundiert zu entscheiden – inklusive Praxisbeispiele und Checkliste.",
+      image: "/Cloud vs On-Premise.png",
+      alt: "Vergleich zwischen Cloud-Infrastruktur und On-Premise-Servern",
+    },
+    {
+      title: "B2B Kunden gewinnen im Jahr 2025 mit Hilfe von KI",
+      tease: "Der wachsende Wettbewerb fordert nach innovativen Marketingansätzen. Vertrauensaufbau wird essentieller denn je. So gelingt es.",
+      image: "/B2B Kunden.png",
+      alt: "Kundengewinnung durch KI im Jahr 2025",
+    },
+    {
+      title: "Green Energy im Unternehmen – Photovoltaik und Energiespeicher sinnvoll einsetzen",
+      tease: "Investition, Amortisation, Förderungen: So planen Firmen PV-Anlagen und Speicherlösungen wirtschaftlich.",
+      image: "/Photovoltaik Energiespeicher Unternehmen.png",
+      alt: "Photovoltaik-Module und Batteriespeicher in einem Firmengebäude",
+    },
+    {
+      title: "Predictive Maintenance in der Industrie – So rechnet sich der Einstieg",
+      tease: "Von Sensorik bis Analytics: Ein praxisnaher Leitfaden inkl. ROI-Beispielen und Roadmap für den Rollout.",
+      image: "/Predictive Maintenance.png",
+      alt: "Industriemaschinen mit Sensorik und Datenanalyse",
+    },
+    {
+      title: "Datenschutz im B2B-Marketing: DSGVO-konforme Lead-Gewinnung",
+      tease: "Wie du rechtssicher trackst, Einwilligungen sauber managst und trotzdem verkaufsrelevante Insights erhältst.",
+      image: "/DSGVO B2B.png",
+      alt: "DSGVO-Konzept mit Schloss und Checkliste",
+    },
+    {
+      title: "Sales-Enablement mit Content: Von der Suche zum qualifizierten Gespräch",
+      tease: "Welche Inhalte Entscheider wirklich brauchen – und wie du sie in deine Pipeline integrierst.",
+      image: "/Sales Enablement Content.png",
+      alt: "Sales- und Marketingabgleich mit Content-Artefakten",
+    },
+  ];
+
+  // wie viele Karten gleichzeitig sichtbar: 1 auf Mobile, 3 ab md
+  const [visible, setVisible] = React.useState(3);
+  const [index, setIndex] = React.useState(0);
+  const viewportRef = React.useRef<HTMLDivElement>(null);
+  const [stepPx, setStepPx] = React.useState(0);
+
+  // Sichtbarkeit je Breakpoint
+  React.useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setVisible(mq.matches ? 3 : 1);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  // Schrittweite in px = sichtbare Breite / visible
+  React.useEffect(() => {
+    const updateStep = () => {
+      const w = viewportRef.current?.clientWidth ?? 0;
+      setStepPx(w / visible);
+    };
+    updateStep();
+
+    let ro: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== "undefined" && viewportRef.current) {
+      ro = new ResizeObserver(updateStep);
+      ro.observe(viewportRef.current);
+    } else {
+      window.addEventListener("resize", updateStep);
+    }
+    return () => {
+      ro?.disconnect();
+      window.removeEventListener("resize", updateStep);
+    };
+  }, [visible]);
+
+  // Max. Index (damit am Ende nicht "ins Leere" gescrollt wird)
+  const maxIndex = Math.max(0, items.length - visible);
+
+  // clampen, falls sich visible ändert
+  React.useEffect(() => {
+    setIndex((i) => Math.min(i, maxIndex));
+  }, [maxIndex]);
+
+  const canPrev = index > 0;
+  const canNext = index < maxIndex;
+
+  const prev = () => setIndex((i) => Math.max(0, i - 1));
+  const next = () => setIndex((i) => Math.min(maxIndex, i + 1));
+
   return (
     <section id="blog" className="bg-white py-20">
       <div className={containerClass}>
@@ -422,63 +495,102 @@ function BlogSection() {
           Blog-Beispiele
         </h2>
         <p className="mt-4 text-left md:text-center text-slate-600">
-          Wie kann so ein KI-optimierter Artikel auf deiner Webseite aussehen? Schau dir hier ausgewählte Beispiele an. Alle Blogbeiträge werden selbstverständlich an Markenstil und Tonalität angepasst.
+          Wie kann so ein KI-optimierter Artikel auf deiner Webseite aussehen? Schau dir hier
+          ausgewählte Beispiele an. Alle Blogbeiträge werden selbstverständlich an Markenstil
+          und Tonalität angepasst.
         </p>
 
-        <div className="mx-auto mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {[
-            {
-              title: "Cloud vs. On-Premise – Welche Lösung ist die richtige für dein Unternehmen?",
-              tease: "Kosten, Sicherheit, Flexibilität: Der direkte Vergleich hilft dir, fundiert zu entscheiden – inklusive Praxisbeispiele und Checkliste.",
-              image: "/Cloud vs On-Premise.png",
-              alt: "Vergleich zwischen Cloud-Infrastruktur und On-Premise-Servern",
-            },
-            {
-              title: "B2B Kunden gewinnen im Jahr 2025 mit Hilfe von KI",
-              tease: "Der wachsende Wettbewerb fordert nach innovativen Marketingansätzen. Vertrauensaufbau wird essentieller denn je. So gelingt es.",
-              image: "/B2B Kunden.png",
-              alt: "Kundengewinnung durch KI im Jahr 2025",
-            },
-            {
-              title: "Green Energy im Unternehmen – Photovoltaik und Energiespeicher sinnvoll einsetzen",
-              tease: "Investition, Amortisation, Förderungen: So planen Firmen PV-Anlagen und Speicherlösungen wirtschaftlich.",
-              image: "/Photovoltaik Energiespeicher Unternehmen.png",
-              alt: "Photovoltaik-Module und Batteriespeicher in einem Firmengebäude",
-            },
-          ].map((b, i) => (
-            <article
-              key={i}
-              className="overflow-hidden rounded-xl border border-slate-200 text-left shadow-sm transition-shadow hover:shadow-md"
+        {/* Carousel */}
+        <div className="relative mt-10">
+          {/* Buttons */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-10 flex items-center justify-between">
+            <button
+              onClick={prev}
+              disabled={!canPrev}
+              aria-label="Vorherige Beispiele"
+              className="pointer-events-auto ml-[-8px] md:ml-[-16px] inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/95 shadow-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              {/* Vorschaubild */}
-              <div className="aspect-[16/9] w-full overflow-hidden bg-slate-100">
-                <img
-                  src={b.image}
-                  alt={b.alt}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
+              <ArrowLeft className="h-5 w-5 text-slate-700" />
+            </button>
+            <button
+              onClick={next}
+              disabled={!canNext}
+              aria-label="Nächste Beispiele"
+              className="pointer-events-auto mr-[-8px] md:mr-[-16px] inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/95 shadow-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              <ArrowRight className="h-5 w-5 text-slate-700" />
+            </button>
+          </div>
 
-              {/* Textbereich */}
-              <div className="p-6">
-                <h3 className={`mb-1 text-lg ${serifClass}`}>{b.title}</h3>
-                <p className="text-sm text-slate-600">{b.tease}</p>
-                <a
-                  href="#"
-                  className="mt-4 inline-flex items-center text-sm font-medium text-[#1b4d2b]"
-                  aria-label={`Beispiel ansehen: ${b.title}`}
+          {/* sanfte Rand-Verläufe */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-0 top-0 z-5 h-full w-10 md:w-16 bg-gradient-to-r from-white to-transparent"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute right-0 top-0 z-5 h-full w-10 md:w-16 bg-gradient-to-l from-white to-transparent"
+          />
+
+          {/* Viewport */}
+          <div ref={viewportRef} className="overflow-hidden">
+            <motion.div
+              className="flex gap-6"
+              animate={{ x: -index * stepPx }}
+              transition={{ type: "spring", stiffness: 260, damping: 28 }}
+              style={{ willChange: "transform" }}
+            >
+              {items.map((b, i) => (
+                <article
+                  key={i}
+                  className="basis-full md:basis-1/3 shrink-0 overflow-hidden rounded-xl border border-slate-200 text-left shadow-sm transition-shadow hover:shadow-md"
                 >
-                  Beispiel ansehen <ArrowRight className="ml-1 h-4 w-4" />
-                </a>
-              </div>
-            </article>
-          ))}
+                  {/* Vorschaubild */}
+                  <div className="aspect-[16/9] w-full overflow-hidden bg-slate-100">
+                    <img
+                      src={b.image}
+                      alt={b.alt}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* Textbereich */}
+                  <div className="p-6">
+                    <h3 className={`mb-1 text-lg ${serifClass}`}>{b.title}</h3>
+                    <p className="text-sm text-slate-600">{b.tease}</p>
+                    <a
+                      href="#"
+                      className="mt-4 inline-flex items-center text-sm font-medium text-[#1b4d2b]"
+                      aria-label={`Beispiel ansehen: ${b.title}`}
+                    >
+                      Beispiel ansehen <ArrowRight className="ml-1 h-4 w-4" />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* kleine Dots (optional) */}
+          <div className="mt-4 flex justify-center gap-2">
+            {Array.from({ length: maxIndex + 1 }).map((_, iDot) => (
+              <button
+                key={iDot}
+                onClick={() => setIndex(iDot)}
+                aria-label={`Zu Slide ${iDot + 1}`}
+                className={`h-1.5 w-4 rounded-full transition ${
+                  index === iDot ? "bg-slate-800" : "bg-slate-300 hover:bg-slate-400"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 
 
