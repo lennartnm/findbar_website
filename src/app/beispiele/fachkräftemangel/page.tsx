@@ -6,7 +6,7 @@ const accent = "text-emerald-700";
 
 const author = {
   name: "Max Mustermann",
-  role: "—",
+  role: "Employer Branding Manager",
   focus: "Employer Branding, B2B Recruiting, Talent Acquisition",
   image: "/Autorenbild.jpg",
   linkedin: "https://linkedin.com",
@@ -14,7 +14,7 @@ const author = {
 
 const reviewer = {
   name: "Claudia Müller",
-  role: "—",
+  role: "Vice President People & Organizations",
   linkedin: "https://linkedin.com",
 };
 
