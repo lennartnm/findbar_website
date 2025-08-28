@@ -667,16 +667,17 @@ export default function Page() {
         id="cta"
         className="mt-14 rounded-2xl border border-emerald-200 bg-emerald-50 p-6"
       >
-        <h2 className="text-2xl font-bold mb-2">Möchtest du Blogartikel für dein B2B-Angebot einführen?</h2>
+        <h2 className="text-2xl font-bold mb-2">Nächster Schritt</h2>
         <p className="mb-4">
-            Unsere KI schreibt Expertenartikel und wir identifizieren anonyme B2B-Leser für dein Sales-Team.
+          Lass uns deinen roten Faden legen: 15 Minuten für eine schnelle Potenzial-Einschätzung
+          deiner Inhalte – gratis und konkret.
         </p>
         <a
-          href="https://www.findbar.info"
+          href="https://www.findbar.info/kontakt"
           className="inline-block rounded-xl border border-emerald-600 px-5 py-3 font-medium hover:bg-emerald-600 hover:text-white"
           aria-label="Kostenloses Erstgespräch anfragen"
         >
-        Mehr dazu
+          Kostenloses Erstgespräch
         </a>
       </section>
 
