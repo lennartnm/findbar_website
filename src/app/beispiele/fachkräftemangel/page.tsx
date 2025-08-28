@@ -276,29 +276,26 @@ export default function Page() {
             Richtigen überhaupt auf dich aufmerksam werden und sich gezielt bewerben.
           </p>
 
-          <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-zinc-200 p-4">
-              
-                <Info className="w-5 h-5 mt-0.5" aria-hidden="true" />
-                <div>
-                  <h3 className="font-semibold">Kurz erklärt</h3>
-                  <p className="text-zinc-700">
-                    Fachkräftemangel bedeutet: Es gibt zu wenige qualifizierte
-                    Bewerber für offene Stellen. Im B2B sind die Anforderungen oft
-                    hochspezialisiert – die Suche ist entsprechend härter.
-                  </p>
-                </div>
-              
-            </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
-              <h3 className="font-semibold mb-1">Auswirkungen im Alltag</h3>
-              <ul className="list-disc ml-5 text-zinc-700 space-y-1">
-                <li>verzögerte Projekte, Liefertermine wackeln</li>
-                <li>steigende Kosten pro Einstellung</li>
-                <li>Mehrbelastung für das bestehende Team</li>
-              </ul>
-            </div>
-          </div>
+         <div className="mt-5 grid gap-4 sm:grid-cols-2">
+  <div className="rounded-xl border border-zinc-200 p-4">
+    <h3 className="font-semibold mb-1">Kurz erklärt</h3>
+    <p className="text-zinc-700">
+      Fachkräftemangel bedeutet: Es gibt zu wenige qualifizierte
+      Bewerber für offene Stellen. Im B2B sind die Anforderungen oft
+      hochspezialisiert – die Suche ist entsprechend härter.
+    </p>
+  </div>
+
+  <div className="rounded-xl border border-zinc-200 p-4">
+    <h3 className="font-semibold mb-1">Auswirkungen im Alltag</h3>
+    <ul className="list-disc ml-5 text-zinc-700 space-y-1">
+      <li>verzögerte Projekte, Liefertermine wackeln</li>
+      <li>steigende Kosten pro Einstellung</li>
+      <li>Mehrbelastung für das bestehende Team</li>
+    </ul>
+  </div>
+</div>
+
 
           {/* Expertenzitat */}
           <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
