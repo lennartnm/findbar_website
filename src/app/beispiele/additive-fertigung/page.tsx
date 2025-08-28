@@ -867,7 +867,7 @@ export default function Page() {
         aria-controls="cta-pop"
         className={`font-medium underline ${accent}`}
       >
-        DfAM Grundlagen&colon; So konstruierst du sinnvoll für 3D-Druck
+        DfAM Grundlagen; So konstruierst du sinnvoll für 3D-Druck
       </a>
     </li>
     <li>
