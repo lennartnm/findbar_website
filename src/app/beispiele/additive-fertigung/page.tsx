@@ -1,10 +1,5 @@
 // src/app/blog/additive-fertigung-maschinenbau-2025/page.tsx
 import type { Metadata } from "next";
-import Script from "next/script";
- export default function Page() {
-   const updated = "2025-08-28";
-   const calendlyUrl =
-     "https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung";
 
 export const metadata: Metadata = {
   title:
@@ -756,176 +751,111 @@ export default function Page() {
         </p>
       </section>
 
-     {/* CTA */}
--      <section aria-label="Kontakt" className="mt-14">
--        <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
--          <h2 className="text-xl font-bold mb-2">
--            Willst du prüfen, welche Teile sich bei dir für 3D-Druck eignen?
--          </h2>
--          <p className="text-zinc-700 mb-4">
--            Die Muster GmbH analysiert innerhalb von zwei Wochen deine
--            Bauteile, erstellt eine AM-Kandidatenliste mit ROI-Abschätzung und
--            einen konkreten Startplan.
--          </p>
--
--          <form
--            className="mx-auto grid max-w-xl gap-3 text-left"
--            role="group"
--            aria-describedby="cta-note"
--          >
--            <label className="text-sm">
--              Name
--              <input
--                type="text"
--                name="name"
--                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
--                placeholder="Max Mustermann"
--                required
--              />
--            </label>
--            <label className="text-sm">
--              Telefon
--              <input
--                type="tel"
--                name="phone"
--                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
--                placeholder="+49 123456789"
--              />
--            </label>
--            <label className="text-sm">
--              E-Mail
--              <input
--                type="email"
--                name="email"
--                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
--                placeholder="max@mustermann.de"
--                required
--              />
--            </label>
--
--            <a
--              href="#cta-pop"
--              className="mt-2 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
--            >
--              Unverbindlich anfragen
--            </a>
--
--            <p id="cta-note" className="text-xs text-zinc-500">
--              Mit Absenden des Formulars akzeptierst du unsere
--              Datenschutzbedingungen.
--            </p>
--          </form>
--        </div>
--
--        {/* Pop-up (Modal) */}
--        <div
--          id="cta-pop"
--          className="fixed inset-0 z-50 hidden items-center justify-center p-4 target:flex"
--        >
--          <a
--            href="#"
--            className="absolute inset-0 bg-black/50"
--            aria-label="Overlay schließen"
--          />
--
--          <div
--            role="dialog"
--            aria-modal="true"
--            aria-labelledby="cta-pop-title"
--            className="relative w-full max-w-md rounded-xl bg-white p-6 shadow-xl"
--          >
--            <a
--              href="#"
--              aria-label="Fenster schließen"
--              className="absolute right-3 top-3 rounded-md border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
--            >
--              ✕
--            </a>
--
--            <h3 id="cta-pop-title" className="mb-2 text-lg font-semibold">
--              Hinweis
--            </h3>
--            <p className="text-zinc-800">
--              In diesem Beispiel-Blogartikel funktionieren die Links nicht.
--              Möchtest du solch ein Projekt auch für dein Angebot umsetzen?{" "}
--              <a
--                href="https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung?month=2025-08"
--                target="_blank"
--                rel="noopener noreferrer"
--                className="font-medium text-emerald-700 underline"
--              >
--                Klicke hier
--              </a>{" "}
--              und lass uns sprechen.
--            </p>
--          </div>
--        </div>
--      </section>
-+      {/* CTA */}
-+      <section aria-label="Kontakt" className="mt-14">
-+        <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
-+          <h2 className="text-xl font-bold mb-2">
-+            Willst du prüfen, welche Teile sich bei dir für 3D-Druck eignen?
-+          </h2>
-+          <p className="text-zinc-700 mb-4">
-+            Die Muster GmbH analysiert innerhalb von zwei Wochen deine
-+            Bauteile, erstellt eine AM-Kandidatenliste mit ROI-Abschätzung und
-+            einen konkreten Startplan.
-+          </p>
-+
-+          {/* Nur Button -> öffnet Modal mit Calendly */}
-+          <a
-+            href="#cta-pop"
-+            className="mt-2 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
-+          >
-+            Kostenloses Erstgespräch buchen
-+          </a>
-+          <p id="cta-note" className="mt-2 text-xs text-zinc-500">
-+            Der Kalender öffnet sich als Pop-up. Keine Eingaben erforderlich.
-+          </p>
-+        </div>
-+
-+        {/* Pop-up (Modal) mit eingebettetem Calendly */}
-+        <div
-+          id="cta-pop"
-+          className="fixed inset-0 z-50 hidden items-center justify-center p-4 target:flex"
-+        >
-+          <a
-+            href="#"
-+            className="absolute inset-0 bg-black/50"
-+            aria-label="Overlay schließen"
-+          />
-+
-+          <div
-+            role="dialog"
-+            aria-modal="true"
-+            aria-labelledby="cta-pop-title"
-+            className="relative w-full max-w-3xl rounded-xl bg-white p-0 shadow-xl"
-+          >
-+            <a
-+              href="#"
-+              aria-label="Fenster schließen"
-+              className="absolute right-3 top-3 z-10 rounded-md border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
-+            >
-+              ✕
-+            </a>
-+            <h3 id="cta-pop-title" className="sr-only">Terminbuchung</h3>
-+
-+            {/* Calendly Inline Widget */}
-+            <div
-+              className="calendly-inline-widget"
-+              data-url={`${calendlyUrl}?hide_gdpr_banner=1`}
-+              style={{ minWidth: "320px", height: "720px" }}
-+            />
-+          </div>
-+        </div>
-+
-+        {/* Calendly Script (lädt das Widget) */}
-+        <Script
-+          src="https://assets.calendly.com/assets/external/widget.js"
-+          strategy="afterInteractive"
-+        />
-+      </section>
+      {/* CTA */}
+      <section aria-label="Kontakt" className="mt-14">
+        <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+          <h2 className="text-xl font-bold mb-2">
+            Willst du prüfen, welche Teile sich bei dir für 3D-Druck eignen?
+          </h2>
+          <p className="text-zinc-700 mb-4">
+            Die Muster GmbH analysiert innerhalb von zwei Wochen deine
+            Bauteile, erstellt eine AM-Kandidatenliste mit ROI-Abschätzung und
+            einen konkreten Startplan.
+          </p>
+
+          <form
+            className="mx-auto grid max-w-xl gap-3 text-left"
+            role="group"
+            aria-describedby="cta-note"
+          >
+            <label className="text-sm">
+              Name
+              <input
+                type="text"
+                name="name"
+                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                placeholder="Max Mustermann"
+                required
+              />
+            </label>
+            <label className="text-sm">
+              Telefon
+              <input
+                type="tel"
+                name="phone"
+                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                placeholder="+49 123456789"
+              />
+            </label>
+            <label className="text-sm">
+              E-Mail
+              <input
+                type="email"
+                name="email"
+                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                placeholder="max@mustermann.de"
+                required
+              />
+            </label>
+
+            <a
+              href="#cta-pop"
+              className="mt-2 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+            >
+              Unverbindlich anfragen
+            </a>
+
+            <p id="cta-note" className="text-xs text-zinc-500">
+              Mit Absenden des Formulars akzeptierst du unsere
+              Datenschutzbedingungen.
+            </p>
+          </form>
+        </div>
+
+        {/* Pop-up (Modal) */}
+        <div
+          id="cta-pop"
+          className="fixed inset-0 z-50 hidden items-center justify-center p-4 target:flex"
+        >
+          <a
+            href="#"
+            className="absolute inset-0 bg-black/50"
+            aria-label="Overlay schließen"
+          />
+
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cta-pop-title"
+            className="relative w-full max-w-md rounded-xl bg-white p-6 shadow-xl"
+          >
+            <a
+              href="#"
+              aria-label="Fenster schließen"
+              className="absolute right-3 top-3 rounded-md border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
+            >
+              ✕
+            </a>
+
+            <h3 id="cta-pop-title" className="mb-2 text-lg font-semibold">
+              Hinweis
+            </h3>
+            <p className="text-zinc-800">
+              In diesem Beispiel-Blogartikel funktionieren die Links nicht.
+              Möchtest du solch ein Projekt auch für dein Angebot umsetzen?{" "}
+              <a
+                href="https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung?month=2025-08"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-emerald-700 underline"
+              >
+                Klicke hier
+              </a>{" "}
+              und lass uns sprechen.
+            </p>
+          </div>
+        </div>
+      </section>
 
     {/* Weiterführende Artikel */}
 <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
