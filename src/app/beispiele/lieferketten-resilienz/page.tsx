@@ -929,33 +929,52 @@ export default function Page() {
           </div>
         </section>
 
-        <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-          <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
-          <ul className="list-disc ml-5 text-sm space-y-2">
-            <li>
-              <a className={`hover:underline ${accent}`} href="#">
-                S&OP vs. S&OE: Wer entscheidet wann?
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent}`} href="#">
-                Sicherheitsbestände richtig einstellen: Von ABC/XYZ zu
-                Servicegrad-Zielen
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent}`} href="#">
-                Dual Sourcing in regulierten Branchen: Qualifizierung &amp;
-                Freigaben
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent}`} href="#">
-                Control-Tower-Einführung in 100 Tagen: Daten, KPIs, Alarme
-              </a>
-            </li>
-          </ul>
-        </aside>
+       <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+  <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
+  <ul className="list-disc ml-5 text-sm space-y-2">
+    <li>
+      <a
+        href="#cta-pop"
+        aria-haspopup="dialog"
+        aria-controls="cta-pop"
+        className={`font-medium underline ${accent}`}
+      >
+        S&OP vs. S&OE: Wer entscheidet wann?
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-haspopup="dialog"
+        aria-controls="cta-pop"
+        className={`font-medium underline ${accent}`}
+      >
+        Sicherheitsbestände richtig einstellen: Von ABC/XYZ zu Servicegrad-Zielen
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-haspopup="dialog"
+        aria-controls="cta-pop"
+        className={`font-medium underline ${accent}`}
+      >
+        Dual Sourcing in regulierten Branchen: Qualifizierung &amp; Freigaben
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-haspopup="dialog"
+        aria-controls="cta-pop"
+        className={`font-medium underline ${accent}`}
+      >
+        Control-Tower-Einführung in 100 Tagen: Daten, KPIs, Alarme
+      </a>
+    </li>
+  </ul>
+</aside>
+
 
         <section className="mt-14 mb-20">
           <h2 className="text-2xl font-bold mb-3">
