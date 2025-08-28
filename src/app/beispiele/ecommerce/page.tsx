@@ -674,45 +674,57 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Weiterführende interne Links (Cluster) */}
-        <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-          <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
-          <ul className="list-disc ml-5 text-sm space-y-2">
-            <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/b2b-preislogik-kundenspezifische-preise"
-              >
-                B2B-Preislogik verstehen: Kundenspezifische Preise sauber
-                modellieren
-              </a>
-            </li>
-            <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/headless-commerce-vs-suite"
-              >
-                Headless Commerce vs. Suite: Wann lohnt sich was?
-              </a>
-            </li>
-            <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/pim-produktdaten-qualität"
-              >
-                PIM in der Praxis: Produktdaten richtig strukturieren
-              </a>
-            </li>
-            <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/pagespeed-core-web-vitals-ecommerce"
-              >
-                Pagespeed im Shop verbessern: Core Web Vitals im Griff
-              </a>
-            </li>
-          </ul>
-        </aside>
+       {/* Weiterführende interne Links (Cluster) */}
+<aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+  <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
+  <ul className="list-disc ml-5 text-sm space-y-2">
+    <li>
+      <a
+        href="#cta-pop"
+        aria-controls="cta-pop"
+        aria-haspopup="dialog"
+        className={`hover:underline ${accent}`}
+        data-original-href="/blog/b2b-preislogik-kundenspezifische-preise"
+      >
+        B2B-Preislogik verstehen: Kundenspezifische Preise sauber modellieren
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-controls="cta-pop"
+        aria-haspopup="dialog"
+        className={`hover:underline ${accent}`}
+        data-original-href="/blog/headless-commerce-vs-suite"
+      >
+        Headless Commerce vs. Suite: Wann lohnt sich was?
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-controls="cta-pop"
+        aria-haspopup="dialog"
+        className={`hover:underline ${accent}`}
+        data-original-href="/blog/pim-produktdaten-qualität"
+      >
+        PIM in der Praxis: Produktdaten richtig strukturieren
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-controls="cta-pop"
+        aria-haspopup="dialog"
+        className={`hover:underline ${accent}`}
+        data-original-href="/blog/pagespeed-core-web-vitals-ecommerce"
+      >
+        Pagespeed im Shop verbessern: Core Web Vitals im Griff
+      </a>
+    </li>
+  </ul>
+</aside>
+
 
         {/* FAQ */}
         <section id="faq" className="mt-14">
