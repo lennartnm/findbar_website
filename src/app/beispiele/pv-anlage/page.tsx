@@ -355,11 +355,11 @@ export default function PhotovoltaikUnternehmen2025() {
             </table>
           </div>
 
-          <p className="mt-4 text-sm text-zinc-600">
-            Hinweis: Für Anlagen > 100 kW gelten separate Direktvermarktungs-/Marktprämien-
-            Regelungen. Prüfe die jeweils gültigen „anzulegenden Werte“.
-          </p>
-        </section>
+         <p className="mt-4 text-sm text-zinc-600">
+  Hinweis: Für Anlagen &gt; 100 kW gelten separate Direktvermarktungs-/Marktprämien-
+  Regelungen. Prüfe die jeweils gültigen „anzulegenden Werte“.
+</p>
+
 
         <section id="solarpaket" className="mt-12">
           <h2 className="text-2xl font-bold mb-3">Solarpaket I: Relevante Erleichterungen für Betriebe</h2>
