@@ -9,7 +9,7 @@ export default function Page() {
     name: "Max Mustermann",
     role: "B2B E-Commerce Consultant",
     focus: "B2B Commerce, UX, Checkout-Optimierung, System-Integrationen",
-    image: "/public/Autorenbild.jpg",
+    image: "/Autorenbild.jpg",
     linkedin: "https://linkedin.com",
   };
 
@@ -350,11 +350,11 @@ export default function Page() {
             <picture>
               <source
                 media="(max-width: 640px)"
-                srcSet="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&auto=format&fit=crop&w=1200"
+                srcSet="/ecommerce2.png"
               />
               <img
                 loading="lazy"
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&auto=format&fit=crop&w=2000"
+                src="/ecommerce2.png"
                 alt="Gepackte Kartons im Lager – Symbol für wiederkehrende B2B-Bestellungen"
                 className="absolute inset-0 h-full w-full object-cover"
               />
