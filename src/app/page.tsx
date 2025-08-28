@@ -1387,8 +1387,7 @@ export default function FindbarPage() {
       {/* 9. Pricing */}
   
       <PreiseSection onOpenCalendly={() => setCalOpen(true)} />
-         {/* 9a. Aufwand / Detailschätzung */}
-<EffortSection />
+        
       {/* 10. Ablauf */}
       <AblaufSection />
       {/* 11. FAQ */}
