@@ -13,6 +13,12 @@ export const metadata: Metadata = {
   },
 };
 
+<link
+  rel="stylesheet"
+  href="https://assets.calendly.com/assets/external/widget.css"
+/>
+
+
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-white">
