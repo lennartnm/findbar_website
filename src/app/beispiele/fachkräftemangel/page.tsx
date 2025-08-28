@@ -278,7 +278,7 @@ export default function Page() {
 
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-zinc-200 p-4">
-              <div className="flex items-start gap-2">
+              
                 <Info className="w-5 h-5 mt-0.5" aria-hidden="true" />
                 <div>
                   <h3 className="font-semibold">Kurz erklärt</h3>
@@ -288,7 +288,7 @@ export default function Page() {
                     hochspezialisiert – die Suche ist entsprechend härter.
                   </p>
                 </div>
-              </div>
+              
             </div>
             <div className="rounded-xl border border-zinc-200 p-4">
               <h3 className="font-semibold mb-1">Auswirkungen im Alltag</h3>
