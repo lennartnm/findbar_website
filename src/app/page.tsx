@@ -352,63 +352,86 @@ function VisitorRevealSection() {
 
 /* ---------------------- Aufwand / Detailschätzung (unter Pricing) ---------------------- */
 function EffortSection() {
-  const effort: { icon: any; label: string; time: string }[] = [
-    { icon: ClipboardList, label: "Briefing & Zielsetzung", time: "0,5–1,5 h" },
-    { icon: Search, label: "Keyword-/SERP-Recherche & Suchintention", time: "1,5–3 h" },
-    { icon: FileText, label: "Outline & Angle", time: "1–2 h" },
-    { icon: FileText, label: "Schreiben (Draft + Feinschliff)", time: "4–7 h" },
-    { icon: CheckCircle, label: "Fakten-/Quellencheck", time: "1–2 h" },
-    { icon: Eye, label: "Bildbeschaffung & Aufbereitung (3 Motive) + OG/Twitter-Visual", time: "1,5–3 h" },
-    { icon: BarChart3, label: "(Optional) Eigene Grafiken/Diagramme", time: "+2–4 h" },
-    { icon: Package, label: "Implementierung in Next.js (Struktur, Komponenten, Tabellen, FAQ-LD, Article/Org-LD, ToC, CTA/Modal)", time: "1–2 h" },
-    { icon: Search, label: "Technisches SEO (Meta/OG/Twitter/Canonical/Robots, interne Links)", time: "1–2 h" },
-    { icon: Zap, label: "A11y-Check (Alt-Texte, Landmark-Roles, Kontraste) & Performance-Pass (Lazy/LCP/CSS, Bildgrößen)", time: "1–2 h" },
-    { icon: CheckCircle, label: "QA, Korrektorat, eine Revisionsrunde", time: "1–2 h" },
+  const rows: { label: string; time: string }[] = [
+    { label: "Briefing & Zielsetzung", time: "0,5–1,5 h" },
+    { label: "Keyword-/SERP-Recherche & Suchintention", time: "1,5–3 h" },
+    { label: "Outline & Angle", time: "1–2 h" },
+    { label: "Schreiben (Draft + Feinschliff)", time: "4–7 h" },
+    { label: "Fakten-/Quellencheck", time: "1–2 h" },
+    { label: "Bildbeschaffung & Aufbereitung (3 Motive) + OG/Twitter-Visual", time: "1,5–3 h" },
+    { label: "(Optional) Eigene Grafiken/Diagramme", time: "+2–4 h" },
+    { label: "Implementierung in Next.js (Struktur, Komponenten, Tabellen, FAQ-LD, Article/Org-LD, ToC, CTA/Modal)", time: "1–2 h" },
+    { label: "Technisches SEO (Meta/OG/Twitter/Canonical/Robots, interne Links)", time: "1–2 h" },
+    { label: "A11y-Check (Alt-Texte, Landmark-Roles, Kontraste) & Performance-Pass (Lazy/LCP/CSS, Bildgrößen)", time: "1–2 h" },
+    { label: "QA, Korrektorat, eine Revisionsrunde", time: "1–2 h" },
   ];
 
   return (
     <section id="aufwand" className="border-t border-slate-100 bg-white py-20">
       <div className={containerClass}>
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className={`text-3xl md:text-4xl font-semibold ${serifClass}`}>
-            Wir schreiben keine Blogartikel, wir machen dein Unternehmen zum anerkannten Experten und liefern warme Leads
-          </h2>
-          <p className="mt-3 text-slate-600">Dank evaluierten KI-Prozessen zu fairen Preisen</p>
-          <p className="mt-4 text-xs uppercase tracking-wide text-slate-500">
-            Normaler Aufwand: <span className="font-medium">Detailschätzung (Orientierungswerte)</span>
-          </p>
-        </div>
+        <div className="grid items-start gap-10 md:grid-cols-2">
+          {/* Linke Spalte: Claim & Subheadline */}
+          <div className="mx-auto max-w-xl">
+            <h2 className={`text-3xl md:text-4xl font-semibold leading-tight ${serifClass}`}>
+              Wir schreiben keine Blogartikel, wir machen dein Unternehmen zum anerkannten Experten
+              und liefern warme Leads
+            </h2>
+            <p className="mt-3 text-slate-600">
+              Dank evaluierten KI-Prozessen zu fairen Preisen
+            </p>
 
-        <ul className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
-          {effort.map(({ icon: Icon, label, time }, i) => (
-            <li
-              key={i}
-              className="flex items-start justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
+            <div
+              className="mt-6 inline-flex items-center rounded-xl border px-4 py-2 text-sm font-medium shadow-sm"
+              style={{ borderColor: "#A7F3D0", background: "rgba(16,185,129,0.08)", color: "#065F46" }}
             >
-              <div className="flex items-start gap-3">
-                <div className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-slate-50">
-                  <Icon className="h-4 w-4 text-slate-700" />
-                </div>
-                <span className="text-sm text-slate-800">{label}</span>
-              </div>
-              <span className="shrink-0 rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-xs text-slate-700">
-                {time}
-              </span>
-            </li>
-          ))}
-        </ul>
+              Mit <span className="mx-1 italic">findbar</span>: <span className="ml-1 font-bold">Ab 19,98€</span> pro Artikel
+            </div>
 
-        <div className="mt-8 flex justify-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-800">
-            <Check className="h-4 w-4" />
-            Mit <span className="italic">findbar</span>:
-            <span className="font-bold"> Ab 19,98€</span> pro Artikel
-          </span>
+            <p className="mt-6 text-sm text-slate-600">
+              Unsere Inhalte verbinden messbare Sichtbarkeit mit echter Vertrauensbildung – und machen
+              aus anonymen Besuchern qualifizierte Firmen-Leads.
+            </p>
+          </div>
+
+          {/* Rechte Spalte: Tabellarische Übersicht */}
+          <div className="mx-auto w-full max-w-xl">
+            <div className="mb-3 text-xs uppercase tracking-wide text-slate-500">
+              Normaler Aufwand: <span className="font-medium">Detailschätzung (Orientierungswerte)</span>
+            </div>
+
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              {/* Header-Zeile */}
+              <div className="grid grid-cols-[1fr_auto] items-center border-b border-slate-200 bg-slate-50/60 px-4 py-3 text-xs font-semibold text-slate-700">
+                <span>Arbeitsschritt</span>
+                <span>Zeit</span>
+              </div>
+
+              {/* Rows */}
+              <div className="divide-y divide-slate-200">
+                {rows.map((r, i) => (
+                  <div
+                    key={i}
+                    className="grid grid-cols-[1fr_auto] items-center px-4 py-3 text-sm transition-colors hover:bg-slate-50"
+                  >
+                    <span className="pr-4 text-slate-800">{r.label}</span>
+                    <span className="rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs text-slate-700">
+                      {r.time}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <p className="mt-3 text-xs text-slate-500">
+              Hinweis: Die Werte dienen als Orientierung und können je nach Komplexität/Branche leicht variieren.
+            </p>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 
 
@@ -1362,9 +1385,10 @@ export default function FindbarPage() {
       {/* 8. Mehr Leads / Mehr Sichtbarkeit */}
       <LeadsMarquee />
       {/* 9. Pricing */}
-      {/* 9a. Aufwand / Detailschätzung */}
-<EffortSection />
+  
       <PreiseSection onOpenCalendly={() => setCalOpen(true)} />
+         {/* 9a. Aufwand / Detailschätzung */}
+<EffortSection />
       {/* 10. Ablauf */}
       <AblaufSection />
       {/* 11. FAQ */}
