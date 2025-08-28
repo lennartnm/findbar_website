@@ -1,5 +1,9 @@
 // src/app/blog/additive-fertigung-maschinenbau-2025/page.tsx
 import type { Metadata } from "next";
+ export default function Page() {
+   const updated = "2025-08-28";
+   const calendlyUrl =
+     "https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung";
 
 export const metadata: Metadata = {
   title:
