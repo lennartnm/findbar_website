@@ -687,35 +687,31 @@ export default function Page() {
           </ul>
         </section>
 
-        {/* Weiterführende interne Links (Cluster) */}
-        <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-          <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
-          <ul className="list-disc ml-5 text-sm space-y-2">
-            <li>
-              <a
-                className={`hover:underline ${accent}`}
-                href="/blog/evp-vorlage-b2b"
-              >
-                EVP-Vorlage für den Mittelstand
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent}`} href="/blog/karriereseite-checkliste">
-                Karriere-Seite: 18-Punkte-Checkliste
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent}`} href="/blog/social-recruiting-linkedin">
-                Social Recruiting auf LinkedIn: So geht’s
-              </a>
-            </li>
-            <li>
-              <a className={`hover:underline ${accent}`} href="/blog/candidate-experience-messen">
-                Candidate Experience messen und verbessern
-              </a>
-            </li>
-          </ul>
-        </aside>
+       {/* Weiterführende interne Links (Cluster) */}
+<aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+  <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
+  <ul className="list-disc ml-5 text-sm space-y-2">
+    {[
+      { label: "EVP-Vorlage für den Mittelstand" },
+      { label: "Karriere-Seite: 18-Punkte-Checkliste" },
+      { label: "Social Recruiting auf LinkedIn: So geht’s" },
+      { label: "Candidate Experience messen und verbessern" },
+    ].map((item) => (
+      <li key={item.label}>
+        <a
+          href="#cta-pop"
+          role="button"
+          aria-controls="cta-pop"
+          className={`hover:underline ${accent} font-medium`}
+        >
+          {item.label}
+          <span className="sr-only"> – öffnet Hinweis-Pop-up</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</aside>
+
 
         {/* FAQ */}
         <section id="faq" className="mt-14">
