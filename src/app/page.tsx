@@ -400,41 +400,47 @@ function BenefitsMarquee() {
 /* ------------------------- BlogSection: 6 Items + Carousel (Pfeile außerhalb) ------------------------ */
 function BlogSection() {
   const items = [
-   {
+    {
       title: "Additive Fertigung (3D-Druck) im Maschinenbau 2025: Einsatzmöglichkeiten, Qualität & ROI",
       tease: "Dieser Praxis-Guide zeigt dir, wo 3D-Druck im Maschinenbau 2025 echten Nutzen stiftet: von schnellen Prototypen über funktionsfähige Betriebsmittel bis hin zu Serien- und Ersatzteilen.",
       image: "/druck1.png",
       alt: "3D-Druck",
+      link: "/beispiele/additive-fertigung",
     },
     {
       title: "Photovoltaik für Unternehmen: Lohnt sich eine PV-Anlage 2025 noch?",
       tease: "Du möchtest Stromkosten senken, unabhängiger werden und Klimaziele erreichen? Hier erfährst du, wie sich gewerbliche PV-Anlagen 2025 rechnen.",
       image: "/solar1.png",
       alt: "Solaranlagen Illustration",
+      link: "/beispiele/pv-anlage",
     },  
-     {
+    {
       title: "Nachfolgeplanung im Mittelstand: Typische Fehler vermeiden",
       tease: "Du willst dein Unternehmen sicher übergeben – ohne Chaos, Reibungsverluste und Wertvernichtung? In diesem Leitfaden erfährst du, wie du Nachfolgeplanung im Mittelstand strukturiert angehst",
       image: "/nachfolge1.png",
       alt: "Unternehmensgebäude",
+      link: "/beispiele/nachfolgeplanung",
     },
     {
       title: "Fachkräftemangel im B2B: Wie Unternehmen mit Employer Branding gezielt Talente ansprecheng",
       tease: "Der Wettbewerb um Talente ist hart – aber mit einer klaren Arbeitgebermarke, einer starken Karriere-Seite und Social Proof erreichst du genau die Menschen, die wirklich zu dir passen.",
       image: "/fachkraft1.jpg",
       alt: "Fachkräfte",
+      link: "/beispiele/fachkräfte",
     },
     {
       title: "Digitale B2B-Onlineshops: 4 Strategien für ein reibungsloses Kauferlebnis",
       tease: "Du willst, dass gewerbliche Käufer ohne Reibung bestellen – vom Finden des richtigen Produkts bis zur Bestellung mit Bestellnummer/PO und Zahlungsziel? In diesem Leitfaden bekommst du vier praxiserprobte Strategien.",
       image: "/ecommerce1.jpg",
       alt: "B2B E-Commerce",
+      link: "/beispiele/ecommerce",
     },
     {
       title: "Supply Chain Resilience: Strategien für krisenfeste Lieferketten",
       tease: "In diesem Leitfaden erfährst du, wie du deine Lieferkette robust gegen Krisen machst – mit klaren KPIs, praktikablen Maßnahmen (z. B. Dual Sourcing, Nearshoring, Sicherheitsbestände), digitaler Transparenz und einem wirksamen Supply Chain Risk Management.",
       image: "/supply1.png",
       alt: "Supply Chain",
+      link: "/beispiele/lieferketten-resilienz",
     },
   ];
 
@@ -538,7 +544,7 @@ function BlogSection() {
                     <h3 className={`mb-1 text-lg ${serifClass}`}>{b.title}</h3>
                     <p className="text-sm text-slate-600">{b.tease}</p>
                     <a
-                      href="#"
+                      href={b.link}
                       className="mt-4 inline-flex items-center text-sm font-medium text-[#1b4d2b]"
                       aria-label={`Beispiel ansehen: ${b.title}`}
                     >
@@ -578,6 +584,10 @@ function BlogSection() {
     </section>
   );
 }
+
+
+
+
 
 
 
