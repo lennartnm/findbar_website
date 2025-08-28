@@ -527,32 +527,57 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Weiterführende interne Links (Cluster) */}
-      <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-        <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
-        <ul className="list-disc ml-5 text-sm space-y-2">
-          <li>
-            <a className={`hover:underline ${accent}`} href="/blog/unternehmensbewertung-kmu">
-              Unternehmensbewertung im KMU: Methoden &amp; Multiples
-            </a>
-          </li>
-          <li>
-            <a className={`hover:underline ${accent}`} href="/blog/familienverfassung-checkliste">
-              Familienverfassung: So vermeidest du Konflikte
-            </a>
-          </li>
-          <li>
-            <a className={`hover:underline ${accent}`} href="/blog/mbo-mbi-unterschiede">
-              MBO vs. MBI: Welcher Weg passt zu dir?
-            </a>
-          </li>
-          <li>
-            <a className={`hover:underline ${accent}`} href="/blog/due-diligence-checkliste">
-              Due-Diligence-Checkliste für mittelständische Unternehmen
-            </a>
-          </li>
-        </ul>
-      </aside>
+     {/* Weiterführende interne Links (Cluster) */}
+<aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+  <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
+  <ul className="list-disc ml-5 text-sm space-y-2">
+    <li>
+      <a
+        href="#cta-pop"
+        aria-controls="cta-pop"
+        aria-label="Öffnet Hinweis-Modal: Unternehmensbewertung im KMU"
+        className={`hover:underline ${accent}`}
+      >
+        Unternehmensbewertung im KMU: Methoden &amp; Multiples
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-controls="cta-pop"
+        aria-label="Öffnet Hinweis-Modal: Familienverfassung Checkliste"
+        className={`hover:underline ${accent}`}
+      >
+        Familienverfassung: So vermeidest du Konflikte
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-controls="cta-pop"
+        aria-label="Öffnet Hinweis-Modal: MBO vs. MBI"
+        className={`hover:underline ${accent}`}
+      >
+        MBO vs. MBI: Welcher Weg passt zu dir?
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-controls="cta-pop"
+        aria-label="Öffnet Hinweis-Modal: Due-Diligence-Checkliste"
+        className={`hover:underline ${accent}`}
+      >
+        Due-Diligence-Checkliste für mittelständische Unternehmen
+      </a>
+    </li>
+  </ul>
+
+  <p className="mt-3 text-xs text-zinc-500">
+    Hinweis: Beispielseite – die Links öffnen das Info-Modal.
+  </p>
+</aside>
+
 
       {/* FAQ */}
       <section id="faq" className="mt-14">
