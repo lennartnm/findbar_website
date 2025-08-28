@@ -7,9 +7,9 @@ import AnalyticsProvider from "@/components/ui/AnalyticsProvider";
 // Nur nötig, wenn der Blog eine EIGENE Favicon-Datei haben soll:
 export const metadata: Metadata = {
   icons: {
-    icon: "/icon-blog.png",
-    shortcut: "/icon-blog.png",
-    apple: "/icon-blog.png",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
 };
 
