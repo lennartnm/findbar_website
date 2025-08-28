@@ -350,6 +350,65 @@ function VisitorRevealSection() {
   );
 }
 
+/* ---------------------- Aufwand / Detailschätzung (unter Pricing) ---------------------- */
+function EffortSection() {
+  const effort: { icon: any; label: string; time: string }[] = [
+    { icon: ClipboardList, label: "Briefing & Zielsetzung", time: "0,5–1,5 h" },
+    { icon: Search, label: "Keyword-/SERP-Recherche & Suchintention", time: "1,5–3 h" },
+    { icon: FileText, label: "Outline & Angle", time: "1–2 h" },
+    { icon: FileText, label: "Schreiben (Draft + Feinschliff)", time: "4–7 h" },
+    { icon: CheckCircle, label: "Fakten-/Quellencheck", time: "1–2 h" },
+    { icon: Eye, label: "Bildbeschaffung & Aufbereitung (3 Motive) + OG/Twitter-Visual", time: "1,5–3 h" },
+    { icon: BarChart3, label: "(Optional) Eigene Grafiken/Diagramme", time: "+2–4 h" },
+    { icon: Package, label: "Implementierung in Next.js (Struktur, Komponenten, Tabellen, FAQ-LD, Article/Org-LD, ToC, CTA/Modal)", time: "1–2 h" },
+    { icon: Search, label: "Technisches SEO (Meta/OG/Twitter/Canonical/Robots, interne Links)", time: "1–2 h" },
+    { icon: Zap, label: "A11y-Check (Alt-Texte, Landmark-Roles, Kontraste) & Performance-Pass (Lazy/LCP/CSS, Bildgrößen)", time: "1–2 h" },
+    { icon: CheckCircle, label: "QA, Korrektorat, eine Revisionsrunde", time: "1–2 h" },
+  ];
+
+  return (
+    <section id="aufwand" className="border-t border-slate-100 bg-white py-20">
+      <div className={containerClass}>
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className={`text-3xl md:text-4xl font-semibold ${serifClass}`}>
+            Wir schreiben keine Blogartikel, wir machen dein Unternehmen zum anerkannten Experten und liefern warme Leads
+          </h2>
+          <p className="mt-3 text-slate-600">Dank evaluierten KI-Prozessen zu fairen Preisen</p>
+          <p className="mt-4 text-xs uppercase tracking-wide text-slate-500">
+            Normaler Aufwand: <span className="font-medium">Detailschätzung (Orientierungswerte)</span>
+          </p>
+        </div>
+
+        <ul className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {effort.map(({ icon: Icon, label, time }, i) => (
+            <li
+              key={i}
+              className="flex items-start justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
+            >
+              <div className="flex items-start gap-3">
+                <div className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-slate-50">
+                  <Icon className="h-4 w-4 text-slate-700" />
+                </div>
+                <span className="text-sm text-slate-800">{label}</span>
+              </div>
+              <span className="shrink-0 rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-xs text-slate-700">
+                {time}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-8 flex justify-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-800">
+            <Check className="h-4 w-4" />
+            Mit <span className="italic">findbar</span>:
+            <span className="font-bold"> Ab 19,98€</span> pro Artikel
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 
 
@@ -1303,6 +1362,8 @@ export default function FindbarPage() {
       {/* 8. Mehr Leads / Mehr Sichtbarkeit */}
       <LeadsMarquee />
       {/* 9. Pricing */}
+      {/* 9a. Aufwand / Detailschätzung */}
+<EffortSection />
       <PreiseSection onOpenCalendly={() => setCalOpen(true)} />
       {/* 10. Ablauf */}
       <AblaufSection />
