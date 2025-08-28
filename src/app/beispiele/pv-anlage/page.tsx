@@ -62,52 +62,52 @@ export default function PhotovoltaikUnternehmen2025() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqItems.map((item) => ({
+    mainEntity: faqItems.map((item) => ({
       "@type": "Question",
-      "name": item.q,
-      "acceptedAnswer": { "@type": "Answer", "text": item.a },
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
     })),
   };
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": title,
-    "description": description,
-    "inLanguage": "de",
-    "image": "https://www.muster-gmbh.de/solar1.png",
-    "datePublished": datePublished,
-    "dateModified": dateModified,
-    "author": {
+    headline: title,
+    description: description,
+    inLanguage: "de",
+    image: "https://www.muster-gmbh.de/solar1.png",
+    datePublished: datePublished,
+    dateModified: dateModified,
+    author: {
       "@type": "Person",
-      "name": author.name,
-      "jobTitle": author.role,
-      "url": author.linkedin,
+      name: author.name,
+      jobTitle: author.role,
+      url: author.linkedin,
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": company.name,
-      "logo": {
+      name: company.name,
+      logo: {
         "@type": "ImageObject",
-        "url": "https://www.muster-gmbh.de/logo.png",
+        url: "https://www.muster-gmbh.de/logo.png",
       },
     },
-    "mainEntityOfPage": company.canonical,
+    mainEntityOfPage: company.canonical,
   };
 
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": company.name,
-    "url": "https://www.muster-gmbh.de",
-    "email": company.mail,
-    "telephone": company.phone,
-    "address": {
+    name: company.name,
+    url: "https://www.muster-gmbh.de",
+    email: company.mail,
+    telephone: company.phone,
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": company.address,
-      "addressCountry": "DE",
+      streetAddress: company.address,
+      addressCountry: "DE",
     },
-    "sameAs": [author.linkedin, reviewer.linkedin],
+    sameAs: [author.linkedin, reviewer.linkedin],
   };
 
   return (
@@ -127,40 +127,36 @@ export default function PhotovoltaikUnternehmen2025() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-        />
+        ></script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-        />
+        ></script>
       </Head>
 
       <article
-        className="
-    prose prose-zinc mx-auto max-w-4xl px-4 sm:px-6 lg:px-8
-    mt-12 md:mt-16 mb-0
-    relative after:block after:h-12 md:after:h-16 after:content-['']
-  "
+        className={`
+          prose prose-zinc mx-auto max-w-4xl px-4 sm:px-6 lg:px-8
+          mt-12 md:mt-16 mb-0
+          relative after:block after:h-12 md:after:h-16 after:content-['']
+        `}
       >
-        {/* Header */}
         <header className="mb-10">
           <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
             Photovoltaik für Unternehmen: Lohnt sich eine PV-Anlage 2025 noch?
           </h1>
           <p className="mt-3 text-lg text-zinc-700">
-            Du möchtest Stromkosten senken, unabhängiger werden und Klimaziele
-            erreichen? Hier erfährst du, wie sich gewerbliche PV-Anlagen 2025
-            rechnen: aktuelle Vergütungssätze, Eigenverbrauch, Steuern, Förderungen
-            – plus Rechenbeispiele und Checklisten.
+            Du möchtest Stromkosten senken, unabhängiger werden und Klimaziele erreichen? Hier
+            erfährst du, wie sich gewerbliche PV-Anlagen 2025 rechnen: aktuelle Vergütungssätze,
+            Eigenverbrauch, Steuern, Förderungen – plus Rechenbeispiele und Checklisten.
           </p>
 
           <div className="mt-2 text-sm text-zinc-600">
             Zuletzt aktualisiert am{" "}
-            <time dateTime={dateModified}>28.08</time>
-            {" · "}Lesedauer:{" "}
-            <span className="tabular-nums">10 Minuten</span>
+            <time dateTime={dateModified}>28.08.2025</time>
+            {" · "}Lesedauer: <span className="tabular-nums">10 Minuten</span>
           </div>
 
-          {/* Hero 16:6 */}
           <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
             <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
               <picture>
@@ -179,10 +175,9 @@ export default function PhotovoltaikUnternehmen2025() {
             </figcaption>
           </figure>
 
-          {/* Meta row – Autor */}
           <div className="mt-6 flex items-center gap-3 text-sm text-zinc-700">
             <img
-              src="/Autorenbild.jpg"
+              src={author.avatar}
               alt="Autor: Max Mustermann"
               className="w-10 h-10 rounded-full object-cover"
               loading="lazy"
@@ -194,36 +189,33 @@ export default function PhotovoltaikUnternehmen2025() {
           </div>
         </header>
 
-        {/* TL;DR */}
         <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
           <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
           <ul className="list-disc ml-5 space-y-2 text-zinc-800">
             <li>
-              Für Unternehmen lohnt sich PV 2025 in den meisten Fällen – vor allem
-              bei hoher Tageslast. Eigenverbrauch ist der Renditetreiber, Einspeisung
-              liefert den Zusatz-Cashflow.
+              Für Unternehmen lohnt sich PV 2025 in den meisten Fällen – vor allem bei hoher
+              Tageslast. Eigenverbrauch ist der Renditetreiber, Einspeisung liefert den
+              Zusatz-Cashflow.
             </li>
             <li>
-              Vergütung (Teileinspeisung) für Dach-PV liegt – je nach Anlagengröße –
-              ab August 2025 typischerweise zwischen ca. 7,86 ct/kWh (≤ 10 kWp) und
-              5,56 ct/kWh (40–100 kWp).
+              Vergütung (Teileinspeisung) für Dach-PV liegt – je nach Anlagengröße – ab August 2025
+              typischerweise zwischen ca. 7,86 ct/kWh (≤ 10 kWp) und 5,56 ct/kWh (40–100 kWp).
             </li>
             <li>
-              Solarpaket I vereinfacht die Praxis: Bis 200 kW (teilweise bis 400 kW)
-              kannst du Überschüsse unentgeltlich abgeben – ohne Direktvermarktung.
+              Solarpaket I vereinfacht die Praxis: Bis 200 kW (teilweise bis 400 kW) kannst du
+              Überschüsse unentgeltlich abgeben – ohne Direktvermarktung.
             </li>
             <li>
-              Förderkredit: KfW 270 ist für Unternehmen offen. Zusätzlich können KMU
-              oft IAB (bis 50 %) und Sonder-AfA nutzen – steuerlich prüfen lassen!
+              Förderkredit: KfW 270 ist für Unternehmen offen. Zusätzlich können KMU oft IAB (bis 50
+              %) und Sonder-AfA nutzen – steuerlich prüfen lassen!
             </li>
             <li>
-              LCOE von PV liegen 2024/25 je nach Typ grob im Bereich 4–14 ct/kWh –
-              deutlich unter typischen Gewerbestromtarifen.
+              LCOE von PV liegen 2024/25 je nach Typ grob im Bereich 4–14 ct/kWh – deutlich unter
+              typischen Gewerbestromtarifen.
             </li>
           </ul>
         </aside>
 
-        {/* ToC */}
         <nav
           aria-label="Inhaltsverzeichnis"
           className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
@@ -268,20 +260,19 @@ export default function PhotovoltaikUnternehmen2025() {
           </ol>
         </nav>
 
-        {/* Hauptteil */}
         <section id="warum-jetzt">
           <h2 className="text-2xl font-bold mb-3">
             Warum PV für Unternehmen 2025 attraktiv ist
           </h2>
           <p className="leading-relaxed">
-            Für Betriebe zählt jede Kilowattstunde, die nicht teuer aus dem Netz bezogen
-            werden muss. Während Gewerbestromtarife 2025 häufig im Bereich von rund{" "}
-            <span className="tabular-nums">25–32 ct/kWh</span> liegen, produziert eine
-            typische Dach-PV den Strom – je nach Anlagentyp und Standort – zu
-            Stromgestehungskosten im mittleren einstelligen bis niedrigen zweistelligen
-            Cent-Bereich pro kWh. Kurz: PV-Eigenverbrauch ersetzt teuren Einkauf durch
-            günstige Eigenerzeugung. Die Volleinspeisung bleibt eine Option, wenn du
-            tagsüber wenig verbrauchst oder Dachflächen maximal monetarisieren willst.
+            Für Betriebe zählt jede Kilowattstunde, die nicht teuer aus dem Netz bezogen werden
+            muss. Während Gewerbestromtarife 2025 häufig im Bereich von rund{" "}
+            <span className="tabular-nums">25–32 ct/kWh</span> liegen, produziert eine typische
+            Dach-PV den Strom – je nach Anlagentyp und Standort – zu Stromgestehungskosten im
+            mittleren einstelligen bis niedrigen zweistelligen Cent-Bereich pro kWh. Kurz:
+            PV-Eigenverbrauch ersetzt teuren Einkauf durch günstige Eigenerzeugung. Die
+            Volleinspeisung bleibt eine Option, wenn du tagsüber wenig verbrauchst oder Dachflächen
+            maximal monetarisieren willst.
           </p>
 
           <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -314,16 +305,15 @@ export default function PhotovoltaikUnternehmen2025() {
           </h2>
           <p className="leading-relaxed">
             Die Einspeisevergütung wird halbjährlich angepasst. Für Inbetriebnahmen{" "}
-            <strong>ab 1.&nbsp;August 2025 bis 31.&nbsp;Januar 2026</strong> liegen die
-            Fördersätze für <em>Gebäude-PV (Teileinspeisung)</em> u. a. bei{" "}
+            <strong>ab 1.&nbsp;August 2025 bis 31.&nbsp;Januar 2026</strong> liegen die Fördersätze
+            für <em>Gebäude-PV (Teileinspeisung)</em> u. a. bei{" "}
             <span className="whitespace-nowrap">7,86 ct/kWh</span> (≤ 10 kWp),{" "}
             <span className="whitespace-nowrap">6,80 ct/kWh</span> (10–40 kWp) und{" "}
-            <span className="whitespace-nowrap">5,56 ct/kWh</span> (40–100 kWp). Für
-            Volleinspeiser sind die Werte höher. In der Direktvermarktung gelten
-            „anzulegende Werte“ (Marktprämie) für Anlagen bis 1 MW; je nach Größe
-            variieren diese. Wichtig: Für Anlagen &gt; 100 kW ist die Direktvermarktung
-            grundsätzlich Standard – siehe jedoch die Erleichterungen durch Solarpaket I
-            im nächsten Abschnitt.
+            <span className="whitespace-nowrap">5,56 ct/kWh</span> (40–100 kWp). Für Volleinspeiser
+            sind die Werte höher. In der Direktvermarktung gelten „anzulegende Werte“
+            (Marktprämie) für Anlagen bis 1 MW; je nach Größe variieren diese. Wichtig: Für Anlagen{" "}
+            &gt; 100 kW ist die Direktvermarktung grundsätzlich Standard – siehe jedoch die
+            Erleichterungen durch Solarpaket I im nächsten Abschnitt.
           </p>
 
           <div className="mt-6 rounded-2xl border border-zinc-200 overflow-hidden">
@@ -355,31 +345,29 @@ export default function PhotovoltaikUnternehmen2025() {
             </table>
           </div>
 
-         <p className="mt-4 text-sm text-zinc-600">
-  Hinweis: Für Anlagen &gt; 100 kW gelten separate Direktvermarktungs-/Marktprämien-
-  Regelungen. Prüfe die jeweils gültigen „anzulegenden Werte“.
-</p>
-
+          <p className="mt-4 text-sm text-zinc-600">
+            Hinweis: Für Anlagen &gt; 100 kW gelten separate Direktvermarktungs-/Marktprämien-
+            Regelungen. Prüfe die jeweils gültigen „anzulegenden Werte“.
+          </p>
+        </section>
 
         <section id="solarpaket" className="mt-12">
           <h2 className="text-2xl font-bold mb-3">Solarpaket I: Relevante Erleichterungen für Betriebe</h2>
           <p className="leading-relaxed">
-            Das Solarpaket I (in Kraft seit Mai 2024) schafft für gewerbliche Dachanlagen
-            wichtige Vereinfachungen. Zentral: Die bisherige Pflicht zur Direktvermarktung
-            ab 100 kW wurde <strong>flexibilisiert</strong>. Betreiber können bei Anlagen
-            bis 200 kW (unter bestimmten Übergangsregeln zeitweise bis 400 kW) ihre
-            <em> Überschussmengen</em> ohne Vergütung unentgeltlich abgeben. Diese
-            „unentgeltliche Abnahme“ erspart Aufwand und Kosten, wenn sich die formale
-            Direktvermarktung für kleine Restmengen nicht lohnt. Beachte jedoch
-            Redispatch- und Messanforderungen sowie die Wirtschaftlichkeitsabwägung.
+            Das Solarpaket I (in Kraft seit Mai 2024) schafft für gewerbliche Dachanlagen wichtige
+            Vereinfachungen. Zentral: Die bisherige Pflicht zur Direktvermarktung ab 100 kW wurde{" "}
+            <strong>flexibilisiert</strong>. Betreiber können bei Anlagen bis 200 kW (unter
+            bestimmten Übergangsregeln zeitweise bis 400 kW) ihre <em>Überschussmengen</em> ohne
+            Vergütung unentgeltlich abgeben. Diese „unentgeltliche Abnahme“ erspart Aufwand und
+            Kosten, wenn sich die formale Direktvermarktung für kleine Restmengen nicht lohnt.
+            Beachte jedoch Redispatch- und Messanforderungen sowie die Wirtschaftlichkeitsabwägung.
           </p>
 
-          {/* Expertenzitat */}
           <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
             <blockquote className="text-lg font-medium">
-              „Eigenverbrauch ist im Gewerbe der Renditetreiber – je höher die
-              Tageslastdeckung, desto kürzer die Amortisation. Einspeiseerlöse bleiben
-              wichtig, aber sie ersetzen selten den Vorteil der vermiedenen Strombezugskosten.“
+              „Eigenverbrauch ist im Gewerbe der Renditetreiber – je höher die Tageslastdeckung,
+              desto kürzer die Amortisation. Einspeiseerlöse bleiben wichtig, aber sie ersetzen
+              selten den Vorteil der vermiedenen Strombezugskosten.“
             </blockquote>
             <figcaption className="mt-2 text-sm text-zinc-600">
               — zusammengefasstes Branchenfazit (indirektes Zitat)
@@ -387,7 +375,6 @@ export default function PhotovoltaikUnternehmen2025() {
           </figure>
         </section>
 
-        {/* Bild 1 – Vorlage */}
         <figure className="mt-8">
           <div
             className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
@@ -417,17 +404,16 @@ export default function PhotovoltaikUnternehmen2025() {
             <h3 className="text-xl font-semibold mb-2">Die drei Hebel</h3>
             <ul className="list-disc ml-5 space-y-2 text-zinc-800">
               <li>
-                <strong>Eigenverbrauchsquote:</strong> Anteil des PV-Stroms, den dein
-                Betrieb direkt nutzt. Jeder selbst genutzte kWh ersetzt teuren Einkauf.
+                <strong>Eigenverbrauchsquote:</strong> Anteil des PV-Stroms, den dein Betrieb direkt
+                nutzt. Jeder selbst genutzte kWh ersetzt teuren Einkauf.
               </li>
               <li>
-                <strong>Erzeugungskosten (LCOE):</strong> Hängen von Invest, Betrieb,
-                Einstrahlung und Laufzeit ab – im Gewerbe oft im niedrigen Cent-Bereich
-                je kWh.
+                <strong>Erzeugungskosten (LCOE):</strong> Hängen von Invest, Betrieb, Einstrahlung
+                und Laufzeit ab – im Gewerbe oft im niedrigen Cent-Bereich je kWh.
               </li>
               <li>
-                <strong>Einspeiseertrag:</strong> Für Überschüsse erhältst du Vergütung
-                oder gehst in die Direktvermarktung (bzw. nutzt die unentgeltliche Abnahme).
+                <strong>Einspeiseertrag:</strong> Für Überschüsse erhältst du Vergütung oder gehst
+                in die Direktvermarktung (bzw. nutzt die unentgeltliche Abnahme).
               </li>
             </ul>
           </div>
@@ -436,12 +422,11 @@ export default function PhotovoltaikUnternehmen2025() {
             Beispiel: 100 kWp Dach-PV mit Eigenverbrauch
           </h3>
           <p className="leading-relaxed">
-            Annahmen: Jahresertrag ~100.000 kWh, Invest ~90.000 € (900 €/kWp),
-            Betriebskosten ~1,5 % p. a., Strompreis im Gewerbe konservativ{" "}
-            <span className="tabular-nums">0,28 €/kWh</span>. Überschüsse werden zu
-            einer <em>gewichteten</em> Vergütung von ca.{" "}
-            <span className="tabular-nums">6,16 ct/kWh</span> eingespeist (Mix der
-            Anlagenteile ≤ 10/≤ 40/≤ 100 kWp). Die Werte dienen der Illustration.
+            Annahmen: Jahresertrag ~100.000 kWh, Invest ~90.000 € (900 €/kWp), Betriebskosten ~1,5 %
+            p. a., Strompreis im Gewerbe konservativ <span className="tabular-nums">0,28 €/kWh</span
+            >. Überschüsse werden zu einer <em>gewichteten</em> Vergütung von ca.{" "}
+            <span className="tabular-nums">6,16 ct/kWh</span> eingespeist (Mix der Anlagenteile ≤
+            10/≤ 40/≤ 100 kWp). Die Werte dienen der Illustration.
           </p>
 
           <div className="mt-4 rounded-2xl border border-zinc-200 overflow-hidden">
@@ -488,8 +473,7 @@ export default function PhotovoltaikUnternehmen2025() {
                         /Jahr
                       </td>
                       <td className="p-3">
-                        {years.toFixed(1)}{" "}
-                        <span className="text-zinc-500">Jahre (≈)</span>
+                        {years.toFixed(1)} <span className="text-zinc-500">Jahre (≈)</span>
                       </td>
                     </tr>
                   );
@@ -499,8 +483,8 @@ export default function PhotovoltaikUnternehmen2025() {
           </div>
 
           <p className="mt-3 text-sm text-zinc-600">
-            Die Beispielrechnung ersetzt keine individuelle Wirtschaftlichkeitsanalyse.
-            Tarife, Anlagendesign und Lastprofile variieren.
+            Die Beispielrechnung ersetzt keine individuelle Wirtschaftlichkeitsanalyse. Tarife,
+            Anlagendesign und Lastprofile variieren.
           </p>
 
           <div className="mt-6 grid gap-5 md:grid-cols-[2fr_1fr]">
@@ -525,7 +509,6 @@ export default function PhotovoltaikUnternehmen2025() {
           </div>
         </section>
 
-        {/* Bild 2 – Vorlage */}
         <figure className="mt-8">
           <div
             className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
@@ -561,13 +544,13 @@ export default function PhotovoltaikUnternehmen2025() {
               <em>Investitionsabzugsbetrag (IAB)</em> erlaubt bis zu 50 % der geplanten
               Anschaffungskosten vorab steuermindernd zu berücksichtigen (Bedingungen beachten).
               Zusätzlich kann die <em>Sonder-AfA</em> nach § 7g EStG über mehrere Jahre genutzt
-              werden. Ob degressive AfA infrage kommt, hängt von der Rechtslage zum Anschaffungsjahr
-              ab. Die konkrete Ausgestaltung sollte dein Steuerbüro prüfen.
+              werden. Ob degressive AfA infrage kommt, hängt von der Rechtslage zum
+              Anschaffungsjahr ab. Die konkrete Ausgestaltung sollte dein Steuerbüro prüfen.
             </p>
             <p className="leading-relaxed">
               <strong>0 %-Umsatzsteuer:</strong> Der Nullsteuersatz gilt regelmäßig für Anlagen{" "}
-              <em>auf oder nahe Wohngebäuden</em>. Für typische Gewerbedächer gilt er
-              meist nicht – Ausnahmen sind möglich. Lass das unbedingt individuell bewerten.
+              <em>auf oder nahe Wohngebäuden</em>. Für typische Gewerbedächer gilt er meist nicht –
+              Ausnahmen sind möglich. Lass das unbedingt individuell bewerten.
             </p>
           </div>
         </section>
@@ -601,15 +584,11 @@ export default function PhotovoltaikUnternehmen2025() {
             </li>
           </ol>
 
-          {/* Weiterführende interne Links (Cluster) */}
           <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
             <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
             <ul className="list-disc ml-5 text-sm space-y-2">
               <li>
-                <a
-                  className={`hover:underline ${accent}`}
-                  href="/blog/lastprofil-analyse-gewerbe"
-                >
+                <a className={`hover:underline ${accent}`} href="/blog/lastprofil-analyse-gewerbe">
                   Lastprofil verstehen: So optimierst du den Eigenverbrauch
                 </a>
               </li>
@@ -632,7 +611,6 @@ export default function PhotovoltaikUnternehmen2025() {
           </aside>
         </section>
 
-        {/* FAQ */}
         <section id="faq" className="mt-14">
           <h2 className="text-2xl font-bold mb-4">FAQ</h2>
           <div className="space-y-6 text-zinc-700">
@@ -647,10 +625,9 @@ export default function PhotovoltaikUnternehmen2025() {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-          />
+          ></script>
         </section>
 
-        {/* Summary */}
         <section id="zusammenfassung" className="mt-14">
           <h2 className="text-2xl font-bold mb-3">Kurzfazit</h2>
           <p className="leading-relaxed">
@@ -662,7 +639,6 @@ export default function PhotovoltaikUnternehmen2025() {
           </p>
         </section>
 
-        {/* CTA */}
         <section aria-label="Kontakt" className="mt-14">
           <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
             <h2 className="text-xl font-bold mb-2">
@@ -718,7 +694,7 @@ export default function PhotovoltaikUnternehmen2025() {
           </div>
 
           <div id="cta-pop" className="fixed inset-0 z-50 hidden items-center justify-center p-4 target:flex">
-            <a href="#" className="absolute inset-0 bg-black/50" aria-label="Overlay schließen" />
+            <a href="#" className="absolute inset-0 bg-black/50" aria-label="Overlay schließen"></a>
             <div
               role="dialog"
               aria-modal="true"
@@ -752,68 +728,11 @@ export default function PhotovoltaikUnternehmen2025() {
           </div>
         </section>
 
-        {/* Mini-Glossar */}
-        <section className="mt-14 mb-20">
-          <h2 className="text-2xl font-bold mb-3">
-            Mini-Glossar – Die wichtigsten Begriffe zu Photovoltaik im Unternehmen
-          </h2>
-
-          <div className="rounded-2xl border border-zinc-200 overflow-hidden">
-            <table className="w-full text-sm">
-              <thead className="bg-zinc-50">
-                <tr>
-                  <th className="text-left font-semibold p-3 w-56">Begriff</th>
-                  <th className="text-left font-semibold p-3">Erklärung</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">Eigenverbrauch</td>
-                  <td className="p-3 text-zinc-700">
-                    Anteil des erzeugten PV-Stroms, den dein Betrieb direkt vor Ort nutzt.
-                  </td>
-                </tr>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">Teileinspeisung</td>
-                  <td className="p-3 text-zinc-700">
-                    Betriebsmodell: Ein Teil wird selbst verbraucht, Überschüsse gegen Vergütung ins Netz eingespeist.
-                  </td>
-                </tr>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">Direktvermarktung</td>
-                  <td className="p-3 text-zinc-700">
-                    Verkauf des PV-Stroms am Markt über einen Direktvermarkter; du erhältst eine Marktprämie.
-                  </td>
-                </tr>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">Unentgeltliche Abnahme</td>
-                  <td className="p-3 text-zinc-700">
-                    Option nach Solarpaket I: Überschüsse bis zu bestimmten Anlagengrößen ohne Vergütung an den Netzbetreiber abgeben – ohne Direktvermarktung.
-                  </td>
-                </tr>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">LCOE</td>
-                  <td className="p-3 text-zinc-700">
-                    Levelized Cost of Electricity: Durchschnittliche Erzeugungskosten über die Lebensdauer (€/kWh).
-                  </td>
-                </tr>
-                <tr className="border-t border-zinc-200">
-                  <td className="p-3 font-medium text-zinc-900">IAB / Sonder-AfA</td>
-                  <td className="p-3 text-zinc-700">
-                    Steuerinstrumente für KMU zur Vorab-Gewinnminderung bzw. zusätzlichen Abschreibung.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* E-E-A-T */}
         <section className="mt-14">
           <h2 className="text-2xl font-bold mb-3">Über den Autor</h2>
           <div className="flex items-center gap-4">
             <img
-              src="/Autorenbild.jpg"
+              src={author.avatar}
               alt="Autor"
               className="w-16 h-16 rounded-full object-cover"
               loading="lazy"
@@ -840,32 +759,76 @@ export default function PhotovoltaikUnternehmen2025() {
           </div>
         </section>
 
-        {/* Quellenverzeichnis */}
         <section className="mt-14">
           <h2 className="text-2xl font-bold mb-3">Quellen &amp; weiterführende Studien</h2>
           <ul className="list-disc ml-5 space-y-2 text-sm">
             <li>
-              Fraunhofer ISE: „Aktuelle Fakten zur Photovoltaik in Deutschland“ (Fassung 18.08.2025).
-              https://www.ise.fraunhofer.de/de/veroeffentlichungen/studien/aktuelle-fakten-zur-photovoltaik-in-deutschland.html
+              Fraunhofer ISE: „Aktuelle Fakten zur Photovoltaik in Deutschland“ (Fassung
+              18.08.2025).{" "}
+              <a
+                href="https://www.ise.fraunhofer.de/de/veroeffentlichungen/studien/aktuelle-fakten-zur-photovoltaik-in-deutschland.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`hover:underline ${accent}`}
+              >
+                Link
+              </a>
             </li>
             <li>
-              Bundesnetzagentur: „EEG-Förderung und -Fördersätze“ – Vergütung &amp; anzulegende Werte
-              (August 2025–Januar 2026). https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/EEG_Foerderung/start.html
+              Bundesnetzagentur: „EEG-Förderung und -Fördersätze“ – Vergütung &amp; anzulegende
+              Werte (August 2025–Januar 2026).{" "}
+              <a
+                href="https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/EEG_Foerderung/start.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`hover:underline ${accent}`}
+              >
+                Link
+              </a>
             </li>
             <li>
-              Bundesnetzagentur: „Solaranlagen &amp; unentgeltliche Abnahme (Solarpaket I)“.
-              https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/Solaranlagen/start.html
+              Bundesnetzagentur: „Solaranlagen &amp; unentgeltliche Abnahme (Solarpaket I)“.{" "}
+              <a
+                href="https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/ErneuerbareEnergien/Solaranlagen/start.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`hover:underline ${accent}`}
+              >
+                Link
+              </a>
             </li>
             <li>
-              KfW 270 – Erneuerbare Energien Standard (Förderkredit). https://www.kfw.de/inlandsfoerderung/Unternehmen/Energie-Umwelt/Förderprodukte/Erneuerbare-Energien-Standard-(270)/
+              KfW 270 – Erneuerbare Energien Standard (Förderkredit).{" "}
+              <a
+                href="https://www.kfw.de/inlandsfoerderung/Unternehmen/Energie-Umwelt/Förderprodukte/Erneuerbare-Energien-Standard-(270)/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`hover:underline ${accent}`}
+              >
+                Link
+              </a>
             </li>
             <li>
-              Fraunhofer ISE: „Stromgestehungskosten erneuerbare Energien“ (Studie, Juli 2024).
-              https://www.ise.fraunhofer.de/de/veroeffentlichungen/studien/studie-stromgestehungskosten-erneuerbare-energien.html
+              Fraunhofer ISE: „Stromgestehungskosten erneuerbare Energien“ (Studie, Juli 2024).{" "}
+              <a
+                href="https://www.ise.fraunhofer.de/de/veroeffentlichungen/studien/studie-stromgestehungskosten-erneuerbare-energien.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`hover:underline ${accent}`}
+              >
+                Link
+              </a>
             </li>
             <li>
-              BDEW Strompreisanalyse 2025 (Haushalt/Struktur, Einordnung der Kostenblöcke).
-              https://www.bdew.de/service/daten-und-grafiken/bdew-strompreisanalyse/
+              BDEW Strompreisanalyse 2025 (Einordnung der Kostenblöcke).{" "}
+              <a
+                href="https://www.bdew.de/service/daten-und-grafiken/bdew-strompreisanalyse/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`hover:underline ${accent}`}
+              >
+                Link
+              </a>
             </li>
           </ul>
         </section>
