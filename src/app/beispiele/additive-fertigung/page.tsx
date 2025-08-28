@@ -1,5 +1,6 @@
 // src/app/blog/additive-fertigung-maschinenbau-2025/page.tsx
 import type { Metadata } from "next";
+import Script from "next/script";
  export default function Page() {
    const updated = "2025-08-28";
    const calendlyUrl =
