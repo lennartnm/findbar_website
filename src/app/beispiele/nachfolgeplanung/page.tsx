@@ -43,7 +43,7 @@ const author = {
   name: "Max Mustermann",
   role: "Berater für Nachfolge & M&A im Mittelstand",
   focus: "Unternehmensnachfolge, Unternehmensbewertung, MBO/MBI, Deal-Strukturierung",
-  image: "/public/Autorenbild.jpg",
+  image: "/Autorenbild.jpg",
   linkedin: "https://linkedin.com",
 };
 
@@ -113,7 +113,7 @@ export default function Page() {
         {/* Meta row – Autor */}
         <div className="mt-6 flex items-center gap-3 text-sm text-zinc-700">
           <img
-            src="/public/Autorenbild.jpg"
+            src="/Autorenbild.jpg"
             alt="Autor: Max Mustermann"
             className="w-10 h-10 rounded-full object-cover"
             loading="lazy"
@@ -249,11 +249,11 @@ export default function Page() {
           <picture>
             <source
               media="(max-width: 640px)"
-              srcSet="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&auto=format&fit=crop&w=960"
+              srcSet="/nachfolge2.jpg"
             />
             <img
               loading="lazy"
-              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&auto=format&fit=crop&w=1600"
+              src="/nachfolge2.jpg"
               alt="Ordner, Verträge und Checklisten – die Nachfolge ist bürokratisch anspruchsvoll"
               className="absolute inset-0 h-full w-full object-cover"
             />
@@ -830,7 +830,7 @@ export default function Page() {
         <h2 className="text-2xl font-bold mb-3">Über den Autor</h2>
         <div className="flex items-center gap-4">
           <img
-            src="/public/Autorenbild.jpg"
+            src="/Autorenbild.jpg"
             alt="Autor: Max Mustermann"
             className="w-16 h-16 rounded-full object-cover"
             loading="lazy"
