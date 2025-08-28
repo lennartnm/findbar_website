@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: "https://www.muster-gmbh.de/blog/pv-anlage-firmendach-roi-foerderungen",
     images: [
       {
-        url: "/public/solardach.jpg",
+        url: "/solardach.jpg",
         width: 1600,
         height: 600,
         alt: "PV-Anlage auf Firmendach bei Sonne – ROI & Förderungen einfach erklärt",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/public/solardach.jpg"],
+    images: ["/solardach.jpg"],
   },
 };
 
@@ -44,7 +44,7 @@ const author = {
   role: "Leiter Facility Management (FM)",
   focus:
     "Energie, Nachhaltigkeit, Betriebskostenoptimierung im Gewerbe",
-  image: "/public/Autorenbild.jpg",
+  image: "/Autorenbild.jpg",
   linkedin: "https://linkedin.com",
 };
 
@@ -67,7 +67,7 @@ export default function Page() {
             headline: title,
             description,
             inLanguage: "de",
-            image: ["https://www.muster-gmbh.de/public/solardach.jpg"],
+            image: ["https://www.muster-gmbh.de/solardach.jpg"],
             author: {
               "@type": "Person",
               name: author.name,
@@ -80,7 +80,7 @@ export default function Page() {
               url: "https://www.muster-gmbh.de",
               logo: {
                 "@type": "ImageObject",
-                url: "https://www.muster-gmbh.de/public/logo.png",
+                url: "https://www.muster-gmbh.de/logo.png",
               },
             },
             datePublished: "2025-08-20",
@@ -149,11 +149,11 @@ export default function Page() {
               <picture>
                 <source
                   media="(max-width: 640px)"
-                  srcSet="/public/solardach.jpg"
+                  srcSet="/solardach.jpg"
                 />
                 <img
                   fetchPriority="high"
-                  src="/public/solardach.jpg"
+                  src="/solardach.jpg"
                   alt="Gewerbedach mit Solarmodulen in der Sonne – Start in die Eigenstromversorgung"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
@@ -320,10 +320,10 @@ export default function Page() {
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
-              <source media="(max-width: 640px)" srcSet="/public/windraeder.jpg" />
+              <source media="(max-width: 640px)" srcSet="/windraeder.jpg" />
               <img
                 loading="lazy"
-                src="/public/windraeder.jpg"
+                src="/windraeder.jpg"
                 alt="Vergleich erneuerbare Energien: Windrad und PV als Team im Energiemix"
                 className="absolute inset-0 h-full w-full object-cover"
               />
@@ -585,10 +585,10 @@ export default function Page() {
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
-              <source media="(max-width: 640px)" srcSet="/public/firmendach.png" />
+              <source media="(max-width: 640px)" srcSet="/firmendach.png" />
               <img
                 loading="lazy"
-                src="/public/firmendach.png"
+                src="/firmendach.png"
                 alt="Bürodach mit Solarpanels, Sonnenbogen, Autarkie-Ring, Amortisations-Uhrsymbol und kWh-Markierungen; dezentes Förder-Ribbon."
                 className="absolute inset-0 h-full w-full object-cover"
               />
