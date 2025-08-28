@@ -95,13 +95,13 @@ export default async function BlogIndexPage() {
   const posts = await getLatestPosts(9);
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-6 py-12">
+    <div className="w-full max-w-4xl mx-auto px-6 py-12">
       <header className="mb-8">
         <h1 className="text-4xl md:text-5xl font-semibold tracking-tight font-serif">
-          Blog – Neueste Artikel
+          Der findbar Blog
         </h1>
         <p className="mt-2 text-slate-600">
-          Die letzten 9 Veröffentlichungen im Überblick.
+          Relevante Insights und Themen rund um B2B Marketing und B2B Sales für dich aufbereitet.
         </p>
       </header>
 
