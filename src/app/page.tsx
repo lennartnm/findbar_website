@@ -400,41 +400,41 @@ function BenefitsMarquee() {
 /* ------------------------- BlogSection: 6 Items + Carousel (Pfeile außerhalb) ------------------------ */
 function BlogSection() {
   const items = [
-    {
-      title: "Cloud vs. On-Premise – Welche Lösung ist die richtige für dein Unternehmen?",
-      tease: "Kosten, Sicherheit, Flexibilität: Der direkte Vergleich hilft dir, fundiert zu entscheiden – inklusive Praxisbeispiele und Checkliste.",
-      image: "/Cloud vs On-Premise.png",
-      alt: "Vergleich zwischen Cloud-Infrastruktur und On-Premise-Servern",
+   {
+      title: "Additive Fertigung (3D-Druck) im Maschinenbau 2025: Einsatzmöglichkeiten, Qualität & ROI",
+      tease: "Dieser Praxis-Guide zeigt dir, wo 3D-Druck im Maschinenbau 2025 echten Nutzen stiftet: von schnellen Prototypen über funktionsfähige Betriebsmittel bis hin zu Serien- und Ersatzteilen.",
+      image: "/druck1.png",
+      alt: "3D-Druck",
     },
     {
-      title: "B2B Kunden gewinnen im Jahr 2025 mit Hilfe von KI",
-      tease: "Der wachsende Wettbewerb fordert nach innovativen Marketingansätzen. Vertrauensaufbau wird essentieller denn je. So gelingt es.",
-      image: "/B2B Kunden.png",
-      alt: "Kundengewinnung durch KI im Jahr 2025",
+      title: "Photovoltaik für Unternehmen: Lohnt sich eine PV-Anlage 2025 noch?",
+      tease: "Du möchtest Stromkosten senken, unabhängiger werden und Klimaziele erreichen? Hier erfährst du, wie sich gewerbliche PV-Anlagen 2025 rechnen.",
+      image: "/solar1.png",
+      alt: "Solaranlagen Illustration",
+    },  
+     {
+      title: "Nachfolgeplanung im Mittelstand: Typische Fehler vermeiden",
+      tease: "Du willst dein Unternehmen sicher übergeben – ohne Chaos, Reibungsverluste und Wertvernichtung? In diesem Leitfaden erfährst du, wie du Nachfolgeplanung im Mittelstand strukturiert angehst",
+      image: "/nachfolge1.png",
+      alt: "Unternehmensgebäude",
     },
     {
-      title: "Green Energy im Unternehmen – Photovoltaik und Energiespeicher sinnvoll einsetzen",
-      tease: "Investition, Amortisation, Förderungen: So planen Firmen PV-Anlagen und Speicherlösungen wirtschaftlich.",
-      image: "/Photovoltaik Energiespeicher Unternehmen.png",
-      alt: "Photovoltaik-Module und Batteriespeicher in einem Firmengebäude",
+      title: "Fachkräftemangel im B2B: Wie Unternehmen mit Employer Branding gezielt Talente ansprecheng",
+      tease: "Der Wettbewerb um Talente ist hart – aber mit einer klaren Arbeitgebermarke, einer starken Karriere-Seite und Social Proof erreichst du genau die Menschen, die wirklich zu dir passen.",
+      image: "/fachkraft1.jpg",
+      alt: "Fachkräfte",
     },
     {
-      title: "Predictive Maintenance in der Industrie – So rechnet sich der Einstieg",
-      tease: "Von Sensorik bis Analytics: Ein praxisnaher Leitfaden inkl. ROI-Beispielen und Roadmap für den Rollout.",
-      image: "/Predictive Maintenance.png",
-      alt: "Industriemaschinen mit Sensorik und Datenanalyse",
+      title: "Digitale B2B-Onlineshops: 4 Strategien für ein reibungsloses Kauferlebnis",
+      tease: "Du willst, dass gewerbliche Käufer ohne Reibung bestellen – vom Finden des richtigen Produkts bis zur Bestellung mit Bestellnummer/PO und Zahlungsziel? In diesem Leitfaden bekommst du vier praxiserprobte Strategien.",
+      image: "/ecommerce1.jpg",
+      alt: "B2B E-Commerce",
     },
     {
-      title: "Datenschutz im B2B-Marketing: DSGVO-konforme Lead-Gewinnung",
-      tease: "Wie du rechtssicher trackst, Einwilligungen sauber managst und trotzdem verkaufsrelevante Insights erhältst.",
-      image: "/DSGVO B2B.png",
-      alt: "DSGVO-Konzept mit Schloss und Checkliste",
-    },
-    {
-      title: "Sales-Enablement mit Content: Von der Suche zum qualifizierten Gespräch",
-      tease: "Welche Inhalte Entscheider wirklich brauchen – und wie du sie in deine Pipeline integrierst.",
-      image: "/Sales Enablement Content.png",
-      alt: "Sales- und Marketingabgleich mit Content-Artefakten",
+      title: "Supply Chain Resilience: Strategien für krisenfeste Lieferketten",
+      tease: "In diesem Leitfaden erfährst du, wie du deine Lieferkette robust gegen Krisen machst – mit klaren KPIs, praktikablen Maßnahmen (z. B. Dual Sourcing, Nearshoring, Sicherheitsbestände), digitaler Transparenz und einem wirksamen Supply Chain Risk Management.",
+      image: "/supply1.png",
+      alt: "Supply Chain",
     },
   ];
 
