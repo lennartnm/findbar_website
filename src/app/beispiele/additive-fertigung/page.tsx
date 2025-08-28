@@ -857,32 +857,49 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Weiterführende Artikel */}
-      <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-        <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
-        <ul className="list-disc ml-5 text-sm space-y-2">
-          <li>
-            <a className={`hover:underline ${accent}`} href="/blog/dfam-grundlagen">
-              DfAM Grundlagen&colon; So konstruierst du sinnvoll für 3D-Druck
-            </a>
-          </li>
-          <li>
-            <a className={`hover:underline ${accent}`} href="/blog/qualitaet-additive-fertigung">
-              Qualität in der additiven Fertigung&colon; Prüfplan bis Erstmuster
-            </a>
-          </li>
-          <li>
-            <a className={`hover:underline ${accent}`} href="/blog/digitales-ersatzteillager">
-              Digitales Ersatzteillager&colon; Von CAD bis On-Demand-Teile
-            </a>
-          </li>
-          <li>
-            <a className={`hover:underline ${accent}`} href="/blog/pbf-vs-binder-jetting">
-              PBF vs. Binder Jetting&colon; Das richtige Verfahren wählen
-            </a>
-          </li>
-        </ul>
-      </aside>
+    {/* Weiterführende Artikel */}
+<aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+  <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
+  <ul className="list-disc ml-5 text-sm space-y-2">
+    <li>
+      <a
+        href="#cta-pop"
+        aria-controls="cta-pop"
+        className={`font-medium underline ${accent}`}
+      >
+        DfAM Grundlagen&colon; So konstruierst du sinnvoll für 3D-Druck
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-controls="cta-pop"
+        className={`font-medium underline ${accent}`}
+      >
+        Qualität in der additiven Fertigung&colon; Prüfplan bis Erstmuster
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-controls="cta-pop"
+        className={`font-medium underline ${accent}`}
+      >
+        Digitales Ersatzteillager&colon; Von CAD bis On-Demand-Teile
+      </a>
+    </li>
+    <li>
+      <a
+        href="#cta-pop"
+        aria-controls="cta-pop"
+        className={`font-medium underline ${accent}`}
+      >
+        PBF vs. Binder Jetting&colon; Das richtige Verfahren wählen
+      </a>
+    </li>
+  </ul>
+</aside>
+
 
       {/* Mini-Glossar */}
       <section className="mt-14 mb-20">
