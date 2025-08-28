@@ -149,11 +149,11 @@ export default function Page() {
               <picture>
                 <source
                   media="(max-width: 640px)"
-                  srcSet="/solardach.jpg"
+                  srcSet="https://unsplash.com/photos/tall-apartment-buildings-with-many-windows-and-balconies-L1O-ZtA3dcc"
                 />
                 <img
                   fetchPriority="high"
-                  src="/solardach.jpg"
+                  src="https://unsplash.com/photos/tall-apartment-buildings-with-many-windows-and-balconies-L1O-ZtA3dcc"
                   alt="Gewerbedach mit Solarmodulen in der Sonne – Start in die Eigenstromversorgung"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
