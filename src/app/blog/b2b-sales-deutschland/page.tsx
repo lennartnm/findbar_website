@@ -209,7 +209,7 @@ export default function Page() {
             <h3 className="font-semibold mb-2">Kurz erklärt</h3>
             <p className="m-0">
               Im B2B treffen <em>höherer Deal-Wert</em>, <em>mehr Stakeholder</em> und
-              <em>längere Zyklen</em> aufeinander. Deshalb sind Prozessklarheit,
+              <em> längere Zyklen</em> aufeinander. Deshalb sind Prozessklarheit,
               Content, Demos und Referenzen entscheidend.
             </p>
           </div>
