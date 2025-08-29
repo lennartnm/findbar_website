@@ -1407,6 +1407,9 @@ export default function FindbarPage() {
     <a href="/datenschutz" className="hover:text-slate-700 transition-colors">
       Datenschutz
     </a>
+     <a href="/blog" className="hover:text-slate-700 transition-colors">
+      Blog
+    </a>
   </div>
   <p className="mt-3">
     © {new Date().getFullYear()} findbar. Alle Rechte vorbehalten.
