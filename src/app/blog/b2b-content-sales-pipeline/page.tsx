@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     locale: "de_DE",
     images: [
       {
-        url: "/content-wird-zu-umsatz-illustration.jpg",
+        url: "/content-creation-im-b2b.jpg",
         width: 1600,
         height: 600,
         alt: "Illustration: Content wird zu Umsatz im B2B",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/content-wird-zu-umsatz-illustration.jpg"],
+    images: ["/content-creation-im-b2b.jpg"],
   },
 };
 
@@ -906,7 +906,7 @@ export default function Page() {
             headline: title,
             description,
             inLanguage: "de-DE",
-            image: "https://www.findbar.info/content-wird-zu-umsatz-illustration.jpg",
+            image: "/content-creation-im-b2b.jpg",
             datePublished: "2025-08-28",
             dateModified: "2025-08-28",
             author: {
