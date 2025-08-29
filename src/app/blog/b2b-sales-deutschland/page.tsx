@@ -155,7 +155,7 @@ export default function Page() {
         <ol className="list-decimal ml-5 space-y-2">
           <li>
             <a className={`hover:underline ${accent} font-medium`} href="#definition">
-              Was ist B2B Sales&quest; Definition &amp; Abgrenzung
+              Was ist B2B Sales; Definition &amp; Abgrenzung
             </a>
           </li>
           <li>
@@ -194,7 +194,7 @@ export default function Page() {
       {/* Hauptteil */}
       <section id="definition" className="mt-10">
         <h2 className="text-2xl font-bold mb-3">
-          Was ist B2B Sales&quest; Definition &amp; Abgrenzung
+          Was ist B2B Sales; Definition &amp; Abgrenzung
         </h2>
         <p className="leading-relaxed">
           <strong>B2B Sales</strong> beschreibt den Vertrieb zwischen
@@ -445,7 +445,7 @@ export default function Page() {
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <div className="md:col-span-2 rounded-xl border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">
-              Was bedeutet das f&uuml;r deine Pipeline&quest;
+              Was bedeutet das f&uuml;r deine Pipeline;
             </h3>
             <p className="m-0">
               Plane in Deutschland mit mehr Touchpoints und klaren Nachweisen.
@@ -546,7 +546,7 @@ export default function Page() {
 
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-xl border border-zinc-200 p-4">
-            <h3 className="font-semibold mb-2">1&colon; ICP &amp; Messaging</h3>
+            <h3 className="font-semibold mb-2">1; ICP &amp; Messaging</h3>
             <p className="m-0">
               Formuliere Nutzen in Kundensprache: Effizienz, Sicherheit,
               Compliance, Verfügbarkeit. Vermeide Superlative &ndash; belege mit
@@ -554,14 +554,14 @@ export default function Page() {
             </p>
           </div>
           <div className="rounded-xl border border-zinc-200 p-4">
-            <h3 className="font-semibold mb-2">2&colon; Rechtssicherer Outreach</h3>
+            <h3 className="font-semibold mb-2">2; Rechtssicherer Outreach</h3>
             <p className="m-0">
               Dokumentiere mutmaßliche Einwilligung, ermögliche einfachen
               Widerspruch, halte Blacklists aktuell. E-Mail nur mit Einwilligung.
             </p>
           </div>
           <div className="rounded-xl border border-zinc-200 p-4">
-            <h3 className="font-semibold mb-2">3&colon; E-Rechnung integrieren</h3>
+            <h3 className="font-semibold mb-2">3; E-Rechnung integrieren</h3>
             <p className="m-0">
               EN&nbsp;16931-Formate (XRechnung, ZUGFeRD) beherrschen, Prozesse
               testen, Kundenstammdaten prüfen und Connectoren fr&uuml;hzeitig
@@ -570,7 +570,7 @@ export default function Page() {
           </div>
 
           <div className="rounded-xl border border-zinc-200 p-4">
-            <h3 className="font-semibold mb-2">4&colon; Messe-Playbook</h3>
+            <h3 className="font-semibold mb-2">4; Messe-Playbook</h3>
             <ul className="list-disc ml-5 m-0 space-y-1">
               <li>Vorab 6&ndash;8 Wochen: Termin-Setter &amp; Agenda</li>
               <li>Am Stand: Qual-Fragen, Kurz-Demo, Nächste Schritte</li>
@@ -580,7 +580,7 @@ export default function Page() {
           </div>
 
           <div className="rounded-xl border border-zinc-200 p-4">
-            <h3 className="font-semibold mb-2">5&colon; Deal-Risiken senken</h3>
+            <h3 className="font-semibold mb-2">5; Deal-Risiken senken</h3>
             <p className="m-0">
               Security-Fragebogen, DPA, TOMs und Referenzen parat. Ein
               <em> Mutual Action Plan</em> macht Timing und Verantwortlichkeiten
@@ -589,7 +589,7 @@ export default function Page() {
           </div>
 
           <div className="rounded-xl border border-zinc-200 p-4">
-            <h3 className="font-semibold mb-2">6&colon; DSO &amp; Cashflow</h3>
+            <h3 className="font-semibold mb-2">6; DSO &amp; Cashflow</h3>
             <p className="m-0">
               Split-Invoices nach Meilensteinen, Skonto-Anreize, digitale
               Freigaben &amp; sofortige Faktura verkürzen Zeit bis Zahlung.
@@ -604,7 +604,7 @@ export default function Page() {
         <div className="space-y-6 text-zinc-700">
           <div>
             <h3 className="font-semibold">
-              Was unterscheidet B2B Sales von B2C Vertrieb&quest;
+              Was unterscheidet B2B Sales von B2C Vertrieb;
             </h3>
             <p>
               Größere Buying-Teams, mehr Touchpoints, längere Zyklen, formale
@@ -613,7 +613,7 @@ export default function Page() {
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">Ist Kaltakquise per Telefon erlaubt&quest;</h3>
+            <h3 className="font-semibold">Ist Kaltakquise per Telefon erlaubt;</h3>
             <p>
               Ja, aber nur mit <em>mutmaßlicher Einwilligung</em> nach §&nbsp;7
               UWG (B2B). E-Mail-Werbung ist ohne Einwilligung unzulässig.
@@ -621,7 +621,7 @@ export default function Page() {
           </div>
           <div>
             <h3 className="font-semibold">
-              Ab wann ist die E-Rechnung in Deutschland Pflicht&quest;
+              Ab wann ist die E-Rechnung in Deutschland Pflicht;
             </h3>
             <p>
               Seit 01.01.2025 ist die E-Rechnung Standard im inländischen B2B.
@@ -631,7 +631,7 @@ export default function Page() {
           </div>
           <div>
             <h3 className="font-semibold">
-              Wie kurz sind Zahlungsziele in Deutschland typischerweise&quest;
+              Wie kurz sind Zahlungsziele in Deutschland typischerweise;
             </h3>
             <p>
               Im EU-Vergleich eher kurz. Je nach Branche &amp; Lage schwanken
@@ -640,7 +640,7 @@ export default function Page() {
           </div>
           <div>
             <h3 className="font-semibold">
-              Welche Rolle spielen Messen im deutschen B2B&quest;
+              Welche Rolle spielen Messen im deutschen B2B;
             </h3>
             <p>
               Eine große: Deutschland ist Top-Messeplatz. Für komplexe Produkte
@@ -714,7 +714,7 @@ export default function Page() {
         <p className="leading-relaxed">
           <strong>
             Wie definierst du B2B Sales und was ist speziell in Deutschland zu
-            beachten&quest;
+            beachten;
           </strong>{" "}
           B2B Sales ist der strukturierte Vertrieb zwischen Unternehmen. In
           Deutschland funktionieren Deals mit klaren Nachweisen, rechtssicheren
@@ -728,7 +728,7 @@ export default function Page() {
       <section aria-label="Kontakt" className="mt-14">
         <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
           <h2 className="text-xl font-bold mb-2">
-            Möchtest du Blogartikel f&uuml;r dein B2B-Angebot einführen&quest;
+            Möchtest du Blogartikel f&uuml;r dein B2B-Angebot einführen;
           </h2>
           <p className="text-zinc-700 mb-4">
             Unsere KI schreibt Expertenartikel und identifiziert anonyme
