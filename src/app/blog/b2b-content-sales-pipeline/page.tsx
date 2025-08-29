@@ -85,10 +85,10 @@ export default function Page() {
             <picture>
               <source
                 media="(max-width: 640px)"
-                srcSet="/content-wird-zu-umsatz-illustration.jpg"
+                srcSet="/content-creation-im-b2b.jpg"
               />
               <img
-                src="/content-wird-zu-umsatz-illustration.jpg"
+                src="/content-creation-im-b2b.jpg"
                 alt="Content wird zu Umsatz: So verwandelt ein B2B-Blog Aufmerksamkeit in Leads"
                 className="absolute inset-0 h-full w-full object-cover"
                 fetchPriority="high"
