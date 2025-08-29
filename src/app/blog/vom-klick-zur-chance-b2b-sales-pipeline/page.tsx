@@ -763,7 +763,7 @@ export default function Page() {
         <div className="mt-4 flex items-center gap-3">
           <ArrowRight className={`w-4 h-4 ${accent}`} aria-hidden="true" />
           <p className="text-sm text-zinc-700">
-            Überprüft von: <strong>{author.name}</strong> – {author.role}.{" "}
+            Überprüft von: <strong>findbar Redaktion</strong> – .{" "}
             <a href={author.linkedin} className={`hover:underline ${accent}`}>
               LinkedIn
             </a>
