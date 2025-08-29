@@ -248,10 +248,10 @@ export default function Page() {
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
-              <source media="(max-width: 640px)" srcSet="/früher-war-kaltaquise-primär-via-telefon.webp" />
+              <source media="(max-width: 640px)" srcSet="/früher-war-kaltaquise-primär-via-telefon.webp" />
               <img
                 loading="lazy"
-                src="/früher-war-kaltaquise-primär-via-telefon.webp"
+                src="/früher-war-kaltaquise-primär-via-telefon.webp"
                 alt="Früher war Kaltakquise primär via Telefon – heute gibt es mehrere Kanäle"
                 className="absolute inset-0 h-full w-full object-cover"
               />
