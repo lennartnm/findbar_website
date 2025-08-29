@@ -845,27 +845,27 @@ export default function Page() {
         <ul className="list-disc ml-5 space-y-2 text-sm">
           <li>
             McKinsey (2024): „Five fundamental truths: How B2B winners keep
-            growing“. https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/five-fundamental-truths-how-b2b-winners-keep-growing :contentReference[oaicite:0]{index=0}
+            growing“. https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/five-fundamental-truths-how-b2b-winners-keep-growing 
           </li>
           <li>
             Gartner (2025 Berichte/Recaps): Präferenz für „rep-free buying“
-            und Konsequenzen für Kaufreue. https://www.gartner.com/en/sales/insights/b2b-buying-journey &amp; https://www.demandgenreport.com/industry-news/news-brief/3-out-of-5-b2b-buyers-prefer-a-rep-free-buying-experience-gartner/49802/ :contentReference[oaicite:1]{index=1}
+            und Konsequenzen für Kaufreue. https://www.gartner.com/en/sales/insights/b2b-buying-journey &amp; https://www.demandgenreport.com/industry-news/news-brief/3-out-of-5-b2b-buyers-prefer-a-rep-free-buying-experience-gartner/49802/ 
           </li>
           <li>
             Edelman &amp; LinkedIn (2025): „B2B Thought Leadership Impact
-            Report“. https://www.edelman.com/expertise/Business-Marketing/2025-b2b-thought-leadership-report :contentReference[oaicite:2]{index=2}
+            Report“. https://www.edelman.com/expertise/Business-Marketing/2025-b2b-thought-leadership-report 
           </li>
           <li>
-            Salesforce (2024/25): „State of Sales“. https://www.salesforce.com/resources/research-reports/state-of-sales/ :contentReference[oaicite:3]{index=3}
+            Salesforce (2024/25): „State of Sales“. https://www.salesforce.com/resources/research-reports/state-of-sales/ 
           </li>
           <li>
-            HubSpot (2024): „Sales Trends Report“. https://www.hubspot.com/hubfs/HubSpots%202024%20Sales%20Trends%20Report.pdf :contentReference[oaicite:4]{index=4}
+            HubSpot (2024): „Sales Trends Report“. https://www.hubspot.com/hubfs/HubSpots%202024%20Sales%20Trends%20Report.pdf 
           </li>
           <li>
-            Nextiva (2025): „How to Survive Sales Discovery Calls“. https://www.nextiva.com/blog/sales-discovery-calls.html :contentReference[oaicite:5]{index=5}
+            Nextiva (2025): „How to Survive Sales Discovery Calls“. https://www.nextiva.com/blog/sales-discovery-calls.html 
           </li>
           <li>
-            McKinsey (2021): „B2B sales: Omnichannel everywhere, every time“. https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/b2b-sales-omnichannel-everywhere-every-time :contentReference[oaicite:6]{index=6}
+            McKinsey (2021): „B2B sales: Omnichannel everywhere, every time“. https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/b2b-sales-omnichannel-everywhere-every-time 
           </li>
         </ul>
       </section>
