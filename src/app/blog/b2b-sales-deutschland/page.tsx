@@ -72,7 +72,7 @@ export default function Page() {
         {/* Datum & Lesedauer */}
         <div className="mt-2 text-sm text-zinc-600">
           Zuletzt aktualisiert am{" "}
-          <time dateTime={publishedISO}>20.08</time>
+          <time dateTime={publishedISO}>29.08</time>
           {" · "}Lesedauer: <span className="tabular-nums">10 Minuten</span>
         </div>
 
