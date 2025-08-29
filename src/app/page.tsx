@@ -133,6 +133,9 @@ function Header() {
           <a href="#faq" className="text-sm" style={{ color: "#334155" }}>
             FAQ
           </a>
+            <a href="/blog" className="text-sm" style={{ color: "#334155" }}>
+            Blog
+          </a>
         </nav>
         <Button asChild>
           <a className="text-white" href="#preise">
