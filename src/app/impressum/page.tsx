@@ -121,7 +121,8 @@ export default function ImpressumPage() {
               <p>
                 Lennart Niehausmeier<br />
                 Am Rabenecksiek 5<br />
-                32139 Spenge
+                32139 Spenge<br /><br />
+                Umsatzsteuer-ID: DE326540742
               </p>
             </div>
 
