@@ -1,4 +1,6 @@
 import "./globals.css";
+import Header from "@/components/ui/Header";
+import Footer from "@/components/ui/Footer";
 import type { Metadata } from "next";
 import CookieBanner from "@/components/ui/CookieBanner";
 import AnalyticsProvider from "@/components/ui/AnalyticsProvider";
