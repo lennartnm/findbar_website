@@ -166,7 +166,7 @@ function Hero() {
       {/* Content */}
       <div className="relative z-20">
         <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
-          <span className="italic font-bold">findbar:</span> Skaliere durch KI-Blogartikel und
+          <span className="italic font-bold"></span> Skaliere durch KI-Blogartikel und
           <br className="hidden md:inline" /> smarter Erkennung relevanter B2B-Besucher.
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-slate-600">
