@@ -1368,25 +1368,7 @@ export default function FindbarPage() {
       {/* 11. FAQ */}
       <FAQSection />
 
-  <footer className="border-t border-slate-100 py-8 text-center text-sm text-slate-500">
-  <div className="space-x-4">
-    <a href="/impressum" className="hover:text-slate-700 transition-colors">
-      Impressum
-    </a>
-    <a href="/agb" className="hover:text-slate-700 transition-colors">
-      AGB
-    </a>
-    <a href="/datenschutz" className="hover:text-slate-700 transition-colors">
-      Datenschutz
-    </a>
-     <a href="/blog" className="hover:text-slate-700 transition-colors">
-      Blog
-    </a>
-  </div>
-  <p className="mt-3">
-    © {new Date().getFullYear()} findbar. Alle Rechte vorbehalten.
-  </p>
-</footer>
+
 
 
       {/* Calendly Popup */}
