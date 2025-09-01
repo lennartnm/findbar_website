@@ -699,7 +699,7 @@ function HowItHelpsSection() {
               }}
             />
             <img
-              src="/LupeIcon.png"
+              src="/LupeIconNeu.png"
               alt="Darstellung von KI-optimierten Blogartikeln"
               className="relative z-20 w-full rounded-sm"
             />
@@ -894,7 +894,7 @@ function UnserZielSection() {
                   }}
                 />
                 <img
-                  src="/RaketeIcon.png"
+                  src="/RaketeIconNeu.png"
                   alt="Darstellung des Done 4 You Prozesses"
                   className="relative z-20 w-full rounded-sm"
                 />
