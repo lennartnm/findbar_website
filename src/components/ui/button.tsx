@@ -8,8 +8,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[#1b4d2b] text-white hover:opacity-95",
-        outline: "bg-transparent text-[#1b4d2b] border-[#1b4d2b] hover:bg-[#1b4d2b]/5",
+        // filled default; on hover: transparent bg, green text, keep border visible
+        default:
+          "bg-[#1b4d2b] text-white border-[#1b4d2b] hover:bg-transparent hover:text-[#1b4d2b] hover:shadow-none",
+
+        // outline stays transparent; on hover keep it transparent (no fill), text already green
+        outline:
+          "bg-transparent text-[#1b4d2b] border-[#1b4d2b] hover:bg-transparent hover:shadow-none",
+
         ghost: "bg-transparent hover:bg-slate-100"
       },
       size: {
@@ -20,8 +26,8 @@ const buttonVariants = cva(
       },
       radius: {
         none: "rounded-none",
-        sm: "rounded-sm",     // sehr geringe Abrundung
-        md: "rounded"         // falls du etwas mehr willst
+        sm: "rounded-sm", // sehr geringe Abrundung
+        md: "rounded"     // falls du etwas mehr willst
       }
     },
     defaultVariants: { variant: "default", size: "default", radius: "sm" }
@@ -39,13 +45,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, radius, className }))}
+        className={cn(buttonVariants({ variant, size, radius }), className)}
         ref={ref}
         {...props}
       />
     );
   }
 );
+
 Button.displayName = "Button";
 
 export { Button, buttonVariants };
