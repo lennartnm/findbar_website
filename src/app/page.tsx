@@ -123,7 +123,7 @@ function CalendlyModal({
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white px-6 py-28 text-center">
+    <section className="relative overflow-hidden bg-white px-6 py-28 text-left">
       {/* Sehr dezentes Raster, sanftes Fade zu Weiß */}
       <div
         aria-hidden
@@ -169,7 +169,7 @@ function Hero() {
           <span className="italic font-bold"></span> Skaliere durch KI-Blogartikel und
           <br className="hidden md:inline" /> smarter Erkennung relevanter B2B-Besucher.
         </h1>
-        <p className="mx-auto mt-5 max-w-2xl text-slate-600">
+        <p className="mt-5 max-w-2xl text-slate-600">
           Mehr Sichtbarkeit, mehr Leads, dank KI: Wir platzieren dein B2B-Angebot bei Google & ChatGPT und identifizieren anonyme Firmenbesucher für deinen Vertrieb.
         </p>
         <Button asChild>
@@ -198,6 +198,7 @@ function Hero() {
     </section>
   );
 }
+
 
 /* ---------------------- VisitorRevealSection (overlay info on scan) ---------------------- */
 function VisitorRevealSection() {
