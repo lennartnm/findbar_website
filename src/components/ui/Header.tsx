@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function Header() {
@@ -7,13 +8,20 @@ export default function Header() {
       <div className="w-full max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Linke Seite: Brand + Navigation */}
         <div className="flex items-center gap-10">
-          {/* Brand */}
+          {/* Brand (Logo) */}
           <a
             href="/"
-            className="text-xl md:text-2xl font-serif italic font-bold tracking-tight text-slate-900 hover:opacity-90"
+            className="inline-flex items-center"
             aria-label="findbar – Startseite"
           >
-            findbar
+            <Image
+              src="/Findbar%20Logo%20PNG.webp"
+              alt="findbar Logo"
+              width={160}
+              height={40}
+              priority
+              className="h-8 md:h-10 w-auto"
+            />
           </a>
 
           {/* Navigation */}
