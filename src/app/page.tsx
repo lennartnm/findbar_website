@@ -664,33 +664,43 @@ function HowItHelpsSection() {
   return (
     <section id="how-it-helps" className="py-20 border-t border-slate-100">
       <div className={containerClass}>
-        <h2 className={`text-3xl font-semibold ${serifClass} text-center`}>
-          So helfen dir KI-optimierte Blogartikel mit intelligenter Leads-Erkennung
-        </h2>
-        <p className="mt-4 text-slate-600 text-center max-w-2xl mx-auto">
-          Artikel, die wirken: sichtbar bei Google, spannend für Leser und wertvoll für deine Sales-Pipeline.
-        </p>
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          
+          {/* Linke Hälfte: Headline + Beschreibung */}
+          <div>
+            <h2 className={`text-3xl font-semibold ${serifClass}`}>
+              So helfen dir KI-optimierte Blogartikel mit intelligenter Leads-Erkennung
+            </h2>
+            <p className="mt-4 text-slate-600">
+              Artikel, die wirken: sichtbar bei Google, spannend für Leser und wertvoll für deine Sales-Pipeline.
+            </p>
+          </div>
 
-        {/* Liste in 2 Spalten */}
-        <div className="mt-12 grid md:grid-cols-2 gap-8">
-          {vorteile.map((v, i) => (
-            <div key={i} className="flex items-start gap-3">
-              {/* Zahl im Kreis */}
-              <div className="shrink-0 inline-flex size-10 items-center justify-center rounded-sm
-                              bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
-                {i + 1}
-              </div>
-              <div>
-                <h4 className="font-semibold">{v.title}</h4>
-                <p className="text-sm text-slate-600">{v.desc}</p>
-              </div>
-            </div>
-          ))}
+          {/* Rechte Hälfte: Stichpunkte */}
+          <div>
+            <ul className="space-y-6">
+              {vorteile.map((v, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  {/* Zahl im Kreis */}
+                  <div className="shrink-0 inline-flex size-10 items-center justify-center rounded-sm
+                                  bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
+                    {i + 1}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">{v.title}</h4>
+                    <p className="text-sm text-slate-600">{v.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
       </div>
     </section>
   );
 }
+
 
 
 
