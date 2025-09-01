@@ -876,7 +876,7 @@ function UnserZielSection() {
     <section id="done4you" className="py-20">
       <div className={containerClass}>
         <div
-          className="relative w-full overflow-hidden rounded-sm md:rounded-[32px] text-white shadow-xl"
+          className="relative w-full overflow-hidden rounded-sm text-white shadow-xl"
           style={{
             background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)`,
           }}
