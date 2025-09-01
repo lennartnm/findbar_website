@@ -876,7 +876,7 @@ function UnserZielSection() {
             background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)`,
           }}
         >
-          <div className="relative z-10 grid items-start gap-12 px-6 py-12 md:grid-cols-2 md:px-12">
+          <div className="relative z-10 grid md:grid-cols-2 gap-12 px-6 py-12 md:px-12 items-start">
             
             {/* Linke Hälfte: Headline + Intro */}
             <div>
@@ -891,7 +891,7 @@ function UnserZielSection() {
             </div>
 
             {/* Rechte Hälfte: Bullets */}
-            <div>
+            <div className="mt-2">
               <ul className="space-y-6">
                 {punkte.map((p, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -916,6 +916,7 @@ function UnserZielSection() {
     </section>
   );
 }
+
 
 
 
