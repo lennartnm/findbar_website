@@ -1360,7 +1360,7 @@ export default function FindbarPage() {
       {/* 7. An wen richtet sich unser Angebot */}
       <IdentificationSection />
       {/* 8. Mehr Leads / Mehr Sichtbarkeit */}
-      <LeadsMarquee />
+      
       {/* 9. Pricing */}
   
       <PreiseSection onOpenCalendly={() => setCalOpen(true)} />
