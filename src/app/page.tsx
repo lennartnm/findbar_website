@@ -930,7 +930,7 @@ function UnserZielSection() {
           </div>
 
           {/* zarter Innenrand */}
-          <div className="pointer-events-none absolute inset-0 rounded-sm md:rounded-[32px] ring-1 ring-white/10" />
+          <div className="pointer-events-none absolute inset-0 rounded-sm ring-1 ring-white/10" />
         </div>
       </div>
     </section>
