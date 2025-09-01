@@ -1340,7 +1340,7 @@ export default function FindbarPage() {
   return (
     <div className="bg-white text-slate-900">
       {/* 1. Header */}
-     
+     <Header />
       {/* 2. Hero */}
       <Hero />
       {/* 3. Benefits mit Marquee */}
@@ -1367,6 +1367,7 @@ export default function FindbarPage() {
       <AblaufSection />
       {/* 11. FAQ */}
       <FAQSection />
+      <Footer />
 
 
 
