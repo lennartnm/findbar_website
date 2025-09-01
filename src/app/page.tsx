@@ -1169,7 +1169,7 @@ function AblaufSection() {
     <section id="ablauf" className="py-20">
       <div className={containerClass}>
         <div
-          className="relative overflow-hidden rounded-sm md:rounded-[32px] text-white shadow-xl"
+          className="relative overflow-hidden rounded-sm  text-white shadow-xl"
           style={{ background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)` }}
         >
           <div className="relative z-10 px-6 py-12 md:px-12">
@@ -1224,7 +1224,7 @@ function AblaufSection() {
           </div>
 
           {/* zarter Innenrand */}
-          <div className="pointer-events-none absolute inset-0 rounded-sm md:rounded-[32px] ring-1 ring-white/10" />
+          <div className="pointer-events-none absolute inset-0 rounded-sm ring-1 ring-white/10" />
         </div>
       </div>
     </section>
