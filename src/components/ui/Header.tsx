@@ -52,7 +52,7 @@ export default function Header() {
         {/* Desktop CTA */}
         <div className="hidden md:block md:self-end">
           <Button asChild className="self-end">
-            <a href="/kontakt">Jetzt anfragen</a>
+            <a href="/#preise">Jetzt anfragen</a>
           </Button>
         </div>
 
@@ -88,7 +88,7 @@ export default function Header() {
             ))}
           </div>
           <Button asChild className="w-full">
-            <a href="/kontakt" onClick={() => setOpen(false)}>Jetzt anfragen</a>
+            <a href="/#preise" onClick={() => setOpen(false)}>Jetzt anfragen</a>
           </Button>
         </div>
       </div>
