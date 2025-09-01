@@ -894,7 +894,7 @@ function UnserZielSection() {
                   }}
                 />
                 <img
-                  src="/WachstumGraph.png"
+                  src="/FindbarGrowth.png"
                   alt="Darstellung des Done 4 You Prozesses"
                   className="relative z-20 w-full rounded-sm"
                 />
