@@ -699,7 +699,7 @@ function HowItHelpsSection() {
               }}
             />
             <img
-              src="/LupeIconNeu.png"
+              src="/LupeIconNeuNeu.png"
               alt="Darstellung von KI-optimierten Blogartikeln"
               className="relative z-20 w-full rounded-sm"
             />
