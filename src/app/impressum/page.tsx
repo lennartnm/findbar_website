@@ -9,15 +9,10 @@ const RG600 = "#1b4d2b"; // Racing Green
 const RG300 = "#7ca98e";
 const serifClass = "font-serif";
 
-
-
-
-
 export default function ImpressumPage() {
   return (
     <div className="bg-white text-slate-900">
-    
-    
+      <Header />
 
       <main className="w-full max-w-6xl mx-auto px-6 py-16">
         <h1 className={`text-3xl md:text-4xl ${serifClass} font-semibold mb-8`}>
@@ -52,10 +47,6 @@ export default function ImpressumPage() {
               </p>
             </div>
 
-         
-
-          
-
             <div>
               <h2 className="font-semibold">Verantwortlich für den Inhalt</h2>
               <p>
@@ -72,5 +63,7 @@ export default function ImpressumPage() {
           </div>
         </div>
       </main>
-
-     
+      <Footer />
+    </div>
+  );
+}
