@@ -16,8 +16,8 @@ const serifClass = "font-serif";
 export default function ImpressumPage() {
   return (
     <div className="bg-white text-slate-900">
-      <Header />
-      <FirmNameMarquee /> {/* Marquee direkt unter dem Header */}
+    
+    
 
       <main className="w-full max-w-6xl mx-auto px-6 py-16">
         <h1 className={`text-3xl md:text-4xl ${serifClass} font-semibold mb-8`}>
