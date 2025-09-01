@@ -17,13 +17,13 @@ export default function DatenschutzPage() {
     <div className="bg-white text-slate-900">
       <Header />
       
-      <main className="w-full max-w-5xl mx-auto px-6 py-16">
-        <h1 className={`text-3xl md:text-6xl ${serifClass} font-semibold mb-8`}>
+      <main className="w-full max-w-6xl mx-auto px-6 py-16">
+        <h1 className={`text-2xl md:text-6xl ${serifClass} font-semibold mb-8`}>
           Datenschutzerklärung
         </h1>
 
         <div
-          className="rounded-2xl text-white p-8 shadow-lg"
+          className="rounded-sm text-white p-8 shadow-lg"
           style={{
             background: `linear-gradient(90deg, ${RG300}, ${RG600})`,
           }}
