@@ -91,11 +91,11 @@ function CalendlyModal({
         onClick={onClose}
       />
       {/* Dialog */}
-      <div className="relative z-[101] w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-xl">
+      <div className="relative z-[101] w-full max-w-4xl overflow-hidden rounded-sm bg-white shadow-xl">
         <div className="flex items-center justify-between border-b border-slate-200 px-5 py-3">
           <button
             onClick={onClose}
-            className="rounded-md border border-slate-200 px-2 py-1 text-sm hover:bg-slate-50"
+            className="rounded-sm border border-slate-200 px-2 py-1 text-sm hover:bg-slate-50"
             aria-label="Popup schließen"
           >
             Schließen
@@ -248,7 +248,7 @@ function VisitorRevealSection() {
       <div className={containerClass}>
         {/* Headline */}
         <div className="mx-auto max-w-3xl text-left md:text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs shadow-sm">
+          <span className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-3 py-1 text-xs shadow-sm">
             <Eye className="h-3.5 w-3.5 text-slate-700" />
             <span className="text-slate-700">Lead-Identifizierung</span>
           </span>
@@ -263,13 +263,13 @@ function VisitorRevealSection() {
         {/* Visual Row */}
         <div className="mt-12 grid gap-8 md:grid-cols-2">
           {/* Live-Traffic Card */}
-          <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="relative overflow-hidden rounded-sm border border-slate-200 bg-white shadow-sm">
             <div className="flex items-center justify-between px-5 pt-5">
               <span className={`text-lg font-semibold ${serifClass}`}>Live-Traffic</span>
               <span className="text-xs text-slate-500">Echtzeit-Scan</span>
             </div>
             <div className="relative px-5 pt-4 pb-5">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-50">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-slate-50">
                 <img
                   src="DACH Scan.png"
                   alt="Traffic Map DACH"
@@ -281,12 +281,12 @@ function VisitorRevealSection() {
                     <div
                       key={i}
                       style={{left:pos.x,top:pos.y}}
-                      className="absolute h-3.5 w-3.5 rounded-full bg-emerald-500/90 animate-ping"
+                      className="absolute h-3.5 w-3.5 rounded-sm bg-emerald-500/90 animate-ping"
                     />
                   ))}
                 </div>
                 <div className="absolute left-4 right-4 bottom-4">
-                  <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white/90 backdrop-blur px-3 py-2 text-xs text-slate-700 shadow-sm">
+                  <div className="flex items-center gap-2 rounded-sm border border-slate-200 bg-white/90 backdrop-blur px-3 py-2 text-xs text-slate-700 shadow-sm">
                     <Search className="h-4 w-4" />
                     <span>Mustererkennung, IP-Auflösung &amp; Firmendatenbanken</span>
                   </div>
@@ -296,20 +296,20 @@ function VisitorRevealSection() {
           </div>
 
           {/* Erkannte Unternehmen */}
-          <div className="relative overflow-hidden rounded-2xl border border-emerald-200 bg-emerald-50/40 shadow-sm">
+          <div className="relative overflow-hidden rounded-sm border border-emerald-200 bg-emerald-50/40 shadow-sm">
             <div className="flex items-center justify-between px-5 py-4">
               <span className={`text-lg font-semibold ${serifClass}`}>Erkannte Unternehmen</span>
               <span className="text-xs text-emerald-700">Sales-Ready</span>
             </div>
             <ul className="px-5 pt-2 pb-2 space-y-3">
               {companies.map((c, i) => (
-                <li key={i} className="rounded-xl border border-emerald-200/70 bg-white px-4 py-3 text-sm shadow-sm">
+                <li key={i} className="rounded-sm border border-emerald-200/70 bg-white px-4 py-3 text-sm shadow-sm">
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <div className="font-medium text-slate-900">{c.name}</div>
                       <div className="mt-0.5 text-slate-600">Gelesen: {c.article}</div>
                     </div>
-                    <span className="shrink-0 inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-1 text-[10px] font-medium text-emerald-700">
+                    <span className="shrink-0 inline-flex items-center gap-1 rounded-sm border border-emerald-200 bg-emerald-50 px-2 py-1 text-[10px] font-medium text-emerald-700">
                       <CheckCircle className="h-3 w-3" />
                       DSGVO-konform
                     </span>
@@ -328,9 +328,9 @@ function VisitorRevealSection() {
           {steps.map((title, i) => (
             <div
               key={i}
-              className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              className="rounded-sm border border-slate-200 bg-slate-50 p-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <div className="mx-auto inline-flex size-10 items-center justify-center rounded-full bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
+              <div className="mx-auto inline-flex size-10 items-center justify-center rounded-sm bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
                 {i + 1}
               </div>
               <p className="mt-2 text-sm text-slate-700">{title}</p>
@@ -384,7 +384,7 @@ function EffortSection() {
             </p>
 
             <div
-              className="mt-6 inline-flex items-center rounded-xl border px-4 py-2 text-sm font-medium shadow-sm"
+              className="mt-6 inline-flex items-center rounded-sm border px-4 py-2 text-sm font-medium shadow-sm"
               style={{ borderColor: "#A7F3D0", background: "rgba(16,185,129,0.08)", color: "#065F46" }}
             >
               Mit <span className="mx-1 italic">findbar</span>: <span className="ml-1 font-bold">Ab 19,98€</span> pro Artikel
@@ -402,7 +402,7 @@ function EffortSection() {
               Normaler Aufwand: <span className="font-medium">Detailschätzung (Orientierungswerte)</span>
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div className="overflow-hidden rounded-sm border border-slate-200 bg-white shadow-sm">
               {/* Header-Zeile */}
               <div className="grid grid-cols-[1fr_auto] items-center border-b border-slate-200 bg-slate-50/60 px-4 py-3 text-xs font-semibold text-slate-700">
                 <span>Arbeitsschritt</span>
@@ -417,7 +417,7 @@ function EffortSection() {
                     className="grid grid-cols-[1fr_auto] items-center px-4 py-3 text-sm transition-colors hover:bg-slate-50"
                   >
                     <span className="pr-4 text-slate-800">{r.label}</span>
-                    <span className="rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs text-slate-700">
+                    <span className="rounded-sm border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs text-slate-700">
                       {r.time}
                     </span>
                   </div>
@@ -463,9 +463,9 @@ function BenefitsMarquee() {
             ({ icon: Icon, label, help }, i) => (
               <div
                 key={i}
-                className="shrink-0 w-64 rounded-xl border border-white/10 bg-white/5 px-8 py-8 text-center backdrop-blur-sm shadow-sm"
+                className="shrink-0 w-64 rounded-sm border border-white/10 bg-white/5 px-8 py-8 text-center backdrop-blur-sm shadow-sm"
               >
-                <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-sm border border-white/20 bg-white/10">
                   <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
                 </div>
                 <div className={`text-lg italic ${serifClass}`}>{label}</div>
@@ -589,7 +589,7 @@ function BlogSection() {
             onClick={prev}
             disabled={!canPrev}
             aria-label="Vorherige Beispiele"
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-slate-200 bg-white shadow-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <ArrowLeft className="h-5 w-5 text-slate-700" />
           </button>
@@ -615,7 +615,7 @@ function BlogSection() {
               {items.map((b, i) => (
                 <article
                   key={i}
-                  className="basis-full md:basis-1/3 shrink-0 overflow-hidden rounded-xl border border-slate-200 text-left shadow-sm transition-shadow hover:shadow-md"
+                  className="basis-full md:basis-1/3 shrink-0 overflow-hidden rounded-sm border border-slate-200 text-left shadow-sm transition-shadow hover:shadow-md"
                 >
                   <div className="aspect-[16/9] w-full overflow-hidden bg-slate-100">
                     <img
@@ -646,7 +646,7 @@ function BlogSection() {
             onClick={next}
             disabled={!canNext}
             aria-label="Nächste Beispiele"
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-slate-200 bg-white shadow-sm hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <ArrowRight className="h-5 w-5 text-slate-700" />
           </button>
@@ -659,7 +659,7 @@ function BlogSection() {
               key={iDot}
               onClick={() => setIndex(iDot)}
               aria-label={`Zu Slide ${iDot + 1}`}
-              className={`h-1.5 w-4 rounded-full transition ${
+              className={`h-1.5 w-4 rounded-sm transition ${
                 index === iDot ? "bg-slate-800" : "bg-slate-300 hover:bg-slate-400"
               }`}
             />
@@ -703,7 +703,7 @@ function HowItHelpsSection() {
               {vorteile.map((v, i) => (
                 <li key={i} className="flex items-start gap-3">
                   {/* Zahl im perfekten Kreis – NICHT schrumpfen */}
-                  <div className="shrink-0 inline-flex size-10 items-center justify-center rounded-full
+                  <div className="shrink-0 inline-flex size-10 items-center justify-center rounded-sm
                                   bg-[#1b4d2b1A] border border-[#1b4d2b33] text-[#1b4d2b] font-semibold leading-none">
                     {i + 1}
                   </div>
@@ -727,7 +727,7 @@ function HowItHelpsSection() {
             <img
               src="/Lupe.png"
               alt="Darstellung von KI-optimierten Blogartikeln"
-              className="relative z-20 w-full rounded-xl"
+              className="relative z-20 w-full rounded-sm"
             />
           </div>
         </div>
@@ -768,7 +768,7 @@ function TrustSection() {
       {/* Aurora + Grid Overlay */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div
-          className="absolute -top-40 left-1/2 h-[90vh] w-[90vw] -translate-x-1/2 rounded-full blur-[90px] opacity-60"
+          className="absolute -top-40 left-1/2 h-[90vh] w-[90vw] -translate-x-1/2 rounded-sm blur-[90px] opacity-60"
           style={{
             background: `radial-gradient(60% 60% at 50% 50%, rgba(255,255,255,.18) 0%, transparent 60%)`,
           }}
@@ -807,9 +807,9 @@ function TrustSection() {
           {pillars.map(({ icon: Icon, title, desc }, i) => (
             <article
               key={i}
-              className="group relative overflow-hidden rounded-2xl border border-white/25 bg-white/10 p-6 shadow-[0_15px_40px_rgba(0,0,0,.25)] backdrop-blur-md text-left md:text-center"
+              className="group relative overflow-hidden rounded-sm border border-white/25 bg-white/10 p-6 shadow-[0_15px_40px_rgba(0,0,0,.25)] backdrop-blur-md text-left md:text-center"
             >
-              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/10">
+              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-sm border border-white/30 bg-white/10">
                 <Icon className="h-5 w-5 text-white" />
               </div>
               <h3 className={`text-lg font-semibold ${serifClass}`}>{title}</h3>
@@ -850,7 +850,7 @@ function FutureProofSection() {
     <section className="relative overflow-hidden py-16 bg-slate-50 border-t border-slate-200">
       <div className={containerClass}>
         <div className="text-left md:text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-3 py-1 text-xs shadow-sm">
+          <div className="inline-flex items-center gap-2 rounded-sm border border-slate-300 bg-white px-3 py-1 text-xs shadow-sm">
             <Zap className="h-3.5 w-3.5 text-slate-700" />
             <span className="text-slate-700">KI-Distribution</span>
           </div>
@@ -874,7 +874,7 @@ function FutureProofSection() {
           ].map(({ label, Icon }, i) => (
             <div
               key={i}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm shadow-sm"
+              className="inline-flex items-center gap-2 rounded-sm border border-slate-300 bg-white px-4 py-2 text-sm shadow-sm"
             >
               <Icon className="h-4 w-4 text-slate-700" />
               <span className="text-slate-700">{label}</span>
@@ -922,7 +922,7 @@ function UnserZielSection() {
                 <img
                   src="/Rakete.png"
                   alt="Darstellung des Done 4 You Prozesses"
-                  className="relative z-20 w-full rounded-xl"
+                  className="relative z-20 w-full rounded-sm"
                 />
               </div>
             </div>
@@ -942,7 +942,7 @@ function UnserZielSection() {
               <ul className="mt-6 space-y-4">
                 {punkte.map((p, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 border border-white/20">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-white/10 border border-white/20">
                       <Check className="h-4 w-4 text-white" strokeWidth={1.6} />
                     </div>
                     <div>
@@ -1011,9 +1011,9 @@ function IdentificationSection() {
           {zielgruppen.map((z, i) => (
             <div
               key={i}
-              className="rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md"
+              className="rounded-sm border border-slate-200 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md"
             >
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#1b4d2b1A] text-[#1b4d2b]">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-sm bg-[#1b4d2b1A] text-[#1b4d2b]">
                 <z.icon className="h-6 w-6" />
               </div>
               <h3 className={`mb-2 text-lg font-semibold ${serifClass}`}>{z.title}</h3>
@@ -1059,7 +1059,7 @@ function LeadsMarquee() {
                 className="flex items-center gap-2 shrink-0"
               >
                 {/* Icon-Style wie Benefits, aber kleiner */}
-                <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                <div className="flex h-8 w-8 items-center justify-center rounded-sm border border-white/20 bg-white/10">
                   <Icon className="h-4 w-4 text-white" strokeWidth={1.6} />
                 </div>
                 <span
@@ -1108,7 +1108,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
             return (
               <div
                 key={id}
-                className={`group relative rounded-2xl border-2 bg-white p-6 text-left shadow-sm transition-all hover:shadow-lg ${
+                className={`group relative rounded-sm border-2 bg-white p-6 text-left shadow-sm transition-all hover:shadow-lg ${
                   popular
                     ? "scale-105 border-[#1b4d2b] ring-2 ring-[#1b4d2b]/40"
                     : "border-[#1b4d2b]"
@@ -1116,7 +1116,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
               >
                 {popular && (
                   <div
-                    className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-medium text-white shadow-sm"
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-sm px-3 py-1 text-xs font-medium text-white shadow-sm"
                     style={{ backgroundColor: RG600 }}
                   >
                     Meistverkauft
@@ -1144,7 +1144,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
                   </div>
 
                   {/* Marktvalidierungspreis Badge */}
-                  <div className="mt-2 inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">
+                  <div className="mt-2 inline-flex items-center gap-2 rounded-sm border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">
                     <Check className="h-3 w-3" />
                     Marktvalidierungspreis: Wir sammeln Testimonials
                   </div>
@@ -1158,7 +1158,7 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
                 <ul className="mt-6 space-y-2">
                   {features.map((f, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span className="mt-0.5 rounded-full bg-[#1b4d2b1A] p-1 text-[#1b4d2b]">
+                      <span className="mt-0.5 rounded-sm bg-[#1b4d2b1A] p-1 text-[#1b4d2b]">
                         <Check className="h-3.5 w-3.5" />
                       </span>
                       <span className="text-sm text-slate-700">{f}</span>
@@ -1215,7 +1215,7 @@ function AblaufSection() {
               {ablaufMitErfolg.map(({ icon: Icon, title, desc }, i) => (
                 <li key={i}>
                   <article
-                    className="group h-full rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md shadow-sm p-6 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-black/20"
+                    className="group h-full rounded-sm border border-white/15 bg-white/10 backdrop-blur-md shadow-sm p-6 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-black/20"
                     style={{
                       hyphens: "auto",
                       WebkitHyphens: "auto",
@@ -1225,10 +1225,10 @@ function AblaufSection() {
                   >
                     {/* Header mit Step-Nummer und Icon */}
                     <header className="flex items-center justify-between">
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10 text-sm font-semibold">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-sm border border-white/30 bg-white/10 text-sm font-semibold">
                         {i + 1}
                       </span>
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-sm border border-white/20 bg-white/10">
                         <Icon className="h-5 w-5 text-white" strokeWidth={1.6} />
                       </div>
                     </header>
@@ -1337,7 +1337,7 @@ function FAQSection() {
           {faqs.map((f, i) => (
             <details
               key={i}
-              className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm text-left"
+              className="group rounded-sm border border-slate-200 bg-white p-5 shadow-sm text-left"
             >
               <summary className="flex cursor-pointer items-center justify-between font-medium text-left">
                 <span>{f.q}</span>
