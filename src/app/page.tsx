@@ -876,26 +876,10 @@ function UnserZielSection() {
             background: `linear-gradient(to right, ${RG600} 0%, ${RG300} 60%)`,
           }}
         >
-          <div className="relative z-10 grid items-center gap-12 px-6 py-12 md:grid-cols-2 md:px-12">
-            {/* Bildseite */}
-            <div className="order-2 md:order-1 flex justify-center">
-              <div className="relative w-full max-w-md">
-                <div
-                  className="absolute -inset-10 -z-10 blur-2xl"
-                  style={{
-                    background: `radial-gradient(60% 60% at 70% 30%, ${RG300}33 0%, transparent 60%)`,
-                  }}
-                />
-                <img
-                  src="/FindbarGrowth.png"
-                  alt="Darstellung des Done 4 You Prozesses"
-                  className="relative z-20 w-full rounded-sm"
-                />
-              </div>
-            </div>
-
-            {/* Textseite */}
-            <div className="order-1 md:order-2">
+          <div className="relative z-10 grid items-start gap-12 px-6 py-12 md:grid-cols-2 md:px-12">
+            
+            {/* Linke Hälfte: Headline + Intro */}
+            <div>
               <h2 className={`mt-2 text-3xl font-semibold ${serifClass}`}>
                 Minimaler Aufwand – maximaler Vertriebserfolg
               </h2>
@@ -904,9 +888,11 @@ function UnserZielSection() {
                 Gemeinsam verwandeln wir Content in einen Vertriebsbooster, der nicht nur sichtbar macht –
                 sondern auch die richtigen Kunden zu dir bringt.
               </p>
+            </div>
 
-              {/* Bullets im HowItHelps-Schema: Titel fett, Text normal */}
-              <ul className="mt-6 space-y-4">
+            {/* Rechte Hälfte: Bullets */}
+            <div>
+              <ul className="space-y-6">
                 {punkte.map((p, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-white/10 border border-white/20">
@@ -919,9 +905,8 @@ function UnserZielSection() {
                   </li>
                 ))}
               </ul>
-
-           
             </div>
+
           </div>
 
           {/* zarter Innenrand */}
@@ -931,6 +916,7 @@ function UnserZielSection() {
     </section>
   );
 }
+
 
 
 
