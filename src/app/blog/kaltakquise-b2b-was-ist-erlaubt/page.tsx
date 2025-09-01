@@ -78,14 +78,14 @@ export default function Page() {
   return (
     <article
       className="
-    prose prose-zinc mx-auto max-w-4xl px-4 sm:px-6 lg:px-8
+    prose prose-zinc mx-auto max-w-6xl px-4 sm:px-6 lg:px-8
     mt-12 md:mt-16 mb-0
     relative after:block after:h-12 md:after:h-16 after:content-['']
   "
     >
       {/* Header */}
       <header className="mb-10">
-        <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
+        <h1 className="text-3xl font-semibold leading-tight tracking-tight">
           Kaltakquise im B2B: Was ist erlaubt? Praxisleitfaden
         </h1>
         <p className="mt-3 text-lg text-zinc-700">
