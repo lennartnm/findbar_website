@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import Header from "@/components/ui/Header";
+import Footer from "@/components/ui/Footer";
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import {
@@ -115,37 +117,7 @@ function CalendlyModal({
   );
 }
 
-/* --------------------------- Header (nur Desktop) --------------------------- */
-function Header() {
-  return (
-    <header className="hidden md:block border-b border-slate-100 bg-white">
-      <div className="mx-auto flex max-w-7xl items-center justify-center gap-8 px-6 py-4">
-        <nav className="flex flex-wrap gap-6">
-          <a href="#blog" className="text-sm" style={{ color: "#334155" }}>
-            Blog-Beispiele
-          </a>
-          <a href="#preise" className="text-sm" style={{ color: "#334155" }}>
-            Preise
-          </a>
-          <a href="#ablauf" className="text-sm" style={{ color: "#334155" }}>
-            Ablauf
-          </a>
-          <a href="#faq" className="text-sm" style={{ color: "#334155" }}>
-            FAQ
-          </a>
-            <a href="/blog" className="text-sm" style={{ color: "#334155" }}>
-            Blog
-          </a>
-        </nav>
-        <Button asChild>
-          <a className="text-white" href="#preise">
-            Jetzt anfragen
-          </a>
-        </Button>
-      </div>
-    </header>
-  );
-}
+
 
 
 
