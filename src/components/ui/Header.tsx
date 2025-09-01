@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <header className="border-b border-slate-100 bg-white">
-      <div className="w-full max-w-4xl mx-auto px-6 py-4 flex items-center md:items-end justify-between">
+      <div className="w-full max-w-6xl mx-auto px-6 py-4 flex items-center md:items-end justify-between">
         {/* Brand + Desktop Navigation (grouped) */}
         <div className="flex items-center md:items-end gap-10">
           {/* Brand */}
