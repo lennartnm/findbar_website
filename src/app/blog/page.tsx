@@ -6,7 +6,7 @@ import Link from "next/link";
 type PostMeta = {
   slug: string;
   title: string;
-  date: string;        // ISO date string
+  date: string;        // ISO date string (nur für Sortierung)
   excerpt?: string;
   image?: string;      // optionales Cover
 };
@@ -135,14 +135,8 @@ export default async function BlogIndexPage() {
 
             {/* Text */}
             <div className="p-5">
-              <time className="text-xs uppercase tracking-wide text-slate-500">
-                {new Date(p.date).toLocaleDateString("de-DE", {
-                  year: "numeric",
-                  month: "long",
-                  day: "2-digit",
-                })}
-              </time>
-              <h2 className="text-lg font-semibold mt-1 leading-snug">
+              {/* Datumsanzeige entfernt */}
+              <h2 className="text-lg font-semibold leading-snug">
                 {p.title}
               </h2>
               {p.excerpt ? (
