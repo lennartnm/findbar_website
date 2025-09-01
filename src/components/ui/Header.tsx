@@ -32,7 +32,19 @@ export default function Header() {
             >
               Startseite
             </a>
-            <a
+         <a
+              href="/funktionsweise"
+              className="leading-none pb-0.5 transition-colors hover:text-slate-900"
+            >
+              Funktionsweise
+            </a>
+              <a
+              href="/#preise"
+              className="leading-none pb-0.5 transition-colors hover:text-slate-900"
+            >
+              Preise
+            </a>
+             <a
               href="/blog"
               className="leading-none pb-0.5 transition-colors hover:text-slate-900"
             >
