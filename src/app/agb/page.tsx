@@ -2,90 +2,27 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-
+import Header from "@/components/ui/Header";
+import Footer from "@/components/ui/Footer";
 const RG600 = "#1b4d2b";
 const RG300 = "#7ca98e";
 const serifClass = "font-serif";
 
-function Header() {
-  return (
-    <header className="border-b border-slate-100 bg-white">
-      <div className="mx-auto flex max-w-7xl items-center justify-center gap-8 px-6 py-4">
-        <nav className="flex flex-wrap gap-6">
-          <a href="/#blog" className="text-sm" style={{ color: "#334155" }}>
-            Blog-Beispiele
-          </a>
-          <a href="/#preise" className="text-sm" style={{ color: "#334155" }}>
-            Preise
-          </a>
-          <a href="/#ablauf" className="text-sm" style={{ color: "#334155" }}>
-            Ablauf
-          </a>
-          <a href="/#faq" className="text-sm" style={{ color: "#334155" }}>
-            FAQ
-          </a>
-        </nav>
-        <Button asChild>
-          <a className="text-white" href="/#preise">
-            Jetzt anfragen
-          </a>
-        </Button>
-      </div>
-    </header>
-  );
-}
 
-// Neuer Marquee-Bereich
-function FirmNameMarquee() {
-  return (
-    <div className="bg-slate-50 overflow-hidden py-3 border-b border-slate-100">
-      <div
-        className="relative mx-auto max-w-[100vw]"
-        style={{
-          maskImage:
-            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-        }}
-      >
-        <div
-          className="flex w-max gap-16 will-change-transform"
-          style={{ animation: "marquee-ltr 40s linear infinite" }}
-        >
-          {[...Array(12)].map((_, i) => (
-            <span
-              key={i}
-              className={`text-3xl md:text-4xl italic ${serifClass} text-slate-400 select-none`}
-            >
-              findbar
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes marquee-ltr {
-          from { transform: translateX(-60%); }
-          to   { transform: translateX(0); }
-        }
-      `}</style>
-    </div>
-  );
-}
 
 
 export default function AGBPage() {
   return (
     <div className="bg-white text-slate-900">
       <Header />
-            <FirmNameMarquee />
-      <main className="w-full max-w-5xl mx-auto px-6 py-16">
-        <h1 className={`text-3xl md:text-4xl ${serifClass} font-semibold mb-8`}>
+           
+      <main className="w-full max-w-6xl mx-auto px-6 py-16">
+        <h1 className={`text-3xl  ${serifClass} font-semibold mb-8`}>
           Allgemeine Geschäftsbedingungen (AGB)
         </h1>
 
         <div
-          className="rounded-2xl text-white p-8 shadow-lg"
+          className="rounded-sm text-white p-8 shadow-lg"
           style={{
             background: `linear-gradient(90deg, ${RG300}, ${RG600})`,
           }}
@@ -307,14 +244,8 @@ export default function AGBPage() {
         </div>
       </main>
 
-      <footer className="border-t border-slate-100 py-8 text-center text-sm text-slate-500">
-        <div className="space-x-4">
-          <a href="/impressum">Impressum</a>
-          <a href="/agb">AGB</a>
-          <a href="/datenschutz">Datenschutz</a>
-        </div>
-        <p className="mt-3">© {new Date().getFullYear()} findbar. Alle Rechte vorbehalten.</p>
-      </footer>
+     
+      <Footer />
     </div>
   );
 }
