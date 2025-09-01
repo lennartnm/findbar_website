@@ -16,38 +16,41 @@ export default function Header() {
 
   return (
     <header className="border-b border-slate-100 bg-white">
-      <div className="w-full max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Brand */}
-        <a
-          href="/"
-          className="inline-flex items-end"
-          aria-label="findbar – Startseite"
-        >
-          <Image
-            src="/Findbar%20Logo%20PNG.webp"
-            alt="findbar Logo"
-            width={160}
-            height={40}
-            priority
-            className="block h-8 md:h-10 w-auto"
-          />
-        </a>
+      <div className="w-full max-w-4xl mx-auto px-6 py-4 flex items-center md:items-end justify-between">
+        {/* Brand + Desktop Navigation (grouped) */}
+        <div className="flex items-center md:items-end gap-10">
+          {/* Brand */}
+          <a
+            href="/"
+            className="inline-flex items-end"
+            aria-label="findbar – Startseite"
+          >
+            <Image
+              src="/Findbar%20Logo%20PNG.webp"
+              alt="findbar Logo"
+              width={160}
+              height={40}
+              priority
+              className="block h-8 md:h-10 w-auto"
+            />
+          </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-end gap-8 text-sm text-slate-700">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="leading-none pb-0.5 transition-colors hover:text-slate-900"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-end gap-8 text-sm text-slate-700">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="leading-none pb-0.5 transition-colors hover:text-slate-900"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
 
         {/* Desktop CTA */}
-        <div className="hidden md:block">
+        <div className="hidden md:block md:self-end">
           <Button asChild className="self-end">
             <a href="/kontakt">Jetzt anfragen</a>
           </Button>
