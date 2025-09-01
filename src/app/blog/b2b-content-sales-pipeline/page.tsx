@@ -62,7 +62,7 @@ export default function Page() {
     >
       {/* Header */}
       <header className="mb-10">
-        <h1 className="text-xl font-semibold leading-tight tracking-tight">
+        <h1 className="text-2xl font-semibold leading-tight tracking-tight">
           B2B-Blogging 101: Warum ein Unternehmensblog heute Pflicht ist (und
           wie du startest)
         </h1>
