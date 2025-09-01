@@ -18,7 +18,7 @@ export default function DatenschutzPage() {
       <Header />
       
       <main className="w-full max-w-6xl mx-auto px-6 py-16">
-        <h1 className={`text-2xl md:text-6xl ${serifClass} font-semibold mb-8`}>
+        <h1 className={`text-3xl ${serifClass} font-semibold mb-8`}>
           Datenschutzerklärung
         </h1>
 
