@@ -123,7 +123,7 @@ function CalendlyModal({
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white px-6 py-28 text-left">
+    <section className="relative overflow-hidden bg-white py-28">
       {/* Sehr dezentes Raster, sanftes Fade zu Weiß */}
       <div
         aria-hidden
@@ -163,8 +163,8 @@ function Hero() {
         </div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-20">
+      {/* Content: auf max-w-6xl begrenzt, linksbündig */}
+      <div className="relative z-20 mx-auto max-w-6xl px-6 text-left">
         <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
           <span className="italic font-bold"></span> Skaliere durch KI-Blogartikel und
           <br className="hidden md:inline" /> smarter Erkennung relevanter B2B-Besucher.
@@ -198,6 +198,7 @@ function Hero() {
     </section>
   );
 }
+
 
 
 /* ---------------------- VisitorRevealSection (overlay info on scan) ---------------------- */
