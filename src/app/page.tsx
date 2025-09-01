@@ -545,7 +545,7 @@ function BlogSection() {
   const next = () => setIndex((i) => Math.min(maxIndex, i + 1));
 
   return (
-    <section id="blog" className="bg-white py-20">
+    <section id="blog" className="bg-slate-50 py-20">
       <div className={containerClass}>
         <h2 className={`text-3xl font-semibold text-left md:text-center ${serifClass}`}>
           Blog-Beispiele
