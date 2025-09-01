@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-
+import Header from "@/components/ui/Header";
+import Footer from "@/components/ui/Footer";
 import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import {
