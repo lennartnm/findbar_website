@@ -56,13 +56,7 @@ export default function StepsSection() {
               viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
             >
-              <motion.div
-  className="mb-4 flex h-12 w-12 items-center justify-center rounded-full text-white font-bold shadow-md"
-  style={{ backgroundColor: "#285636" }}
-  whileHover={{ rotate: 8, scale: 1.1 }}
->
-  {step.id}
-</motion.div>
+            <motion.div className="mb-4 flex h-12 w-12 items-center justify-center rounded-sm bg-emerald-600 text-white font-bold shadow-md" whileHover={{ rotate: 8, scale: 1.1 }} >
 
                 {step.id}
               </motion.div>
