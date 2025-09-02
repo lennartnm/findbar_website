@@ -15,31 +15,31 @@
   display: grid;
   grid-template-columns: 56px 1fr;
   column-gap: 24px;
-  padding: 24px 0; /* Abstand zwischen den Schritten */
+  padding: 32px 0;
+  align-items: center; /* NEU: Rail und Content auf gleicher Höhe */
 }
 
 .rail {
-  position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 }
 
 .dot {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 999px;
-  background: #1c4d2b; /* Kreisfarbe */
-  display: inline-flex;
+  background: #1c4d2b;
+  display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;          /* Zahl in weiß */
+  color: #fff;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .content {
-  padding-top: 2px;
+  padding-top: 0; /* Headline auf Höhe der Zahl */
 }
 
 .kicker {
@@ -52,6 +52,6 @@
 
 @media (min-width: 900px) {
   .item {
-    padding: 32px 0;
+    padding: 40px 0;
   }
 }
