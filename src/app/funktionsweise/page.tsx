@@ -7,7 +7,7 @@ import React from "react";
 const containerClass = "w-full max-w-6xl mx-auto px-6";
 
 export const metadata: Metadata = {
-  title: "So funktioniert’s – Ablauf",
+  title: "Findbar: Funktionsweise",
   description:
     "Von Unternehmensanalyse bis langfristigem Effekt: So läuft unser Content-und-Lead-Prozess ab.",
 };
