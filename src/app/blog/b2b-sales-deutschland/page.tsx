@@ -205,7 +205,7 @@ export default function Page() {
         </p>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          <div className="rounded-xl border border-zinc-200 p-4 md:col-span-2 bg-white">
+          <div className="rounded-sm border border-zinc-200 p-4 md:col-span-2 bg-white">
             <h3 className="font-semibold mb-2">Kurz erklärt</h3>
             <p className="m-0">
               Im B2B treffen <em>höherer Deal-Wert</em>, <em>mehr Stakeholder</em> und
@@ -213,7 +213,7 @@ export default function Page() {
               Content, Demos und Referenzen entscheidend.
             </p>
           </div>
-          <aside className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
+          <aside className="rounded-sm border border-emerald-200 bg-emerald-50 p-4">
             <h3 className="font-semibold mb-2">Begriffe, die du kennen solltest</h3>
             <ul className="m-0 list-disc ml-5 space-y-1">
               <li>ICP &amp; Persona</li>
@@ -279,7 +279,7 @@ export default function Page() {
 
         <div className="grid gap-6 md:grid-cols-3">
           <div className="md:col-span-2 space-y-4">
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-2">
                 Mittelstand &amp; Hidden Champions
               </h3>
@@ -291,7 +291,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-2">Messen bleiben Deal-Treiber</h3>
               <p className="m-0">
                 Deutschland ist weltweit führender Messeplatz: Hunderte
@@ -301,7 +301,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-2">
                 Recht &amp; Datenschutz im Vertrieb
               </h3>
@@ -327,7 +327,7 @@ export default function Page() {
           </div>
 
           <aside className="space-y-4">
-            <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
+            <div className="rounded-sm border border-emerald-200 bg-emerald-50 p-4">
               <h3 className="font-semibold mb-2">Praxis-Checkliste</h3>
               <ul className="list-disc ml-5 m-0 space-y-1">
                 <li>DE-Website, Impressum, Datenschutz</li>
@@ -337,7 +337,7 @@ export default function Page() {
                 <li>Messestände &amp; Nachfassplan</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-2">Typische Erwartungen</h3>
               <p className="m-0">
                 Präzise Angebote, verlässliche Timings, klare
@@ -443,7 +443,7 @@ export default function Page() {
         </div>
 
         <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <div className="md:col-span-2 rounded-xl border border-zinc-200 p-4">
+          <div className="md:col-span-2 rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">
               Was bedeutet das f&uuml;r deine Pipeline;
             </h3>
@@ -454,7 +454,7 @@ export default function Page() {
               SLAs.
             </p>
           </div>
-          <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
+          <div className="rounded-sm border border-emerald-200 bg-emerald-50 p-4">
             <h3 className="font-semibold mb-2">Taktiken, die sich bewähren</h3>
             <ul className="list-disc ml-5 m-0 space-y-1">
               <li>Live-Demos mit klaren <em>Success Criteria</em></li>
@@ -470,7 +470,7 @@ export default function Page() {
         <h2 className="text-2xl font-bold mb-3">Zahlen &amp; Trends</h2>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">Omnichannel &amp; Buying Teams</h3>
             <ul className="list-disc ml-5 m-0 space-y-1">
               <li>
@@ -484,7 +484,7 @@ export default function Page() {
             </ul>
           </div>
 
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">B2B E-Commerce in Deutschland</h3>
             <p className="m-0">
               E-Commerce (inkl. EDI) ist Wachstumstreiber im B2B. Umsätze über
@@ -493,7 +493,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">Zahlungsziele &amp; DSO</h3>
             <p className="m-0">
               In Deutschland sind Zahlungsziele im europäischen Vergleich eher
@@ -503,7 +503,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">Messen als Umsatzmotor</h3>
             <p className="m-0">
               Die Messewirtschaft ist wieder stark: hohe Internationalität und
@@ -545,7 +545,7 @@ export default function Page() {
         </h2>
 
         <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">1; ICP &amp; Messaging</h3>
             <p className="m-0">
               Formuliere Nutzen in Kundensprache: Effizienz, Sicherheit,
@@ -553,14 +553,14 @@ export default function Page() {
               Zahlen, Referenzen und Piloten.
             </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">2; Rechtssicherer Outreach</h3>
             <p className="m-0">
               Dokumentiere mutmaßliche Einwilligung, ermögliche einfachen
               Widerspruch, halte Blacklists aktuell. E-Mail nur mit Einwilligung.
             </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">3; E-Rechnung integrieren</h3>
             <p className="m-0">
               EN&nbsp;16931-Formate (XRechnung, ZUGFeRD) beherrschen, Prozesse
@@ -569,7 +569,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">4; Messe-Playbook</h3>
             <ul className="list-disc ml-5 m-0 space-y-1">
               <li>Vorab 6&ndash;8 Wochen: Termin-Setter &amp; Agenda</li>
@@ -579,7 +579,7 @@ export default function Page() {
             </ul>
           </div>
 
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">5; Deal-Risiken senken</h3>
             <p className="m-0">
               Security-Fragebogen, DPA, TOMs und Referenzen parat. Ein
@@ -588,7 +588,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">6; DSO &amp; Cashflow</h3>
             <p className="m-0">
               Split-Invoices nach Meilensteinen, Skonto-Anreize, digitale
