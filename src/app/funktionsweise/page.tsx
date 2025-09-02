@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
-import styles from "./funktionsweise.module.css";
+import React from "react";
+
+// gleiche Container-Breite wie in deinem Code
+const containerClass = "w-full max-w-6xl mx-auto px-6";
 
 export const metadata: Metadata = {
   title: "So funktioniert’s – Ablauf",
@@ -53,58 +56,43 @@ export default function Page() {
     <>
       <Header />
 
-      <main>
-        <section className={styles.wrap}>
-          <h1 className="sr-only">Ablauf</h1>
+      <main className="bg-white">
+        <section className="py-16">
+          <div className={containerClass}>
+            <h1 className="sr-only">Ablauf</h1>
 
-          <ol className={styles.timeline} aria-label="Prozess-Schritte">
-            {steps.map((step) => (
-              <li className={styles.item} key={step.id}>
-                <div className={styles.rail}>
-                  <span className={styles.dot}>{step.id}</span>
-                </div>
+            <ol className="space-y-10 md:space-y-12" aria-label="Prozess-Schritte">
+              {steps.map((step) => (
+                <li
+                  key={step.id}
+                  className="grid grid-cols-[48px_1fr] items-center gap-5 md:grid-cols-[56px_1fr] md:gap-6"
+                >
+                  {/* Nummern-Kreis (keine Verbindungslinie) */}
+                  <div className="flex items-center justify-center">
+                    <span
+                      className="inline-flex h-12 w-12 items-center justify-center rounded-full text-white font-semibold
+                                 md:h-14 md:w-14"
+                      style={{ backgroundColor: "#1c4d2b" }}
+                    >
+                      {step.id}
+                    </span>
+                  </div>
 
-                <div className={styles.content}>
-                  <h2 className="text-4xl font-semibold tracking-tight font-serif">
-                    {step.title}
-                  </h2>
-                  <p className="text-base leading-relaxed text-gray-700 mt-2">
-                    {step.body}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-  {/* CTA */}
-      <section aria-label="Kontakt" className="mt-14">
-        <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
-          <h2 className="text-xl font-bold mb-2">
-            Möchtest du Blogartikel f&uuml;r dein B2B-Angebot einführen?
-          </h2>
-          <p className="text-zinc-700 mb-4">
-            Unsere KI schreibt Expertenartikel und identifiziert anonyme
-            B2B-Leser f&uuml;r dein Sales-Team.
-          </p>
-
-          <div className="mx-auto max-w-xl">
-            <a
-              href="https://www.findbar.info"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-sm bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
-              aria-label="Zu findbar.info wechseln (öffnet in neuem Tab)"
-            >
-              Mehr erfahren
-            </a>
+                  {/* Inhalt; Zahl ist durch align-items:center auf Höhe der Headline */}
+                  <div>
+                    <h2 className="text-4xl font-semibold tracking-tight font-serif">
+                      {step.title}
+                    </h2>
+                    <p className="mt-2 text-base leading-relaxed text-gray-700">
+                      {step.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
-        </div>
-      </section>
-
-        
+        </section>
       </main>
-
-    
 
       <Footer />
     </>
