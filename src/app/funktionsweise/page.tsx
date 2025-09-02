@@ -72,7 +72,7 @@ export default function Page() {
                     <span
                       className="inline-flex h-12 w-12 items-center justify-center rounded-sm text-white font-semibold
                                  md:h-14 md:w-14"
-                      style={{ backgroundColor: "#ebebeb" }}
+                      style={{ backgroundColor: "#1b4d2b" }}
                     >
                       {step.id}
                     </span>
