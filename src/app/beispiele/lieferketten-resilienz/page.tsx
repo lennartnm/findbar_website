@@ -177,7 +177,7 @@ export default function Page() {
             {" · "}Lesedauer: <span className="tabular-nums">11 Minuten</span>
           </div>
 
-          <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+          <figure className="mt-6 overflow-hidden rounded-sm border border-zinc-200">
             <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
               <picture>
                 <source media="(max-width: 640px)" srcSet="/supply1.png" />
@@ -208,7 +208,7 @@ export default function Page() {
           </div>
         </header>
 
-        <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+        <aside className="mb-10 rounded-sm border border-emerald-200 bg-emerald-50 p-5">
           <h2 className="text-lg font-semibold mb-3">
             Das Wichtigste auf einen Blick
           </h2>
@@ -247,7 +247,7 @@ export default function Page() {
 
         <nav
           aria-label="Inhaltsverzeichnis"
-          className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
+          className="mb-12 rounded-sm border border-zinc-200 bg-zinc-50 p-5"
         >
           <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
           <ol className="list-decimal ml-5 space-y-2">
@@ -332,7 +332,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold mb-3">
             Risiken 2025: Was setzt Lieferketten unter Druck?
           </h2>
-          <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
+          <div className="rounded-sm border border-zinc-200 p-5 bg-white">
             <ul className="grid sm:grid-cols-2 gap-4">
               <li>
                 <strong>Geopolitik &amp; Handel</strong>: Sanktionen, Zoll- und
@@ -366,7 +366,7 @@ export default function Page() {
             KPIs &amp; Begriffe: TTR, TTS, Servicegrad &amp; Co.
           </h2>
           <div className="space-y-4">
-            <div className="rounded-xl border border-zinc-200 p-4 bg-zinc-50">
+            <div className="rounded-sm border border-zinc-200 p-4 bg-zinc-50">
               <h3 className="text-lg font-semibold mb-2">
                 Time-to-Recover (TTR) &amp; Time-to-Survive (TTS)
               </h3>
@@ -379,7 +379,7 @@ export default function Page() {
                 Bestände/Umrouten).
               </p>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="text-lg font-semibold mb-2">Servicegrad</h3>
               <p className="m-0">
                 Anteil der Nachfragezeilen, die vollständig und pünktlich
@@ -388,7 +388,7 @@ export default function Page() {
                 Durchschnittsnachfrage.
               </p>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4 bg-zinc-50">
+            <div className="rounded-sm border border-zinc-200 p-4 bg-zinc-50">
               <h3 className="text-lg font-semibold mb-2">Bestandsreichweite</h3>
               <p className="m-0">
                 Reichweite (= Bestand ÷ Verbrauch/Zeiteinheit) zeigt, wie lange
@@ -404,7 +404,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold mb-3">Acht Strategien für mehr Resilienz</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="font-semibold text-lg mb-2">1) Dual &amp; Multi-Sourcing</h3>
               <p className="m-0">
                 Verlasse dich nicht auf eine Quelle. Nutze mindestens zwei
@@ -415,7 +415,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="font-semibold text-lg mb-2">2) Near-/Friendshoring</h3>
               <p className="m-0">
                 Verlege Teile der Wertschöpfung näher an Kernmärkte, um
@@ -424,7 +424,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="font-semibold text-lg mb-2">3) Sicherheitsbestände &amp; Entkopplungspunkte</h3>
               <p className="m-0">
                 Platziere Sicherheitsbestände an strategischen Knoten (z.&nbsp;B.
@@ -434,7 +434,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="font-semibold text-lg mb-2">4) Flexible Kapazitäten &amp; Verträge</h3>
               <p className="m-0">
                 Baue <em>Optionen</em> in Verträge ein: skalierbare Kapazität,
@@ -444,7 +444,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="font-semibold text-lg mb-2">5) End-to-End-Transparenz (Tier-n)</h3>
               <p className="m-0">
                 Mappe kritische Stücklistenpositionen bis mindestens Tier&nbsp;2,
@@ -454,7 +454,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="font-semibold text-lg mb-2">6) Digitale Control Tower &amp; Digital Twins</h3>
               <p className="m-0">
                 Echtzeit-Sicht auf Bestände, Kapazitäten und Transportstatus plus
@@ -463,7 +463,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="font-semibold text-lg mb-2">7) SCRM-Prozess &amp; Playbooks</h3>
               <p className="m-0">
                 Risiken identifizieren, bewerten, mitigieren und überwachen – als
@@ -472,7 +472,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="font-semibold text-lg mb-2">8) Kollaboration &amp; Partnerschaften</h3>
               <p className="m-0">
                 Teile Forecasts, Kapazitätspläne und Risikoindikatoren mit
@@ -482,7 +482,7 @@ export default function Page() {
             </div>
           </div>
 
-          <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+          <figure className="mt-6 rounded-sm border-l-4 border-emerald-600 bg-emerald-50 p-5">
             <blockquote className="text-lg font-medium">
               „Resilienz ist kein Projekt, sondern eine stetige Architektur- und
               Entscheidungsdisziplin: Diversifizieren, Transparenz schaffen,
@@ -495,7 +495,7 @@ export default function Page() {
 
           <figure className="mt-8">
             <div
-              className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+              className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
               style={{ aspectRatio: "16 / 6" }}
             >
               <picture>
@@ -515,7 +515,7 @@ export default function Page() {
           </figure>
 
           <div className="mt-8 grid md:grid-cols-[1.2fr,0.8fr] gap-6 items-start">
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="font-semibold text-lg mb-2">
                 Just-in-Time vs. Just-in-Case
               </h3>
@@ -525,7 +525,7 @@ export default function Page() {
                 <em>risikobewusstes</em> Arbeitsbestands-Niveau, nicht maximaler
                 Lageraufbau.
               </p>
-              <div className="mt-4 overflow-x-auto rounded-xl border border-zinc-200">
+              <div className="mt-4 overflow-x-auto rounded-sm border border-zinc-200">
                 <table className="w-full text-sm">
                   <thead className="bg-zinc-50">
                     <tr>
@@ -555,7 +555,7 @@ export default function Page() {
               </div>
             </div>
 
-            <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+            <aside className="rounded-sm border border-emerald-200 bg-emerald-50 p-5">
               <h3 className="font-semibold mb-2">Praxis-Checkliste</h3>
               <ul className="list-disc ml-5 text-sm space-y-2">
                 <li>ABC/XYZ-Kritikalität je Material aktualisiert?</li>
@@ -569,7 +569,7 @@ export default function Page() {
 
           <figure className="mt-8">
             <div
-              className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+              className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
               style={{ aspectRatio: "16 / 6" }}
             >
               <picture>
@@ -595,7 +595,7 @@ export default function Page() {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
+            <div className="rounded-sm border border-zinc-200 p-5 bg-zinc-50">
               <h3 className="font-semibold mb-2">0–30 Tage</h3>
               <ul className="list-disc ml-5 text-sm space-y-2">
                 <li>Engpass-Materialien (A/volatil) identifizieren</li>
@@ -606,7 +606,7 @@ export default function Page() {
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="font-semibold mb-2">31–60 Tage</h3>
               <ul className="list-disc ml-5 text-sm space-y-2">
                 <li>Dual-/Multi-Sourcing Business Case je Teil</li>
@@ -617,7 +617,7 @@ export default function Page() {
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
+            <div className="rounded-sm border border-zinc-200 p-5 bg-zinc-50">
               <h3 className="font-semibold mb-2">61–90 Tage</h3>
               <ul className="list-disc ml-5 text-sm space-y-2">
                 <li>Digital Twin für Top-Produktlinien aufsetzen</li>
@@ -633,7 +633,7 @@ export default function Page() {
         <section id="compliance" className="mt-14">
           <h2 className="text-2xl font-bold mb-3">Compliance kompakt: CSDDD &amp; LkSG</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="font-semibold mb-2">EU-CSDDD (EU-Richtlinie)</h3>
               <p className="m-0">
                 Die EU-Richtlinie über Nachhaltigkeitspflichten in der
@@ -644,7 +644,7 @@ export default function Page() {
                 nationales Recht um (gestaffelte Fristen). 
               </p>
             </div>
-            <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
+            <div className="rounded-sm border border-zinc-200 p-5 bg-zinc-50">
               <h3 className="font-semibold mb-2">Deutschland: LkSG</h3>
               <p className="m-0">
                 Das deutsche Lieferkettensorgfaltspflichtengesetz gilt seit
@@ -656,7 +656,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="mt-6 rounded-2xl border border-zinc-200 p-5">
+          <div className="mt-6 rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">Warum das Resilienz treibt</h3>
             <p className="m-0">
               Due-Diligence-Prozesse zwingen zu Risiko-Transparenz über Tier&nbsp;n,
@@ -670,7 +670,7 @@ export default function Page() {
         <section id="tools" className="mt-14">
           <h2 className="text-2xl font-bold mb-3">Tools &amp; Tech-Stack</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="font-semibold mb-2">Kernsysteme</h3>
               <ul className="list-disc ml-5 text-sm space-y-2">
                 <li>ERP/MRP (Disposition, Stücklisten, Workflows)</li>
@@ -680,7 +680,7 @@ export default function Page() {
                 <li>Digital Twin (Szenarien, TTR/TTS-Simulation)</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-zinc-200 p-5 bg-zinc-50">
+            <div className="rounded-sm border border-zinc-200 p-5 bg-zinc-50">
               <h3 className="font-semibold mb-2">Auswahlkriterien</h3>
               <ul className="list-disc ml-5 text-sm space-y-2">
                 <li>API-Offenheit, Datenqualität, Stammdatenschutz</li>
@@ -826,7 +826,7 @@ export default function Page() {
         </section>
 
         <section aria-label="Kontakt" className="mt-14">
-          <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+          <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
             <h2 className="text-xl font-bold mb-2">
               Willst du deine Lieferkette in 90 Tagen messbar resilienter machen?
             </h2>
@@ -846,7 +846,7 @@ export default function Page() {
                 <input
                   type="text"
                   name="name"
-                  className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                  className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                   placeholder="Max Mustermann"
                   required
                 />
@@ -856,7 +856,7 @@ export default function Page() {
                 <input
                   type="tel"
                   name="phone"
-                  className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                  className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                   placeholder="+49 123456789"
                 />
               </label>
@@ -865,7 +865,7 @@ export default function Page() {
                 <input
                   type="email"
                   name="email"
-                  className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                  className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                   placeholder="max@mustermann.de"
                   required
                 />
@@ -873,7 +873,7 @@ export default function Page() {
 
               <a
                 href="#cta-pop"
-                className="mt-2 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+                className="mt-2 inline-flex items-center justify-center rounded-sm bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
               >
                 Unverbindlich anfragen
               </a>
@@ -899,12 +899,12 @@ export default function Page() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="cta-pop-title"
-              className="relative w-full max-w-md rounded-xl bg-white p-6 shadow-xl"
+              className="relative w-full max-w-md rounded-sm bg-white p-6 shadow-xl"
             >
               <a
                 href="#"
                 aria-label="Fenster schließen"
-                className="absolute right-3 top-3 rounded-md border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
+                className="absolute right-3 top-3 rounded-sm border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
               >
                 ✕
               </a>
@@ -929,7 +929,7 @@ export default function Page() {
           </div>
         </section>
 
-       <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+       <aside className="mt-10 rounded-sm border border-zinc-200 bg-zinc-50 p-5">
   <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
   <ul className="list-disc ml-5 text-sm space-y-2">
     <li>
@@ -981,7 +981,7 @@ export default function Page() {
             Mini-Glossar – Die wichtigsten Begriffe zu Supply Chain Resilience
           </h2>
 
-          <div className="rounded-2xl border border-zinc-200 overflow-hidden">
+          <div className="rounded-sm border border-zinc-200 overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-zinc-50">
                 <tr>
