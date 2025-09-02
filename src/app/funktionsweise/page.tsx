@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Header from "@/components/ui/Header"; // ggf. Pfad anpassen
-import Footer from "@/components/ui/Footer"; // ggf. Pfad anpassen
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import styles from "./funktionsweise.module.css";
 
 export const metadata: Metadata = {
@@ -60,7 +60,7 @@ export default function Page() {
           <ol className={styles.timeline} aria-label="Prozess-Schritte">
             {steps.map((step) => (
               <li className={styles.item} key={step.id}>
-                <div className={styles.rail} aria-hidden="true">
+                <div className={styles.rail}>
                   <span className={styles.dot}>{step.id}</span>
                 </div>
 
