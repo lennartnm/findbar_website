@@ -163,7 +163,7 @@ export default function Page() {
           </div>
 
           {/* Hero 16:6 */}
-          <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+          <figure className="mt-6 overflow-hidden rounded-sm border border-zinc-200">
             <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
               <picture>
                 <source media="(max-width: 640px)" srcSet="/ecommerce1.jpg" />
@@ -196,7 +196,7 @@ export default function Page() {
         </header>
 
         {/* TL;DR */}
-        <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+        <aside className="mb-10 rounded-sm border border-emerald-200 bg-emerald-50 p-5">
           <h2 className="text-lg font-semibold mb-3">
             Das Wichtigste auf einen Blick
           </h2>
@@ -232,7 +232,7 @@ export default function Page() {
         {/* ToC */}
         <nav
           aria-label="Inhaltsverzeichnis"
-          className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
+          className="mb-12 rounded-sm border border-zinc-200 bg-zinc-50 p-5"
         >
           <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
           <ol className="list-decimal ml-5 space-y-2">
@@ -314,7 +314,7 @@ export default function Page() {
           </p>
 
           <div className="mt-6 grid gap-4 md:grid-cols-[2fr,1fr]">
-            <div className="rounded-2xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-2">
                 Wo Reibung im B2B-Kaufprozess entsteht
               </h3>
@@ -330,7 +330,7 @@ export default function Page() {
               </ul>
             </div>
 
-            <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+            <aside className="rounded-sm border border-emerald-200 bg-emerald-50 p-4">
               <h3 className="font-semibold mb-2">Quick Insight</h3>
               <p className="text-sm">
                 <strong>B2B-Käufer sind Wiederholungstäter</strong>: Sie kennen
@@ -344,7 +344,7 @@ export default function Page() {
         {/* Bild 1 – Unsplash */}
         <figure className="mt-8">
           <div
-            className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+            className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
@@ -367,7 +367,7 @@ export default function Page() {
         </figure>
 
         {/* Expertenzitat */}
-        <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+        <figure className="mt-6 rounded-sm border-l-4 border-emerald-600 bg-emerald-50 p-5">
           <blockquote className="text-lg font-medium">
             „B2B-Shops gewinnen, wenn sie Zeit sparen: Treffer in der Suche,
             Listen kaufen können, Checkout ohne Nachfragen – und überall die
@@ -415,7 +415,7 @@ export default function Page() {
             Praktisch: Bestelllisten benennen, teilen und wiederverwenden.
           </p>
 
-          <div className="mt-6 rounded-2xl border border-zinc-200 p-4">
+          <div className="mt-6 rounded-sm border border-zinc-200 p-4">
             <h4 className="font-semibold mb-2">UI-Bausteine (Beispiele)</h4>
             <ul className="grid md:grid-cols-2 gap-2 list-disc ml-5">
               <li>Autocomplete mit SKU-Priorisierung</li>
@@ -425,7 +425,7 @@ export default function Page() {
             </ul>
           </div>
 
-          <aside className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4">
+          <aside className="mt-6 rounded-sm border border-amber-200 bg-amber-50 p-4">
             <p className="text-sm leading-relaxed">
               Tipp: Wenn deine Kategorie-Navigation zu breit ist, verliert man
               sich schnell. Straffe die Taxonomie und reduziere die Anzahl
@@ -448,7 +448,7 @@ export default function Page() {
             schlanke Validierung.
           </p>
 
-          <div className="mt-6 rounded-2xl border border-zinc-200 overflow-hidden">
+          <div className="mt-6 rounded-sm border border-zinc-200 overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-zinc-50">
                 <tr>
@@ -511,7 +511,7 @@ export default function Page() {
         {/* Bild 2 – Unsplash */}
         <figure className="mt-8">
           <div
-            className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+            className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
@@ -547,7 +547,7 @@ export default function Page() {
           </p>
 
           <div className="mt-6 grid gap-4 md:grid-cols-[2fr,1fr]">
-            <div className="rounded-2xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-2">
                 Personalisierung, die wirklich hilft
               </h3>
@@ -560,7 +560,7 @@ export default function Page() {
                 <li>Angebote ins Konto laden und in den Warenkorb übernehmen</li>
               </ul>
             </div>
-            <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+            <aside className="rounded-sm border border-emerald-200 bg-emerald-50 p-4">
               <h3 className="font-semibold mb-2">Self-Service-Gewinner</h3>
               <p className="text-sm">
                 Weniger E-Mails, weniger Telefon: Wenn Kunden Rechnungen,
@@ -598,7 +598,7 @@ export default function Page() {
             <li>PunchOut-Flow testen (Login, Warenkorb-Transfer, Genehmigung)</li>
           </ol>
 
-          <div className="mt-6 rounded-2xl border border-zinc-200 p-4">
+          <div className="mt-6 rounded-sm border border-zinc-200 p-4">
             <h4 className="font-semibold mb-2">PunchOut – kurz erklärt</h4>
             <p className="text-sm">
               <strong>OCI</strong> ist weit verbreitet im DACH-Raum,{" "}
@@ -615,7 +615,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold mb-3">
             Praxis-Checkliste: 20 Punkte für reibungsloses Bestellen
           </h2>
-          <div className="rounded-2xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <ul className="grid gap-2 md:grid-cols-2 list-disc ml-5">
               <li>SKU-Suche mit Autocomplete &amp; Tippfehler-Toleranz</li>
               <li>CSV-Schnellbestellung &amp; Bestelllisten mit Reorder</li>
@@ -648,7 +648,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold mb-3">
             Häufige Fehler – und wie du sie vermeidest
           </h2>
-          <div className="rounded-2xl border border-rose-200 bg-rose-50 p-4">
+          <div className="rounded-sm border border-rose-200 bg-rose-50 p-4">
             <ul className="list-disc ml-5 space-y-1">
               <li>
                 <strong>„B2C-Checkout reicht doch“:</strong> Ohne PO/Kostenstelle
@@ -675,7 +675,7 @@ export default function Page() {
         </section>
 
        {/* Weiterführende interne Links (Cluster) */}
-<aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+<aside className="mt-10 rounded-sm border border-zinc-200 bg-zinc-50 p-5">
   <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
   <ul className="list-disc ml-5 text-sm space-y-2">
     <li>
@@ -862,7 +862,7 @@ export default function Page() {
 
         {/* CTA */}
         <section aria-label="Kontakt" className="mt-14">
-          <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+          <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
             <h2 className="text-xl font-bold mb-2">
               Möchtest du deinen B2B-Shop spürbar schneller und einfacher
               machen?
@@ -882,7 +882,7 @@ export default function Page() {
                 <input
                   type="text"
                   name="name"
-                  className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                  className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                   placeholder="Max Mustermann"
                   required
                 />
@@ -892,7 +892,7 @@ export default function Page() {
                 <input
                   type="tel"
                   name="phone"
-                  className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                  className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                   placeholder="+49 123456789"
                 />
               </label>
@@ -901,7 +901,7 @@ export default function Page() {
                 <input
                   type="email"
                   name="email"
-                  className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                  className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                   placeholder="max@mustermann.de"
                   required
                 />
@@ -910,7 +910,7 @@ export default function Page() {
               {/* Button öffnet das Pop-up via :target */}
               <a
                 href="#cta-pop"
-                className="mt-2 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+                className="mt-2 inline-flex items-center justify-center rounded-sm bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
               >
                 Unverbindlich anfragen
               </a>
@@ -938,13 +938,13 @@ export default function Page() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="cta-pop-title"
-              className="relative w-full max-w-md rounded-xl bg-white p-6 shadow-xl"
+              className="relative w-full max-w-md rounded-sm bg-white p-6 shadow-xl"
             >
               {/* Schließen-Button */}
               <a
                 href="#"
                 aria-label="Fenster schließen"
-                className="absolute right-3 top-3 rounded-md border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
+                className="absolute right-3 top-3 rounded-sm border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
               >
                 ✕
               </a>
@@ -975,7 +975,7 @@ export default function Page() {
             Mini-Glossar – Die wichtigsten Begriffe zu B2B-Onlineshops
           </h2>
 
-          <div className="rounded-2xl border border-zinc-200 overflow-hidden">
+          <div className="rounded-sm border border-zinc-200 overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-zinc-50">
                 <tr>
