@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Header from "@/components/ui/Header"; // ggf. Pfad anpassen
-import Footer from "@/components/ui/Footer"; // ggf. Pfad anpassen
+import Header from "@/components/Header"; // ggf. Pfad anpassen
+import Footer from "@/components/Footer"; // ggf. Pfad anpassen
 import styles from "./funktionsweise.module.css";
 
 export const metadata: Metadata = {
@@ -58,13 +58,12 @@ export default function Page() {
           <h1 className="sr-only">Ablauf</h1>
 
           <ol className={styles.timeline} aria-label="Prozess-Schritte">
-            {steps.map((step, idx) => (
+            {steps.map((step) => (
               <li className={styles.item} key={step.id}>
                 <div className={styles.rail} aria-hidden="true">
                   <span className={styles.dot}>
                     <CheckIcon />
                   </span>
-                  {idx < steps.length - 1 && <span className={styles.dash} />}
                 </div>
 
                 <div className={styles.content}>
@@ -89,17 +88,8 @@ export default function Page() {
 
 function CheckIcon() {
   return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 20 20"
-      role="img"
-      aria-label="abgehakt"
-    >
-      <path
-        d="M7.5 13.3l-3-3 1.4-1.4 1.6 1.6 4.6-4.6 1.4 1.4-6 6z"
-        fill="#fff"
-      />
+    <svg width="18" height="18" viewBox="0 0 20 20" role="img" aria-label="abgehakt">
+      <path d="M7.5 13.3l-3-3 1.4-1.4 1.6 1.6 4.6-4.6 1.4 1.4-6 6z" fill="#fff" />
     </svg>
   );
 }
