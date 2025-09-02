@@ -80,7 +80,7 @@ export default function Page() {
         </div>
 
         {/* Hero 16:6 */}
-        <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+        <figure className="mt-6 overflow-hidden rounded-sm border border-zinc-200">
           <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
             <picture>
               <source
@@ -116,7 +116,7 @@ export default function Page() {
       </header>
 
       {/* TL;DR */}
-      <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+      <aside className="mb-10 rounded-sm border border-emerald-200 bg-emerald-50 p-5">
         <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
         <ul className="list-disc ml-5 space-y-2 text-zinc-800">
           <li>
@@ -147,7 +147,7 @@ export default function Page() {
       {/* ToC */}
       <nav
         aria-label="Inhaltsverzeichnis"
-        className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
+        className="mb-12 rounded-sm border border-zinc-200 bg-zinc-50 p-5"
       >
         <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
         <ol className="list-decimal ml-5 space-y-2">
@@ -243,7 +243,7 @@ export default function Page() {
 
       <section id="warum-pflicht" className="mt-12">
         <h2 className="text-2xl font-bold mb-3">Warum ein Unternehmensblog heute Pflicht ist</h2>
-        <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+        <div className="rounded-sm border border-emerald-200 bg-emerald-50 p-5">
           <p className="leading-relaxed">
             Kaufentscheidungen im B2B sind komplex, dauern lange und binden
             mehrere Stakeholder. Sie beginnen häufig mit Recherche. Wer in
@@ -334,7 +334,7 @@ export default function Page() {
         {/* Bild 1 – volle Breite, 16:6 */}
         <figure className="mt-8">
           <div
-            className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+            className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
@@ -416,7 +416,7 @@ export default function Page() {
         </div>
 
         {/* Expertenzitat */}
-        <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+        <figure className="mt-6 rounded-sm border-l-4 border-emerald-600 bg-emerald-50 p-5">
           <blockquote className="text-lg font-medium">
             Wer im B2B Vertrauen gewinnen will, muss zuerst generös mit Wissen
             sein. Ein Blog macht Expertise sichtbar, wiederauffindbar und für
@@ -436,7 +436,7 @@ export default function Page() {
           die Entwicklung im Zeitverlauf und der Beitrag zur Pipeline.
         </p>
 
-        <div className="rounded-2xl border border-zinc-200 overflow-hidden mt-6">
+        <div className="rounded-sm border border-zinc-200 overflow-hidden mt-6">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
@@ -511,7 +511,7 @@ export default function Page() {
         {/* Bild 2 – volle Breite, 16:6 */}
         <figure className="mt-8">
           <div
-            className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+            className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
@@ -729,7 +729,7 @@ export default function Page() {
 
       {/* CTA ohne Formular, Button führt zu findbar.info */}
       <section aria-label="Kontakt" className="mt-14">
-        <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+        <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
           <h2 className="text-xl font-bold mb-2">
             Möchtest du Blogartikel für dein B2B-Angebot einführen?
           </h2>
@@ -743,7 +743,7 @@ export default function Page() {
               href="https://www.findbar.info"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+              className="inline-flex items-center justify-center rounded-sm bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
               aria-label="Zu findbar.info wechseln (öffnet in neuem Tab)"
             >
               Mehr erfahren
@@ -758,7 +758,7 @@ export default function Page() {
           Mini-Glossar – Die wichtigsten Begriffe zu B2B-Blogging
         </h2>
 
-        <div className="rounded-2xl border border-zinc-200 overflow-hidden">
+        <div className="rounded-sm border border-zinc-200 overflow-hidden">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
