@@ -1,7 +1,9 @@
+"use client";
 import type { Metadata } from "next";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import React from "react";
+import { motion } from "framer-motion";
 
 // Einheitliche Seitenbreite wie in deinem Code
 const containerClass = "w-full max-w-6xl mx-auto px-6";
@@ -56,7 +58,7 @@ export default function Page() {
     <>
       <Header />
 
-      {/* HERO – Bild volle Breite, Headline links unten auf 6xl-Container */}
+      {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="relative h-[38vh] md:h-[50vh] lg:h-[56vh]">
           {/* Bild */}
@@ -68,7 +70,7 @@ export default function Page() {
           />
           {/* dunkler Verlauf für bessere Lesbarkeit */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-          {/* Headline links unten im 6xl-Container */}
+          {/* Headline */}
           <div className="absolute inset-x-0 bottom-0">
             <div className={`${containerClass} pb-8`}>
               <h1 className="text-white text-4xl md:text-6xl font-semibold tracking-tight font-serif">
@@ -79,68 +81,70 @@ export default function Page() {
         </div>
       </section>
 
-      {/* STEPS */}
+      {/* STEPS – 1-2-2 Grid mit Animation */}
       <main className="bg-white">
         <section className="py-16">
           <div className={containerClass}>
             <h2 className="sr-only">Ablauf</h2>
 
-            <ol className="space-y-10 md:space-y-12" aria-label="Prozess-Schritte">
-              {steps.map((step) => (
-                <li
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {steps.map((step, i) => (
+                <motion.div
                   key={step.id}
-                  className="grid grid-cols-[48px_1fr] items-center gap-5 md:grid-cols-[56px_1fr] md:gap-6"
+                  className={`rounded-lg border bg-white p-6 shadow-sm hover:shadow-md transition-transform cursor-default
+                    ${i === 0 ? "md:col-span-2" : ""}`} // Step 1 nimmt ganze Breite
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: i * 0.15,
+                    duration: 0.6,
+                    ease: "easeOut",
+                  }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.02 }}
                 >
-                  {/* Nummern-Kreis (keine Verbindungslinie) */}
-                  <div className="flex items-center justify-center">
-                    <span
-  className="inline-flex h-12 w-12 items-center justify-center rounded-sm bg-gray-200 text-black font-semibold md:h-14 md:w-14"
->
-                      {step.id}
-                    </span>
-                  </div>
-
-                  {/* Inhalt; Zahl ist durch align-items:center auf Höhe der Überschrift */}
-                  <div>
-                    <h3 className="text-2xl font-semibold tracking-tight font-serif">
-                      {step.title}
-                    </h3>
-                    <p className="mt-2 text-base leading-relaxed text-gray-700">
-                      {step.body}
-                    </p>
-                  </div>
-                </li>
+                  <motion.div
+                    className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-600 text-white font-bold shadow-md"
+                    whileHover={{ rotate: 8, scale: 1.1 }}
+                  >
+                    {step.id}
+                  </motion.div>
+                  <h3 className="text-xl font-semibold tracking-tight font-serif">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-gray-700 leading-relaxed">
+                    {step.body}
+                  </p>
+                </motion.div>
               ))}
-            </ol>
+            </div>
           </div>
         </section>
 
- {/* CTA ohne Formular, Button führt zu findbar.info */}
-      <section aria-label="Kontakt" className="mt-14">
-        <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
-          <h2 className="text-xl font-bold mb-2">
-            Möchtest du Blogartikel für dein B2B-Angebot einführen?
-          </h2>
-          <p className="text-zinc-700 mb-4">
-            Unsere KI schreibt Expertenartikel und identifiziert anonyme
-            B2B-Leser für dein Sales-Team.
-          </p>
+        {/* CTA */}
+        <section aria-label="Kontakt" className="mt-14">
+          <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
+            <h2 className="text-xl font-bold mb-2">
+              Möchtest du Blogartikel für dein B2B-Angebot einführen?
+            </h2>
+            <p className="text-zinc-700 mb-4">
+              Unsere KI schreibt Expertenartikel und identifiziert anonyme
+              B2B-Leser für dein Sales-Team.
+            </p>
 
-          <div className="mx-auto max-w-xl">
-            <a
-              href="https://www.findbar.info"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-sm bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
-              aria-label="Zu findbar.info wechseln (öffnet in neuem Tab)"
-            >
-              Mehr erfahren
-            </a>
+            <div className="mx-auto max-w-xl">
+              <a
+                href="https://www.findbar.info"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-sm bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+                aria-label="Zu findbar.info wechseln (öffnet in neuem Tab)"
+              >
+                Mehr erfahren
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
-
-        
+        </section>
       </main>
 
       <Footer />
