@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Header from "@/components/ui/Header";
-import Footer from "@/components/ui/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import styles from "./funktionsweise.module.css";
 
 export const metadata: Metadata = {
@@ -65,7 +65,6 @@ export default function Page() {
                 </div>
 
                 <div className={styles.content}>
-                  <div className={styles.kicker}>Step {step.id}</div>
                   <h2 className="text-4xl font-semibold tracking-tight font-serif">
                     {step.title}
                   </h2>
