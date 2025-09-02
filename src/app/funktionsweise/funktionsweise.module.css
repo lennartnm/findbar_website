@@ -4,10 +4,22 @@
   padding: 48px 24px 80px;
 }
 
+/* Durchgehende Mittellinie über die gesamte Liste */
 .timeline {
+  position: relative;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 28px;              /* Mitte der Rail-Spalte (56px breit) */
+  width: 2px;
+  background: #1c4d2b;
+  z-index: 0;
 }
 
 .item {
@@ -15,39 +27,29 @@
   display: grid;
   grid-template-columns: 56px 1fr;
   column-gap: 24px;
-  padding-bottom: 48px;
+  padding: 12px 0 56px;
 }
 
 .rail {
   position: relative;
   display: flex;
-  align-items: stretch; /* sorgt für durchgehende Linie */
+  align-items: center;
   justify-content: center;
+  z-index: 1;              /* über der Linie */
 }
 
+/* Kreis + Haken */
 .dot {
   width: 40px;
   height: 40px;
   border-radius: 999px;
-  background: #1c4d2b; /* neue Farbe */
+  background: #1c4d2b;     /* Kreisfarbe */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0;
-  z-index: 1;
 }
 
-.dash {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  background: #1c4d2b; /* durchgehende Verbindung */
-  z-index: 0;
-}
-
+/* Inhalt */
 .content {
   padding-top: 2px;
 }
