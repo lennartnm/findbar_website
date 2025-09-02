@@ -94,9 +94,8 @@ export default function Page() {
                   {/* Nummern-Kreis (keine Verbindungslinie) */}
                   <div className="flex items-center justify-center">
                     <span
-                      className="inline-flex h-12 w-12 items-center justify-center rounded-full text-white font-semibold md:h-14 md:w-14"
-                      style={{ backgroundColor: "#1c4d2b" }}
-                    >
+  className="inline-flex h-12 w-12 items-center justify-center rounded-sm bg-gray-200 text-black font-semibold md:h-14 md:w-14"
+>
                       {step.id}
                     </span>
                   </div>
