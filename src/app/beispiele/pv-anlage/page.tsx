@@ -740,7 +740,7 @@ export default function PhotovoltaikUnternehmen2025() {
                 In diesem Beispiel-Blogartikel funktionieren die Links nicht. Möchtest du solch ein
                 Projekt auch für dein Angebot umsetzen?{" "}
                 <a
-                  href="https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung?month=2025-08"
+                  href="https://calendly.com/lennart-findbar/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`font-medium underline ${accent}`}
