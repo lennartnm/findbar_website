@@ -157,7 +157,7 @@ export default function PhotovoltaikUnternehmen2025() {
             {" · "}Lesedauer: <span className="tabular-nums">10 Minuten</span>
           </div>
 
-          <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+          <figure className="mt-6 overflow-hidden rounded-sm border border-zinc-200">
             <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
               <picture>
                 <source media="(max-width: 640px)" srcSet="/solar1.png" />
@@ -189,7 +189,7 @@ export default function PhotovoltaikUnternehmen2025() {
           </div>
         </header>
 
-        <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+        <aside className="mb-10 rounded-sm border border-emerald-200 bg-emerald-50 p-5">
           <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
           <ul className="list-disc ml-5 space-y-2 text-zinc-800">
             <li>
@@ -218,7 +218,7 @@ export default function PhotovoltaikUnternehmen2025() {
 
         <nav
           aria-label="Inhaltsverzeichnis"
-          className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
+          className="mb-12 rounded-sm border border-zinc-200 bg-zinc-50 p-5"
         >
           <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
           <ol className="list-decimal ml-5 space-y-2">
@@ -276,7 +276,7 @@ export default function PhotovoltaikUnternehmen2025() {
           </p>
 
           <div className="mt-6 grid gap-4 md:grid-cols-3">
-            <div className="rounded-xl border border-zinc-200 p-4 bg-white">
+            <div className="rounded-sm border border-zinc-200 p-4 bg-white">
               <div className="text-sm font-semibold text-zinc-900">
                 Kostenvorteil pro kWh
               </div>
@@ -284,13 +284,13 @@ export default function PhotovoltaikUnternehmen2025() {
                 PV-Stromkosten (LCOE) oft 4–14 ct/kWh; Gewerbestromtarife deutlich höher.
               </p>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4 bg-white">
+            <div className="rounded-sm border border-zinc-200 p-4 bg-white">
               <div className="text-sm font-semibold text-zinc-900">Planbarkeit</div>
               <p className="text-zinc-700 mt-1">
                 20-jährige Vergütung für eingespeisten Überschuss; stabile Kalkulation.
               </p>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4 bg-white">
+            <div className="rounded-sm border border-zinc-200 p-4 bg-white">
               <div className="text-sm font-semibold text-zinc-900">Klimaziele</div>
               <p className="text-zinc-700 mt-1">
                 Reduzierte Scope-2-Emissionen, ESG-Reporting, positive Außenwirkung.
@@ -316,7 +316,7 @@ export default function PhotovoltaikUnternehmen2025() {
             Erleichterungen durch Solarpaket I im nächsten Abschnitt.
           </p>
 
-          <div className="mt-6 rounded-2xl border border-zinc-200 overflow-hidden">
+          <div className="mt-6 rounded-sm border border-zinc-200 overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-zinc-50">
                 <tr>
@@ -363,7 +363,7 @@ export default function PhotovoltaikUnternehmen2025() {
             Beachte jedoch Redispatch- und Messanforderungen sowie die Wirtschaftlichkeitsabwägung.
           </p>
 
-          <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+          <figure className="mt-6 rounded-sm border-l-4 border-emerald-600 bg-emerald-50 p-5">
             <blockquote className="text-lg font-medium">
               „Eigenverbrauch ist im Gewerbe der Renditetreiber – je höher die Tageslastdeckung,
               desto kürzer die Amortisation. Einspeiseerlöse bleiben wichtig, aber sie ersetzen
@@ -377,7 +377,7 @@ export default function PhotovoltaikUnternehmen2025() {
 
         <figure className="mt-8">
           <div
-            className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+            className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
@@ -400,7 +400,7 @@ export default function PhotovoltaikUnternehmen2025() {
             Wirtschaftlichkeit verstehen: Eigenverbrauch, LCOE &amp; Beispielrechnung
           </h2>
 
-          <div className="rounded-2xl border border-zinc-200 bg-white p-5">
+          <div className="rounded-sm border border-zinc-200 bg-white p-5">
             <h3 className="text-xl font-semibold mb-2">Die drei Hebel</h3>
             <ul className="list-disc ml-5 space-y-2 text-zinc-800">
               <li>
@@ -429,7 +429,7 @@ export default function PhotovoltaikUnternehmen2025() {
             10/≤ 40/≤ 100 kWp). Die Werte dienen der Illustration.
           </p>
 
-          <div className="mt-4 rounded-2xl border border-zinc-200 overflow-hidden">
+          <div className="mt-4 rounded-sm border border-zinc-200 overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-zinc-50">
                 <tr>
@@ -488,7 +488,7 @@ export default function PhotovoltaikUnternehmen2025() {
           </p>
 
           <div className="mt-6 grid gap-5 md:grid-cols-[2fr_1fr]">
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+            <div className="rounded-sm border border-emerald-200 bg-emerald-50 p-5">
               <h3 className="text-lg font-semibold mb-2">Praktische Tipps</h3>
               <ul className="list-disc ml-5 space-y-1 text-zinc-800">
                 <li>Lastgangmessung prüfen (15-Min-Werte) und mit PV-Ertrag matchen.</li>
@@ -498,7 +498,7 @@ export default function PhotovoltaikUnternehmen2025() {
                 <li>Reinigung &amp; Wartung einplanen (OPEX realistisch halten).</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-zinc-200 p-5">
+            <div className="rounded-sm border border-zinc-200 p-5">
               <h3 className="text-lg font-semibold mb-2">Checkliste Förderfähigkeit</h3>
               <ol className="list-decimal ml-5 space-y-1 text-zinc-800">
                 <li>Kreditlinie klären (Hausbank für KfW 270).</li>
@@ -511,7 +511,7 @@ export default function PhotovoltaikUnternehmen2025() {
 
         <figure className="mt-8">
           <div
-            className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+            className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
@@ -534,7 +534,7 @@ export default function PhotovoltaikUnternehmen2025() {
           <h2 className="text-2xl font-bold mb-3">
             Steuern &amp; Förderungen: IAB, Sonder-AfA, KfW 270
           </h2>
-          <div className="rounded-2xl border border-zinc-200 bg-white p-5 space-y-3">
+          <div className="rounded-sm border border-zinc-200 bg-white p-5 space-y-3">
             <p className="leading-relaxed">
               <strong>Förderkredit KfW 270:</strong> Finanzierung von PV-Anlagen (auch Speicher) für
               Unternehmen über Hausbanken. Konditionen sind bonitäts- und laufzeitabhängig.
@@ -584,7 +584,7 @@ export default function PhotovoltaikUnternehmen2025() {
             </li>
           </ol>
 
-        <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+        <aside className="mt-10 rounded-sm border border-zinc-200 bg-zinc-50 p-5">
   <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
   <ul className="list-disc ml-5 text-sm space-y-2">
     <li>
@@ -665,7 +665,7 @@ export default function PhotovoltaikUnternehmen2025() {
         </section>
 
         <section aria-label="Kontakt" className="mt-14">
-          <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+          <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
             <h2 className="text-xl font-bold mb-2">
               Willst du wissen, wie sich PV <em>für dein</em> Unternehmen rechnet?
             </h2>
@@ -680,7 +680,7 @@ export default function PhotovoltaikUnternehmen2025() {
                 <input
                   type="text"
                   name="name"
-                  className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                  className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                   placeholder="Max Mustermann"
                   required
                 />
@@ -690,7 +690,7 @@ export default function PhotovoltaikUnternehmen2025() {
                 <input
                   type="tel"
                   name="phone"
-                  className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                  className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                   placeholder="+49 123456789"
                 />
               </label>
@@ -699,7 +699,7 @@ export default function PhotovoltaikUnternehmen2025() {
                 <input
                   type="email"
                   name="email"
-                  className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                  className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                   placeholder="max@mustermann.de"
                   required
                 />
@@ -707,7 +707,7 @@ export default function PhotovoltaikUnternehmen2025() {
 
               <a
                 href="#cta-pop"
-                className="mt-2 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+                className="mt-2 inline-flex items-center justify-center rounded-sm bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
               >
                 Unverbindlich anfragen
               </a>
@@ -724,12 +724,12 @@ export default function PhotovoltaikUnternehmen2025() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="cta-pop-title"
-              className="relative w-full max-w-md rounded-xl bg-white p-6 shadow-xl"
+              className="relative w-full max-w-md rounded-sm bg-white p-6 shadow-xl"
             >
               <a
                 href="#"
                 aria-label="Fenster schließen"
-                className="absolute right-3 top-3 rounded-md border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
+                className="absolute right-3 top-3 rounded-sm border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
               >
                 ✕
               </a>
