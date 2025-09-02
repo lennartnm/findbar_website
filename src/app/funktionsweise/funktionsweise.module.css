@@ -21,7 +21,7 @@
 .rail {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch; /* sorgt für durchgehende Linie */
   justify-content: center;
 }
 
@@ -29,22 +29,23 @@
   width: 40px;
   height: 40px;
   border-radius: 999px;
-  background: #2f66ff;
+  background: #1c4d2b; /* neue Farbe */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(47, 102, 255, 0.3);
-  margin-top: 4px;
+  margin-top: 0;
+  z-index: 1;
 }
 
 .dash {
   position: absolute;
-  top: 48px;
+  top: 0;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 1px;
-  height: calc(100% - 48px);
-  border-right: 2px dashed #2f66ff33;
+  width: 2px;
+  background: #1c4d2b; /* durchgehende Verbindung */
+  z-index: 0;
 }
 
 .content {
@@ -52,25 +53,11 @@
 }
 
 .kicker {
-  font-size: 14px;
-  letter-spacing: 0.2em;
+  font-size: 12px;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #c7c7c7;
-  margin-bottom: 8px;
-}
-
-.title {
-  font-size: clamp(28px, 4vw, 42px);
-  font-weight: 800;
-  line-height: 1.1;
-  margin: 0 0 14px;
-}
-
-.text {
-  font-size: clamp(16px, 1.6vw, 20px);
-  line-height: 1.6;
-  color: #4a4a4a;
-  margin: 0;
+  margin-bottom: 4px;
 }
 
 @media (min-width: 900px) {
