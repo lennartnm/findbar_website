@@ -61,9 +61,7 @@ export default function Page() {
             {steps.map((step) => (
               <li className={styles.item} key={step.id}>
                 <div className={styles.rail} aria-hidden="true">
-                  <span className={styles.dot}>
-                    <CheckIcon />
-                  </span>
+                  <span className={styles.dot}>{step.id}</span>
                 </div>
 
                 <div className={styles.content}>
@@ -83,13 +81,5 @@ export default function Page() {
 
       <Footer />
     </>
-  );
-}
-
-function CheckIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 20 20" role="img" aria-label="abgehakt">
-      <path d="M7.5 13.3l-3-3 1.4-1.4 1.6 1.6 4.6-4.6 1.4 1.4-6 6z" fill="#fff" />
-    </svg>
   );
 }
