@@ -186,7 +186,7 @@ export default function Page() {
             {" · "}Lesedauer: <span className="tabular-nums">11 Minuten</span>
           </div>
 
-          <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+          <figure className="mt-6 overflow-hidden rounded-sm border border-zinc-200">
             <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
               <picture>
                 <source media="(max-width: 640px)" srcSet="/fachkraft1.jpg" />
@@ -216,7 +216,7 @@ export default function Page() {
         </header>
 
         {/* TL;DR */}
-        <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+        <aside className="mb-10 rounded-sm border border-emerald-200 bg-emerald-50 p-5">
           <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
           <ul className="list-disc ml-5 space-y-2 text-zinc-800">
             <li>
@@ -250,7 +250,7 @@ export default function Page() {
         {/* ToC */}
         <nav
           aria-label="Inhaltsverzeichnis"
-          className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
+          className="mb-12 rounded-sm border border-zinc-200 bg-zinc-50 p-5"
         >
           <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
           <ol className="list-decimal ml-5 space-y-2">
@@ -277,7 +277,7 @@ export default function Page() {
           </p>
 
          <div className="mt-5 grid gap-4 sm:grid-cols-2">
-  <div className="rounded-xl border border-zinc-200 p-4">
+  <div className="rounded-sm border border-zinc-200 p-4">
     <h3 className="font-semibold mb-1">Kurz erklärt</h3>
     <p className="text-zinc-700">
       Fachkräftemangel bedeutet: Es gibt zu wenige qualifizierte
@@ -286,7 +286,7 @@ export default function Page() {
     </p>
   </div>
 
-  <div className="rounded-xl border border-zinc-200 p-4">
+  <div className="rounded-sm border border-zinc-200 p-4">
     <h3 className="font-semibold mb-1">Auswirkungen im Alltag</h3>
     <ul className="list-disc ml-5 text-zinc-700 space-y-1">
       <li>verzögerte Projekte, Liefertermine wackeln</li>
@@ -298,7 +298,7 @@ export default function Page() {
 
 
           {/* Expertenzitat */}
-          <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+          <figure className="mt-6 rounded-sm border-l-4 border-emerald-600 bg-emerald-50 p-5">
             <blockquote className="text-lg font-medium">
               „Der Wettbewerb um qualifizierte Fachkräfte bleibt ein
               Wachstumsfaktor: Wer nicht sichtbar und attraktiv ist, besetzt
@@ -323,7 +323,7 @@ export default function Page() {
           </p>
 
           <div className="mt-6 grid gap-6 md:grid-cols-3">
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-1">Sichtbarkeit</h3>
               <p className="text-zinc-700">
                 Klare Botschaften und ein konsistentes Erscheinungsbild sorgen
@@ -331,7 +331,7 @@ export default function Page() {
                 und deiner Karriere-Seite.
               </p>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-1">Relevanz</h3>
               <p className="text-zinc-700">
                 Inhalte, die fachliche Tiefe zeigen (Use Cases, Tech-Stacks,
@@ -339,7 +339,7 @@ export default function Page() {
                 Floskeln.
               </p>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-1">Conversion</h3>
               <p className="text-zinc-700">
                 Gute Candidate Experience reduziert Absprünge im Bewerbungsprozess
@@ -359,7 +359,7 @@ export default function Page() {
             sondern ein <em>Beweisversprechen</em>.
           </p>
 
-          <div className="mt-5 rounded-2xl border border-zinc-200 p-5">
+          <div className="mt-5 rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">EVP-Canvas (Kurzvorlage)</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
@@ -393,7 +393,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4">
+          <div className="mt-6 rounded-sm border border-emerald-200 bg-emerald-50 p-4">
             <div className="flex items-start gap-2">
               <CheckCircle2 className="w-5 h-5 mt-0.5" aria-hidden="true" />
               <p className="m-0">
@@ -407,7 +407,7 @@ export default function Page() {
         {/* Bild 1 – lokale Grafik */}
         <figure className="mt-8">
           <div
-            className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+            className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
@@ -437,7 +437,7 @@ export default function Page() {
           </p>
 
           <div className="mt-6 grid md:grid-cols-[1.6fr,1fr] gap-6">
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-2">Must-haves</h3>
               <ul className="list-disc ml-5 text-zinc-700 space-y-1">
                 <li>Echte Mitarbeiterstimmen (Video/Quote) nach Zielrollen sortiert</li>
@@ -449,7 +449,7 @@ export default function Page() {
                 </li>
               </ul>
             </div>
-            <aside className="rounded-xl border border-zinc-200 p-4 bg-zinc-50">
+            <aside className="rounded-sm border border-zinc-200 p-4 bg-zinc-50">
               <h3 className="font-semibold mb-2">Conversion-Booster</h3>
               <ol className="list-decimal ml-5 text-zinc-700 space-y-1">
                 <li>Kurzer Bewerbungsprozess (unter 10 Minuten)</li>
@@ -460,7 +460,7 @@ export default function Page() {
           </div>
 
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full text-sm border border-zinc-200 rounded-xl overflow-hidden">
+            <table className="w-full text-sm border border-zinc-200 rounded-sm overflow-hidden">
               <thead className="bg-zinc-50">
                 <tr>
                   <th className="text-left p-3 font-semibold">Element</th>
@@ -513,7 +513,7 @@ export default function Page() {
           </p>
 
           <div className="mt-6 grid md:grid-cols-2 gap-6">
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-2">Formate, die funktionieren</h3>
               <ul className="list-disc ml-5 text-zinc-700 space-y-1">
                 <li>Projekt-„Behind the Scenes“ (2–3 Bilder, kurzer Text)</li>
@@ -522,7 +522,7 @@ export default function Page() {
                 <li>Event-Recaps mit Fachinhalten (Slides)</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
+            <div className="rounded-sm border border-emerald-200 bg-emerald-50 p-4">
               <h3 className="font-semibold mb-2">Mitarbeiter als Markenbotschafter</h3>
               <p className="text-zinc-700">
                 Ermögliche einfaches Teilen: Vorlagen, Visuals, kurze Captions und
@@ -536,7 +536,7 @@ export default function Page() {
         {/* Bild 2 – lokale Szene */}
         <figure className="mt-8">
           <div
-            className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+            className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
@@ -564,7 +564,7 @@ export default function Page() {
           </p>
 
           <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-2">Minimalprozess</h3>
               <ol className="list-decimal ml-5 space-y-1">
                 <li>Lebenslauf hochladen (ohne Account)</li>
@@ -572,7 +572,7 @@ export default function Page() {
                 <li>Kalender-Link für Erstgespräch</li>
               </ol>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-2">Was du messen solltest</h3>
               <ul className="list-disc ml-5 space-y-1">
                 <li>Conversion Karriere-Seite → Bewerbung</li>
@@ -587,7 +587,7 @@ export default function Page() {
         <section id="beispiele-quickwins" className="mt-12">
           <h2 className="text-2xl font-bold mb-2">B2B-Beispiele &amp; Quick Wins</h2>
           <div className="grid md:grid-cols-[2fr,1fr] gap-6">
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-2">Schnell umsetzbar</h3>
               <ul className="list-disc ml-5 space-y-1">
                 <li>
@@ -608,7 +608,7 @@ export default function Page() {
                 </li>
               </ul>
             </div>
-            <aside className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
+            <aside className="rounded-sm border border-emerald-200 bg-emerald-50 p-4">
               <h3 className="font-semibold mb-2">Langfristige Hebel</h3>
               <p className="text-zinc-700">
                 Talent-Pool aufbauen, Hochschulkooperationen, interne Akademie,
@@ -621,7 +621,7 @@ export default function Page() {
         <section id="kpis" className="mt-12">
           <h2 className="text-2xl font-bold mb-2">KPIs: So misst du den Erfolg</h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm border border-zinc-200 rounded-xl overflow-hidden">
+            <table className="w-full text-sm border border-zinc-200 rounded-sm overflow-hidden">
               <thead className="bg-zinc-50">
                 <tr>
                   <th className="text-left p-3 font-semibold">KPI</th>
@@ -688,7 +688,7 @@ export default function Page() {
         </section>
 
        {/* Weiterführende interne Links (Cluster) */}
-<aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+<aside className="mt-10 rounded-sm border border-zinc-200 bg-zinc-50 p-5">
   <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
   <ul className="list-disc ml-5 text-sm space-y-2">
     {[
@@ -845,7 +845,7 @@ export default function Page() {
 
         {/* CTA */}
         <section aria-label="Kontakt" className="mt-14">
-          <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+          <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
             <h2 className="text-xl font-bold mb-2">
               Willst du deine Arbeitgebermarke im B2B schärfen und mehr passende
               Bewerbungen erhalten?
@@ -865,7 +865,7 @@ export default function Page() {
                 <input
                   type="text"
                   name="name"
-                  className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                  className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                   placeholder="Max Mustermann"
                   required
                 />
@@ -875,7 +875,7 @@ export default function Page() {
                 <input
                   type="tel"
                   name="phone"
-                  className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                  className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                   placeholder="+49 123456789"
                 />
               </label>
@@ -884,7 +884,7 @@ export default function Page() {
                 <input
                   type="email"
                   name="email"
-                  className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                  className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                   placeholder="max@mustermann.de"
                   required
                 />
@@ -892,7 +892,7 @@ export default function Page() {
 
               <a
                 href="#cta-pop"
-                className="mt-2 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+                className="mt-2 inline-flex items-center justify-center rounded-sm bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
               >
                 Unverbindlich anfragen
               </a>
@@ -917,12 +917,12 @@ export default function Page() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="cta-pop-title"
-              className="relative w-full max-w-md rounded-xl bg-white p-6 shadow-xl"
+              className="relative w-full max-w-md rounded-sm bg-white p-6 shadow-xl"
             >
               <a
                 href="#"
                 aria-label="Fenster schließen"
-                className="absolute right-3 top-3 rounded-md border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
+                className="absolute right-3 top-3 rounded-sm border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
               >
                 ✕
               </a>
@@ -954,7 +954,7 @@ export default function Page() {
             Employer Branding
           </h2>
 
-          <div className="rounded-2xl border border-zinc-200 overflow-hidden">
+          <div className="rounded-sm border border-zinc-200 overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-zinc-50">
                 <tr>
