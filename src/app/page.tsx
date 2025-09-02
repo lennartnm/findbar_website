@@ -1317,7 +1317,7 @@ function FAQSection() {
 export default function FindbarPage() {
   const [calOpen, setCalOpen] = React.useState(false);
   const calendlyUrl =
-    "https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung";
+    "https://calendly.com/lennart-findbar/30min";
 
   return (
     <div className="bg-white text-slate-900">
