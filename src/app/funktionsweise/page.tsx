@@ -92,6 +92,31 @@ export default function Page() {
             </ol>
           </div>
         </section>
+
+ <section aria-label="Kontakt" className="mt-14">
+        <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
+          <h2 className="text-xl font-bold mb-2">
+            Möchtest du Blogartikel für dein B2B-Angebot einführen?
+          </h2>
+          <p className="text-zinc-700 mb-4">
+            Unsere KI schreibt Expertenartikel und identifiziert anonyme B2B-Leser für dein Sales-Team.
+          </p>
+
+          <div className="mx-auto max-w-xl">
+            <a
+              href="https://www.findbar.info"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-sm bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+              aria-label="Zu findbar.info wechseln (öffnet in neuem Tab)"
+            >
+              Mehr erfahren
+            </a>
+          </div>
+        </div>
+      </section>
+
+        
       </main>
 
       <Footer />
