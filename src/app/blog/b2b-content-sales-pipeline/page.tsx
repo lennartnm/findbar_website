@@ -217,21 +217,21 @@ export default function Page() {
         </p>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-1">Sichtbarkeit</h3>
             <p className="text-zinc-700">
               Du deckst Suchintentionen entlang der Buyer Journey ab, baust
               Themen-Autorität auf und gewinnst stetig organischen Traffic.
             </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-1">Vertrauen</h3>
             <p className="text-zinc-700">
               Du demonstrierst Expertise mit klaren Definitionen, nachvollziehbaren
               Prozessen und ehrlichen Vergleichen inklusive Grenzen und Trade-offs.
             </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-1">Leads</h3>
             <p className="text-zinc-700">
               Mit relevanten CTAs, Content-Upgrades und Formularen verwandelst
@@ -253,7 +253,7 @@ export default function Page() {
         </div>
 
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">SEO als Compound-Effekt</h3>
             <p className="text-zinc-700">
               Jeder hochwertige Artikel erweitert deinen Themen-Cluster. Mit
@@ -261,7 +261,7 @@ export default function Page() {
               So wächst Sichtbarkeit verlässlich – nicht sprunghaft.
             </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">Thought Leadership, die man nachprüfen kann</h3>
             <p className="text-zinc-700">
               Zeige Methoden, Datenpunkte und echte Beispiele aus Projekten.
@@ -269,14 +269,14 @@ export default function Page() {
               an einem Strang.
             </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">Planbare Pipeline</h3>
             <p className="text-zinc-700">
               Mit klaren CTA-Mustern (Demo, Checkliste, Template, Beratung) und
               Lead-Routing ins CRM wird Content zu messbarem Deal-Einfluss.
             </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">Employer Branding inklusive</h3>
             <p className="text-zinc-700">
               Gute Inhalte zeigen Kultur und Kompetenz. Sie ziehen Bewerber an,
@@ -290,7 +290,7 @@ export default function Page() {
         <h2 className="text-2xl font-bold mb-3">Die 5 Grundformate, die funktionieren</h2>
 
         <div className="grid gap-6 sm:grid-cols-2">
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold">Guide</h3>
             <p className="text-zinc-700">
               Schritt-für-Schritt-Erklärungen zu Kernproblemen deiner ICP. Ziel:
@@ -299,14 +299,14 @@ export default function Page() {
               <em>Content-Plan in 90 Tagen</em>.
             </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold">Checkliste</h3>
             <p className="text-zinc-700">
               Kompakte Prüf- und To-do-Listen für Qualitätssicherung. Ideal als
               PDF-Download mit E-Mail-Opt-in.
             </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold">Case</h3>
             <p className="text-zinc-700">
               Konkrete Ergebnisse aus Projekten. Struktur: Ausgangslage, Ansatz,
@@ -314,7 +314,7 @@ export default function Page() {
               Zahlen und Prozess.
             </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold">FAQ</h3>
             <p className="text-zinc-700">
               Präzise Antworten auf häufige Einwände und Detailfragen. Perfekt,
@@ -322,7 +322,7 @@ export default function Page() {
               bedienen.
             </p>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-5 sm:col-span-2">
+          <div className="rounded-sm border border-zinc-200 p-5 sm:col-span-2">
             <h3 className="font-semibold">Meinung</h3>
             <p className="text-zinc-700">
               Pointierte Perspektiven zu Trends und Best Practices. Zeigt Haltung
@@ -358,7 +358,7 @@ export default function Page() {
         <h2 className="text-2xl font-bold mb-3">So startest du: Schritt für Schritt</h2>
 
         <div className="grid gap-6 sm:grid-cols-[2fr_1fr]">
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <ol className="list-decimal ml-5 space-y-3">
               <li>
                 <strong>Ziele definieren:</strong> Welche Metriken willst du
@@ -402,7 +402,7 @@ export default function Page() {
             </ol>
           </div>
 
-          <aside className="rounded-xl border border-zinc-200 p-5 bg-zinc-50">
+          <aside className="rounded-sm border border-zinc-200 p-5 bg-zinc-50">
             <h3 className="font-semibold mb-2">Mini-Checkliste Veröffentlichung</h3>
             <ul className="list-disc ml-5 space-y-2">
               <li>Suchintention getroffen</li>
@@ -484,7 +484,7 @@ export default function Page() {
         </div>
 
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold">Formeln &amp; Auswertung</h3>
             <ul className="list-disc ml-5 space-y-2">
               <li>
@@ -499,7 +499,7 @@ export default function Page() {
               </li>
             </ul>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold">Qualitative Signale</h3>
             <p className="text-zinc-700">
               Kommentare aus Sales-Gesprächen, Antworten auf Newsletter, geteilte
@@ -537,7 +537,7 @@ export default function Page() {
       <section id="fehler-fixes" className="mt-12">
         <h2 className="text-2xl font-bold mb-3">Häufige Fehler und schnelle Fixes</h2>
         <div className="grid gap-6 sm:grid-cols-2">
-          <div className="rounded-xl border border-zinc-200 p-5 bg-zinc-50">
+          <div className="rounded-sm border border-zinc-200 p-5 bg-zinc-50">
             <h3 className="font-semibold mb-2">Fehler</h3>
             <ul className="list-disc ml-5 space-y-2">
               <li>Themen ohne Suchintention</li>
@@ -547,7 +547,7 @@ export default function Page() {
               <li>Einmal veröffentlichen, nie aktualisieren</li>
             </ul>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">Fixes</h3>
             <ul className="list-disc ml-5 space-y-2">
               <li>Recherche zu Pains, Fragen, Synonymen</li>
@@ -569,7 +569,7 @@ export default function Page() {
         </p>
 
         <div className="mt-6 grid gap-6 sm:grid-cols-3">
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold">Distribution</h3>
             <ul className="list-disc ml-5 space-y-2">
               <li>Newsletter Teaser mit Deep-Link</li>
@@ -578,7 +578,7 @@ export default function Page() {
               <li>Community-Thread mit How-to</li>
             </ul>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold">Repurposing</h3>
             <ul className="list-disc ml-5 space-y-2">
               <li>Guide → Checkliste &amp; Slides</li>
@@ -587,7 +587,7 @@ export default function Page() {
               <li>Meinung → Podcast-Clip</li>
             </ul>
           </div>
-          <div className="rounded-xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold">Updates</h3>
             <ul className="list-disc ml-5 space-y-2">
               <li>Quartals-Review der Top 10 Seiten</li>
