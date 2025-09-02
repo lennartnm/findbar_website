@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Header from "@/components/ui/Header"; // Pfad bei Bedarf anpassen
-import Footer from "@/components/ui/Footer"; // Pfad bei Bedarf anpassen
+import Header from "@/components/ui/Header"; // ggf. Pfad anpassen
+import Footer from "@/components/ui/Footer"; // ggf. Pfad anpassen
 import styles from "./funktionsweise.module.css";
 
 export const metadata: Metadata = {
-  title: "Findbar: Funktionsweise",
+  title: "So funktioniert’s – Ablauf",
   description:
     "Von Unternehmensanalyse bis langfristigem Effekt: So läuft unser Content-und-Lead-Prozess ab.",
 };
@@ -69,8 +69,12 @@ export default function Page() {
 
                 <div className={styles.content}>
                   <div className={styles.kicker}>Step {step.id}</div>
-                  <h2 className={styles.title}>{step.title}</h2>
-                  <p className={styles.text}>{step.body}</p>
+                  <h2 className="text-4xl font-semibold tracking-tight font-serif">
+                    {step.title}
+                  </h2>
+                  <p className="text-base leading-relaxed text-gray-700 mt-2">
+                    {step.body}
+                  </p>
                 </div>
               </li>
             ))}
@@ -85,8 +89,17 @@ export default function Page() {
 
 function CheckIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 20 20" role="img" aria-label="abgehakt">
-      <path d="M7.5 13.3l-3-3 1.4-1.4 1.6 1.6 4.6-4.6 1.4 1.4-6 6z" fill="#fff" />
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 20 20"
+      role="img"
+      aria-label="abgehakt"
+    >
+      <path
+        d="M7.5 13.3l-3-3 1.4-1.4 1.6 1.6 4.6-4.6 1.4 1.4-6 6z"
+        fill="#fff"
+      />
     </svg>
   );
 }
