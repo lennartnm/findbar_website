@@ -97,7 +97,7 @@ export default function Page() {
         </div>
 
         {/* Hero 16:6 */}
-        <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+        <figure className="mt-6 overflow-hidden rounded-sm border border-zinc-200">
           <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
             <picture>
               <source media="(max-width: 640px)" srcSet="/druck1.png" />
@@ -129,7 +129,7 @@ export default function Page() {
       </header>
 
       {/* TL;DR */}
-      <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+      <aside className="mb-10 rounded-sm border border-emerald-200 bg-emerald-50 p-5">
         <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
         <ul className="list-disc ml-5 space-y-2 text-zinc-800">
           <li>
@@ -167,7 +167,7 @@ export default function Page() {
       {/* ToC */}
       <nav
         aria-label="Inhaltsverzeichnis"
-        className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
+        className="mb-12 rounded-sm border border-zinc-200 bg-zinc-50 p-5"
       >
         <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
         <ol className="list-decimal ml-5 space-y-2">
@@ -225,7 +225,7 @@ export default function Page() {
         </p>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          <aside className="md:col-span-1 rounded-xl border border-zinc-200 p-4 bg-white">
+          <aside className="md:col-span-1 rounded-sm border border-zinc-200 p-4 bg-white">
             <h3 className="font-semibold mb-2">Kurzvorteile</h3>
             <ul className="list-disc ml-5 text-sm space-y-1">
               <li>Komplexität ohne Mehrkosten</li>
@@ -234,7 +234,7 @@ export default function Page() {
               <li>Kurze Lieferzeiten, On-Demand-Fertigung</li>
             </ul>
           </aside>
-          <div className="md:col-span-2 rounded-xl border border-zinc-200 p-4 bg-zinc-50">
+          <div className="md:col-span-2 rounded-sm border border-zinc-200 p-4 bg-zinc-50">
             <h3 className="font-semibold mb-2">Typische Einsatzmotive</h3>
             <p className="text-sm">
               Designfreiheit nutzen, Teile konsolidieren, Kosten in der
@@ -249,7 +249,7 @@ export default function Page() {
       {/* Bild 1 – volle Breite */}
       <figure className="mt-8">
         <div
-          className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+          className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
           style={{ aspectRatio: "16 / 6" }}
         >
           <picture>
@@ -272,7 +272,7 @@ export default function Page() {
           Anwendungsfelder 2025: Wo 3D-Druck heute wirkt
         </h2>
 
-        <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
+        <div className="rounded-sm border border-zinc-200 p-5 bg-white">
           <h3 className="font-semibold mb-2">
             1) Prototypen &amp; Funktionsmuster
           </h3>
@@ -314,7 +314,7 @@ export default function Page() {
             wo neue AM-Reparaturpfade signifikante Zeitgewinne schaffen. 
           </p>
 
-          <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50 p-4">
+          <div className="mt-6 rounded-sm border border-emerald-200 bg-emerald-50 p-4">
             <p className="text-sm">
               Branchenbeispiele: Luft- und Raumfahrt nutzt AM für leichte,
               hochkomplexe Geometrien wie Einspritzköpfe und Pumpen – ein
@@ -337,7 +337,7 @@ export default function Page() {
           und Photopolymerisation.
         </p>
 
-        <div className="mt-6 overflow-x-auto rounded-2xl border border-zinc-200">
+        <div className="mt-6 overflow-x-auto rounded-sm border border-zinc-200">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
@@ -387,7 +387,7 @@ export default function Page() {
         </p>
 
         {/* Expertenzitat */}
-        <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+        <figure className="mt-6 rounded-sm border-l-4 border-emerald-600 bg-emerald-50 p-5">
           <blockquote className="text-lg font-medium">
             „Der größte Hebel liegt nicht im Drucken selbst, sondern im
             Bauteildesign und in stabilen Prozessen. Wer DfAM konsequent denkt
@@ -399,7 +399,7 @@ export default function Page() {
         </figure>
 
         <div className="mt-6 grid md:grid-cols-3 gap-4">
-          <div className="md:col-span-2 rounded-xl border border-zinc-200 p-4">
+          <div className="md:col-span-2 rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">Materialwahl – so denkst du pragmatisch</h3>
             <ul className="list-disc ml-5 space-y-1">
               <li>Leichtbau&nbsp;&amp;&nbsp;Korrosionsschutz: Aluminium, Titan</li>
@@ -408,7 +408,7 @@ export default function Page() {
               <li>Polymere Betriebsmittel: PA, PETG, CF-Verbund, TPU</li>
             </ul>
           </div>
-          <aside className="rounded-xl border border-amber-200 bg-amber-50 p-4">
+          <aside className="rounded-sm border border-amber-200 bg-amber-50 p-4">
             <h4 className="font-semibold mb-1">Praxis-Hinweis</h4>
             <p className="text-sm">
               Plane Nacharbeit von Anfang an ein: Fräs-Referenzen, Toleranzen,
@@ -421,7 +421,7 @@ export default function Page() {
       {/* Bild 2 */}
       <figure className="mt-8">
         <div
-          className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+          className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
           style={{ aspectRatio: "16 / 6" }}
         >
           <picture>
@@ -454,7 +454,7 @@ export default function Page() {
         </p>
 
         <div className="mt-6 grid md:grid-cols-2 gap-4">
-          <div className="rounded-xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">Checkliste QS-Bausteine</h3>
             <ul className="list-disc ml-5 space-y-1">
               <li>Pflichtenheft &amp; Zeichnung mit AM-spezifischen Toleranzen</li>
@@ -465,7 +465,7 @@ export default function Page() {
               <li>Prozessfähigkeitsnachweis, Erstmuster, Freigabe</li>
             </ul>
           </div>
-          <aside className="rounded-xl border border-zinc-200 p-4 bg-zinc-50">
+          <aside className="rounded-sm border border-zinc-200 p-4 bg-zinc-50">
             <h3 className="font-semibold mb-2">Dokupaket, das Audits liebt</h3>
             <p className="text-sm">
               Prozess-FMEA, Abweichungsmanagement, Änderungslenkung,
@@ -474,7 +474,7 @@ export default function Page() {
           </aside>
         </div>
 
-        <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+        <div className="mt-6 rounded-sm border border-emerald-200 bg-emerald-50 p-4">
           <p className="text-sm">
             Markt-Update 2025: Der AM-Markt wächst, jedoch uneinheitlich; Service,
             Software und Materialien legen zu, während Systemhersteller
@@ -487,7 +487,7 @@ export default function Page() {
       <section id="wirtschaftlichkeit" className="mt-10">
         <h2 className="text-2xl font-bold mb-3">Kosten, ROI &amp; Business-Case</h2>
         <div className="grid md:grid-cols-3 gap-4">
-          <div className="md:col-span-2 rounded-xl border border-zinc-200 p-4">
+          <div className="md:col-span-2 rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">Die sechs Kostenhebel</h3>
             <ol className="list-decimal ml-5 space-y-1">
               <li>Design für AM (Bauteilkonsolidierung, Leichtbau)</li>
@@ -503,7 +503,7 @@ export default function Page() {
               Lagerbindung und bessere Lieferfähigkeit.
             </p>
           </div>
-          <aside className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
+          <aside className="rounded-sm border border-emerald-200 bg-emerald-50 p-4">
             <h3 className="font-semibold mb-2">Daumenregel zur Entscheidung</h3>
             <p className="text-sm">
               AM lohnt sich, wenn deine Konstruktion deutlich leichter,
@@ -513,7 +513,7 @@ export default function Page() {
           </aside>
         </div>
 
-        <div className="mt-6 overflow-x-auto rounded-2xl border border-zinc-200">
+        <div className="mt-6 overflow-x-auto rounded-sm border border-zinc-200">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
@@ -555,7 +555,7 @@ export default function Page() {
 
         <div className="grid md:grid-cols-3 gap-4">
           <div className="md:col-span-2 space-y-4">
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-1">1) Kandidatenliste identifizieren</h3>
               <p className="text-sm">
                 Suche nach Bauteilen mit hoher Komplexität, vielen
@@ -563,7 +563,7 @@ export default function Page() {
                 Variantenvielfalt.
               </p>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-1">2) DfAM anwenden</h3>
               <p className="text-sm">
                 Bauteile neu denken; Kanäle integrieren, Wandstärken
@@ -571,7 +571,7 @@ export default function Page() {
                 Toleranzen und Nachbearbeitung mitplanen.
               </p>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-1">3) Verfahren auswählen</h3>
               <p className="text-sm">
                 Metall; PBF für hohe Präzision, Binder Jetting für Volumen.
@@ -579,14 +579,14 @@ export default function Page() {
                 Oberflächen.
               </p>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-1">4) Prozess qualifizieren</h3>
               <p className="text-sm">
                 Parameter festlegen, Prüfkonzept definieren, Erstbemusterung,
                 Rückverfolgbarkeit, Dokumentation nach ISO/ASTM etablieren.
               </p>
             </div>
-            <div className="rounded-xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-1">5) Skalieren &amp; digitalisieren</h3>
               <p className="text-sm">
                 Digitale Stückliste und digitales Ersatzteillager aufbauen,
@@ -595,7 +595,7 @@ export default function Page() {
             </div>
           </div>
 
-          <aside className="rounded-xl border border-emerald-200 bg-emerald-50 p-4">
+          <aside className="rounded-sm border border-emerald-200 bg-emerald-50 p-4">
             <h3 className="font-semibold mb-2">Additive Fertigung erfolgreich einführen</h3>
             <ul className="list-disc ml-5 text-sm space-y-1">
               <li>
@@ -750,7 +750,7 @@ export default function Page() {
 
       {/* CTA */}
       <section aria-label="Kontakt" className="mt-14">
-        <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+        <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
           <h2 className="text-xl font-bold mb-2">
             Willst du prüfen, welche Teile sich bei dir für 3D-Druck eignen?
           </h2>
@@ -770,7 +770,7 @@ export default function Page() {
               <input
                 type="text"
                 name="name"
-                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                 placeholder="Max Mustermann"
                 required
               />
@@ -780,7 +780,7 @@ export default function Page() {
               <input
                 type="tel"
                 name="phone"
-                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                 placeholder="+49 123456789"
               />
             </label>
@@ -789,7 +789,7 @@ export default function Page() {
               <input
                 type="email"
                 name="email"
-                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                 placeholder="max@mustermann.de"
                 required
               />
@@ -797,7 +797,7 @@ export default function Page() {
 
             <a
               href="#cta-pop"
-              className="mt-2 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+              className="mt-2 inline-flex items-center justify-center rounded-sm bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
             >
               Unverbindlich anfragen
             </a>
@@ -824,12 +824,12 @@ export default function Page() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="cta-pop-title"
-            className="relative w-full max-w-md rounded-xl bg-white p-6 shadow-xl"
+            className="relative w-full max-w-md rounded-sm bg-white p-6 shadow-xl"
           >
             <a
               href="#"
               aria-label="Fenster schließen"
-              className="absolute right-3 top-3 rounded-md border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
+              className="absolute right-3 top-3 rounded-sm border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
             >
               ✕
             </a>
@@ -855,7 +855,7 @@ export default function Page() {
       </section>
 
     {/* Weiterführende Artikel */}
-<aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+<aside className="mt-10 rounded-sm border border-zinc-200 bg-zinc-50 p-5">
   <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
   <ul className="list-disc ml-5 text-sm space-y-2">
     <li>
@@ -905,7 +905,7 @@ export default function Page() {
           Maschinenbau
         </h2>
 
-        <div className="rounded-2xl border border-zinc-200 overflow-hidden">
+        <div className="rounded-sm border border-zinc-200 overflow-hidden">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
