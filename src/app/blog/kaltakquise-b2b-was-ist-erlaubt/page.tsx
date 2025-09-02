@@ -100,7 +100,7 @@ export default function Page() {
         </div>
 
         {/* Hero 16:6 */}
-        <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+        <figure className="mt-6 overflow-hidden rounded-sm border border-zinc-200">
           <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
             <picture>
               <source media="(max-width: 640px)" srcSet={hero} />
@@ -134,7 +134,7 @@ export default function Page() {
       </header>
 
       {/* TL;DR */}
-      <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+      <aside className="mb-10 rounded-sm border border-emerald-200 bg-emerald-50 p-5">
         <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
         <ul className="list-disc ml-5 space-y-2 text-zinc-800">
           <li>
@@ -170,7 +170,7 @@ export default function Page() {
       {/* ToC */}
       <nav
         aria-label="Inhaltsverzeichnis"
-        className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
+        className="mb-12 rounded-sm border border-zinc-200 bg-zinc-50 p-5"
       >
         <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
         <ol className="list-decimal ml-5 space-y-2">
@@ -244,7 +244,7 @@ export default function Page() {
         {/* Bild 1 – volle Breite */}
         <figure className="mt-8">
           <div
-            className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+            className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
@@ -265,7 +265,7 @@ export default function Page() {
 
       <section id="rechtsgrundlagen" className="mt-12">
         <h2 className="text-2xl font-bold mb-3">Rechtsgrundlagen: DSGVO vs. UWG – wie greifen beide ineinander?</h2>
-        <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
+        <div className="rounded-sm border border-zinc-200 p-5 bg-white">
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <h3 className="font-semibold text-lg mb-2">DSGVO (Datenbasis)</h3>
@@ -287,7 +287,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+        <div className="mt-6 rounded-sm border border-amber-200 bg-amber-50 p-5">
           <strong className="block mb-1">Merke:</strong>
           <ul className="list-disc ml-5 space-y-1">
             <li>
@@ -306,7 +306,7 @@ export default function Page() {
       <section id="kanal-guide" className="mt-12">
         <h2 className="text-2xl font-bold mb-3">Kanal-Guide 2025: Telefon, E-Mail, LinkedIn-DM, Brief &amp; mehr</h2>
 
-        <div className="rounded-2xl border border-zinc-200 overflow-hidden">
+        <div className="rounded-sm border border-zinc-200 overflow-hidden">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
@@ -352,7 +352,7 @@ export default function Page() {
         </div>
 
         {/* Expertenzitat */}
-        <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+        <figure className="mt-6 rounded-sm border-l-4 border-emerald-600 bg-emerald-50 p-5">
           <blockquote className="text-lg font-medium">
             „Rechtskonforme B2B-Akquise ist kein Bauchgefühl, sondern ein sauber dokumentierter Prozess:
             Einwilligungen, kanalbezogene Regeln und ein klarer Widerspruchs-Workflow sind Pflicht.“
@@ -374,7 +374,7 @@ export default function Page() {
           B2B-Softwaremarkt“) reicht nicht.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-[1.3fr_0.7fr] items-start">
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold text-lg mb-2">Beispiele &amp; Gegenbeispiele</h3>
             <ul className="list-disc ml-5 space-y-2">
               <li>
@@ -393,7 +393,7 @@ export default function Page() {
               </li>
             </ul>
           </div>
-          <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+          <aside className="rounded-sm border border-emerald-200 bg-emerald-50 p-5">
             <h4 className="font-semibold mb-2">Call-Reason-Log (Mini-Template)</h4>
             <ol className="list-decimal ml-5 space-y-1 text-sm">
               <li>Datum/Uhrzeit, Ansprechpartner, Nummer</li>
@@ -418,7 +418,7 @@ export default function Page() {
           <li>Bei Erhebung und bei jeder E-Mail gibt es eine <em>klare Opt-out-Möglichkeit</em>.</li>
           <li>Es liegt <em>kein Widerspruch</em> vor; Absender ist transparent.</li>
         </ul>
-        <div className="mt-6 rounded-2xl border border-zinc-200 p-5">
+        <div className="mt-6 rounded-sm border border-zinc-200 p-5">
           <h3 className="font-semibold text-lg mb-2">Beispiel-Formulierung Opt-out-Hinweis</h3>
           <p className="text-sm">
             „Du erhältst diese E-Mail, weil du bei uns [Produkt/Dienstleistung] gekauft hast. Wir informieren dich
@@ -432,7 +432,7 @@ export default function Page() {
         <h2 className="text-2xl font-bold mb-3">Praxis-Checklisten: Einwilligung, Nachweise, Widerspruch &amp; Logging</h2>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">Einwilligungen (Opt-in)</h3>
             <ul className="list-disc ml-5 space-y-1 text-sm">
               <li>Explizit, granular (Kanal), freiwillig, informiert, dokumentiert</li>
@@ -441,7 +441,7 @@ export default function Page() {
               <li>Einfacher Widerruf (1-Klick-Abmeldung); sofortige Wirkung</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">Widerspruchs- &amp; Sperrlisten</h3>
             <ul className="list-disc ml-5 space-y-1 text-sm">
               <li>Opt-out-Events zentral erfassen (E-Mail, Telefon, Post)</li>
@@ -449,7 +449,7 @@ export default function Page() {
               <li>Keine Re-Aktivierung ohne erneutes Opt-in</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-zinc-200 p-5 md:col-span-2">
+          <div className="rounded-sm border border-zinc-200 p-5 md:col-span-2">
             <h3 className="font-semibold mb-2">Transparenz &amp; Dokumentation</h3>
             <div className="grid gap-4 md:grid-cols-2">
               <ul className="list-disc ml-5 space-y-1 text-sm">
@@ -469,7 +469,7 @@ export default function Page() {
         {/* Bild 2 – volle Breite */}
         <figure className="mt-8">
           <div
-            className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+            className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
             style={{ aspectRatio: "16 / 6" }}
           >
             <picture>
@@ -525,7 +525,7 @@ export default function Page() {
       <section id="risiken-strafen" className="mt-12">
         <h2 className="text-2xl font-bold mb-3">Risiken, Abmahnungen &amp; typische Fehler – und wie du sie vermeidest</h2>
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
+          <div className="rounded-sm border border-rose-200 bg-rose-50 p-5">
             <h3 className="font-semibold mb-2">Typische Fehler</h3>
             <ul className="list-disc ml-5 space-y-1 text-sm">
               <li>„Wir sind vernetzt, also darf ich werben“ – falsch.</li>
@@ -535,7 +535,7 @@ export default function Page() {
               <li>Widersprüche nicht systemweit gesperrt.</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+          <div className="rounded-sm border border-emerald-200 bg-emerald-50 p-5">
             <h3 className="font-semibold mb-2">So vermeidest du Ärger</h3>
             <ul className="list-disc ml-5 space-y-1 text-sm">
               <li>Immer Kanalregeln prüfen (UWG) &amp; Datenbasis dokumentieren (DSGVO).</li>
@@ -552,7 +552,7 @@ export default function Page() {
         <h2 className="text-2xl font-bold mb-3">Praxisbeispiele, Vorlagen &amp; Formulierungen</h2>
 
         <div className="grid gap-6 md:grid-cols-[1fr_1fr]">
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">Telefon – Einstiegssatz (mit Anlass)</h3>
             <p className="text-sm">
               „Hallo Frau Müller, hier ist [Name] von [Firma]. Ich rufe an, weil Sie letzte Woche
@@ -562,7 +562,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold mb-2">Opt-in-E-Mail nach Event/Webinar</h3>
             <p className="text-sm">
               „Danke für deine Teilnahme am Webinar ‚[Titel]‘. Wenn du künftig ähnliche Insights und
@@ -571,7 +571,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200 p-5 md:col-span-2">
+          <div className="rounded-sm border border-zinc-200 p-5 md:col-span-2">
             <h3 className="font-semibold mb-2">Brief – Aufbau (Erstkontakt)</h3>
             <ol className="list-decimal ml-5 space-y-1 text-sm">
               <li>Klarer Nutzen in der Betreffzeile (kundennah)</li>
@@ -628,7 +628,7 @@ export default function Page() {
 
       {/* CTA ohne Formular, Button führt zu findbar.info */}
       <section aria-label="Kontakt" className="mt-14">
-        <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+        <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
           <h2 className="text-xl font-bold mb-2">
             Möchtest du Blogartikel für dein B2B-Angebot einführen?
           </h2>
@@ -641,7 +641,7 @@ export default function Page() {
               href="https://www.findbar.info"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+              className="inline-flex items-center justify-center rounded-sm bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
               aria-label="Zu findbar.info wechseln (öffnet in neuem Tab)"
             >
               Mehr erfahren
@@ -654,7 +654,7 @@ export default function Page() {
       <section className="mt-14 mb-20">
         <h2 className="text-2xl font-bold mb-3">Mini-Glossar - Die wichtigsten Begriffe zu B2B-Kaltakquise</h2>
 
-        <div className="rounded-2xl border border-zinc-200 overflow-hidden">
+        <div className="rounded-sm border border-zinc-200 overflow-hidden">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
