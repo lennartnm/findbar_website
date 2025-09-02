@@ -112,7 +112,7 @@ export default async function BlogIndexPage() {
           <Link
             key={p.slug}
             href={`/blog/${p.slug}`}
-            className="group block overflow-hidden rounded-2xl border border-slate-200 bg-white hover:shadow-lg transition"
+            className="group block overflow-hidden rounded-sm border border-slate-200 bg-white hover:shadow-lg transition"
           >
             {/* Cover */}
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-50">
@@ -125,7 +125,7 @@ export default async function BlogIndexPage() {
                 />
               ) : (
                 <div className="flex h-full w-full items-center justify-center bg-gradient-to-r from-emerald-100 to-emerald-50">
-                  <span className="rounded-md border border-emerald-200 bg-white/80 px-2 py-1 text-xs text-slate-600">
+                  <span className="rounded-sm border border-emerald-200 bg-white/80 px-2 py-1 text-xs text-slate-600">
                     Kein Cover
                   </span>
                 </div>
