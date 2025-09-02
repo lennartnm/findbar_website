@@ -1,11 +1,10 @@
-// app/ablauf/page.tsx (oder app/page.tsx)
 import type { Metadata } from "next";
-import Header from "@/components/ui/Header"; // ggf. Pfad anpassen
-import Footer from "@/components/ui/Footer"; // ggf. Pfad anpassen
-import React from "react";
+import Header from "@/components/ui/Header"; // Pfad bei Bedarf anpassen
+import Footer from "@/components/ui/Footer"; // Pfad bei Bedarf anpassen
+import styles from "./funktionsweise.module.css";
 
 export const metadata: Metadata = {
-  title: "Findbar: Unsere Funktionsweise",
+  title: "Findbar: Funktionsweise",
   description:
     "Von Unternehmensanalyse bis langfristigem Effekt: So läuft unser Content-und-Lead-Prozess ab.",
 };
@@ -54,27 +53,24 @@ export default function Page() {
     <>
       <Header />
 
-      <main className="flow">
-        <section className="wrap">
+      <main>
+        <section className={styles.wrap}>
           <h1 className="sr-only">Ablauf</h1>
 
-          <ol className="timeline" aria-label="Prozess-Schritte">
+          <ol className={styles.timeline} aria-label="Prozess-Schritte">
             {steps.map((step, idx) => (
-              <li className="item" key={step.id}>
-                {/* linke Leiste */}
-                <div className="rail" aria-hidden="true">
-                  <span className="dot">
+              <li className={styles.item} key={step.id}>
+                <div className={styles.rail} aria-hidden="true">
+                  <span className={styles.dot}>
                     <CheckIcon />
                   </span>
-                  {/* gestrichelte Linie */}
-                  {idx < steps.length - 1 && <span className="dash" />}
+                  {idx < steps.length - 1 && <span className={styles.dash} />}
                 </div>
 
-                {/* Inhalt */}
-                <div className="content">
-                  <div className="kicker">Step {step.id}</div>
-                  <h2 className="title">{step.title}</h2>
-                  <p className="text">{step.body}</p>
+                <div className={styles.content}>
+                  <div className={styles.kicker}>Step {step.id}</div>
+                  <h2 className={styles.title}>{step.title}</h2>
+                  <p className={styles.text}>{step.body}</p>
                 </div>
               </li>
             ))}
@@ -83,105 +79,14 @@ export default function Page() {
       </main>
 
       <Footer />
-
-      {/* ---- Styles (styled-jsx, unabhängig von Tailwind) ---- */}
-      <style jsx>{`
-        :global(html, body) {
-          background: #fff;
-          color: #222;
-        }
-        .flow {
-          display: block;
-        }
-        .wrap {
-          max-width: 980px;
-          margin: 0 auto;
-          padding: 48px 24px 80px;
-        }
-        .timeline {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-        }
-        .item {
-          position: relative;
-          display: grid;
-          grid-template-columns: 56px 1fr;
-          column-gap: 24px;
-          padding-bottom: 48px;
-        }
-        .rail {
-          position: relative;
-          display: flex;
-          align-items: flex-start;
-          justify-content: center;
-        }
-        .dot {
-          width: 40px;
-          height: 40px;
-          border-radius: 999px;
-          background: #2f66ff; /* blau wie im Screenshot */
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 2px 8px rgba(47, 102, 255, 0.3);
-          margin-top: 4px;
-        }
-        .dash {
-          position: absolute;
-          top: 48px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 1px;
-          height: calc(100% - 48px);
-          border-right: 2px dashed #2f66ff33; /* dezente gestrichelte Linie */
-        }
-        .content {
-          padding-top: 2px;
-        }
-        .kicker {
-          font-size: 14px;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #c7c7c7;
-          margin-bottom: 8px;
-        }
-        .title {
-          font-size: clamp(28px, 4vw, 42px);
-          font-weight: 800;
-          line-height: 1.1;
-          margin: 0 0 14px;
-        }
-        .text {
-          font-size: clamp(16px, 1.6vw, 20px);
-          line-height: 1.6;
-          color: #4a4a4a;
-          margin: 0;
-        }
-        /* Abstand zwischen Items auf großen Screens */
-        @media (min-width: 900px) {
-          .item {
-            padding-bottom: 72px;
-          }
-        }
-      `}</style>
     </>
   );
 }
 
 function CheckIcon() {
   return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 20 20"
-      role="img"
-      aria-label="abgehakt"
-    >
-      <path
-        d="M7.5 13.3l-3-3 1.4-1.4 1.6 1.6 4.6-4.6 1.4 1.4-6 6z"
-        fill="#fff"
-      />
+    <svg width="18" height="18" viewBox="0 0 20 20" role="img" aria-label="abgehakt">
+      <path d="M7.5 13.3l-3-3 1.4-1.4 1.6 1.6 4.6-4.6 1.4 1.4-6 6z" fill="#fff" />
     </svg>
   );
 }
