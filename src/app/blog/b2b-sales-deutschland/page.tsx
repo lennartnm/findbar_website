@@ -604,7 +604,7 @@ export default function Page() {
         <div className="space-y-6 text-zinc-700">
           <div>
             <h3 className="font-semibold">
-              Was unterscheidet B2B Sales von B2C Vertrieb;
+              Was unterscheidet B2B Sales von B2C Vertrieb?
             </h3>
             <p>
               Größere Buying-Teams, mehr Touchpoints, längere Zyklen, formale
@@ -613,7 +613,7 @@ export default function Page() {
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">Ist Kaltakquise per Telefon erlaubt;</h3>
+            <h3 className="font-semibold">Ist Kaltakquise per Telefon erlaubt?</h3>
             <p>
               Ja, aber nur mit <em>mutmaßlicher Einwilligung</em> nach §&nbsp;7
               UWG (B2B). E-Mail-Werbung ist ohne Einwilligung unzulässig.
@@ -621,7 +621,7 @@ export default function Page() {
           </div>
           <div>
             <h3 className="font-semibold">
-              Ab wann ist die E-Rechnung in Deutschland Pflicht;
+              Ab wann ist die E-Rechnung in Deutschland Pflicht?
             </h3>
             <p>
               Seit 01.01.2025 ist die E-Rechnung Standard im inländischen B2B.
@@ -631,7 +631,7 @@ export default function Page() {
           </div>
           <div>
             <h3 className="font-semibold">
-              Wie kurz sind Zahlungsziele in Deutschland typischerweise;
+              Wie kurz sind Zahlungsziele in Deutschland typischerweise?
             </h3>
             <p>
               Im EU-Vergleich eher kurz. Je nach Branche &amp; Lage schwanken
@@ -640,7 +640,7 @@ export default function Page() {
           </div>
           <div>
             <h3 className="font-semibold">
-              Welche Rolle spielen Messen im deutschen B2B;
+              Welche Rolle spielen Messen im deutschen B2B?
             </h3>
             <p>
               Eine große: Deutschland ist Top-Messeplatz. Für komplexe Produkte
@@ -728,7 +728,7 @@ export default function Page() {
       <section aria-label="Kontakt" className="mt-14">
         <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
           <h2 className="text-xl font-bold mb-2">
-            Möchtest du Blogartikel f&uuml;r dein B2B-Angebot einführen;
+            Möchtest du Blogartikel f&uuml;r dein B2B-Angebot einführen?
           </h2>
           <p className="text-zinc-700 mb-4">
             Unsere KI schreibt Expertenartikel und identifiziert anonyme
