@@ -92,7 +92,7 @@ export default function Page() {
         </div>
 
         {/* Hero 16:6 */}
-        <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+        <figure className="mt-6 overflow-hidden rounded-sm border border-zinc-200">
           <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
             <picture>
               <source media="(max-width: 640px)" srcSet="/nachfolge1.png" />
@@ -126,7 +126,7 @@ export default function Page() {
       </header>
 
       {/* TL;DR */}
-      <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+      <aside className="mb-10 rounded-sm border border-emerald-200 bg-emerald-50 p-5">
         <h2 className="text-lg font-semibold mb-3">Das Wichtigste auf einen Blick</h2>
         <ul className="list-disc ml-5 space-y-2 text-zinc-800">
           <li>
@@ -159,7 +159,7 @@ export default function Page() {
       {/* ToC */}
       <nav
         aria-label="Inhaltsverzeichnis"
-        className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
+        className="mb-12 rounded-sm border border-zinc-200 bg-zinc-50 p-5"
       >
         <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
         <ol className="list-decimal ml-5 space-y-2">
@@ -216,21 +216,21 @@ export default function Page() {
         </p>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <div className="text-3xl font-extrabold tabular-nums">3–5</div>
             <div className="text-sm text-zinc-600">
               Jahre Vorlauf sind in der Praxis ideal, um Bewertung, Strukturierung und Onboarding
               sauber zu orchestrieren.
             </div>
           </div>
-          <div className="rounded-2xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <div className="text-3xl font-extrabold tabular-nums">6–12</div>
             <div className="text-sm text-zinc-600">
               Monate reine Transaktionsphase (DD, Finanzierung, Verträge) sind realistisch – ohne
               Vorbereitung deutlich länger.
             </div>
           </div>
-          <div className="rounded-2xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <div className="text-3xl font-extrabold tabular-nums">100</div>
             <div className="text-sm text-zinc-600">
               Tage: So lange sollte die operative <em>Onboarding-Roadmap</em> mindestens laufen,
@@ -243,7 +243,7 @@ export default function Page() {
       {/* Bild 1 – Unsplash (Bürokratie) */}
       <figure className="mt-8">
         <div
-          className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+          className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
           style={{ aspectRatio: "16 / 6" }}
         >
           <picture>
@@ -270,7 +270,7 @@ export default function Page() {
         </h2>
 
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold text-zinc-900 mb-2">
               1) Zu spät starten
             </h3>
@@ -281,7 +281,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold text-zinc-900 mb-2">
               2) Kein belastbarer Datenraum
             </h3>
@@ -292,7 +292,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold text-zinc-900 mb-2">
               3) Familienkonflikte unterschätzen
             </h3>
@@ -302,7 +302,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold text-zinc-900 mb-2">
               4) Steuer- und Rechtsfragen „nebenbei“
             </h3>
@@ -313,7 +313,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold text-zinc-900 mb-2">
               5) Kommunikation nach innen &amp; außen
             </h3>
@@ -323,7 +323,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-sm border border-zinc-200 p-5">
             <h3 className="font-semibold text-zinc-900 mb-2">
               6) Kein Plan B
             </h3>
@@ -336,7 +336,7 @@ export default function Page() {
         </div>
 
         {/* Expertenzitat */}
-        <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+        <figure className="mt-6 rounded-sm border-l-4 border-emerald-600 bg-emerald-50 p-5">
           <blockquote className="text-lg font-medium">
             „Nachfolge ist kein Ereignis, sondern ein Prozess: Wer früh plant, hält mehr Optionen
             offen – und übergibt ein stärkeres Unternehmen.“
@@ -350,7 +350,7 @@ export default function Page() {
       {/* Bild 2 – Unsplash (Handshake) */}
       <figure className="mt-8">
         <div
-          className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+          className="relative w-full overflow-hidden rounded-sm border border-zinc-200"
           style={{ aspectRatio: "16 / 6" }}
         >
           <picture>
@@ -374,7 +374,7 @@ export default function Page() {
       <section id="5-stufen-plan" className="mt-14">
         <h2 className="text-2xl font-bold mb-3">Der 5-Stufen-Plan: So gehst du strukturiert vor</h2>
 
-        <div className="rounded-2xl border border-zinc-200 p-5">
+        <div className="rounded-sm border border-zinc-200 p-5">
           <ol className="list-decimal ml-5 space-y-3">
             <li>
               <strong>Strategie klären (0–6 Monate):</strong> Ziele, Zeithorizont, Wunschrollen.
@@ -401,7 +401,7 @@ export default function Page() {
           </ol>
 
           <div className="mt-6 grid gap-4 md:grid-cols-[1.2fr_1fr]">
-            <div className="rounded-2xl border border-zinc-200 p-4">
+            <div className="rounded-sm border border-zinc-200 p-4">
               <h3 className="font-semibold mb-2">Checkliste „Transaktionsfähigkeit“</h3>
               <ul className="list-disc ml-5 space-y-1">
                 <li>Jahresabschlüsse, BWA, Planrechnung (3 Jahre historisch, 3 Jahre Planung)</li>
@@ -411,7 +411,7 @@ export default function Page() {
                 <li>ESG-Risiken (Compliance, Umwelt, Arbeitssicherheit)</li>
               </ul>
             </div>
-            <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+            <aside className="rounded-sm border border-emerald-200 bg-emerald-50 p-4">
               <h3 className="font-semibold mb-2">Quick Win</h3>
               <p className="text-sm">
                 Lege schon heute einen digitalen <em>Data Room</em> an und pflege ihn monatlich.
@@ -433,7 +433,7 @@ export default function Page() {
           oft über <em>Earn-out</em>, Verkäuferdarlehen und Working-Capital-Mechaniken feinjustiert.
         </p>
 
-        <div className="mt-4 rounded-2xl border border-zinc-200 overflow-hidden">
+        <div className="mt-4 rounded-sm border border-zinc-200 overflow-hidden">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
@@ -473,7 +473,7 @@ export default function Page() {
           Steuern &amp; Recht: Stolperfallen und smarte Strukturen
         </h2>
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-2xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">Typische Stolperfallen</h3>
             <ul className="list-disc ml-5 space-y-1">
               <li>Unklare Gewährleistungen und Haftungsrahmen im Kaufvertrag (SPA)</li>
@@ -482,7 +482,7 @@ export default function Page() {
               <li>Keine Vorkehrungen zur Erbschaft- und Schenkungsteuer</li>
             </ul>
           </div>
-          <div className="rounded-2xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">Was hilft</h3>
             <ul className="list-disc ml-5 space-y-1">
               <li>Rechtzeitig Holding-/Strukturvarianten prüfen (Share vs. Asset Deal)</li>
@@ -505,7 +505,7 @@ export default function Page() {
         </p>
 
         <div className="mt-4 grid gap-4 md:grid-cols-[1fr_1fr]">
-          <div className="rounded-2xl border border-zinc-200 p-4">
+          <div className="rounded-sm border border-zinc-200 p-4">
             <h3 className="font-semibold mb-2">Kommunikationsfahrplan</h3>
             <ol className="list-decimal ml-5 space-y-1 text-sm">
               <li>Phase 1: Kernteam &amp; Advisory einbinden</li>
@@ -515,7 +515,7 @@ export default function Page() {
               <li>Phase 5: Banken, Förderpartner, Öffentlichkeit</li>
             </ol>
           </div>
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+          <div className="rounded-sm border border-emerald-200 bg-emerald-50 p-4">
             <h3 className="font-semibold mb-2">100-Tage-Plan (Auszug)</h3>
             <ul className="list-disc ml-5 space-y-1 text-sm">
               <li>Shadowing &amp; Übergabe der Schlüsselbeziehungen</li>
@@ -528,7 +528,7 @@ export default function Page() {
       </section>
 
      {/* Weiterführende interne Links (Cluster) */}
-<aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+<aside className="mt-10 rounded-sm border border-zinc-200 bg-zinc-50 p-5">
   <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
   <ul className="list-disc ml-5 text-sm space-y-2">
     <li>
@@ -692,7 +692,7 @@ export default function Page() {
 
       {/* CTA */}
       <section aria-label="Kontakt" className="mt-14">
-        <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+        <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
           <h2 className="text-xl font-bold mb-2">
             Willst du deine Nachfolge in 90 Tagen auf Schiene bringen?
           </h2>
@@ -711,7 +711,7 @@ export default function Page() {
               <input
                 type="text"
                 name="name"
-                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                 placeholder="Max Mustermann"
                 required
               />
@@ -721,7 +721,7 @@ export default function Page() {
               <input
                 type="tel"
                 name="phone"
-                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                 placeholder="+49 123456789"
               />
             </label>
@@ -730,7 +730,7 @@ export default function Page() {
               <input
                 type="email"
                 name="email"
-                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                className="mt-1 w-full rounded-sm border border-zinc-300 px-3 py-2"
                 placeholder="max@mustermann.de"
                 required
               />
@@ -738,7 +738,7 @@ export default function Page() {
 
             <a
               href="#cta-pop"
-              className="mt-2 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+              className="mt-2 inline-flex items-center justify-center rounded-sm bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
             >
               Unverbindlich anfragen
             </a>
@@ -763,12 +763,12 @@ export default function Page() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="cta-pop-title"
-            className="relative w-full max-w-md rounded-xl bg-white p-6 shadow-xl"
+            className="relative w-full max-w-md rounded-sm bg-white p-6 shadow-xl"
           >
             <a
               href="#"
               aria-label="Fenster schließen"
-              className="absolute right-3 top-3 rounded-md border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
+              className="absolute right-3 top-3 rounded-sm border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
             >
               ✕
             </a>
@@ -799,7 +799,7 @@ export default function Page() {
           Mini-Glossar – Die wichtigsten Begriffe zur Nachfolgeplanung im Mittelstand
         </h2>
 
-        <div className="rounded-2xl border border-zinc-200 overflow-hidden">
+        <div className="rounded-sm border border-zinc-200 overflow-hidden">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
