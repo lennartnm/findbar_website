@@ -7,7 +7,7 @@ import React from "react";
 const containerClass = "w-full max-w-6xl mx-auto px-6";
 
 export const metadata: Metadata = {
-  title: "So funktioniert’s – Ablauf",
+  title: "Findbar: Funktionsweise",
   description:
     "Von Unternehmensanalyse bis langfristigem Effekt: So läuft unser Content-und-Lead-Prozess ab.",
 };
@@ -103,7 +103,7 @@ export default function Page() {
 
                   {/* Inhalt; Zahl ist durch align-items:center auf Höhe der Überschrift */}
                   <div>
-                    <h3 className="text-4xl font-semibold tracking-tight font-serif">
+                    <h3 className="text-2xl font-semibold tracking-tight font-serif">
                       {step.title}
                     </h3>
                     <p className="mt-2 text-base leading-relaxed text-gray-700">
