@@ -76,9 +76,7 @@ export default function Page() {
             ))}
           </ol>
         </section>
-      </main>
-
-      {/* CTA */}
+  {/* CTA */}
       <section aria-label="Kontakt" className="mt-14">
         <div className="rounded-sm border-2 border-dashed border-emerald-300 p-6 text-center">
           <h2 className="text-xl font-bold mb-2">
@@ -102,6 +100,11 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+        
+      </main>
+
+    
 
       <Footer />
     </>
