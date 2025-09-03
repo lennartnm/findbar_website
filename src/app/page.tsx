@@ -166,7 +166,7 @@ function Hero() {
       {/* Content: auf max-w-6xl begrenzt, linksbündig */}
       <div className="relative z-20 mx-auto max-w-6xl px-6 text-left">
         <h1 className={`text-4xl md:text-6xl tracking-tight ${serifClass}`}>
-          <span className="italic font-bold"></span> Skaliere durch KI-Blogartikel und
+          <span className="italic font-bold"></span> Skaliere durch KI-optimierte Blogartikel und
           <br className="hidden md:inline" /> smarter Erkennung relevanter B2B-Besucher.
         </h1>
         <p className="mt-5 max-w-2xl text-slate-600">
