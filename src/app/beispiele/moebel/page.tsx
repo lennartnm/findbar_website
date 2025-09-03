@@ -211,7 +211,7 @@ export default function Page() {
 
       {/* Hauptteil */}
       <section id="was-ist-automatische-montage">
-        <h2 className="text-2xl font-bold mb-2">
+        <h2 className="text-2xl font-medium mb-2">
           Was ist automatische Montage in der Möbelfertigung?
         </h2>
         <p className="leading-relaxed text-zinc-800">
@@ -273,7 +273,7 @@ export default function Page() {
       </figure>
 
       <section id="nutzen-qualitaet-kosten" className="mt-10">
-        <h2 className="text-2xl font-bold mb-2">
+        <h2 className="text-2xl font-medium mb-2">
           Warum automatisieren? Qualität, Taktzeit und Personalkosten
         </h2>
         <div className="grid md:grid-cols-2 gap-5">
@@ -327,7 +327,7 @@ export default function Page() {
       </figure>
 
       <section id="break-even-roi" className="mt-10">
-        <h2 className="text-2xl font-bold mb-2">
+        <h2 className="text-2xl font-medium mb-2">
           Ab wann lohnt es sich? Break-even &amp; ROI einfach gerechnet
         </h2>
         <p className="mb-4">
@@ -442,7 +442,7 @@ export default function Page() {
       </section>
 
       <section id="technologiebausteine" className="mt-10">
-        <h2 className="text-2xl font-bold mb-2">
+        <h2 className="text-2xl font-medium mb-2">
           Technologie-Bausteine: Von Bohrlehre bis Roboterzelle
         </h2>
 
@@ -517,7 +517,7 @@ export default function Page() {
       </figure>
 
       <section id="praxisbeispiele" className="mt-10">
-        <h2 className="text-2xl font-bold mb-2">
+        <h2 className="text-2xl font-medium mb-2">
           Praxisbeispiele &amp; Benchmarks aus der Branche
         </h2>
         <div className="rounded-[5px] border border-zinc-200 p-5 bg-white">
@@ -546,7 +546,7 @@ export default function Page() {
       </section>
 
       <section id="fahrplan" className="mt-10">
-        <h2 className="text-2xl font-bold mb-2">
+        <h2 className="text-2xl font-medium mb-2">
           Fahrplan: So gehen Sie in 6 Schritten vor
         </h2>
         <ol className="list-decimal ml-5 space-y-3">
@@ -677,7 +677,7 @@ export default function Page() {
 
       {/* FAQ */}
       <section id="faq" className="mt-14">
-        <h2 className="text-2xl font-bold mb-4">FAQ</h2>
+        <h2 className="text-2xl font-medium mb-4">FAQ</h2>
         <div className="space-y-6 text-[#444]">
           <div>
             <h3 className="font-medium">
@@ -794,7 +794,7 @@ export default function Page() {
 
       {/* Summary */}
       <section id="zusammenfassung" className="mt-14">
-        <h2 className="text-2xl font-bold mb-3">Kurzfazit</h2>
+        <h2 className="text-2xl font-medium mb-3">Kurzfazit</h2>
         <p className="leading-relaxed">
           <strong>
             Ab wann lohnen sich Montageanlagen für Scharniere und Beschläge?
@@ -811,7 +811,7 @@ export default function Page() {
       {/* CTA */}
       <section aria-label="Kontakt" className="mt-14">
         <div className="rounded-[5px] border-2 border-dashed border-[#2FAEA2] p-6 text-center">
-          <h2 className="text-xl font-bold mb-2">
+          <h2 className="text-xl font-medium mb-2">
             Möchten Sie wissen, ob sich eine Montageanlage in Ihrem Werk rechnet?
           </h2>
           <p className="text-zinc-700 mb-4">
@@ -917,7 +917,7 @@ export default function Page() {
 
       {/* Mini-Glossar */}
       <section className="mt-14 mb-20">
-        <h2 className="text-2xl font-bold mb-3">
+        <h2 className="text-2xl font-medium mb-3">
           Mini-Glossar - Die wichtigsten Begriffe zu Automatisierung in der
           Möbelmontage
         </h2>
@@ -976,7 +976,7 @@ export default function Page() {
 
       {/* E-E-A-T */}
       <section className="mt-14">
-        <h2 className="text-2xl font-bold mb-3">Über den Autor</h2>
+        <h2 className="text-2xl font-medium mb-3">Über den Autor</h2>
         <div className="flex items-center gap-4">
           <img
             src={author.image}
@@ -1056,7 +1056,7 @@ export default function Page() {
 
       {/* Quellenverzeichnis */}
       <section className="mt-14">
-        <h2 className="text-2xl font-bold mb-3">
+        <h2 className="text-2xl font-medium mb-3">
           Quellen &amp; weiterführende Studien
         </h2>
         <ul className="list-disc ml-5 space-y-2 text-sm">
