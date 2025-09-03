@@ -42,8 +42,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   const author = {
-    name: "Redaktion Gewerbeimmobilien Marketing",
-    role: "Content & Research",
+    name: "Max Weber",
+    role: "Immobilienexperte mit Fokus Gewerbe",
     image: "/platzhalter_autor.jpg",
     url: "https://www.example.com/team",
   };
