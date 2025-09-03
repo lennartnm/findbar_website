@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title:
     "Automatisierung in der Möbelproduktion: Ab wann lohnen sich Montageanlagen wirklich?",
   description:
-    "Automatische Montage von Scharnieren und Beschlägen, geringere Personalkosten, stabile Qualität: So findest du die Schwelle, ab der sich Anlagen rechnen.",
+    "Automatische Montage von Scharnieren und Beschlägen, geringere Personalkosten, stabile Qualität: So finden Sie die Schwelle, ab der sich Anlagen rechnen.",
   alternates: {
     canonical:
       "https://www.beispiel.de/blog/automatisierung-moebelproduktion-montageanlagen",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title:
       "Automatisierung in der Möbelproduktion: Ab wann lohnen sich Montageanlagen wirklich?",
     description:
-      "Automatische Montage, Personalkosten senken, Qualität stabilisieren – so rechnest du den ROI.",
+      "Automatische Montage, Personalkosten senken, Qualität stabilisieren – so berechnen Sie den ROI.",
     images: [
       "https://www.beispiel.de/og/automatisierung-moebelproduktion-montageanlagen.jpg",
     ],
@@ -70,9 +70,9 @@ export default function Page() {
           Montageanlagen wirklich?
         </h1>
         <p className="mt-3 text-lg text-zinc-700">
-          Du möchtest Scharniere und Beschläge schneller, günstiger und
-          gleichmäßig montieren? Hier erfährst du, ab wann automatische Anlagen
-          die bessere Wahl sind – und wie du die Rechnung sauber aufsetzt.
+          Sie möchten Scharniere und Beschläge schneller, günstiger und
+          gleichmäßig montieren? Hier erfahren Sie, ab wann automatische Anlagen
+          die bessere Wahl sind – und wie Sie die Rechnung sauber aufsetzen.
         </p>
 
         {/* Datum & Lesedauer separat in eigener Zeile (statisch) */}
@@ -125,9 +125,9 @@ export default function Page() {
         </h2>
         <ul className="list-disc ml-5 space-y-2 text-zinc-800">
           <li>
-            Automatische Montage lohnt sich, wenn du wiederkehrende
+            Automatische Montage lohnt sich, wenn Sie wiederkehrende
             Montageaufgaben (Scharniere, Beschläge, System&nbsp;32-Bohrbilder)
-            mit stabiler Nachfrage hast und Auslastung planen kannst.
+            mit stabiler Nachfrage haben und Auslastung planen können.
           </li>
           <li>
             Der ROI wird von drei Hebeln getragen: Personalkosten je Stunde,
@@ -140,7 +140,7 @@ export default function Page() {
             größten Effekt bei Serien und Varianten mit Stammdatenpflege.
           </li>
           <li>
-            Rechne konservativ: reale OEE (Verfügbarkeit&nbsp;×&nbsp;Leistung&nbsp;×&nbsp;Qualität),
+            Rechnen Sie konservativ: reale OEE (Verfügbarkeit&nbsp;×&nbsp;Leistung&nbsp;×&nbsp;Qualität),
             Rüstzeiten und Schulungskurven einkalkulieren – dann ergibt sich
             häufig eine Amortisation innerhalb von 12–36&nbsp;Monaten.
           </li>
@@ -186,7 +186,7 @@ export default function Page() {
           </li>
           <li>
             <a className={`hover:underline ${accent} font-medium`} href="#fahrplan">
-              Fahrplan: So gehst du in 6 Schritten vor
+              Fahrplan: So gehen Sie in 6 Schritten vor
             </a>
           </li>
           <li>
@@ -325,7 +325,7 @@ export default function Page() {
         </h2>
         <p className="mb-4">
           Statt auf Bauchgefühl zu setzen, lohnt sich eine strukturierte Rechnung.
-          Nutze dazu drei Eingaben: <strong>Lohnkosten je Stunde</strong>,{" "}
+          Nutzen Sie dazu drei Eingaben: <strong>Lohnkosten je Stunde</strong>,{" "}
           <strong>Taktzeit pro Teil</strong> und{" "}
           <strong>Qualitätskosten (Nacharbeit/Ausschuss)</strong>.
         </p>
@@ -428,7 +428,7 @@ export default function Page() {
           <p className="mt-3 text-sm text-zinc-600">
             Hinweis: Die Investition (Anlage, Peripherie, Schulung) wird über die
             geplante Jahresmenge abgeschrieben und zu den Automatisierungskosten
-            pro Teil addiert. Rechne konservativ mit einer realen OEE und
+            pro Teil addiert. Rechnen Sie konservativ mit einer realen OEE und
             angemessenen Rüst-/Störzeiten.
           </p>
         </div>
@@ -540,7 +540,7 @@ export default function Page() {
 
       <section id="fahrplan" className="mt-10">
         <h2 className="text-2xl font-bold mb-2">
-          Fahrplan: So gehst du in 6 Schritten vor
+          Fahrplan: So gehen Sie in 6 Schritten vor
         </h2>
         <ol className="list-decimal ml-5 space-y-3">
           <li>
@@ -646,7 +646,7 @@ export default function Page() {
           <ul className="list-disc ml-5 text-sm space-y-2">
             <li>
               <a className={`hover:underline ${accent}`} href="/blog/oee-in-der-holzindustrie">
-                OEE in der Holzindustrie: So misst du Verfügbarkeit, Leistung, Qualität
+                OEE in der Holzindustrie: So messen Sie Verfügbarkeit, Leistung, Qualität
               </a>
             </li>
             <li>
@@ -679,7 +679,7 @@ export default function Page() {
             <p>
               Das hängt von Lohnkosten, Taktzeit und Qualitätskosten ab. Als
               Faustregel gilt: Je repetitiver der Prozess und je höher die
-              Auslastung, desto schneller die Amortisation. Rechne mit realer
+              Auslastung, desto schneller die Amortisation. Rechnen Sie mit realer
               OEE und konservativen Annahmen.
             </p>
           </div>
@@ -688,9 +688,9 @@ export default function Page() {
               Mit welcher Technologie sollte ich starten?
             </h3>
             <p>
-              Beginne oft mit halbautomatischen Bohr-/Einpressmaschinen für
+              Beginnen Sie oft mit halbautomatischen Bohr-/Einpressmaschinen für
               Scharniere und Montageplatten. Sie sind schnell eingeführt und
-              heben Qualität und Taktzeit spürbar. Danach kannst du
+              heben Qualität und Taktzeit spürbar. Danach können Sie
               schrittweise automatisieren (Handling, Prüfen, Verschrauben).
             </p>
           </div>
@@ -740,7 +740,7 @@ export default function Page() {
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "Das hängt von Lohnkosten, Taktzeit und Qualitätskosten ab. Als Faustregel gilt: Je repetitiver der Prozess und je höher die Auslastung, desto schneller die Amortisation. Rechne mit realer OEE und konservativen Annahmen.",
+                      "Das hängt von Lohnkosten, Taktzeit und Qualitätskosten ab. Als Faustregel gilt: Je repetitiver der Prozess und je höher die Auslastung, desto schneller die Amortisation. Rechnen Sie mit realer OEE und konservativen Annahmen.",
                   },
                 },
                 {
@@ -749,7 +749,7 @@ export default function Page() {
                   acceptedAnswer: {
                     "@type": "Answer",
                     text:
-                      "Beginne oft mit halbautomatischen Bohr-/Einpressmaschinen für Scharniere und Montageplatten. Sie sind schnell eingeführt und heben Qualität und Taktzeit spürbar. Danach kannst du schrittweise automatisieren (Handling, Prüfen, Verschrauben).",
+                      "Beginnen Sie oft mit halbautomatischen Bohr-/Einpressmaschinen für Scharniere und Montageplatten. Sie sind schnell eingeführt und heben Qualität und Taktzeit spürbar. Danach können Sie schrittweise automatisieren (Handling, Prüfen, Verschrauben).",
                   },
                 },
                 {
@@ -792,11 +792,11 @@ export default function Page() {
           <strong>
             Ab wann lohnen sich Montageanlagen für Scharniere und Beschläge?
           </strong>{" "}
-          Immer dann, wenn du wiederkehrende Bohrbilder hast, die Auslastung
-          planen kannst und Personalkosten, Taktzeit und Qualitätskosten
-          zusammengenommen niedriger sind als bislang. Starte pragmatisch mit
-          halbautomatischen Lösungen, professionalisiere Stammdaten und hebe
-          anschließend die Automatisierungstiefe – so erreichst du verlässlich
+          Immer dann, wenn Sie wiederkehrende Bohrbilder haben, die Auslastung
+          planen können und Personalkosten, Taktzeit und Qualitätskosten
+          zusammengenommen niedriger sind als bislang. Starten Sie pragmatisch mit
+          halbautomatischen Lösungen, professionalisieren Sie Stammdaten und heben
+          Sie anschließend die Automatisierungstiefe – so erreichen Sie verlässlich
           einen positiven ROI.
         </p>
       </section>
@@ -805,10 +805,10 @@ export default function Page() {
       <section aria-label="Kontakt" className="mt-14">
         <div className="rounded-[5px] border-2 border-dashed border-[#2FAEA2] p-6 text-center">
           <h2 className="text-xl font-bold mb-2">
-            Willst du wissen, ob sich eine Montageanlage in deinem Werk rechnet?
+            Möchten Sie wissen, ob sich eine Montageanlage in Ihrem Werk rechnet?
           </h2>
           <p className="text-zinc-700 mb-4">
-            Wir analysieren deinen Montageprozess und bauen auf Wunsch einen
+            Wir analysieren Ihren Montageprozess und bauen auf Wunsch einen
             belastbaren ROI-Case – transparent, herstellerneutral, praxisnah.
           </p>
 
@@ -855,7 +855,7 @@ export default function Page() {
             </a>
 
             <p id="cta-note" className="text-xs text-zinc-500">
-              Mit Absenden des Formulars akzeptierst du unsere
+              Mit dem Absenden des Formulars akzeptieren Sie unsere
               Datenschutzbedingungen.
             </p>
           </form>
@@ -893,16 +893,16 @@ export default function Page() {
             </h3>
             <p className="text-zinc-800">
               In diesem Beispiel-Blogartikel funktionieren die Links nicht.
-              Möchtest du solch ein Projekt auch für dein Angebot umsetzen?{" "}
+              Möchten Sie solch ein Projekt auch für Ihr Angebot umsetzen?{" "}
               <a
                 href="https://calendly.com/talk-with-lennart/findbar-kostenlose-erstberatung?month=2025-08"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`font-medium underline ${accent}`}
               >
-                Klicke hier
+                Klicken Sie hier
               </a>{" "}
-              und lass uns sprechen.
+              und lassen Sie uns sprechen.
             </p>
           </div>
         </div>
