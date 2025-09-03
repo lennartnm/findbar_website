@@ -46,7 +46,8 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const accent = "text-emerald-700";
+  // CI: Primär #00BFB2, Hover/Focus Sekundär #0069B3
+  const accent = "text-[#00BFB2] hover:text-[#0069B3]";
   const author = {
     name: "Max Weber",
     role: "Industrial Engineer Holz- & Möbelindustrie",
@@ -57,10 +58,10 @@ export default function Page() {
   return (
     <article
       className="
-    prose prose-zinc mx-auto max-w-4xl px-4 sm:px-6 lg:px-8
-    mt-12 md:mt-16 mb-0
-    relative after:block after:h-12 md:after:h-16 after:content-['']
-  "
+        prose prose-zinc mx-auto max-w-4xl px-4 sm:px-6 lg:px-8
+        mt-12 md:mt-16 mb-0
+        relative after:block after:h-12 md:after:h-16 after:content-['']
+      "
     >
       {/* Header */}
       <header className="mb-10">
@@ -83,7 +84,7 @@ export default function Page() {
         </div>
 
         {/* Hero 16:6 */}
-        <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
+        <figure className="mt-6 overflow-hidden rounded-[3px] border border-zinc-200">
           <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
             <picture>
               <source media="(max-width: 640px)" srcSet="/hero-montagezelle.webp" />
@@ -118,7 +119,7 @@ export default function Page() {
       </header>
 
       {/* TL;DR */}
-      <aside className="mb-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+      <aside className="mb-10 rounded-[5px] border border-[#00BFB2]/30 bg-[#00BFB2]/10 p-5">
         <h2 className="text-lg font-semibold mb-3">
           Das Wichtigste auf einen Blick
         </h2>
@@ -154,7 +155,7 @@ export default function Page() {
       {/* ToC */}
       <nav
         aria-label="Inhaltsverzeichnis"
-        className="mb-12 rounded-2xl border border-zinc-200 bg-zinc-50 p-5"
+        className="mb-12 rounded-[5px] border border-zinc-200 bg-zinc-50 p-5"
       >
         <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
         <ol className="list-decimal ml-5 space-y-2">
@@ -219,7 +220,7 @@ export default function Page() {
         </p>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl border border-zinc-200 p-4 bg-white md:col-span-2">
+          <div className="rounded-[5px] border border-zinc-200 p-4 bg-white md:col-span-2">
             <h3 className="text-lg font-semibold mb-2">
               Typische Prozessschritte
             </h3>
@@ -231,7 +232,7 @@ export default function Page() {
               <li>Rückverfolgbarkeit (Bauteil-ID, Datensatz, Prüfprotokoll)</li>
             </ul>
           </div>
-          <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
+          <aside className="rounded-[5px] border border-[#00BFB2]/30 bg-[#00BFB2]/10 p-4">
             <h4 className="font-semibold mb-1">Gut zu wissen</h4>
             <p className="text-sm">
               „System&nbsp;32“ bezeichnet den 32-mm-Rasterabstand für
@@ -245,7 +246,7 @@ export default function Page() {
       {/* Bild 1 */}
       <figure className="mt-8">
         <div
-          className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+          className="relative w-full overflow-hidden rounded-[3px] border border-zinc-200"
           style={{ aspectRatio: "16 / 6" }}
         >
           <picture>
@@ -269,7 +270,7 @@ export default function Page() {
           Warum automatisieren? Qualität, Taktzeit und Personalkosten
         </h2>
         <div className="grid md:grid-cols-2 gap-5">
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-[5px] border border-zinc-200 p-5">
             <h3 className="text-lg font-semibold mb-2">Gleichbleibende Qualität</h3>
             <p>
               Automatische Anlagen montieren in definierten Bewegungsbahnen und
@@ -278,7 +279,7 @@ export default function Page() {
               für saubere Serienqualität, auch bei Schichtwechsel.
             </p>
           </div>
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-[5px] border border-zinc-200 p-5">
             <h3 className="text-lg font-semibold mb-2">Produktivität &amp; Taktzeit</h3>
             <p>
               Durch automatisches Positionieren, Mehrspindel-Bohrköpfe und
@@ -287,7 +288,7 @@ export default function Page() {
               Liefertermintreue.
             </p>
           </div>
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-[5px] border border-zinc-200 p-5">
             <h3 className="text-lg font-semibold mb-2">Personalkosten senken</h3>
             <p>
               Ein Teil der manuellen, repetitiven Arbeit entfällt, sodass eine
@@ -295,7 +296,7 @@ export default function Page() {
               eingesetzt werden können (Qualität, Rüstung, Materialfluss).
             </p>
           </div>
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-[5px] border border-zinc-200 p-5">
             <h3 className="text-lg font-semibold mb-2">Dokumentation &amp; Nachverfolgung</h3>
             <p>
               Prozessdaten lassen sich speichern (Bauteil-ID, Anzugsdrehmoment,
@@ -307,7 +308,7 @@ export default function Page() {
       </section>
 
       {/* Expertenzitat */}
-      <figure className="mt-6 rounded-2xl border-l-4 border-emerald-600 bg-emerald-50 p-5">
+      <figure className="mt-6 rounded-[5px] border-l-4 border-[#00BFB2] bg-[#00BFB2]/10 p-5">
         <blockquote className="text-lg font-medium">
           „Wer Montage automatisiert, kauft vor allem Planbarkeit: konstante
           Ausbringung, messbare Qualität und stabile Prozesskosten – die Basis
@@ -329,7 +330,7 @@ export default function Page() {
           <strong>Qualitätskosten (Nacharbeit/Ausschuss)</strong>.
         </p>
 
-        <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
+        <div className="rounded-[5px] border border-zinc-200 p-5 bg-white">
           <h3 className="text-lg font-semibold mb-2">Kleine ROI-Rezeptur</h3>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="text-sm">
@@ -363,7 +364,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="mt-4 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm">
+          <div className="mt-4 rounded-[5px] border border-[#00BFB2]/30 bg-[#00BFB2]/10 p-4 text-sm">
             <p>
               <strong>Break-even-Menge</strong> entsteht dort, wo{" "}
               <em>Kosten/Teil (manuell)</em> = <em>Kosten/Teil (automatisiert)</em>.
@@ -377,7 +378,7 @@ export default function Page() {
           <h3 className="text-lg font-semibold mb-2">
             Beispielrechnung (vereinfachte Annahmen)
           </h3>
-          <div className="overflow-x-auto rounded-2xl border border-zinc-200">
+          <div className="overflow-x-auto rounded-[5px] border border-zinc-200">
             <table className="w-full text-sm">
               <thead className="bg-zinc-50">
                 <tr>
@@ -439,7 +440,7 @@ export default function Page() {
         </h2>
 
         <div className="grid gap-5">
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-[5px] border border-zinc-200 p-5">
             <h3 className="text-lg font-semibold mb-2">1) Halbautomatisch</h3>
             <p className="mb-2">
               Bohr- und Einpressmaschinen für System&nbsp;32 und Scharniere
@@ -461,7 +462,7 @@ export default function Page() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-[5px] border border-zinc-200 p-5">
             <h3 className="text-lg font-semibold mb-2">2) Vollautomatisch</h3>
             <p className="mb-2">
               Linien oder Zellen mit Teile-Handling, automatischem Rüsten,
@@ -475,7 +476,7 @@ export default function Page() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200 p-5">
+          <div className="rounded-[5px] border border-zinc-200 p-5">
             <h3 className="text-lg font-semibold mb-2">3) Digitaler Layer</h3>
             <p className="mb-2">
               Digitale Werkerführung, Programmverwaltung und Datenerfassung
@@ -489,7 +490,7 @@ export default function Page() {
       {/* Bild 2 */}
       <figure className="mt-8">
         <div
-          className="relative w-full overflow-hidden rounded-2xl border border-zinc-200"
+          className="relative w-full overflow-hidden rounded-[3px] border border-zinc-200"
           style={{ aspectRatio: "16 / 6" }}
         >
           <picture>
@@ -512,7 +513,7 @@ export default function Page() {
         <h2 className="text-2xl font-bold mb-2">
           Praxisbeispiele &amp; Benchmarks aus der Branche
         </h2>
-        <div className="rounded-2xl border border-zinc-200 p-5 bg-white">
+        <div className="rounded-[5px] border border-zinc-200 p-5 bg-white">
           <ul className="list-disc ml-5 space-y-2">
             <li>
               <strong>Leistungsfähige Montagestraßen</strong> in der
@@ -572,7 +573,7 @@ export default function Page() {
 
         {/* 2:1 Vergleich */}
         <div className="mt-6 grid md:grid-cols-3 gap-4">
-          <div className="md:col-span-2 rounded-2xl border border-zinc-200 p-5">
+          <div className="md:col-span-2 rounded-[5px] border border-zinc-200 p-5">
             <h3 className="text-lg font-semibold mb-2">
               Manuell vs. halbautomatisch vs. vollautomatisch
             </h3>
@@ -628,7 +629,7 @@ export default function Page() {
             </div>
           </div>
 
-          <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+          <aside className="rounded-[5px] border border-[#00BFB2]/30 bg-[#00BFB2]/10 p-5">
             <h4 className="font-semibold mb-1">Quick-Check</h4>
             <ul className="list-disc ml-5 text-sm space-y-1">
               <li>Stabile Nachfrage &amp; wiederkehrende Bohrbilder?</li>
@@ -640,7 +641,7 @@ export default function Page() {
         </div>
 
         {/* Weiterführende interne Links (Cluster) */}
-        <aside className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+        <aside className="mt-10 rounded-[5px] border border-zinc-200 bg-zinc-50 p-5">
           <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
           <ul className="list-disc ml-5 text-sm space-y-2">
             <li>
@@ -670,7 +671,7 @@ export default function Page() {
       {/* FAQ */}
       <section id="faq" className="mt-14">
         <h2 className="text-2xl font-bold mb-4">FAQ</h2>
-        <div className="space-y-6 text-zinc-700">
+        <div className="space-y-6 text-[#444]">
           <div>
             <h3 className="font-semibold">
               Ab welcher Stückzahl lohnt sich eine Montageanlage?
@@ -802,7 +803,7 @@ export default function Page() {
 
       {/* CTA */}
       <section aria-label="Kontakt" className="mt-14">
-        <div className="rounded-2xl border-2 border-dashed border-emerald-300 p-6 text-center">
+        <div className="rounded-[5px] border-2 border-dashed border-[#2FAEA2] p-6 text-center">
           <h2 className="text-xl font-bold mb-2">
             Willst du wissen, ob sich eine Montageanlage in deinem Werk rechnet?
           </h2>
@@ -821,7 +822,7 @@ export default function Page() {
               <input
                 type="text"
                 name="name"
-                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                className="mt-1 w-full rounded-none border border-zinc-300 px-3 py-2"
                 placeholder="Max Mustermann"
                 required
               />
@@ -831,7 +832,7 @@ export default function Page() {
               <input
                 type="tel"
                 name="phone"
-                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                className="mt-1 w-full rounded-none border border-zinc-300 px-3 py-2"
                 placeholder="+49 123456789"
               />
             </label>
@@ -840,7 +841,7 @@ export default function Page() {
               <input
                 type="email"
                 name="email"
-                className="mt-1 w-full rounded-lg border border-zinc-300 px-3 py-2"
+                className="mt-1 w-full rounded-none border border-zinc-300 px-3 py-2"
                 placeholder="max@mustermann.de"
                 required
               />
@@ -848,7 +849,7 @@ export default function Page() {
 
             <a
               href="#cta-pop"
-              className="mt-2 inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-700"
+              className="mt-2 inline-flex items-center justify-center rounded-[5px] bg-[#00BFB2] px-4 py-2 font-medium text-white hover:bg-[#08979A] focus:outline-none focus:ring-2 focus:ring-[#0069B3] transition-colors"
             >
               Unverbindlich anfragen
             </a>
@@ -876,13 +877,13 @@ export default function Page() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="cta-pop-title"
-            className="relative w-full max-w-md rounded-xl bg-white p-6 shadow-xl"
+            className="relative w-full max-w-md rounded-[5px] bg-white p-6 shadow-xl"
           >
             {/* Schließen-Button */}
             <a
               href="#"
               aria-label="Fenster schließen"
-              className="absolute right-3 top-3 rounded-md border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
+              className="absolute right-3 top-3 rounded-[5px] border border-zinc-200 px-2 py-1 text-sm text-zinc-600 hover:bg-zinc-50"
             >
               ✕
             </a>
@@ -914,7 +915,7 @@ export default function Page() {
           Möbelmontage
         </h2>
 
-        <div className="rounded-2xl border border-zinc-200 overflow-hidden">
+        <div className="rounded-[5px] border border-zinc-200 overflow-hidden">
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
