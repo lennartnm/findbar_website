@@ -1,5 +1,12 @@
 // src/app/blog/automatisierung-moebelproduktion-montageanlagen/page.tsx
 import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title:
@@ -57,11 +64,11 @@ export default function Page() {
 
   return (
     <article
-      className="
+      className={`${montserrat.className} 
         prose prose-zinc mx-auto max-w-4xl px-4 sm:px-6 lg:px-8
         mt-12 md:mt-16 mb-0
         relative after:block after:h-12 md:after:h-16 after:content-['']
-      "
+      `}
     >
       {/* Header */}
       <header className="mb-10">
