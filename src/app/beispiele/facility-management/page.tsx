@@ -16,7 +16,7 @@ const accent = "text-emerald-700";
 const author = {
   name: "Lena Hofmann",
   role: "Arbeitspsychologin & Workplace-Strategin",
-  image: "/autor-lena-hofmann.webp",
+  image: "/platzhalter_autor.jpg",
   linkedin: "https://www.linkedin.com/in/lena-hofmann",
 };
 
