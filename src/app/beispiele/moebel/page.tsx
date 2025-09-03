@@ -77,7 +77,7 @@ export default function Page() {
   className="mb-6 -mt-4 rounded-[3px] border border-zinc-200 bg-zinc-100 px-3 py-1 text-[11px] leading-6 tracking-wide text-zinc-600"
 >
   <p className="overflow-hidden whitespace-nowrap">
-    {Array(40).fill("Vorlage").join(" · ")}
+    {Array(40).fill("Beispielartikel").join(" · ")}
   </p>
 </section>
 
