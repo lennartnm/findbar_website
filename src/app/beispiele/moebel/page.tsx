@@ -72,7 +72,7 @@ export default function Page() {
     >
       {/* Header */}
       <header className="mb-10">
-        <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-medium leading-tight tracking-tight">
           Automatisierung in der Möbelproduktion: Ab wann lohnen sich
           Montageanlagen wirklich?
         </h1>
@@ -127,7 +127,7 @@ export default function Page() {
 
       {/* TL;DR */}
       <aside className="mb-10 rounded-[5px] border border-[#00BFB2]/30 bg-[#00BFB2]/10 p-5">
-        <h2 className="text-lg font-semibold mb-3">
+        <h2 className="text-lg font-medium mb-3">
           Das Wichtigste auf einen Blick
         </h2>
         <ul className="list-disc ml-5 space-y-2 text-zinc-800">
@@ -164,7 +164,7 @@ export default function Page() {
         aria-label="Inhaltsverzeichnis"
         className="mb-12 rounded-[5px] border border-zinc-200 bg-zinc-50 p-5"
       >
-        <h2 className="text-base font-semibold mb-3">Inhaltsverzeichnis</h2>
+        <h2 className="text-base font-medium mb-3">Inhaltsverzeichnis</h2>
         <ol className="list-decimal ml-5 space-y-2">
           <li>
             <a className={`hover:underline ${accent} font-medium`} href="#was-ist-automatische-montage">
@@ -228,7 +228,7 @@ export default function Page() {
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           <div className="rounded-[5px] border border-zinc-200 p-4 bg-white md:col-span-2">
-            <h3 className="text-lg font-semibold mb-2">
+            <h3 className="text-lg font-medium mb-2">
               Typische Prozessschritte
             </h3>
             <ul className="list-disc ml-5 space-y-1">
@@ -240,7 +240,7 @@ export default function Page() {
             </ul>
           </div>
           <aside className="rounded-[5px] border border-[#00BFB2]/30 bg-[#00BFB2]/10 p-4">
-            <h4 className="font-semibold mb-1">Gut zu wissen</h4>
+            <h4 className="font-medium mb-1">Gut zu wissen</h4>
             <p className="text-sm">
               „System&nbsp;32“ bezeichnet den 32-mm-Rasterabstand für
               Lochreihen in Möbeln. Damit werden Bohrbilder standardisiert – ein
@@ -278,7 +278,7 @@ export default function Page() {
         </h2>
         <div className="grid md:grid-cols-2 gap-5">
           <div className="rounded-[5px] border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Gleichbleibende Qualität</h3>
+            <h3 className="text-lg font-medium mb-2">Gleichbleibende Qualität</h3>
             <p>
               Automatische Anlagen montieren in definierten Bewegungsbahnen und
               Drehmomenten. Sensoren prüfen den Prozess (z.&nbsp;B. Kraft-Weg beim
@@ -287,7 +287,7 @@ export default function Page() {
             </p>
           </div>
           <div className="rounded-[5px] border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Produktivität &amp; Taktzeit</h3>
+            <h3 className="text-lg font-medium mb-2">Produktivität &amp; Taktzeit</h3>
             <p>
               Durch automatisches Positionieren, Mehrspindel-Bohrköpfe und
               parallele Abläufe sinken Taktzeiten pro Front/Korpus deutlich.
@@ -296,7 +296,7 @@ export default function Page() {
             </p>
           </div>
           <div className="rounded-[5px] border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Personalkosten senken</h3>
+            <h3 className="text-lg font-medium mb-2">Personalkosten senken</h3>
             <p>
               Ein Teil der manuellen, repetitiven Arbeit entfällt, sodass eine
               Anlage mehrere Arbeitsplätze ersetzt oder Mitarbeitende wertschöpfen­der
@@ -304,7 +304,7 @@ export default function Page() {
             </p>
           </div>
           <div className="rounded-[5px] border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">Dokumentation &amp; Nachverfolgung</h3>
+            <h3 className="text-lg font-medium mb-2">Dokumentation &amp; Nachverfolgung</h3>
             <p>
               Prozessdaten lassen sich speichern (Bauteil-ID, Anzugsdrehmoment,
               Prüfergebnis). Das erleichtert Audit, Garantieabwicklung und
@@ -338,7 +338,7 @@ export default function Page() {
         </p>
 
         <div className="rounded-[5px] border border-zinc-200 p-5 bg-white">
-          <h3 className="text-lg font-semibold mb-2">Kleine ROI-Rezeptur</h3>
+          <h3 className="text-lg font-medium mb-2">Kleine ROI-Rezeptur</h3>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="text-sm">
               <p className="mb-2">
@@ -382,16 +382,16 @@ export default function Page() {
         </div>
 
         <div className="mt-6">
-          <h3 className="text-lg font-semibold mb-2">
+          <h3 className="text-lg font-medium mb-2">
             Beispielrechnung (vereinfachte Annahmen)
           </h3>
           <div className="overflow-x-auto rounded-[5px] border border-zinc-200">
             <table className="w-full text-sm">
               <thead className="bg-zinc-50">
                 <tr>
-                  <th className="text-left p-3 font-semibold">Parameter</th>
-                  <th className="text-left p-3 font-semibold">Manuell</th>
-                  <th className="text-left p-3 font-semibold">Automatisiert</th>
+                  <th className="text-left p-3 font-medium">Parameter</th>
+                  <th className="text-left p-3 font-medium">Manuell</th>
+                  <th className="text-left p-3 font-medium">Automatisiert</th>
                 </tr>
               </thead>
               <tbody>
@@ -448,7 +448,7 @@ export default function Page() {
 
         <div className="grid gap-5">
           <div className="rounded-[5px] border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">1) Halbautomatisch</h3>
+            <h3 className="text-lg font-medium mb-2">1) Halbautomatisch</h3>
             <p className="mb-2">
               Bohr- und Einpressmaschinen für System&nbsp;32 und Scharniere
               liefern präzise, wiederholgenaue Ergebnisse. Sie eignen sich für
@@ -470,7 +470,7 @@ export default function Page() {
           </div>
 
           <div className="rounded-[5px] border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">2) Vollautomatisch</h3>
+            <h3 className="text-lg font-medium mb-2">2) Vollautomatisch</h3>
             <p className="mb-2">
               Linien oder Zellen mit Teile-Handling, automatischem Rüsten,
               Bildverarbeitung und Prozessüberwachung. Ideal bei hohen Stückzahlen
@@ -484,7 +484,7 @@ export default function Page() {
           </div>
 
           <div className="rounded-[5px] border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">3) Digitaler Layer</h3>
+            <h3 className="text-lg font-medium mb-2">3) Digitaler Layer</h3>
             <p className="mb-2">
               Digitale Werkerführung, Programmverwaltung und Datenerfassung
               sichern Reproduzierbarkeit und erleichtern Audits. Der Layer ist
@@ -581,17 +581,17 @@ export default function Page() {
         {/* 2:1 Vergleich */}
         <div className="mt-6 grid md:grid-cols-3 gap-4">
           <div className="md:col-span-2 rounded-[5px] border border-zinc-200 p-5">
-            <h3 className="text-lg font-semibold mb-2">
+            <h3 className="text-lg font-medium mb-2">
               Manuell vs. halbautomatisch vs. vollautomatisch
             </h3>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="bg-zinc-50">
                   <tr>
-                    <th className="text-left p-3 font-semibold">Kriterium</th>
-                    <th className="text-left p-3 font-semibold">Manuell</th>
-                    <th className="text-left p-3 font-semibold">Halbauto</th>
-                    <th className="text-left p-3 font-semibold">Vollauto</th>
+                    <th className="text-left p-3 font-medium">Kriterium</th>
+                    <th className="text-left p-3 font-medium">Manuell</th>
+                    <th className="text-left p-3 font-medium">Halbauto</th>
+                    <th className="text-left p-3 font-medium">Vollauto</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -637,7 +637,7 @@ export default function Page() {
           </div>
 
           <aside className="rounded-[5px] border border-[#00BFB2]/30 bg-[#00BFB2]/10 p-5">
-            <h4 className="font-semibold mb-1">Quick-Check</h4>
+            <h4 className="font-medium mb-1">Quick-Check</h4>
             <ul className="list-disc ml-5 text-sm space-y-1">
               <li>Stabile Nachfrage &amp; wiederkehrende Bohrbilder?</li>
               <li>2+ FTE in der Montage gebunden?</li>
@@ -649,7 +649,7 @@ export default function Page() {
 
         {/* Weiterführende interne Links (Cluster) */}
         <aside className="mt-10 rounded-[5px] border border-zinc-200 bg-zinc-50 p-5">
-          <h3 className="font-semibold mb-3">Weiterführende Artikel</h3>
+          <h3 className="font-medium mb-3">Weiterführende Artikel</h3>
           <ul className="list-disc ml-5 text-sm space-y-2">
             <li>
               <a className={`hover:underline ${accent}`} href="/blog/oee-in-der-holzindustrie">
@@ -680,7 +680,7 @@ export default function Page() {
         <h2 className="text-2xl font-bold mb-4">FAQ</h2>
         <div className="space-y-6 text-[#444]">
           <div>
-            <h3 className="font-semibold">
+            <h3 className="font-medium">
               Ab welcher Stückzahl lohnt sich eine Montageanlage?
             </h3>
             <p>
@@ -691,7 +691,7 @@ export default function Page() {
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">
+            <h3 className="font-medium">
               Mit welcher Technologie sollte ich starten?
             </h3>
             <p>
@@ -702,7 +702,7 @@ export default function Page() {
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">
+            <h3 className="font-medium">
               Bleibe ich bei vielen Varianten flexibel?
             </h3>
             <p>
@@ -712,7 +712,7 @@ export default function Page() {
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">
+            <h3 className="font-medium">
               Wie sichere ich die Qualität in der automatischen Montage?
             </h3>
             <p>
@@ -722,7 +722,7 @@ export default function Page() {
             </p>
           </div>
           <div>
-            <h3 className="font-semibold">
+            <h3 className="font-medium">
               Welche Rollen brauche ich intern?
             </h3>
             <p>
@@ -895,7 +895,7 @@ export default function Page() {
               ✕
             </a>
 
-            <h3 id="cta-pop-title" className="mb-2 text-lg font-semibold">
+            <h3 id="cta-pop-title" className="mb-2 text-lg font-medium">
               Hinweis
             </h3>
             <p className="text-zinc-800">
@@ -926,8 +926,8 @@ export default function Page() {
           <table className="w-full text-sm">
             <thead className="bg-zinc-50">
               <tr>
-                <th className="text-left font-semibold p-3 w-56">Begriff</th>
-                <th className="text-left font-semibold p-3">Erklärung</th>
+                <th className="text-left font-medium p-3 w-56">Begriff</th>
+                <th className="text-left font-medium p-3">Erklärung</th>
               </tr>
             </thead>
             <tbody>
@@ -985,7 +985,7 @@ export default function Page() {
             loading="lazy"
           />
           <div>
-            <div className="font-semibold">{author.name}</div>
+            <div className="font-medium">{author.name}</div>
             <div className="text-sm text-zinc-700">{author.role}</div>
             <a href={author.linkedin} className={`text-sm hover:underline ${accent}`}>
               LinkedIn-Profil
