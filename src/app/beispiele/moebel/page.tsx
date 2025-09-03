@@ -58,7 +58,7 @@ export default function Page() {
   const author = {
     name: "Max Weber",
     role: "Industrial Engineer Holz- & Möbelindustrie",
-    image: "/autor-max-weber.webp",
+    image: "/platzhalter_autor.jpg",
     linkedin: "https://www.linkedin.com/in/platzhalter/",
   };
 
@@ -94,11 +94,11 @@ export default function Page() {
         <figure className="mt-6 overflow-hidden rounded-[3px] border border-zinc-200">
           <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
             <picture>
-              <source media="(max-width: 640px)" srcSet="/hero-montagezelle.webp" />
+              <source media="(max-width: 640px)" srcSet="/platzhalter_in_text.jpg" />
               <img
                 loading="eager"
                 fetchPriority="high"
-                src="/hero-montagezelle.webp"
+                src="/platzhalter_in_text.jpg"
                 alt="Automatische Montagezelle für Scharniere und Beschläge in einer modernen Möbelfertigung"
                 className="absolute inset-0 h-full w-full object-cover"
               />
@@ -257,10 +257,10 @@ export default function Page() {
           style={{ aspectRatio: "16 / 6" }}
         >
           <picture>
-            <source media="(max-width: 640px)" srcSet="/montagezelle-scharnier.webp" />
+            <source media="(max-width: 640px)" srcSet="/platzhalter_in_text.jpg" />
             <img
               loading="lazy"
-              src="/montagezelle-scharnier.webp"
+              src="/platzhalter_in_text.jpg"
               alt="Montagezelle montiert Scharniere automatisiert an Möbelfronten"
               className="absolute inset-0 h-full w-full object-cover"
             />
@@ -501,10 +501,10 @@ export default function Page() {
           style={{ aspectRatio: "16 / 6" }}
         >
           <picture>
-            <source media="(max-width: 640px)" srcSet="/bohrbild-system32.webp" />
+            <source media="(max-width: 640px)" srcSet="/platzhalter_in_text.jpg" />
             <img
               loading="lazy"
-              src="/bohrbild-system32.webp"
+              src="/platzhalter_in_text.jpg"
               alt="System 32 Bohrbild als Grundlage für automatische Scharniermontage"
               className="absolute inset-0 h-full w-full object-cover"
             />
