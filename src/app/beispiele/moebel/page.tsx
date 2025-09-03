@@ -113,7 +113,7 @@ export default function Page() {
         {/* Meta row – Autor */}
         <div className="mt-6 flex items-center gap-3 text-sm text-zinc-700">
           <img
-            src="/autor-max-weber.webp"
+            src="/platzhalter_autor.jpg"
             alt="Autor: Max Weber"
             className="w-10 h-10 rounded-full object-cover"
             loading="lazy"
