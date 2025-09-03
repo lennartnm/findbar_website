@@ -105,7 +105,7 @@ export default function Page() {
         {/* Meta row – Autor */}
         <div className="mt-6 flex items-center gap-3 text-sm text-zinc-700">
           <img
-            src="/autor-lennart-koehler.webp"
+            src="/platzhalter_autor.jpg"
             alt="Autor: Lennart Köhler"
             className="w-10 h-10 rounded-full object-cover"
             loading="lazy"
@@ -125,7 +125,7 @@ export default function Page() {
             Emotionen beschleunigen B2B-Entscheidungen: Wenn Entscheider
             persönlichen Nutzen und Sicherheit fühlen, steigen Kaufbereitschaft
             und Preisakzeptanz signifikant. (Quellen im Quellenverzeichnis)
-            :contentReference[oaicite:0]{index=0}
+            
           </li>
           <li>
             3D-Visualisierungen, Animationen und VR-Touren machen ein Projekt
@@ -1039,7 +1039,7 @@ export default function Page() {
         <h2 className="text-2xl font-bold mb-3">Über den Autor</h2>
         <div className="flex items-center gap-4">
           <img
-            src="/autor-lennart-koehler.webp"
+            src="/platzhalter_autor.jpg"
             alt="Autor"
             className="w-16 h-16 rounded-full object-cover"
             loading="lazy"
