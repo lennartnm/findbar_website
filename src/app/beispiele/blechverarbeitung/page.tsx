@@ -95,11 +95,11 @@ export default function Page() {
         <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
           <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
             <picture>
-              <source media="(max-width: 640px)" srcSet="/platzhalter_im_text.jpg" />
+              <source media="(max-width: 640px)" srcSet="/public/platzhalter_im_text.jpg" />
               <img
                 fetchPriority="high"
                 loading="eager"
-                src="/platzhalter_im_text.jpg"
+                src="/public/platzhalter_im_text.jpg"
                 alt="Abkantpresse in der Blechbearbeitung: Bediener richtet ein Werkstück aus"
                 className="absolute inset-0 h-full w-full object-cover"
               />
