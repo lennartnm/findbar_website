@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     locale: "de_DE",
     images: [
       {
-        url: "/platzhalter_im_text.jpg",
+        url: "/public/platzhalter_im_text.jpg",
         width: 1600,
         height: 600,
         alt:
@@ -33,15 +33,15 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/platzhalter_im_text.jpg"],
+    images: ["/public/platzhalter_im_text.jpg"],
   },
 };
 
 const accent = "text-emerald-700";
 
 const author = {
-  name: "Team Industrielle Fertigung",
-  role: "Redaktion Technik & Anwendung",
+  name: "Max Weber",
+  role: "Branchenexperte Blechverarbeitung",
   avatar: "/platzhalter_autor.jpg",
 };
 
@@ -57,6 +57,18 @@ export default function Page() {
     relative after:block after:h-12 md:after:h-16 after:content-['']
   "
     >
+
+{/* Mini-Band ganz oben: zeigt "Vorlage" wiederholt auf grauem Hintergrund */}
+<section
+  aria-label="Vorlagen-Band"
+  role="presentation"
+  className="mb-6 -mt-4 rounded-[3px] border border-zinc-200 bg-zinc-100 px-3 py-1 text-[11px] leading-6 tracking-wide text-zinc-600"
+>
+  <p className="overflow-hidden whitespace-nowrap">
+    {Array(40).fill("Beispielartikel").join(" · ")}
+  </p>
+</section>
+      
       {/* Header */}
       <header className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight">
@@ -82,11 +94,11 @@ export default function Page() {
         <figure className="mt-6 overflow-hidden rounded-2xl border border-zinc-200">
           <div className="relative w-full" style={{ aspectRatio: "16 / 6" }}>
             <picture>
-              <source media="(max-width: 640px)" srcSet="/platzhalter_im_text.jpg" />
+              <source media="(max-width: 640px)" srcSet="/public/platzhalter_im_text.jpg" />
               <img
                 fetchPriority="high"
                 loading="eager"
-                src="/platzhalter_im_text.jpg"
+                src="/public/platzhalter_im_text.jpg"
                 alt="Abkantpresse in der Blechbearbeitung: Bediener richtet ein Werkstück aus"
                 className="absolute inset-0 h-full w-full object-cover"
               />
@@ -268,10 +280,10 @@ export default function Page() {
           style={{ aspectRatio: "16 / 6" }}
         >
           <picture>
-            <source media="(max-width: 640px)" srcSet="/platzhalter_im_text.jpg" />
+            <source media="(max-width: 640px)" srcSet="/public/platzhalter_im_text.jpg" />
             <img
               loading="lazy"
-              src="/platzhalter_im_text.jpg"
+              src="/public/platzhalter_im_text.jpg"
               alt="Walzrichtung und Biegerichtung am Blechteil visuell markiert"
               className="absolute inset-0 h-full w-full object-cover"
             />
@@ -488,10 +500,10 @@ export default function Page() {
           style={{ aspectRatio: "16 / 6" }}
         >
           <picture>
-            <source media="(max-width: 640px)" srcSet="/platzhalter_im_text.jpg" />
+            <source media="(max-width: 640px)" srcSet="/public/platzhalter_im_text.jpg" />
             <img
               loading="lazy"
-              src="/platzhalter_im_text.jpg"
+              src="/public/platzhalter_im_text.jpg"
               alt="Entgraten eines gelaserten Blechbauteils – Fokus auf Kantenqualität"
               className="absolute inset-0 h-full w-full object-cover"
             />
@@ -1018,14 +1030,14 @@ export default function Page() {
               name: "Findbar GmbH",
               logo: {
                 "@type": "ImageObject",
-                url: "/platzhalter_im_text.jpg",
+                url: "/public/platzhalter_im_text.jpg",
               },
             },
             datePublished: isoDate,
             dateModified: isoDate,
             image: [
-              "https://www.findbar.de/platzhalter_im_text.jpg",
-              "https://www.findbar.de/platzhalter_im_text.jpg",
+              "https://www.findbar.de/public/platzhalter_im_text.jpg",
+              "https://www.findbar.de/public/platzhalter_im_text.jpg",
             ],
             mainEntityOfPage: canonical,
           }),
@@ -1041,7 +1053,7 @@ export default function Page() {
             "@type": "Organization",
             name: "Findbar GmbH",
             url: "https://www.findbar.de",
-            logo: "https://www.findbar.de/platzhalter_im_text.jpg",
+            logo: "https://www.findbar.de/public/platzhalter_im_text.jpg",
           }),
         }}
       />
