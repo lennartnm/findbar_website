@@ -1055,9 +1055,9 @@ function PreiseSection({ onOpenCalendly }: { onOpenCalendly: () => void }) {
 
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           {[
-            { id: "starter", articles: 15, price: 499, oldPrice: 799, popular: false },
-            { id: "growth", articles: 30, price: 699, oldPrice: 1099, popular: true },
-            { id: "scale", articles: 45, price: 899, oldPrice: 1399, popular: false },
+            { id: "starter", articles: 10, price: 499, oldPrice: 799, popular: false },
+            { id: "growth", articles: 20, price: 699, oldPrice: 1099, popular: true },
+            { id: "scale", articles: 30, price: 899, oldPrice: 1399, popular: false },
           ].map(({ id, articles, price, oldPrice, popular }) => {
             return (
               <div
