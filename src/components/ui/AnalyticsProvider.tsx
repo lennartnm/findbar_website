@@ -31,6 +31,7 @@ export default function AnalyticsProvider() {
           gtag('config', 'G-E00ZMCKQYL');
         `}
       </Script>
+      <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="m58LhIuKIabk0TfV" data-version="062024"></script>
     </>
   );
 }
